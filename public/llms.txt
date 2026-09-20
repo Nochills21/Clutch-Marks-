@@ -1,0 +1,26 @@
+# Clutch Marks
+
+> Online learning platform for Maths, Physics and Computer Science students (OL, AS, A2) — lessons, quizzes, homework, flashcards, past papers, and AI-powered study tools.
+
+A student-and-admin platform focused on Maths, Physics and Computer Science revision. Students work through structured lessons by topic, take auto-graded quizzes with AI feedback, submit homework, drill flashcards with spaced repetition, browse a past papers bank, and generate personalized AI study plans. Admins manage content, grade submissions, and track progress. Parents have read-only visibility into their linked student's progress.
+
+## Pages
+
+- [Home](/): Landing and sign-in entry point.
+- [Sign in](/auth): Username and password login.
+- [Dashboard](/dashboard): Personalized overview with today's tasks, progress, and announcements.
+- [Lessons](/lessons): Topic-organized lessons per subject and level.
+- [Quizzes](/quizzes): Practice quizzes with auto-grading and AI feedback.
+- [Homework](/homework): Assignments with submissions and feedback.
+- [Flashcards](/flashcards): Spaced-repetition flashcard decks by topic.
+- [Topic Notes](/notes): Search and filter uploaded topic notes by subject, level and keyword.
+- [Revision](/revision): Study materials and notes.
+- [Past Papers](/past-papers): IGCSE past papers and mark schemes by year and topic.
+- [Calendar](/calendar): Deadlines, quizzes, and lesson schedule.
+- [Study Planner](/study-planner): AI-generated personalized revision schedules.
+- [Progress](/progress): Performance tracking across lessons and quizzes.
+- [Announcements](/announcements): Class announcements from admins.
+
+## Optional
+
+- [Admin area](/admin): Restricted admin tools for managing accounts, content, and grading.

@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.get_email_for_login(text) FROM anon, authenticated, PUBLIC;

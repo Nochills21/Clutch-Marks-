@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 99%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 43 96% 46%;
+    --primary-foreground: 0 0% 5%;
+    --primary-glow: 43 100% 55%;
+
+    --secondary: 40 15% 94%;
+    --secondary-foreground: 0 0% 20%;
+
+    --muted: 40 10% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 43 96% 46%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 43 96% 46%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 25%;
+    --sidebar-primary: 43 96% 46%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 40 15% 94%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 40 10% 90%;
+    --sidebar-ring: 43 96% 46%;
+
+    --success: 152 60% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+
+    --neon-blue: 43 96% 46%;
+    --neon-purple: 35 80% 55%;
+    --neon-cyan: 43 100% 60%;
+    --neon-red: 0 72% 51%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(43 96% 46%), hsl(35 80% 55%), hsl(28 90% 50%));
+    --gradient-card: linear-gradient(135deg, hsl(43 96% 46% / 0.06), hsl(35 80% 55% / 0.04));
+    --shadow-glow: 0 0 25px -5px hsl(43 96% 46% / 0.25);
+    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.06), 0 4px 12px hsl(0 0% 0% / 0.04);
+    --shadow-card-hover: 0 4px 12px hsl(0 0% 0% / 0.1), 0 0 20px hsl(43 96% 46% / 0.08);
+
+    --chart-1: 43 96% 46%;
+    --chart-2: 35 80% 55%;
+    --chart-3: 152 60% 38%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 72% 51%;
+    --sidebar: 0 0% 98%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 40 20% 92%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 43 96% 50%;
+    --primary-foreground: 0 0% 5%;
+    --primary-glow: 43 100% 60%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 15% 80%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 40 8% 50%;
+
+    --accent: 43 96% 50%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 43 96% 50%;
+
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 40 15% 75%;
+    --sidebar-primary: 43 96% 50%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 9%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 0 0% 11%;
+    --sidebar-ring: 43 96% 50%;
+
+    --success: 152 60% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 85% 55%;
+    --warning-foreground: 0 0% 10%;
+
+    --neon-blue: 43 96% 50%;
+    --neon-purple: 35 80% 60%;
+    --neon-cyan: 43 100% 65%;
+    --neon-red: 0 85% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(43 96% 50%), hsl(35 80% 60%), hsl(28 90% 55%));
+    --gradient-card: linear-gradient(135deg, hsl(43 96% 50% / 0.08), hsl(35 80% 60% / 0.05));
+    --shadow-glow: 0 0 35px -5px hsl(43 96% 50% / 0.4);
+    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.3), 0 6px 16px hsl(0 0% 0% / 0.2);
+    --shadow-card-hover: 0 4px 12px hsl(0 0% 0% / 0.4), 0 0 30px hsl(43 96% 50% / 0.15);
+
+    --chart-1: 43 96% 50%;
+    --chart-2: 35 80% 60%;
+    --chart-3: 152 60% 42%;
+    --chart-4: 38 85% 55%;
+    --chart-5: 0 85% 55%;
+    --sidebar: 0 0% 3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    @apply bg-card border border-border/60 rounded-2xl;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-card-bg {
+    background: var(--gradient-card);
+  }
+
+  .neon-border {
+    border: 1px solid hsl(var(--neon-blue) / 0.3);
+    box-shadow: inset 0 0 20px hsl(var(--neon-blue) / 0.05), 0 0 15px hsl(var(--neon-blue) / 0.1);
+  }
+
+  .neon-border:hover {
+    border-color: hsl(var(--neon-blue) / 0.5);
+    box-shadow: inset 0 0 25px hsl(var(--neon-blue) / 0.08), 0 0 25px hsl(var(--neon-blue) / 0.15);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5), 0 0 30px hsl(var(--neon-blue) / 0.3);
+  }
+
+  .neon-text-purple {
+    text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.5), 0 0 30px hsl(var(--neon-purple) / 0.3);
+  }
+
+  .geo-pattern {
+    background-image:
+      linear-gradient(hsl(var(--neon-blue) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--neon-blue) / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(hsl(var(--neon-blue) / 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .stat-card {
+    @apply relative overflow-hidden rounded-2xl border bg-card p-6;
+    border-color: hsl(var(--neon-blue) / 0.15);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+    border-color: hsl(var(--neon-blue) / 0.3);
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-hero);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .stat-card:hover::before {
+    opacity: 1;
+  }
+}
