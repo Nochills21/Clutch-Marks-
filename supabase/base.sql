@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-09-20T19:43:44.006Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-09-20T20:00:22.992Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -76,24 +76,6 @@ create table if not exists public."content_revisions" (
   "created_at" timestamp with time zone default now() not null,
   constraint "content_revisions_entity_type_check" CHECK (entity_type = ANY (ARRAY['lesson'::text, 'material'::text])),
   constraint "content_revisions_pkey" PRIMARY KEY (id)
-);
-create table if not exists public."flashcard_sets" (
-  "id" uuid default gen_random_uuid() not null,
-  "topic_id" uuid,
-  "title" text not null,
-  "description" text,
-  "created_at" timestamp with time zone default now() not null,
-  "updated_at" timestamp with time zone default now() not null,
-  constraint "flashcard_sets_pkey" PRIMARY KEY (id)
-);
-create table if not exists public."flashcards" (
-  "id" uuid default gen_random_uuid() not null,
-  "set_id" uuid not null,
-  "front" text not null,
-  "back" text not null,
-  "sort_order" integer default 0 not null,
-  "created_at" timestamp with time zone default now() not null,
-  constraint "flashcards_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."login_lookup_throttle" (
   "client_key" text not null,
@@ -186,18 +168,6 @@ create table if not exists public."weekly_reports" (
   "uploaded_by" uuid not null,
   constraint "weekly_reports_pkey" PRIMARY KEY (id)
 );
-create table if not exists public."flashcard_progress" (
-  "id" uuid default gen_random_uuid() not null,
-  "user_id" uuid not null,
-  "flashcard_id" uuid not null,
-  "ease_factor" double precision default 2.5 not null,
-  "interval_days" integer default 1 not null,
-  "repetitions" integer default 0 not null,
-  "next_review_at" timestamp with time zone default now() not null,
-  "last_reviewed_at" timestamp with time zone,
-  constraint "flashcard_progress_pkey" PRIMARY KEY (id),
-  constraint "flashcard_progress_user_id_flashcard_id_key" UNIQUE (user_id, flashcard_id)
-);
 create table if not exists public."subject_levels" (
   "id" uuid default gen_random_uuid() not null,
   "subject_id" uuid not null,
@@ -219,6 +189,24 @@ create table if not exists public."topics" (
   "updated_at" timestamp with time zone default now() not null,
   "subject_level_id" uuid,
   constraint "topics_pkey" PRIMARY KEY (id)
+);
+create table if not exists public."flashcard_sets" (
+  "id" uuid default gen_random_uuid() not null,
+  "topic_id" uuid,
+  "title" text not null,
+  "description" text,
+  "created_at" timestamp with time zone default now() not null,
+  "updated_at" timestamp with time zone default now() not null,
+  constraint "flashcard_sets_pkey" PRIMARY KEY (id)
+);
+create table if not exists public."flashcards" (
+  "id" uuid default gen_random_uuid() not null,
+  "set_id" uuid not null,
+  "front" text not null,
+  "back" text not null,
+  "sort_order" integer default 0 not null,
+  "created_at" timestamp with time zone default now() not null,
+  constraint "flashcards_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."homework" (
   "id" uuid default gen_random_uuid() not null,
@@ -281,6 +269,8 @@ create table if not exists public."quizzes" (
   "updated_at" timestamp with time zone default now() not null,
   "exam_type" text default 'quiz'::text not null,
   "is_ai_generated" boolean default false not null,
+  "exam_file_url" text,
+  "correction_file_url" text,
   constraint "quizzes_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."study_materials" (
@@ -302,6 +292,18 @@ create table if not exists public."bookmarks" (
   "created_at" timestamp with time zone default now() not null,
   constraint "bookmarks_pkey" PRIMARY KEY (id),
   constraint "bookmarks_user_id_material_id_key" UNIQUE (user_id, material_id)
+);
+create table if not exists public."flashcard_progress" (
+  "id" uuid default gen_random_uuid() not null,
+  "user_id" uuid not null,
+  "flashcard_id" uuid not null,
+  "ease_factor" double precision default 2.5 not null,
+  "interval_days" integer default 1 not null,
+  "repetitions" integer default 0 not null,
+  "next_review_at" timestamp with time zone default now() not null,
+  "last_reviewed_at" timestamp with time zone,
+  constraint "flashcard_progress_pkey" PRIMARY KEY (id),
+  constraint "flashcard_progress_user_id_flashcard_id_key" UNIQUE (user_id, flashcard_id)
 );
 create table if not exists public."lesson_progress" (
   "id" uuid default gen_random_uuid() not null,
@@ -382,6 +384,8 @@ alter table public."bookmarks" drop constraint if exists "bookmarks_user_id_fkey
 alter table public."bookmarks" add constraint "bookmarks_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."flashcard_progress" drop constraint if exists "flashcard_progress_flashcard_id_fkey";
 alter table public."flashcard_progress" add constraint "flashcard_progress_flashcard_id_fkey" FOREIGN KEY (flashcard_id) REFERENCES flashcards(id) ON DELETE CASCADE;
+alter table public."flashcard_sets" drop constraint if exists "flashcard_sets_topic_id_fkey";
+alter table public."flashcard_sets" add constraint "flashcard_sets_topic_id_fkey" FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE SET NULL;
 alter table public."flashcards" drop constraint if exists "flashcards_set_id_fkey";
 alter table public."flashcards" add constraint "flashcards_set_id_fkey" FOREIGN KEY (set_id) REFERENCES flashcard_sets(id) ON DELETE CASCADE;
 alter table public."homework_submissions" drop constraint if exists "homework_submissions_homework_id_fkey";
