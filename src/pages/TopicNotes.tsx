@@ -16,6 +16,7 @@ import {
 } from "@/lib/topicUrls";
 import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
+import { MaterialPreview } from "@/components/MaterialPreview";
 import { useAuth } from "@/lib/auth";
 
 export default function TopicNotes() {
@@ -275,7 +276,13 @@ export default function TopicNotes() {
                 to={`/notes`}
                 className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
               >
-                <div className="min-w-0 flex-1">
+                <MaterialPreview
+                  fileUrl={m.file_url}
+                  previewUrl={m.preview_url}
+                  pageCount={m.page_count}
+                  sourceRange={m.source_range}
+                />
+                <div className="min-w-0 flex-1 px-3">
                   <p className="font-medium truncate">{m.title}</p>
                   <p className="text-xs text-muted-foreground mt-0.5 capitalize">
                     {m.material_type} · {topicTitle}

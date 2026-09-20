@@ -853,6 +853,9 @@ export type Database = {
           file_url: string | null
           id: string
           material_type: string
+          preview_url: string | null
+          page_count: number | null
+          source_range: string | null
           title: string
           topic_id: string | null
           updated_at: string
@@ -863,6 +866,9 @@ export type Database = {
           file_url?: string | null
           id?: string
           material_type?: string
+          preview_url?: string | null
+          page_count?: number | null
+          source_range?: string | null
           title: string
           topic_id?: string | null
           updated_at?: string
@@ -873,6 +879,9 @@ export type Database = {
           file_url?: string | null
           id?: string
           material_type?: string
+          preview_url?: string | null
+          page_count?: number | null
+          source_range?: string | null
           title?: string
           topic_id?: string | null
           updated_at?: string
