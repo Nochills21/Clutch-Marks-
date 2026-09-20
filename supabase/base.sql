@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-09-20T20:00:22.992Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-09-20T20:20:38.103Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -282,6 +282,9 @@ create table if not exists public."study_materials" (
   "created_at" timestamp with time zone default now() not null,
   "updated_at" timestamp with time zone default now() not null,
   "file_url" text,
+  "preview_url" text,
+  "page_count" integer,
+  "source_range" text,
   constraint "study_materials_material_type_check" CHECK (material_type = ANY (ARRAY['notes'::text, 'summary'::text, 'flashcard'::text, 'note'::text])),
   constraint "study_materials_pkey" PRIMARY KEY (id)
 );
@@ -1178,8 +1181,8 @@ alter table public."notifications" enable row level security;
 alter table public."parent_student_links" enable row level security;
 alter table public."bookmarks" enable row level security;
 alter table public."quizzes" enable row level security;
-alter table public."profiles" enable row level security;
 alter table public."study_materials" enable row level security;
+alter table public."profiles" enable row level security;
 alter table public."user_roles" enable row level security;
 alter table public."questions" enable row level security;
 alter table public."lessons" enable row level security;
