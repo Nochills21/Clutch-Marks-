@@ -74,6 +74,57 @@ Deno.serve(async (req) => {
     const USERNAME_RE = /^[a-zA-Z0-9._-]{3,32}$/;
     const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // ── Password policy ──
+    // GoTrue enforces the global minimum length (6). Everything stronger than
+    // that is enforced here so it can differ per role: admins must use 12+
+    // characters with full character variety; every new/changed password is
+    // additionally screened against known breaches (HaveIBeenPwned,
+    // k-anonymity range API — only a 5-char hash prefix ever leaves this box).
+    const PASSWORD_GROUPS: Array<[RegExp, string]> = [
+      [/[a-z]/, "a lowercase letter"],
+      [/[A-Z]/, "an uppercase letter"],
+      [/[0-9]/, "a number"],
+      [/[^A-Za-z0-9]/, "a symbol"],
+    ];
+    const sha1Hex = async (s: string): Promise<string> => {
+      const digest = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(s));
+      return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, "0")).join("").toUpperCase();
+    };
+    const isBreachedPassword = async (password: string): Promise<boolean> => {
+      try {
+        const hash = await sha1Hex(password);
+        const res = await fetch(`https://api.pwnedpasswords.com/range/${hash.slice(0, 5)}`);
+        if (!res.ok) return false; // fail open if the breach service is down
+        const body = await res.text();
+        return body.split("\n").some((line) => line.trim().split(":")[0] === hash.slice(5));
+      } catch {
+        return false;
+      }
+    };
+    const passwordPolicyError = async (password: unknown, role: "admin" | "other"): Promise<string | null> => {
+      const min = role === "admin" ? 12 : 8;
+      if (typeof password !== "string" || password.length < min) {
+        return role === "admin"
+          ? `Admin passwords must be at least ${min} characters.`
+          : `Password must be at least ${min} characters.`;
+      }
+      const missing = PASSWORD_GROUPS.filter(([re]) => !re.test(password)).map(([, label]) => label);
+      if (missing.length > 0) return `Password must contain ${missing.join(", ")}.`;
+      if (await isBreachedPassword(password)) {
+        return "That password has appeared in known data breaches. Choose a different one.";
+      }
+      return null;
+    };
+    const targetRoleFor = async (userId: string): Promise<"admin" | "other"> => {
+      const { data } = await adminClient
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", userId)
+        .eq("role", "admin")
+        .maybeSingle();
+      return data ? "admin" : "other";
+    };
+
     // ── APPROVE ──
     if (action === "approve") {
       if (!user_id) return json({ error: "user_id required" }, 400);
@@ -117,7 +168,11 @@ Deno.serve(async (req) => {
 
       const cleanUsername = username.toLowerCase().trim();
       const email = `${cleanUsername}@igcse-platform.local`;
-      const userRole = role || "student";
+      const userRole = role === "admin" ? "admin" : "student";
+
+      // Enforce the per-role password policy before creating anything.
+      const pwError = await passwordPolicyError(password, userRole === "admin" ? "admin" : "other");
+      if (pwError) return json({ error: pwError }, 400);
 
       // Check if username already exists
       const { data: existing } = await adminClient
@@ -135,11 +190,25 @@ Deno.serve(async (req) => {
       });
       if (createError) return json({ error: createError.message }, 500);
 
-      // Auto-approve admin-created accounts
-      await adminClient
+      // The signup trigger seeds a 'student' row; set the requested role and
+      // auto-approve (admin-created accounts bypass the approval queue).
+      const { error: roleErr } = await adminClient
         .from("user_roles")
-        .update({ is_approved: true })
+        .update({ role: userRole, is_approved: true })
         .eq("user_id", newUser.user.id);
+      if (roleErr) return json({ error: roleErr.message }, 500);
+      // Trigger row not yet visible (race) — insert it.
+      const { data: roleRow } = await adminClient
+        .from("user_roles")
+        .select("id")
+        .eq("user_id", newUser.user.id)
+        .maybeSingle();
+      if (!roleRow) {
+        const { error: insErr } = await adminClient
+          .from("user_roles")
+          .insert({ user_id: newUser.user.id, role: userRole, is_approved: true });
+        if (insErr) return json({ error: insErr.message }, 500);
+      }
 
       await audit("create", "user", newUser.user.id, cleanUsername, { role: userRole });
       return json({ success: true, user_id: newUser.user.id });
@@ -225,9 +294,12 @@ Deno.serve(async (req) => {
         updates.email = `${newUsername}@igcse-platform.local`;
       }
       if (password) {
-        if (typeof password !== "string" || password.length < 8) {
-          return json({ error: "Password must be at least 8 characters" }, 400);
-        }
+        // Grandfathered minimum stays 8 for self-service changes on non-admin
+        // accounts; admins (and any password an admin sets for someone) must
+        // meet the stronger admin policy.
+        const roleOfTarget = await targetRoleFor(user_id);
+        const pwError = await passwordPolicyError(password, roleOfTarget);
+        if (pwError) return json({ error: pwError }, 400);
         updates.password = password;
       }
       if (Object.keys(updates).length === 0) return json({ error: "Nothing to update" }, 400);

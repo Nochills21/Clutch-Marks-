@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
+import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
 import { GraduationCap, ArrowLeft, Sparkles } from "lucide-react";
 
 export default function Auth() {
@@ -94,7 +95,23 @@ export default function Auth() {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Password policy: minimum length is enforced by the auth server (6);
+    // complexity and breach-screening are enforced here with clear feedback.
+    const pwError = validatePassword(signupPassword, "student");
+    if (pwError) {
+      toast({ title: "Password too weak", description: pwError, variant: "destructive" });
+      return;
+    }
     setLoading(true);
+    if (await isBreachedPassword(signupPassword)) {
+      toast({
+        title: "Choose a safer password",
+        description: "That password has appeared in known data breaches. Please pick a different one.",
+        variant: "destructive",
+      });
+      setLoading(false);
+      return;
+    }
     const email = signupEmail.toLowerCase().trim();
     const { error } = await supabase.auth.signUp({
       email,
@@ -180,7 +197,8 @@ export default function Auth() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="signup-password" className="text-sm font-medium">Password</Label>
-                    <Input id="signup-password" type="password" placeholder="Min. 6 characters" value={signupPassword} onChange={e => setSignupPassword(e.target.value)} required minLength={6} className={inputClasses} />
+                    <Input id="signup-password" type="password" placeholder="6+ chars, mixed case, number, symbol" value={signupPassword} onChange={e => setSignupPassword(e.target.value)} required minLength={6} className={inputClasses} />
+                    <p className="text-xs text-muted-foreground">{PASSWORD_RULES_TEXT}</p>
                   </div>
                   <div className="space-y-2">
                     <Label className="text-sm font-medium">I am a</Label>
