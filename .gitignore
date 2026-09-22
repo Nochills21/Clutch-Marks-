@@ -28,6 +28,31 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local agent workspace (contains tokens/scripts)
-.freebuff/
+# Local agent workspace — tracked: content/seed/fix pipeline (seeders, content,
+# mark schemes, golden-dump, SQL patches, PDF toolchain). Excluded: credential
+# stores (get-keys.cjs), one-off verify/debug/test scripts, logs, thread-local docs.
+.freebuff/*
+!.freebuff/*.sql
+!.freebuff/content-*.cjs
+!.freebuff/seed-*.cjs
+!.freebuff/notes-*.cjs
+!.freebuff/mark-schemes-*.cjs
+!.freebuff/apply-mark-schemes.cjs
+!.freebuff/fix-quiz-answers.cjs
+!.freebuff/fix-backticks*.cjs
+!.freebuff/recover-backticks.cjs
+!.freebuff/unescape-all.cjs
+!.freebuff/unflatten-lessons.cjs
+!.freebuff/normalize-answers.cjs
+!.freebuff/patch-stats.cjs
+!.freebuff/rotate-stats-answers.cjs
+!.freebuff/golden-dump.cjs
+!.freebuff/deploy-functions.cjs
+!.freebuff/apply-migration.cjs
+!.freebuff/apply-mig2.cjs
+!.freebuff/get-envkey.cjs
+!.freebuff/pdftool/
+# Generated PDF artifacts (booklets, per-topic notes/questions) live in Supabase
+# storage; they are rebuildable via pdftool scripts and too large for git.
+.freebuff/pdftool/out/
 Notes.zip

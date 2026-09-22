@@ -1,0 +1,135 @@
+// Mark-scheme style explanations for A2 Physics (9702) and A2 CS (9618).
+// Format mirrors CAIE mark schemes: M1 method marks, A1 accuracy marks with
+// substituted numbers + units, B1/C1 for stand-alone statements/reasoning.
+// Each entry: { [topicName]: { questionIndex (0-based): [ms lines] } }
+// csFixes: corrected options/correct index for the 7 wrong CS questions.
+
+const physics = {
+  "Circular Motion and SHM": {
+    0: ["M1: states SHM condition a ∝ −x (acceleration proportional to displacement, directed towards equilibrium)", "A1: any SHM example (pendulum, mass-spring) with the restoring force identified"],
+    1: ["M1: uses v_max = ωx₀ from v = ω√(x₀² − x²) at x = 0", "A1: v_max = ωx₀ with no missing factor"],
+    2: ["M1: converts f to ω: ω = 2πf = 2π(0.5) = π ≈ 3.14 rad s⁻¹", "M1: applies a_max = ω²x₀", "A1: a_max = (3.14)²(0.02) ≈ 0.20 m s⁻²"],
+    3: ["B1: KE is maximum at x = 0 (centre) where PE is minimum; energy conservation between KE and PE"],
+    4: ["B1: resonance when driving frequency = natural frequency; amplitude becomes maximum"],
+    5: ["B1: critical damping returns the system to equilibrium in the shortest time without oscillating"],
+    6: ["M1: total energy E = ½mω²x₀² (sum of max KE and max PE)", "A1: quoted with all terms; E constant for undamped SHM"],
+    7: ["M1: ω = 2π/T", "A1: ω = 2π/2 = π ≈ 3.14 rad s⁻¹"],
+    8: ["B1: at extremes x = ±x₀ so v = 0 and displacement (hence acceleration) is maximum"],
+    9: ["M1: E ∝ x₀² since E = ½mω²x₀²", "A1: doubling x₀ multiplies E by 2² = 4"],
+  },
+  "Thermal Physics": {
+    0: ["B1: during melting, temperature is constant so mean KE is unchanged; energy supplied breaks intermolecular bonds, raising PE"],
+    1: ["M1: Q = mcΔθ", "A1: Q = 0.5 × 4200 × 20 = 42 000 J = 42 kJ"],
+    2: ["M1: Q = mL", "A1: Q = 0.2 × 334 000 = 66 800 J ≈ 67 kJ"],
+    3: ["B1: pV = nRT for n moles; (pV = NkT for molecules)"],
+    4: ["B1: T must be absolute temperature in kelvin; K = °C + 273"],
+    5: ["B1: the equation defines mean translational KE per molecule ∝ T; temperature is a measure of average molecular kinetic energy"],
+    6: ["B1: Boyle's law pV = constant requires constant temperature (and fixed mass)"],
+    7: ["B1: internal energy = sum of random distribution of kinetic and potential energies of the molecules"],
+    8: ["M1: pV = nRT with T = 300 K, V = 0.05 m³, n = 2", "A1: p = (2 × 8.31 × 300)/0.05 = 99 720 Pa ≈ 100 kPa"],
+    9: ["B1: vaporisation fully separates molecules against attractive forces, doing more work than just loosening the structure (fusion)"],
+  },
+  "Electric Fields and Capacitance": {
+    0: ["B1: E = V/d is valid only for the uniform field between parallel plates"],
+    1: ["M1: E = V/d with consistent units (mm → m)", "A1: E = 2000/(5 × 10⁻³) = 4.0 × 10⁵ V m⁻¹ = 400 kV m⁻¹"],
+    2: ["B1: C = Q/V — charge stored per unit potential difference"],
+    3: ["M1: energy stored W = ½QV = ½CV²", "A1: W = ½CV² quoted; area under charge–voltage graph"],
+    4: ["M1: series combination 1/C = 1/C₁ + 1/C₂", "A1: 1/C = 1/10 + 1/20, C = 20/3 ≈ 6.7 μF"],
+    5: ["B1: parallel capacitors add directly C = C₁ + C₂ (same p.d., charges add)"],
+    6: ["M1: discharge V = V₀e^(−t/RC)", "A1: at t = RC, V = V₀e⁻¹ ≈ 0.37 V₀ = 37%"],
+    7: ["B1: F = qE, the definition of electric field strength as force per unit charge"],
+    8: ["B1: E points from high to low potential (field direction = direction of force on a positive test charge)"],
+    9: ["M1: τ = RC", "A1: τ = (100 × 10³)(500 × 10⁻⁶) = 50 s"],
+  },
+  "Magnetic Fields and Electromagnetism": {
+    0: ["B1: F = BIL sin θ for a current-carrying wire of length L perpendicular (at angle θ) to field B"],
+    1: ["M1: F = BIL sin 90°", "A1: F = 0.2 × 3 × 0.5 = 0.3 N"],
+    2: ["B1: F = BQv for a charge moving perpendicular to the field"],
+    3: ["B1: the magnetic force is always perpendicular to velocity, providing the centripetal force, so the path is circular"],
+    4: ["B1: Faraday: induced EMF ∝ rate of change of flux linkage / rate of flux cutting"],
+    5: ["B1: Lenz's law — the induced current opposes the change producing it (consequence of energy conservation)"],
+    6: ["M1: ε = −N ΔΦ/Δt", "A1: ε = 100 × (2 × 10⁻³)/(50 × 10⁻³) = 4.0 V"],
+    7: ["B1: field lines are concentric circles around the wire (right-hand grip rule)"],
+    8: ["M1: equate magnetic force to centripetal force BQv = mv²/r", "A1: r = mv/(BQ)"],
+    9: ["B1: transformer equation V₁/V₂ = N₁/N₂ from equal flux linkage through both coils"],
+  },
+  "Quantum Physics": {
+    0: ["B1: E = hf, photon energy proportional to frequency (E = hc/λ equivalently)"],
+    1: ["M1: E = hc/λ with λ = 550 × 10⁻⁹ m", "A1: E = (6.63 × 10⁻³⁴ × 3.00 × 10⁸)/(550 × 10⁻⁹) ≈ 3.6 × 10⁻¹⁹ J"],
+    2: ["B1: photoelectric equation hf = φ + KE_max (energy conservation for one photon–one electron)"],
+    3: ["B1: below threshold frequency a single photon carries less energy than φ, so no electron is emitted regardless of intensity"],
+    4: ["B1: φ = minimum energy required to free an electron from the (metal) surface"],
+    5: ["B1: de Broglie λ = h/(mv) = h/p — matter waves"],
+    6: ["M1: λ = h/mv with m = 9.11 × 10⁻³¹ kg, v = 10⁶ m s⁻¹", "A1: λ = 6.63 × 10⁻³⁴/(9.11 × 10⁻³¹ × 10⁶) ≈ 7.3 × 10⁻¹⁰ m ≈ 0.7 nm"],
+    7: ["B1: lines correspond to photon emission when electrons fall from higher to lower energy levels; ΔE = hf"],
+    8: ["B1: intensity raises the rate of photons, so more electrons are emitted per second (their max KE is unchanged)"],
+    9: ["B1: 1 eV = energy gained by an electron through 1 V = 1.6 × 10⁻¹⁹ J"],
+  },
+  "Nuclear Physics": {
+    0: ["B1: α particle is a ⁴₂He nucleus: proton number Z − 2, nucleon number A − 4"],
+    1: ["B1: β⁻ decay: neutron → proton + electron (+ antineutrino); Z + 1, A unchanged"],
+    2: ["B1: gamma is the most penetrating: several centimetres of lead (or metres of concrete) reduce it"],
+    3: ["B1: half-life = time for half the undecayed nuclei (or activity) to decay"],
+    4: ["M1: fraction = (½)^(t/t½)", "A1: (½)^(30/10) = (½)³ = 1/8"],
+    5: ["B1: E = mc² — released energy equals (mass defect) × c²"],
+    6: ["B1: binding energy per nucleon peaks at iron (≈ 56Fe); fusion below, fission above iron"],
+    7: ["B1: isotopes: same protons (Z), different neutrons (N)"],
+    8: ["B1: decay is random (cannot be predicted for one nucleus) and spontaneous (unaffected by external conditions)"],
+    9: ["M1: activity A = λN and A = A₀e^(−λt)", "A1: at t½, A₀/2 = A₀e^(−λt½) gives λ = ln 2/t½"],
+  },
+  "Oscillations and Waves II": {
+    0: ["B1: stationary wave stores (does not transfer) energy; energy is trapped in the loops"],
+    1: ["B1: node-to-antinode spacing = λ/4 (adjacent nodes are λ/2 apart)"],
+    2: ["B1: closed pipe: only odd harmonics (f₁, 3f₁, 5f₁ ...) because one end is a node, the other an antinode"],
+    3: ["B1: within one loop all points oscillate in phase; adjacent loops are in antiphase"],
+    4: ["B1: two coherent waves in antiphase superpose destructively — noise cancellation"],
+    5: ["B1: Young's fringes demonstrated interference, showing light behaves as a wave"],
+    6: ["B1: Malus: I = I₀cos²θ for polarised light through an analyser at angle θ"],
+    7: ["B1: points either side of a node oscillate in antiphase: phase difference π"],
+    8: ["B1: grating maxima are sharp and bright because many slits reinforce constructively at precise angles"],
+    9: ["M1: harmonics are integer multiples of the fundamental", "A1: 2 × 200 = 400 Hz"],
+  },
+  "Astronomy and Cosmology": {
+    0: ["M1: radiant flux intensity I = L/(4πd²) — luminosity spread over a sphere of radius d", "A1: inverse-square relation identified"],
+    1: ["B1: standard candle = object of known luminosity; comparing with observed intensity gives distance"],
+    2: ["B1: Wien: λ_max ∝ 1/T, so hotter stars peak at shorter (bluer) wavelengths"],
+    3: ["B1: Stefan–Boltzmann: L = 4πr²σT⁴, so L ∝ T⁴ at fixed radius"],
+    4: ["B1: Hubble: recession speed v = Hd (H₀ Hubble constant)"],
+    5: ["B1: z = Δλ/λ = v/c for slow recessions"],
+    6: ["B1: CMB — relic microwave radiation from the hot early universe, matching Big Bang predictions"],
+    7: ["M1: extrapolate Hubble's law to d = 0", "A1: t ≈ 1/H₀ (≈ 14 billion years)"],
+    8: ["B1: CMB corresponds to a black-body temperature ≈ 2.7 K"],
+    9: ["B1: L☉ ≈ 3.9 × 10²⁶ W"],
+  },
+};
+
+const cs = {
+  "Data Types and File Organisation": {
+    1: { fix: { opts: ["a memory address", "a character code", "a floating-point value", "a file handle"], correct: 0 }, ms: ["B1: a pointer holds the address of another variable in memory"] },
+    2: { fix: { opts: ["intersection", "union", "difference", "concatenation"], correct: 3 }, ms: ["B1: intersection, union and difference are set operations; concatenation is a string/array operation, not defined on sets"] },
+    3: { fix: { opts: ["hashing by key", "serial search", "binary search on an unordered file", "linear scan from the end"], correct: 0 }, ms: ["B1: hashing gives O(1) average-case lookup by computing the record's address from its key; serial search is O(n)"] },
+    6: ["B1: sequential files must be rewritten from the insertion point onwards; random/direct organisation overwrites in place"],
+    7: { fix: { opts: ["a collection of related fields treated as one unit", "a list of identical elements", "a key–value pair", "a fixed-length string"], correct: 0 }, ms: ["B1: a record groups related fields (one per attribute) handled as a single unit"] },
+    8: ["B1: above ~70% load, collisions multiply and overflow areas fill; performance degrades sharply (chaining/overflow pages)"],
+    9: ["B1: binary search needs ordered data — possible only on a file sorted by the key"],
+  },
+  "Abstract Data Types": {
+    1: { fix: { opts: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], correct: 0 }, ms: ["B1: head insertion rewires one pointer — constant time; traversal is what costs O(n)"] },
+    9: { fix: { opts: ["about 20 comparisons (log₂ n)", "1000 comparisons", "n/2 comparisons", "1,000,000 comparisons"], correct: 0 }, ms: ["M1: balanced BST height ≈ log₂(10⁶) ≈ 20", "A1: about 20 comparisons, not n/2 or n"] },
+  },
+  "Programming Paradigms and Low-Level": {
+    5: { fix: { opts: ["incremented so it points to the next instruction", "reset to zero", "copied to the MAR", "left unchanged until decode"], correct: 0 }, ms: ["B1: PC is incremented during/after fetch so the next fetch gets the following instruction"] },
+    6: { fix: { opts: ["forward references to labels", "translating one line at a time", "generating object code faster", "handling syntax errors only"], correct: 0 }, ms: ["B1: pass 1 records label addresses in the symbol table; pass 2 resolves forward references"] },
+  },
+  "Databases and Data Definition": {
+    4: { fix: { opts: ["concurrent transactions do not interfere", "committed data survives crashes", "transactions are all-or-nothing", "constraints always hold"], correct: 0 }, ms: ["B1: isolation = concurrent transactions behave as if sequential; durability is crash survival, atomicity is all-or-nothing"] },
+  },
+  "Simulation, Sensors and Real Data": {},
+  "Networks and the Internet": {
+    3: { fix: { opts: ["62", "64", "30", "126"], correct: 0 }, ms: ["M1: /26 leaves 6 host bits → 2⁶ = 64 addresses", "A1: minus network and broadcast = 62 usable hosts"] },
+  },
+  "Web Technologies and Security": {},
+  "Computational Thinking and Problem-Solving": {},
+};
+
+module.exports = { physics, cs };

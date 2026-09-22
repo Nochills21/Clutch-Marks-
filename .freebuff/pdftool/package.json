@@ -1,0 +1,10 @@
+{
+  "name": "pdftool",
+  "private": true,
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.9",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "1.1.1",
+    "pdfjs-dist": "^6.3.289"
+  }
+}
