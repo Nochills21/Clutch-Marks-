@@ -7,9 +7,6 @@
 export const PASSWORD_RULES_TEXT =
   "At least 6 characters, with an uppercase letter, a lowercase letter, a number, and a symbol";
 
-export const ADMIN_PASSWORD_RULES_TEXT =
-  "At least 12 characters, with an uppercase letter, a lowercase letter, a number, and a symbol";
-
 const GROUPS: Array<[RegExp, string]> = [
   [/[a-z]/, "a lowercase letter"],
   [/[A-Z]/, "an uppercase letter"],
@@ -26,7 +23,7 @@ export function validatePassword(password: string, role: "student" | "admin"): s
   // Students keep their existing 6-character minimum but now need character
   // variety; admins must use at least 12 characters on top of that.
   const min = role === "admin" ? 12 : 6;
-  if (typeof password !== "string" || password.length < min) {
+  if (password.length < min) {
     return role === "admin"
       ? `Admin passwords must be at least ${min} characters.`
       : `Password must be at least ${min} characters.`;

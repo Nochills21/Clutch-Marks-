@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
-import { openSignedFile } from "@/lib/contentFiles";
+import { openProtectedFile } from "@/lib/contentFiles";
+import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { useNoteProgress, downloadNote, type NoteRow } from "@/pages/Notes";
 import { LEVEL_LABELS } from "@/lib/subjects";
 import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
@@ -99,6 +100,7 @@ export default function LessonNotes() {
 
   return (
     <div className="space-y-5">
+      <WatermarkOverlay />
       <SEOHead
         title={`${lesson.title} — Notes | Clutch Marks`}
         description="View and download the uploaded notes for this lesson and track your completion."
@@ -202,7 +204,7 @@ export default function LessonNotes() {
                   />
                 )}
                 <Button size="sm" variant="outline" className="gap-1" disabled={!n.file_url}
-                  onClick={() => n.file_url && openSignedFile("study-materials", n.file_url)}>
+                  onClick={() => n.file_url && openProtectedFile("study-materials", n.file_url)}>
                   <ExternalLink className="h-3.5 w-3.5" /> Open
                 </Button>
                 <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url} onClick={() => downloadNote(n)}>

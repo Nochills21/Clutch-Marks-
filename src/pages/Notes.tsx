@@ -12,7 +12,8 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/SEOHead";
 import { getRouteMeta } from "@/lib/seoRoutes";
-import { openSignedFile, getSignedUrl } from "@/lib/contentFiles";
+import { openProtectedFile, getSignedUrl } from "@/lib/contentFiles";
+import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { toast } from "sonner";
 import {
@@ -93,18 +94,8 @@ export function useNoteProgress() {
 
 export async function downloadNote(note: NoteRow) {
   if (!note.file_url) return;
-  try {
-    const url = await getSignedUrl("study-materials", note.file_url);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = note.title;
-    a.rel = "noopener noreferrer";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  } catch {
-    toast.error("Could not download this file");
-  }
+  // Protected download: same watermarked bytes via serve-material.
+  await openProtectedFile("study-materials", note.file_url, note.title);
 }
 
 export default function Notes() {
@@ -149,6 +140,7 @@ export default function Notes() {
 
   return (
     <div className="space-y-6">
+      <WatermarkOverlay />
       <SEOHead
         title="Revision Notes — Clutch Marks"
         description="Search and filter uploaded topic notes by subject, level and keyword, then open, download and track what you've studied."
@@ -249,7 +241,7 @@ export default function Notes() {
                     </Button>
                   )}
                   <Button size="sm" variant="outline" className="gap-1" disabled={!n.file_url}
-                    onClick={() => n.file_url && openSignedFile("study-materials", n.file_url)}>
+                    onClick={() => n.file_url && openProtectedFile("study-materials", n.file_url)}>
                     <ExternalLink className="h-3.5 w-3.5" /> Open
                   </Button>
                   <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url}

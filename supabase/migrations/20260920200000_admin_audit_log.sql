@@ -8,7 +8,7 @@ create table if not exists public.admin_audit_log (
   id uuid primary key default gen_random_uuid(),
   actor_id uuid,                                -- profiles.user_id of the acting admin (null for service/system)
   actor_username text,                          -- captured at write time (username may change later)
-  action text not null check (action in ('create','update','delete','approve','reject','role_change','login')),
+  action text not null check (action in ('create','update','delete','approve','reject','role_change','login','download')),
   entity text not null,                         -- table/entity name, e.g. 'lessons', 'user'
   entity_id uuid,                               -- PK of the affected row (null for auth-user events)
   entity_label text,                            -- human-readable identifier (title, username, ...)

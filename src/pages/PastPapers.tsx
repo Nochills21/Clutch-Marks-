@@ -10,6 +10,7 @@ import { FileText, FileCheck, Search, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { SEOHead } from "@/components/SEOHead";
 import { getRouteMeta } from "@/lib/seoRoutes";
+import { openProtectedFile } from "@/lib/contentFiles";
 
 function extractPath(urlOrPath: string): string {
   const marker = "/past-papers/";
@@ -18,13 +19,13 @@ function extractPath(urlOrPath: string): string {
 }
 
 async function openSignedUrl(urlOrPath: string, onError: (msg: string) => void) {
-  const path = extractPath(urlOrPath);
-  const { data, error } = await supabase.storage.from("past-papers").createSignedUrl(path, 300);
-  if (error || !data?.signedUrl) {
-    onError(error?.message ?? "Unable to open file");
-    return;
+  // Past papers are PDFs — open them through serve-material so every download
+  // is watermarked per-user (Clutch Marks + identity) and audit-logged.
+  try {
+    await openProtectedFile("past-papers", extractPath(urlOrPath));
+  } catch (e: any) {
+    onError(e?.message ?? "Unable to open file");
   }
-  window.open(data.signedUrl, "_blank", "noopener,noreferrer");
 }
 
 export default function PastPapers() {

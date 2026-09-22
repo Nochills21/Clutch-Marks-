@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-09-20T20:20:38.103Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-09-21T17:36:06.729Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -39,7 +39,7 @@ create table if not exists public."admin_audit_log" (
   "entity_label" text,
   "details" jsonb,
   "created_at" timestamp with time zone default now() not null,
-  constraint "admin_audit_log_action_check" CHECK (action = ANY (ARRAY['create'::text, 'update'::text, 'delete'::text, 'approve'::text, 'reject'::text, 'role_change'::text, 'login'::text])),
+  constraint "admin_audit_log_action_check" CHECK (action = ANY (ARRAY['create'::text, 'update'::text, 'delete'::text, 'approve'::text, 'reject'::text, 'role_change'::text, 'login'::text, 'download'::text])),
   constraint "admin_audit_log_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."announcements" (
@@ -447,7 +447,7 @@ declare
   v_actor uuid;
   v_username text;
 begin
-  if p_action not in ('create','update','delete','approve','reject','role_change','login') then
+  if p_action not in ('create','update','delete','approve','reject','role_change','login','download') then
     raise exception 'audit_admin_action: invalid action %', p_action;
   end if;
   if p_entity is null or length(p_entity) > 64 then
@@ -458,7 +458,7 @@ begin
   from public.profiles p where p.user_id = auth.uid();
 
   -- Service-role callers (edge functions) run without a user JWT; they must pass
-  -- the acting admin explicitly. Direct-JWT callers always resolve via auth.uid().
+  -- the acting user explicitly. Direct-JWT callers resolve via auth.uid().
   if v_actor is null then
     v_actor := p_actor_id;
     v_username := p_actor_username;
