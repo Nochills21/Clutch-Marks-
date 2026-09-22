@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-09-21T17:36:06.729Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-09-22T10:42:49.860Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -39,7 +39,7 @@ create table if not exists public."admin_audit_log" (
   "entity_label" text,
   "details" jsonb,
   "created_at" timestamp with time zone default now() not null,
-  constraint "admin_audit_log_action_check" CHECK (action = ANY (ARRAY['create'::text, 'update'::text, 'delete'::text, 'approve'::text, 'reject'::text, 'role_change'::text, 'login'::text, 'download'::text])),
+  constraint "admin_audit_log_action_check" CHECK (action = ANY (ARRAY['create'::text, 'update'::text, 'delete'::text, 'approve'::text, 'reject'::text, 'role_change'::text, 'login'::text, 'download'::text, 'quiz_attempt'::text, 'homework_submission'::text])),
   constraint "admin_audit_log_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."announcements" (
@@ -857,6 +857,59 @@ AS $function$
   );
 $function$;
 
+CREATE OR REPLACE FUNCTION public.log_student_activity()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_actor  text;
+  v_label  text;
+  v_action text;
+  v_entity text;
+  v_details jsonb;
+BEGIN
+  SELECT p.username INTO v_actor FROM public.profiles p WHERE p.user_id = NEW.user_id;
+
+  IF TG_TABLE_NAME = 'quiz_attempts' THEN
+    SELECT q.title INTO v_label FROM public.quizzes q WHERE q.id = NEW.quiz_id;
+    v_action := 'quiz_attempt';
+    v_entity := 'quiz_attempt';
+    v_details := jsonb_build_object(
+      'score', NEW.score,
+      'total_questions', NEW.total_questions,
+      'percentage', CASE WHEN NEW.total_questions > 0
+                         THEN round((NEW.score::numeric / NEW.total_questions) * 100, 1)
+                         ELSE NULL END,
+      'completed_at', NEW.completed_at
+    );
+  ELSIF TG_TABLE_NAME = 'homework_submissions' THEN
+    SELECT h.title INTO v_label FROM public.homework h WHERE h.id = NEW.homework_id;
+    v_action := 'homework_submission';
+    v_entity := 'homework_submission';
+    v_details := jsonb_build_object(
+      'status', NEW.status,
+      'has_file', (NEW.file_url IS NOT NULL),
+      'submitted_at', NEW.submitted_at
+    );
+  END IF;
+
+  INSERT INTO public.admin_audit_log (actor_id, actor_username, action, entity, entity_id, entity_label, details)
+  VALUES (
+    NEW.user_id,
+    COALESCE(v_actor, 'unknown'),
+    v_action,
+    v_entity,
+    NEW.id,
+    COALESCE(v_label, NEW.id::text),
+    v_details
+  );
+
+  RETURN NEW;
+END;
+$function$;
+
 CREATE OR REPLACE FUNCTION public.protect_profile_identity_fields()
  RETURNS trigger
  LANGUAGE plpgsql
@@ -1126,6 +1179,8 @@ drop trigger if exists "audit_homework_changes" on public."homework";
 CREATE TRIGGER audit_homework_changes AFTER INSERT OR DELETE OR UPDATE ON homework FOR EACH ROW EXECUTE FUNCTION write_admin_audit_log();
 drop trigger if exists "update_homework_updated_at" on public."homework";
 CREATE TRIGGER update_homework_updated_at BEFORE UPDATE ON homework FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+drop trigger if exists "trg_log_homework_submissions" on public."homework_submissions";
+CREATE TRIGGER trg_log_homework_submissions AFTER INSERT ON homework_submissions FOR EACH ROW EXECUTE FUNCTION log_student_activity();
 drop trigger if exists "audit_lessons_changes" on public."lessons";
 CREATE TRIGGER audit_lessons_changes AFTER INSERT OR DELETE OR UPDATE ON lessons FOR EACH ROW EXECUTE FUNCTION write_admin_audit_log();
 drop trigger if exists "trg_lessons_revision" on public."lessons";
@@ -1144,6 +1199,8 @@ drop trigger if exists "update_profiles_updated_at" on public."profiles";
 CREATE TRIGGER update_profiles_updated_at BEFORE UPDATE ON profiles FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 drop trigger if exists "audit_questions_changes" on public."questions";
 CREATE TRIGGER audit_questions_changes AFTER INSERT OR DELETE OR UPDATE ON questions FOR EACH ROW EXECUTE FUNCTION write_admin_audit_log();
+drop trigger if exists "trg_log_quiz_attempts" on public."quiz_attempts";
+CREATE TRIGGER trg_log_quiz_attempts AFTER INSERT ON quiz_attempts FOR EACH ROW EXECUTE FUNCTION log_student_activity();
 drop trigger if exists "audit_quizzes_changes" on public."quizzes";
 CREATE TRIGGER audit_quizzes_changes AFTER INSERT OR DELETE OR UPDATE ON quizzes FOR EACH ROW EXECUTE FUNCTION write_admin_audit_log();
 drop trigger if exists "update_quizzes_updated_at" on public."quizzes";

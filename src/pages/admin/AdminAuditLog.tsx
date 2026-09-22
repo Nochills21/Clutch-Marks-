@@ -25,12 +25,15 @@ const ACTION_STYLES: Record<string, string> = {
   reject: "bg-orange-500/15 text-orange-600 dark:text-orange-400",
   role_change: "bg-amber-500/15 text-amber-600 dark:text-amber-400",
   login: "bg-slate-500/15 text-slate-600 dark:text-slate-400",
+  download: "bg-teal-500/15 text-teal-600 dark:text-teal-400",
+  quiz_attempt: "bg-sky-500/15 text-sky-600 dark:text-sky-400",
+  homework_submission: "bg-indigo-500/15 text-indigo-600 dark:text-indigo-400",
 };
 
 const ENTITY_OPTIONS = [
   "lessons", "topics", "quizzes", "questions", "past_papers", "study_materials",
   "subjects", "subject_levels", "announcements", "homework", "flashcards",
-  "flashcard_sets", "user", "user_credentials",
+  "flashcard_sets", "user", "user_credentials", "quiz_attempt", "homework_submission",
 ];
 
 function LabelDisplay({ label }: { label: string | null }) {
@@ -99,7 +102,7 @@ export default function AdminAuditLog() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Audit Log</h1>
-        <p className="text-muted-foreground">Who changed or deleted content, and when</p>
+        <p className="text-muted-foreground">Admin activity, student quiz attempts, and homework submissions</p>
       </div>
 
       <div className="flex flex-wrap items-center gap-3">
@@ -132,7 +135,7 @@ export default function AdminAuditLog() {
             <TableHeader>
               <TableRow>
                 <TableHead>When</TableHead>
-                <TableHead>Admin</TableHead>
+                <TableHead>Actor</TableHead>
                 <TableHead>Action</TableHead>
                 <TableHead>Entity</TableHead>
                 <TableHead>Item</TableHead>
