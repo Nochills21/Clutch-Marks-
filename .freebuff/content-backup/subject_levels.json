@@ -1,0 +1,92 @@
+[
+ {
+  "id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "subject_id": "403ce537-1fa0-4945-8648-c31e85ea6b57",
+  "level": "A2",
+  "description": null,
+  "is_active": true,
+  "sort_order": 3,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "subject_id": "e67ce851-9337-4342-92e0-fa5bbb19b258",
+  "level": "AS",
+  "description": null,
+  "is_active": true,
+  "sort_order": 2,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "subject_id": "84501ceb-494b-4c08-b999-3daba11b9c4e",
+  "level": "AS",
+  "description": null,
+  "is_active": true,
+  "sort_order": 2,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "subject_id": "403ce537-1fa0-4945-8648-c31e85ea6b57",
+  "level": "AS",
+  "description": null,
+  "is_active": true,
+  "sort_order": 2,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "subject_id": "84501ceb-494b-4c08-b999-3daba11b9c4e",
+  "level": "OL",
+  "description": null,
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "subject_id": "e67ce851-9337-4342-92e0-fa5bbb19b258",
+  "level": "A2",
+  "description": null,
+  "is_active": true,
+  "sort_order": 3,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "subject_id": "84501ceb-494b-4c08-b999-3daba11b9c4e",
+  "level": "A2",
+  "description": null,
+  "is_active": true,
+  "sort_order": 3,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "subject_id": "e67ce851-9337-4342-92e0-fa5bbb19b258",
+  "level": "OL",
+  "description": null,
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "subject_id": "403ce537-1fa0-4945-8648-c31e85ea6b57",
+  "level": "OL",
+  "description": null,
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ }
+]

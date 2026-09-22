@@ -1,0 +1,38 @@
+[
+ {
+  "id": "403ce537-1fa0-4945-8648-c31e85ea6b57",
+  "name": "Physics",
+  "slug": "physics",
+  "description": "Mechanics, electricity, waves, and modern physics with exam-style practice.",
+  "icon": "Atom",
+  "color": "purple",
+  "sort_order": 2,
+  "is_active": true,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "84501ceb-494b-4c08-b999-3daba11b9c4e",
+  "name": "Mathematics",
+  "slug": "mathematics",
+  "description": "Pure and applied mathematics from foundations to advanced calculus.",
+  "icon": "Sigma",
+  "color": "primary",
+  "sort_order": 1,
+  "is_active": true,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "e67ce851-9337-4342-92e0-fa5bbb19b258",
+  "name": "Computer Science",
+  "slug": "computer-science",
+  "description": "Programming, architecture, networks, algorithms and data structures.",
+  "icon": "Cpu",
+  "color": "cyan",
+  "sort_order": 3,
+  "is_active": true,
+  "created_at": "2026-08-22 11:25:30.590181+00",
+  "updated_at": "2026-08-22 11:25:30.590181+00"
+ }
+]

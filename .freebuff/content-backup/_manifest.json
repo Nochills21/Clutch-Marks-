@@ -1,0 +1,34 @@
+{
+ "dumped_at": "2026-09-22T10:37:18.113Z",
+ "project_ref": "zzliiazovezhxbmfeqco",
+ "tables": [
+  "subjects",
+  "subject_levels",
+  "topics",
+  "lessons",
+  "questions",
+  "quizzes",
+  "study_materials",
+  "past_papers",
+  "flashcard_sets",
+  "flashcards",
+  "announcements",
+  "content_revisions",
+  "content_file_versions"
+ ],
+ "row_counts": {
+  "subjects": 3,
+  "subject_levels": 9,
+  "topics": 100,
+  "lessons": 100,
+  "questions": 1000,
+  "quizzes": 100,
+  "study_materials": 239,
+  "past_papers": 0,
+  "flashcard_sets": 1,
+  "flashcards": 0,
+  "announcements": 0,
+  "content_revisions": 4,
+  "content_file_versions": 0
+ }
+}

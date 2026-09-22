@@ -51,6 +51,8 @@ dist-ssr
 !.freebuff/apply-migration.cjs
 !.freebuff/apply-mig2.cjs
 !.freebuff/get-envkey.cjs
+!.freebuff/auto-sync.cjs
+!.freebuff/content-backup/
 !.freebuff/pdftool/
 # Generated PDF artifacts (booklets, per-topic notes/questions) live in Supabase
 # storage; they are rebuildable via pdftool scripts and too large for git.

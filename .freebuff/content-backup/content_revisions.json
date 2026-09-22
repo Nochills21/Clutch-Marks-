@@ -1,0 +1,62 @@
+[
+ {
+  "id": "24950def-0ad6-43c8-a3be-6b228383927d",
+  "entity_type": "lesson",
+  "entity_id": "bf53adf9-5763-47d1-8896-32310e726c79",
+  "title": "Probability and Statistics I",
+  "content": "<h2>Probability and Statistics I</h2>\n<h3>Permutations and Combinations</h3>\n<ul>\n<li>Permutations (order matters): ⁿPᵣ = n!/(n − r)!</li>\n<li>Combinations (order irrelevant): ⁿCᵣ = n!/(r!(n − r)!)</li>\n</ul>\n<p><strong>Example:</strong> choosing a committee of 3 from 8 people: C(8,3) = 56. Arranging 3 of 8 books on a shelf: P(8,3) = 336.</p>\n<h3>Probability Rules</h3>\n<ul>\n<li>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</li>\n<li>Independent events: P(A ∩ B) = P(A)P(B)</li>\n<li>Complement: P(A′) = 1 − P(A)</li>\n</ul>\n<h3>Conditional Probability</h3>\n<p>P(A | B) = P(A ∩ B)/P(B). Tree diagrams multiply along branches and add across outcomes.</p>\n<p><strong>Example:</strong> P(two reds without replacement from 5 red + 3 blue) = (5/8)(4/7) = 5/14.</p>\n<h3>Discrete Random Variables</h3>\n<p>E(X) = Σ x P(X = x); Var(X) = E(X²) − [E(X)]².</p>\n<p><strong>Example:</strong> die: E(X) = 3.5; E(X²) = 91/6, so Var(X) ≈ 2.92.</p>\n<p><strong>Exam tips:</strong> decide permutation vs combination by testing whether swapping two items changes the outcome; always verify tree-branch probabilities sum to 1.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-21 17:56:46.150401+00"
+ },
+ {
+  "id": "82f4c7dc-0d04-4996-80b5-c724477cd122",
+  "entity_type": "material",
+  "entity_id": "c015774f-319c-423f-94e2-c1b6a3505c70",
+  "title": "Abstract Data Types — Study Notes",
+  "content": "<h2>Abstract Data Types</h2>\n<h3>What is an ADT?</h3>\n<p>An abstract data type is a logical description of a collection of data plus the operations on it, independent of implementation. Stacks, queues, linked lists, binary trees and hash tables are all ADTs; in A Level you must show how they are built from arrays or records with pointers.</p>\n<h3>Linked Lists</h3>\n<p>Each node holds a value and a pointer to the next node; a start pointer marks the head and a null marks the end. Insertion rewires two pointers — no shifting — giving O(1) insertion at a known position, but access requires walking the list, O(n).</p>\n<h3>Stacks and Queues</h3>\n<p>A stack is LIFO (push and pop at the top); a queue is FIFO (enqueue at the rear, dequeue from the front). Both can be arrays with index pointers or linked lists. Stack uses include call stacks and expression evaluation; queue uses include print buffers and breadth-first search.</p>\n<h3>Binary Search Trees</h3>\n<p>Each node has up to two children; left subtree keys are smaller, right subtree keys larger. Search, insert and (average-case) delete are O(log n). An <strong>in-order traversal</strong> outputs keys in ascending order. A degenerate (linear) tree from sorted input degrades to O(n).</p>\n<h3>Hash Tables</h3>\n<p>Covered in file organisation, but as an ADT a hash table pairs a hash function with bucket storage for O(1) average access.</p>\n<p><strong>Exam tips:</strong> be able to draw a tree after a sequence of insertions and write its three traversals; state the pointer changes for a linked-list insertion; compare ADT operations with Big-O.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": "e67a0ebc-d1f9-4800-9af5-ed934247b407",
+  "created_by_username": "Zaid3mk",
+  "created_at": "2026-09-20 19:21:59.516938+00"
+ },
+ {
+  "id": "bb23712f-7138-4b97-ba3c-3365fd9d67ec",
+  "entity_type": "material",
+  "entity_id": "c015774f-319c-423f-94e2-c1b6a3505c70",
+  "title": "Abstract Data Types — Study Notes",
+  "content": "<h2>Abstract Data Types</h2>\n<h3>What is an ADT?</h3>\n<p>An abstract data type is a logical description of a collection of data plus the operations on it, independent of implementation. Stacks, queues, linked lists, binary trees and hash tables are all ADTs; in A Level you must show how they are built from arrays or records with pointers.</p>\n<h3>Linked Lists</h3>\n<p>Each node holds a value and a pointer to the next node; a start pointer marks the head and a null marks the end. Insertion rewires two pointers — no shifting — giving O(1) insertion at a known position, but access requires walking the list, O(n).</p>\n<h3>Stacks and Queues</h3>\n<p>A stack is LIFO (push and pop at the top); a queue is FIFO (enqueue at the rear, dequeue from the front). Both can be arrays with index pointers or linked lists. Stack uses include call stacks and expression evaluation; queue uses include print buffers and breadth-first search.</p>\n<h3>Binary Search Trees</h3>\n<p>Each node has up to two children; left subtree keys are smaller, right subtree keys larger. Search, insert and (average-case) delete are O(log n). An <strong>in-order traversal</strong> outputs keys in ascending order. A degenerate (linear) tree from sorted input degrades to O(n).</p>\n<h3>Hash Tables</h3>\n<p>Covered in file organisation, but as an ADT a hash table pairs a hash function with bucket storage for O(1) average access.</p>\n<p><strong>Exam tips:</strong> be able to draw a tree after a sequence of insertions and write its three traversals; state the pointer changes for a linked-list insertion; compare ADT operations with Big-O.</p>\n\n<p><em>Version test marker</em></p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": "e67a0ebc-d1f9-4800-9af5-ed934247b407",
+  "created_by_username": "Zaid3mk",
+  "created_at": "2026-09-20 19:23:13.08623+00"
+ },
+ {
+  "id": "e1d250fc-07b6-408f-a587-df47a2e373f6",
+  "entity_type": "lesson",
+  "entity_id": "fdc18cc4-d701-46d2-9b30-b3c37f8ebbed",
+  "title": "Probability and Statistics II",
+  "content": "<h2>Probability and Statistics II</h2>\n<h3>Normal Distribution</h3>\n<p>Continuous, bell-shaped, defined by mean μ and variance σ². Standardise: Z = (X − μ)/σ ~ N(0, 1).</p>\n<p><strong>Example:</strong> X ~ N(50, 4²). P(X &gt; 56) = P(Z &gt; 1.5) = 1 − 0.9332 = 0.0668.</p>\n<p>Backwards problems: given a probability, find μ or σ from the z-value: x = μ + zσ.</p>\n<h3>Binomial Distribution</h3>\n<p>Fixed n independent trials, success probability p: P(X = r) = C(n, r) pʳ (1−p)^(n−r). Mean np, variance np(1 − p).</p>\n<p><strong>Example:</strong> n = 5, p = 0.2: P(X = 2) = 10 × 0.04 × 0.8³ = 0.2048.</p>\n<h3>Normal Approximation to Binomial</h3>\n<p>Valid when np &gt; 5 and n(1 − p) &gt; 5. Apply a <strong>continuity correction</strong>: P(X ≤ 10) becomes P(Y &lt; 10.5) under Y ~ N(np, np(1−p)).</p>\n<h3>Expectation and Variance Rules</h3>\n<p>E(aX + b) = aE(X) + b; Var(aX + b) = a² Var(X). For sums: E(X + Y) = E(X) + E(Y).</p>\n<p><strong>Exam tips:</strong> always sketch the normal curve and shade the region; state the distribution you are using; never forget the continuity correction when approximating a discrete variable.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-21 17:56:49.948062+00"
+ }
+]
