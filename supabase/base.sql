@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-09-22T10:42:49.860Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-09-22T10:57:12.964Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -41,6 +41,19 @@ create table if not exists public."admin_audit_log" (
   "created_at" timestamp with time zone default now() not null,
   constraint "admin_audit_log_action_check" CHECK (action = ANY (ARRAY['create'::text, 'update'::text, 'delete'::text, 'approve'::text, 'reject'::text, 'role_change'::text, 'login'::text, 'download'::text, 'quiz_attempt'::text, 'homework_submission'::text])),
   constraint "admin_audit_log_pkey" PRIMARY KEY (id)
+);
+create table if not exists public."admin_audit_log_archive" (
+  "id" uuid default gen_random_uuid() not null,
+  "actor_id" uuid,
+  "actor_username" text,
+  "action" text not null,
+  "entity" text not null,
+  "entity_id" uuid,
+  "entity_label" text,
+  "details" jsonb,
+  "created_at" timestamp with time zone default now() not null,
+  constraint "admin_audit_log_action_check" CHECK (action = ANY (ARRAY['create'::text, 'update'::text, 'delete'::text, 'approve'::text, 'reject'::text, 'role_change'::text, 'login'::text, 'download'::text, 'quiz_attempt'::text, 'homework_submission'::text])),
+  constraint "admin_audit_log_archive_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."announcements" (
   "id" uuid default gen_random_uuid() not null,
@@ -369,6 +382,9 @@ create table if not exists public."question_bookmarks" (
 create index if not exists admin_audit_log_actor_idx ON public.admin_audit_log USING btree (actor_id, created_at DESC);
 create index if not exists admin_audit_log_created_at_idx ON public.admin_audit_log USING btree (created_at DESC);
 create index if not exists admin_audit_log_entity_idx ON public.admin_audit_log USING btree (entity, created_at DESC);
+create index if not exists admin_audit_log_archive_actor_id_created_at_idx ON public.admin_audit_log_archive USING btree (actor_id, created_at DESC);
+create index if not exists admin_audit_log_archive_created_at_idx ON public.admin_audit_log_archive USING btree (created_at DESC);
+create index if not exists admin_audit_log_archive_entity_created_at_idx ON public.admin_audit_log_archive USING btree (entity, created_at DESC);
 create index if not exists content_file_versions_entity_idx ON public.content_file_versions USING btree (entity_type, entity_id, slot, version DESC);
 create index if not exists content_revisions_created_at_idx ON public.content_revisions USING btree (created_at DESC);
 create index if not exists content_revisions_entity_idx ON public.content_revisions USING btree (entity_type, entity_id, version DESC);
@@ -437,6 +453,43 @@ alter table public."user_roles" drop constraint if exists "user_roles_user_id_fk
 alter table public."user_roles" add constraint "user_roles_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 
 -- ============ functions ============
+CREATE OR REPLACE FUNCTION public.archive_old_audit_entries(p_batch integer DEFAULT 5000)
+ RETURNS integer
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_cutoff timestamptz := now() - interval '12 months';
+  v_moved  integer := 0;
+  v_chunk  integer;
+BEGIN
+  LOOP
+    WITH picked AS (
+      SELECT id FROM public.admin_audit_log
+      WHERE created_at < v_cutoff
+      ORDER BY created_at
+      FOR UPDATE SKIP LOCKED
+      LIMIT p_batch
+    ),
+    ins AS (
+      INSERT INTO public.admin_audit_log_archive
+      SELECT l.* FROM public.admin_audit_log l JOIN picked USING (id)
+      RETURNING 1
+    ),
+    del AS (
+      DELETE FROM public.admin_audit_log l USING picked WHERE l.id = picked.id
+      RETURNING 1
+    )
+    SELECT count(*) INTO v_chunk FROM del;
+
+    v_moved := v_moved + v_chunk;
+    EXIT WHEN v_chunk < p_batch;
+  END LOOP;
+  RETURN v_moved;
+END;
+$function$;
+
 CREATE OR REPLACE FUNCTION public.audit_admin_action(p_action text, p_entity text, p_entity_id uuid DEFAULT NULL::uuid, p_entity_label text DEFAULT NULL::text, p_details jsonb DEFAULT NULL::jsonb, p_actor_id uuid DEFAULT NULL::uuid, p_actor_username text DEFAULT NULL::text)
  RETURNS void
  LANGUAGE plpgsql
@@ -1231,6 +1284,7 @@ CREATE TRIGGER user_roles_writer_guard BEFORE INSERT OR DELETE OR UPDATE ON user
 -- ============ row level security ============
 alter table public."admin_audit_log" enable row level security;
 alter table public."content_revisions" enable row level security;
+alter table public."admin_audit_log_archive" enable row level security;
 alter table public."announcements" enable row level security;
 alter table public."lesson_progress" enable row level security;
 alter table public."homework" enable row level security;
@@ -1265,6 +1319,10 @@ drop policy if exists "Admin audit log read - approved admins only" on public."a
 create policy "Admin audit log read - approved admins only" on public."admin_audit_log" for select using ((EXISTS ( SELECT 1
    FROM user_roles r
   WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND (r.is_approved = true)))));
+drop policy if exists "Archive read - approved admins only" on public."admin_audit_log_archive";
+create policy "Archive read - approved admins only" on public."admin_audit_log_archive" for select to "authenticated" using ((EXISTS ( SELECT 1
+   FROM user_roles r
+  WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND r.is_approved))));
 drop policy if exists "Admins can manage announcements" on public."announcements";
 create policy "Admins can manage announcements" on public."announcements" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Anyone authenticated can view announcements" on public."announcements";
@@ -1428,6 +1486,8 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."_
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."_seed_fixes" to service_role;
 grant SELECT on public."admin_audit_log" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."admin_audit_log" to service_role;
+grant SELECT on public."admin_audit_log_archive" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."admin_audit_log_archive" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcements" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcements" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcements" to service_role;
