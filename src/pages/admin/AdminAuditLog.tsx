@@ -12,7 +12,7 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Search } from "lucide-react";
 import { format } from "date-fns";
 
 const PAGE_SIZE = 50;
@@ -75,6 +75,64 @@ export default function AdminAuditLog() {
     return () => { cancelled = true; };
   }, [page, search, entityFilter]);
 
+  // Export: streams ALL rows matching the current filters (not just this page)
+  // through Supabase pagination, then downloads as CSV.
+  const [exporting, setExporting] = useState(false);
+  const [exportError, setExportError] = useState<string | null>(null);
+
+  const exportCsv = async () => {
+    setExporting(true);
+    setExportError(null);
+    try {
+      const BATCH = 1000;
+      const rows: Array<Record<string, unknown>> = [];
+      for (let from = 0; ; from += BATCH) {
+        let q = supabase
+          .from("admin_audit_log")
+          .select("created_at, actor_username, action, entity, entity_label, details")
+          .order("created_at", { ascending: false })
+          .range(from, from + BATCH - 1);
+        if (entityFilter !== "all") q = q.eq("entity", entityFilter);
+        if (search.trim()) q = q.ilike("entity_label", `%${search.trim()}%`);
+        const { data, error } = await q;
+        if (error) throw error;
+        rows.push(...(data ?? []));
+        if (!data || data.length < BATCH) break;
+      }
+
+      const esc = (v: unknown) => {
+        const s =
+          v === null || v === undefined
+            ? ""
+            : typeof v === "object"
+              ? JSON.stringify(v)
+              : String(v);
+        return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+      };
+      const header = "timestamp,actor,action,entity,item,details";
+      const body = rows
+        .map((r) =>
+          [r.created_at, r.actor_username ?? "system", r.action, r.entity, r.entity_label ?? "", r.details]
+            .map(esc)
+            .join(",")
+        )
+        .join("\n");
+      const blob = new Blob([header + "\n" + body], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      const filterTag = entityFilter !== "all" ? `-${entityFilter}` : "";
+      a.download = `audit-log${filterTag}-${format(new Date(), "yyyy-MM-dd")}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      console.error(e);
+      setExportError("Export failed — check your connection and try again.");
+    } finally {
+      setExporting(false);
+    }
+  };
+
   const pages = Math.max(1, Math.ceil(count / PAGE_SIZE));
   const rangeLabel = useMemo(
     () => (count === 0 ? "0" : `${page * PAGE_SIZE + 1}–${Math.min((page + 1) * PAGE_SIZE, count)} of ${count}`),
@@ -116,6 +174,11 @@ export default function AdminAuditLog() {
           />
         </div>
         <div className="flex items-center gap-2">
+          {exportError && <span className="text-xs text-destructive">{exportError}</span>}
+          <Button variant="outline" size="sm" onClick={exportCsv} disabled={exporting || loading}>
+            <Download className="h-4 w-4" />
+            {exporting ? "Exporting…" : "Export CSV"}
+          </Button>
           <Label className="text-xs text-muted-foreground">Type</Label>
           <Select value={entityFilter} onValueChange={setEntityFilter}>
             <SelectTrigger className="w-44"><SelectValue /></SelectTrigger>
