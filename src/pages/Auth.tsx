@@ -1,4 +1,7 @@
 // Login + signup (student or parent), with password policy and breach check.
+// Students log in with their email; optional parent email at signup auto-links
+// the child to that parent account (instant if it exists, queued if not).
+// Admins may additionally sign in with a username (resolved server-side).
 import { useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -26,6 +29,7 @@ export default function Auth() {
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [fullName, setFullName] = useState("");
+  const [parentEmail, setParentEmail] = useState("");
   const [role, setRole] = useState<string>("student");
 
   const resolveEmail = async (
@@ -114,12 +118,30 @@ export default function Auth() {
       return;
     }
     const email = signupEmail.toLowerCase().trim();
+    // Parent link: students may attach a parent's email. It must differ from
+    // their own — the server ignores equal emails, we block it here with a
+    // clear message instead.
+    const parent = parentEmail.toLowerCase().trim();
+    if (role === "student" && parent && parent === email) {
+      toast({
+        title: "Parent email invalid",
+        description: "Your parent's email must be different from your own.",
+        variant: "destructive",
+      });
+      setLoading(false);
+      return;
+    }
     const { error } = await supabase.auth.signUp({
       email,
       password: signupPassword,
       options: {
         emailRedirectTo: `${window.location.origin}/dashboard`,
-        data: { full_name: fullName, role },
+        data: {
+          full_name: fullName,
+          role,
+          // Only sent for students; ignored server-side otherwise.
+          parent_email: role === "student" && parent ? parent : undefined,
+        },
       },
     });
     setLoading(false);
@@ -129,8 +151,10 @@ export default function Auth() {
       toast({
         title: role === "parent" ? "Parent account created" : "Welcome to Clutch Marks!",
         description: role === "parent"
-          ? "You can link your child's account from the dashboard now."
-          : "Your free plan is active — every O Level lesson, quiz and note is ready.",
+          ? "Children who signed up with your email are linked automatically."
+          : parent
+            ? "Your free plan is active — we've linked your parent's account to yours."
+            : "Your free plan is active — every O Level lesson, quiz and note is ready.",
       });
     }
   };
@@ -176,8 +200,9 @@ export default function Auth() {
               <form onSubmit={handleLogin}>
                 <CardContent className="space-y-4 pt-0">
                   <div className="space-y-2">
-                    <Label htmlFor="login-identifier" className="text-sm font-medium">Email or Username</Label>
-                    <Input id="login-identifier" placeholder="you@example.com or username" value={loginIdentifier} onChange={e => setLoginIdentifier(e.target.value)} required className={inputClasses} />
+                    <Label htmlFor="login-identifier" className="text-sm font-medium">Email</Label>
+                    <Input id="login-identifier" type="text" inputMode="email" autoComplete="username" placeholder="you@example.com" value={loginIdentifier} onChange={e => setLoginIdentifier(e.target.value)} required className={inputClasses} />
+                    <p className="text-xs text-muted-foreground">Admins can also sign in with their username.</p>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="login-password" className="text-sm font-medium">Password</Label>
@@ -216,6 +241,13 @@ export default function Auth() {
                       </SelectContent>
                     </Select>
                   </div>
+                  {role === "student" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="parent-email" className="text-sm font-medium">Parent's email <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                      <Input id="parent-email" type="email" placeholder="parent@example.com" value={parentEmail} onChange={e => setParentEmail(e.target.value)} className={inputClasses} />
+                      <p className="text-xs text-muted-foreground">If your parent already has an account they'll see your progress; otherwise they'll be linked automatically when they sign up.</p>
+                    </div>
+                  )}
                   <Button type="submit" className="w-full h-11 bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] hover:opacity-90 transition-opacity shadow-md glow-shadow font-semibold text-sm text-primary-foreground" disabled={loading}>
                     {loading ? "Creating account…" : "Create Account"}
                   </Button>

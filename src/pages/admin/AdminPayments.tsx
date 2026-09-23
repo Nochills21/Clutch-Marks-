@@ -90,7 +90,7 @@ export default function AdminPayments() {
                 rows.map(r => (
                   <TableRow key={r.id}>
                     <TableCell>
-                      <p className="font-medium text-sm">{r.profiles?.username ?? r.user_id.slice(0, 8)}</p>
+                      <p className="font-medium text-sm">{r.profiles?.email ?? r.profiles?.username ?? r.user_id.slice(0, 8)}</p>
                       <p className="text-xs text-muted-foreground">{r.profiles?.email}</p>
                     </TableCell>
                     <TableCell className="text-sm">{r.plans?.name ?? r.plan_id}<span className="block text-xs text-muted-foreground">{PLAN_PRICE[r.plan_id]}</span></TableCell>

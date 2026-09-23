@@ -91,7 +91,7 @@ export function AppLayout() {
               <div className="text-sm space-y-1">
                 <p className="font-medium text-foreground">Need access urgently?</p>
                 <p className="text-muted-foreground">
-                  Message your teacher or the platform administrator and share your username so
+                  Message your teacher or the platform administrator and share your account email so
                   they can approve you faster.
                 </p>
               </div>

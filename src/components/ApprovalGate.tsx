@@ -17,7 +17,7 @@ export function ApprovalGate() {
   if (role === "admin" || role === "parent") return <Outlet />;
   if (isApproved) return <Outlet />;
 
-  const username = user.email?.split("@")[0] ?? "your account";
+  const email = user.email ?? "your account";
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center p-6">
@@ -28,7 +28,7 @@ export function ApprovalGate() {
           </div>
           <CardTitle className="text-2xl">Waiting for admin approval</CardTitle>
           <CardDescription className="text-base">
-            Signed in as <span className="font-mono font-medium text-foreground">{username}</span>
+            Signed in as <span className="font-mono font-medium text-foreground">{email}</span>
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -78,7 +78,7 @@ export function ApprovalGate() {
               <p className="font-medium text-foreground">Need access urgently?</p>
               <p className="text-muted-foreground">
                 Message your teacher or the platform administrator directly and share your
-                username <span className="font-mono">{username}</span> so they can approve you faster.
+                email <span className="font-mono">{email}</span> so they can approve you faster.
               </p>
             </div>
           </div>

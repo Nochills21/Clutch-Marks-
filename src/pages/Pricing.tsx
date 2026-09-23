@@ -178,7 +178,7 @@ export default function Pricing() {
                 <p>Bank: <span className="text-muted-foreground">[to be added by site owner]</span></p>
                 <p>Account name: <span className="text-muted-foreground">[to be added]</span></p>
                 <p>IBAN / Account no.: <span className="text-muted-foreground">[to be added]</span></p>
-                <p>Reference: your username</p>
+                <p>Reference: your account email</p>
               </div>
             </li>
             <li>We confirm receipt and activate your plan — usually within 24 hours.</li>

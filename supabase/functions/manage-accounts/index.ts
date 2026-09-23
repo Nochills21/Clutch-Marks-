@@ -162,31 +162,52 @@ Deno.serve(async (req) => {
 
     // ── CREATE ──
     if (action === "create") {
-      if (!username || !password || !full_name) {
-        return json({ error: "username, full_name, and password are required" }, 400);
+      if (!emailInput || !password || !full_name) {
+        return json({ error: "email, full_name, and password are required" }, 400);
       }
 
-      const cleanUsername = username.toLowerCase().trim();
-      const email = `${cleanUsername}@igcse-platform.local`;
+      // Email-first identity: a real email is required; username is optional
+      // (only useful for admins who want username login).
+      const cleanEmail = typeof emailInput !== "undefined" && emailInput ? String(emailInput).toLowerCase().trim() : "";
+      if (!cleanEmail || !EMAIL_RE.test(cleanEmail)) {
+        return json({ error: "A valid email is required" }, 400);
+      }
+      const cleanUsername = username ? String(username).toLowerCase().trim() : "";
+      if (cleanUsername && !USERNAME_RE.test(cleanUsername)) {
+        return json({ error: "Username must be 3-32 characters (letters, numbers, . _ -)" }, 400);
+      }
       const userRole = role === "admin" ? "admin" : "student";
 
       // Enforce the per-role password policy before creating anything.
       const pwError = await passwordPolicyError(password, userRole === "admin" ? "admin" : "other");
       if (pwError) return json({ error: pwError }, 400);
 
-      // Check if username already exists
-      const { data: existing } = await adminClient
+      // Check if email or username is already taken
+      const { data: existingEmail } = await adminClient
         .from("profiles")
         .select("id")
-        .eq("username", cleanUsername)
-        .single();
-      if (existing) return json({ error: "Username already taken" }, 409);
+        .ilike("email", cleanEmail)
+        .maybeSingle();
+      if (existingEmail) return json({ error: "Email already in use" }, 409);
+      if (cleanUsername) {
+        const { data: existingUname } = await adminClient
+          .from("profiles")
+          .select("id")
+          .eq("username", cleanUsername)
+          .maybeSingle();
+        if (existingUname) return json({ error: "Username already taken" }, 409);
+      }
 
       const { data: newUser, error: createError } = await adminClient.auth.admin.createUser({
-        email,
+        email: cleanEmail,
         password,
         email_confirm: true,
-        user_metadata: { full_name, username: cleanUsername, role: userRole },
+        user_metadata: {
+          full_name,
+          ...(cleanUsername ? { username: cleanUsername } : {}),
+          // Never publish 'admin' through metadata — the trigger ignores it.
+          ...(userRole === "student" ? { role: userRole } : {}),
+        },
       });
       if (createError) return json({ error: createError.message }, 500);
 
@@ -210,7 +231,7 @@ Deno.serve(async (req) => {
         if (insErr) return json({ error: insErr.message }, 500);
       }
 
-      await audit("create", "user", newUser.user.id, cleanUsername, { role: userRole });
+      await audit("create", "user", newUser.user.id, cleanEmail, { role: userRole, username: cleanUsername || null });
       return json({ success: true, user_id: newUser.user.id });
     }
 
@@ -274,24 +295,29 @@ Deno.serve(async (req) => {
       return json({ success: true });
     }
 
-    // ── UPDATE EMAIL & PASSWORD ──
+    // ── UPDATE PASSWORD (optional username management for admins) ──
     if (action === "update_credentials") {
       if (!user_id) return json({ error: "user_id required" }, 400);
       const updates: Record<string, unknown> = {};
-      let newUsername: string | null = null;
-      if (username) {
-        newUsername = String(username).toLowerCase().trim();
-        if (!USERNAME_RE.test(newUsername)) {
-          return json({ error: "Username must be 3-32 characters (letters, numbers, . _ -)" }, 400);
+      if (username !== undefined) {
+        const clean = username === null ? "" : String(username).toLowerCase().trim();
+        if (clean) {
+          if (!USERNAME_RE.test(clean)) {
+            return json({ error: "Username must be 3-32 characters (letters, numbers, . _ -)" }, 400);
+          }
+          const { data: taken } = await adminClient
+            .from("profiles")
+            .select("user_id")
+            .ilike("username", clean)
+            .neq("user_id", user_id)
+            .maybeSingle();
+          if (taken) return json({ error: "Username already taken" }, 409);
         }
-        const { data: taken } = await adminClient
+        const { error: uErr } = await adminClient
           .from("profiles")
-          .select("user_id")
-          .ilike("username", newUsername)
-          .neq("user_id", user_id)
-          .maybeSingle();
-        if (taken) return json({ error: "Username already taken" }, 409);
-        updates.email = `${newUsername}@igcse-platform.local`;
+          .update({ username: clean || null })
+          .eq("user_id", user_id);
+        if (uErr) return json({ error: uErr.message }, 500);
       }
       if (password) {
         // Grandfathered minimum stays 8 for self-service changes on non-admin
@@ -302,17 +328,17 @@ Deno.serve(async (req) => {
         if (pwError) return json({ error: pwError }, 400);
         updates.password = password;
       }
-      if (Object.keys(updates).length === 0) return json({ error: "Nothing to update" }, 400);
+      if (!password && username === undefined) return json({ error: "Nothing to update" }, 400);
       const { error } = await adminClient.auth.admin.updateUserById(user_id, updates);
       if (error) return json({ error: error.message }, 500);
-      if (newUsername) {
-        await adminClient
-          .from("profiles")
-          .update({ username: newUsername, email: `${newUsername}@igcse-platform.local` })
-          .eq("user_id", user_id);
-      }
-      await audit("update", "user_credentials", user_id, newUsername ?? null, {
+      const { data: labelRow } = await adminClient
+        .from("profiles")
+        .select("email")
+        .eq("user_id", user_id)
+        .maybeSingle();
+      await audit("update", "user_credentials", user_id, labelRow?.email ?? null, {
         password_changed: Boolean(password),
+        username_changed: username !== undefined,
       });
       return json({ success: true });
     }

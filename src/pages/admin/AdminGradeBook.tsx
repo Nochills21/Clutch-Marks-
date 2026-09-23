@@ -16,6 +16,7 @@ interface StudentGrade {
   userId: string;
   fullName: string;
   username: string | null;
+  email: string | null;
   quizAttempts: { quizTitle: string; score: number; total: number; completedAt: string }[];
   homeworkGrades: { hwTitle: string; grade: string | null; status: string; submittedAt: string }[];
   quizAvg: number;
@@ -33,7 +34,7 @@ export default function AdminGradeBook() {
     setLoading(true);
 
     const [profilesRes, rolesRes, attemptsRes, quizzesRes, submissionsRes, homeworkRes] = await Promise.all([
-      supabase.from("profiles").select("user_id, full_name, username"),
+      supabase.from("profiles").select("user_id, full_name, username, email"),
       supabase.from("user_roles").select("user_id, role, is_approved").eq("role", "student").eq("is_approved", true),
       supabase.from("quiz_attempts").select("user_id, quiz_id, score, total_questions, completed_at").not("completed_at", "is", null),
       supabase.from("quizzes").select("id, title"),
@@ -80,6 +81,7 @@ export default function AdminGradeBook() {
           userId: p.user_id,
           fullName: p.full_name || "Unnamed",
           username: p.username,
+          email: p.email,
           quizAttempts,
           homeworkGrades: subsByUser[p.user_id] ?? [],
           quizAvg,
@@ -95,7 +97,7 @@ export default function AdminGradeBook() {
   const filtered = useMemo(() => {
     let list = students.filter((s) =>
       s.fullName.toLowerCase().includes(search.toLowerCase()) ||
-      (s.username ?? "").toLowerCase().includes(search.toLowerCase())
+      (s.email ?? "").toLowerCase().includes(search.toLowerCase())
     );
     if (sortBy === "name") list.sort((a, b) => a.fullName.localeCompare(b.fullName));
     else list.sort((a, b) => b.quizAvg - a.quizAvg);
@@ -220,7 +222,7 @@ export default function AdminGradeBook() {
           const pending = s.homeworkGrades.filter((h) => h.status === "pending").length;
           return [
             s.fullName,
-            s.username ?? "-",
+            s.email ?? "-",
             String(s.quizAttempts.length),
             s.quizAvg >= 0 ? `${Math.round(s.quizAvg)}%` : "-",
             String(s.homeworkGrades.length),
@@ -342,7 +344,7 @@ export default function AdminGradeBook() {
                       <TableCell>
                         <div>
                           <p className="font-medium text-foreground">{s.fullName}</p>
-                          {s.username && <p className="text-xs text-muted-foreground">@{s.username}</p>}
+                          {s.email && <p className="text-xs text-muted-foreground">{s.email}</p>}
                         </div>
                       </TableCell>
                       <TableCell className="text-center">{s.quizAttempts.length}</TableCell>

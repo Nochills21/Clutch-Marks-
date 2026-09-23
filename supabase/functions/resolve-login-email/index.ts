@@ -1,3 +1,11 @@
+// Resolve a username to a login email — ADMIN USE ONLY.
+//
+// Students and parents log in with their email directly; only admins may
+// sign in with a username. The caller must present an authenticated JWT
+// belonging to an approved admin, otherwise the endpoint answers with the
+// same 200 `{ email: null }` shape it uses for a miss, so unauthenticated
+// callers learn nothing (no existence oracle, no timing signal beyond the
+// uniform floor below).
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.4";
 
 const corsHeaders = {
@@ -26,8 +34,9 @@ const USERNAME_RE = /^[A-Za-z0-9._-]{2,64}$/;
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
-  // Uniform floor on response time so timing differences between "found",
-  // "not found" and "invalid" cannot be used to enumerate accounts.
+  // Uniform floor on response time so timing differences between "allowed",
+  // "denied", "found", "not found" and "invalid" cannot be used to
+  // enumerate accounts.
   const startedAt = Date.now();
   const settle = async (body: unknown, status = 200) => {
     const elapsed = Date.now() - startedAt;
@@ -41,19 +50,29 @@ Deno.serve(async (req) => {
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+      { global: { headers: { Authorization: req.headers.get("Authorization") ?? "" } } },
     );
+
+    // Admin gate: resolve the caller from their JWT and require an approved
+    // admin role. Non-admins and anonymous callers are indistinguishable.
+    const { data: { user } } = await admin.auth.getUser();
+    if (!user) return await settle({ email: null });
+
+    const { data: roleRow } = await admin
+      .from("user_roles")
+      .select("role, is_approved")
+      .eq("user_id", user.id)
+      .eq("role", "admin")
+      .eq("is_approved", true)
+      .maybeSingle();
+    if (!roleRow) return await settle({ email: null });
 
     const { data: limited } = await admin.rpc("register_login_lookup", {
       _client_key: clientKey(req),
       _max: MAX_PER_WINDOW,
       _window_seconds: WINDOW_SECONDS,
     });
-
-    if (limited === true) {
-      // Same body shape as every other response so throttling never reveals
-      // whether the identifier exists.
-      return await settle({ email: null }, 429);
-    }
+    if (limited === true) return await settle({ email: null }, 429);
 
     const body = await req.json().catch(() => ({}));
     const identifier = typeof body?.identifier === "string" ? body.identifier.trim() : "";

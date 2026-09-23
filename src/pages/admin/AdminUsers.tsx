@@ -35,6 +35,7 @@ interface UserRow {
   is_approved: boolean;
   full_name: string;
   username: string | null;
+  email: string | null;
 }
 
 interface WeeklyReport {
@@ -62,7 +63,7 @@ export default function AdminUsers() {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
 
   // Create form
-  const [newUsername, setNewUsername] = useState("");
+  const [newEmail, setNewEmail] = useState("");
   const [newFullName, setNewFullName] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newRole, setNewRole] = useState("student");
@@ -113,7 +114,7 @@ export default function AdminUsers() {
     const userIds = roles.map((r) => r.user_id);
     const { data: profiles } = await supabase
       .from("profiles")
-      .select("user_id, full_name, username")
+      .select("user_id, full_name, username, email")
       .in("user_id", userIds);
 
     setRows(
@@ -126,6 +127,7 @@ export default function AdminUsers() {
           is_approved: r.is_approved,
           full_name: p?.full_name || "Unknown",
           username: p?.username ?? null,
+          email: p?.email ?? null,
         };
       }),
     );
@@ -138,7 +140,7 @@ export default function AdminUsers() {
     const q = search.trim().toLowerCase();
     return rows.filter((r) => {
       if (q) {
-        const hay = `${r.full_name} ${r.username ?? ""}`.toLowerCase();
+        const hay = `${r.full_name} ${r.email ?? ""} ${r.username ?? ""}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       if (roleFilter !== "all" && r.role !== roleFilter) return false;
@@ -238,17 +240,17 @@ export default function AdminUsers() {
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newUsername.trim() || !newFullName.trim() || !newPassword.trim()) return;
+    if (!newEmail.trim() || !newFullName.trim() || !newPassword.trim()) return;
     setCreating(true);
     try {
       await invoke("create", {
-        username: newUsername.trim(),
+        email: newEmail.trim(),
         full_name: newFullName.trim(),
         password: newPassword,
         role: newRole,
       });
-      toast({ title: "Account created", description: `${newUsername} can now log in.` });
-      setNewUsername(""); setNewFullName(""); setNewPassword(""); setNewRole("student");
+      toast({ title: "Account created", description: `${newEmail.trim()} can now log in.` });
+      setNewEmail(""); setNewFullName(""); setNewPassword(""); setNewRole("student");
       load();
     } catch (e: any) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
@@ -497,7 +499,7 @@ export default function AdminUsers() {
         <TableBody>
           {list.map((r) => (
             <TableRow key={r.role_id}>
-              <TableCell className="font-medium">{r.username || "—"}</TableCell>
+              <TableCell className="font-medium">{r.email ?? r.username ?? "—"}</TableCell>
               <TableCell>{r.full_name}</TableCell>
               <TableCell>
                 <Badge
@@ -554,7 +556,7 @@ export default function AdminUsers() {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search by name or username…"
+                placeholder="Search by name or email…"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="pl-9"
@@ -693,11 +695,12 @@ export default function AdminUsers() {
             <CardContent className="pt-6">
               <form onSubmit={handleCreate} className="space-y-4 max-w-md">
                 <div className="space-y-2">
-                  <Label>Username</Label>
+                  <Label>Email</Label>
                   <Input
-                    placeholder="e.g. john.doe"
-                    value={newUsername}
-                    onChange={(e) => setNewUsername(e.target.value)}
+                    type="email"
+                    placeholder="user@example.com"
+                    value={newEmail}
+                    onChange={(e) => setNewEmail(e.target.value)}
                     required
                   />
                 </div>
