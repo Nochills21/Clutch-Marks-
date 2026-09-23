@@ -1,3 +1,5 @@
+// Account management: approve/create students+parents+admins, reset passwords,
+// upload weekly reports.
 import { useEffect, useState, useRef, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
@@ -16,7 +18,7 @@ import {
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from "@/components/ui/dialog";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import {
   UserCheck, UserX, UserPlus, Trash2, Loader2, Clock, Users, ShieldCheck,
   KeyRound, FileText, Upload, Download, Search, Shield, X, AtSign,

@@ -1,3 +1,4 @@
+// Calendar of deadlines, quizzes and live lessons.
 import { useEffect, useState, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";

@@ -1,3 +1,5 @@
+// App root: theme + query + auth providers, every route (student, admin, topic pages),
+// and query-string-preserving redirects from merged legacy routes.
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,7 +17,7 @@ import Lessons from "./pages/Lessons";
 import Notes from "./pages/Notes";
 import LessonNotes from "./pages/LessonNotes";
 import Quizzes from "./pages/Quizzes";
-import HomeworkPage from "./pages/Homework";
+import HomeworkPage from "./pages/HomeworkPage";
 import Practice from "./pages/Practice";
 import ProgressPage from "./pages/ProgressPage";
 import Announcements from "./pages/Announcements";

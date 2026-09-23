@@ -1,3 +1,4 @@
+// Client-side lesson export to PDF for offline study.
 import { jsPDF } from "jspdf";
 
 const PAGE_MARGIN = 15;

@@ -1,3 +1,4 @@
+// Light/dark theme switch.
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";

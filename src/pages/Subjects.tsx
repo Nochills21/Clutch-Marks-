@@ -1,3 +1,4 @@
+// Subject/level catalog browser.
 import { SEOHead } from "@/components/SEOHead";
 import { SubjectPicker } from "@/components/SubjectPicker";
 

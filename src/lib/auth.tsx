@@ -1,3 +1,5 @@
+// Auth context: Supabase session, role (admin/student/parent), approval state,
+// and the admin-only student-preview mode. Every gated component consumes this.
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { User, Session } from "@supabase/supabase-js";

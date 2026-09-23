@@ -1,3 +1,4 @@
+// Role router: renders the student/admin/parent dashboard.
 import { useAuth } from "@/lib/auth";
 import { SEOHead } from "@/components/SEOHead";
 import { StudentDashboard } from "@/components/dashboards/StudentDashboard";

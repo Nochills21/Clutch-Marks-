@@ -58,3 +58,4 @@ dist-ssr
 # storage; they are rebuildable via pdftool scripts and too large for git.
 .freebuff/pdftool/out/
 Notes.zip
+.temp/

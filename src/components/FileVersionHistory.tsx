@@ -1,3 +1,4 @@
+// Version history viewer for materials with revert support.
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

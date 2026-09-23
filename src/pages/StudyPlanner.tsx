@@ -1,3 +1,4 @@
+// AI study-plan generation and saved plans.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { Loader2, Sparkles, Save, Trash2, Calendar as CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { SEOHead } from "@/components/SEOHead";

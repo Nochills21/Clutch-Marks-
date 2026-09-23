@@ -1,3 +1,4 @@
+// Audit-trail viewer: filters, archive toggle, CSV export.
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { SupabaseClient } from "@supabase/supabase-js";

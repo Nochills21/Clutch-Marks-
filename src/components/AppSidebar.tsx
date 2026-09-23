@@ -1,3 +1,5 @@
+// Navigation: role-specific link sets (admin/student/parent), bookmarks,
+// student-preview toggle for admins.
 import {
   BookOpen, LayoutDashboard, FileText, ClipboardList, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, Shield, FileCheck,

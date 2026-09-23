@@ -1,3 +1,4 @@
+// Landing hero artwork (theme-aware).
 import heroLight from "@/assets/hero-light.jpg";
 import heroDark from "@/assets/hero-dark.jpg";
 

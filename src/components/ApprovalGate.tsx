@@ -1,3 +1,5 @@
+// Route guard: blocks unauthenticated access; admins/parents bypass.
+// Students are auto-approved now, so this mostly just redirects signed-out users.
 import { Outlet, Navigate, Link } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";

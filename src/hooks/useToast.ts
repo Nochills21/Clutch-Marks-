@@ -1,3 +1,4 @@
+// Toast notification hook (app-wide feedback messages).
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";

@@ -1,3 +1,4 @@
+// Canonical subject/level vocabulary: slugs, display labels, accent colors, icons.
 import {
   Sigma, Atom, Cpu, BookOpen, FlaskConical, Globe, Landmark, Calculator,
   Microscope, PenTool, Languages, Music, Palette, Dna, LineChart, Code,

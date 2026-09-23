@@ -1,3 +1,4 @@
+// Upload safety: MIME/extension allow-list and filename sanitization for admin uploads.
 export const ALLOWED_UPLOAD_MIME_TYPES = [
   "application/pdf",
   "image/png",

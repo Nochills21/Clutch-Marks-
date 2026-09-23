@@ -1,3 +1,4 @@
+// Bell menu: reads the user's notifications (owner alerts land here).
 import { useEffect, useState, useCallback } from "react";
 import { Bell, Check, CheckCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";

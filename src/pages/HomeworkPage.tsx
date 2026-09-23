@@ -1,3 +1,4 @@
+// Student homework: assigned tasks, submissions, grades.
 import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
@@ -6,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ClipboardList, Calendar, Send, Upload, FileIcon, X } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { format } from "date-fns";
 import { validateUploadFile } from "@/lib/fileValidation";
 import { SEOHead } from "@/components/SEOHead";

@@ -1,3 +1,5 @@
+// Opens study-material and past-paper files through the serve-material edge
+// function so every download is signed, watermarked, and audit-logged.
 import { supabase } from "@/integrations/supabase/client";
 
 export type ContentEntityType = "material" | "past_paper";

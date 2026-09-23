@@ -1,3 +1,4 @@
+// Sets document title/meta/canonical/JSON-LD per page.
 import { Helmet } from "react-helmet-async";
 import { SITE_NAME, SITE_URL } from "@/lib/seoRoutes";
 

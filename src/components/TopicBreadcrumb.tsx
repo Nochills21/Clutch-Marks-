@@ -1,3 +1,4 @@
+// Breadcrumb: Home / Subject / Level / Topic on topic pages.
 import { Link } from "react-router-dom";
 
 /** Lightweight breadcrumb for topic-level pages:

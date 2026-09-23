@@ -1,3 +1,4 @@
+// Past-paper archive grouped by year; opens via watermarking proxy.
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FileText, FileCheck, Search, Download } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { SEOHead } from "@/components/SEOHead";
 import { getRouteMeta } from "@/lib/seoRoutes";
 import { openProtectedFile } from "@/lib/contentFiles";

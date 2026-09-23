@@ -1,3 +1,4 @@
+// Device class (phone/tablet/laptop) from viewport width.
 import * as React from "react";
 
 export type DeviceType = "phone" | "tablet" | "laptop";

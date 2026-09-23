@@ -1,3 +1,4 @@
+// Quiz hub: published quizzes per topic.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
@@ -5,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Clock, CheckCircle2, XCircle, Download, Upload, Sparkles, Loader2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { SEOHead } from "@/components/SEOHead";
 import { validateUploadFile } from "@/lib/fileValidation";
 

@@ -1,3 +1,4 @@
+// Route guard: only admin role can render children.
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 

@@ -7,7 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { Settings2, Loader2 } from "lucide-react";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";

@@ -1,3 +1,4 @@
+// All topics with their lessons and notes, filtered by subject picker.
 import { useEffect, useState, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import DOMPurify from "dompurify";

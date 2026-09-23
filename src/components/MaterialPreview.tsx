@@ -1,3 +1,4 @@
+// Inline preview of study-material PDFs (page-range peek).
 import { useEffect, useState } from "react";
 import { getSignedUrl } from "@/lib/contentFiles";
 import { FileText } from "lucide-react";

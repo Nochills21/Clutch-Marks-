@@ -1,3 +1,4 @@
+// Shell: sidebar + topbar + routed content; device-aware layout.
 import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { AppSidebar } from "@/components/AppSidebar";
@@ -8,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { NotificationCenter } from "@/components/NotificationCenter";
-import { useDeviceType } from "@/hooks/use-device";
+import { useDeviceType } from "@/hooks/useDevice";
 
 export function AppLayout() {
   const { user, loading, isApproved, role, signOut } = useAuth();

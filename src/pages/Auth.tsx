@@ -1,3 +1,4 @@
+// Login + signup (student or parent), with password policy and breach check.
 import { useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -7,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
