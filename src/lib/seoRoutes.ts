@@ -120,16 +120,10 @@ export const ROUTE_META: RouteMeta[] = [
       "Study key terms and concepts with spaced-repetition flashcards built for exam recall.",
   },
   {
-    path: "/revision",
-    title: "Revision Materials — Clutch Marks",
+    path: "/practice",
+    title: "Practice — Clutch Marks",
     description:
-      "Access revision notes, summaries and study materials to prepare efficiently for your exams.",
-  },
-  {
-    path: "/smart-revision",
-    title: "Smart Revision — Clutch Marks",
-    description:
-      "AI-powered revision sessions that target your weakest areas for faster, more efficient exam prep.",
+      "Smart revision that targets your weakest topics and lets you review every question you got wrong or bookmarked.",
   },
   {
     path: "/study-planner",
@@ -201,12 +195,6 @@ export const ROUTE_META: RouteMeta[] = [
       "View assigned homework tasks, submit answers and track your submission and grading status.",
   },
   {
-    path: "/progress",
-    title: "Progress — Clutch Marks",
-    description:
-      "Track completed lessons, notes studied and quiz scores per subject and level.",
-  },
-  {
     path: "/calendar",
     title: "Calendar — Clutch Marks",
     description:
@@ -219,10 +207,10 @@ export const ROUTE_META: RouteMeta[] = [
       "Read the latest Clutch Marks announcements about lessons, exams and platform updates.",
   },
   {
-    path: "/heatmap",
-    title: "Topic Heatmap — Clutch Marks",
+    path: "/progress",
+    title: "Progress — Clutch Marks",
     description:
-      "Visualise your strengths and weaknesses across every topic with a colour-coded mastery heatmap.",
+      "Track per-subject aggregates and per-topic mastery in one colour-coded view of your strengths and weaknesses.",
   },
 ];
 

@@ -1,8 +1,8 @@
 import {
   BookOpen, LayoutDashboard, FileText, ClipboardList, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, Shield, FileCheck,
-  Layers, CalendarDays, Library, BookMarked, Archive, Sparkles, Activity, Database,
-  RotateCcw, TrendingUp, Eye, EyeOff, History,
+  Layers, CalendarDays, Library, BookMarked, Archive, Sparkles, Database,
+  Target, Eye, EyeOff, History,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -24,14 +24,10 @@ const studentLinks = [
   { title: "Quizzes", url: "/quizzes", icon: Brain },
   { title: "Homework", url: "/homework", icon: ClipboardList },
   { title: "Flashcards", url: "/flashcards", icon: Layers },
-  { title: "Revision", url: "/revision", icon: FileText },
   { title: "Study Planner", url: "/study-planner", icon: Sparkles },
-  { title: "Smart Revision", url: "/smart-revision", icon: Brain },
+  { title: "Practice", url: "/practice", icon: Target },
   { title: "Topic Questions", url: "/question-bank", icon: Database },
-  { title: "Review Mode", url: "/review", icon: RotateCcw },
   { title: "Progress", url: "/progress", icon: BarChart3 },
-  { title: "Subject Progress", url: "/subject-progress", icon: TrendingUp },
-  { title: "Topic Heatmap", url: "/heatmap", icon: Activity },
 
   { title: "Calendar", url: "/calendar", icon: CalendarDays },
   { title: "Past Papers", url: "/past-papers", icon: Archive },

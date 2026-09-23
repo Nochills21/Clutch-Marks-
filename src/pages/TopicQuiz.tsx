@@ -275,11 +275,11 @@ const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>(
         </div>
         <div className="flex gap-2">
           <Button asChild variant="outline" size="sm" className="gap-2">
-            <Link to={`/review?level=${subjectLevel.id}&topic=${topicId}`}>Review mode <ArrowRight className="h-3.5 w-3.5" /></Link>
+            <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
           </Button>
           {bookmarkedQuestions.length > 0 && (
             <Button asChild variant="outline" size="sm" className="gap-2">
-              <Link to={`/review?level=${subjectLevel.id}&mode=bookmarked`}>
+              <Link to={`/practice?level=${subjectLevel.id}&mode=bookmarked`}>
                 <Bookmark className="h-3.5 w-3.5" /> Bookmarked ({bookmarkedQuestions.length})
               </Link>
             </Button>

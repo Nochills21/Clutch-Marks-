@@ -135,7 +135,7 @@ export function StudentDashboard() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">Progress by subject &amp; level</h2>
-          <Link to="/subject-progress" className="text-xs text-primary hover:underline">View details</Link>
+          <Link to="/progress" className="text-xs text-primary hover:underline">View details</Link>
         </div>
         {subjectLoading ? (
           <div className="grid gap-3 sm:grid-cols-2">{[0, 1].map((i) => <Skeleton key={i} className="h-32 rounded-xl" />)}</div>

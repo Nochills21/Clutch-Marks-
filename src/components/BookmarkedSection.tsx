@@ -49,7 +49,7 @@ export function BookmarkedSection() {
             <SidebarMenu className="space-y-0.5">
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  onClick={() => navigate("/review?mode=bookmarked")}
+                  onClick={() => navigate("/practice?mode=bookmarked")}
                   className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                 >
                   <HelpCircle className="h-[18px] w-[18px] shrink-0" />

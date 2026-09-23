@@ -225,7 +225,7 @@ export default function Subject() {
         </div>
         <div className="flex gap-2">
           <Button asChild variant="outline" size="sm" className="gap-2">
-            <Link to={`/review?level=${subjectLevel.id}&mode=incorrect`}>Review mode</Link>
+            <Link to={`/practice?level=${subjectLevel.id}&mode=incorrect`}>Practise mistakes</Link>
           </Button>
           <Button asChild variant="outline" size="sm" className="gap-2">
             <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> All subjects</Link>
@@ -404,7 +404,7 @@ export default function Subject() {
             </CardHeader>
             <CardContent className="flex flex-wrap gap-3">
               <Button asChild className="gap-2"><Link to="/question-bank">Open question bank <ArrowRight className="h-4 w-4" /></Link></Button>
-              <Button asChild variant="outline" className="gap-2"><Link to={`/review?level=${subjectLevel.id}&mode=bookmarked`}>Bookmarked questions</Link></Button>
+              <Button asChild variant="outline" className="gap-2"><Link to={`/practice?level=${subjectLevel.id}&mode=bookmarked`}>Bookmarked questions</Link></Button>
             </CardContent>
           </Card>
           {aiQuestions.length === 0 ? empty("AI questions") : aiQuestions.map(questionCard)}

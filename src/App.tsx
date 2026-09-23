@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/lib/auth";
 import { AppLayout } from "@/components/AppLayout";
@@ -16,7 +16,7 @@ import Notes from "./pages/Notes";
 import LessonNotes from "./pages/LessonNotes";
 import Quizzes from "./pages/Quizzes";
 import HomeworkPage from "./pages/Homework";
-import Revision from "./pages/Revision";
+import Practice from "./pages/Practice";
 import ProgressPage from "./pages/ProgressPage";
 import Announcements from "./pages/Announcements";
 
@@ -37,11 +37,7 @@ import PastPapers from "./pages/PastPapers";
 import AdminPastPapers from "./pages/admin/AdminPastPapers";
 import AdminAuditLog from "./pages/admin/AdminAuditLog";
 import StudyPlanner from "./pages/StudyPlanner";
-import TopicHeatmap from "./pages/TopicHeatmap";
-import SmartRevision from "./pages/SmartRevision";
 import QuestionBank from "./pages/QuestionBank";
-import ReviewMode from "./pages/ReviewMode";
-import SubjectProgress from "./pages/SubjectProgress";
 import Subjects from "./pages/Subjects";
 import Subject from "./pages/Subject";
 import TopicNotes from "./pages/TopicNotes";
@@ -52,6 +48,12 @@ import AdminSubjects from "./pages/admin/AdminSubjects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+// Redirect that preserves the query string (e.g. /review?level=…&mode=… → /practice?…).
+function RedirectPreservingQuery({ to }: { to: string }) {
+  const location = useLocation();
+  return <Navigate to={{ pathname: to, search: location.search }} replace />;
+}
 
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
@@ -73,17 +75,18 @@ const App = () => (
                   <Route path="/quizzes" element={<Quizzes />} />
                   <Route path="/homework" element={<HomeworkPage />} />
                   <Route path="/flashcards" element={<Flashcards />} />
-                  <Route path="/revision" element={<Revision />} />
+                  <Route path="/practice" element={<Practice />} />
                   <Route path="/progress" element={<ProgressPage />} />
                   <Route path="/calendar" element={<CalendarPage />} />
                   <Route path="/announcements" element={<Announcements />} />
                   <Route path="/past-papers" element={<PastPapers />} />
                   <Route path="/study-planner" element={<StudyPlanner />} />
-                  <Route path="/heatmap" element={<TopicHeatmap />} />
-                  <Route path="/smart-revision" element={<SmartRevision />} />
+                  <Route path="/heatmap" element={<RedirectPreservingQuery to="/progress" />} />
+                  <Route path="/smart-revision" element={<RedirectPreservingQuery to="/practice" />} />
                   <Route path="/question-bank" element={<QuestionBank />} />
-                  <Route path="/review" element={<ReviewMode />} />
-                  <Route path="/subject-progress" element={<SubjectProgress />} />
+                  <Route path="/review" element={<RedirectPreservingQuery to="/practice" />} />
+                  <Route path="/subject-progress" element={<RedirectPreservingQuery to="/progress" />} />
+                  <Route path="/revision" element={<Navigate to="/notes" replace />} />
                   <Route path="/subjects" element={<Subjects />} />
                   <Route path="/study/:slug/:level" element={<Subject />} />
                   <Route path="/study/:slug/:level/:topic/notes" element={<TopicNotes />} />
