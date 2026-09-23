@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-09-22T10:57:12.964Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-09-23T09:37:12.805Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -286,6 +286,12 @@ create table if not exists public."quizzes" (
   "correction_file_url" text,
   constraint "quizzes_pkey" PRIMARY KEY (id)
 );
+create table if not exists public."student_subject_prefs" (
+  "user_id" uuid not null,
+  "subject_level_id" uuid not null,
+  "created_at" timestamp with time zone default now() not null,
+  constraint "student_subject_prefs_pkey" PRIMARY KEY (user_id, subject_level_id)
+);
 create table if not exists public."study_materials" (
   "id" uuid default gen_random_uuid() not null,
   "topic_id" uuid,
@@ -394,6 +400,7 @@ create index if not exists idx_practice_attempts_user ON public.practice_attempt
 create UNIQUE index if not exists profiles_email_unique_idx ON public.profiles USING btree (lower(email)) WHERE (email IS NOT NULL);
 create UNIQUE index if not exists profiles_username_unique_idx ON public.profiles USING btree (lower(username)) WHERE (username IS NOT NULL);
 create index if not exists idx_question_bookmarks_user ON public.question_bookmarks USING btree (user_id);
+create index if not exists idx_student_subject_prefs_user ON public.student_subject_prefs USING btree (user_id);
 create index if not exists topics_subject_level_id_idx ON public.topics USING btree (subject_level_id);
 
 -- ============ foreign keys ============
@@ -443,6 +450,10 @@ alter table public."quiz_attempts" drop constraint if exists "quiz_attempts_user
 alter table public."quiz_attempts" add constraint "quiz_attempts_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."quizzes" drop constraint if exists "quizzes_topic_id_fkey";
 alter table public."quizzes" add constraint "quizzes_topic_id_fkey" FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE;
+alter table public."student_subject_prefs" drop constraint if exists "student_subject_prefs_subject_level_id_fkey";
+alter table public."student_subject_prefs" add constraint "student_subject_prefs_subject_level_id_fkey" FOREIGN KEY (subject_level_id) REFERENCES subject_levels(id) ON DELETE CASCADE;
+alter table public."student_subject_prefs" drop constraint if exists "student_subject_prefs_user_id_fkey";
+alter table public."student_subject_prefs" add constraint "student_subject_prefs_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."study_materials" drop constraint if exists "study_materials_topic_id_fkey";
 alter table public."study_materials" add constraint "study_materials_topic_id_fkey" FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE;
 alter table public."subject_levels" drop constraint if exists "subject_levels_subject_id_fkey";
@@ -963,6 +974,33 @@ BEGIN
 END;
 $function$;
 
+CREATE OR REPLACE FUNCTION public.notify_admins_of_sensitive_event(p_action text, p_entity text, p_label text, p_actor text)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+begin
+  insert into public.notifications (user_id, title, message)
+  select r.user_id,
+    case when p_action = 'delete'
+      then 'Content deleted: ' || p_entity
+      else 'Account change: ' || p_entity end,
+    coalesce(p_actor, 'someone') || ' ' ||
+      case p_action
+        when 'delete' then 'deleted '
+        when 'create' then 'created '
+        when 'update' then 'modified '
+        when 'approve' then 'changed '
+        else p_action || 'd '
+      end ||
+      coalesce(p_label, 'a ' || p_entity) ||
+      '. Review the Audit Log for details.'
+  from public.user_roles r
+  where r.role = 'admin';
+end;
+$function$;
+
 CREATE OR REPLACE FUNCTION public.protect_profile_identity_fields()
  RETURNS trigger
  LANGUAGE plpgsql
@@ -1214,6 +1252,13 @@ begin
     coalesce(v_new_label, v_old_label),
     v_diff
   );
+
+  -- Owner alerts: content deletions and user_roles changes.
+  if v_action = 'delete' or tg_table_name = 'user_roles' then
+    perform public.notify_admins_of_sensitive_event(
+      v_action, tg_table_name, coalesce(v_new_label, v_old_label), v_username);
+  end if;
+
   return null;
 end;
 $function$;
@@ -1294,6 +1339,7 @@ alter table public."bookmarks" enable row level security;
 alter table public."quizzes" enable row level security;
 alter table public."study_materials" enable row level security;
 alter table public."profiles" enable row level security;
+alter table public."student_subject_prefs" enable row level security;
 alter table public."user_roles" enable row level security;
 alter table public."questions" enable row level security;
 alter table public."lessons" enable row level security;
@@ -1443,6 +1489,10 @@ drop policy if exists "Admins can manage quizzes" on public."quizzes";
 create policy "Admins can manage quizzes" on public."quizzes" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Anyone authenticated can view published quizzes" on public."quizzes";
 create policy "Anyone authenticated can view published quizzes" on public."quizzes" for select to "authenticated" using (((is_published = true) OR has_role(auth.uid(), 'admin'::app_role)));
+drop policy if exists "Read own subject prefs" on public."student_subject_prefs";
+create policy "Read own subject prefs" on public."student_subject_prefs" for select using ((auth.uid() = user_id));
+drop policy if exists "Write own subject prefs" on public."student_subject_prefs";
+create policy "Write own subject prefs" on public."student_subject_prefs" for all using ((auth.uid() = user_id)) with check ((auth.uid() = user_id));
 drop policy if exists "Admins can manage materials" on public."study_materials";
 create policy "Admins can manage materials" on public."study_materials" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Authenticated can view text materials" on public."study_materials";
@@ -1553,6 +1603,9 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."q
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quizzes" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quizzes" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quizzes" to service_role;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_subject_prefs" to anon;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_subject_prefs" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_subject_prefs" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_materials" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_materials" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_materials" to service_role;
