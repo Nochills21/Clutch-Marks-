@@ -4,7 +4,7 @@ import {
   BookOpen, LayoutDashboard, FileText, ClipboardList, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, Shield, FileCheck,
   Layers, CalendarDays, Library, BookMarked, Archive, Sparkles, Database,
-  Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart,
+  Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -29,6 +29,7 @@ const studentLinks = [
   { title: "Practice", url: "/practice", icon: Target },
   { title: "Topic Questions", url: "/question-bank", icon: Database },
   { title: "Progress", url: "/progress", icon: BarChart3 },
+  { title: "Leaderboard", url: "/leaderboard", icon: Trophy },
 
   { title: "Calendar", url: "/calendar", icon: CalendarDays },
   { title: "Past Papers", url: "/past-papers", icon: Archive },

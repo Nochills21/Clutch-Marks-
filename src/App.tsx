@@ -19,6 +19,7 @@ import LessonNotes from "./pages/LessonNotes";
 import Quizzes from "./pages/Quizzes";
 import Practice from "./pages/Practice";
 import FeedbackPage from "./pages/FeedbackPage";
+import Leaderboard from "./pages/Leaderboard";
 import ResetPassword from "./pages/ResetPassword";
 import ProgressPage from "./pages/ProgressPage";
 import Announcements from "./pages/Announcements";
@@ -80,6 +81,7 @@ const App = () => (
                   <Route path="/flashcards" element={<Flashcards />} />
                   <Route path="/practice" element={<Practice />} />
                   <Route path="/feedback" element={<FeedbackPage />} />
+                  <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="/reset-password" element={<ResetPassword />} />
                   <Route path="/progress" element={<ProgressPage />} />
                   <Route path="/calendar" element={<CalendarPage />} />

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
+import { XpStreakCard } from "@/components/XpStreakCard";
 import { Progress } from "@/components/ui/progress";
 import { BookOpen, Brain, ClipboardList, Megaphone, TrendingUp, Target, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -99,6 +100,9 @@ export function StudentDashboard() {
           </div>
         </div>
       </div>
+
+      {/* Streak + XP */}
+      <XpStreakCard />
 
       {/* Stats */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

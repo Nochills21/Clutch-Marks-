@@ -1201,7 +1201,15 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      leaderboard_public: {
+        Row: {
+          user_id: string
+          display_name: string
+          xp_all_time: number
+          xp_30d: number
+        }
+        Relationships: []
+      }
     }
     Functions: {
       browse_questions: {
@@ -1322,6 +1330,10 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      my_xp_summary: {
+        Args: Record<string, never>
+        Returns: Json
       }
       is_linked_parent: {
         Args: { _parent_auth_id: string; _student_auth_id: string }
