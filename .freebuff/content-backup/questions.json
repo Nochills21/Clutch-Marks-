@@ -2906,7 +2906,7 @@
    "n + 3"
   ],
   "correct_option": 0,
-  "explanation": "These are perfect squares: 1², 2², 3², 4². nth term = n².",
+  "explanation": "These are perfect squares: 1��, 2², 3², 4². nth term = n².",
   "sort_order": 9,
   "created_at": "2026-08-22 14:07:19.738463+00",
   "difficulty": "medium"

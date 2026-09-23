@@ -13,6 +13,8 @@ import { SEOHead } from "@/components/SEOHead";
 import { openSignedFile } from "@/lib/contentFiles";
 import { topicNotesPath, slugifyTopicName } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectPicker } from "@/components/SubjectPicker";
 
 export default function Lessons() {
   const { user } = useAuth();
@@ -25,6 +27,7 @@ export default function Lessons() {
   const [notes, setNotes] = useState<any[]>([]);
   const [topicPaths, setTopicPaths] = useState<Record<string, string | undefined>>({});
   const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, slugifyTopicName(t.name)])), [topics]);
+  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
 
   useEffect(() => {
     const load = async () => {
@@ -67,6 +70,11 @@ export default function Lessons() {
     }
     setProgress((p) => ({ ...p, [lessonId]: !isCompleted }));
   };
+
+  const visibleTopics = useMemo(() => {
+    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return topics;
+    return topics.filter((t: any) => pickedIds.has((t as any).subject_level_id));
+  }, [topics, pickedIds, prefsLoaded, isAdmin]);
 
   if (selectedLesson) {
     return (
@@ -116,12 +124,15 @@ export default function Lessons() {
   return (
     <div className="space-y-6">
       <SEOHead title="Lessons — Clutch Marks" description="Browse structured lessons covering the full syllabus with video and text content." path="/lessons" />
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight">Lessons</h1>
-        <p className="text-muted-foreground">Structured lessons and notes by topic</p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Lessons</h1>
+          <p className="text-muted-foreground">Structured lessons and notes by topic</p>
+        </div>
+        <SubjectPicker />
       </div>
 
-      {topics.length === 0 ? (
+      {visibleTopics.length === 0 ? (
         <Card>
           <CardContent className="flex flex-col items-center py-12">
             <BookOpen className="h-12 w-12 text-muted-foreground/50 mb-4" />
@@ -130,7 +141,7 @@ export default function Lessons() {
         </Card>
       ) : (
         <Accordion type="multiple" className="space-y-3">
-          {topics.map((topic) => {
+          {visibleTopics.map((topic) => {
             const topicLessons = lessons.filter((l) => l.topic_id === topic.id);
             const completedCount = topicLessons.filter((l) => progress[l.id]).length;
             return (

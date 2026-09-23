@@ -52,7 +52,28 @@ Deno.serve(async (req) => {
     const hoursPerWeek = Number.isFinite(body.hoursPerWeek) ? Math.min(80, Math.max(1, Number(body.hoursPerWeek))) : 5;
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY not configured");
+    if (!LOVABLE_API_KEY) {
+      // Graceful fallback: build a deterministic week-by-week plan from the same
+      // inputs instead of failing, so the planner stays useful without the AI key.
+      const weeks = Math.max(2, Math.min(12, Math.ceil(28 / Math.max(1, hoursPerWeek))));
+      const focus = weakTopics
+        ? weakTopics.split(/[;\n]/).map(s => s.trim()).filter(Boolean).slice(0, 5)
+        : ["a balanced review of all your subjects"];
+      const lines: string[] = [
+        `# Your ${weeks}-week study plan`,
+        ``,
+        `Target: ${targetExamDate || "no exam date set"} · ${hoursPerWeek} h/week. Generated offline (AI planner not configured) — still personalised to your quiz results.`,
+        ``,
+      ];
+      for (let w = 1; w <= weeks; w++) {
+        const topic = focus[(w - 1) % focus.length];
+        lines.push(`## Week ${w}`, `- Focus topic: ${topic}`, `- 2 lessons + 1 quiz on the focus topic`, `- 1 set of flashcards on the topics you missed last week`, `- 1 past-paper section under timed conditions`, ``);
+      }
+      lines.push(`## Tips`, `- Do quizzes before reading notes — the misses tell you what to study.`, `- Review last week's incorrect questions every Monday.`, `- Keep sessions under 45 minutes and log them in the planner.`);
+      return new Response(JSON.stringify({ plan: lines.join("\n") }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     const systemPrompt = `You are an expert IGCSE Business Studies tutor and study planner.
 Generate a personalized, week-by-week revision schedule for a student based on their performance, upcoming deadlines, and available study time.

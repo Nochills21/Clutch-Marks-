@@ -12,6 +12,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectPicker } from "@/components/SubjectPicker";
 import { cn } from "@/lib/utils";
 import {
   Sparkles, Brain, CheckCircle2, XCircle, RotateCcw, Layers, Search,
@@ -45,6 +47,7 @@ interface LevelOption { id: string; label: string }
 
 export default function Practice() {
   const { user } = useAuth();
+  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
   const [params, setParams] = useSearchParams();
   const mode = params.get("mode") ?? "incorrect";
   const levelId = params.get("level") ?? "all";
@@ -76,16 +79,22 @@ export default function Practice() {
   const [active, setActive] = useState<ReviewQuestion | null>(null);
   const [selected, setSelected] = useState<number | null>(null);
   const [reveal, setReveal] = useState<{ correct_option: number; explanation: string | null; correct: boolean } | null>(null);
+  const [topicSL, setTopicSL] = useState<Map<string, string>>(new Map()); // topic_id -> subject_level_id
+  const pickedSlByTopic = useMemo(
+    () => new Map([...topicSL.entries()].filter(([, sl]) => pickedIds.has(sl))),
+    [topicSL, pickedIds],
+  );
 
   useEffect(() => {
     if (!user) return;
     (async () => {
       const [topicsRes, quizzesRes, attemptsRes] = await Promise.all([
-        supabase.from("topics").select("id, name").order("sort_order"),
+        supabase.from("topics").select("id, name, subject_level_id").order("sort_order"),
         supabase.from("quizzes").select("id, topic_id").eq("is_published", true),
         supabase.from("quiz_attempts").select("quiz_id, score, total_questions").eq("user_id", user.id).not("completed_at", "is", null),
       ]);
       const topics = topicsRes.data ?? [];
+      setTopicSL(new Map(topics.map((t: any) => [t.id, t.subject_level_id])));
       const quizTopic = new Map((quizzesRes.data ?? []).map((q: any) => [q.id, q.topic_id]));
       const tally: Record<string, { sum: number; n: number }> = {};
       (attemptsRes.data ?? []).forEach((a: any) => {
@@ -263,15 +272,28 @@ export default function Practice() {
     );
   }
 
+  const visibleLevelOptions = useMemo(() => {
+    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return levelOptions;
+    return levelOptions.filter((l) => pickedIds.has(l.id));
+  }, [levelOptions, pickedIds, prefsLoaded, isAdmin]);
+
+  const visibleWeakTopics = useMemo(() => {
+    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return weakTopics;
+    return weakTopics.filter((t) => pickedSlByTopic.get(t.id));
+  }, [weakTopics, pickedIds, prefsLoaded, isAdmin, pickedSlByTopic]);
+
   // ---------- Render: hub ----------
   return (
     <div className="space-y-6">
       <SEOHead title="Practice — Clutch Marks" description="Targeted practice on your weakest topics and the questions you missed." path="/practice" />
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-          <Target className="h-6 w-6 text-primary" /> Practice
-        </h1>
-        <p className="text-muted-foreground">Drills on your weakest topics, plus every question you got wrong or saved.</p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
+            <Target className="h-6 w-6 text-primary" /> Practice
+          </h1>
+          <p className="text-muted-foreground">Drills on your weakest topics, plus every question you got wrong or saved.</p>
+        </div>
+        <SubjectPicker />
       </div>
 
       {/* Weak-topic drills */}
@@ -283,7 +305,7 @@ export default function Practice() {
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {weakTopics.slice(0, 6).map((t, i) => (
+            {visibleWeakTopics.slice(0, 6).map((t, i) => (
               <Card key={t.id} className={cn("transition-all hover:border-primary/40", i === 0 && "neon-border")}>
                 <CardContent className="p-4 flex items-center justify-between gap-3">
                   <div className="min-w-0">
@@ -299,7 +321,7 @@ export default function Practice() {
                 </CardContent>
               </Card>
             ))}
-            {weakTopics.length === 0 && (
+            {visibleWeakTopics.length === 0 && (
               <Card className="sm:col-span-2 lg:col-span-3"><CardContent className="py-6 text-center text-sm text-muted-foreground">
                 <Layers className="h-8 w-8 mx-auto mb-2 opacity-40" />
                 Complete a quiz first so we can spot weak areas.
@@ -327,7 +349,7 @@ export default function Practice() {
               <SelectTrigger className="w-[230px]"><SelectValue placeholder="Subject & level" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All subjects & levels</SelectItem>
-                {levelOptions.map((l) => <SelectItem key={l.id} value={l.id}>{l.label}</SelectItem>)}
+                {visibleLevelOptions.map((l) => <SelectItem key={l.id} value={l.id}>{l.label}</SelectItem>)}
               </SelectContent>
             </Select>
             <Select value={difficulty} onValueChange={setDifficulty}>

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,24 @@ import { ChevronLeft, ChevronRight, Download, Search } from "lucide-react";
 import { format } from "date-fns";
 
 const PAGE_SIZE = 50;
+
+// One owner for the audit filters: both the live table and the CSV export build
+// their query through this, so adding a filter never silently diverges the two.
+function buildAuditQuery(
+  supabaseClient: SupabaseClient,
+  table: "admin_audit_log" | "admin_audit_log_archive",
+  select: string,
+  { entityFilter, search, from, to }: { entityFilter: string; search: string; from?: number; to?: number }
+) {
+  let q = supabaseClient
+    .from(table)
+    .select(select, from !== undefined ? { count: "exact" } : undefined)
+    .order("created_at", { ascending: false });
+  if (from !== undefined && to !== undefined) q = q.range(from, to);
+  if (entityFilter !== "all") q = q.eq("entity", entityFilter);
+  if (search.trim()) q = q.ilike("entity_label", `%${search.trim()}%`);
+  return q;
+}
 
 const ACTION_STYLES: Record<string, string> = {
   create: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400",
@@ -50,21 +69,19 @@ export default function AdminAuditLog() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [entityFilter, setEntityFilter] = useState<string>("all");
+  const [inArchive, setInArchive] = useState(false);
 
-  useEffect(() => { setPage(0); }, [search, entityFilter]);
+  useEffect(() => { setPage(0); }, [search, entityFilter, inArchive]);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     (async () => {
-      let query = supabase
-        .from("admin_audit_log")
-        .select("*", { count: "exact" })
-        .order("created_at", { ascending: false })
-        .range(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE - 1);
-      if (entityFilter !== "all") query = query.eq("entity", entityFilter);
-      if (search.trim()) query = query.ilike("entity_label", `%${search.trim()}%`);
-      const { data, count: total, error } = await query;
+      const table = inArchive ? "admin_audit_log_archive" : "admin_audit_log";
+      const { data, count: total, error } = await buildAuditQuery(
+        supabase, table, "*",
+        { entityFilter, search, from: page * PAGE_SIZE, to: page * PAGE_SIZE + PAGE_SIZE - 1 }
+      );
       if (!cancelled) {
         if (error) console.error(error);
         setLogs(data ?? []);
@@ -73,7 +90,7 @@ export default function AdminAuditLog() {
       }
     })();
     return () => { cancelled = true; };
-  }, [page, search, entityFilter]);
+  }, [page, search, entityFilter, inArchive]);
 
   // Export: streams ALL rows matching the current filters (not just this page)
   // through Supabase pagination, then downloads as CSV.
@@ -87,16 +104,14 @@ export default function AdminAuditLog() {
       const BATCH = 1000;
       const rows: Array<Record<string, unknown>> = [];
       for (let from = 0; ; from += BATCH) {
-        let q = supabase
-          .from("admin_audit_log")
-          .select("created_at, actor_username, action, entity, entity_label, details")
-          .order("created_at", { ascending: false })
-          .range(from, from + BATCH - 1);
-        if (entityFilter !== "all") q = q.eq("entity", entityFilter);
-        if (search.trim()) q = q.ilike("entity_label", `%${search.trim()}%`);
-        const { data, error } = await q;
-        if (error) throw error;
-        rows.push(...(data ?? []));
+        const { data, error } = await buildAuditQuery(
+          supabase,
+          inArchive ? "admin_audit_log_archive" : "admin_audit_log",
+          "created_at, actor_username, action, entity, entity_label, details",
+          { entityFilter, search, from, to: from + BATCH - 1 }
+        );
+        if (error) throw new Error(String(error));
+        rows.push(...((data ?? []) as unknown as Array<Record<string, unknown>>));
         if (!data || data.length < BATCH) break;
       }
 
@@ -122,7 +137,7 @@ export default function AdminAuditLog() {
       const a = document.createElement("a");
       a.href = url;
       const filterTag = entityFilter !== "all" ? `-${entityFilter}` : "";
-      a.download = `audit-log${filterTag}-${format(new Date(), "yyyy-MM-dd")}.csv`;
+      a.download = `audit-log${inArchive ? "-archive" : ""}${filterTag}-${format(new Date(), "yyyy-MM-dd")}.csv`;
       a.click();
       URL.revokeObjectURL(url);
     } catch (e) {
@@ -179,6 +194,14 @@ export default function AdminAuditLog() {
             <Download className="h-4 w-4" />
             {exporting ? "Exporting…" : "Export CSV"}
           </Button>
+          <Label className="text-xs text-muted-foreground">View</Label>
+          <Select value={inArchive ? "archive" : "live"} onValueChange={(v) => setInArchive(v === "archive")}>
+            <SelectTrigger className="w-36"><SelectValue /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="live">Active log</SelectItem>
+              <SelectItem value="archive">Archive (&gt;12mo)</SelectItem>
+            </SelectContent>
+          </Select>
           <Label className="text-xs text-muted-foreground">Type</Label>
           <Select value={entityFilter} onValueChange={setEntityFilter}>
             <SelectTrigger className="w-44"><SelectValue /></SelectTrigger>

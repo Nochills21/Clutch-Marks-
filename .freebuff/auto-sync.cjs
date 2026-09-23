@@ -79,14 +79,30 @@ function sh(cmd, opts = {}) {
 }
 
 function main() {
-  // Secret scan on the staged diff AFTER staging (below) — scan happens pre-push.
+  // Stage ONLY the sync's own paths + durable source files — never `git add -A`,
+  // which would sweep unrelated work-in-progress into an automated commit.
+  const SYNC_PATHS = [
+    ".freebuff/content-backup/",
+    ".freebuff/auto-sync.cjs",
+    "src/",
+    "supabase/",
+    "public/",
+    "index.html",
+    "package.json",
+    "bun.lock",
+    "tsconfig.json",
+    "tsconfig.app.json",
+    "vite.config.ts",
+    ".gitignore",
+    "README.md",
+    "AGENTS.md",
+  ];
+  sh(`git add -- ${SYNC_PATHS.map(p => JSON.stringify(p)).join(" ")}`);
   const status = sh("git status --porcelain");
-  if (!status.trim()) {
-    log("nothing to do — tree clean");
+  if (!sh("git diff --cached --name-only").trim()) {
+    log(`nothing staged for sync (unstaged non-sync files: ${status.trim() ? "yes" : "no"})`);
     return;
   }
-
-  sh("git add -A");
   // Head+tail scan is enough for credential detection and avoids buffering
   // multi-MB diffs on routine content backups.
   const staged = sh("git diff --cached --stat") + sh("git diff --cached | head -c 2000000");

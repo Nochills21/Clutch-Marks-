@@ -1071,6 +1071,24 @@ export type Database = {
         }
         Relationships: []
       }
+      student_subject_prefs: {
+        Row: {
+          user_id: string
+          subject_level_id: string
+          created_at: string
+        }
+        Insert: {
+          user_id: string
+          subject_level_id: string
+          created_at?: string
+        }
+        Update: {
+          user_id?: string
+          subject_level_id?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
       weekly_reports: {
         Row: {
           file_name: string
