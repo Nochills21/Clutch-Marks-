@@ -2,6 +2,7 @@
 // Students log in with their email; optional parent email at signup auto-links
 // the child to that parent account (instant if it exists, queued if not).
 // Admins may additionally sign in with a username (resolved server-side).
+// Includes a forgot-password flow (reset link via email).
 import { useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -16,6 +17,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
 import { GraduationCap, ArrowLeft, Sparkles } from "lucide-react";
+import { ForgotPasswordDialog } from "@/components/ForgotPasswordDialog";
 
 export default function Auth() {
   const [loading, setLoading] = useState(false);
@@ -211,6 +213,9 @@ export default function Auth() {
                   <Button type="submit" className="w-full h-11 bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] hover:opacity-90 transition-opacity shadow-md glow-shadow font-semibold text-sm text-primary-foreground" disabled={loading}>
                     {loading ? "Signing in…" : "Sign In"}
                   </Button>
+                  <p className="text-center text-xs">
+                    <ForgotPasswordDialog />
+                  </p>
                 </CardContent>
               </form>
             </TabsContent>
