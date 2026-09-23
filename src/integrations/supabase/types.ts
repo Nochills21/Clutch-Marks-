@@ -104,6 +104,53 @@ export type Database = {
           },
         ]
       }
+      content_feedback: {
+        Row: {
+          id: string
+          user_id: string
+          tool: string
+          tool_label: string
+          rating: string | null
+          message: string
+          status: string
+          created_at: string
+          resolved_at: string | null
+          resolved_by: string | null
+        }
+        Insert: {
+          id?: string
+          user_id?: string
+          tool: string
+          tool_label?: string
+          rating?: string | null
+          message: string
+          status?: string
+          created_at?: string
+          resolved_at?: string | null
+          resolved_by?: string | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          tool?: string
+          tool_label?: string
+          rating?: string | null
+          message?: string
+          status?: string
+          created_at?: string
+          resolved_at?: string | null
+          resolved_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_feedback_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       content_revisions: {
         Row: {
           id: string

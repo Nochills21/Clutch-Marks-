@@ -12,6 +12,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { TopicBreadcrumb } from "@/components/TopicBreadcrumb";
 import { useToast } from "@/hooks/useToast";
 import { BookmarkButton } from "@/components/BookmarkButton";
+import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVELS, LEVEL_LABELS, subjectIcon, subjectAccent, type SubjectLevelCode } from "@/lib/subjects";
 import {
   topicNotesPath,
@@ -324,14 +325,17 @@ const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>(
               </Button>
             )}
             {submitted && questions.length > 0 && (
-              <div className="flex items-center gap-3">
-                <div className="text-center">
-                  <p className="text-3xl font-bold neon-text">{score?.correct ?? 0}</p>
-                  <p className="text-sm text-muted-foreground">{score?.total ?? 0} questions</p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="text-center">
+                    <p className="text-3xl font-bold neon-text">{score?.correct ?? 0}</p>
+                    <p className="text-sm text-muted-foreground">{score?.total ?? 0} questions</p>
+                  </div>
+                  <Button variant="outline" className="gap-2" onClick={reset}>
+                    <ArrowRight className="h-4 w-4" /> Try again
+                  </Button>
                 </div>
-                <Button variant="outline" className="gap-2" onClick={reset}>
-                  <ArrowRight className="h-4 w-4" /> Try again
-                </Button>
+                <FeedbackNudge tool="quiz" toolLabel={`${topicLabel} quiz`} />
               </div>
             )}
           </div>

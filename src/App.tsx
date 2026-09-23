@@ -18,6 +18,7 @@ import Notes from "./pages/Notes";
 import LessonNotes from "./pages/LessonNotes";
 import Quizzes from "./pages/Quizzes";
 import Practice from "./pages/Practice";
+import FeedbackPage from "./pages/FeedbackPage";
 import ProgressPage from "./pages/ProgressPage";
 import Announcements from "./pages/Announcements";
 
@@ -40,6 +41,7 @@ import StudyPlanner from "./pages/StudyPlanner";
 import Subjects from "./pages/Subjects";
 import Pricing from "./pages/Pricing";
 import AdminPayments from "./pages/admin/AdminPayments";
+import AdminFeedback from "./pages/admin/AdminFeedback";
 import Subject from "./pages/Subject";
 import TopicNotes from "./pages/TopicNotes";
 import TopicQuiz from "./pages/TopicQuiz";
@@ -76,6 +78,7 @@ const App = () => (
                   <Route path="/quizzes" element={<Quizzes />} />
                   <Route path="/flashcards" element={<Flashcards />} />
                   <Route path="/practice" element={<Practice />} />
+                  <Route path="/feedback" element={<FeedbackPage />} />
                   <Route path="/progress" element={<ProgressPage />} />
                   <Route path="/calendar" element={<CalendarPage />} />
                   <Route path="/announcements" element={<Announcements />} />
@@ -115,6 +118,7 @@ const App = () => (
                   <Route path="/admin/past-papers" element={<AdminPastPapers />} />
                   <Route path="/admin/audit-log" element={<AdminAuditLog />} />
                   <Route path="/admin/payments" element={<AdminPayments />} />
+                  <Route path="/admin/feedback" element={<AdminFeedback />} />
                 </Route>
               </Route>
               <Route path="*" element={<NotFound />} />

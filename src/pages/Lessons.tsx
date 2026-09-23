@@ -16,6 +16,7 @@ import { topicNotesPath, slugifyTopicName } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { SubjectPicker } from "@/components/SubjectPicker";
 
 export default function Lessons() {
@@ -120,6 +121,11 @@ export default function Lessons() {
                 <Download className="h-4 w-4" /> Save as PDF
               </Button>
             </div>
+            {progress[selectedLesson.id] && (
+              <div className="mt-4">
+                <FeedbackNudge tool="lesson" toolLabel={selectedLesson.title} />
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

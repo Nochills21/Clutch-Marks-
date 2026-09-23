@@ -20,6 +20,7 @@ import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectPicker } from "@/components/SubjectPicker";
 import { SubjectGate } from "@/components/SubjectGate";
+import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { QuestionList, SavedProgressPanel, type Attempt, type TopicSummary } from "@/components/practice/QuestionBankParts";
 import { cn } from "@/lib/utils";
 import {
@@ -386,6 +387,7 @@ export default function Practice() {
         <h2 className="text-2xl font-bold">Session complete</h2>
         <p className="text-4xl font-bold neon-text">{drillCorrect}/{drill.length}</p>
         <p className="text-muted-foreground">{pct}% on {drillTopic}</p>
+        <FeedbackNudge tool="question" toolLabel={`${drillTopic} drill`} />
         <Button onClick={drillReset} className="gap-2"><RotateCcw className="h-4 w-4" /> Try another topic</Button>
       </div>
     );

@@ -11,6 +11,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { openProtectedFile } from "@/lib/contentFiles";
 import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { useNoteProgress, downloadNote, type NoteRow } from "@/pages/Notes";
+import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVEL_LABELS } from "@/lib/subjects";
 import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
@@ -182,6 +183,8 @@ export default function LessonNotes() {
           </Button>
         </div>
       </div>
+
+      {lessonDone && <FeedbackNudge tool="notes" toolLabel={lesson.title} />}
 
       <Card>
         <CardHeader><CardTitle className="text-base flex items-center gap-2"><FileText className="h-4 w-4 text-primary" /> Uploaded notes</CardTitle></CardHeader>
