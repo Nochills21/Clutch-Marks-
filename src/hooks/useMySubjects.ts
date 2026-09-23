@@ -1,19 +1,37 @@
-// Shared student subject-picker state. Returns the set of subject_level ids the
-// student picked. loaded=true + empty set means "actively picked nothing" —
-// callers may then decide to show everything (first-visit) or hide all.
-// Admins always see everything.
+// Shared student subject-picker state. Returns the set of subject_level ids
+// the student picked. Students with nothing picked see nothing in Lessons /
+// Practice — pages show a prompt to pick subjects instead. Admins always see
+// everything and never get the picker.
+//
+// State is module-level (single source of truth) so the picker dialog, the
+// gate, and the filtered pages all observe the same picks.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 
+const EMPTY = new Set<string>();
+let picks: Set<string> = EMPTY; // stable reference; replaced only on change
+const listeners = new Set<() => void>();
+
+function setPicks(next: Set<string>) {
+  if (next === picks) return;
+  picks = next;
+  listeners.forEach((l) => l());
+}
+
+function subscribe(l: () => void) {
+  listeners.add(l);
+  return () => { listeners.delete(l); };
+}
+
 export function useMySubjects() {
   const { user, role } = useAuth();
-  const [pickedIds, setPickedIds] = useState<Set<string>>(new Set());
-  const [loaded, setLoaded] = useState(false);
   const isAdmin = role === "admin";
+  const [loaded, setLoaded] = useState(picks !== EMPTY);
 
   useEffect(() => {
     if (!user || isAdmin) { setLoaded(true); return; }
+    if (picks !== EMPTY) { setLoaded(true); return; }
     let cancelled = false;
     supabase
       .from("student_subject_prefs")
@@ -21,7 +39,7 @@ export function useMySubjects() {
       .eq("user_id", user.id)
       .then(({ data }) => {
         if (!cancelled) {
-          setPickedIds(new Set((data ?? []).map((r: any) => r.subject_level_id)));
+          setPicks(new Set((data ?? []).map((r: any) => r.subject_level_id)));
           setLoaded(true);
         }
       });
@@ -30,14 +48,15 @@ export function useMySubjects() {
 
   const savePicks = async (ids: string[]) => {
     if (!user) return;
-    setPickedIds(new Set(ids));
+    const prev = picks;
+    setPicks(new Set(ids)); // optimistic
     const del = await supabase.from("student_subject_prefs").delete().eq("user_id", user.id);
-    if (del.error) throw del.error;
+    if (del.error) { setPicks(prev); throw del.error; }
     if (ids.length) {
       const ins = await supabase.from("student_subject_prefs").insert(ids.map(id => ({ user_id: user.id, subject_level_id: id })));
-      if (ins.error) throw ins.error;
+      if (ins.error) { setPicks(prev); throw ins.error; }
     }
   };
 
-  return { pickedIds, loaded, isAdmin, savePicks };
+  return { pickedIds: picks, loaded, isAdmin, savePicks };
 }

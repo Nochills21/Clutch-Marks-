@@ -19,6 +19,7 @@ import { BookmarkButton } from "@/components/BookmarkButton";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectPicker } from "@/components/SubjectPicker";
+import { SubjectGate } from "@/components/SubjectGate";
 import { QuestionList, SavedProgressPanel, type Attempt, type TopicSummary } from "@/components/practice/QuestionBankParts";
 import { cn } from "@/lib/utils";
 import {
@@ -307,19 +308,21 @@ export default function Practice() {
   };
 
   const visibleLevelOptions = useMemo(() => {
-    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return levelOptions;
+    if (isAdmin || !prefsLoaded) return levelOptions;
     return levelOptions.filter((l) => pickedIds.has(l.id));
   }, [levelOptions, pickedIds, prefsLoaded, isAdmin]);
 
   const visibleWeakTopics = useMemo(() => {
-    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return weakTopics;
+    if (isAdmin || !prefsLoaded) return weakTopics;
     return weakTopics.filter((t) => pickedSlByTopic.get(t.id));
   }, [weakTopics, pickedIds, prefsLoaded, isAdmin, pickedSlByTopic]);
 
   const visibleBankTopics = useMemo(() => {
-    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return bankTopics;
+    if (isAdmin || !prefsLoaded) return bankTopics;
     return bankTopics.filter((t) => pickedSlByTopic.get(t.id));
   }, [bankTopics, pickedIds, prefsLoaded, isAdmin, pickedSlByTopic]);
+
+  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
 
   // ---------- Render: active drill ----------
   if (drill.length > 0 && !drillDone) {
@@ -449,6 +452,9 @@ export default function Practice() {
         <SubjectPicker />
       </div>
 
+      {needsSubjectPick ? (
+        <SubjectGate />
+      ) : (
       <Tabs value={tab} onValueChange={(v) => setParam("tab", v)}>
         <TabsList>
           <TabsTrigger value="topics" className="gap-1.5"><Database className="h-3.5 w-3.5" /> Topic questions</TabsTrigger>
@@ -671,6 +677,7 @@ export default function Practice() {
           </section>
         </TabsContent>
       </Tabs>
+      )}
     </div>
   );
 }

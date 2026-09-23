@@ -15,6 +15,7 @@ import { openSignedFile } from "@/lib/contentFiles";
 import { topicNotesPath, slugifyTopicName } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectGate } from "@/components/SubjectGate";
 import { SubjectPicker } from "@/components/SubjectPicker";
 
 export default function Lessons() {
@@ -73,9 +74,12 @@ export default function Lessons() {
   };
 
   const visibleTopics = useMemo(() => {
-    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return topics;
+    if (isAdmin || !prefsLoaded) return topics;
+    // Students must pick subjects before Lessons shows anything.
     return topics.filter((t: any) => pickedIds.has((t as any).subject_level_id));
   }, [topics, pickedIds, prefsLoaded, isAdmin]);
+
+  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
 
   if (selectedLesson) {
     return (
@@ -133,7 +137,9 @@ export default function Lessons() {
         <SubjectPicker />
       </div>
 
-      {visibleTopics.length === 0 ? (
+      {needsSubjectPick ? (
+        <SubjectGate />
+      ) : visibleTopics.length === 0 ? (
         <Card>
           <CardContent className="flex flex-col items-center py-12">
             <BookOpen className="h-12 w-12 text-muted-foreground/50 mb-4" />
