@@ -17,14 +17,12 @@ import Lessons from "./pages/Lessons";
 import Notes from "./pages/Notes";
 import LessonNotes from "./pages/LessonNotes";
 import Quizzes from "./pages/Quizzes";
-import HomeworkPage from "./pages/HomeworkPage";
 import Practice from "./pages/Practice";
 import ProgressPage from "./pages/ProgressPage";
 import Announcements from "./pages/Announcements";
 
 import AdminLessons from "./pages/admin/AdminLessons";
 import AdminQuizzes from "./pages/admin/AdminQuizzes";
-import AdminHomework from "./pages/admin/AdminHomework";
 import AdminMaterials from "./pages/admin/AdminMaterials";
 import AdminAnnouncements from "./pages/admin/AdminAnnouncements";
 
@@ -39,7 +37,6 @@ import PastPapers from "./pages/PastPapers";
 import AdminPastPapers from "./pages/admin/AdminPastPapers";
 import AdminAuditLog from "./pages/admin/AdminAuditLog";
 import StudyPlanner from "./pages/StudyPlanner";
-import QuestionBank from "./pages/QuestionBank";
 import Subjects from "./pages/Subjects";
 import Pricing from "./pages/Pricing";
 import AdminPayments from "./pages/admin/AdminPayments";
@@ -77,7 +74,6 @@ const App = () => (
                   <Route path="/lessons/:lessonId/notes" element={<LessonNotes />} />
                   <Route path="/notes" element={<Notes />} />
                   <Route path="/quizzes" element={<Quizzes />} />
-                  <Route path="/homework" element={<HomeworkPage />} />
                   <Route path="/flashcards" element={<Flashcards />} />
                   <Route path="/practice" element={<Practice />} />
                   <Route path="/progress" element={<ProgressPage />} />
@@ -88,7 +84,8 @@ const App = () => (
                   <Route path="/study-planner" element={<StudyPlanner />} />
                   <Route path="/heatmap" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/smart-revision" element={<RedirectPreservingQuery to="/practice" />} />
-                  <Route path="/question-bank" element={<QuestionBank />} />
+                  <Route path="/question-bank" element={<RedirectPreservingQuery to="/practice" />} />
+                  <Route path="/homework" element={<Navigate to="/quizzes" replace />} />
                   <Route path="/review" element={<RedirectPreservingQuery to="/practice" />} />
                   <Route path="/subject-progress" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/revision" element={<Navigate to="/notes" replace />} />
@@ -105,7 +102,6 @@ const App = () => (
                   <Route path="/admin/subjects" element={<AdminSubjects />} />
                   <Route path="/admin/lessons" element={<AdminLessons />} />
                   <Route path="/admin/quizzes" element={<AdminQuizzes />} />
-                  <Route path="/admin/homework" element={<AdminHomework />} />
                   <Route path="/admin/materials" element={<AdminMaterials />} />
                   <Route path="/admin/announcements" element={<AdminAnnouncements />} />
                   <Route path="/admin/accounts" element={<AdminUsers />} />

@@ -32,7 +32,7 @@ const pct = (a: number, b: number) => (b > 0 ? Math.round((a / b) * 100) : 0);
 
 export function StudentDashboard() {
   const { user } = useAuth();
-  const [stats, setStats] = useState({ lessons: 0, completed: 0, quizzes: 0, homework: 0 });
+  const [stats, setStats] = useState({ lessons: 0, completed: 0, quizzes: 0 });
   const [announcements, setAnnouncements] = useState<any[]>([]);
   const [subjectRows, setSubjectRows] = useState<SubjectRow[]>([]);
   const [subjectLoading, setSubjectLoading] = useState(true);
@@ -42,14 +42,13 @@ export function StudentDashboard() {
   useEffect(() => {
     if (!user) return;
     const load = async () => {
-      const [lessonsRes, progressRes, quizzesRes, hwRes, announcementsRes] = await Promise.all([
+      const [lessonsRes, progressRes, quizzesRes, announcementsRes] = await Promise.all([
         supabase.from("lessons").select("id", { count: "exact", head: true }),
         supabase.from("lesson_progress").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("completed", true),
         supabase.from("quizzes").select("id", { count: "exact", head: true }).eq("is_published", true),
-        supabase.from("homework").select("id", { count: "exact", head: true }),
         supabase.from("announcements").select("*").order("published_at", { ascending: false }).limit(3),
       ]);
-      setStats({ lessons: lessonsRes.count ?? 0, completed: progressRes.count ?? 0, quizzes: quizzesRes.count ?? 0, homework: hwRes.count ?? 0 });
+      setStats({ lessons: lessonsRes.count ?? 0, completed: progressRes.count ?? 0, quizzes: quizzesRes.count ?? 0 });
       setAnnouncements(announcementsRes.data ?? []);
 
       const [subjectRes, notesTotalRes, notesDoneRes] = await Promise.all([

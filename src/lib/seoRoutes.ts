@@ -108,12 +108,6 @@ export const ROUTE_META: RouteMeta[] = [
     },
   },
   {
-    path: "/question-bank",
-    title: "Question Bank — Clutch Marks",
-    description:
-      "Practise thousands of exam-style questions by topic and difficulty, with instant feedback and saved progress.",
-  },
-  {
     path: "/flashcards",
     title: "Flashcards — Clutch Marks",
     description:
@@ -123,7 +117,7 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/practice",
     title: "Practice — Clutch Marks",
     description:
-      "Smart revision that targets your weakest topics and lets you review every question you got wrong or bookmarked.",
+      "Topic questions, smart drills on your weakest areas, and every question you got wrong or saved — one practice hub.",
   },
   {
     path: "/study-planner",
@@ -187,12 +181,6 @@ export const ROUTE_META: RouteMeta[] = [
       },
       provider: organization,
     },
-  },
-  {
-    path: "/homework",
-    title: "Homework — Clutch Marks",
-    description:
-      "View assigned homework tasks, submit answers and track your submission and grading status.",
   },
   {
     path: "/calendar",

@@ -51,7 +51,7 @@ export function AppLayout() {
               <AlertTitle>Why is access blocked?</AlertTitle>
               <AlertDescription>
                 Every new account is reviewed by an administrator before it can open lessons,
-                quizzes, homework or the question bank. This keeps the platform safe for current students.
+                quizzes and the question bank. This keeps the platform safe for current students.
               </AlertDescription>
             </Alert>
 

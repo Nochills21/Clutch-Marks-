@@ -43,6 +43,7 @@ interface TopicStat {
   name: string;
   attempts: number;
   avgPercent: number;
+  mastered: boolean;
   totalQuizzes: number;
   completedLessons: number;
   totalLessons: number;
@@ -70,7 +71,6 @@ export default function ProgressPage() {
   const { user } = useAuth();
   const [rows, setRows] = useState<Row[]>([]);
   const [topics, setTopics] = useState<TopicStat[]>([]);
-  const [hw, setHw] = useState({ submitted: 0, total: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [levelFilter, setLevelFilter] = useState<string>("all");
@@ -81,15 +81,13 @@ export default function ProgressPage() {
     (async () => {
       setLoading(true);
       setError(null);
-      const [spRes, topicsRes, quizzesRes, attemptsRes, lessonsRes, progressRes, hwRes, hwSubRes] = await Promise.all([
+      const [spRes, topicsRes, quizzesRes, attemptsRes, lessonsRes, progressRes] = await Promise.all([
         supabase.rpc("get_subject_progress"),
         supabase.from("topics").select("id, name").order("sort_order"),
         supabase.from("quizzes").select("id, topic_id").eq("is_published", true),
         supabase.from("quiz_attempts").select("quiz_id, score, total_questions").eq("user_id", user.id).not("completed_at", "is", null),
         supabase.from("lessons").select("id, topic_id"),
         supabase.from("lesson_progress").select("lesson_id").eq("user_id", user.id).eq("completed", true),
-        supabase.from("homework").select("id", { count: "exact", head: true }),
-        supabase.from("homework_submissions").select("id", { count: "exact", head: true }).eq("user_id", user.id),
       ]);
       if (spRes.error) setError(spRes.error.message);
       setRows(((spRes.data ?? []) as unknown as Row[]));
@@ -108,12 +106,12 @@ export default function ProgressPage() {
           name: t.name,
           attempts: topicAttempts.length,
           avgPercent: topicAttempts.length > 0 ? Math.round(totalPct / topicAttempts.length) : 0,
+          mastered: topicAttempts.length > 0 && topicAttempts.every((a: any) => (a.score ?? 0) / (a.total_questions || 1) >= 0.8),
           totalQuizzes: (quizzesRes.data ?? []).filter((q: any) => q.topic_id === t.id).length,
           completedLessons: topicLessons.filter((l: any) => completed.has(l.id)).length,
           totalLessons: topicLessons.length,
         };
       }));
-      setHw({ submitted: hwSubRes.count ?? 0, total: hwRes.count ?? 0 });
       setLoading(false);
     })();
   }, [user]);
@@ -145,7 +143,8 @@ export default function ProgressPage() {
       }),
       { lessons: 0, done: 0, attempts: 0, scoreSum: 0, ai: 0, aiCorrect: 0, saved: 0, wrong: 0 },
     );
-    return { ...t, avg: t.attempts ? Math.round(t.scoreSum / t.attempts) : 0 };
+    const mastered = topics.filter((tp) => tp.mastered).length;
+    return { ...t, avg: t.attempts ? Math.round(t.scoreSum / t.attempts) : 0, mastered };
   }, [visible]);
 
   const weakest = useMemo(
@@ -214,7 +213,7 @@ export default function ProgressPage() {
         {[
           { label: "Lessons completed", value: `${totals.done}/${totals.lessons}`, icon: BookOpen },
           { label: "Quiz average", value: `${totals.avg}%`, icon: Brain },
-          { label: "Homework submitted", value: hw.total > 0 ? `${hw.submitted}/${hw.total}` : "—", icon: ClipboardList },
+          { label: "Topics mastered", value: `${totals.mastered}`, icon: ClipboardList },
           { label: "Saved / to review", value: `${totals.saved} / ${totals.wrong}`, icon: Bookmark },
         ].map((s) => (
           <Card key={s.label}>

@@ -2,24 +2,24 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Users, Brain, ClipboardList, FileText, Megaphone, ArrowRight, Zap } from "lucide-react";
+import { BookOpen, Users, Brain, FileText, Megaphone, ArrowRight, Zap, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export function AdminDashboard() {
-  const [stats, setStats] = useState({ topics: 0, lessons: 0, quizzes: 0, homework: 0, students: 0, materials: 0 });
+  const [stats, setStats] = useState({ topics: 0, lessons: 0, quizzes: 0, students: 0, materials: 0, pendingPayments: 0 });
 
   useEffect(() => {
     const load = async () => {
-      const [t, l, q, h, s, m] = await Promise.all([
+      const [t, l, q, s, m, pp] = await Promise.all([
         supabase.from("topics").select("id", { count: "exact", head: true }),
         supabase.from("lessons").select("id", { count: "exact", head: true }),
         supabase.from("quizzes").select("id", { count: "exact", head: true }),
-        supabase.from("homework").select("id", { count: "exact", head: true }),
         supabase.from("user_roles").select("id", { count: "exact", head: true }).eq("role", "student"),
         supabase.from("study_materials").select("id", { count: "exact", head: true }),
+        supabase.from("subscriptions").select("id", { count: "exact", head: true }).eq("status", "pending_payment"),
       ]);
-      setStats({ topics: t.count ?? 0, lessons: l.count ?? 0, quizzes: q.count ?? 0, homework: h.count ?? 0, students: s.count ?? 0, materials: m.count ?? 0 });
+      setStats({ topics: t.count ?? 0, lessons: l.count ?? 0, quizzes: q.count ?? 0, students: s.count ?? 0, materials: m.count ?? 0, pendingPayments: pp.count ?? 0 });
     };
     load();
   }, []);
@@ -27,7 +27,7 @@ export function AdminDashboard() {
   const cards = [
     { label: "Lessons", value: stats.lessons, icon: FileText, link: "/admin/lessons" },
     { label: "Quizzes", value: stats.quizzes, icon: Brain, link: "/admin/quizzes" },
-    { label: "Homework", value: stats.homework, icon: ClipboardList, link: "/admin/homework" },
+    { label: "Pending payments", value: stats.pendingPayments, icon: CreditCard, link: "/admin/payments" },
     { label: "Students", value: stats.students, icon: Users, link: "/admin/accounts" },
     { label: "Materials", value: stats.materials, icon: FileText, link: "/admin/materials" },
     { label: "Topics", value: stats.topics, icon: BookOpen, link: "/dashboard" },
@@ -35,7 +35,7 @@ export function AdminDashboard() {
 
   const quickActions = [
     { label: "Create Quiz", to: "/admin/quizzes", icon: Brain },
-    { label: "Assign Homework", to: "/admin/homework", icon: ClipboardList },
+    { label: "Review Payments", to: "/admin/payments", icon: CreditCard },
     { label: "Post Announcement", to: "/admin/announcements", icon: Megaphone },
     { label: "Add Materials", to: "/admin/materials", icon: FileText },
   ];

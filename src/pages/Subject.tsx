@@ -184,7 +184,7 @@ export default function Subject() {
         <div className="flex items-center gap-1 shrink-0">
           <BookmarkButton questionId={q.id} bookmarked={q.bookmarked} onChange={(next) => setBookmark(q.id, next)} />
           <Button asChild size="sm">
-            <Link to={`/question-bank?topic=${q.topic_id ?? ""}`}>Practise</Link>
+            <Link to={`/practice?tab=topics&topic=${q.topic_id ?? ""}`}>Practise</Link>
           </Button>
         </div>
       </CardContent>
@@ -405,7 +405,7 @@ export default function Subject() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-3">
-              <Button asChild className="gap-2"><Link to="/question-bank">Open question bank <ArrowRight className="h-4 w-4" /></Link></Button>
+              <Button asChild className="gap-2"><Link to="/practice?tab=topics">Open topic questions <ArrowRight className="h-4 w-4" /></Link></Button>
               <Button asChild variant="outline" className="gap-2"><Link to={`/practice?level=${subjectLevel.id}&mode=bookmarked`}>Bookmarked questions</Link></Button>
             </CardContent>
           </Card>

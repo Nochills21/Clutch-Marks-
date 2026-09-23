@@ -1,24 +1,13 @@
-// Dashboard widget: due homework and suggested study items.
+// Dashboard widget: today's suggested tasks from the student's latest study plan.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ClipboardList, Sparkles, CalendarClock } from "lucide-react";
+import { Sparkles, CalendarClock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { format, isToday, isTomorrow, differenceInDays } from "date-fns";
-import { Badge } from "@/components/ui/badge";
+import { format } from "date-fns";
 
-interface HomeworkItem { id: string; title: string; due_date: string | null; }
 interface PlanItem { line: string; }
-
-function formatDue(d: string) {
-  const date = new Date(d);
-  if (isToday(date)) return "Today";
-  if (isTomorrow(date)) return "Tomorrow";
-  const diff = differenceInDays(date, new Date());
-  if (diff > 0 && diff < 7) return format(date, "EEEE");
-  return format(date, "MMM d");
-}
 
 function extractTodayLines(content: string): string[] {
   if (!content) return [];
@@ -61,7 +50,6 @@ function extractTodayLines(content: string): string[] {
 
 export function TodaysTasks() {
   const { user } = useAuth();
-  const [homework, setHomework] = useState<HomeworkItem[]>([]);
   const [planItems, setPlanItems] = useState<PlanItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -69,39 +57,18 @@ export function TodaysTasks() {
     if (!user) return;
     const load = async () => {
       setLoading(true);
-      const now = new Date();
-      const horizon = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
-
-      const [hwRes, planRes, submittedRes] = await Promise.all([
-        supabase
-          .from("homework")
-          .select("id, title, due_date")
-          .gte("due_date", now.toISOString())
-          .lte("due_date", horizon.toISOString())
-          .order("due_date", { ascending: true })
-          .limit(5),
-        supabase
-          .from("study_plans")
-          .select("content, created_at")
-          .eq("user_id", user.id)
-          .order("created_at", { ascending: false })
-          .limit(1),
-        supabase
-          .from("homework_submissions")
-          .select("homework_id")
-          .eq("user_id", user.id),
-      ]);
-
-      const submittedIds = new Set((submittedRes.data ?? []).map((s: any) => s.homework_id));
-      setHomework((hwRes.data ?? []).filter((h: any) => !submittedIds.has(h.id)));
-      const planContent = planRes.data?.[0]?.content ?? "";
+      const { data: planRes } = await supabase
+        .from("study_plans")
+        .select("content, created_at")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false })
+        .limit(1);
+      const planContent = planRes?.[0]?.content ?? "";
       setPlanItems(extractTodayLines(planContent).map((l) => ({ line: l })));
       setLoading(false);
     };
     load();
   }, [user]);
-
-  const hasAnything = homework.length > 0 || planItems.length > 0;
 
   return (
     <Card className="neon-border">
@@ -115,52 +82,24 @@ export function TodaysTasks() {
       <CardContent className="space-y-4">
         {loading ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
-        ) : !hasAnything ? (
+        ) : planItems.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             Nothing scheduled. <Link to="/study-planner" className="text-primary hover:underline">Generate a study plan</Link> to see daily tasks here.
           </p>
         ) : (
-          <>
-            {planItems.length > 0 && (
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  <Sparkles className="h-3 w-3 text-primary" /> From your study plan
-                </div>
-                <ul className="space-y-1.5">
-                  {planItems.map((p, i) => (
-                    <li key={i} className="text-sm flex gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span className="flex-1">{p.line}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {homework.length > 0 && (
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  <ClipboardList className="h-3 w-3 text-primary" /> Upcoming homework
-                </div>
-                <ul className="space-y-2">
-                  {homework.map((h) => (
-                    <li key={h.id}>
-                      <Link
-                        to="/homework"
-                        className="flex items-center justify-between gap-2 rounded-lg border border-border/40 px-3 py-2 hover:bg-accent/40 transition-colors"
-                      >
-                        <span className="text-sm font-medium truncate">{h.title}</span>
-                        {h.due_date && (
-                          <Badge variant="secondary" className="shrink-0 text-xs">
-                            {formatDue(h.due_date)}
-                          </Badge>
-                        )}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <Sparkles className="h-3 w-3 text-primary" /> From your study plan
+            </div>
+            <ul className="space-y-1.5">
+              {planItems.map((p, i) => (
+                <li key={i} className="text-sm flex gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span className="flex-1">{p.line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </CardContent>
     </Card>

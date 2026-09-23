@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ChevronLeft, ChevronRight, ClipboardList, Brain, Video } from "lucide-react";
+import { ChevronLeft, ChevronRight, Brain, Video } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { SEOHead } from "@/components/SEOHead";
@@ -13,12 +13,11 @@ type CalendarEvent = {
   id: string;
   title: string;
   date: string; // YYYY-MM-DD
-  type: "homework" | "quiz" | "zoom";
+  type: "quiz" | "zoom";
   meta?: string;
 };
 
 const typeConfig = {
-  homework: { icon: ClipboardList, label: "Homework Due", dotClass: "bg-warning", badgeClass: "bg-warning/10 text-warning border-warning/30" },
   quiz: { icon: Brain, label: "Quiz", dotClass: "bg-primary", badgeClass: "bg-primary/10 text-primary border-primary/30" },
   zoom: { icon: Video, label: "Zoom Lesson", dotClass: "bg-success", badgeClass: "bg-success/10 text-success border-success/30" },
 };
@@ -48,12 +47,6 @@ export default function CalendarPage() {
   useEffect(() => {
     const load = async () => {
       const evts: CalendarEvent[] = [];
-
-      // Homework with due dates
-      const { data: hw } = await supabase.from("homework").select("id, title, due_date").not("due_date", "is", null);
-      (hw ?? []).forEach((h: any) => {
-        if (h.due_date) evts.push({ id: h.id, title: h.title, date: h.due_date.slice(0, 10), type: "homework" });
-      });
 
       // Published quizzes
       const { data: quizzes } = await supabase.from("quizzes").select("id, title, created_at").eq("is_published", true);
@@ -155,10 +148,10 @@ export default function CalendarPage() {
 
   return (
     <div className="space-y-6">
-      <SEOHead title="Calendar — Clutch Marks" description="Stay on top of homework deadlines, quizzes, and Zoom sessions with your study calendar." path="/calendar" />
+      <SEOHead title="Calendar — Clutch Marks" description="Stay on top of quizzes and Zoom sessions with your study calendar." path="/calendar" />
       <div>
         <h1 className="text-2xl font-bold text-foreground">Calendar</h1>
-        <p className="text-muted-foreground text-sm">View homework deadlines, quizzes, and Zoom lessons</p>
+        <p className="text-muted-foreground text-sm">View quizzes and Zoom lessons</p>
       </div>
 
       <div className="flex items-center justify-between flex-wrap gap-3">
