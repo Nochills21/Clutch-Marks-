@@ -2,7 +2,7 @@ import {
   BookOpen, LayoutDashboard, FileText, ClipboardList, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, Shield, FileCheck,
   Layers, CalendarDays, Library, BookMarked, Archive, Sparkles, Database,
-  Target, Eye, EyeOff, History,
+  Target, Eye, EyeOff, History, CreditCard,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -32,6 +32,7 @@ const studentLinks = [
   { title: "Calendar", url: "/calendar", icon: CalendarDays },
   { title: "Past Papers", url: "/past-papers", icon: Archive },
   { title: "Announcements", url: "/announcements", icon: Megaphone },
+  { title: "Upgrade", url: "/pricing", icon: CreditCard },
 ];
 
 const adminLinks = [
@@ -49,6 +50,7 @@ const adminLinks = [
   { title: "Grade Book", url: "/admin/gradebook", icon: BookMarked },
   { title: "Past Papers", url: "/admin/past-papers", icon: Archive },
   { title: "Audit Log", url: "/admin/audit-log", icon: History },
+  { title: "Payments", url: "/admin/payments", icon: CreditCard },
 ];
 
 const parentLinks = [

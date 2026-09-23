@@ -75,7 +75,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    const systemPrompt = `You are an expert IGCSE Business Studies tutor and study planner.
+    const systemPrompt = `You are an expert Cambridge IGCSE/AS/A-Level tutor and study planner for Mathematics (0580/9709), Physics (0625/9702) and Computer Science (0478/9618).
 Generate a personalized, week-by-week revision schedule for a student based on their performance, upcoming deadlines, and available study time.
 
 Format your response in clean markdown with:
@@ -84,7 +84,7 @@ Format your response in clean markdown with:
 - For each week: bullet points with specific topics, recommended activities (lessons, quizzes, flashcards, past papers), and estimated time
 - A final "## Tips" section with 3-5 study strategies tailored to their weak areas
 
-Be specific, actionable, and motivating. Reference IGCSE Business Studies curriculum topics.`;
+Be specific, actionable, and motivating. Reference real Cambridge syllabus topics for the student's subjects (e.g. quadratics, circular measure, data representation, thermal physics).`;
 
     const userPrompt = `Create a study plan with these inputs:
 
@@ -94,7 +94,7 @@ Be specific, actionable, and motivating. Reference IGCSE Business Studies curric
 **Upcoming homework deadlines:** ${upcomingHomework || "None"}
 **Topics needing focus:** ${weakTopics || "Not identified yet — recommend a balanced review"}
 
-Build a realistic schedule that prioritizes weak areas while covering the broader IGCSE Business Studies syllabus.`;
+Build a realistic schedule that prioritizes weak areas while covering the broader Cambridge syllabus for their subjects.`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",

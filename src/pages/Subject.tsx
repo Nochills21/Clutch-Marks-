@@ -12,6 +12,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { topicNotesPath, topicQuizPath, topicPapersPath, slugifyTopicName } from "@/lib/topicUrls";
+import { PlanGate } from "@/components/PlanGate";
 import { BookOpen, FileText, Brain, Archive, Database, ArrowLeft, ArrowRight, Search, Sparkles } from "lucide-react";
 
 interface BankQuestion {
@@ -209,7 +210,7 @@ export default function Subject() {
         }}
       />
 
-
+      <PlanGate level={levelCode}>
       <div className={`glass-card p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
         <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>
           <Icon className="h-7 w-7" />
@@ -410,6 +411,7 @@ export default function Subject() {
           {aiQuestions.length === 0 ? empty("AI questions") : aiQuestions.map(questionCard)}
         </TabsContent>
       </Tabs>
+      </PlanGate>
     </div>
   );
 }

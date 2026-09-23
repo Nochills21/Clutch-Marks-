@@ -125,7 +125,12 @@ export default function Auth() {
     if (error) {
       toast({ title: "Signup failed", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Account created", description: "Your account is pending admin approval. You'll be notified once approved." });
+      toast({
+        title: role === "parent" ? "Parent account created" : "Welcome to Clutch Marks!",
+        description: role === "parent"
+          ? "You can link your child's account from the dashboard now."
+          : "Your free plan is active — every O Level lesson, quiz and note is ready.",
+      });
     }
   };
 
@@ -214,7 +219,7 @@ export default function Auth() {
                     {loading ? "Creating account…" : "Create Account"}
                   </Button>
                   <p className="text-center text-xs text-muted-foreground pt-1">
-                    Your account will need admin approval before you can access the platform
+                    Free plan includes all O Level material — no approval needed
                   </p>
                 </CardContent>
               </form>

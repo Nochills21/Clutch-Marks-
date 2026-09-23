@@ -39,6 +39,8 @@ import AdminAuditLog from "./pages/admin/AdminAuditLog";
 import StudyPlanner from "./pages/StudyPlanner";
 import QuestionBank from "./pages/QuestionBank";
 import Subjects from "./pages/Subjects";
+import Pricing from "./pages/Pricing";
+import AdminPayments from "./pages/admin/AdminPayments";
 import Subject from "./pages/Subject";
 import TopicNotes from "./pages/TopicNotes";
 import TopicQuiz from "./pages/TopicQuiz";
@@ -80,6 +82,7 @@ const App = () => (
                   <Route path="/calendar" element={<CalendarPage />} />
                   <Route path="/announcements" element={<Announcements />} />
                   <Route path="/past-papers" element={<PastPapers />} />
+                  <Route path="/pricing" element={<Pricing />} />
                   <Route path="/study-planner" element={<StudyPlanner />} />
                   <Route path="/heatmap" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/smart-revision" element={<RedirectPreservingQuery to="/practice" />} />
@@ -113,6 +116,7 @@ const App = () => (
                   <Route path="/admin/gradebook" element={<AdminGradeBook />} />
                   <Route path="/admin/past-papers" element={<AdminPastPapers />} />
                   <Route path="/admin/audit-log" element={<AdminAuditLog />} />
+                  <Route path="/admin/payments" element={<AdminPayments />} />
                 </Route>
               </Route>
               <Route path="*" element={<NotFound />} />

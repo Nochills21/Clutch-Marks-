@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-09-23T09:37:12.805Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-09-23T11:31:17.115Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -106,13 +106,19 @@ create table if not exists public."notifications" (
   "created_at" timestamp with time zone default now() not null,
   constraint "notifications_pkey" PRIMARY KEY (id)
 );
-create table if not exists public."parent_student_links" (
-  "id" uuid default gen_random_uuid() not null,
-  "parent_id" uuid not null,
-  "student_id" uuid not null,
+create table if not exists public."parent_children" (
+  "parent_user_id" uuid not null,
+  "child_user_id" uuid not null,
   "created_at" timestamp with time zone default now() not null,
-  constraint "parent_student_links_parent_id_student_id_key" UNIQUE (parent_id, student_id),
-  constraint "parent_student_links_pkey" PRIMARY KEY (id)
+  constraint "parent_children_pkey" PRIMARY KEY (parent_user_id, child_user_id)
+);
+create table if not exists public."plans" (
+  "id" text not null,
+  "name" text not null,
+  "price_monthly" numeric(10,0) not null,
+  "months" integer default 1 not null,
+  "description" text,
+  constraint "plans_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."practice_attempts" (
   "id" uuid default gen_random_uuid() not null,
@@ -162,6 +168,18 @@ create table if not exists public."subjects" (
   constraint "subjects_pkey" PRIMARY KEY (id),
   constraint "subjects_slug_key" UNIQUE (slug)
 );
+create table if not exists public."subscriptions" (
+  "id" uuid default gen_random_uuid() not null,
+  "user_id" uuid not null,
+  "plan_id" text not null,
+  "status" text default 'pending_payment'::text not null,
+  "starts_at" timestamp with time zone,
+  "ends_at" timestamp with time zone,
+  "created_at" timestamp with time zone default now() not null,
+  "updated_at" timestamp with time zone default now() not null,
+  constraint "subscriptions_pkey" PRIMARY KEY (id),
+  constraint "subscriptions_status_check" CHECK (status = ANY (ARRAY['pending_payment'::text, 'active'::text, 'expired'::text, 'cancelled'::text]))
+);
 create table if not exists public."user_roles" (
   "id" uuid default gen_random_uuid() not null,
   "user_id" uuid not null,
@@ -180,6 +198,14 @@ create table if not exists public."weekly_reports" (
   "uploaded_at" timestamp with time zone default now() not null,
   "uploaded_by" uuid not null,
   constraint "weekly_reports_pkey" PRIMARY KEY (id)
+);
+create table if not exists public."parent_student_links" (
+  "id" uuid default gen_random_uuid() not null,
+  "parent_id" uuid not null,
+  "student_id" uuid not null,
+  "created_at" timestamp with time zone default now() not null,
+  constraint "parent_student_links_parent_id_student_id_key" UNIQUE (parent_id, student_id),
+  constraint "parent_student_links_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."subject_levels" (
   "id" uuid default gen_random_uuid() not null,
@@ -394,6 +420,7 @@ create index if not exists admin_audit_log_archive_entity_created_at_idx ON publ
 create index if not exists content_file_versions_entity_idx ON public.content_file_versions USING btree (entity_type, entity_id, slot, version DESC);
 create index if not exists content_revisions_created_at_idx ON public.content_revisions USING btree (created_at DESC);
 create index if not exists content_revisions_entity_idx ON public.content_revisions USING btree (entity_type, entity_id, version DESC);
+create index if not exists idx_parent_children_child ON public.parent_children USING btree (child_user_id);
 create index if not exists past_papers_topic_idx ON public.past_papers USING btree (topic_id);
 create index if not exists past_papers_year_idx ON public.past_papers USING btree (year DESC);
 create index if not exists idx_practice_attempts_user ON public.practice_attempts USING btree (user_id);
@@ -401,6 +428,8 @@ create UNIQUE index if not exists profiles_email_unique_idx ON public.profiles U
 create UNIQUE index if not exists profiles_username_unique_idx ON public.profiles USING btree (lower(username)) WHERE (username IS NOT NULL);
 create index if not exists idx_question_bookmarks_user ON public.question_bookmarks USING btree (user_id);
 create index if not exists idx_student_subject_prefs_user ON public.student_subject_prefs USING btree (user_id);
+create index if not exists idx_subscriptions_status ON public.subscriptions USING btree (status);
+create index if not exists idx_subscriptions_user ON public.subscriptions USING btree (user_id);
 create index if not exists topics_subject_level_id_idx ON public.topics USING btree (subject_level_id);
 
 -- ============ foreign keys ============
@@ -432,8 +461,16 @@ alter table public."material_progress" drop constraint if exists "material_progr
 alter table public."material_progress" add constraint "material_progress_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."notifications" drop constraint if exists "notifications_user_id_fkey";
 alter table public."notifications" add constraint "notifications_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+alter table public."parent_children" drop constraint if exists "parent_children_child_user_id_fkey";
+alter table public."parent_children" add constraint "parent_children_child_user_id_fkey" FOREIGN KEY (child_user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+alter table public."parent_children" drop constraint if exists "parent_children_parent_user_id_fkey";
+alter table public."parent_children" add constraint "parent_children_parent_user_id_fkey" FOREIGN KEY (parent_user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+alter table public."parent_student_links" drop constraint if exists "parent_student_links_parent_fk";
+alter table public."parent_student_links" add constraint "parent_student_links_parent_fk" FOREIGN KEY (parent_id) REFERENCES profiles(user_id) ON DELETE CASCADE;
 alter table public."parent_student_links" drop constraint if exists "parent_student_links_parent_id_fkey";
 alter table public."parent_student_links" add constraint "parent_student_links_parent_id_fkey" FOREIGN KEY (parent_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+alter table public."parent_student_links" drop constraint if exists "parent_student_links_student_fk";
+alter table public."parent_student_links" add constraint "parent_student_links_student_fk" FOREIGN KEY (student_id) REFERENCES profiles(user_id) ON DELETE CASCADE;
 alter table public."parent_student_links" drop constraint if exists "parent_student_links_student_id_fkey";
 alter table public."parent_student_links" add constraint "parent_student_links_student_id_fkey" FOREIGN KEY (student_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."past_papers" drop constraint if exists "past_papers_topic_id_fkey";
@@ -458,6 +495,12 @@ alter table public."study_materials" drop constraint if exists "study_materials_
 alter table public."study_materials" add constraint "study_materials_topic_id_fkey" FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE;
 alter table public."subject_levels" drop constraint if exists "subject_levels_subject_id_fkey";
 alter table public."subject_levels" add constraint "subject_levels_subject_id_fkey" FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE;
+alter table public."subscriptions" drop constraint if exists "subscriptions_plan_id_fkey";
+alter table public."subscriptions" add constraint "subscriptions_plan_id_fkey" FOREIGN KEY (plan_id) REFERENCES plans(id);
+alter table public."subscriptions" drop constraint if exists "subscriptions_profiles_fk";
+alter table public."subscriptions" add constraint "subscriptions_profiles_fk" FOREIGN KEY (user_id) REFERENCES profiles(user_id) ON DELETE CASCADE;
+alter table public."subscriptions" drop constraint if exists "subscriptions_user_id_fkey";
+alter table public."subscriptions" add constraint "subscriptions_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."topics" drop constraint if exists "topics_subject_level_id_fkey";
 alter table public."topics" add constraint "topics_subject_level_id_fkey" FOREIGN KEY (subject_level_id) REFERENCES subject_levels(id) ON DELETE SET NULL;
 alter table public."user_roles" drop constraint if exists "user_roles_user_id_fkey";
@@ -851,8 +894,6 @@ AS $function$
 DECLARE
   candidate text;
 BEGIN
-  -- Admin-created accounts pass username in user metadata; public signups get a
-  -- username derived from the email local-part. Sanitized to the app's charset.
   candidate := COALESCE(
     NULLIF(NEW.raw_user_meta_data->>'username', ''),
     split_part(COALESCE(NEW.email, ''), '@', 1)
@@ -862,8 +903,6 @@ BEGIN
     candidate := 'user-' || left(NEW.id::text, 8);
   END IF;
 
-  -- Defensive uniqueness (the admin create flow pre-checks; collisions can still
-  -- come from email local-parts).
   WHILE EXISTS (SELECT 1 FROM public.profiles WHERE username = candidate) LOOP
     candidate := left(candidate, 56) || '-' || left(NEW.id::text, 4);
   END LOOP;
@@ -876,13 +915,27 @@ BEGIN
     NEW.email
   );
 
-  -- SECURITY: Never trust client-sent role. Always default to 'student'.
-  -- Only admins can elevate roles via the admin panel.
+  -- SECURITY: Never trust client-sent role. Everyone starts as a student on the
+  -- free plan; approval is instant (no admin gate), only role elevation is admin-only.
   INSERT INTO public.user_roles (user_id, role, is_approved)
-  VALUES (NEW.id, 'student', false);
+  VALUES (NEW.id, 'student', true);
 
   RETURN NEW;
 END;
+$function$;
+
+CREATE OR REPLACE FUNCTION public.has_active_subscription(p_user_id uuid)
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  select exists (
+    select 1 from public.subscriptions
+    where user_id = p_user_id
+      and status = 'active'
+      and coalesce(ends_at, 'infinity') > now()
+  );
 $function$;
 
 CREATE OR REPLACE FUNCTION public.has_role(_user_id uuid, _role app_role)
@@ -895,6 +948,18 @@ AS $function$
     SELECT 1 FROM public.user_roles
     WHERE user_id = _user_id AND role = _role
   )
+$function$;
+
+CREATE OR REPLACE FUNCTION public.i_am_parent()
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  select exists (
+    select 1 from public.user_roles
+    where user_id = auth.uid() and role = 'parent'
+  );
 $function$;
 
 CREATE OR REPLACE FUNCTION public.is_linked_parent(_parent_auth_id uuid, _student_auth_id uuid)
@@ -1348,6 +1413,9 @@ alter table public."quiz_attempts" enable row level security;
 alter table public."subjects" enable row level security;
 alter table public."subject_levels" enable row level security;
 alter table public."topics" enable row level security;
+alter table public."plans" enable row level security;
+alter table public."parent_children" enable row level security;
+alter table public."subscriptions" enable row level security;
 alter table public."material_progress" enable row level security;
 alter table public."_seed_fixes" enable row level security;
 alter table public."past_papers" enable row level security;
@@ -1439,8 +1507,18 @@ drop policy if exists "Users can update own notifications" on public."notificati
 create policy "Users can update own notifications" on public."notifications" for update to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Users can view own notifications" on public."notifications";
 create policy "Users can view own notifications" on public."notifications" for select to "authenticated" using ((user_id = auth.uid()));
+drop policy if exists "Parents delete own links" on public."parent_children";
+create policy "Parents delete own links" on public."parent_children" for delete using ((auth.uid() = parent_user_id));
+drop policy if exists "Parents insert own links" on public."parent_children";
+create policy "Parents insert own links" on public."parent_children" for insert with check ((auth.uid() = parent_user_id));
+drop policy if exists "Parents read own links" on public."parent_children";
+create policy "Parents read own links" on public."parent_children" for select using ((auth.uid() = parent_user_id));
 drop policy if exists "Admins can manage all links" on public."parent_student_links";
 create policy "Admins can manage all links" on public."parent_student_links" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+drop policy if exists "Parents can create own links" on public."parent_student_links";
+create policy "Parents can create own links" on public."parent_student_links" for insert with check ((has_role(auth.uid(), 'parent'::app_role) AND (parent_id = auth.uid())));
+drop policy if exists "Parents can remove own links" on public."parent_student_links";
+create policy "Parents can remove own links" on public."parent_student_links" for delete using ((parent_id = auth.uid()));
 drop policy if exists "Parents can view own links" on public."parent_student_links";
 create policy "Parents can view own links" on public."parent_student_links" for select to "authenticated" using ((parent_id = auth.uid()));
 drop policy if exists "Students can view own links" on public."parent_student_links";
@@ -1461,6 +1539,8 @@ drop policy if exists "Admins can update all profiles" on public."profiles";
 create policy "Admins can update all profiles" on public."profiles" for update to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Admins can view all profiles" on public."profiles";
 create policy "Admins can view all profiles" on public."profiles" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+drop policy if exists "Parents can view linked and findable students" on public."profiles";
+create policy "Parents can view linked and findable students" on public."profiles" for select using (i_am_parent());
 drop policy if exists "System inserts profiles" on public."profiles";
 create policy "System inserts profiles" on public."profiles" for insert to "authenticated" with check ((user_id = auth.uid()));
 drop policy if exists "Users can update own profile" on public."profiles";
@@ -1515,12 +1595,26 @@ drop policy if exists "Admins manage subjects" on public."subjects";
 create policy "Admins manage subjects" on public."subjects" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Anyone can view active subjects" on public."subjects";
 create policy "Anyone can view active subjects" on public."subjects" for select using (((is_active = true) OR ((auth.uid() IS NOT NULL) AND has_role(auth.uid(), 'admin'::app_role))));
+drop policy if exists "Admins manage subscriptions" on public."subscriptions";
+create policy "Admins manage subscriptions" on public."subscriptions" for update using ((EXISTS ( SELECT 1
+   FROM user_roles ur
+  WHERE ((ur.user_id = auth.uid()) AND (ur.role = 'admin'::app_role)))));
+drop policy if exists "Admins read all subscriptions" on public."subscriptions";
+create policy "Admins read all subscriptions" on public."subscriptions" for select using ((EXISTS ( SELECT 1
+   FROM user_roles ur
+  WHERE ((ur.user_id = auth.uid()) AND (ur.role = 'admin'::app_role)))));
+drop policy if exists "Users create own subscription request" on public."subscriptions";
+create policy "Users create own subscription request" on public."subscriptions" for insert with check (((auth.uid() = user_id) AND (status = 'pending_payment'::text)));
+drop policy if exists "Users read own subscription" on public."subscriptions";
+create policy "Users read own subscription" on public."subscriptions" for select using ((auth.uid() = user_id));
 drop policy if exists "Admins can manage topics" on public."topics";
 create policy "Admins can manage topics" on public."topics" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Anyone authenticated can view topics" on public."topics";
 create policy "Anyone authenticated can view topics" on public."topics" for select to "authenticated" using (true);
 drop policy if exists "Admins can manage all roles" on public."user_roles";
 create policy "Admins can manage all roles" on public."user_roles" for all using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+drop policy if exists "Parents can verify student roles" on public."user_roles";
+create policy "Parents can verify student roles" on public."user_roles" for select using ((i_am_parent() AND (role = 'student'::app_role)));
 drop policy if exists "Users can view own roles" on public."user_roles";
 create policy "Users can view own roles" on public."user_roles" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage weekly reports" on public."weekly_reports";
@@ -1579,12 +1673,18 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."m
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."notifications" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."notifications" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."notifications" to service_role;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_children" to anon;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_children" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_children" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_student_links" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_student_links" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_student_links" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_papers" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_papers" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_papers" to service_role;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."plans" to anon;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."plans" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."plans" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."practice_attempts" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."practice_attempts" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."practice_attempts" to service_role;
@@ -1618,6 +1718,9 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."s
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subjects" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subjects" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subjects" to service_role;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subscriptions" to anon;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subscriptions" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subscriptions" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to service_role;
