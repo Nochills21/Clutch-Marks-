@@ -8,6 +8,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
 const SITE_URL = Deno.env.get("SITE_URL") ?? "https://clutch-marks.lovable.app";
 const FROM = Deno.env.get("WELCOME_FROM_EMAIL") ?? "Clutch Marks <onboarding@resend.dev>";
 
@@ -71,6 +73,14 @@ Deno.serve(async (req) => {
       // signup trigger) never surface an error to the student.
       console.log("welcome-email skipped (no RESEND_API_KEY):", recipient.email);
       return new Response(JSON.stringify({ sent: false, skipped: true }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
+
+    // Reputation guard: never send to a bounced/complained address.
+    const admin = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, { auth: { persistSession: false } });
+    const { data: suppressed } = await admin.from("email_suppressions").select("email").eq("email", recipient.email.toLowerCase()).maybeSingle();
+    if (suppressed) {
+      console.log("welcome-email skipped (suppressed):", recipient.email);
+      return new Response(JSON.stringify({ sent: false, skipped: true, reason: "suppressed" }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
     const isParent = recipient.role === "parent";

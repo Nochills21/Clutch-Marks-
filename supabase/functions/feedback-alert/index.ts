@@ -103,7 +103,10 @@ Deno.serve(async (req) => {
         .from("profiles")
         .select("email")
         .in("user_id", adminIds);
-      for (const p of profs ?? []) if (p.email) emails.push(p.email);
+      // Reputation guard: skip suppressed (bounced/complained) admins.
+      const { data: suppressedRows } = await admin.from("email_suppressions").select("email");
+      const suppressed = new Set((suppressedRows ?? []).map((s) => s.email.toLowerCase()));
+      for (const p of profs ?? []) if (p.email && !suppressed.has(p.email.toLowerCase())) emails.push(p.email);
     }
     if (emails.length === 0) return new Response(JSON.stringify({ ok: true, sent: 0, reason: "no admins" }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
 

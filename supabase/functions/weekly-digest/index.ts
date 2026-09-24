@@ -165,10 +165,18 @@ Deno.serve(async (req) => {
     const apiKey = Deno.env.get("RESEND_API_KEY");
     const results: { parent: string; ok: boolean; skipped?: boolean; error?: string }[] = [];
 
+    // Reputation guard: load suppressed emails once, skip those parents.
+    const { data: suppressedRows } = await admin.from("email_suppressions").select("email");
+    const suppressed = new Set((suppressedRows ?? []).map((s) => s.email.toLowerCase()));
+
     for (const [parentId, studentIds] of byParent) {
       const { data: prof } = await admin
         .from("profiles").select("email, full_name").eq("user_id", parentId).single();
       if (!prof?.email) continue;
+      if (suppressed.has(prof.email.toLowerCase())) {
+        results.push({ parent: prof.email, ok: true, skipped: true });
+        continue;
+      }
 
       const children: ChildRow[] = [];
       for (const sid of studentIds) {

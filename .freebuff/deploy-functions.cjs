@@ -10,6 +10,7 @@ const FUNCS_DIR = 'supabase/functions';
 const SLUGS = [
   { slug: 'resolve-login-email', verifyJwt: false },
   { slug: 'welcome-email', verifyJwt: false },
+  { slug: 'email-events', verifyJwt: false },
   { slug: 'feedback-alert', verifyJwt: false },
   { slug: 'weekly-digest', verifyJwt: false },
   { slug: 'weekly-digest', verifyJwt: false },
