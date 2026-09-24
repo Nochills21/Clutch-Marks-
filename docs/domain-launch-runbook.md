@@ -74,11 +74,36 @@ Also add to **Redirect URLs**: `https://clutchmarks.com/**` and `https://www.clu
 - [ ] Privacy/Terms pages reachable at `/privacy` and `/terms`
 - [ ] SEO meta shows the new domain (`view-source:` → `og:url`)
 
-## 7. Mailbox setup (optional, Stellar plan)
+## 7. support@clutchmarks.com → Gmail forwarding (15 min, after purchase)
 
-Namecheap → Product List → Private Email (included in Stellar) → create
-`support@clutchmarks.com` → set forwarding to zaidthaersaadeh@gmail.com so support
-mail lands in your Gmail. Feedback replies reference this address.
+**Two options — pick one:**
+
+**Option A — Namecheap free Email Forwarding (recommended to start; £0):**
+1. Namecheap → Domain List → `clutchmarks.com` → **Email** tab → *Email Forwarding* →
+   Add: `support` → `zaidthaersaadeh@gmail.com`. (Free forwarding allows up to 100
+   forwarders; no mailbox needed.)
+2. **Reply-as problem:** Gmail can't send *from* support@ on a forwarder alone. Two fixes:
+   - *Simple:* reply from your Gmail but set a Gmail "Send mail as" alias
+     (Gmail → Settings → Accounts → Send mail as → add support@clutchmarks.com).
+     Gmail asks for SMTP credentials — use Namecheap Private Email SMTP
+     (mail.privateemail.com, port 587, a Private Email mailbox login) OR
+     simply reply from your normal address at first (students don't mind).
+   - *Clean:* activate Private Email (included in Stellar) and use its webmail.
+3. **Deliverability records (add in Namecheap Advanced DNS):**
+   - SPF (TXT @): `v=spf1 include:spf.privateemail.com ~all` (Private Email) —
+     merge with the Resend SPF by using both `include:` terms in ONE TXT record.
+   - DKIM: Private Email shows two CNAMEs (default._domainkey etc.) in its
+     dashboard — add exactly as displayed.
+4. Test: email support@clutchmarks.com from another address → arrives in Gmail.
+5. Reply from Gmail via the Send-as alias → confirm it doesn't land in spam.
+
+**Option B — Private Email mailbox (if you want a real inbox instead of forwarding):**
+Activate the Stellar-included Private Email, create support@, add its MX records
+(mx1.privateemail.com, priority 10; mx2, priority 20 — dashboard shows exact values),
+then either use webmail or forward to Gmail from inside Private Email settings.
+
+Either way, update the "Contact" references after setup: footer of the blog, the
+feedback page confirmation, and the Privacy Policy contact line.
 
 ## 8. After launch
 
