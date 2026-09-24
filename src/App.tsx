@@ -21,6 +21,7 @@ import Practice from "./pages/Practice";
 import FeedbackPage from "./pages/FeedbackPage";
 import Leaderboard from "./pages/Leaderboard";
 import ResetPassword from "./pages/ResetPassword";
+import { PrivacyPolicy, TermsOfService } from "./pages/Legal";
 import ProgressPage from "./pages/ProgressPage";
 import Announcements from "./pages/Announcements";
 
@@ -83,6 +84,8 @@ const App = () => (
                   <Route path="/feedback" element={<FeedbackPage />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="/reset-password" element={<ResetPassword />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/terms" element={<TermsOfService />} />
                   <Route path="/progress" element={<ProgressPage />} />
                   <Route path="/calendar" element={<CalendarPage />} />
                   <Route path="/announcements" element={<Announcements />} />

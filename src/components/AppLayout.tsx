@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { NotificationCenter } from "@/components/NotificationCenter";
+import { ContentProtection } from "@/components/ContentProtection";
 import { useDeviceType } from "@/hooks/useDevice";
 
 export function AppLayout() {
@@ -113,6 +114,7 @@ export function AppLayout() {
 
   return (
     <SidebarProvider defaultOpen={device === "laptop"}>
+      <ContentProtection />
       <div className="flex min-h-screen w-full bg-background dot-pattern">
         <AppSidebar />
         <div className="flex-1 flex flex-col min-w-0">

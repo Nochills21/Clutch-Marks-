@@ -151,6 +151,21 @@ export function AppSidebar() {
         <Separator className="bg-sidebar-border/50" />
         <div className="flex items-center justify-between">
           <ThemeToggle variant="ghost" size="icon" />
+          <div className="flex items-center gap-1">
+            <a
+              href="/privacy"
+              className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
+            >
+              Privacy
+            </a>
+            <span className="text-sidebar-foreground/20 text-[11px]">·</span>
+            <a
+              href="/terms"
+              className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
+            >
+              Terms
+            </a>
+          </div>
           <Button
             variant="ghost"
             size="sm"
