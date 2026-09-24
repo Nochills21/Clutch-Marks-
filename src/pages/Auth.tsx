@@ -3,7 +3,7 @@
 // the child to that parent account (instant if it exists, queued if not).
 // Admins may additionally sign in with a username (resolved server-side).
 // Includes a forgot-password flow (reset link via email).
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/useToast";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
+import { captureAttribution, getAttribution, trackSignup } from "@/lib/analytics";
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
 import { GraduationCap, ArrowLeft, Sparkles } from "lucide-react";
 import { ForgotPasswordDialog } from "@/components/ForgotPasswordDialog";
@@ -24,6 +25,11 @@ export default function Auth() {
   const lastAttemptRef = useRef(0);
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  // Persist first-touch UTM attribution (blog links etc.) before signup.
+  useEffect(() => {
+    captureAttribution();
+  }, []);
 
   const [loginIdentifier, setLoginIdentifier] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -143,9 +149,12 @@ export default function Auth() {
           role,
           // Only sent for students; ignored server-side otherwise.
           parent_email: role === "student" && parent ? parent : undefined,
+          // Blog/ad attribution (first-touch UTM), stored in user metadata.
+          attribution: getAttribution() ?? undefined,
         },
       },
     });
+    if (!error) trackSignup(role);
     setLoading(false);
     if (error) {
       toast({ title: "Signup failed", description: error.message, variant: "destructive" });
