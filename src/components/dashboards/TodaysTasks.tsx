@@ -71,34 +71,41 @@ export function TodaysTasks() {
   }, [user]);
 
   return (
-    <Card className="neon-border">
+    <Card className="surface">
       <CardHeader className="pb-3">
-        <CardTitle className="text-base flex items-center gap-2">
-          <CalendarClock className="h-4 w-4 text-primary" />
-          Today's Tasks
+        <p className="eyebrow flex items-center gap-2">
+          <CalendarClock className="h-3 w-3 text-primary" />
+          {format(new Date(), "EEEE, MMM d")}
+        </p>
+        <CardTitle className="font-display pt-2 text-2xl font-normal tracking-tight">
+          Today's tasks
         </CardTitle>
-        <CardDescription className="text-xs">{format(new Date(), "EEEE, MMM d")}</CardDescription>
+        <CardDescription className="sr-only">Today's suggested tasks from your latest study plan</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         {loading ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : planItems.length === 0 ? (
           <p className="text-sm text-muted-foreground">
-            Nothing scheduled. <Link to="/study-planner" className="text-primary hover:underline">Generate a study plan</Link> to see daily tasks here.
+            Nothing scheduled.{" "}
+            <Link to="/study-planner" className="text-primary/90 underline decoration-primary/30 underline-offset-4 transition-colors hover:text-primary">
+              Generate a study plan
+            </Link>{" "}
+            to see daily tasks here.
           </p>
         ) : (
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <div className="eyebrow flex items-center gap-2">
               <Sparkles className="h-3 w-3 text-primary" /> From your study plan
             </div>
-            <ul className="space-y-1.5">
+            <ol className="divide-y divide-border/60">
               {planItems.map((p, i) => (
-                <li key={i} className="text-sm flex gap-2">
-                  <span className="text-primary mt-1">•</span>
-                  <span className="flex-1">{p.line}</span>
+                <li key={i} className="flex gap-3 py-2.5 text-sm">
+                  <span className="num mt-0.5 text-[11px] text-primary/80">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="flex-1 leading-relaxed">{p.line}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
         )}
       </CardContent>

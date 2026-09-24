@@ -1,4 +1,6 @@
-// Revision-notes library (uploaded study materials).
+// Revision-notes library (uploaded study materials) — presented as an
+// editorial reading surface: numbered entries, display-serif titles and a
+// measure-limited reader, rather than a wall of identical cards.
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
@@ -138,9 +140,10 @@ export default function Notes() {
   }, [notes, q, subject, level]);
 
   const completedCount = visible.filter((n) => done[n.id]).length;
+  const progressPct = visible.length ? Math.round((completedCount / visible.length) * 100) : 0;
 
   return (
-    <div className="space-y-6">
+    <div className="mx-auto max-w-4xl space-y-8">
       <WatermarkOverlay />
       <SEOHead
         title="Revision Notes — Clutch Marks"
@@ -149,16 +152,23 @@ export default function Notes() {
         jsonLd={getRouteMeta("/notes")?.jsonLd}
       />
 
-
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-          <FileText className="h-6 w-6 text-primary" /> Revision Notes
-        </h1>
-        <p className="text-muted-foreground">
-          {loading ? "Loading notes…" : `${completedCount} of ${visible.length} notes marked as studied`}
+      {/* ---------- masthead ---------- */}
+      <header>
+        <p className="eyebrow mb-3 flex items-center gap-2">
+          <FileText className="h-3.5 w-3.5 text-primary" /> The library
         </p>
-      </div>
+        <h1 className="display-xl text-3xl lg:text-4xl">Revision notes</h1>
+        <p className="mt-3 text-sm text-muted-foreground">
+          {loading
+            ? "Loading notes…"
+            : visible.length === 0
+              ? "No notes in this view"
+              : `${completedCount} of ${visible.length} marked as studied — ${progressPct}% of this set`}
+        </p>
+        <hr className="rule-gold mt-6" />
+      </header>
 
+      {/* ---------- filters ---------- */}
       <div className="flex flex-col gap-3 sm:flex-row">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -195,84 +205,114 @@ export default function Notes() {
         </Card>
       )}
 
+      {/* ---------- entries ---------- */}
       {loading ? (
-        <div className="space-y-3">{[0, 1, 2].map((i) => <Skeleton key={i} className="h-20 rounded-xl" />)}</div>
+        <div className="space-y-3">{[0, 1, 2].map((i) => <Skeleton key={i} className="h-24 rounded-xl" />)}</div>
       ) : visible.length === 0 ? (
         <Card>
-          <CardContent className="flex flex-col items-center py-12">
-            <FileText className="h-10 w-10 text-muted-foreground/40 mb-3" />
-            <p className="text-muted-foreground">No notes match your search.</p>
+          <CardContent className="flex flex-col items-center py-14">
+            <FileText className="h-9 w-9 text-muted-foreground/30 mb-3" />
+            <p className="text-sm text-muted-foreground">No notes match your search.</p>
           </CardContent>
         </Card>
       ) : (
-        <div className="space-y-3">
-          {visible.map((n) => (
-            <Card key={n.id}>
-              <CardContent className="flex flex-wrap items-center gap-3 p-4">
-                <button
-                  onClick={() => toggle(n.id)}
-                  aria-label={done[n.id] ? "Mark as not studied" : "Mark as studied"}
-                  className="shrink-0"
+        <ol className="space-y-3">
+          {visible.map((n, i) => {
+            const studied = !!done[n.id];
+            return (
+              <li key={n.id}>
+                <Card
+                  className={`group relative overflow-hidden transition-colors ${studied ? "border-primary/25" : ""}`}
                 >
-                  {done[n.id]
-                    ? <CheckCircle2 className="h-5 w-5 text-emerald-500" />
-                    : <Circle className="h-5 w-5 text-muted-foreground" />}
-                </button>
-                <div className="min-w-0 flex-1">
-                  <p className="font-medium truncate">{n.title}</p>
-                  <div className="mt-1 flex flex-wrap items-center gap-1.5">
-                    <Badge variant="secondary" className="text-[10px]">{n.subject_name}</Badge>
-                    {n.level && <Badge variant="outline" className="text-[10px]">{LEVEL_LABELS[n.level as "OL"] ?? n.level}</Badge>}
-                    <span className="text-xs text-muted-foreground truncate">{n.topic_name}</span>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  {role === "admin" && (
-                    <ContentEditor
-                      entityType="material"
-                      entityId={n.id}
-                      initialTitle={n.title}
-                      initialContent={n.content ?? null}
-                      onSaved={load}
-                    />
-                  )}
-                  {n.content && (
-                    <Button size="sm" variant="secondary" className="gap-1" onClick={() => setViewing(n)}>
-                      <Eye className="h-3.5 w-3.5" /> View
-                    </Button>
-                  )}
-                  <Button size="sm" variant="outline" className="gap-1" disabled={!n.file_url}
-                    onClick={() => n.file_url && openProtectedFile("study-materials", n.file_url)}>
-                    <ExternalLink className="h-3.5 w-3.5" /> Open
-                  </Button>
-                  <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url}
-                    onClick={() => downloadNote(n)}>
-                    <Download className="h-3.5 w-3.5" /> Download
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  {/* gold rail marks the entry as studied */}
+                  <span
+                    aria-hidden
+                    className={`absolute left-0 top-0 h-full w-[2px] transition-opacity ${studied ? "bg-primary opacity-100" : "opacity-0"}`}
+                  />
+                  <CardContent className="flex flex-wrap items-center gap-4 p-5">
+                    <span className="num hidden w-7 shrink-0 font-mono text-xs text-muted-foreground/50 sm:block">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <button
+                      onClick={() => toggle(n.id)}
+                      aria-label={studied ? "Mark as not studied" : "Mark as studied"}
+                      className="shrink-0 transition-transform hover:scale-110"
+                    >
+                      {studied
+                        ? <CheckCircle2 className="h-5 w-5 text-primary" />
+                        : <Circle className="h-5 w-5 text-muted-foreground/40" />}
+                    </button>
+
+                    <div className="min-w-0 flex-1">
+                      <p className="font-display text-[15px] font-semibold leading-snug tracking-tight">
+                        {n.title}
+                      </p>
+                      <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span className="eyebrow">{n.subject_name}</span>
+                        {n.level && (
+                          <>
+                            <span className="text-muted-foreground/30">·</span>
+                            <span className="eyebrow">{LEVEL_LABELS[n.level as "OL"] ?? n.level}</span>
+                          </>
+                        )}
+                        <span className="text-muted-foreground/30">·</span>
+                        <span className="text-xs text-muted-foreground truncate">{n.topic_name}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-1.5">
+                      {role === "admin" && (
+                        <ContentEditor
+                          entityType="material"
+                          entityId={n.id}
+                          initialTitle={n.title}
+                          initialContent={n.content ?? null}
+                          onSaved={load}
+                        />
+                      )}
+                      {n.content && (
+                        <Button size="sm" variant="secondary" className="gap-1" onClick={() => setViewing(n)}>
+                          <Eye className="h-3.5 w-3.5" /> Read
+                        </Button>
+                      )}
+                      <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url}
+                        onClick={() => n.file_url && openProtectedFile("study-materials", n.file_url)}>
+                        <ExternalLink className="h-3.5 w-3.5" /> Open
+                      </Button>
+                      <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url}
+                        onClick={() => downloadNote(n)}>
+                        <Download className="h-3.5 w-3.5" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </li>
+            );
+          })}
+        </ol>
       )}
 
+      {/* ---------- reader ---------- */}
       <Dialog open={!!viewing} onOpenChange={(o) => !o && setViewing(null)}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <FileText className="h-5 w-5 text-primary" /> {viewing?.title}
+        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
+          <DialogHeader className="text-left">
+            <p className="eyebrow mb-1">
+              {viewing ? `${viewing.subject_name}${viewing.level ? ` · ${LEVEL_LABELS[viewing.level as "OL"] ?? viewing.level}` : ""}` : ""}
+            </p>
+            <DialogTitle className="font-display text-2xl font-semibold tracking-tight">
+              {viewing?.title}
             </DialogTitle>
-            <DialogDescription>
-              {viewing ? `${viewing.subject_name} · ${viewing.topic_name}` : ""}
-            </DialogDescription>
+            <DialogDescription>{viewing?.topic_name}</DialogDescription>
+            <hr className="rule-gold mt-3" />
           </DialogHeader>
-          <CardContent className="prose prose-sm max-w-none dark:prose-invert p-0">
+          <div className="prose-elegant pt-1">
             <div
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize((viewing?.content ?? "").replace(/\n/g, "<br/>")),
               }}
             />
-          </CardContent>
+          </div>
         </DialogContent>
       </Dialog>
 

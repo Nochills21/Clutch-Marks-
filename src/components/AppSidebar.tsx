@@ -4,7 +4,7 @@ import {
   BookOpen, LayoutDashboard, FileText, ClipboardList, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, Shield, FileCheck,
   Layers, CalendarDays, Library, BookMarked, Archive, Sparkles, Database,
-  Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy,
+  Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
+import { BrandLockup } from "@/components/BrandMark";
 
 
 const studentLinks = [
@@ -54,6 +56,7 @@ const adminLinks = [
   { title: "Audit Log", url: "/admin/audit-log", icon: History },
   { title: "Payments", url: "/admin/payments", icon: CreditCard },
   { title: "Feedback", url: "/admin/feedback", icon: MessageSquareHeart },
+  { title: "Email Health", url: "/admin/suppressions", icon: MailX },
 ];
 
 const parentLinks = [
@@ -71,17 +74,15 @@ export function AppSidebar() {
 
   return (
     <Sidebar className="border-r-0">
-      <SidebarHeader className="p-5">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-[hsl(var(--neon-purple))] text-primary-foreground shadow-lg glow-shadow">
-            <GraduationCap className="h-5 w-5" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-bold text-sidebar-foreground truncate tracking-tight">Clutch Marks</p>
-            <p className="text-[11px] text-sidebar-foreground/40 capitalize font-medium">{role ?? "..."}</p>
-          </div>
-        </div>
+      <SidebarHeader className="px-5 pt-6 pb-4">
+        <Link to={role === "admin" ? "/admin/subjects" : "/dashboard"} className="block">
+          <BrandLockup subtitle={role ?? "loading"} />
+        </Link>
       </SidebarHeader>
+
+      <div className="px-5">
+        <hr className="rule-gold" />
+      </div>
 
       <SidebarContent className="px-3">
         {studentPreview && (
@@ -97,9 +98,9 @@ export function AppSidebar() {
             </button>
           </div>
         )}
-        <SidebarGroup>
-          <SidebarGroupLabel className="text-sidebar-foreground/30 text-[10px] uppercase tracking-[0.15em] font-semibold px-3 mb-1">
-            Navigation
+        <SidebarGroup className="pt-3">
+          <SidebarGroupLabel className="eyebrow px-3 mb-2 text-sidebar-foreground/35">
+            {role === "admin" ? "Console" : "Study"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-0.5">
@@ -109,10 +110,10 @@ export function AppSidebar() {
                     <NavLink
                       to={item.url}
                       end={item.url === "/dashboard"}
-                      className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-sidebar-foreground/60 transition-all duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                      activeClassName="bg-primary/15 text-primary font-semibold shadow-[0_0_12px_hsl(var(--neon-blue)/0.15)]"
+                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium text-sidebar-foreground/65 transition-colors duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                      activeClassName="bg-sidebar-accent text-sidebar-foreground font-semibold before:absolute before:left-0 before:top-1/2 before:h-4 before:w-[2px] before:-translate-y-1/2 before:rounded-full before:bg-primary"
                     >
-                      <item.icon className="h-[18px] w-[18px] shrink-0" />
+                      <item.icon className="h-[17px] w-[17px] shrink-0 opacity-80 group-hover:opacity-100" />
                       <span>{item.title}</span>
                     </NavLink>
                   </SidebarMenuButton>
@@ -164,6 +165,14 @@ export function AppSidebar() {
               className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
             >
               Terms
+            </a>
+            <span className="text-sidebar-foreground/20 text-[11px]">·</span>
+            <a
+              href="mailto:support@clutchmarks.com"
+              title="Contact support"
+              className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
+            >
+              Support
             </a>
           </div>
           <Button

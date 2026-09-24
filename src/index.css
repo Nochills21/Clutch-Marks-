@@ -2,135 +2,198 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ============================================================================
+   Clutch Marks design system — "dark luxe, gold as the signature".
+
+   Dark is the designed theme: a deep ink canvas, gold used sparingly as a
+   precision instrument, hairline rules instead of neon glows, and layered
+   depth instead of drop shadows on everything. Light is a warm paper
+   counterpart, designed to read beautifully but not to compete.
+
+   Naming note: the legacy `--neon-*` tokens all resolved to the same gold
+   before this rebuild. They are kept as aliases because ~32 components
+   reference them, but every one now maps onto the honest `--gold-*` scale —
+   new code should use `--gold`/`--gold-soft`/`--gold-deep` directly.
+   ========================================================================== */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    /* --- surfaces: warm paper (light theme) --- */
+    --background: 40 33% 99%;
+    --foreground: 240 10% 9%;
 
-    --card: 0 0% 99%;
-    --card-foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 240 10% 9%;
 
-    --primary: 43 96% 46%;
-    --primary-foreground: 0 0% 5%;
-    --primary-glow: 43 100% 55%;
+    /* Gold reads as luxury on ink, so on light it is deepened for contrast. */
+    --primary: 40 92% 38%;
+    --primary-foreground: 40 33% 99%;
+    --primary-glow: 43 92% 50%;
 
-    --secondary: 40 15% 94%;
-    --secondary-foreground: 0 0% 20%;
+    --secondary: 40 20% 95%;
+    --secondary-foreground: 240 10% 20%;
 
-    --muted: 40 10% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 40 18% 95%;
+    --muted-foreground: 240 6% 42%;
 
-    --accent: 43 96% 46%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 40 92% 38%;
+    --accent-foreground: 40 33% 99%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 68% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 10% 88%;
-    --input: 40 10% 88%;
-    --ring: 43 96% 46%;
+    --border: 40 14% 88%;
+    --input: 40 14% 86%;
+    --ring: 40 92% 42%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 25%;
-    --sidebar-primary: 43 96% 46%;
-    --sidebar-primary-foreground: 0 0% 5%;
-    --sidebar-accent: 40 15% 94%;
-    --sidebar-accent-foreground: 0 0% 15%;
-    --sidebar-border: 40 10% 90%;
-    --sidebar-ring: 43 96% 46%;
+    /* --- sidebar chrome --- */
+    --sidebar-background: 40 30% 98%;
+    --sidebar-foreground: 240 8% 28%;
+    --sidebar-primary: 40 92% 38%;
+    --sidebar-primary-foreground: 40 33% 99%;
+    --sidebar-accent: 40 22% 94%;
+    --sidebar-accent-foreground: 240 10% 14%;
+    --sidebar-border: 40 14% 90%;
+    --sidebar-ring: 40 92% 42%;
 
-    --success: 152 60% 38%;
+    --success: 158 55% 32%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 10%;
+    --warning: 32 88% 44%;
+    --warning-foreground: 0 0% 100%;
 
-    --neon-blue: 43 96% 46%;
-    --neon-purple: 35 80% 55%;
-    --neon-cyan: 43 100% 60%;
-    --neon-red: 0 72% 51%;
+    /* --- gold scale (the signature) --- */
+    --gold: 40 92% 38%;
+    --gold-bright: 43 95% 52%;
+    --gold-soft: 42 70% 60%;
+    --gold-deep: 32 80% 30%;
+    --gold-tint: 42 90% 96%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(43 96% 46%), hsl(35 80% 55%), hsl(28 90% 50%));
-    --gradient-card: linear-gradient(135deg, hsl(43 96% 46% / 0.06), hsl(35 80% 55% / 0.04));
-    --shadow-glow: 0 0 25px -5px hsl(43 96% 46% / 0.25);
-    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.06), 0 4px 12px hsl(0 0% 0% / 0.04);
-    --shadow-card-hover: 0 4px 12px hsl(0 0% 0% / 0.1), 0 0 20px hsl(43 96% 46% / 0.08);
+    /* Legacy aliases — all gold now. */
+    --neon-blue: 40 92% 38%;
+    --neon-purple: 35 85% 44%;
+    --neon-cyan: 43 95% 52%;
+    --neon-red: 0 68% 45%;
 
-    --chart-1: 43 96% 46%;
-    --chart-2: 35 80% 55%;
-    --chart-3: 152 60% 38%;
-    --chart-4: 38 92% 50%;
-    --chart-5: 0 72% 51%;
-    --sidebar: 0 0% 98%;
+    --gradient-hero: linear-gradient(135deg, hsl(40 92% 42%), hsl(35 88% 48%) 55%, hsl(28 88% 44%));
+    --gradient-card: linear-gradient(135deg, hsl(40 92% 38% / 0.05), hsl(35 88% 48% / 0.03));
+    --gradient-gold-rule: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.55), transparent);
+
+    /* --- elevation: one coherent scale, warm and low-contrast on paper --- */
+    --shadow-2xs: 0 1px 1px hsl(240 10% 10% / 0.04);
+    --shadow-xs: 0 1px 2px hsl(240 10% 10% / 0.05);
+    --shadow-sm: 0 1px 2px hsl(240 10% 10% / 0.06), 0 1px 3px hsl(240 10% 10% / 0.04);
+    --shadow-md: 0 2px 4px hsl(240 10% 10% / 0.06), 0 4px 10px hsl(240 10% 10% / 0.05);
+    --shadow-lg: 0 4px 8px hsl(240 10% 10% / 0.07), 0 12px 24px hsl(240 10% 10% / 0.07);
+    --shadow-xl: 0 8px 16px hsl(240 10% 10% / 0.08), 0 24px 48px hsl(240 10% 10% / 0.1);
+    --shadow-2xl: 0 16px 32px hsl(240 10% 10% / 0.1), 0 40px 80px hsl(240 10% 10% / 0.12);
+
+    --shadow-glow: 0 0 0 1px hsl(var(--gold) / 0.18), 0 8px 30px -12px hsl(var(--gold) / 0.25);
+    --shadow-card: var(--shadow-sm);
+    --shadow-card-hover: var(--shadow-md);
+
+    /* Hairlines and sheens that give the dark theme its precision. */
+    --hairline: hsl(240 10% 10% / 0.09);
+    --hairline-strong: hsl(240 10% 10% / 0.16);
+    --sheen: linear-gradient(180deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.5));
+
+    --chart-1: 40 92% 42%;
+    --chart-2: 35 88% 48%;
+    --chart-3: 158 55% 32%;
+    --chart-4: 32 88% 44%;
+    --chart-5: 0 68% 45%;
+    --sidebar: 40 30% 98%;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 40 20% 92%;
+    /* --- surfaces: deep ink, never pure black (pure black kills depth) --- */
+    --background: 240 8% 4.5%;
+    --foreground: 40 18% 95%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 40 20% 92%;
+    --card: 240 7% 7%;
+    --card-foreground: 40 18% 95%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 40 20% 92%;
+    --popover: 240 8% 6%;
+    --popover-foreground: 40 18% 95%;
 
-    --primary: 43 96% 50%;
-    --primary-foreground: 0 0% 5%;
-    --primary-glow: 43 100% 60%;
+    --primary: 43 92% 55%;
+    --primary-foreground: 240 10% 6%;
+    --primary-glow: 45 96% 66%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 40 15% 80%;
+    --secondary: 240 6% 13%;
+    --secondary-foreground: 40 15% 88%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 40 8% 50%;
+    --muted: 240 6% 13%;
+    --muted-foreground: 40 8% 62%;
 
-    --accent: 43 96% 50%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 43 92% 55%;
+    --accent-foreground: 240 10% 6%;
 
-    --destructive: 0 85% 55%;
+    --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 43 96% 50%;
+    --border: 40 10% 17%;
+    --input: 40 10% 20%;
+    --ring: 43 92% 55%;
 
-    --sidebar-background: 0 0% 3%;
-    --sidebar-foreground: 40 15% 75%;
-    --sidebar-primary: 43 96% 50%;
-    --sidebar-primary-foreground: 0 0% 5%;
-    --sidebar-accent: 0 0% 9%;
-    --sidebar-accent-foreground: 40 20% 90%;
-    --sidebar-border: 0 0% 11%;
-    --sidebar-ring: 43 96% 50%;
+    --sidebar-background: 240 9% 3.5%;
+    --sidebar-foreground: 40 12% 78%;
+    --sidebar-primary: 43 92% 55%;
+    --sidebar-primary-foreground: 240 10% 6%;
+    --sidebar-accent: 240 7% 11%;
+    --sidebar-accent-foreground: 40 18% 95%;
+    --sidebar-border: 40 8% 13%;
+    --sidebar-ring: 43 92% 55%;
 
-    --success: 152 60% 42%;
-    --success-foreground: 0 0% 100%;
-    --warning: 38 85% 55%;
-    --warning-foreground: 0 0% 10%;
+    --success: 158 58% 46%;
+    --success-foreground: 240 10% 6%;
+    --warning: 38 92% 58%;
+    --warning-foreground: 240 10% 6%;
 
-    --neon-blue: 43 96% 50%;
-    --neon-purple: 35 80% 60%;
-    --neon-cyan: 43 100% 65%;
-    --neon-red: 0 85% 55%;
+    --gold: 43 92% 55%;
+    --gold-bright: 45 96% 66%;
+    --gold-soft: 42 60% 70%;
+    --gold-deep: 34 70% 42%;
+    --gold-tint: 42 60% 12%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(43 96% 50%), hsl(35 80% 60%), hsl(28 90% 55%));
-    --gradient-card: linear-gradient(135deg, hsl(43 96% 50% / 0.08), hsl(35 80% 60% / 0.05));
-    --shadow-glow: 0 0 35px -5px hsl(43 96% 50% / 0.4);
-    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.3), 0 6px 16px hsl(0 0% 0% / 0.2);
-    --shadow-card-hover: 0 4px 12px hsl(0 0% 0% / 0.4), 0 0 30px hsl(43 96% 50% / 0.15);
+    --neon-blue: 43 92% 55%;
+    --neon-purple: 36 85% 58%;
+    --neon-cyan: 45 96% 66%;
+    --neon-red: 0 72% 58%;
 
-    --chart-1: 43 96% 50%;
-    --chart-2: 35 80% 60%;
-    --chart-3: 152 60% 42%;
-    --chart-4: 38 85% 55%;
-    --chart-5: 0 85% 55%;
-    --sidebar: 0 0% 3%;
+    --gradient-hero: linear-gradient(135deg, hsl(45 96% 66%), hsl(40 92% 55%) 55%, hsl(33 80% 48%));
+    --gradient-card: linear-gradient(135deg, hsl(43 92% 55% / 0.07), hsl(36 85% 58% / 0.03));
+    --gradient-gold-rule: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.5), transparent);
+
+    /* Dark elevation leans on black depth plus a whisper of gold bloom. */
+    --shadow-2xs: 0 1px 1px hsl(0 0% 0% / 0.4);
+    --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.45);
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.5), 0 2px 6px hsl(0 0% 0% / 0.35);
+    --shadow-md: 0 2px 6px hsl(0 0% 0% / 0.5), 0 8px 20px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 4px 12px hsl(0 0% 0% / 0.55), 0 18px 40px hsl(0 0% 0% / 0.45);
+    --shadow-xl: 0 8px 24px hsl(0 0% 0% / 0.6), 0 32px 64px hsl(0 0% 0% / 0.5);
+    --shadow-2xl: 0 16px 40px hsl(0 0% 0% / 0.65), 0 48px 96px hsl(0 0% 0% / 0.55);
+
+    --shadow-glow: 0 0 0 1px hsl(var(--gold) / 0.22), 0 12px 40px -14px hsl(var(--gold) / 0.4);
+    --shadow-card: 0 1px 0 0 hsl(0 0% 100% / 0.03) inset, var(--shadow-sm);
+    --shadow-card-hover: 0 1px 0 0 hsl(0 0% 100% / 0.05) inset, var(--shadow-md);
+
+    --hairline: hsl(0 0% 100% / 0.07);
+    --hairline-strong: hsl(0 0% 100% / 0.13);
+    --sheen: linear-gradient(180deg, hsl(0 0% 100% / 0.06), hsl(0 0% 100% / 0));
+
+    --chart-1: 43 92% 55%;
+    --chart-2: 36 85% 58%;
+    --chart-3: 158 58% 46%;
+    --chart-4: 38 92% 58%;
+    --chart-5: 0 72% 58%;
+    --sidebar: 240 9% 3.5%;
   }
 }
 
@@ -139,18 +202,94 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
   }
 
+  /* Display serif for headings: the single biggest signal of "premium" here. */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-variation-settings: 'SOFT' 0, 'WONK' 0;
     @apply tracking-tight;
+  }
+
+  h1, h2 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--gold) / 0.28);
+  }
+
+  /* Slim, unobtrusive scrollbars to match the ink canvas. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.25);
+    border-radius: 9999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.4);
+    background-clip: content-box;
   }
 }
 
 @layer utilities {
+  /* ---------- typography ---------- */
+
+  .font-display {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  /* Small caps label used for section eyebrows across every surface. */
+  .eyebrow {
+    @apply text-[10.5px] font-semibold uppercase;
+    letter-spacing: 0.18em;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .display-xl {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .lede {
+    @apply text-lg leading-relaxed;
+    color: hsl(var(--muted-foreground));
+    max-width: 62ch;
+  }
+
+  /* Numbers that line up in tables and stat blocks. */
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+
   .gradient-text {
     background: var(--gradient-hero);
     -webkit-background-clip: text;
@@ -158,14 +297,43 @@
     background-clip: text;
   }
 
-  .glass-card {
-    @apply bg-card border border-border/60 rounded-2xl;
+  /* ---------- surfaces ---------- */
+
+  .surface {
+    @apply rounded-2xl border bg-card;
+    border-color: hsl(var(--border));
     box-shadow: var(--shadow-card);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .surface-raised {
+    @apply rounded-2xl border bg-card;
+    border-color: hsl(var(--hairline-strong));
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Kept for the components that already reference it. */
+  .glass-card {
+    @apply bg-card border rounded-2xl;
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
   }
 
   .glass-card:hover {
     box-shadow: var(--shadow-card-hover);
+    border-color: hsl(var(--gold) / 0.28);
+    transform: translateY(-2px);
+  }
+
+  .hairline {
+    border-color: hsl(var(--hairline));
+  }
+
+  /* A hairline gold divider — used sparingly as a brand signature. */
+  .rule-gold {
+    height: 1px;
+    border: 0;
+    background: var(--gradient-gold-rule);
   }
 
   .glow-shadow {
@@ -176,62 +344,222 @@
     background: var(--gradient-card);
   }
 
+  /* Legacy neon utilities, retuned: a fine gold edge rather than a glow. */
   .neon-border {
-    border: 1px solid hsl(var(--neon-blue) / 0.3);
-    box-shadow: inset 0 0 20px hsl(var(--neon-blue) / 0.05), 0 0 15px hsl(var(--neon-blue) / 0.1);
+    border: 1px solid hsl(var(--hairline-strong));
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
   }
 
   .neon-border:hover {
-    border-color: hsl(var(--neon-blue) / 0.5);
-    box-shadow: inset 0 0 25px hsl(var(--neon-blue) / 0.08), 0 0 25px hsl(var(--neon-blue) / 0.15);
+    border-color: hsl(var(--gold) / 0.32);
+    box-shadow: var(--shadow-card-hover);
   }
 
   .neon-text {
-    text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5), 0 0 30px hsl(var(--neon-blue) / 0.3);
+    text-shadow: none;
   }
 
   .neon-text-purple {
-    text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.5), 0 0 30px hsl(var(--neon-purple) / 0.3);
+    text-shadow: none;
   }
 
+  /* Gold sheen sweep on primary actions — replaces the old glow. */
+  .sheen {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .sheen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, hsl(0 0% 100% / 0.28) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .sheen:hover::after {
+    transform: translateX(120%);
+  }
+
+  /* ---------- background textures ---------- */
+
+  /* Ink canvas with a barely-there grid; denser texture is noise, not luxury. */
   .geo-pattern {
     background-image:
-      linear-gradient(hsl(var(--neon-blue) / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--neon-blue) / 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(hsl(var(--gold) / 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--gold) / 0.022) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
 
   .dot-pattern {
-    background-image: radial-gradient(hsl(var(--neon-blue) / 0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
+    background-image: radial-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
+
+  /* Soft gold bloom for hero sections — a vignette, not a neon orb. */
+  .bloom {
+    background:
+      radial-gradient(60% 50% at 50% 0%, hsl(var(--gold) / 0.13), transparent 70%),
+      radial-gradient(40% 40% at 85% 20%, hsl(var(--gold) / 0.06), transparent 70%);
+  }
+
+  /* ---------- composites ---------- */
 
   .stat-card {
     @apply relative overflow-hidden rounded-2xl border bg-card p-6;
-    border-color: hsl(var(--neon-blue) / 0.15);
+    border-color: hsl(var(--border));
     box-shadow: var(--shadow-card);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
   }
 
   .stat-card:hover {
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-2px);
-    border-color: hsl(var(--neon-blue) / 0.3);
+    border-color: hsl(var(--gold) / 0.3);
   }
 
+  /* Gold hairline that reveals on hover — replaces the old gradient bar. */
   .stat-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: var(--gradient-hero);
+    height: 1px;
+    background: var(--gradient-gold-rule);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.35s ease;
   }
 
   .stat-card:hover::before {
     opacity: 1;
+  }
+
+  /* ---------- reading surface (Notes, lesson content) ---------- */
+
+  .prose-elegant {
+    max-width: 68ch;
+    color: hsl(var(--foreground) / 0.92);
+    font-size: 1.0625rem;
+    line-height: 1.78;
+  }
+
+  .prose-elegant > * + * {
+    margin-top: 1.15em;
+  }
+
+  .prose-elegant h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-top: 2.2em;
+    padding-top: 1.1em;
+    border-top: 1px solid hsl(var(--hairline));
+  }
+
+  .prose-elegant h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.175rem;
+    font-weight: 600;
+    margin-top: 1.7em;
+  }
+
+  .prose-elegant strong {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  .prose-elegant a {
+    color: hsl(var(--gold));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: hsl(var(--gold) / 0.4);
+  }
+
+  .prose-elegant code {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.85em;
+    padding: 0.15em 0.4em;
+    border-radius: 0.375rem;
+    background: hsl(var(--muted));
+    border: 1px solid hsl(var(--hairline));
+  }
+
+  .prose-elegant ul,
+  .prose-elegant ol {
+    padding-left: 1.35em;
+  }
+
+  .prose-elegant ul {
+    list-style: none;
+  }
+
+  .prose-elegant ul > li {
+    position: relative;
+  }
+
+  /* Gold tick instead of a bullet: the brand, carried into body copy. */
+  .prose-elegant ul > li::before {
+    content: '';
+    position: absolute;
+    left: -1.05em;
+    top: 0.72em;
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: hsl(var(--gold) / 0.75);
+  }
+
+  .prose-elegant ol {
+    list-style: decimal;
+  }
+
+  .prose-elegant ol > li::marker {
+    color: hsl(var(--gold));
+    font-variant-numeric: tabular-nums;
+  }
+
+  .prose-elegant blockquote {
+    border-left: 2px solid hsl(var(--gold) / 0.5);
+    padding-left: 1.1em;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .prose-elegant table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .prose-elegant th {
+    text-align: left;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: hsl(var(--muted-foreground));
+    padding: 0.6em 0.75em;
+    border-bottom: 1px solid hsl(var(--hairline-strong));
+  }
+
+  .prose-elegant td {
+    padding: 0.6em 0.75em;
+    border-bottom: 1px solid hsl(var(--hairline));
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }

@@ -46,6 +46,7 @@ import Subjects from "./pages/Subjects";
 import Pricing from "./pages/Pricing";
 import AdminPayments from "./pages/admin/AdminPayments";
 import AdminFeedback from "./pages/admin/AdminFeedback";
+import AdminSuppressions from "./pages/admin/AdminSuppressions";
 import Subject from "./pages/Subject";
 import TopicNotes from "./pages/TopicNotes";
 import TopicQuiz from "./pages/TopicQuiz";
@@ -62,8 +63,12 @@ function RedirectPreservingQuery({ to }: { to: string }) {
   return <Navigate to={{ pathname: to, search: location.search }} replace />;
 }
 
+// Dark-luxe is the designed default; the light paper theme stays available via
+// the toggle. `enableSystem` is off so first paint matches the brand instead of
+// the visitor's OS setting, which used to hand most people the light theme by
+// accident.
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -129,6 +134,7 @@ const App = () => (
                   <Route path="/admin/audit-log" element={<AdminAuditLog />} />
                   <Route path="/admin/payments" element={<AdminPayments />} />
                   <Route path="/admin/feedback" element={<AdminFeedback />} />
+                  <Route path="/admin/suppressions" element={<AdminSuppressions />} />
                 </Route>
               </Route>
               <Route path="*" element={<NotFound />} />

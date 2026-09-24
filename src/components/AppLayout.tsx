@@ -33,12 +33,16 @@ export function AppLayout() {
   if (!isApproved && role !== "admin") {
     return (
       <div className="flex min-h-screen items-center justify-center px-4 py-10 bg-background geo-pattern">
-        <Card className="max-w-xl w-full neon-border">
-          <CardHeader className="text-center space-y-3">
-            <div className="mx-auto h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+        <Card className="max-w-xl w-full surface-raised overflow-hidden">
+          <div className="bloom pointer-events-none" aria-hidden="true" />
+          <CardHeader className="relative text-center space-y-4 pt-10">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10">
               <Clock className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-2xl">Waiting for admin approval</CardTitle>
+            <p className="eyebrow justify-center">Access pending</p>
+            <CardTitle className="font-display text-3xl font-normal tracking-tight">
+              Waiting for admin approval
+            </CardTitle>
             <CardDescription className="text-base">
               Signed in as{" "}
               <span className="font-mono font-medium text-foreground">
@@ -46,7 +50,7 @@ export function AppLayout() {
               </span>
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6">
+          <CardContent className="relative space-y-6">
             <Alert>
               <ShieldCheck className="h-4 w-4" />
               <AlertTitle>Why is access blocked?</AlertTitle>
@@ -57,7 +61,7 @@ export function AppLayout() {
             </Alert>
 
             <div className="space-y-3">
-              <h3 className="text-sm font-semibold text-foreground">What happens next</h3>
+              <h3 className="font-display text-lg font-normal text-foreground">What happens next</h3>
               <ol className="space-y-3">
                 <li className="flex gap-3 text-sm">
                   <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -87,7 +91,7 @@ export function AppLayout() {
               </ol>
             </div>
 
-            <div className="rounded-lg border bg-secondary/40 p-4 flex gap-3 items-start">
+            <div className="rounded-lg hairline bg-secondary/40 p-4 flex gap-3 items-start">
               <Mail className="h-4 w-4 text-primary mt-0.5 shrink-0" />
               <div className="text-sm space-y-1">
                 <p className="font-medium text-foreground">Need access urgently?</p>
@@ -115,16 +119,16 @@ export function AppLayout() {
   return (
     <SidebarProvider defaultOpen={device === "laptop"}>
       <ContentProtection />
-      <div className="flex min-h-screen w-full bg-background dot-pattern">
+      <div className="flex min-h-screen w-full bg-background">
         <AppSidebar />
         <div className="flex-1 flex flex-col min-w-0">
-          <header className="sticky top-0 z-30 flex h-16 items-center gap-2 sm:gap-4 border-b border-border/30 bg-background/80 backdrop-blur-xl px-3 sm:px-4 lg:px-8">
+          <header className="sticky top-0 z-30 flex h-14 items-center gap-2 sm:gap-3 border-b border-border/60 bg-background/75 backdrop-blur-xl px-3 sm:px-4 lg:px-8">
             <SidebarTrigger />
             <div className="flex-1" />
             <ThemeToggle />
             <NotificationCenter />
           </header>
-          <main className="flex-1 p-3 sm:p-4 md:p-6 lg:p-8">
+          <main className="flex-1 p-4 sm:p-5 md:p-7 lg:p-9">
             <Outlet />
           </main>
         </div>

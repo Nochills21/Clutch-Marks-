@@ -105,7 +105,7 @@ export default {
   		},
   		fontFamily: {
   			sans: [
-  				'Work Sans',
+  				'Inter',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',
@@ -117,8 +117,15 @@ export default {
   				'Noto Sans',
   				'sans-serif'
   			],
-  			serif: [
-  				'Lora',
+			display: [
+				'Fraunces',
+				'ui-serif',
+				'Georgia',
+				'				'Times New Roman',
+				'serif'
+			],
+			serif: [
+				'Fraunces',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -127,7 +134,7 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'Inconsolata',
+  				'JetBrains Mono',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',

@@ -7,27 +7,43 @@
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <title>Clutch Marks — Maths, Physics & Computer Science Revision</title>
-    <meta name="description" content="Study Maths, Physics and Computer Science at OL, AS and A2 with interactive lessons, practice quizzes and revision tools.">
+    <title>Clutch Marks — Maths, Physics &amp; Computer Science Revision</title>
+    <meta name="description" content="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at OL, AS and A2." />
+
+    <!-- Brand fonts: display serif + UI sans + tabular mono for marks and timers. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FFFDF9" media="(prefers-color-scheme: light)" />
+
     <!-- VITE_PLAUSIBLE_DOMAIN_PLACEHOLDER: replaced at build time with the
          Plausible script tag when VITE_PLAUSIBLE_DOMAIN is set (see
          plugins inject). Keeps local dev and previews script-free. -->
     <!--analytics-inject-->
-    <meta name="author" content="Lovable" />
+
+    <meta name="author" content="Clutch Marks" />
     <meta name="google-site-verification" content="m5Qj2P9Rv04eQ1Q05i5zYUceYinJWgsDtaHJgVjYv80" />
 
+    <!-- Update og:url + canonical to https://clutchmarks.com when the domain is
+         registered (see docs/domain-launch-runbook.md step 5). SITE.url in
+         src/lib/site.ts drives the in-app equivalents. -->
+    <link rel="canonical" href="https://clutchmarks.pages.dev/" />
+
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Clutch Marks — Maths, Physics & Computer Science Revision" />
-    <meta property="og:description" content="Study Maths, Physics and Computer Science at OL, AS and A2 with interactive lessons, practice quizzes and revision tools." />
-    <meta property="og:url" content="https://clutch-marks.lovable.app/" />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/bf9b4b9c-9400-4e32-aae6-c97c33c2a405?Expires=1772525089&amp;GoogleAccessId=go-api-on-aws%40gpt-engineer-390607.iam.gserviceaccount.com&amp;Signature=JAjO0eyInAGcGKh%2BXvIoR91GZfdpvDOfLpAgwC2XMVvQATuNvuXx3Jj%2FMk5zmbgng0FwS%2Bucevk88JO%2BEckcKQT0yUmQOBXsTgc7GBnWCbixmIXD3BE1eQ88eumVeTwCXjD%2F7Eo6aRUP8NEBkls4XwFKWeAybt0Tomi6AT6%2F28y3OcFvUn9%2FIAGTZCw02d4C6%2BjweOkJWbbxl51Wh1x2kf5%2BhbqBfEeWx2UaSLJbBlagdRH1XilWeaB8WJ0XgMYSyn1rv2wuoDBopuLpGj6BxAAHpUDDTE%2FmGWorbDnPMA3oOKWm5cNtPtxIeq5kdy%2B%2BFU%2FggKN0sN206iZncCzUcg%3D%3D">
+    <meta property="og:site_name" content="Clutch Marks" />
+    <meta property="og:title" content="Clutch Marks — Maths, Physics &amp; Computer Science Revision" />
+    <meta property="og:description" content="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for IGCSE, AS and A Level." />
+    <meta property="og:url" content="https://clutchmarks.pages.dev/" />
+    <meta property="og:image" content="https://clutchmarks.pages.dev/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Clutch Marks — revision notes, topic questions and past papers" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:title" content="Clutch Marks — Maths, Physics & Computer Science Revision" />
-    <meta name="twitter:description" content="Study Maths, Physics and Computer Science at OL, AS and A2 with interactive lessons, practice quizzes and revision tools." />
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/bf9b4b9c-9400-4e32-aae6-c97c33c2a405?Expires=1772525089&amp;GoogleAccessId=go-api-on-aws%40gpt-engineer-390607.iam.gserviceaccount.com&amp;Signature=JAjO0eyInAGcGKh%2BXvIoR91GZfdpvDOfLpAgwC2XMVvQATuNvuXx3Jj%2FMk5zmbgng0FwS%2Bucevk88JO%2BEckcKQT0yUmQOBXsTgc7GBnWCbixmIXD3BE1eQ88eumVeTwCXjD%2F7Eo6aRUP8NEBkls4XwFKWeAybt0Tomi6AT6%2F28y3OcFvUn9%2FIAGTZCw02d4C6%2BjweOkJWbbxl51Wh1x2kf5%2BhbqBfEeWx2UaSLJbBlagdRH1XilWeaB8WJ0XgMYSyn1rv2wuoDBopuLpGj6BxAAHpUDDTE%2FmGWorbDnPMA3oOKWm5cNtPtxIeq5kdy%2B%2BFU%2FggKN0sN206iZncCzUcg%3D%3D">
-</head>
+    <meta name="twitter:title" content="Clutch Marks — Maths, Physics &amp; Computer Science Revision" />
+    <meta name="twitter:description" content="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for IGCSE, AS and A Level." />
+    <meta name="twitter:image" content="https://clutchmarks.pages.dev/og.png" />
+  </head>
 
   <body>
     <div id="root"></div>

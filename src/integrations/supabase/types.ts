@@ -230,6 +230,27 @@ export type Database = {
         }
         Relationships: []
       }
+      email_suppressions: {
+        Row: {
+          created_at: string
+          detail: string | null
+          email: string
+          reason: string
+        }
+        Insert: {
+          created_at?: string
+          detail?: string | null
+          email: string
+          reason: string
+        }
+        Update: {
+          created_at?: string
+          detail?: string | null
+          email?: string
+          reason?: string
+        }
+        Relationships: []
+      }
       flashcard_progress: {
         Row: {
           ease_factor: number

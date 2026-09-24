@@ -15098,7 +15098,7 @@
    "£75"
   ],
   "correct_option": 2,
-  "explanation": "25% of £80 = £20. Sale price = £80 ��� £20 = £60. Or: 75% of £80 = £60.",
+  "explanation": "25% of £80 = £20. Sale price = £80 − £20 = £60. Or: 75% of £80 = £60.",
   "sort_order": 6,
   "created_at": "2026-08-22 13:58:30.451455+00",
   "difficulty": "medium"

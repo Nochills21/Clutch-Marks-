@@ -4,11 +4,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
 import { XpStreakCard } from "@/components/XpStreakCard";
-import { Progress } from "@/components/ui/progress";
-import { BookOpen, Brain, ClipboardList, Megaphone, TrendingUp, Target, ArrowRight, Sparkles } from "lucide-react";
+import { BookOpen, Brain, ClipboardList, Megaphone, TrendingUp, Target, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { TodaysTasks } from "@/components/dashboards/TodaysTasks";
-import { HeroIllustration } from "@/components/HeroIllustration";
+import { BrandHero } from "@/components/BrandHero";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
@@ -30,6 +29,24 @@ interface SubjectRow {
 }
 
 const pct = (a: number, b: number) => (b > 0 ? Math.round((a / b) * 100) : 0);
+
+function greetingFor(hour: number) {
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
+  return "Good evening";
+}
+
+/** Thin gold measure used for every progress rail on this page. */
+function GoldRail({ value, className = "" }: { value: number; className?: string }) {
+  return (
+    <div className={`h-1 w-full overflow-hidden rounded-full bg-border/70 ${className}`}>
+      <div
+        className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--gold-deep))] to-[hsl(var(--gold-bright))] transition-[width] duration-700 ease-out"
+        style={{ width: `${Math.max(0, Math.min(100, value))}%` }}
+      />
+    </div>
+  );
+}
 
 export function StudentDashboard() {
   const { user } = useAuth();
@@ -67,11 +84,17 @@ export function StudentDashboard() {
 
   const completionPct = stats.lessons > 0 ? Math.round((stats.completed / stats.lessons) * 100) : 0;
 
+  const now = new Date();
+  const firstName = (user?.user_metadata?.full_name as string | undefined)?.split(" ")[0]
+    ?? user?.email?.split("@")[0]
+    ?? "there";
+  const todayLabel = now.toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" });
+
   const statCards = [
-    { label: "Lessons Done", value: `${stats.completed}/${stats.lessons}`, icon: BookOpen, accent: "neon-blue" },
-    { label: "Progress", value: `${completionPct}%`, icon: TrendingUp, accent: "neon-cyan" },
-    { label: "Quizzes", value: stats.quizzes, icon: Brain, accent: "neon-purple" },
-    { label: "Notes Studied", value: `${notesDone}/${notesTotal}`, icon: ClipboardList, accent: "warning" },
+    { label: "Lessons done", value: `${stats.completed}/${stats.lessons}`, icon: BookOpen },
+    { label: "Overall progress", value: `${completionPct}%`, icon: TrendingUp },
+    { label: "Quizzes available", value: String(stats.quizzes), icon: Brain },
+    { label: "Notes studied", value: `${notesDone}/${notesTotal}`, icon: ClipboardList },
   ];
 
   const quickActions = [
@@ -82,140 +105,179 @@ export function StudentDashboard() {
   ];
 
   return (
-    <div className="space-y-8">
-      {/* Hero */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[hsl(var(--neon-purple))] p-8 text-primary-foreground">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl" />
-        <div className="relative z-10 flex items-center gap-6">
-          <div className="flex-1">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm px-3 py-1 text-xs font-medium mb-4">
-              <Sparkles className="h-3 w-3" /> Welcome back
+    <div className="space-y-10">
+      {/* Masthead */}
+      <header className="space-y-6">
+        <div className="flex items-center gap-4">
+          <p className="eyebrow">Console</p>
+          <hr className="rule-gold hidden flex-1 sm:block" />
+          <p className="num text-[11px] uppercase tracking-[0.14em] text-muted-foreground">{todayLabel}</p>
+        </div>
+        <div>
+          <h1 className="display-xl text-4xl sm:text-5xl">
+            {greetingFor(now.getHours())},{" "}
+            <span className="gradient-text">{firstName}</span>.
+          </h1>
+          <p className="lede mt-4">
+            Everything you have worked through so far, and the shortest path to the next mark.
+          </p>
+        </div>
+      </header>
+
+      {/* Course progress — the console's master gauge */}
+      <section className="surface-raised relative overflow-hidden">
+        <div className="bloom pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="space-y-5">
+            <p className="eyebrow">Course progress</p>
+            <div className="flex items-baseline gap-3">
+              <span className="num font-display text-5xl font-semibold tracking-tight sm:text-6xl">
+                {completionPct}
+              </span>
+              <span className="num font-display text-2xl text-muted-foreground">%</span>
             </div>
-            <h1 className="text-3xl font-bold mb-2">Ready to learn? 🎯</h1>
-            <p className="text-white/70 text-sm max-w-md">Track your progress, complete lessons, and ace your Clutch Marks exam.</p>
+            <GoldRail value={completionPct} className="max-w-xl" />
+            <p className="num text-xs text-muted-foreground">
+              {stats.completed} of {stats.lessons} lessons completed
+            </p>
           </div>
-          <div className="hidden md:block w-44 shrink-0 opacity-90">
-            <HeroIllustration className="w-full h-auto rounded-xl" />
+          <div className="hidden w-72 shrink-0 lg:block" aria-hidden="true">
+            <BrandHero className="w-full" title="Study progress overview" />
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Instrument strip */}
+      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {statCards.map((s) => (
+          <div key={s.label} className="stat-card p-5">
+            <div className="flex items-start justify-between gap-3">
+              <p className="eyebrow">{s.label}</p>
+              <s.icon className="h-4 w-4 shrink-0 text-primary/70" />
+            </div>
+            <p className="num mt-4 font-display text-3xl font-semibold tracking-tight">{s.value}</p>
+          </div>
+        ))}
+      </section>
 
       {/* Streak + XP */}
       <XpStreakCard />
 
-      {/* Stats */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {statCards.map((s) => (
-          <div key={s.label} className="stat-card">
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 border border-primary/20">
-                <s.icon className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{s.label}</p>
-                <p className="text-2xl font-bold mt-0.5">{s.value}</p>
-              </div>
-            </div>
+      {/* Per subject & level ledger */}
+      <section className="space-y-4">
+        <div className="flex items-end justify-between gap-4">
+          <div className="space-y-2">
+            <p className="eyebrow">By subject &amp; level</p>
+            <h2 className="font-display text-2xl font-normal tracking-tight">Where your marks are coming from</h2>
           </div>
-        ))}
-      </div>
-
-      {/* Progress */}
-      <Card className="neon-border bg-card">
-        <CardContent className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="text-sm font-semibold">Course Progress</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{stats.completed} of {stats.lessons} lessons completed</p>
-            </div>
-            <span className="text-2xl font-bold text-primary neon-text">{completionPct}%</span>
-          </div>
-          <Progress value={completionPct} className="h-2.5" />
-        </CardContent>
-      </Card>
-
-      {/* Per subject & level progress */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Progress by subject &amp; level</h2>
-          <Link to="/progress" className="text-xs text-primary hover:underline">View details</Link>
+          <Link
+            to="/progress"
+            className="num shrink-0 text-[11px] uppercase tracking-[0.14em] text-primary/90 transition-colors hover:text-primary"
+          >
+            View details
+          </Link>
         </div>
+
         {subjectLoading ? (
-          <div className="grid gap-3 sm:grid-cols-2">{[0, 1].map((i) => <Skeleton key={i} className="h-32 rounded-xl" />)}</div>
+          <div className="grid gap-3 sm:grid-cols-2">{[0, 1].map((i) => <Skeleton key={i} className="h-32 rounded-2xl" />)}</div>
         ) : subjectRows.length === 0 ? (
-          <Card className="neon-border"><CardContent className="py-8 text-center">
-            <p className="text-sm text-muted-foreground">No subject activity yet — pick a subject to get started.</p>
-          </CardContent></Card>
+          <Card className="surface">
+            <CardContent className="py-10 text-center">
+              <p className="text-sm text-muted-foreground">No subject activity yet — pick a subject to get started.</p>
+            </CardContent>
+          </Card>
         ) : (
-          <div className="grid gap-3 sm:grid-cols-2">
-            {subjectRows.map((r) => (
-              <Card key={`${r.subject_id}-${r.subject_level_id}`} className="neon-border">
-                <CardContent className="p-4 space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <Link to={`/study/${r.subject_slug}/${r.level}`} className="font-semibold hover:underline">{r.subject_name}</Link>
-                    <Badge variant="outline" className="text-[10px]">{LEVEL_LABELS[r.level] ?? r.level}</Badge>
+          <ul className="divide-y divide-border/60 overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
+            {subjectRows.map((r, i) => {
+              const materialsPct = pct(Number(r.lessons_completed), Number(r.lessons_total));
+              return (
+                <li key={`${r.subject_id}-${r.subject_level_id}`} className="p-5 transition-colors duration-300 hover:bg-secondary/40">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <span className="num text-[11px] text-muted-foreground/70">{String(i + 1).padStart(2, "0")}</span>
+                    <Link
+                      to={`/study/${r.subject_slug}/${r.level}`}
+                      className="font-display text-lg tracking-tight transition-colors hover:text-primary"
+                    >
+                      {r.subject_name}
+                    </Link>
+                    <Badge variant="outline" className="border-border/70 text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                      {LEVEL_LABELS[r.level] ?? r.level}
+                    </Badge>
+                    <span className="num ml-auto text-xs text-muted-foreground">
+                      {Number(r.lessons_completed)}/{Number(r.lessons_total)} materials · {materialsPct}%
+                    </span>
                   </div>
-                  <div>
-                    <div className="flex justify-between text-xs text-muted-foreground mb-1">
-                      <span>Materials completed</span>
-                      <span>{Number(r.lessons_completed)}/{Number(r.lessons_total)}</span>
+
+                  <GoldRail value={materialsPct} className="mt-4 max-w-md" />
+
+                  <dl className="mt-4 flex flex-wrap gap-x-10 gap-y-3">
+                    <div>
+                      <dt className="eyebrow">Quiz average</dt>
+                      <dd className="num mt-1 text-base font-semibold">
+                        {Number(r.quiz_attempts) ? `${Math.round(Number(r.quiz_avg_score))}%` : "—"}
+                      </dd>
                     </div>
-                    <Progress value={pct(Number(r.lessons_completed), Number(r.lessons_total))} className="h-2" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="rounded-lg bg-muted/50 p-2">
-                      <p className="text-muted-foreground">Quiz average</p>
-                      <p className="text-sm font-semibold">{Number(r.quiz_attempts) ? `${Math.round(Number(r.quiz_avg_score))}%` : "—"}</p>
+                    <div>
+                      <dt className="eyebrow">AI bank used</dt>
+                      <dd className="num mt-1 text-base font-semibold">
+                        {Number(r.ai_questions_answered)}/{Number(r.ai_questions_total)}
+                      </dd>
                     </div>
-                    <div className="rounded-lg bg-muted/50 p-2">
-                      <p className="text-muted-foreground">AI bank used</p>
-                      <p className="text-sm font-semibold">{Number(r.ai_questions_answered)}/{Number(r.ai_questions_total)}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </dl>
+                </li>
+              );
+            })}
+          </ul>
         )}
-      </div>
+      </section>
 
       <TodaysTasks />
 
-      <div className="grid gap-6 lg:grid-cols-5">
-        <div className="lg:col-span-3 space-y-3">
-          <h2 className="text-lg font-semibold">Quick Actions</h2>
-          <div className="grid gap-3">
-            {quickActions.map((a) => (
-              <Link key={a.label} to={a.to}>
-                <div className="group flex items-center gap-4 rounded-xl neon-border bg-card p-4 transition-all duration-200">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 border border-primary/20">
-                    <a.icon className="h-5 w-5" />
+      <div className="grid gap-8 lg:grid-cols-5">
+        <div className="space-y-4 lg:col-span-3">
+          <div className="space-y-2">
+            <p className="eyebrow">Jump to</p>
+            <h2 className="font-display text-2xl font-normal tracking-tight">Quick actions</h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {quickActions.map((a, i) => (
+              <Link key={a.label} to={a.to} className="group">
+                <div className="glass-card h-full p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="num text-[11px] text-muted-foreground/70">{String(i + 1).padStart(2, "0")}</span>
+                    <a.icon className="h-4 w-4 shrink-0 text-primary/70 transition-colors group-hover:text-primary" />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold">{a.label}</p>
-                    <p className="text-xs text-muted-foreground">{a.desc}</p>
-                  </div>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-primary transition-colors" />
+                  <p className="font-display mt-4 flex items-center gap-2 text-base tracking-tight">
+                    {a.label}
+                    <ArrowRight className="h-3.5 w-3.5 -translate-x-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">{a.desc}</p>
                 </div>
               </Link>
             ))}
           </div>
         </div>
 
-        <div className="lg:col-span-2 space-y-3">
-          <h2 className="text-lg font-semibold flex items-center gap-2">
-            <Megaphone className="h-4 w-4 text-primary" /> Announcements
-          </h2>
+        <div className="space-y-4 lg:col-span-2">
+          <div className="space-y-2">
+            <p className="eyebrow flex items-center gap-2">
+              <Megaphone className="h-3 w-3 text-primary" /> Notices
+            </p>
+            <h2 className="font-display text-2xl font-normal tracking-tight">Announcements</h2>
+          </div>
           <div className="space-y-3">
             {announcements.length === 0 ? (
-              <Card className="neon-border"><CardContent className="py-8 text-center"><p className="text-sm text-muted-foreground">No announcements yet.</p></CardContent></Card>
+              <Card className="surface">
+                <CardContent className="py-10 text-center">
+                  <p className="text-sm text-muted-foreground">No announcements yet.</p>
+                </CardContent>
+              </Card>
             ) : (
               announcements.map((a) => (
-                <Card key={a.id} className="neon-border">
-                  <CardContent className="p-4">
-                    <p className="font-semibold text-sm">{a.title}</p>
-                    <p className="text-xs text-muted-foreground mt-1.5 line-clamp-2 leading-relaxed">{a.content}</p>
+                <Card key={a.id} className="surface">
+                  <CardContent className="p-5">
+                    <p className="font-display text-base tracking-tight">{a.title}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">{a.content}</p>
                   </CardContent>
                 </Card>
               ))
