@@ -22,6 +22,7 @@ import FeedbackPage from "./pages/FeedbackPage";
 import Leaderboard from "./pages/Leaderboard";
 import ResetPassword from "./pages/ResetPassword";
 import { PrivacyPolicy, TermsOfService } from "./pages/Legal";
+import Downloads from "./pages/Downloads";
 import ProgressPage from "./pages/ProgressPage";
 import Announcements from "./pages/Announcements";
 
@@ -72,6 +73,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
+              {/* Public: blog-funnel gated download page (no auth required). */}
+              <Route path="/downloads" element={<Downloads />} />
               <Route element={<AppLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route element={<ApprovalGate />}>
