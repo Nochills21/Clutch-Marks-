@@ -119,12 +119,12 @@ export default function Downloads() {
   return (
     <div className="mx-auto max-w-2xl space-y-6 py-6">
       <SEOHead
-        title="Free Formula Sheets — IGCSE, AS & A2 Maths, Physics, CS"
-        description="Download free formula sheets and reference sheets for every subject and level: Cambridge IGCSE 0580/0625/0478, Edexcel IAL AS/A2 Maths and Physics, Cambridge 9618 Computer Science."
+        title="Formula Sheets — IGCSE, AS & A2 Maths, Physics, CS"
+        description="Download formula sheets and reference sheets for every subject and level: Cambridge IGCSE 0580/0625/0478, Edexcel IAL AS/A2 Maths and Physics, Cambridge 9618 Computer Science."
         path="/downloads"
       />
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Free Formula Sheets 📄</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Formula Sheets 📄</h1>
         <p className="text-muted-foreground mt-2">
           Every formula, equation and must-recall fact on printable pages — matched to
           the right exam board: <strong>Cambridge</strong> for O Level and Computer
@@ -135,7 +135,7 @@ export default function Downloads() {
       {!unlocked ? (
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg">Get all 9 sheets (free)</CardTitle>
+            <CardTitle className="text-lg">Get all 9 sheets</CardTitle>
             <CardDescription>
               Enter your email to unlock every download. We'll never spam you — and if
               you sign up later, your progress tracking and streak start right where
@@ -196,7 +196,7 @@ export default function Downloads() {
           <Card>
             <CardContent className="pt-4 text-sm text-muted-foreground">
               Sheets are for personal study only (see our <a className="underline text-primary" href="/terms">terms</a>).
-              Want the interactive version? Every formula here has a <a className="underline text-primary" href="/quizzes">matching quiz</a> on Clutch Marks — free.
+              Want the interactive version? Every formula here has a <a className="underline text-primary" href="/quizzes">matching quiz</a> on Clutch Marks.
             </CardContent>
           </Card>
         </div>

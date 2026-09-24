@@ -1,4 +1,4 @@
-// Pricing: free tier + three paid plans ($20/mo, $12/mo billed quarterly, $5/mo billed annually).
+// Pricing: preview tier + three paid plans ($20/mo, $12/mo billed quarterly, $5/mo billed annually).
 // Payment is bank transfer for now: the student requests a plan, gets the payment
 // instructions, and an admin activates the subscription once the transfer lands.
 import { useEffect, useState } from "react";
@@ -16,11 +16,11 @@ import { Check, Sparkles, Loader2, Clock } from "lucide-react";
 const PLANS = [
   {
     id: "free",
-    name: "Free",
+    name: "Preview",
     price: "$0",
     per: "forever",
-    blurb: "Everything for O Level — see if Clutch Marks works for you.",
-    features: ["All O Level lessons & notes", "O Level quizzes & question bank", "O Level past papers", "Progress tracking"],
+    blurb: "A taste of everything — see if Clutch Marks works for you.",
+    features: ["A preview of every level (OL, AS & A2)", "Sample lessons & notes in each subject", "Progress tracking", "Upgrade any time for full access"],
     cta: null as string | null,
   },
   {
@@ -29,7 +29,7 @@ const PLANS = [
     price: "$20",
     per: "/month",
     blurb: "Full access, month to month.",
-    features: ["Everything in Free", "AS & A2 lessons, notes & quizzes", "AS & A2 past papers", "AI study planner", "Flashcards & smart revision"],
+    features: ["Everything unlocked", "All levels: OL, AS & A2", "Every lesson, note, quiz & past paper", "AI study planner", "Flashcards & smart revision"],
     highlight: false,
   },
   {
@@ -92,14 +92,14 @@ export default function Pricing() {
     <div className="space-y-8">
       <SEOHead
         title="Plans & Pricing — Clutch Marks"
-        description="Start free with full O Level access. Unlock AS & A2 from $5/month — A* prep for Maths, Physics and Computer Science."
+        description="A preview of every subject at every level. Unlock everything from $5/month — A* prep for Maths, Physics and Computer Science."
         path="/pricing"
       />
       <div className="text-center space-y-3">
         <Badge variant="secondary" className="gap-1.5"><Sparkles className="h-3 w-3" /> Simple pricing</Badge>
         <h1 className="text-3xl font-bold tracking-tight">Pick your plan</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          O Level is free forever. Upgrade whenever you're ready for AS & A2 — cancel any time.
+          Try before you commit — a preview of every subject at every level. Upgrade whenever you're ready for full access — cancel any time.
         </p>
       </div>
 
@@ -144,7 +144,7 @@ export default function Pricing() {
                 </ul>
                 {p.id === "free" ? (
                   <Button variant="outline" className="w-full" disabled={isCurrent}>
-                    {isCurrent ? "Your current plan" : user ? "Downgrade not needed" : "Start free"}
+                    {isCurrent ? "Your current plan" : user ? "Downgrade not needed" : "Start with preview"}
                   </Button>
                 ) : isCurrent ? (
                   <Button className="w-full" disabled>Current plan</Button>
@@ -153,7 +153,7 @@ export default function Pricing() {
                 ) : (
                   <Button
                     className="w-full bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
-                    onClick={() => { setSelected(p.id); if (!user) toast({ title: "Sign in first", description: "Create a free account, then subscribe." }); }}
+                    onClick={() => { setSelected(p.id); if (!user) toast({ title: "Sign in first", description: "Create an account, then subscribe." }); }}
                   >
                     Subscribe
                   </Button>

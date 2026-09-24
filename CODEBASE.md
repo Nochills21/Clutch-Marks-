@@ -40,7 +40,9 @@ plugins/prerender-seo.ts  Build-time static <head> generation for crawlers.
 
 - **Roles**: `user_roles.role` ∈ admin | student | parent. Signup always creates a
   student (never trust client-sent role); only admins elevate.
-- **Plan gating**: free plan = O Level only. AS/A2 pages are wrapped in `<PlanGate>`.
+- **Plan gating**: free plan shows a 2-item preview of EVERY level (`FREE_PREVIEW_LIMIT`
+  in `useSubscription.ts`); `usePreviewSlice` + `<PreviewLimit>` collapse the rest of each
+  list into an upgrade prompt. There is no page-level gate anymore (PlanGate removed).
   Active subscription unlocks everything. Admins bypass.
 - **File downloads** must go through `lib/contentFiles.ts` → `serve-material` edge
   function (signs + watermarks + audit-logs). Never expose storage URLs directly.

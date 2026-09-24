@@ -164,8 +164,8 @@ export default function Auth() {
         description: role === "parent"
           ? "Children who signed up with your email are linked automatically."
           : parent
-            ? "Your free plan is active — we've linked your parent's account to yours."
-            : "Your free plan is active — every O Level lesson, quiz and note is ready.",
+            ? "Account ready — we've linked your parent's account to yours."
+            : "Your account is ready — pick your subjects and start studying.",
       });
     }
   };
@@ -266,7 +266,7 @@ export default function Auth() {
                     {loading ? "Creating account…" : "Create Account"}
                   </Button>
                   <p className="text-center text-xs text-muted-foreground pt-1">
-                    Free plan includes all O Level material — no approval needed
+                    No approval needed — pick your subjects and start studying
                   </p>
                 </CardContent>
               </form>

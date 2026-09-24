@@ -47,7 +47,9 @@ function LegalShell({
         ))}
       </div>
       <p className="text-xs text-muted-foreground pb-6">
-        Questions about this page? Email us or send a message through the{" "}
+        Questions about this page? Contact us at{" "}
+        <a href="mailto:support@clutchmarks.com" className="text-primary underline">support@clutchmarks.com</a>{" "}
+        or send a message through the{" "}
         <Link to="/feedback" className="text-primary underline">Feedback tab</Link>.
       </p>
     </div>
@@ -99,7 +101,9 @@ const privacySections: Section[] = [
       <p>
         We keep your learning records while your account is open, so your progress and streaks are
         always there when you come back. Activity logs are archived and anonymised after 12 months.
-        If you want your account deleted, ask your parent to contact us and we'll remove it.
+        If you want your account deleted, ask your parent to contact us at{" "}
+        <a href="mailto:support@clutchmarks.com" className="text-primary underline">support@clutchmarks.com</a>{" "}
+        and we'll remove it.
       </p>
     ),
   },
@@ -118,7 +122,7 @@ const privacySections: Section[] = [
       <ul className="list-disc pl-5 space-y-1">
         <li>You can see everything we store about your activity in your own dashboard.</li>
         <li>You can change your password any time from the login page.</li>
-        <li>Parents can request a copy of their child's data or account deletion by contacting us.</li>
+        <li>Parents can request a copy of their child's data or account deletion by emailing <a href="mailto:support@clutchmarks.com" className="text-primary underline">support@clutchmarks.com</a>.</li>
       </ul>
     ),
   },
@@ -165,7 +169,7 @@ const termsSections: Section[] = [
       <p>
         Paid plans are billed through the payment method shown on the Pricing page. Your plan lasts
         for the period you paid for and doesn't auto-renew unless we clearly say so. If a payment
-        fails or is reversed, the account returns to the free plan.
+        fails or is reversed, the account returns to the limited preview tier.
       </p>
     ),
   },

@@ -1,8 +1,13 @@
 // Subscription state for the signed-in user. Admins always have full access.
-// Free plan = O Level content only; any active paid plan unlocks AS/A2.
+// Free plan = a small preview of EVERY level (not all of O Level); paid unlocks
+// everything. Free previews are enforced client-side on non-premium content
+// surfaces (Subject page lists) and server-side by RLS on premium tables.
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
+
+/** How many items per list a free (non-paying) user may open, per subject-level. */
+export const FREE_PREVIEW_LIMIT = 2;
 
 export type PlanState = {
   loading: boolean;
@@ -43,15 +48,26 @@ export function useSubscription(): PlanState {
   return { loading, planId, hasPaid, refresh };
 }
 
-/** Free plan sees O Level only; paid sees everything. Admins unrestricted. */
+/**
+ * Access rules:
+ *  - admins: everything.
+ *  - paid: everything.
+ *  - free: can browse every level, but a list shows only the first
+ *    FREE_PREVIEW_LIMIT items per subject-level; the rest shows the upgrade
+ *    prompt (see PreviewLimit / PlanGate components).
+ */
 export function usePlanAccess() {
   const { role } = useAuth();
   const { loading, hasPaid } = useSubscription();
+  const fullAccess = role === "admin" || hasPaid;
   return {
     loading,
-    /** Whether the given level ("ol" | "as" | "a2") is viewable. */
-    canAccessLevel: (level: string) =>
-      role === "admin" || hasPaid || level.toUpperCase() === "OL",
+    /** Whether the given level ("ol" | "as" | "a2") is fully viewable. */
+    canAccessLevel: (_level: string) => fullAccess,
+    /** Whether a list at any level should show only the free preview slice. */
+    isPreview: !fullAccess,
+    /** How many items of a list the current user may see. */
+    previewLimit: fullAccess ? Number.MAX_SAFE_INTEGER : FREE_PREVIEW_LIMIT,
     hasPaid,
   };
 }

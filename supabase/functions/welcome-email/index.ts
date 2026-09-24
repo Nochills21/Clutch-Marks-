@@ -36,16 +36,16 @@ function welcomeHtml(name: string, isParent: boolean): string {
   return `
   <div style="font-family:Segoe UI,Arial,sans-serif;max-width:520px;margin:0 auto;padding:24px;color:#1a1a2e">
     <h2 style="color:#5b21b6">Welcome to Clutch Marks, ${first} 🎉</h2>
-    <p>Your free plan is active — every <strong>O Level</strong> lesson, revision note, quiz, and past paper is unlocked right now.</p>
+    <p>Your account is active — you can preview every subject at every level right now.</p>
     <ul>
       <li>Pick your subjects and start with the first lesson</li>
       <li>Take a quiz — we'll spot your weak topics and build practice from them</li>
-      <li>Check the Study Planner for a week-by-week plan toward your exam</li>
+      <li>Ready for everything? The full plan unlocks all notes, past papers and practice</li>
     </ul>
     <p style="margin:28px 0">
       <a href="${SITE_URL}/lessons" style="background:#5b21b6;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600">Start learning</a>
     </p>
-    <p style="color:#6b7280;font-size:13px">Aiming for A/A*? AS & A2 levels are available on the paid plans — see Pricing anytime.</p>
+    <p style="color:#6b7280;font-size:13px">Aiming for A/A*? The full plan unlocks every lesson, note and past paper — see Pricing anytime.</p>
   </div>`;
 }
 

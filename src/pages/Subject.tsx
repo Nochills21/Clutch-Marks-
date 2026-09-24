@@ -13,7 +13,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { topicNotesPath, topicQuizPath, topicPapersPath, slugifyTopicName } from "@/lib/topicUrls";
-import { PlanGate } from "@/components/PlanGate";
+import { usePreviewSlice, PreviewLimit } from "@/components/PreviewLimit";
 import { BookOpen, FileText, Brain, Archive, Database, ArrowLeft, ArrowRight, Search, Sparkles } from "lucide-react";
 
 interface BankQuestion {
@@ -132,7 +132,16 @@ export default function Subject() {
   const visiblePapers = papers.filter((p) =>
     matchesTopic(p.topic_id) && matchesText(p.title, p.session, p.paper_number, String(p.year)) &&
     (examType === ALL || examType === "exam" || examType === "mock"));
+
+  // Free-plan preview: show only the first few items of every list; the rest
+  // collapses into an upgrade prompt. Full-plan users see everything.
+  const previewLessons = usePreviewSlice(visibleLessons);
+  const previewMaterials = usePreviewSlice(visibleMaterials);
+  const previewQuizzes = usePreviewSlice(visibleQuizzes);
+  const previewPapers = usePreviewSlice(visiblePapers);
+  const previewQuestions = usePreviewSlice(questions);
   const aiQuestions = questions.filter((q) => q.is_ai_generated);
+  const previewAiQuestions = usePreviewSlice(aiQuestions);
 
   if (loading) {
     return (
@@ -211,7 +220,6 @@ export default function Subject() {
         }}
       />
 
-      <PlanGate level={levelCode}>
       <div className={`glass-card p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
         <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>
           <Icon className="h-7 w-7" />
@@ -300,7 +308,7 @@ export default function Subject() {
         <TabsContent value="materials" className="space-y-3 pt-4">
           {visibleLessons.length === 0 && visibleMaterials.length === 0 ? empty("material") : (
             <>
-              {visibleLessons.map((l) => {
+              {previewLessons.map((l) => {
                 const ts = topicSlugMap.get(l.topic_id);
                 return (
                   <Card key={l.id}>
@@ -320,7 +328,7 @@ export default function Subject() {
                   </Card>
                 );
               })}
-              {visibleMaterials.map((m) => {
+              {previewMaterials.map((m) => {
                 const ts = topicSlugMap.get(m.topic_id);
                 return (
                   <Card key={m.id}>
@@ -340,18 +348,27 @@ export default function Subject() {
                   </Card>
                 );
               })}
+              <PreviewLimit
+                hiddenCount={visibleLessons.length + visibleMaterials.length - previewLessons.length - previewMaterials.length}
+                what="materials"
+              />
             </>
           )}
         </TabsContent>
 
         <TabsContent value="questions" className="space-y-3 pt-4">
-          {questions.length === 0 ? empty("questions") : questions.map(questionCard)}
+          {previewQuestions.length === 0 ? empty("questions") : (
+            <>
+              {previewQuestions.map(questionCard)}
+              <PreviewLimit hiddenCount={questions.length - previewQuestions.length} what="questions" />
+            </>
+          )}
         </TabsContent>
 
         <TabsContent value="exams" className="space-y-3 pt-4">
           {visibleQuizzes.length === 0 && visiblePapers.length === 0 ? empty("exams") : (
             <>
-              {visibleQuizzes.map((q) => {
+              {previewQuizzes.map((q) => {
                 const ts = topicSlugMap.get(q.topic_id);
                 return (
                   <Card key={q.id}>
@@ -372,7 +389,7 @@ export default function Subject() {
                   </Card>
                 );
               })}
-              {visiblePapers.map((p) => {
+              {previewPapers.map((p) => {
                 const ts = topicSlugMap.get(p.topic_id);
                 return (
                   <Card key={p.id}>
@@ -392,6 +409,10 @@ export default function Subject() {
                   </Card>
                 );
               })}
+              <PreviewLimit
+                hiddenCount={visibleQuizzes.length + visiblePapers.length - previewQuizzes.length - previewPapers.length}
+                what="exams & past papers"
+              />
             </>
           )}
         </TabsContent>
@@ -409,10 +430,14 @@ export default function Subject() {
               <Button asChild variant="outline" className="gap-2"><Link to={`/practice?level=${subjectLevel.id}&mode=bookmarked`}>Bookmarked questions</Link></Button>
             </CardContent>
           </Card>
-          {aiQuestions.length === 0 ? empty("AI questions") : aiQuestions.map(questionCard)}
+          {previewAiQuestions.length === 0 ? empty("AI questions") : (
+            <>
+              {previewAiQuestions.map(questionCard)}
+              <PreviewLimit hiddenCount={aiQuestions.length - previewAiQuestions.length} what="AI questions" />
+            </>
+          )}
         </TabsContent>
       </Tabs>
-      </PlanGate>
     </div>
   );
 }
