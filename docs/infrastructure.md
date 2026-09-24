@@ -1,61 +1,76 @@
 # Infrastructure — what lives where
 
-Clutch Marks uses a three-way split. Each piece does the one job it's best at.
-**Do not "migrate the site" onto the Namecheap server — it cannot run there.**
+Clutch Marks runs on **two platforms plus a sender**. Everything is free-tier
+friendly: Cloudflare (domain + DNS + Pages) and Supabase are the only platforms;
+Resend sends email. **No shared hosting anywhere.**
 
 ```
-┌────────────────┐   DNS + mailboxes   ┌──────────────────┐
-│   NAMECHEAP    │◄───────────────────►│      RESEND      │
-│ clutchmarks.com│                     │ transactional    │
-│ + Stellar Plus │                     │ email (sending)  │
-│ (mail, blog later)                   └──────────────────┘
-└───────┬────────┘
-        │ A/CNAME records point the domain at…
-        ▼
-┌────────────────┐   REST/RPC/Edge     ┌──────────────────┐
-│ CLOUDFLARE etc │◄───────────────────►│     SUPABASE     │
-│ Pages (CDN)    │                     │ Postgres + RLS   │
-│ static React   │                     │ Auth (GoTrue)    │
-│ frontend       │                     │ Edge Functions   │
-└────────────────┘                     │ pg_cron / pg_net │
-                                       └──────────────────┘
+┌────────────────────┐   DNS records          ┌──────────────────┐
+│    CLOUDFLARE      │───────────────────────►│      RESEND      │
+│  Registrar:        │   DKIM/SPF/DMARC       │ transactional    │
+│  clutchmarks.com   │                        │ email (sending)  │
+│  DNS authority     │                        └──────────────────┘
+│  Pages (CDN host)  │
+│  static React app  │                        ┌──────────────────┐
+│                    │◄──────────────────────►│     SUPABASE     │
+│                    │   REST/RPC/Edge        │ Postgres + RLS   │
+│                    │                        │ Auth (GoTrue)    │
+└────────────────────┘                        │ Edge Functions   │
+                                              │ pg_cron / pg_net │
+                                              └──────────────────┘
 ```
 
-## 1. Namecheap — domain, DNS, mailboxes
+## 1. Cloudflare — domain, DNS, frontend hosting
 
-- **Domain registrar** for `clutchmarks.com` (free with the Stellar Plus plan, year 1).
-- **DNS authority** — all records (A/CNAME → frontend host, Resend DKIM/SPF/DMARC TXT records) are managed in the Namecheap dashboard → Domain List → Advanced DNS.
-- **Mailboxes** — `support@clutchmarks.com`, `zaid@clutchmarks.com`, etc. via the Stellar plan's email accounts (webmail or forwarding to a personal Gmail). This is the plan's real value; the hosting space is not used by the app.
-- **Stellar Plus hosting is reserved for one future job only:** a WordPress **marketing blog** at `clutchmarks.com/blog` (see routing below). Don't point the root A record at the shared server.
+- **Registrar** for `clutchmarks.com` (at-cost pricing, ~$10/yr, no upsells).
+- **DNS authority** — all records live here: site A/CNAME → Pages, Resend
+  DKIM/SPF/DMARC TXT records, and any future blog records.
+- **Pages** hosts the static React app free: connects to GitHub
+  (`Nochills21/top-67`), auto-deploys on every push to `main`, instant rollbacks,
+  preview URLs for branches, HTTPS automatic. SPA fallback is built in.
+- Custom domain: add `clutchmarks.com` + `www` in the Pages project; Cloudflare
+  provisions certificates automatically since DNS is already on-platform.
 
-## 2. Frontend — free static CDN host (Cloudflare Pages / Netlify / Vercel)
+## 2. Supabase — all backend logic
 
-- The app is a **Vite React SPA** — `npm run build` outputs a static `dist/` folder. No server-side code exists, so shared PHP hosting is useless to it.
-- The host connects to GitHub (`Nochills21/top-67`): **every push to `main` auto-deploys** (~60s), with instant rollbacks and preview URLs for testing branches.
-- Global CDN → students in EU/MENA get served from nearby edge nodes.
-- Custom domain: add `clutchmarks.com` + `www.clutchmarks.com` in the host's dashboard; it provisions HTTPS automatically. Namecheap A/CNAME records point at the host (each host shows the exact values).
-- SPA routing requires the host's default SPA fallback (redirect all routes to `/index.html`) — built into Cloudflare Pages/Netlify/Vercel automatically.
+- **Postgres + Row Level Security** — every table's security is RLS in Postgres.
+- **Auth (GoTrue)** — email/password, JWTs, leaked-password protection, roles,
+  password resets.
+- **Edge Functions** (Deno) — `resolve-login-email`, `welcome-email`,
+  `weekly-digest`, `feedback-alert`, `email-events` (Resend webhooks),
+  `manage-accounts`, `promote-admin`, `quiz-feedback`, `generate-questions`,
+  `study-planner`.
+- **pg_cron + pg_net** — nightly audit-log archiving; weekly parent digest
+  (Mondays 07:00 UTC).
 
-## 3. Supabase — all backend logic (stays put, always)
+## 3. Resend — transactional email
 
-- **Postgres + Row Level Security** — every table's security is RLS policies in Postgres; the data layer is Postgres-specific (not MySQL-portable).
-- **Auth (GoTrue)** — email/password login, JWTs, leaked-password protection, admin/parent/student roles, password resets.
-- **Edge Functions** (Deno) — `resolve-login-email`, `welcome-email`, `weekly-digest`, `feedback-alert`, `manage-accounts`, `promote-admin`, `quiz-feedback`, `generate-questions`, `study-planner`. Secrets are set via the Supabase dashboard (RESEND_API_KEY, per-function shared secrets).
-- **pg_cron + pg_net** — nightly audit-log archiving; weekly parent digest (Mondays 07:00 UTC).
-- **Resend** sends all transactional email (welcome, reset-related digests, error alerts, parent digests) from `@clutchmarks.com` once the domain is verified.
+- Sends all app email (welcome, digests, error alerts) from `@clutchmarks.com`
+  once the domain is verified in Resend (DNS records live in Cloudflare).
+- Webhooks (`email.bounced`, `email.complained`) post back to the `email-events`
+  function, feeding the suppression list that protects deliverability.
+- `support@clutchmarks.com` (inbound mail) is handled separately — see the
+  runbook's forwarding section (Cloudflare Email Routing, free).
 
-## Future: marketing blog without breaking the app
+## Future: marketing blog
 
-When you want `clutchmarks.com/blog` on WordPress (Namecheap hosting):
+The blog lives on **Cloudflare Pages too** — no WordPress needed. Two options:
 
-1. **Keep the root domain on the CDN.** In Namecheap Advanced DNS, the A/CNAME for the root and `www` keeps pointing at the frontend host — never change those.
-2. **Subdomain the hosting server:** create `blog.clutchmarks.com` (CNAME → the Namecheap server) in Advanced DNS, and install WordPress under that. Link to it from the app's footer.
-   - *Alternative:* Cloudflare (free, in front of Namecheap DNS) can path-route `/blog/*` to the server and everything else to the CDN — cleaner URLs, slightly more setup.
-3. `support@` mailboxes and Resend records are unaffected.
+1. **Same Pages project** (recommended): add a `/blog` section to the repo with
+   static/SSG posts (Astro, or plain markdown rendered at build). Deploys with
+   the app, shares the domain, zero extra infra.
+2. **Second Pages project** on `blog.clutchmarks.com` if content tooling should
+   stay decoupled from app releases.
+
+Cloudflare Email Routing can also provide `support@clutchmarks.com` forwarding
+without any hosting plan at all.
 
 ## Reference
 
-- Production URL: `https://clutchmarks.com` (update `site_url` in Supabase Auth config when live — reset emails and OAuth redirects must match).
+- Production URL: `https://clutchmarks.com` (update Supabase Auth `site_url` when live).
 - Local dev: `npm run dev` (Vite, port 8080).
-- Secrets inventory: `RESEND_API_KEY`, `WELCOME_FROM_EMAIL`, `DIGEST_SECRET`, `FEEDBACK_ALERT_SECRET`, `WELCOME_SECRET` (all in Supabase function secrets / `private.app_secrets`).
-- Deploy checklist for a new release: push to `main` → CDN auto-deploys → Supabase migrations are applied manually via the apply-migration script → verify preview.
+- Secrets inventory: `RESEND_API_KEY`, `WELCOME_FROM_EMAIL`, `RESEND_WEBHOOK_SECRET`,
+  `DIGEST_SECRET`, `FEEDBACK_ALERT_SECRET`, `WELCOME_SECRET` (Supabase function
+  secrets / `private.app_secrets`); `VITE_PLAUSIBLE_DOMAIN` (Pages build env).
+- Deploy checklist: push to `main` → Pages auto-deploys → apply Supabase
+  migrations manually via the apply-migration script → verify preview.

@@ -5,15 +5,15 @@ you (or the domain) · 🔧 = I can do it on your word (~time estimate).
 
 ## 1. Domain & hosting (the critical path)
 
-- ⏳ **Buy `clutchmarks.com` at Namecheap** — the single blocker for everything
-  below. (Registry checked today: still unregistered. Buy the domain only, or
-  the Stellar bundle if you want mailboxes — skip hosting/website-builder upsells.)
-- 🔧 Add the 4 Resend DNS records + site A/CNAME records (runbook §1–2, ~15 min
+- ⏳ **Buy `clutchmarks.com` in Cloudflare Registrar** — the single blocker for everything
+  below. (Registry checked today: still unregistered. ~$10/yr at-cost; DNS and
+  Pages hosting are already on Cloudflare, so nothing else to buy.)
+- 🔧 Add the 4 Resend DNS records + site CNAME records (runbook §3, ~10 min
   after purchase)
 - 🔧 Deploy frontend to Cloudflare Pages connected to GitHub (`Nochills21/top-67`,
   build `npm run build`, output `dist`) → live `clutchmarks.pages.dev` immediately,
-  custom domain attaches once DNS propagates (runbook §3, ~10 min — **can be done
-  before the domain arrives**)
+  custom domain attaches once the domain exists (runbook §1, ~10 min — **can be
+  done before the domain arrives**)
 - 🔧 Verify Resend domain → flip sender to `hello@clutchmarks.com` → test-mode
   restriction lifts (runbook §4, ~5 min + DNS propagation wait)
 - 🔧 Update Supabase `site_url` → `https://clutchmarks.com` + redirect URLs
@@ -23,7 +23,8 @@ you (or the domain) · 🔧 = I can do it on your word (~time estimate).
 - ⏳ Register the Resend webhook → `.../functions/v1/email-events`, events
   `email.bounced` + `email.complained`, signing secret → Supabase function secret
   `RESEND_WEBHOOK_SECRET` (~5 min; suppression pipeline is built and waiting)
-- 🔧 `support@clutchmarks.com` forwarding to your Gmail (runbook §7, ~15 min)
+- 🔧 `support@clutchmarks.com` forwarding via Cloudflare Email Routing (runbook §8,
+  ~10 min, free)
 
 ## 2. Pre-launch verification (I run these once the domain is live)
 

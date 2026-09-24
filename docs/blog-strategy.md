@@ -1,7 +1,9 @@
 # Clutch Marks — Marketing Blog & SEO Plan
 
-The blog lives at `blog.clutchmarks.com` (WordPress on the Namecheap Stellar plan),
-while the app stays on the CDN at `clutchmarks.com`. The blog's single job:
+The blog lives on the **same Cloudflare Pages project** as the app (a `/blog`
+section built with a static site generator — Astro or markdown-at-build), or on
+a separate `blog.clutchmarks.com` Pages project if content releases should stay
+decoupled from app deploys. The blog's single job:
 capture students searching for exam help and funnel them into the app.
 
 ## Why a blog (the honest math)
@@ -123,21 +125,22 @@ built-in retention (streaks, XP, weak-topic practice, parent emails) does the re
 
 ## SEO technical setup (do once, at blog launch)
 
-- **WordPress config:** enable pretty permalinks (`/post-name/`), install Rank Math
-  or Yoast, submit sitemap to Google Search Console the day the blog goes live.
+- **SEO tooling:** pretty permalinks (`/post-name/`), meta/schema via the SSG's
+  SEO plugin (Astro: `@astrojs/sitemap` + head components), submit the sitemap
+  to Google Search Console the day the blog goes live.
 - **Schema markup:** `Article` on every post, `FAQPage` where relevant (rich results
   for "how to" queries), `Organization` linking the blog and app as one entity.
-- **Speed:** Namecheap's EU server is fine for a blog — but put Cloudflare (free) in
-  front for global CDN + image compression. This also enables the clean path-routing
-  option later if you ever move the blog.
+- **Speed:** Cloudflare Pages serves the blog from the same global CDN as the
+  app — nothing extra needed.
 - **Cross-linking rules:** every post links to (a) its pillar page, (b) 2–3 sibling
   posts, (c) exactly one deep app link (a specific subject/topic page, never the
   homepage). The app links are dofollow — that's the point.
-- **Canonical clarity:** blog is a separate subdomain, so no canonical conflicts
-  with the app. Set `Organization` schema on both domains referencing each other.
+- **Canonical clarity:** blog lives on the same domain (`clutchmarks.com/blog`)
+  or a subdomain — either way no canonical conflicts with the app. Set
+  `Organization` schema referencing both.
 - **E-E-A-T signals:** author bio "written by Cambridge examiners" (only if true —
-  otherwise "aligned to the Cambridge 2025–2027 syllabus"), updated dates on posts,
-  syllabus references in every post.
+  otherwise "aligned to the Cambridge/Edexcel 2025–2027 syllabus"), updated dates
+  on posts, syllabus references in every post.
 
 ## Measurement (from day one)
 
@@ -151,9 +154,9 @@ built-in retention (streaks, XP, weak-topic practice, parent emails) does the re
 
 ## Launch sequence
 
-1. Buy domain → DNS setup (already planned) → app live on `clutchmarks.com`
-2. Create `blog.clutchmarks.com` subdomain in Namecheap → point at hosting server
-3. Install WordPress + theme (GeneratePress — fast, free) + Rank Math
+1. Buy domain in Cloudflare → DNS setup (see domain-launch-runbook) → app live on `clutchmarks.com`
+2. Add the blog to the Pages project (Astro `/blog` section) or a second Pages project on `blog.`
+3. Build the blog template + pillar-page structure (fast static theme)
 4. Publish 3 posts before announcing anything (sites with 1 post don't rank)
 5. Google Search Console + sitemap + analytics
 6. 2 posts/week cadence — first review of what's working at the 3-month mark
