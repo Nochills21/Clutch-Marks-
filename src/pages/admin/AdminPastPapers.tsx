@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/useToast";
-import { Plus, Trash2, Pencil, FileText, FileCheck, Upload } from "lucide-react";
+import { Plus, Trash2, Pencil, FileText, FileCheck, Upload, ExternalLink } from "lucide-react";
 import { validateUploadFile, getSafeUploadExtension } from "@/lib/fileValidation";
 
 const SESSIONS = ["May/June", "Oct/Nov", "Feb/Mar"];
@@ -23,7 +23,7 @@ export default function AdminPastPapers() {
   const qc = useQueryClient();
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<any>(null);
-  const [form, setForm] = useState({ title: "", year: currentYear, session: "", paper_number: "", topic_id: "" });
+  const [form, setForm] = useState({ title: "", year: currentYear, session: "", paper_number: "", topic_id: "", source_url: "" });
   const [paperFile, setPaperFile] = useState<File | null>(null);
   const [markSchemeFile, setMarkSchemeFile] = useState<File | null>(null);
 
@@ -83,6 +83,9 @@ export default function AdminPastPapers() {
         topic_id: form.topic_id || null,
         paper_url,
         mark_scheme_url,
+        // Official board page — the student-facing fallback until our own
+        // watermarked copy is uploaded.
+        source_url: form.source_url.trim() || null,
       };
 
       if (editing) {
@@ -114,7 +117,7 @@ export default function AdminPastPapers() {
 
   const openCreate = () => {
     setEditing(null);
-    setForm({ title: "", year: currentYear, session: "", paper_number: "", topic_id: "" });
+    setForm({ title: "", year: currentYear, session: "", paper_number: "", topic_id: "", source_url: "" });
     setPaperFile(null);
     setMarkSchemeFile(null);
     setOpen(true);
@@ -122,7 +125,7 @@ export default function AdminPastPapers() {
 
   const openEdit = (p: any) => {
     setEditing(p);
-    setForm({ title: p.title, year: p.year, session: p.session ?? "", paper_number: p.paper_number ?? "", topic_id: p.topic_id ?? "" });
+    setForm({ title: p.title, year: p.year, session: p.session ?? "", paper_number: p.paper_number ?? "", topic_id: p.topic_id ?? "", source_url: p.source_url ?? "" });
     setPaperFile(null);
     setMarkSchemeFile(null);
     setOpen(true);
@@ -157,6 +160,7 @@ export default function AdminPastPapers() {
                   <TableHead>Paper</TableHead>
                   <TableHead>Topic</TableHead>
                   <TableHead>Files</TableHead>
+                  <TableHead>Source</TableHead>
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -178,6 +182,15 @@ export default function AdminPastPapers() {
                         <button type="button" onClick={() => openSigned(p.mark_scheme_url)}>
                           <Badge variant="outline" className="gap-1 cursor-pointer text-green-600"><FileCheck className="h-3 w-3" /> MS</Badge>
                         </button>
+                      )}
+                    </TableCell>
+                    <TableCell>
+                      {p.source_url ? (
+                        <a href={p.source_url} target="_blank" rel="noopener noreferrer">
+                          <Badge variant="outline" className="gap-1 cursor-pointer">Official <ExternalLink className="h-3 w-3" /></Badge>
+                        </a>
+                      ) : (
+                        <span className="text-xs text-muted-foreground">—</span>
                       )}
                     </TableCell>
                     <TableCell className="text-right space-x-1">
@@ -228,6 +241,18 @@ export default function AdminPastPapers() {
                   <SelectContent>{topics?.map(t => <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>)}</SelectContent>
                 </Select>
               </div>
+            </div>
+            <div>
+              <Label>Official source URL</Label>
+              <Input
+                type="url"
+                value={form.source_url}
+                onChange={e => setForm(f => ({ ...f, source_url: e.target.value }))}
+                placeholder="https://www.cambridgeinternational.org/…/past-papers/"
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                Shown to students as “Official papers” until a watermarked PDF is uploaded here.
+              </p>
             </div>
             <div>
               <Label className="flex items-center gap-2"><Upload className="h-4 w-4" /> Question Paper (PDF)</Label>

@@ -615,6 +615,7 @@ export type Database = {
           paper_number: string | null
           paper_url: string | null
           session: string | null
+          source_url: string | null
           title: string
           topic_id: string | null
           updated_at: string
@@ -627,6 +628,7 @@ export type Database = {
           paper_number?: string | null
           paper_url?: string | null
           session?: string | null
+          source_url?: string | null
           title: string
           topic_id?: string | null
           updated_at?: string
@@ -639,6 +641,7 @@ export type Database = {
           paper_number?: string | null
           paper_url?: string | null
           session?: string | null
+          source_url?: string | null
           title?: string
           topic_id?: string | null
           updated_at?: string

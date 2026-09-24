@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { FileText, FileCheck, Search, Download } from "lucide-react";
+import { FileText, FileCheck, Search, ExternalLink, Clock, Info } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { SEOHead } from "@/components/SEOHead";
 import { getRouteMeta } from "@/lib/seoRoutes";
@@ -71,8 +71,20 @@ export default function PastPapers() {
       <SEOHead title="Past Papers & Mark Schemes — Clutch Marks" description="Download past exam papers and mark schemes by year, session and paper number to practise under exam conditions." path="/past-papers" jsonLd={getRouteMeta("/past-papers")?.jsonLd} />
       <div>
         <h1 className="text-2xl font-bold text-foreground">Past Papers Bank</h1>
-        <p className="text-muted-foreground text-sm">Browse and download IGCSE past papers and mark schemes</p>
+        <p className="text-muted-foreground text-sm">Browse and download IGCSE, AS and A Level past papers and mark schemes</p>
       </div>
+
+      <Card className="border-dashed">
+        <CardContent className="flex items-start gap-3 p-4">
+          <Info className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
+          <p className="text-sm text-muted-foreground">
+            {papers?.length ? `${papers.length} papers catalogued` : "Papers are catalogued"} across every subject and level.
+            Watermarked question papers and mark schemes are being added subject by subject — until a paper's
+            files land, use the <span className="font-medium text-foreground">Official papers</span> link to open it
+            directly on the exam board's site.
+          </p>
+        </CardContent>
+      </Card>
 
       <div className="flex flex-wrap gap-3">
         <div className="relative flex-1 min-w-[200px]">
@@ -98,7 +110,7 @@ export default function PastPapers() {
       {isLoading ? (
         <p className="text-muted-foreground">Loading…</p>
       ) : !filtered.length ? (
-        <Card><CardContent className="py-12 text-center text-muted-foreground">No past papers found.</CardContent></Card>
+        <Card><CardContent className="py-12 text-center text-muted-foreground">No papers match your filters.</CardContent></Card>
       ) : (
         Object.entries(grouped)
           .sort(([a], [b]) => Number(b) - Number(a))
@@ -116,7 +128,7 @@ export default function PastPapers() {
                         {p.topics?.name && <Badge className="text-[10px]">{p.topics.name}</Badge>}
                       </div>
                     </CardHeader>
-                    <CardContent className="flex gap-2 pt-0">
+                    <CardContent className="flex flex-wrap gap-2 pt-0">
                       {p.paper_url && (
                         <Button size="sm" variant="outline" className="gap-1.5 text-xs" onClick={() => openSignedUrl(p.paper_url, (m) => toast({ title: "Error", description: m, variant: "destructive" }))}>
                           <FileText className="h-3.5 w-3.5" /> Paper
@@ -125,6 +137,18 @@ export default function PastPapers() {
                       {p.mark_scheme_url && (
                         <Button size="sm" variant="outline" className="gap-1.5 text-xs text-green-600 border-green-200 hover:bg-green-50" onClick={() => openSignedUrl(p.mark_scheme_url, (m) => toast({ title: "Error", description: m, variant: "destructive" }))}>
                           <FileCheck className="h-3.5 w-3.5" /> Mark Scheme
+                        </Button>
+                      )}
+                      {!p.paper_url && !p.mark_scheme_url && (
+                        <Badge variant="secondary" className="gap-1.5 text-[10px] text-muted-foreground">
+                          <Clock className="h-3 w-3" /> Files coming soon
+                        </Badge>
+                      )}
+                      {p.source_url && (
+                        <Button asChild size="sm" variant="outline" className="gap-1.5 text-xs">
+                          <a href={p.source_url} target="_blank" rel="noopener noreferrer">
+                            Official papers <ExternalLink className="h-3.5 w-3.5" />
+                          </a>
                         </Button>
                       )}
                     </CardContent>

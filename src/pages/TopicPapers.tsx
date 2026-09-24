@@ -15,7 +15,9 @@ import {
   topicPapersPath,
   slugifyTopicName,
 } from "@/lib/topicUrls";
-import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft } from "lucide-react";
+import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink } from "lucide-react";
+import { useToast } from "@/hooks/useToast";
+import { openProtectedFile } from "@/lib/contentFiles";
 
 interface TopicPaper {
   id: string;
@@ -25,6 +27,7 @@ interface TopicPaper {
   paper_number: string | null;
   paper_url: string | null;
   mark_scheme_url: string | null;
+  source_url: string | null;
 }
 
 export default function TopicPapers() {
@@ -41,6 +44,15 @@ export default function TopicPapers() {
   const topicSlug = slugifyTopicName(topic ?? "");
   const [topicId, setTopicId] = useState<string | null>(null);
   const [papers, setPapers] = useState<TopicPaper[]>([]);
+  const { toast } = useToast();
+
+  const openPaper = async (url: string) => {
+    try {
+      await openProtectedFile("past-papers", url);
+    } catch (e: any) {
+      toast({ title: "Error", description: e?.message ?? "Unable to open file", variant: "destructive" });
+    }
+  };
 
   useEffect(() => {
     let active = true;
@@ -206,24 +218,43 @@ export default function TopicPapers() {
             <p className="text-sm text-muted-foreground py-4 text-center">No past papers have been linked to this topic yet.</p>
           ) : (
             papers.map((p) => (
-              <Link
+              <div
                 key={p.id}
-                to={topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-                className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
+                className="flex flex-col gap-3 rounded-lg border p-3 transition-colors hover:bg-muted/50 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="min-w-0 flex-1">
-                  <p className="font-medium truncate">{p.title}</p>
+                  <p className="font-medium">{p.title}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">
                     {p.year}
                     {p.session ? ` · ${p.session}` : ""}
                     {p.paper_number ? ` · ${p.paper_number}` : ""}
                   </p>
                 </div>
-                <div className="flex items-center gap-2 shrink-0 ml-4">
-                  <Badge variant="outline" className="text-[10px]">Past Paper</Badge>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                <div className="flex flex-wrap items-center gap-2 sm:shrink-0 sm:justify-end">
+                  {p.paper_url && (
+                    <Button size="sm" variant="outline" className="gap-1.5 text-xs" onClick={() => openPaper(p.paper_url!)}>
+                      <FileText className="h-3.5 w-3.5" /> Paper
+                    </Button>
+                  )}
+                  {p.mark_scheme_url && (
+                    <Button size="sm" variant="outline" className="gap-1.5 text-xs text-green-600 border-green-200 hover:bg-green-50" onClick={() => openPaper(p.mark_scheme_url!)}>
+                      <FileCheck className="h-3.5 w-3.5" /> Mark Scheme
+                    </Button>
+                  )}
+                  {!p.paper_url && !p.mark_scheme_url && (
+                    <Badge variant="secondary" className="gap-1.5 text-[10px] text-muted-foreground">
+                      <Clock className="h-3 w-3" /> Files coming soon
+                    </Badge>
+                  )}
+                  {p.source_url && (
+                    <Button asChild size="sm" variant="outline" className="gap-1.5 text-xs">
+                      <a href={p.source_url} target="_blank" rel="noopener noreferrer">
+                        Official paper <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </Button>
+                  )}
                 </div>
-              </Link>
+              </div>
             ))
           )}
         </CardContent>
