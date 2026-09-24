@@ -9,6 +9,8 @@ const REF = 'zzliiazovezhxbmfeqco';
 const FUNCS_DIR = 'supabase/functions';
 const SLUGS = [
   { slug: 'resolve-login-email', verifyJwt: false },
+  { slug: 'welcome-email', verifyJwt: false },
+  { slug: 'weekly-digest', verifyJwt: false },
   { slug: 'manage-accounts', verifyJwt: true },
   { slug: 'promote-admin', verifyJwt: true },
   { slug: 'quiz-feedback', verifyJwt: true },
