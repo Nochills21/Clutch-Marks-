@@ -49,6 +49,17 @@ Deno.serve(async (req) => {
       .maybeSingle();
     if (!topic) return json({ error: "Topic not found" }, 404);
 
+    // Study notes live in study_materials (material_type='notes') — ground the
+    // questions in the topic's actual notes rather than inventing content.
+    const { data: notesRow } = await admin
+      .from("study_materials")
+      .select("content")
+      .eq("topic_id", topicId)
+      .eq("material_type", "notes")
+      .limit(1)
+      .maybeSingle();
+    const notes = typeof notesRow?.content === "string" ? notesRow.content : "";
+
     let subjectName = "General Studies";
     let level = "OL";
     if (topic.subject_level_id) {
@@ -67,12 +78,23 @@ Deno.serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) return json({ error: "AI is not configured" }, 500);
 
-    const prompt = `Create ${count} ${difficulty}-difficulty multiple-choice exam questions for ${levelLabel} ${subjectName}.
-Topic: "${topic.name}".${topic.description ? ` Topic notes: ${topic.description}` : ""}
+    // Notes can be very long — keep the prompt inside a sane window.
+    const notesExcerpt = notes.length > 12000
+      ? `${notes.slice(0, 12000)}\n[Notes truncated]`
+      : notes;
 
+    const prompt = `Create ${count} ${difficulty}-difficulty multiple-choice exam questions for ${levelLabel} ${subjectName}.
+Topic: "${topic.name}".${topic.description ? ` Topic summary: ${topic.description}` : ""}
+${notesExcerpt ? `
+Study notes for this topic (ground EVERY question strictly in this material; do not invent content beyond it):
+---
+${notesExcerpt}
+---
+` : ""}
 Rules:
 - Exactly 4 answer options per question, only one correct.
 - Exam-board style wording, unambiguous, syllabus appropriate for ${levelLabel}.
+- Test understanding of the notes: definitions, facts, worked-example techniques and common-errors traps they highlight.
 - Include a concise explanation (1-3 sentences) for the correct answer.
 - correct_option is the zero-based index of the correct option.`;
 

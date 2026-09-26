@@ -1,0 +1,13 @@
+{
+  "name": "clutchmarks-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Render backend for Clutch Marks: stable API origin fronting the Supabase edge functions.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

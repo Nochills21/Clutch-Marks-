@@ -27,20 +27,28 @@ export function useSubscription(): PlanState {
     if (!user || role === "admin") { setLoading(false); return; }
     let cancelled = false;
     setLoading(true);
-    supabase
-      .from("subscriptions")
-      .select("plan_id, status, ends_at")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
-      .limit(1)
-      .then(({ data }) => {
+    (async () => {
+      try {
+        const { data, error } = await supabase
+          .from("subscriptions")
+          .select("plan_id, status, ends_at")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: false })
+          .limit(1);
         if (cancelled) return;
+        if (error) throw error;
         const sub = data?.[0];
         const active = !!sub && sub.status === "active" && (!sub.ends_at || new Date(sub.ends_at) > new Date());
         setPlanId(active ? sub!.plan_id : "free");
         setHasPaid(active);
-        setLoading(false);
-      });
+      } catch {
+        // Offline / network failure: resolve as the free plan instead of
+        // leaving `loading` stuck true (which froze every gated list).
+        if (!cancelled) { setPlanId("free"); setHasPaid(false); }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
     return () => { cancelled = true; };
   }, [user, role, tick]);
 

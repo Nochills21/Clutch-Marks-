@@ -19,6 +19,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@backend/*": [
+        "./backend/*"
       ]
     },
     "skipLibCheck": true,

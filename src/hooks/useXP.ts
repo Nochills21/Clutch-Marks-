@@ -24,9 +24,14 @@ export function useXP() {
       setLoading(false);
       return;
     }
-    const { data, error } = await supabase.rpc("my_xp_summary");
-    if (!error && data) setSummary(data as unknown as XpSummary);
-    setLoading(false);
+    try {
+      const { data, error } = await supabase.rpc("my_xp_summary");
+      if (!error && data) setSummary(data as unknown as XpSummary);
+    } catch {
+      // Offline: keep the last known summary; never leave `loading` stuck.
+    } finally {
+      setLoading(false);
+    }
   }, [user, role]);
 
   useEffect(() => {

@@ -68,11 +68,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const fetchRole = async (userId: string) => {
     setRoleLoading(true);
     try {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from("user_roles")
         .select("role, is_approved")
         .eq("user_id", userId)
         .maybeSingle();
+      if (error) throw error;
       if (data) {
         setRole(data.role as AppRole);
         setIsApproved(data.is_approved ?? false);
@@ -80,6 +81,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setRole(null);
         setIsApproved(false);
       }
+    } catch {
+      // Offline / network failure: keep any previously-known role instead of
+      // downgrading a signed-in user to "no role" (which would lock the UI).
+      // The role refreshes on the next auth event or reload.
     } finally {
       setRoleLoading(false);
     }

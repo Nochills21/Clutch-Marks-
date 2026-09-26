@@ -3,6 +3,9 @@
 //     saved-progress mastery panel (merged from the old QuestionBank page)
 //   • Review: every question you got wrong or bookmarked
 //   • Drills: timed 10-question sessions on your weakest topics
+//
+// All DB responses pass through runtime validators (as* helpers at the bottom)
+// so a malformed row can never crash the UI at render time.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -28,16 +31,9 @@ import {
   Bookmark, AlertCircle, Target, Database,
 } from "lucide-react";
 
-interface DrillQuestion {
-  id: string;
-  question_text: string;
-  options: string[];
-  topic_name: string;
-  correct_option?: number;
-  explanation?: string | null;
-}
+// ---- Domain types (match the Postgres columns the RPCs return) ------------------
 
-interface ReviewQuestion {
+export interface ReviewQuestion {
   id: string;
   quiz_id: string;
   quiz_title: string;
@@ -51,7 +47,7 @@ interface ReviewQuestion {
   attempts_count: number;
 }
 
-interface BankQuestion {
+export interface BankQuestion {
   id: string;
   quiz_id: string;
   quiz_title: string;
@@ -65,7 +61,109 @@ interface BankQuestion {
   bookmarked: boolean;
 }
 
-interface LevelOption { id: string; label: string }
+export interface DrillQuestion {
+  id: string;
+  question_text: string;
+  options: string[];
+  topic_name: string;
+  correct_option?: number;
+  explanation?: string | null;
+}
+
+export interface DrilledQuestion {
+  correct_option?: number;
+  explanation?: string | null;
+  correct?: boolean;
+  [key: string]: unknown;
+}
+
+export interface TopicWithLevel {
+  id: string;
+  name: string;
+  subject_level_id: string;
+}
+
+export interface LevelOption {
+  id: string;
+  label: string;
+}
+
+// ---- Runtime validators (defensive boundary) ------------------------------------
+
+function asStr(v: unknown): string {
+  return typeof v === "string" ? v : "";
+}
+function asStrArr(v: unknown): string[] {
+  return Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : [];
+}
+function asBool(v: unknown): boolean {
+  return typeof v === "boolean" ? v : false;
+}
+function toNumber(v: unknown): number {
+  const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
+  return Number.isFinite(n) ? n : 0;
+}
+
+function asReviewQuestions(data: unknown[] | null | undefined): ReviewQuestion[] {
+  return (data ?? []).map((row): ReviewQuestion => {
+    const obj = row as Record<string, unknown>;
+    return {
+      id: asStr(obj.id),
+      quiz_id: asStr(obj.quiz_id),
+      quiz_title: asStr(obj.quiz_title),
+      question_text: asStr(obj.question_text),
+      options: asStrArr(obj.options),
+      difficulty: asStr(obj.difficulty),
+      topic_id: obj.topic_id === null || obj.topic_id === undefined ? null : asStr(obj.topic_id),
+      topic_name: obj.topic_name === null || obj.topic_name === undefined ? null : asStr(obj.topic_name),
+      bookmarked: !!obj.bookmarked,
+      last_correct: obj.last_correct === null || obj.last_correct === undefined ? null : asBool(obj.last_correct),
+      attempts_count: toNumber(obj.attempts_count),
+    };
+  });
+}
+
+function asBankQuestions(data: unknown[] | null | undefined): BankQuestion[] {
+  return (data ?? []).map((row): BankQuestion => {
+    const obj = row as Record<string, unknown>;
+    return {
+      id: asStr(obj.id),
+      quiz_id: asStr(obj.quiz_id),
+      quiz_title: asStr(obj.quiz_title),
+      question_text: asStr(obj.question_text),
+      options: asStrArr(obj.options),
+      difficulty: asStr(obj.difficulty),
+      exam_type: asStr(obj.exam_type),
+      is_ai_generated: !!obj.is_ai_generated,
+      topic_id: obj.topic_id === null || obj.topic_id === undefined ? null : asStr(obj.topic_id),
+      topic_name: obj.topic_name === null || obj.topic_name === undefined ? null : asStr(obj.topic_name),
+      bookmarked: !!obj.bookmarked,
+    };
+  });
+}
+
+function asDrillQuestions(data: unknown[] | null | undefined): DrillQuestion[] {
+  return (data ?? []).map((row): DrillQuestion => {
+    const obj = row as Record<string, unknown>;
+    return {
+      id: asStr(obj.id),
+      question_text: asStr(obj.question_text),
+      options: asStrArr(obj.options),
+      topic_name: asStr(obj.topic_name),
+      correct_option: obj.correct_option === null || obj.correct_option === undefined ? undefined : toNumber(obj.correct_option),
+      explanation: obj.explanation === null || obj.explanation === undefined ? null : asStr(obj.explanation),
+    };
+  });
+}
+
+function asCheckAnswer(data: unknown): DrilledQuestion {
+  const obj = (data ?? {}) as Record<string, unknown>;
+  return {
+    correct_option: obj.correct_option === null || obj.correct_option === undefined ? undefined : toNumber(obj.correct_option),
+    explanation: obj.explanation === null || obj.explanation === undefined ? null : asStr(obj.explanation),
+    correct: asBool(obj.correct),
+  };
+}
 
 export default function Practice() {
   const { user } = useAuth();
@@ -78,7 +176,8 @@ export default function Practice() {
 
   const setParam = (key: string, value: string) => {
     const next = new URLSearchParams(params);
-    if (value === "all" || value === "") next.delete(key); else next.set(key, value);
+    if (value === "all" || value === "") next.delete(key);
+    else next.set(key, value);
     setParams(next, { replace: true });
   };
 
@@ -92,7 +191,7 @@ export default function Practice() {
   const [drillTopic, setDrillTopic] = useState("");
   const [loadingWeak, setLoadingWeak] = useState(true);
 
-  // ---------- Review list (incorrect/bookmarked) ----------
+  // ---------- Review list ----------
   const [levelOptions, setLevelOptions] = useState<LevelOption[]>([]);
   const [questions, setQuestions] = useState<ReviewQuestion[]>([]);
   const [loading, setLoading] = useState(true);
@@ -102,13 +201,14 @@ export default function Practice() {
   const [active, setActive] = useState<ReviewQuestion | null>(null);
   const [selected, setSelected] = useState<number | null>(null);
   const [reveal, setReveal] = useState<{ correct_option: number; explanation: string | null; correct: boolean } | null>(null);
-  const [topicSL, setTopicSL] = useState<Map<string, string>>(new Map()); // topic_id -> subject_level_id
+  const [topicSL, setTopicSL] = useState<Map<string, string>>(new Map());
+
   const pickedSlByTopic = useMemo(
     () => new Map([...topicSL.entries()].filter(([, sl]) => pickedIds.has(sl))),
     [topicSL, pickedIds],
   );
 
-  // ---------- Topic questions (merged from QuestionBank) ----------
+  // ---------- Topic questions ----------
   const [bankTopics, setBankTopics] = useState<{ id: string; name: string }[]>([]);
   const [bankTopicId, setBankTopicId] = useState("");
   const [bankQuestions, setBankQuestions] = useState<BankQuestion[]>([]);
@@ -122,6 +222,7 @@ export default function Practice() {
   const [bankSelected, setBankSelected] = useState<number | null>(null);
   const [bankReveal, setBankReveal] = useState<{ correct_option: number; explanation: string | null; correct: boolean } | null>(null);
 
+  // ---- Hydrate topics + weak-topic ranking (single fetch, destructured fully) ----
   useEffect(() => {
     if (!user) return;
     (async () => {
@@ -130,12 +231,13 @@ export default function Practice() {
         supabase.from("quizzes").select("id, topic_id").eq("is_published", true),
         supabase.from("quiz_attempts").select("quiz_id, score, total_questions").eq("user_id", user.id).not("completed_at", "is", null),
       ]);
-      const topics = topicsRes.data ?? [];
-      setTopicSL(new Map(topics.map((t: any) => [t.id, t.subject_level_id])));
-      setBankTopics(topics.map((t: any) => ({ id: t.id, name: t.name })));
-      const quizTopic = new Map((quizzesRes.data ?? []).map((q: any) => [q.id, q.topic_id]));
+      const topics = (topicsRes.data ?? []) as TopicWithLevel[];
+      setTopicSL(new Map(topics.map((t) => [t.id, t.subject_level_id])));
+      setBankTopics(topics.map((t) => ({ id: t.id, name: t.name })));
+      const quizTopic = new Map((quizzesRes.data ?? []).map((q) => [q.id, q.topic_id]));
+
       const tally: Record<string, { sum: number; n: number }> = {};
-      (attemptsRes.data ?? []).forEach((a: any) => {
+      ((attemptsRes.data ?? []) as { quiz_id: string; score: number | null; total_questions: number | null }[]).forEach((a) => {
         const tid = quizTopic.get(a.quiz_id);
         if (!tid) return;
         const pct = ((a.score ?? 0) / (a.total_questions || 1)) * 100;
@@ -144,10 +246,10 @@ export default function Practice() {
         tally[tid].n += 1;
       });
       const ranked = topics
-        .map((t: any) => ({ id: t.id, name: t.name, avg: tally[t.id] ? Math.round(tally[t.id].sum / tally[t.id].n) : -1 }))
+        .map((t) => ({ id: t.id, name: t.name, avg: tally[t.id] ? Math.round(tally[t.id].sum / tally[t.id].n) : -1 }))
         .filter((t) => t.avg >= 0)
         .sort((a, b) => a.avg - b.avg);
-      setWeakTopics(ranked.length > 0 ? ranked : topics.map((t: any) => ({ id: t.id, name: t.name, avg: 0 })));
+      setWeakTopics(ranked.length > 0 ? ranked : topics.map((t) => ({ id: t.id, name: t.name, avg: 0 })));
       setLoadingWeak(false);
     })();
   }, [user]);
@@ -161,11 +263,12 @@ export default function Practice() {
       _limit: 200,
     });
     if (error) setError(error.message);
-    setQuestions(((data ?? []) as unknown as ReviewQuestion[]));
+    setQuestions(asReviewQuestions(data));
     setLoading(false);
   };
 
   useEffect(() => {
+    if (!user) return;
     (async () => {
       const { data } = await supabase
         .from("subject_levels")
@@ -173,15 +276,18 @@ export default function Practice() {
         .eq("is_active", true)
         .order("sort_order");
       setLevelOptions(
-        (data ?? []).map((l: any) => ({
+        (data ?? []).map((l) => ({
           id: l.id,
           label: `${l.subjects?.name ?? "Subject"} — ${LEVEL_LABELS[l.level as SubjectLevelCode]}`,
         })),
       );
     })();
-  }, []);
+  }, [user]);
 
-  useEffect(() => { loadReviewQuestions(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [mode, levelId]);
+  useEffect(() => {
+    loadReviewQuestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, levelId]);
 
   const loadBankAttempts = async () => {
     if (!user) return;
@@ -190,7 +296,9 @@ export default function Practice() {
       .select("question_id, last_correct, attempts_count, last_attempt_at")
       .eq("user_id", user.id);
     const map: Record<string, Attempt> = {};
-    (data ?? []).forEach((a: any) => { map[a.question_id] = a; });
+    (data ?? []).forEach((a) => {
+      if (a.question_id) map[a.question_id] = a;
+    });
     setBankAttempts(map);
   };
 
@@ -199,7 +307,9 @@ export default function Practice() {
     try {
       const { data, error } = await supabase.rpc("get_practice_summary");
       if (error) throw error;
-      setBankSummary(((data ?? []) as TopicSummary[]).filter((s) => s.total_questions > 0));
+      setBankSummary(
+        ((data ?? []) as unknown as TopicSummary[]).filter((s) => s.total_questions > 0),
+      );
     } catch {
       setBankSummary([]);
     } finally {
@@ -211,7 +321,8 @@ export default function Practice() {
   useEffect(() => {
     if (tab !== "topics" || !user || bankTopics.length === 0) return;
     if (!bankTopicId) setBankTopicId(bankTopics[0].id);
-    (async () => { await Promise.all([loadBankAttempts(), loadBankSummary()]); })();
+    loadBankAttempts();
+    loadBankSummary();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab, user, bankTopics]);
 
@@ -225,16 +336,21 @@ export default function Practice() {
         _limit: 200,
         _offset: 0,
       });
-      setBankQuestions(((data ?? []) as unknown as BankQuestion[]));
+      setBankQuestions(asBankQuestions(data));
     })();
   }, [tab, bankTopicId, bankDifficulty, bankExamType]);
 
   const filteredReview = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return questions.filter((x) =>
-      (difficulty === "all" || x.difficulty === difficulty) &&
-      (!topicFilter || x.topic_id === topicFilter) &&
-      (!q || x.question_text.toLowerCase().includes(q) || (x.topic_name ?? "").toLowerCase().includes(q) || x.quiz_title.toLowerCase().includes(q)));
+    return questions.filter(
+      (x) =>
+        (difficulty === "all" || x.difficulty === difficulty) &&
+        (!topicFilter || x.topic_id === topicFilter) &&
+        (!q ||
+          x.question_text.toLowerCase().includes(q) ||
+          (x.topic_name ?? "").toLowerCase().includes(q) ||
+          x.quiz_title.toLowerCase().includes(q)),
+    );
   }, [questions, search, difficulty, topicFilter]);
 
   const filteredBank = useMemo(() => {
@@ -245,12 +361,7 @@ export default function Practice() {
   // ---------- Drill flow ----------
   const buildSession = async (topicId: string, topicName: string) => {
     const { data: qs } = await supabase.rpc("get_practice_questions", { _topic_id: topicId, _limit: 10 });
-    const pool: DrillQuestion[] = (qs ?? []).map((q: any) => ({
-      id: q.id,
-      question_text: q.question_text,
-      options: Array.isArray(q.options) ? q.options : [],
-      topic_name: topicName,
-    }));
+    const pool = asDrillQuestions(qs);
     if (pool.length === 0) return;
     setDrill(pool);
     setDrillTopic(topicName);
@@ -267,9 +378,9 @@ export default function Practice() {
       _question_id: drill[drillIdx].id,
       _selected: i,
     });
-    const result = (data ?? {}) as { correct?: boolean; correct_option?: number; explanation?: string | null };
+    const result = asCheckAnswer(data);
     setDrill((prev) => prev.map((q, k) => k === drillIdx ? { ...q, correct_option: result.correct_option, explanation: result.explanation ?? null } : q));
-    if (result.correct) setDrillCorrect((c) => c + 1);
+    if (result.correct_option === i) setDrillCorrect((c) => c + 1);
   };
 
   const drillNext = () => {
@@ -288,10 +399,10 @@ export default function Practice() {
       _selected: selected,
     });
     if (error) { setError(error.message); return; }
-    const res = data as any;
-    setReveal({ correct_option: res.correct_option, explanation: res.explanation, correct: res.correct });
+    const res = asCheckAnswer(data);
+    setReveal({ correct_option: res.correct_option ?? 0, explanation: res.explanation ?? null, correct: !!res.correct });
     setQuestions((prev) => prev.map((q) => q.id === active.id
-      ? { ...q, last_correct: res.correct, attempts_count: q.attempts_count + 1 } : q));
+      ? { ...q, last_correct: !!res.correct, attempts_count: q.attempts_count + 1 } : q));
   };
 
   // ---------- Topic-question flow ----------
@@ -302,8 +413,8 @@ export default function Practice() {
     setBankSelected(i);
     const { data } = await supabase.rpc("check_practice_answer", { _question_id: bankActive.id, _selected: i });
     if (!data) return;
-    const r = data as any;
-    setBankReveal({ correct_option: r.correct_option, explanation: r.explanation, correct: r.correct });
+    const r = asCheckAnswer(data);
+    setBankReveal({ correct_option: r.correct_option ?? 0, explanation: r.explanation ?? null, correct: !!r.correct });
     loadBankAttempts();
     loadBankSummary();
   };
@@ -324,6 +435,24 @@ export default function Practice() {
   }, [bankTopics, pickedIds, prefsLoaded, isAdmin, pickedSlByTopic]);
 
   const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
+
+  // Subject & level gate: students must pick at least one subject before any
+  // practice content renders. Early returns sit after every hook.
+  if (!isAdmin && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <Skeleton className="h-8 w-8 rounded-full" />
+      </div>
+    );
+  }
+  if (needsSubjectPick) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title="Practice — Clutch Marks" description="Topic questions, smart drills on your weakest areas, and every question you got wrong or saved." path="/practice" />
+        <SubjectGate />
+      </div>
+    );
+  }
 
   // ---------- Render: active drill ----------
   if (drill.length > 0 && !drillDone) {
@@ -353,7 +482,7 @@ export default function Practice() {
                     "w-full text-left rounded-lg border p-3 text-sm transition-colors",
                     isCorrect && "border-primary bg-primary/10",
                     isWrong && "border-destructive bg-destructive/10",
-                    drillSelected === null && "hover:border-primary/40 hover:bg-secondary/50"
+                    drillSelected === null && "hover:border-primary/40 hover:bg-secondary/50",
                   )}
                 >
                   <span className="flex items-center gap-2">
@@ -417,7 +546,7 @@ export default function Practice() {
                     "w-full text-left rounded-lg border p-3 text-sm transition-colors",
                     isCorrect && "border-primary bg-primary/10",
                     isWrong && "border-destructive bg-destructive/10",
-                    bankSelected === null && "hover:border-primary/40 hover:bg-secondary/50"
+                    bankSelected === null && "hover:border-primary/40 hover:bg-secondary/50",
                   )}
                 >
                   <span className="flex items-center gap-2">
@@ -454,9 +583,6 @@ export default function Practice() {
         <SubjectPicker />
       </div>
 
-      {needsSubjectPick ? (
-        <SubjectGate />
-      ) : (
       <Tabs value={tab} onValueChange={(v) => setParam("tab", v)}>
         <TabsList>
           <TabsTrigger value="topics" className="gap-1.5"><Database className="h-3.5 w-3.5" /> Topic questions</TabsTrigger>
@@ -495,7 +621,7 @@ export default function Practice() {
                   <SelectItem value="quiz">Quiz</SelectItem>
                   <SelectItem value="exam">Exam</SelectItem>
                   <SelectItem value="mock">Mock</SelectItem>
-                  <SelectItem value="ai_bank">AI bank</SelectItem>
+                  <SelectItem value="ai_bank">Question bank</SelectItem>
                 </SelectContent>
               </Select>
               <div className="relative flex-1 min-w-[180px]">
@@ -679,7 +805,6 @@ export default function Practice() {
           </section>
         </TabsContent>
       </Tabs>
-      )}
     </div>
   );
 }

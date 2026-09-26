@@ -1,0 +1,30 @@
+# Render — backend service for Clutch Marks
+#
+# Deploys as a single Node web service in front of the Supabase edge functions.
+# The web app (frontend on Vercel) talks to THIS origin via VITE_API_URL:
+#   • stable public URLs for every edge function  → /fn/<slug>
+#   • a health endpoint for Render checks         → /healthz
+#   • future server-side routes (webhooks, secrets) live here, never in the
+#     public client bundle.
+#
+# Deploy: Render → New → Blueprint → point at this repo (render.yaml is at the
+# root). Fill in SYNC_WEBHOOK_SECRET when prompted (any long random string).
+
+services:
+  - type: web
+    name: clutchmarks-api
+    runtime: node
+    plan: free
+    rootDir: backend-api
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: SUPABASE_URL
+        sync: false   # https://zzliiazovezhxbmfeqco.supabase.co
+      - key: SUPABASE_ANON_KEY
+        sync: false   # the public publishable key (safe to expose)
+      - key: SYNC_WEBHOOK_SECRET
+        sync: false   # set your own random value; .freebuff/auto-sync.cjs sends it
+      - key: NODE_VERSION
+        value: "22"

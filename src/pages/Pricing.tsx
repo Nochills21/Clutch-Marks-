@@ -1,6 +1,7 @@
 // Pricing: preview tier + three paid plans ($20/mo, $12/mo billed quarterly, $5/mo billed annually).
-// Payment is bank transfer for now: the student requests a plan, gets the payment
-// instructions, and an admin activates the subscription once the transfer lands.
+// Exactly two payment methods: Bank Transfer or E-Wallet (Urpay). Requesting a
+// plan captures the payer's full name and a transaction receipt; an admin then
+// activates the subscription from Admin Payments.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
@@ -9,9 +10,13 @@ import { SEOHead } from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
-import { Check, Sparkles, Loader2, Clock } from "lucide-react";
+import { validateUploadFile } from "@/lib/fileValidation";
+import { Check, Sparkles, Loader2, Clock, Landmark, Wallet, Upload, FileText, ShieldCheck } from "lucide-react";
+import { PAYMENT } from "@backend/payments.config";
 
 const PLANS = [
   {
@@ -52,40 +57,127 @@ const PLANS = [
   },
 ];
 
+type PaymentMethod = "bank_transfer" | "ewallet_urpay";
+
+const PAYMENT_METHODS: {
+  id: PaymentMethod;
+  label: string;
+  tagline: string;
+  icon: React.ElementType;
+}[] = [
+  { id: "bank_transfer", label: "Bank Transfer", tagline: "Pay from any bank app — send us the transfer receipt.", icon: Landmark },
+  { id: "ewallet_urpay", label: "E-Wallet (Urpay)", tagline: "Send via the Urpay app — attach your payment screenshot.", icon: Wallet },
+];
+
 export default function Pricing() {
   const { user, role } = useAuth();
   const { planId, refresh } = useSubscription();
   const { toast } = useToast();
+
   const [selected, setSelected] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [pending, setPending] = useState<string | null>(null);
+  const [pendingDetails, setPendingDetails] = useState<{ method: PaymentMethod | null } | null>(null);
+
+  // Request-plan form state
+  const [fullName, setFullName] = useState("");
+  const [method, setMethod] = useState<PaymentMethod | null>(null);
+  const [receipt, setReceipt] = useState<File | null>(null);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (!user) return;
     supabase
       .from("subscriptions")
-      .select("plan_id, status")
+      .select("plan_id, status, payment_method, full_name")
       .eq("user_id", user.id)
       .eq("status", "pending_payment")
-      .maybeSingle()
-      .then(({ data }) => setPending(data?.plan_id ?? null));
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .then(({ data }) => {
+        // Cast: generated DB types predate the payment_method/full_name columns.
+        const row = (data as any[] | null)?.[0];
+        if (!row) return;
+        setPending(row.plan_id);
+        setPendingDetails({ method: (row.payment_method as PaymentMethod) ?? null });
+        if (row.full_name) setFullName(row.full_name);
+      });
   }, [user]);
+
+  const selectedPlan = PLANS.find((p) => p.id === selected);
+  const selectedMethod = PAYMENT_METHODS.find((m) => m.id === method);
 
   const requestPlan = async () => {
     if (!user || !selected || selected === "free") return;
+    if (!method) {
+      toast({ title: "Choose a payment method", description: "Pick Bank Transfer or E-Wallet (Urpay) to continue.", variant: "destructive" });
+      return;
+    }
+    if (!fullName.trim()) {
+      toast({ title: "Full name required", description: "Enter the account holder's full name for verification.", variant: "destructive" });
+      return;
+    }
+    if (!receipt) {
+      toast({ title: "Receipt required", description: "Attach a screenshot or PDF of your transaction.", variant: "destructive" });
+      return;
+    }
+    const check = validateUploadFile(receipt);
+    if (check.ok === false) {
+      toast({ title: "Receipt rejected", description: check.error, variant: "destructive" });
+      return;
+    }
+
     setSubmitting(true);
+    setUploading(true);
     try {
-      const { error } = await supabase.from("subscriptions").insert({ user_id: user.id, plan_id: selected });
+      // 1) Upload the receipt to the private homework-uploads bucket,
+      //    payments/<uid>/ — allowed by the payments storage policy.
+      const ext = receipt.name.split(".").pop()?.toLowerCase() ?? "png";
+      const path = `payments/${user.id}/${Date.now()}.${ext}`;
+      const { error: upErr } = await supabase.storage.from("homework-uploads").upload(path, receipt);
+      if (upErr) throw new Error(`Receipt upload failed: ${upErr.message}`);
+      setUploading(false);
+
+      // 2) Create or update the pending subscription with the details.
+      //    (No unique constraint on user_id+plan_id, so upsert can't be used.)
+      const payload = {
+        status: "pending_payment" as const,
+        payment_method: method,
+        full_name: fullName.trim(),
+        receipt_path: path,
+        updated_at: new Date().toISOString(),
+      };
+      const { data: existing } = await supabase
+        .from("subscriptions")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("plan_id", selected)
+        .maybeSingle();
+      const { error } = existing?.id
+        ? await supabase.from("subscriptions").update(payload).eq("id", existing.id)
+        : await supabase.from("subscriptions").insert({ user_id: user.id, plan_id: selected, ...payload });
       if (error) throw error;
+
       setPending(selected);
+      setPendingDetails({ method });
       toast({
-        title: "Subscription requested",
-        description: "Complete the bank transfer using the details below — we activate within 24h of receiving it.",
+        title: "Payment details received",
+        description: "We're verifying your transaction — your plan activates within 24 hours.",
       });
       refresh();
+      setSelected(null);
     } catch (e: any) {
       toast({ title: "Request failed", description: e?.message, variant: "destructive" });
-    } finally { setSubmitting(false); }
+    } finally {
+      setSubmitting(false);
+      setUploading(false);
+    }
+  };
+
+  const resetForm = () => {
+    setMethod(null);
+    setReceipt(null);
+    setSelected(null);
   };
 
   return (
@@ -105,11 +197,14 @@ export default function Pricing() {
 
       {pending && (
         <Card className="border-primary/40 bg-primary/5">
-          <CardContent className="flex items-center gap-3 p-4">
-            <Clock className="h-5 w-5 text-primary shrink-0" />
+          <CardContent className="flex items-start gap-3 p-4">
+            <Clock className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <div className="text-sm">
-              <p className="font-medium">Your {PLANS.find(p => p.id === pending)?.name} subscription is awaiting payment.</p>
-              <p className="text-muted-foreground">Transfer <span className="font-mono font-semibold">${PLANS.find(p => p.id === pending)?.price.replace("$", "")}</span> using the bank details below. We activate within 24 hours.</p>
+              <p className="font-medium">Your {PLANS.find(p => p.id === pending)?.name} subscription is awaiting verification.</p>
+              <p className="text-muted-foreground">
+                We've received your{pendingDetails?.method ? ` ${PAYMENT_METHODS.find(m => m.id === pendingDetails.method)?.label ?? ""}` : ""} details
+                {fullName ? ` under “${fullName}”` : ""}. Activation happens within 24 hours of confirmation.
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -119,7 +214,6 @@ export default function Pricing() {
         {PLANS.map(p => {
           const isCurrent = p.id === planId;
           const isPending = p.id === pending;
-          const locked = (p.id !== "free" && !!user && !isCurrent && !isPending) || (!user && p.id !== "free");
           return (
             <Card key={p.id} className={`relative neon-border ${p.highlight ? "border-primary/60 shadow-lg shadow-primary/10" : ""}`}>
               {p.highlight && (
@@ -149,16 +243,15 @@ export default function Pricing() {
                 ) : isCurrent ? (
                   <Button className="w-full" disabled>Current plan</Button>
                 ) : isPending ? (
-                  <Button variant="outline" className="w-full gap-2" disabled><Clock className="h-4 w-4" /> Awaiting payment</Button>
+                  <Button variant="outline" className="w-full gap-2" disabled><Clock className="h-4 w-4" /> Awaiting verification</Button>
                 ) : (
                   <Button
                     className="w-full bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
-                    onClick={() => { setSelected(p.id); if (!user) toast({ title: "Sign in first", description: "Create an account, then subscribe." }); }}
+                    onClick={() => { if (user) setSelected(p.id); else toast({ title: "Sign in first", description: "Create an account, then subscribe." }); }}
                   >
-                    Subscribe
+                    Request plan
                   </Button>
                 )}
-                {locked && null}
               </CardContent>
             </Card>
           );
@@ -168,38 +261,134 @@ export default function Pricing() {
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">How payment works</CardTitle>
-          <CardDescription>Bank transfer — no card needed. Activated within 24 hours.</CardDescription>
+          <CardDescription>Two ways to pay — Bank Transfer or E-Wallet (Urpay). Activated within 24 hours.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3 text-sm text-muted-foreground">
           <ol className="space-y-2 list-decimal list-inside">
-            <li>Click <span className="font-medium text-foreground">Subscribe</span> on your plan — this reserves it and tells us what to expect.</li>
-            <li>Transfer the total to:
-              <div className="ml-6 mt-2 rounded-lg border bg-muted/30 p-3 font-mono text-xs text-foreground space-y-1">
-                <p>Bank: <span className="text-muted-foreground">[to be added by site owner]</span></p>
-                <p>Account name: <span className="text-muted-foreground">[to be added]</span></p>
-                <p>IBAN / Account no.: <span className="text-muted-foreground">[to be added]</span></p>
-                <p>Reference: your account email</p>
+            <li>Click <span className="font-medium text-foreground">Request plan</span> and choose your method.</li>
+            <li>Send the total using one of:
+              <div className="ml-6 mt-2 grid gap-2 sm:grid-cols-2">
+                <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
+                  <p className="font-medium flex items-center gap-1.5"><Landmark className="h-3.5 w-3.5 text-primary" /> Bank Transfer</p>
+                  <p className="mt-1 font-mono text-[11px] space-y-0.5">
+                    Bank: <span className="text-muted-foreground">{PAYMENT.bankTransfer.bankName}</span><br />
+                    Account name: <span className="text-muted-foreground">{PAYMENT.bankTransfer.accountHolder}</span><br />
+                    IBAN: <span className="text-muted-foreground break-all">{PAYMENT.bankTransfer.iban}</span><br />
+                    Account no.: <span className="text-muted-foreground">{PAYMENT.bankTransfer.accountNo}</span><br />
+                    Reference: Zaidthaersaadeh@gmail.com
+                  </p>
+                </div>
+                <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
+                  <p className="font-medium flex items-center gap-1.5"><Wallet className="h-3.5 w-3.5 text-primary" /> E-Wallet (Urpay)</p>
+                  <p className="mt-1 font-mono text-[11px]">
+                    Urpay number: <span className="text-muted-foreground">{PAYMENT.urpay.number}</span><br />
+                    Reference: Zaidthaersaadeh@gmail.com
+                  </p>
+                </div>
               </div>
             </li>
-            <li>We confirm receipt and activate your plan — usually within 24 hours.</li>
+            <li>Upload the transaction receipt in the request form so we can match your payment.</li>
+            <li>We verify and activate your plan — usually within 24 hours.</li>
           </ol>
         </CardContent>
       </Card>
 
-      <Dialog open={!!selected && !!user} onOpenChange={(o) => !o && setSelected(null)}>
+      {/* Request-plan dialog: method → full name → receipt */}
+      <Dialog open={!!selected && !!user} onOpenChange={(o) => { if (!o) resetForm(); }}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>Confirm your subscription</DialogTitle>
+            <DialogTitle>Request the {selectedPlan?.name} plan</DialogTitle>
             <DialogDescription>
-              You're requesting the {PLANS.find(p => p.id === selected)?.name} plan
-              ({PLANS.find(p => p.id === selected)?.price}{PLANS.find(p => p.id === selected)?.per}).
-              We'll show the bank details after you confirm.
+              {selectedPlan?.price}{selectedPlan?.per} — choose how you're paying, then tell us who paid and attach the receipt.
             </DialogDescription>
           </DialogHeader>
+
+          <div className="space-y-5">
+            {/* Method */}
+            <div className="space-y-2">
+              <Label>Payment method</Label>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {PAYMENT_METHODS.map(m => (
+                  <button
+                    key={m.id}
+                    type="button"
+                    onClick={() => setMethod(m.id)}
+                    className={`rounded-xl border p-3 text-left transition-colors ${
+                      method === m.id
+                        ? "border-primary bg-primary/10"
+                        : "border-border hover:border-primary/40 hover:bg-secondary/40"
+                    }`}
+                  >
+                    <m.icon className={`h-4 w-4 ${method === m.id ? "text-primary" : "text-muted-foreground"}`} />
+                    <p className="mt-1.5 text-sm font-medium">{m.label}</p>
+                    <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">{m.tagline}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Full name */}
+            <div className="space-y-2">
+              <Label htmlFor="payer-name">Full name</Label>
+              <Input
+                id="payer-name"
+                placeholder="As it appears on the transfer / Urpay account"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                autoComplete="name"
+              />
+            </div>
+
+            {/* Receipt */}
+            <div className="space-y-2">
+              <Label htmlFor="payer-receipt">Receipt of transaction</Label>
+              <label
+                htmlFor="payer-receipt"
+                className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-border p-3 transition-colors hover:border-primary/40 hover:bg-secondary/30"
+              >
+                <Upload className="h-4 w-4 text-muted-foreground" />
+                <span className="min-w-0 flex-1 truncate text-sm text-muted-foreground">
+                  {receipt ? receipt.name : "Screenshot or PDF of your payment"}
+                </span>
+                <input
+                  id="payer-receipt"
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,application/pdf"
+                  className="hidden"
+                  onChange={(e) => {
+                    const f = e.target.files?.[0] ?? null;
+                    if (f) {
+                      const check = validateUploadFile(f);
+                      if (check.ok === false) {
+                        toast({ title: "File rejected", description: check.error, variant: "destructive" });
+                        e.target.value = "";
+                        return;
+                      }
+                    }
+                    setReceipt(f);
+                  }}
+                />
+              </label>
+              {receipt && (
+                <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <FileText className="h-3 w-3 text-primary" /> {(receipt.size / 1024).toFixed(0)} KB — ready to upload
+                </p>
+              )}
+              <p className="flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
+                <ShieldCheck className="mt-0.5 h-3 w-3 shrink-0 text-primary" />
+                Receipts are private — only admins verifying your payment can view them.
+              </p>
+            </div>
+          </div>
+
           <DialogFooter>
-            <Button variant="outline" onClick={() => setSelected(null)}>Cancel</Button>
+            <Button variant="outline" onClick={resetForm} disabled={submitting}>Cancel</Button>
             <Button onClick={requestPlan} disabled={submitting} className="gap-2">
-              {submitting && <Loader2 className="h-4 w-4 animate-spin" />} Request plan
+              {submitting ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> {uploading ? "Uploading receipt…" : "Submitting…"}</>
+              ) : (
+                <>{selectedMethod?.label ?? "Submit"} request</>
+              )}
             </Button>
           </DialogFooter>
         </DialogContent>

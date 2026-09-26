@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://clutch-marks.lovable.app/sitemap.xml
+Sitemap: https://clutchmarks.study/sitemap.xml

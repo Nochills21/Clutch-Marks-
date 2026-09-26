@@ -151,6 +151,45 @@ export type Database = {
           },
         ]
       }
+      feedback_messages: {
+        Row: {
+          id: string
+          feedback_id: string
+          sender_id: string
+          body: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          feedback_id: string
+          sender_id?: string
+          body: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          feedback_id?: string
+          sender_id?: string
+          body?: string
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "feedback_messages_feedback_id_fkey"
+            columns: ["feedback_id"]
+            isOneToOne: false
+            referencedRelation: "content_feedback"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "feedback_messages_sender_id_fkey"
+            columns: ["sender_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       content_revisions: {
         Row: {
           id: string
@@ -1369,6 +1408,19 @@ export type Database = {
         Returns: boolean
       }
       restore_content_revision: { Args: { p_revision_id: string }; Returns: undefined }
+      get_free_preview: {
+        Args: { _subject_level_id?: string }
+        Returns: {
+          item_id: string
+          item_type: string
+          topic_id: string | null
+          topic_name: string | null
+          title: string
+          is_published: boolean
+          is_ai_generated: boolean
+          created_at: string
+        }[]
+      }
     }
     Enums: {
       app_role: "admin" | "student" | "parent"
