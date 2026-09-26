@@ -273,7 +273,7 @@ export default function Pricing() {
                     Bank: <span className="text-muted-foreground">[to be added by site owner]</span><br />
                     Account name: <span className="text-muted-foreground">[to be added]</span><br />
                     IBAN / Account no.: <span className="text-muted-foreground">[to be added]</span><br />
-                    Reference: Zaidthaersaadeh@gmail.com
+                    Reference: your account email
                   </p>
                 </div>
                 <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
@@ -281,7 +281,7 @@ export default function Pricing() {
                   <p className="mt-1 font-mono text-[11px]">
                     Urpay number / alias: <span className="text-muted-foreground">[to be added by site owner]</span><br />
                     Name: <span className="text-muted-foreground">[to be added]</span><br />
-                    Reference: Zaidthaersaadeh@gmail.com
+                    Reference: your account email
                   </p>
                 </div>
               </div>

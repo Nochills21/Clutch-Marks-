@@ -74,6 +74,14 @@ export default function Pricing() {
   const { planId, refresh } = useSubscription();
   const { toast } = useToast();
 
+  // Payment reference: the signed-in student's own email, so an incoming
+  // transfer is self-identifying on the owner's bank/Urpay statement. Guests
+  // are told to use their account email once they sign up.
+  const paymentRef = user?.email ?? PAYMENT.contact.email;
+  const refHint = user
+    ? "Use this exact reference so we can match your transfer."
+    : "Sign up first, then use your own account email as the reference.";
+
   const [selected, setSelected] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [pending, setPending] = useState<string | null>(null);
@@ -275,14 +283,16 @@ export default function Pricing() {
                     Account name: <span className="text-muted-foreground">{PAYMENT.bankTransfer.accountHolder}</span><br />
                     IBAN: <span className="text-muted-foreground break-all">{PAYMENT.bankTransfer.iban}</span><br />
                     Account no.: <span className="text-muted-foreground">{PAYMENT.bankTransfer.accountNo}</span><br />
-                    Reference: Zaidthaersaadeh@gmail.com
+                    Reference: <span className="text-foreground font-semibold">{paymentRef}</span><br />
+                    <span className="text-[10px] text-muted-foreground/80">{refHint}</span>
                   </p>
                 </div>
                 <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
                   <p className="font-medium flex items-center gap-1.5"><Wallet className="h-3.5 w-3.5 text-primary" /> E-Wallet (Urpay)</p>
                   <p className="mt-1 font-mono text-[11px]">
                     Urpay number: <span className="text-muted-foreground">{PAYMENT.urpay.number}</span><br />
-                    Reference: Zaidthaersaadeh@gmail.com
+                    Reference: <span className="text-foreground font-semibold">{paymentRef}</span><br />
+                    <span className="text-[10px] text-muted-foreground/80">{refHint}</span>
                   </p>
                 </div>
               </div>
