@@ -41,7 +41,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          # no cache: npm — the repo has no package-lock.json (installs with bun),
+          # and setup-node's npm cache requires one
 
       - name: Check required repo variables
         env:
