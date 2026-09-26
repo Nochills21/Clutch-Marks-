@@ -1,0 +1,99 @@
+name: Build production pair
+
+# Rebuilds the two-file production pair on every push to main:
+#   production/clutchmarks-frontend.html  (whole SPA, assets inlined)
+#   production/clutchmarks-backend.js     (copied from backend-api/server.js,
+#                                          with the header comments documenting
+#                                          the single-file contract)
+#
+# One-time repo setup (Settings → Secrets and variables → Actions → Variables):
+#   VITE_SUPABASE_URL             = https://zzliiazovezhxbmfeqco.supabase.co
+#   VITE_SUPABASE_PUBLISHABLE_KEY = the PUBLIC anon key (same value as .env;
+#                                   safe for Actions variables — it ships in
+#                                   the client bundle by design anyway)
+#   VITE_SITE_URL                 = https://clutchmarks.study (recommended)
+#
+# If any of these variables is missing the job fails loudly rather than
+# shipping a build with blank credentials.
+#
+# The workflow skips its own commit-triggered runs (message marker
+# "[skip-pair]") to avoid loops, and only commits when the rebuilt files
+# actually differ.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-production-pair
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Check required repo variables
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          missing=0
+          for v in VITE_SUPABASE_URL VITE_SUPABASE_PUBLISHABLE_KEY; do
+            if [ -z "${!v}" ]; then
+              echo "::error::Repo variable '$v' is not set (Settings → Secrets and variables → Actions → Variables)"
+              missing=1
+            fi
+          done
+          exit $missing
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Rebuild the production pair
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
+          VITE_PLAUSIBLE_DOMAIN: ${{ vars.VITE_PLAUSIBLE_DOMAIN }}
+        run: npm run build:single
+
+      - name: Refresh the backend file from backend-api/server.js
+        run: |
+          {
+            echo '#!/usr/bin/env node'
+            echo '/**'
+            echo ' * Clutch Marks — PRODUCTION BACKEND (single file, zero deps).'
+            echo ' * Auto-generated from backend-api/server.js — edit THERE, not here.'
+            echo ' */'
+            tail -n +1 backend-api/server.js
+          } > production/clutchmarks-backend.js
+
+      - name: Commit the rebuilt pair (only when changed)
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/clutchmarks-frontend.html production/clutchmarks-backend.js
+          if git diff --cached --quiet; then
+            echo "Pair unchanged — nothing to commit."
+            exit 0
+          fi
+          git commit -m "$(cat <<'EOF'
+          Rebuild production pair from latest main [skip-pair]
+
+          Automated: npm run build:single with the repo's configured env vars.
+          EOF
+          )"
+          git push origin main
