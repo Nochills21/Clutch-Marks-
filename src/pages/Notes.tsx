@@ -113,6 +113,26 @@ export default function Notes() {
   const [level, setLevel] = useState("all");
   const [viewing, setViewing] = useState<NoteRow | null>(null);
   const { done, toggle } = useNoteProgress();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+
+  // Subject scoping from "My subjects": students only see notes whose
+  // (subject, level) pair matches one of their picked subject_levels. Admins
+  // and guests (mySL === null) see everything. `mySL` holds "subjectId|level"
+  // keys for the picked pairs.
+  const [mySL, setMySL] = useState<Set<string> | null>(null);
+  useEffect(() => {
+    if (isAdminRole || !prefsLoaded || pickedIds.size === 0) { setMySL(null); return; }
+    let cancelled = false;
+    (async () => {
+      const { data } = await supabase
+        .from("subject_levels")
+        .select("id, subject_id, level")
+        .in("id", [...pickedIds]);
+      if (cancelled) return;
+      setMySL(new Set((data ?? []).map((sl: any) => `${sl.subject_id}|${sl.level}`)));
+    })();
+    return () => { cancelled = true; };
+  }, [isAdminRole, prefsLoaded, pickedIds]);
 
   const load = async () => {
     setLoading(true);
@@ -129,27 +149,31 @@ export default function Notes() {
 
   const subjects = useMemo(() => {
     const seen = new Map<string, string>();
-    notes.forEach((n) => seen.set(n.subject_id, n.subject_name));
+    notes.forEach((n) => {
+      if (mySL && !mySL.has(`${n.subject_id}|${n.level}`)) return;
+      seen.set(n.subject_id, n.subject_name);
+    });
     return [...seen.entries()];
-  }, [notes]);
+  }, [notes, mySL]);
 
   const visible = useMemo(() => {
     const term = q.trim().toLowerCase();
     return notes.filter((n) =>
+      (!mySL || mySL.has(`${n.subject_id}|${n.level}`)) &&
       (subject === "all" || n.subject_id === subject) &&
       (level === "all" || n.level === level) &&
       (!term || n.title.toLowerCase().includes(term) || n.topic_name.toLowerCase().includes(term)));
-  }, [notes, q, subject, level]);
+  }, [notes, q, subject, level, mySL]);
 
   const completedCount = visible.filter((n) => done[n.id]).length;
   const progressPct = visible.length ? Math.round((completedCount / visible.length) * 100) : 0;
 
   // Subject & level gate: students must pick at least one subject (and its
-  // level) before any notes are shown. While preferences are still loading we
-  // render nothing — never the content itself. Sits after every hook so the
-  // early returns never change hook order.
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
-  if (!isAdminRole && !prefsLoaded) {
+  // level) before any notes are shown, and only their picked subjects render.
+  // While preferences — or the picked subject_levels lookup — are still
+  // loading we render nothing — never the content itself. Sits after every
+  // hook so the early returns never change hook order.
+  if (!isAdminRole && (!prefsLoaded || (pickedIds.size > 0 && !mySL))) {
     return (
       <div className="flex justify-center py-24">
         <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
@@ -210,7 +234,7 @@ export default function Notes() {
         <Select value={subject} onValueChange={setSubject}>
           <SelectTrigger className="w-full sm:w-[180px]"><SelectValue placeholder="Subject" /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All subjects</SelectItem>
+            <SelectItem value="all">{mySL ? "All my subjects" : "All subjects"}</SelectItem>
             {subjects.map(([id, name]) => <SelectItem key={id} value={id}>{name}</SelectItem>)}
           </SelectContent>
         </Select>
