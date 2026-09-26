@@ -83,12 +83,14 @@ export function AppSidebar() {
   useEffect(() => {
     if (!user) return;
     let mounted = true;
+    // Same source as the bell (NotificationCenter): the announcements table has
+    // no per-user read tracking, so the badge mirrors the bell's unread feed.
     (supabase as any)
       .from("announcements")
       .select("id")
-      .eq("user_id", user.id)
-      .eq("read", false)
-      .then(({ data }) => {
+      .order("created_at", { ascending: false })
+      .limit(30)
+      .then(({ data }: { data: any[] | null }) => {
         if (mounted) setUnreadCount(data?.length ?? 0);
       })
       .catch(() => {
