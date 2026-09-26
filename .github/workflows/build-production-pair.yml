@@ -58,7 +58,10 @@ jobs:
           exit $missing
 
       - name: Install dependencies
-        run: npm ci
+        # The repo's lockfile of record is bun.lock (package-lock.json is a
+        # stale import from the initial commit), so npm ci would fail with a
+        # EUSAGE mismatch. npm install reconciles from package.json instead.
+        run: npm install --no-audit --no-fund
 
       - name: Rebuild the production pair
         env:
