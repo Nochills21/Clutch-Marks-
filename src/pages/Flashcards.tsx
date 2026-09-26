@@ -1,5 +1,5 @@
 // Spaced-repetition flashcard study.
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -131,6 +131,7 @@ export default function Flashcards() {
   const { isPreview, hasPaid, loading: planLoading } = usePlanAccess();
 
   const filteredSets = sets.filter((s) => {
+    if (pickedSubjectTopics && !pickedSubjectTopics.has(s.topic_id)) return false;
     if (filter === "all") return true;
     if (filter === "due") return (dueCount[s.id] ?? 0) > 0;
     return s.topic_id === filter;
@@ -154,6 +155,12 @@ export default function Flashcards() {
   // loading we render nothing — never the content itself. Placed after every
   // hook so the early returns never change hook order.
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  // Topic ids belonging to the student's picked subject_levels (for scoping).
+  const pickedTopicIds = useMemo(
+    () => new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id)),
+    [topics, pickedIds],
+  );
+  const pickedSubjectTopics = isAdminRole || pickedIds.size === 0 ? null : pickedTopicIds;
   if (!isAdminRole && !prefsLoaded) {
     return (
       <div className="flex justify-center py-24">

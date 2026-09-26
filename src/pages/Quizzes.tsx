@@ -1,5 +1,5 @@
 // Quiz hub: published quizzes per topic.
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -37,7 +37,6 @@ interface GradeResult {
 export default function Quizzes() {
   const { user } = useAuth();
   const { toast } = useToast();
-  const [quizzes, setQuizzes] = useState<any[]>([]);
   const [activeQuiz, setActiveQuiz] = useState<any>(null);
   const [questions, setQuestions] = useState<StudentQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -55,10 +54,22 @@ export default function Quizzes() {
   const [loadingFeedback, setLoadingFeedback] = useState(false);
 
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const [allQuizzes, setAllQuizzes] = useState<any[]>([]);
+  const [topics, setTopics] = useState<any[]>([]);
   useEffect(() => {
-    supabase.from("quizzes").select("*, topics(name)").eq("is_published", true).order("created_at", { ascending: false })
-      .then(({ data }) => setQuizzes(data ?? []));
+    supabase.from("quizzes").select("*, topics(name, subject_level_id)").eq("is_published", true).order("created_at", { ascending: false })
+      .then(({ data }) => setAllQuizzes(data ?? []));
+    supabase.from("topics").select("id, subject_level_id").then(({ data }) => setTopics(data ?? []));
   }, []);
+  // Scope to the student's picked subject_levels (admins see everything).
+  const pickedTopicIds = useMemo(
+    () => new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id)),
+    [topics, pickedIds],
+  );
+  const quizzes = isAdminRole || pickedIds.size === 0
+    ? allQuizzes
+    : allQuizzes.filter((q: any) => pickedTopicIds.has(q.topic_id));
 
   // Free-plan preview: server-side via get_free_preview RPC (2 per subject-level).
   // Paid users get the full published quiz list below.
@@ -76,7 +87,6 @@ export default function Quizzes() {
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any quiz content is shown. While preferences are still
   // loading we render nothing — never the content itself.
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
   if (!isAdminRole && !prefsLoaded) {
     return (
       <div className="flex justify-center py-24">
