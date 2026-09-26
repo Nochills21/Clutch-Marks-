@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:single": "vite build --config vite.single.config.ts && node scripts/build-single-file.cjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
