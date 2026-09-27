@@ -226,9 +226,8 @@ export default function Practice() {
   useEffect(() => {
     if (!user) return;
     (async () => {
-      const [topicsRes, quizzesRes, attemptsRes] = await Promise.all([
+      const [topicsRes, attemptsRes] = await Promise.all([
         supabase.from("topics").select("id, name, subject_level_id").order("sort_order"),
-        supabase.from("quizzes").select("id, topic_id").eq("is_published", true),
         supabase.from("quiz_attempts").select("quiz_id, score, total_questions").eq("user_id", user.id).not("completed_at", "is", null),
       ]);
       const topics = (topicsRes.data ?? []) as TopicWithLevel[];

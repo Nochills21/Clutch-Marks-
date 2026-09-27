@@ -55,23 +55,31 @@ export default function Quizzes() {
   const [loadingFeedback, setLoadingFeedback] = useState(false);
 
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
+
   useEffect(() => {
-    supabase.from("quizzes").select("*, topics(name)").eq("is_published", true).order("created_at", { ascending: false })
+    supabase.from("quizzes").select("*, topics(*)").eq("is_published", true).order("created_at", { ascending: false })
       .then(({ data }) => setQuizzes(data ?? []));
   }, []);
 
-  // Free-plan preview: server-side via get_free_preview RPC (2 per subject-level).
-  // Paid users get the full published quiz list below.
+  // Free-plan preview: scoped to the first subject-level the student picked,
+  // so a free student who picks "Ol Math" sees only Ol Math quizzes (2 of them)
+  // rather than 2 quizzes drawn from every subject.
+  const previewSubjectLevelId = useMemo(() => {
+    if (isAdminRole || !prefsLoaded) return null;
+    const picked = [...pickedIds];
+    return picked.length > 0 ? picked[0] : null;
+  }, [isAdminRole, prefsLoaded, pickedIds]);
+
   const [previewQuizzes, setPreviewQuizzes] = useState<any[]>([]);
   const [previewLoading, setPreviewLoading] = useState(false);
   useEffect(() => {
     if (planLoading || hasPaid) { setPreviewQuizzes([]); setPreviewLoading(false); return; }
     setPreviewLoading(true);
-    supabase.rpc("get_free_preview", { _subject_level_id: null })
+    supabase.rpc("get_free_preview", { _subject_level_id: previewSubjectLevelId })
       .then(({ data }) => { setPreviewQuizzes(data ?? []); setPreviewLoading(false); });
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     ;
-  }, [planLoading, hasPaid]);
+  }, [planLoading, hasPaid, previewSubjectLevelId]);
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any quiz content is shown. While preferences are still
@@ -171,7 +179,29 @@ export default function Quizzes() {
     }
   };
 
-  const visibleQuizzes = hasPaid ? quizzes : previewQuizzes;
+  // For paid users: show only quizzes whose topic belongs to a picked
+  // subject-level. Admins see everything.
+  const visibleQuizzes = useMemo(() => {
+    if (isAdminRole) return quizzes;
+    if (!prefsLoaded) return previewQuizzes; // gate will block rendering anyway
+    // Derive topic_id -> subject_level_id from the quizzes' nested topics.
+    // quizzes were loaded with topics(*) so each quiz has topics[0] with
+    // subject_levels(level, subjects(...)).
+    const topicToSl = new Map<string, string>();
+    for (const q of quizzes) {
+      const t = (q as any).topics?.[0];
+      if (t?.subject_levels?.id) topicToSl.set((q as any).topic_id, t.subject_levels.id);
+    }
+    if (pickedTopicIds.size === 0) {
+      // No topics loaded yet or no picks — fall back to preview for free users.
+      return hasPaid ? quizzes : previewQuizzes;
+    }
+    const scoped = quizzes.filter((q) => {
+      const sl = topicToSl.get((q as any).topic_id);
+      return sl && pickedIds.has(sl);
+    });
+    return hasPaid ? scoped : previewQuizzes;
+  }, [quizzes, hasPaid, previewQuizzes, isAdminRole, prefsLoaded, pickedIds, pickedTopicIds]);
 
   if (activeQuiz) {
     const hasExamFile = !!activeQuiz.exam_file_url;

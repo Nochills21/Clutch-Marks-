@@ -19,6 +19,8 @@ import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil } from
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
 import { useAuth } from "@/lib/auth";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectGate } from "@/components/SubjectGate";
 
 export default function TopicNotes() {
   const { slug: subject, level, topic } = useParams<{ slug: string; level: string; topic: string }>();
@@ -36,6 +38,8 @@ export default function TopicNotes() {
   const [papers, setPapers] = useState<any[]>([]);
   const [reloadKey, setReloadKey] = useState(0);
   const bumpRevision = () => setReloadKey((k) => k + 1);
+
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   useEffect(() => {
     let active = true;
@@ -110,12 +114,45 @@ export default function TopicNotes() {
     return () => { active = false; };
   }, [subject, level, topic, topicSlug, reloadKey]);
 
+  if (!isAdminRole && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <div className="h-8 w-8 rounded-full border-primary/30 border animate-spin" />
+      </div>
+    );
+  }
+  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title={`${topicTitle ?? "Revision Notes"} — Clutch Marks`} description="Revision notes, topic questions and past papers." path={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
+        <SubjectGate />
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="space-y-6">
         <Skeleton className="h-28 rounded-2xl" />
         <Skeleton className="h-64 rounded-2xl" />
       </div>
+    );
+  }
+
+  // Students only see topics belonging to a subject-level they picked.
+  if (!isAdminRole && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Topic not found</CardTitle>
+          <CardDescription>You haven't selected this subject yet.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button asChild variant="outline" className="gap-2">
+            <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
+          </Button>
+        </CardContent>
+      </Card>
     );
   }
 

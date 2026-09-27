@@ -4,11 +4,14 @@ import { supabase } from "@/integrations/supabase/client";
 import { usePlanAccess, FREE_PREVIEW_LIMIT, usePreviewSliceWithLimit } from "@/components/PreviewLimit";
 import { useToast } from "@/hooks/useToast";
 import { useAuth } from "@/lib/auth";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectGate } from "@/components/SubjectGate";
 import { useQuery } from "@tanstack/react-query";
 import { SEOHead } from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { openProtectedFile } from "@/lib/contentFiles";
@@ -42,6 +45,7 @@ const levelLabel = (l: string | null) => LEVEL_FILTERS.find((f) => f.id === l)?.
 export default function PastPapers() {
   const { toast } = useToast();
   const { user } = useAuth();
+  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
   const [search, setSearch] = useState("");
   const [yearFilter, setYearFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
@@ -58,13 +62,13 @@ export default function PastPapers() {
   const { data: papers, isLoading } = useQuery({
     queryKey: ["past_papers"],
     queryFn: async () => {
-      const { data } = await supabase.from("past_papers").select("*, topics(name)").order("year", { ascending: false });
+      const { data } = await supabase.from("past_papers").select("*, topics(name, subject_levels(id))").order("year", { ascending: false });
       return data ?? [];
     },
   });
 
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
-  const { slice: visiblePapers } = usePreviewSliceWithLimit(papers ?? [], FREE_PREVIEW_LIMIT);
+  const { slice: visiblePapers } = usePreviewSliceWithLimit(scopedPapers ?? [], FREE_PREVIEW_LIMIT);
   const years = [...new Set(visiblePapers?.map((p: any) => p.year) ?? [])].sort((a, b) => b - a);
 
   const handleCorrect = (result: AiCorrectionOutput) => {
@@ -83,19 +87,64 @@ export default function PastPapers() {
     }
   };
 
+  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
+
+  // Past papers whose topic belongs to a subject-level the student picked.
+  // Admins see everything.
+  const topicToSl = useMemo(() => {
+    const m = new Map<string, string>();
+    (topics ?? []).forEach((t: any) => { if (t.subject_levels?.id) m.set(t.id, t.subject_levels.id); });
+    return m;
+  }, [topics]);
+
+  const scopedPapers = useMemo(() => {
+    if (isAdmin || !prefsLoaded) return papers ?? [];
+    return (papers ?? []).filter((p: any) => {
+      const tid = p.topic_id;
+      if (!tid) return false; // untagged papers — hide from students
+      const sl = topicToSl.get(tid);
+      return sl && pickedIds.has(sl);
+    });
+  }, [papers, isAdmin, prefsLoaded, pickedIds, topicToSl]);
+
   const filteredPapers = (visiblePapers ?? [])
-    .filter((p: any) =>
-      (levelFilter === "all" || p.level === levelFilter) &&
-      (search === "" ||
-      p.title?.toLowerCase().includes(search.toLowerCase()) ||
-      p.paper_number?.toLowerCase().includes(search.toLowerCase()) ||
-      p.session?.toLowerCase().includes(search.toLowerCase()))
-    );
+    .filter((p: any) => {
+      // Scope to picked subjects (already applied via scopedPapers -> visiblePapers
+      // chain, but enforce again in case visiblePapers includes unscoped items).
+      if (!isAdmin && prefsLoaded) {
+        const tid = p.topic_id;
+        if (tid) {
+          const sl = topicToSl.get(tid);
+          if (sl && !pickedIds.has(sl)) return false;
+        }
+      }
+      return (levelFilter === "all" || p.level === levelFilter) &&
+        (search === "" ||
+        p.title?.toLowerCase().includes(search.toLowerCase()) ||
+        p.paper_number?.toLowerCase().includes(search.toLowerCase()) ||
+        p.session?.toLowerCase().includes(search.toLowerCase()));
+    });
 
   const groupedPapers = years.map((y) => ({
     year: y,
     papers: filteredPapers.filter((p: any) => p.year === y),
   })).filter((g) => (yearFilter === "all" ? true : g.year === Number(yearFilter)));
+
+  if (!isAdmin && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <div className="h-8 w-8 rounded-full border-primary/30 border animate-spin" />
+      </div>
+    );
+  }
+  if (needsSubjectPick) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title="Past Papers — Clutch Marks" description="Browse and download past papers and mark schemes." path="/past-papers" />
+        <SubjectGate />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
