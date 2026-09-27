@@ -52,13 +52,19 @@ export default function Flashcards() {
   const [studyComplete, setStudyComplete] = useState(false);
 
   const loadSets = useCallback(async () => {
-    const [setsRes, topicsRes] = await Promise.all([
-      supabase.from("flashcard_sets").select("*, topics(name), flashcards(id)").order("created_at", { ascending: false }),
-      supabase.from("topics").select("*").order("sort_order"),
-    ]);
-    setSets(setsRes.data ?? []);
-    setTopics(topicsRes.data ?? []);
-  }, []);
+    const topicsRes = await supabase.from("topics").select("id, subject_level_id, name").order("sort_order");
+    const topicsList = topicsRes.data ?? [];
+    setTopics(topicsList);
+    // Only fetch flashcard sets whose topic belongs to the student's picked
+    // subject_levels. Admins and students with no pick see everything the
+    // picked-level filter would allow via the preview RPC + empty guard below.
+    let setsData = (await supabase.from("flashcard_sets").select("id, topic_id, title, description, flashcards(id, front, back, sort_order)").order("created_at", { ascending: false }))?.data ?? [];
+    if (!isAdminRole && pickedIds.size > 0) {
+      const pickedTopicIds = new Set(topicsList.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id));
+      setsData = setsData.filter((s: any) => s.topic_id != null && pickedTopicIds.has(s.topic_id));
+    }
+    setSets(setsData);
+  }, [user, isAdminRole, pickedIds]);
 
   // Load due counts per set
   const loadDueCounts = useCallback(async () => {
@@ -130,12 +136,13 @@ export default function Flashcards() {
 
   const { isPreview, hasPaid, loading: planLoading } = usePlanAccess();
 
-  const filteredSets = sets.filter((s) => {
-    if (pickedSubjectTopics && !pickedSubjectTopics.has(s.topic_id)) return false;
-    if (filter === "all") return true;
-    if (filter === "due") return (dueCount[s.id] ?? 0) > 0;
-    return s.topic_id === filter;
-  });
+  const filteredSets = (() => {
+    if (!isAdminRole && pickedIds.size === 0) return [];
+    let out = sets;
+    if (filter === "due") out = out.filter((s) => (dueCount[s.id] ?? 0) > 0);
+    else if (filter !== "all") out = out.filter((s) => (s as any).topic_id === filter);
+    return out;
+  })();
 
   // Free-plan preview: server-side via get_free_preview RPC (2 per subject-level).
   // Paid users get the full flashcard-set list below.
@@ -144,11 +151,11 @@ export default function Flashcards() {
   useEffect(() => {
     if (planLoading || hasPaid) { setPreviewSets([]); setPreviewLoading(false); return; }
     setPreviewLoading(true);
-    supabase.rpc("get_free_preview", { _subject_level_id: null })
-      .then(({ data }) => { setPreviewSets(data ?? []); setPreviewLoading(false); });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    ;
-  }, [planLoading, hasPaid]);
+    const targetLevel = isAdminRole || pickedIds.size === 0 ? null : [...pickedIds][0];
+    supabase.rpc("get_free_preview", { _subject_level_id: targetLevel })
+      .then(({ data }) => { setPreviewSets((data ?? []).filter((d: any) => d.item_type === "question"));; setPreviewLoading(false); })
+      .catch(() => { setPreviewSets([]); setPreviewLoading(false); });
+  }, [planLoading, hasPaid, isAdminRole, pickedIds]);
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any flashcard content is shown. While preferences are still
@@ -264,9 +271,12 @@ export default function Flashcards() {
           <TabsTrigger value="due" className="gap-1">
             <Clock className="h-3 w-3" /> Due for Review
           </TabsTrigger>
-          {topics.map((t) => (
-            <TabsTrigger key={t.id} value={t.id}>{t.name}</TabsTrigger>
-          ))}
+          {/* Topic tabs scoped to picked levels only (no cross-subject tab leak). */}
+      {topics
+        .filter((t: any) => isAdminRole || pickedIds.has(t.subject_level_id))
+        .map((t) => (
+          <TabsTrigger key={t.id} value={t.id}>{t.name}</TabsTrigger>
+        ))}
         </TabsList>
       </Tabs>
       {filteredSets.length === 0 ? (

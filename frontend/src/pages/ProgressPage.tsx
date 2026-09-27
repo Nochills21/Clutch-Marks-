@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
+import { useMySubjects } from "@/hooks/useMySubjects";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/SEOHead";
+import { SubjectGate } from "@/components/SubjectGate";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, LEVELS, type SubjectLevelCode } from "@/lib/subjects";
 import {
   BookOpen, Brain, ClipboardList, Sparkles, FileText, Bookmark, AlertCircle,
@@ -47,6 +49,9 @@ interface TopicStat {
   totalQuizzes: number;
   completedLessons: number;
   totalLessons: number;
+  practiceIncorrect: number;
+  practiceTotal: number;
+  bookmarked: number;
 }
 
 const pct = (a: number, b: number) => (b > 0 ? Math.round((a / b) * 100) : 0);
@@ -69,8 +74,10 @@ function bandLabel(pctVal: number, attempts: number) {
 
 export default function ProgressPage() {
   const { user } = useAuth();
+  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
   const [rows, setRows] = useState<Row[]>([]);
   const [topics, setTopics] = useState<TopicStat[]>([]);
+  const [topicSL, setTopicSL] = useState<Map<string, string>>(new Map());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [levelFilter, setLevelFilter] = useState<string>("all");
@@ -81,19 +88,41 @@ export default function ProgressPage() {
     (async () => {
       setLoading(true);
       setError(null);
-      const [spRes, topicsRes, quizzesRes, attemptsRes, lessonsRes, progressRes] = await Promise.all([
+      const [spRes, topicsRes, quizzesRes, attemptsRes, lessonsRes, progressRes, practiceRes, bookmarkRes] = await Promise.all([
         supabase.rpc("get_subject_progress"),
-        supabase.from("topics").select("id, name").order("sort_order"),
+        supabase.from("topics").select("id, name, subject_level_id").order("sort_order"),
         supabase.from("quizzes").select("id, topic_id").eq("is_published", true),
         supabase.from("quiz_attempts").select("quiz_id, score, total_questions").eq("user_id", user.id).not("completed_at", "is", null),
         supabase.from("lessons").select("id, topic_id"),
         supabase.from("lesson_progress").select("lesson_id").eq("user_id", user.id).eq("completed", true),
+        supabase.from("practice_attempts").select("question_id, last_correct, attempts_count").eq("user_id", user.id),
+        supabase.from("question_bookmarks").select("question_id").eq("user_id", user.id),
       ]);
       if (spRes.error) setError(spRes.error.message);
       setRows(((spRes.data ?? []) as unknown as Row[]));
 
-      // Per-topic mastery (merged from Topic Heatmap)
+      // Map topic_id -> subject_level_id so we can scope the heatmap to
+      // the subjects the student actually picked.
+      const slMap = new Map((topicsRes.data ?? []).map((t: any) => [t.id, t.subject_level_id]));
+      setTopicSL(slMap);
+
+      // Per-topic mastery (topic heatmap): quiz performance + practice
+      // incorrect/bookmark signals + lesson completion.
       const quizTopic = new Map((quizzesRes.data ?? []).map((q: any) => [q.id, q.topic_id]));
+      const practiceQ = new Map<string, { last_correct: boolean; attempts: number }>();
+      (practiceRes.data ?? []).forEach((a: any) => {
+        practiceQ.set(a.question_id, { last_correct: a.last_correct, attempts: a.attempts_count });
+      });
+      const bookmarkedIds = new Set((bookmarkRes.data ?? []).map((b: any) => b.question_id));
+
+      // Map question_id -> topic_id so practice/bookmark signals can be
+      // attributed to a topic.
+      const questionTopic = new Map<string, string>();
+      (quizzesRes.data ?? []).forEach((q: any) => {
+        const tid = q.topic_id;
+        if (tid) questionTopic.set(q.id, tid);
+      });
+
       const attempts = attemptsRes.data ?? [];
       const lessons = lessonsRes.data ?? [];
       const completed = new Set((progressRes.data ?? []).map((p: any) => p.lesson_id));
@@ -101,6 +130,21 @@ export default function ProgressPage() {
         const topicAttempts = attempts.filter((a: any) => quizTopic.get(a.quiz_id) === t.id);
         const totalPct = topicAttempts.reduce((s: number, a: any) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0);
         const topicLessons = lessons.filter((l: any) => l.topic_id === t.id);
+
+        // Practice + bookmark weak signals attributed to this topic.
+        let practiceIncorrect = 0;
+        let practiceTotal = 0;
+        let bookmarked = 0;
+        for (const q of quizzesRes.data ?? []) {
+          if ((q as any).topic_id !== t.id) continue;
+          const pq = practiceQ.get((q as any).id);
+          if (pq) {
+            practiceTotal += pq.attempts;
+            if (!pq.last_correct) practiceIncorrect += 1;
+          }
+          if (bookmarkedIds.has((q as any).id)) bookmarked += 1;
+        }
+
         return {
           id: t.id,
           name: t.name,
@@ -110,6 +154,9 @@ export default function ProgressPage() {
           totalQuizzes: (quizzesRes.data ?? []).filter((q: any) => q.topic_id === t.id).length,
           completedLessons: topicLessons.filter((l: any) => completed.has(l.id)).length,
           totalLessons: topicLessons.length,
+          practiceIncorrect,
+          practiceTotal,
+          bookmarked,
         };
       }));
       setLoading(false);
@@ -118,15 +165,23 @@ export default function ProgressPage() {
 
   const subjects = useMemo(() => {
     const seen = new Map<string, string>();
-    rows.forEach((r) => seen.set(r.subject_id, r.subject_name));
+    rows.forEach((r) => {
+      if (isAdmin || !prefsLoaded || pickedIds.has(r.subject_level_id)) {
+        seen.set(r.subject_id, r.subject_name);
+      }
+    });
     return [...seen.entries()];
-  }, [rows]);
+  }, [rows, isAdmin, prefsLoaded, pickedIds]);
 
+  // Only show subject-level rows that belong to a subject-level the student
+  // picked (or all for admins). This keeps the subject-summary cards scoped
+  // to the student's chosen subjects.
   const visible = useMemo(
     () => rows.filter((r) =>
+      (isAdmin || !prefsLoaded || pickedIds.has(r.subject_level_id)) &&
       (levelFilter === "all" || r.level === levelFilter) &&
       (subjectFilter === "all" || r.subject_id === subjectFilter)),
-    [rows, levelFilter, subjectFilter],
+    [rows, levelFilter, subjectFilter, isAdmin, prefsLoaded, pickedIds],
   );
 
   const totals = useMemo(() => {
@@ -147,15 +202,48 @@ export default function ProgressPage() {
     return { ...t, avg: t.attempts ? Math.round(t.scoreSum / t.attempts) : 0, mastered };
   }, [visible]);
 
+  // Topic heatmap scoped to the subjects the student picked. A student who
+  // picks "Math AS" never sees Physics/CS topics here.
+  const pickedTopicIds = useMemo(() => {
+    if (isAdmin || !prefsLoaded) return new Set<string>();
+    return new Set([...topicSL.entries()].filter(([, sl]) => pickedIds.has(sl)).map(([tid]) => tid));
+  }, [topicSL, pickedIds, isAdmin, prefsLoaded]);
+
   const weakest = useMemo(
-    () => [...topics].filter((s) => s.attempts > 0).sort((a, b) => a.avgPercent - b.avgPercent).slice(0, 3),
-    [topics],
+    () => [...topics]
+      .filter((s) => pickedTopicIds.has(s.id) && s.attempts > 0)
+      .sort((a, b) => {
+        // Weakness = low quiz avg, weighted by practice incorrect + bookmarked.
+        const wa = a.avgPercent - (a.practiceIncorrect * 5) - (a.bookmarked * 2);
+        const wb = b.avgPercent - (b.practiceIncorrect * 5) - (b.bookmarked * 2);
+        return wa - wb;
+      })
+      .slice(0, 3),
+    [topics, pickedTopicIds],
   );
 
   const topicVisible = useMemo(
-    () => (subjectFilter === "all" ? topics : topics), // topic rows are not subject-tagged; keep the full grid
-    [topics],
+    () => topics.filter((s) => pickedTopicIds.has(s.id)),
+    [topics, pickedTopicIds],
   );
+
+  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
+
+  if (!isAdmin && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <Skeleton className="h-8 w-8 rounded-full" />
+      </div>
+    );
+  }
+  if (needsSubjectPick) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title="Progress — Clutch Marks" description="Track lessons, quiz scores, topic mastery and question-bank usage for every subject and level." path="/progress" />
+        <SubjectGate />
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -299,16 +387,17 @@ export default function ProgressPage() {
         })}
       </div>
 
-      {/* Topic mastery (merged Topic Heatmap) */}
+      {/* Topic heatmap — weak points from quizzes, practice and bookmarks,
+          scoped to the subjects the student picked. */}
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
-          <Activity className="h-4 w-4 text-primary" /> Topic mastery
+          <Activity className="h-4 w-4 text-primary" /> Topic heatmap
         </h2>
         {weakest.length > 0 && (
           <Card className="neon-border">
             <CardHeader className="pb-3">
               <CardTitle className="text-base">Recommended focus</CardTitle>
-              <CardDescription>Your three lowest-scoring topics — drill them in Practice.</CardDescription>
+              <CardDescription>Your weakest topics across quizzes, practice and saved questions — drill them in Practice.</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
               {weakest.map((w) => (
@@ -340,6 +429,20 @@ export default function ProgressPage() {
                   <p className="text-xs text-muted-foreground">
                     {s.completedLessons}/{s.totalLessons} lessons · {s.totalQuizzes} quiz{s.totalQuizzes === 1 ? "" : "zes"}
                   </p>
+                  {(s.practiceIncorrect > 0 || s.bookmarked > 0) && (
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {s.practiceIncorrect > 0 && (
+                        <Badge variant="outline" className="gap-1 text-destructive border-destructive/40 text-[10px]">
+                          <AlertCircle className="h-3 w-3" /> {s.practiceIncorrect} wrong
+                        </Badge>
+                      )}
+                      {s.bookmarked > 0 && (
+                        <Badge variant="outline" className="gap-1 text-primary border-primary/40 text-[10px]">
+                          <Bookmark className="h-3 w-3" /> {s.bookmarked} saved
+                        </Badge>
+                      )}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             );

@@ -20,6 +20,8 @@ import { useToast } from "@/hooks/useToast";
 import { openProtectedFile } from "@/lib/contentFiles";
 import { usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectGate } from "@/components/SubjectGate";
 
 interface TopicPaper {
   id: string;
@@ -48,6 +50,7 @@ export default function TopicPapers() {
   const [papers, setPapers] = useState<TopicPaper[]>([]);
   const { toast } = useToast();
   const { isPreview, hasPaid } = usePlanAccess();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   // Free-plan limit for this topic's past papers: show the first 2 records
   // (follows the global FREE_PREVIEW_LIMIT policy); paid accounts see all.
@@ -113,12 +116,45 @@ export default function TopicPapers() {
     return () => { active = false; };
   }, [subject, level, topic, topicSlug]);
 
+  if (!isAdminRole && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <div className="h-8 w-8 rounded-full border-primary/30 border animate-spin" />
+      </div>
+    );
+  }
+  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title={`${topicTitle ?? "Past Papers"} — Clutch Marks`} description="Past papers and mark schemes." path={topicPapersPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
+        <SubjectGate />
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="space-y-6">
         <Skeleton className="h-28 rounded-2xl" />
         <Skeleton className="h-64 rounded-2xl" />
       </div>
+    );
+  }
+
+  // Students only see topics belonging to a subject-level they picked.
+  if (!isAdminRole && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Past papers not found</CardTitle>
+          <CardDescription>You haven't selected this subject yet.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button asChild variant="outline" className="gap-2">
+            <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
+          </Button>
+        </CardContent>
+      </Card>
     );
   }
 

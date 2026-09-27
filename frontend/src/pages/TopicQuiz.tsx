@@ -30,6 +30,8 @@ import {
   Bookmark,
   Play,
 } from "lucide-react";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectGate } from "@/components/SubjectGate";
 
 interface TopicQuestion {
   id: string;
@@ -66,7 +68,9 @@ export default function TopicQuiz() {
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState<{ correct: number; total: number } | null>(null);
   const [results, setResults] = useState<{ question_id: string; selected: number; correct_option: number; explanation: string | null; options: string[] }[]>([]);
-const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>([]);
+  const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>([]);
+
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   const topicLabel = useMemo(() => (topicTitle ?? topic?.replace(/-/g, " ")?.trim() ?? "").replace(/\b\w/g, (c) => c.toUpperCase()), [topicTitle, topic]);
 
@@ -192,12 +196,45 @@ const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>(
     setResults([]);
   };
 
+  if (!isAdminRole && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <div className="h-8 w-8 rounded-full border-primary/30 border animate-spin" />
+      </div>
+    );
+  }
+  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title={`${topicLabel} — Topic Questions | Clutch Marks`} description="Exam-style topic questions with instant marking." path={topicQuizPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
+        <SubjectGate />
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="space-y-6">
         <Skeleton className="h-28 rounded-2xl" />
         <Skeleton className="h-64 rounded-2xl" />
       </div>
+    );
+  }
+
+  // Students only see topics belonging to a subject-level they picked.
+  if (!isAdminRole && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Topic questions not found</CardTitle>
+          <CardDescription>You haven't selected this subject yet.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button asChild variant="outline" className="gap-2">
+            <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
+          </Button>
+        </CardContent>
+      </Card>
     );
   }
 

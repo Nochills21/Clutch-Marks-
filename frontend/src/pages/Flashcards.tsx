@@ -130,24 +130,49 @@ export default function Flashcards() {
 
   const { isPreview, hasPaid, loading: planLoading } = usePlanAccess();
 
-  const filteredSets = sets.filter((s) => {
-    if (filter === "all") return true;
-    if (filter === "due") return (dueCount[s.id] ?? 0) > 0;
-    return s.topic_id === filter;
-  });
+  // Topic ids belonging to the subject-levels the student picked. Admins and
+  // unauthenticated previews see everything; students only see their picked
+  // subjects' topics (and therefore their flashcard sets).
+  const pickedTopicIds = useMemo(() => {
+    if (isAdminRole || !prefsLoaded) return new Set<string>();
+    return new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id));
+  }, [topics, pickedIds, isAdminRole, prefsLoaded]);
 
-  // Free-plan preview: server-side via get_free_preview RPC (2 per subject-level).
-  // Paid users get the full flashcard-set list below.
-  const [previewSets, setPreviewSets] = useState<any[]>([]);
-  const [previewLoading, setPreviewLoading] = useState(false);
-  useEffect(() => {
-    if (planLoading || hasPaid) { setPreviewSets([]); setPreviewLoading(false); return; }
-    setPreviewLoading(true);
-    supabase.rpc("get_free_preview", { _subject_level_id: null })
-      .then(({ data }) => { setPreviewSets(data ?? []); setPreviewLoading(false); });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    ;
-  }, [planLoading, hasPaid]);
+  //_visibleTopicIds picks the topic ids used for the per-topic tab triggers.
+  const visibleTopicIds = useMemo(() => {
+    if (isAdminRole || !prefsLoaded) return topics.map((t: any) => t.id);
+    return topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id);
+  }, [topics, pickedIds, isAdminRole, prefsLoaded]);
+
+  const filteredSets = useMemo(() => {
+    const out = sets.filter((s) => {
+      // Subject/level gate: only show sets whose topic belongs to a picked
+      // subject-level. Admins and the loading/preview states bypass this.
+      if (!isAdminRole && prefsLoaded && pickedTopicIds.size > 0) {
+        if (!pickedTopicIds.has(s.topic_id)) return false;
+      }
+      if (filter === "all") return true;
+      if (filter === "due") return (dueCount[s.id] ?? 0) > 0;
+      return s.topic_id === filter;
+    });
+    // Free-plan preview: mirror Lessons — show at most FREE_PREVIEW_LIMIT
+    // flashcard sets per subject-level, so a free student picking "Ol Math"
+    // never sees Physics/CS sets and only gets a small slice of Ol Math.
+    if (isPreview && !hasPaid && out.length > 0) {
+      const byLevel = new Map<string, any[]>();
+      for (const s of out) {
+        const tid = s.topic_id;
+        const sl = topics.find((t: any) => t.id === tid)?.subject_level_id;
+        if (sl) byLevel.set(sl, (byLevel.get(sl) || []).concat(s));
+      }
+      const limited = new Set<string>();
+      for (const [, items] of byLevel) {
+        items.slice(0, FREE_PREVIEW_LIMIT).forEach((s) => limited.add(s.id));
+      }
+      return out.filter((s) => limited.has(s.id));
+    }
+    return out;
+  }, [sets, filter, dueCount, isAdminRole, prefsLoaded, pickedTopicIds, isPreview, hasPaid, topics, FREE_PREVIEW_LIMIT]);
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any flashcard content is shown. While preferences are still
@@ -244,9 +269,10 @@ export default function Flashcards() {
     <div className="space-y-6">
       <SEOHead title="Flashcards — Clutch Marks" description="Study key terms and concepts with spaced-repetition flashcards for Clutch Marks." path="/flashcards" />
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>          <p className="text-muted-foreground text-sm">
+        <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>
+        <p className="text-muted-foreground text-sm">
           {isPreview && !hasPaid
-            ? `Preview: ${previewSets.length} of ${sets.length} sets — full access unlocks everything.`
+            ? `Preview: ${filteredSets.length} of ${sets.length} sets — full access unlocks everything.`
             : "Study with spaced repetition to remember key concepts"}
         </p>
       </div>
@@ -257,9 +283,10 @@ export default function Flashcards() {
           <TabsTrigger value="due" className="gap-1">
             <Clock className="h-3 w-3" /> Due for Review
           </TabsTrigger>
-          {topics.map((t) => (
-            <TabsTrigger key={t.id} value={t.id}>{t.name}</TabsTrigger>
-          ))}
+          {visibleTopicIds.map((tid) => {
+            const t = topics.find((x) => x.id === tid);
+            return t ? <TabsTrigger key={t.id} value={t.id}>{t.name}</TabsTrigger> : null;
+          })}
         </TabsList>
       </Tabs>
       {filteredSets.length === 0 ? (
@@ -267,47 +294,43 @@ export default function Flashcards() {
       ) : (
         <>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {previewLoading ? (
-              <p className="text-muted-foreground">Loading flashcard sets…</p>
-            ) : (
-              previewSets.map((s) => (
-                <Card key={s.id} className="hover:shadow-md transition-shadow group">
-                  <CardHeader className="pb-2 cursor-pointer" onClick={() => startStudy(s.id)}>
-                    <div className="flex items-start justify-between">
-                      <CardTitle className="text-base group-hover:text-primary transition-colors">{s.title}</CardTitle>
-                      {s.topics?.name && <Badge variant="secondary" className="text-[10px] shrink-0">{s.topics.name}</Badge>}
-                    </div>
-                    {s.description && <p className="text-xs text-muted-foreground">{s.description}</p>}
-                  </CardHeader>
-                  <CardContent className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">{s.flashcards?.length ?? 0} cards</span>
-                      {(dueCount[s.id] ?? 0) > 0 && (
-                        <Badge className="bg-warning text-warning-foreground text-[10px] gap-1">
-                          <RotateCcw className="h-3 w-3" /> {dueCount[s.id]} due
-                        </Badge>
-                      )}
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full gap-2 text-xs h-7"
-                      onClick={async (e) => {
-                        e.stopPropagation();
-                        const { data: cards } = await supabase.from("flashcards").select("front, back").eq("set_id", s.id).order("sort_order");
-                        if (cards && cards.length > 0) exportFlashcardsToPdf(s.title, cards);
-                      }}
-                    >
-                      <Download className="h-3 w-3" /> Export PDF
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))
-            )}
+            {filteredSets.map((s) => (
+              <Card key={s.id} className="hover:shadow-md transition-shadow group">
+                <CardHeader className="pb-2 cursor-pointer" onClick={() => startStudy(s.id)}>
+                  <div className="flex items-start justify-between">
+                    <CardTitle className="text-base group-hover:text-primary transition-colors">{s.title}</CardTitle>
+                    {s.topics?.name && <Badge variant="secondary" className="text-[10px] shrink-0">{s.topics.name}</Badge>}
+                  </div>
+                  {s.description && <p className="text-xs text-muted-foreground">{s.description}</p>}
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">{s.flashcards?.length ?? 0} cards</span>
+                    {(dueCount[s.id] ?? 0) > 0 && (
+                      <Badge className="bg-warning text-warning-foreground text-[10px] gap-1">
+                        <RotateCcw className="h-3 w-3" /> {dueCount[s.id]} due
+                      </Badge>
+                    )}
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-full gap-2 text-xs h-7"
+                    onClick={async (e) => {
+                      e.stopPropagation();
+                      const { data: cards } = await supabase.from("flashcards").select("front, back").eq("set_id", s.id).order("sort_order");
+                      if (cards && cards.length > 0) exportFlashcardsToPdf(s.title, cards);
+                    }}
+                  >
+                    <Download className="h-3 w-3" /> Export PDF
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-          {isPreview && !hasPaid && previewSets.length < sets.length && (
+          {isPreview && !hasPaid && filteredSets.length < sets.length && (
             <PreviewLimit
-              hiddenCount={sets.length - previewSets.length}
+              hiddenCount={sets.length - filteredSets.length}
               what="flashcard sets"
             />
           )}

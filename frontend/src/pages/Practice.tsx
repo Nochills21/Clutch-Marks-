@@ -74,6 +74,16 @@ export default function Practice() {
   const tab = params.get("tab") ?? "topics";
   const mode = params.get("mode") ?? "incorrect";
   const levelId = params.get("level") ?? "all";
+  // Default the review-level filter to the first subject-level the student
+  // picked, so a student who chooses "Ol Math" immediately sees only Ol Math
+  // review questions instead of every subject's wrong/bookmarked questions.
+  const defaultedLevelId = useMemo(() => {
+    if (isAdmin || !prefsLoaded) return levelId;
+    if (levelId !== "all" && levelId !== "") return levelId;
+    const picked = [...pickedIds];
+    if (picked.length === 0) return "all";
+    return picked[0];
+  }, [levelId, isAdmin, prefsLoaded, pickedIds]);
   const topicFilter = params.get("topic") ?? "";
 
   const setParam = (key: string, value: string) => {
@@ -181,7 +191,7 @@ export default function Practice() {
     })();
   }, []);
 
-  useEffect(() => { loadReviewQuestions(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [mode, levelId]);
+  useEffect(() => { loadReviewQuestions(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [mode, defaultedLevelId]);
 
   const loadBankAttempts = async () => {
     if (!user) return;
@@ -540,10 +550,12 @@ export default function Practice() {
                   <TabsTrigger value="all">Both</TabsTrigger>
                 </TabsList>
               </Tabs>
-              <Select value={levelId} onValueChange={(v) => setParam("level", v)}>
+              <Select value={defaultedLevelId} onValueChange={(v) => setParam("level", v)}>
                 <SelectTrigger className="w-[230px]"><SelectValue placeholder="Subject & level" /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All subjects & levels</SelectItem>
+                  {isAdmin ? (
+                    <SelectItem value="all">All subjects & levels</SelectItem>
+                  ) : null}
                   {visibleLevelOptions.map((l) => <SelectItem key={l.id} value={l.id}>{l.label}</SelectItem>)}
                 </SelectContent>
               </Select>
