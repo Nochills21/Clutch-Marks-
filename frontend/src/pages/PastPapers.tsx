@@ -1,5 +1,5 @@
 // Past-paper archive grouped by year; opens via watermarking proxy.
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { usePlanAccess, FREE_PREVIEW_LIMIT, usePreviewSliceWithLimit } from "@/components/PreviewLimit";
 import { useToast } from "@/hooks/useToast";
