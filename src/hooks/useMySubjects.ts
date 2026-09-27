@@ -33,22 +33,16 @@ export function useMySubjects() {
     if (!user || isAdmin) { setLoaded(true); return; }
     if (picks !== EMPTY) { setLoaded(true); return; }
     let cancelled = false;
-    (async () => {
-      try {
-        const { data, error } = await supabase
-          .from("student_subject_prefs")
-          .select("subject_level_id")
-          .eq("user_id", user.id);
+    supabase
+      .from("student_subject_prefs")
+      .select("subject_level_id")
+      .eq("user_id", user.id)
+      .then(({ data }) => {
         if (!cancelled) {
-          if (!error) setPicks(new Set((data ?? []).map((r: any) => r.subject_level_id)));
-          // On error (offline), keep whatever picks were known and still resolve.
+          setPicks(new Set((data ?? []).map((r: any) => r.subject_level_id)));
           setLoaded(true);
         }
-      } catch {
-        // Offline / network failure: resolve so pages render instead of hanging.
-        if (!cancelled) setLoaded(true);
-      }
-    })();
+      });
     return () => { cancelled = true; };
   }, [user, isAdmin]);
 

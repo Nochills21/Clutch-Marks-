@@ -1,5 +1,5 @@
 // Quiz hub: published quizzes per topic.
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -37,6 +37,7 @@ interface GradeResult {
 export default function Quizzes() {
   const { user } = useAuth();
   const { toast } = useToast();
+  const [quizzes, setQuizzes] = useState<any[]>([]);
   const [activeQuiz, setActiveQuiz] = useState<any>(null);
   const [questions, setQuestions] = useState<StudentQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -54,39 +55,19 @@ export default function Quizzes() {
   const [loadingFeedback, setLoadingFeedback] = useState(false);
 
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
-  const [allQuizzes, setAllQuizzes] = useState<any[]>([]);
-  const [topics, setTopics] = useState<any[]>([]);
-  useEffect(() => {
-    supabase.from("quizzes").select("*, topics(name, subject_level_id)").eq("is_published", true).order("created_at", { ascending: false })
-      .then(({ data }) => setAllQuizzes(data ?? []));
-    supabase.from("topics").select("id, subject_level_id").then(({ data }) => setTopics(data ?? []));
-  }, []);
-  // Scope to the student's picked subject_levels (admins see everything).
-  const pickedTopicIds = useMemo(
-    () => new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id)),
-    [topics, pickedIds],
-  );
-  const quizzes = isAdminRole || pickedIds.size === 0
-    ? allQuizzes
-    : allQuizzes.filter((q: any) => pickedTopicIds.has(q.topic_id));
 
-  // Free-plan preview: server-side via get_free_preview RPC (2 per subject-level).
-  // Paid users get the full published quiz list below.
+  useEffect(() => {
+    supabase.from("quizzes").select("*, topics(*)").eq("is_published", true).order("created_at", { ascending: false })
+      .then(({ data }) => setQuizzes(data ?? []));
+  }, []);
+
   const [previewQuizzes, setPreviewQuizzes] = useState<any[]>([]);
   const [previewLoading, setPreviewLoading] = useState(false);
-  useEffect(() => {
-    if (planLoading || hasPaid) { setPreviewQuizzes([]); setPreviewLoading(false); return; }
-    setPreviewLoading(true);
-    supabase.rpc("get_free_preview", { _subject_level_id: null })
-      .then(({ data }) => { setPreviewQuizzes(data ?? []); setPreviewLoading(false); });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    ;
-  }, [planLoading, hasPaid]);
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any quiz content is shown. While preferences are still
   // loading we render nothing — never the content itself.
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
   if (!isAdminRole && !prefsLoaded) {
     return (
       <div className="flex justify-center py-24">
@@ -102,6 +83,36 @@ export default function Quizzes() {
       </div>
     );
   }
+
+  // Free-plan preview: scoped to the first subject-level the student picked,
+  // so a free student who picks "Ol Math" sees only Ol Math quizzes (2 of them)
+  // rather than 2 quizzes drawn from every subject.
+  const previewSubjectLevelId = useMemo(() => {
+    if (isAdminRole || !prefsLoaded) return null;
+    const picked = [...pickedIds];
+    return picked.length > 0 ? picked[0] : null;
+  }, [isAdminRole, prefsLoaded, pickedIds]);
+
+  // Topic ids belonging to the subject-levels the student picked, derived from
+  // the loaded quizzes' nested topics (quizzes were loaded with topics(*)).
+  const pickedTopicIds = useMemo(() => {
+    if (isAdminRole || !prefsLoaded) return new Set<string>();
+    const topicToSl = new Map<string, string>();
+    for (const q of quizzes) {
+      const t = (q as any).topics?.[0];
+      if (t?.subject_levels?.id) topicToSl.set((q as any).topic_id, t.subject_levels.id);
+    }
+    return new Set([...topicToSl.values()].filter((sl) => pickedIds.has(sl)));
+  }, [quizzes, isAdminRole, prefsLoaded, pickedIds]);
+
+  useEffect(() => {
+    if (planLoading || hasPaid) { setPreviewQuizzes([]); setPreviewLoading(false); return; }
+    setPreviewLoading(true);
+    supabase.rpc("get_free_preview", { _subject_level_id: previewSubjectLevelId })
+      .then(({ data }) => { setPreviewQuizzes(data ?? []); setPreviewLoading(false); });
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    ;
+  }, [planLoading, hasPaid, previewSubjectLevelId]);
 
   const startQuiz = async (quiz: any) => {
     const { data } = await supabase.rpc("get_student_questions", { _quiz_id: quiz.id });
@@ -181,7 +192,29 @@ export default function Quizzes() {
     }
   };
 
-  const visibleQuizzes = hasPaid ? quizzes : previewQuizzes;
+  // For paid users: show only quizzes whose topic belongs to a picked
+  // subject-level. Admins see everything.
+  const visibleQuizzes = useMemo(() => {
+    if (isAdminRole) return quizzes;
+    if (!prefsLoaded) return previewQuizzes; // gate will block rendering anyway
+    // Derive topic_id -> subject_level_id from the quizzes' nested topics.
+    // quizzes were loaded with topics(*) so each quiz has topics[0] with
+    // subject_levels(level, subjects(...)).
+    const topicToSl = new Map<string, string>();
+    for (const q of quizzes) {
+      const t = (q as any).topics?.[0];
+      if (t?.subject_levels?.id) topicToSl.set((q as any).topic_id, t.subject_levels.id);
+    }
+    if (pickedTopicIds.size === 0) {
+      // No topics loaded yet or no picks — fall back to preview for free users.
+      return hasPaid ? quizzes : previewQuizzes;
+    }
+    const scoped = quizzes.filter((q) => {
+      const sl = topicToSl.get((q as any).topic_id);
+      return sl && pickedIds.has(sl);
+    });
+    return hasPaid ? scoped : previewQuizzes;
+  }, [quizzes, hasPaid, previewQuizzes, isAdminRole, prefsLoaded, pickedIds, pickedTopicIds]);
 
   if (activeQuiz) {
     const hasExamFile = !!activeQuiz.exam_file_url;

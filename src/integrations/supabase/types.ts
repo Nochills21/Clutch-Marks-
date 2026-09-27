@@ -151,45 +151,6 @@ export type Database = {
           },
         ]
       }
-      feedback_messages: {
-        Row: {
-          id: string
-          feedback_id: string
-          sender_id: string
-          body: string
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          feedback_id: string
-          sender_id?: string
-          body: string
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          feedback_id?: string
-          sender_id?: string
-          body?: string
-          created_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "feedback_messages_feedback_id_fkey"
-            columns: ["feedback_id"]
-            isOneToOne: false
-            referencedRelation: "content_feedback"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "feedback_messages_sender_id_fkey"
-            columns: ["sender_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       content_revisions: {
         Row: {
           id: string

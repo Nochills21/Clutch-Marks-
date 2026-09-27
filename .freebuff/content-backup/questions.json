@@ -12341,7 +12341,7 @@
   "question_text": "Which of these statements appears in the study notes for \"Algebra — Sequences and Functions\"?",
   "options": [
    "Translate shapes/situations: \"rectangle length 3 cm more than width, perimeter 34\" → 2w + 2(w + 3) = 34 → w = 7.. 3.",
-   "Example: through (2, ��1) parallel to y = 3x + 1: y + 1 = 3(x − 2) ⇒ y = 3x − 7.. 2.",
+   "Example: through (2, −1) parallel to y = 3x + 1: y + 1 = 3(x − 2) ⇒ y = 3x − 7.. 2.",
    "Quadratics by formula. x = (−b ± √(b² − 4ac)) / 2a..",
    "Second difference = 2a → an² + bn + c. 3, 8, 15, 24 … has second difference 2 → n² + bn + c; subtract n² → 2, 4, 6, 8 → 2n; so nth term = n² + 2n.. 3."
   ],

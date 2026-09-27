@@ -16,6 +16,8 @@ import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVEL_LABELS } from "@/lib/subjects";
 import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectGate } from "@/components/SubjectGate";
 
 export default function LessonNotes() {
   const { lessonId } = useParams();
@@ -28,6 +30,7 @@ export default function LessonNotes() {
   const [loading, setLoading] = useState(true);
   const [lessonDone, setLessonDone] = useState(false);
   const { done, toggle } = useNoteProgress();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   useEffect(() => {
     if (!lessonId) return;
@@ -86,6 +89,22 @@ export default function LessonNotes() {
     }
   };
 
+  if (!isAdminRole && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <div className="h-8 w-8 rounded-full border-primary/30 border animate-spin" />
+      </div>
+    );
+  }
+  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title="Lesson Notes — Clutch Marks" description="View and download the uploaded notes for this lesson." path={`/lessons/${lessonId}/notes`} />
+        <SubjectGate />
+      </div>
+    );
+  }
+
   if (loading) {
     return <div className="space-y-3"><Skeleton className="h-10 w-48" /><Skeleton className="h-40 rounded-xl" /></div>;
   }
@@ -94,6 +113,17 @@ export default function LessonNotes() {
     return (
       <Card><CardContent className="py-12 text-center space-y-3">
         <p className="text-muted-foreground">Lesson not found.</p>
+        <Button variant="outline" onClick={() => navigate("/lessons")}>Back to Lessons</Button>
+      </CardContent></Card>
+    );
+  }
+
+  // Students only see lessons belonging to a subject-level they picked.
+  const lessonSlId = lesson?.topics?.subject_levels?.id;
+  if (!isAdminRole && prefsLoaded && lessonSlId && !pickedIds.has(lessonSlId)) {
+    return (
+      <Card><CardContent className="py-12 text-center space-y-3">
+        <p className="text-muted-foreground">You haven't selected this subject yet.</p>
         <Button variant="outline" onClick={() => navigate("/lessons")}>Back to Lessons</Button>
       </CardContent></Card>
     );

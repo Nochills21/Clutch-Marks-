@@ -7,7 +7,7 @@
  *  - page components via <SEOHead />
  */
 
-export const SITE_URL = "https://clutch-marks.lovable.app";
+export const SITE_URL = (import.meta.env.VITE_SITE_URL as string) || "https://clutemark.s.study";
 export const SITE_NAME = "Clutch Marks";
 
 export interface RouteMeta {

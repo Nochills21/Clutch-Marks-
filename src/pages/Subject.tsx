@@ -15,6 +15,8 @@ import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from 
 import { topicNotesPath, topicQuizPath, topicPapersPath, slugifyTopicName } from "@/lib/topicUrls";
 import { usePreviewSlice, PreviewLimit } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
+import { useMySubjects } from "@/hooks/useMySubjects";
+import { SubjectGate } from "@/components/SubjectGate";
 import { BookOpen, FileText, Brain, Archive, Database, ArrowLeft, ArrowRight, Search, Sparkles } from "lucide-react";
 
 interface BankQuestion {
@@ -58,6 +60,9 @@ export default function Subject() {
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [papers, setPapers] = useState<any[]>([]);
   const [questions, setQuestions] = useState<BankQuestion[]>([]);
+
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const needsSubjectPick = !isAdminRole && prefsLoaded && pickedIds.size === 0;
 
   // filters
   const [search, setSearch] = useState("");
@@ -157,12 +162,45 @@ export default function Subject() {
   const aiQuestions = questions.filter((q) => q.is_ai_generated);
   const previewAiQuestions = usePreviewSlice(aiQuestions);
 
+  if (!isAdminRole && !prefsLoaded) {
+    return (
+      <div className="flex justify-center py-24">
+        <div className="h-8 w-8 rounded-full border-primary/30 border animate-spin" />
+      </div>
+    );
+  }
+  if (needsSubjectPick) {
+    return (
+      <div className="space-y-6">
+        <SEOHead title={`${subject?.name ?? "Subject"} — Clutch Marks`} description="Lessons, revision materials, exams and a question bank." path={`/study/${slug}/${level}`} />
+        <SubjectGate />
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="space-y-6">
         <Skeleton className="h-28 rounded-2xl" />
         <Skeleton className="h-64 rounded-2xl" />
       </div>
+    );
+  }
+
+  // Students only see subject-levels they picked; admins see everything.
+  if (!isAdminRole && prefsLoaded && !(pickedIds.has(subjectLevel?.id ?? ""))) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Subject not found</CardTitle>
+          <CardDescription>You haven't selected this subject yet.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button asChild variant="outline" className="gap-2">
+            <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
+          </Button>
+        </CardContent>
+      </Card>
     );
   }
 

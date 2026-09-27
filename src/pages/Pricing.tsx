@@ -16,7 +16,6 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { useToast } from "@/hooks/useToast";
 import { validateUploadFile } from "@/lib/fileValidation";
 import { Check, Sparkles, Loader2, Clock, Landmark, Wallet, Upload, FileText, ShieldCheck } from "lucide-react";
-import { PAYMENT } from "@backend/payments.config";
 
 const PLANS = [
   {
@@ -73,14 +72,6 @@ export default function Pricing() {
   const { user, role } = useAuth();
   const { planId, refresh } = useSubscription();
   const { toast } = useToast();
-
-  // Payment reference: the signed-in student's own email, so an incoming
-  // transfer is self-identifying on the owner's bank/Urpay statement. Guests
-  // are told to use their account email once they sign up.
-  const paymentRef = user?.email ?? PAYMENT.contact.email;
-  const refHint = user
-    ? "Use this exact reference so we can match your transfer."
-    : "Sign up first, then use your own account email as the reference.";
 
   const [selected, setSelected] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -279,20 +270,18 @@ export default function Pricing() {
                 <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
                   <p className="font-medium flex items-center gap-1.5"><Landmark className="h-3.5 w-3.5 text-primary" /> Bank Transfer</p>
                   <p className="mt-1 font-mono text-[11px] space-y-0.5">
-                    Bank: <span className="text-muted-foreground">{PAYMENT.bankTransfer.bankName}</span><br />
-                    Account name: <span className="text-muted-foreground">{PAYMENT.bankTransfer.accountHolder}</span><br />
-                    IBAN: <span className="text-muted-foreground break-all">{PAYMENT.bankTransfer.iban}</span><br />
-                    Account no.: <span className="text-muted-foreground">{PAYMENT.bankTransfer.accountNo}</span><br />
-                    Reference: <span className="text-foreground font-semibold">{paymentRef}</span><br />
-                    <span className="text-[10px] text-muted-foreground/80">{refHint}</span>
+                    Bank: <span className="text-muted-foreground">[to be added by site owner]</span><br />
+                    Account name: <span className="text-muted-foreground">[to be added]</span><br />
+                    IBAN / Account no.: <span className="text-muted-foreground">[to be added]</span><br />
+                    Reference: your account email
                   </p>
                 </div>
                 <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
                   <p className="font-medium flex items-center gap-1.5"><Wallet className="h-3.5 w-3.5 text-primary" /> E-Wallet (Urpay)</p>
                   <p className="mt-1 font-mono text-[11px]">
-                    Urpay number: <span className="text-muted-foreground">{PAYMENT.urpay.number}</span><br />
-                    Reference: <span className="text-foreground font-semibold">{paymentRef}</span><br />
-                    <span className="text-[10px] text-muted-foreground/80">{refHint}</span>
+                    Urpay number / alias: <span className="text-muted-foreground">[to be added by site owner]</span><br />
+                    Name: <span className="text-muted-foreground">[to be added]</span><br />
+                    Reference: your account email
                   </p>
                 </div>
               </div>
