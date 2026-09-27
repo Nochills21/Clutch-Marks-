@@ -1,5 +1,5 @@
 // Quiz hub: published quizzes per topic.
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -61,25 +61,8 @@ export default function Quizzes() {
       .then(({ data }) => setQuizzes(data ?? []));
   }, []);
 
-  // Free-plan preview: scoped to the first subject-level the student picked,
-  // so a free student who picks "Ol Math" sees only Ol Math quizzes (2 of them)
-  // rather than 2 quizzes drawn from every subject.
-  const previewSubjectLevelId = useMemo(() => {
-    if (isAdminRole || !prefsLoaded) return null;
-    const picked = [...pickedIds];
-    return picked.length > 0 ? picked[0] : null;
-  }, [isAdminRole, prefsLoaded, pickedIds]);
-
   const [previewQuizzes, setPreviewQuizzes] = useState<any[]>([]);
   const [previewLoading, setPreviewLoading] = useState(false);
-  useEffect(() => {
-    if (planLoading || hasPaid) { setPreviewQuizzes([]); setPreviewLoading(false); return; }
-    setPreviewLoading(true);
-    supabase.rpc("get_free_preview", { _subject_level_id: previewSubjectLevelId })
-      .then(({ data }) => { setPreviewQuizzes(data ?? []); setPreviewLoading(false); });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    ;
-  }, [planLoading, hasPaid, previewSubjectLevelId]);
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any quiz content is shown. While preferences are still
@@ -100,6 +83,36 @@ export default function Quizzes() {
       </div>
     );
   }
+
+  // Free-plan preview: scoped to the first subject-level the student picked,
+  // so a free student who picks "Ol Math" sees only Ol Math quizzes (2 of them)
+  // rather than 2 quizzes drawn from every subject.
+  const previewSubjectLevelId = useMemo(() => {
+    if (isAdminRole || !prefsLoaded) return null;
+    const picked = [...pickedIds];
+    return picked.length > 0 ? picked[0] : null;
+  }, [isAdminRole, prefsLoaded, pickedIds]);
+
+  // Topic ids belonging to the subject-levels the student picked, derived from
+  // the loaded quizzes' nested topics (quizzes were loaded with topics(*)).
+  const pickedTopicIds = useMemo(() => {
+    if (isAdminRole || !prefsLoaded) return new Set<string>();
+    const topicToSl = new Map<string, string>();
+    for (const q of quizzes) {
+      const t = (q as any).topics?.[0];
+      if (t?.subject_levels?.id) topicToSl.set((q as any).topic_id, t.subject_levels.id);
+    }
+    return new Set([...topicToSl.values()].filter((sl) => pickedIds.has(sl)));
+  }, [quizzes, isAdminRole, prefsLoaded, pickedIds]);
+
+  useEffect(() => {
+    if (planLoading || hasPaid) { setPreviewQuizzes([]); setPreviewLoading(false); return; }
+    setPreviewLoading(true);
+    supabase.rpc("get_free_preview", { _subject_level_id: previewSubjectLevelId })
+      .then(({ data }) => { setPreviewQuizzes(data ?? []); setPreviewLoading(false); });
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    ;
+  }, [planLoading, hasPaid, previewSubjectLevelId]);
 
   const startQuiz = async (quiz: any) => {
     const { data } = await supabase.rpc("get_student_questions", { _quiz_id: quiz.id });
