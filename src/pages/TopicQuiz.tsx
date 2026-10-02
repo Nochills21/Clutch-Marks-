@@ -297,7 +297,7 @@ export default function TopicQuiz() {
         topicSlug={topicSlug}
       />
 
-      <div className={`glass-card p-6 flex-wrap items-center gap-4 ${accent.border}`}>
+      <div className={`glass-card p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
         <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>
           <Icon className="h-7 w-7" />
         </div>

@@ -158,13 +158,13 @@ export default function AdminFlashcards() {
         {sets.map((s) => (
           <Card key={s.id} className="overflow-hidden">
             <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-muted/30 transition-colors" onClick={() => toggleExpand(s.id)}>
-              <div className="flex items-center gap-3 min-w-0">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 min-w-0">
                 <Layers className="h-5 w-5 text-primary shrink-0" />
                 <div className="min-w-0">
                   <p className="font-semibold text-foreground truncate">{s.title}</p>
                   {s.description && <p className="text-xs text-muted-foreground truncate">{s.description}</p>}
                 </div>
-                {s.topics?.name && <Badge variant="secondary" className="shrink-0">{s.topics.name}</Badge>}
+                {s.topics?.name && <Badge variant="secondary" className="shrink-0 max-w-full">{s.topics.name}</Badge>}
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 <Button variant="ghost" size="icon" onClick={(e) => { e.stopPropagation(); editSet(s); }}><Pencil className="h-4 w-4" /></Button>
@@ -175,11 +175,13 @@ export default function AdminFlashcards() {
 
             {expandedSet === s.id && (
               <div className="border-t bg-muted/10 p-4 space-y-4">
-                <div className="flex gap-2 items-end">
-                  <div className="flex-1"><Label className="text-xs">Front</Label><Input value={cardFront} onChange={(e) => setCardFront(e.target.value)} placeholder="Question / term" /></div>
-                  <div className="flex-1"><Label className="text-xs">Back</Label><Input value={cardBack} onChange={(e) => setCardBack(e.target.value)} placeholder="Answer / definition" /></div>
-                  <Button onClick={saveCard} disabled={!cardFront.trim() || !cardBack.trim()} size="sm">{editingCard ? "Update" : "Add"}</Button>
-                  {editingCard && <Button variant="ghost" size="sm" onClick={() => { setEditingCard(null); setCardFront(""); setCardBack(""); }}>Cancel</Button>}
+                <div className="flex flex-wrap gap-2 items-end">
+                  <div className="flex-1 min-w-[9rem]"><Label className="text-xs">Front</Label><Input value={cardFront} onChange={(e) => setCardFront(e.target.value)} placeholder="Question / term" /></div>
+                  <div className="flex-1 min-w-[9rem]"><Label className="text-xs">Back</Label><Input value={cardBack} onChange={(e) => setCardBack(e.target.value)} placeholder="Answer / definition" /></div>
+                  <div className="ml-auto flex gap-2">
+                    <Button onClick={saveCard} disabled={!cardFront.trim() || !cardBack.trim()} size="sm">{editingCard ? "Update" : "Add"}</Button>
+                    {editingCard && <Button variant="ghost" size="sm" onClick={() => { setEditingCard(null); setCardFront(""); setCardBack(""); }}>Cancel</Button>}
+                  </div>
                 </div>
 
                 {cards.length === 0 ? (

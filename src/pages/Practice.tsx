@@ -484,7 +484,7 @@ export default function Practice() {
       </div>
 
       <Tabs value={tab} onValueChange={(v) => setParam("tab", v)}>
-        <TabsList>
+        <TabsList className="flex-wrap h-auto justify-start gap-1">
           <TabsTrigger value="topics" className="gap-1.5"><Database className="h-3.5 w-3.5" /> Topic questions</TabsTrigger>
           <TabsTrigger value="review" className="gap-1.5"><RotateCcw className="h-3.5 w-3.5" /> Review</TabsTrigger>
           <TabsTrigger value="drills" className="gap-1.5"><Sparkles className="h-3.5 w-3.5" /> Smart drills</TabsTrigger>
