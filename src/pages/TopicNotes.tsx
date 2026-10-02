@@ -217,7 +217,7 @@ export default function TopicNotes() {
         topicSlug={topicSlug}
       />
 
-      <div className={`glass-card p-6 flex-wrap items-center gap-4 ${accent.border}`}>
+      <div className={`glass-card p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
         <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>
           <Icon className="h-7 w-7" />
         </div>
@@ -356,7 +356,7 @@ export default function TopicNotes() {
       </Card>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        <Card>
+        <Card className="min-w-0">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2"><Play className="h-5 w-5 text-primary" /> Topic Questions</CardTitle>
             <CardDescription>Exam-style questions for {topicTitle}</CardDescription>
@@ -392,7 +392,7 @@ export default function TopicNotes() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="min-w-0">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2"><Archive className="h-5 w-5 text-primary" /> Past Papers & Mark Schemes</CardTitle>
             <CardDescription>Papers linked to {topicTitle}</CardDescription>

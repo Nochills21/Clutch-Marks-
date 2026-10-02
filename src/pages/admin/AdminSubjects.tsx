@@ -299,7 +299,7 @@ export default function AdminSubjects() {
               {subjLevels.map((l) => {
                 const lvlTopics = topicsByLevel.get(l.id) ?? [];
                 return (
-                  <div key={l.id} className="rounded-xl border border-border/60 p-4 space-y-3">
+                  <div key={l.id} className="min-w-0 rounded-xl border border-border/60 p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-semibold">{LEVEL_LABELS[l.level]}</p>

@@ -189,7 +189,7 @@ export default function AdminAuditLog() {
             className="pl-8"
           />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {exportError && <span className="text-xs text-destructive">{exportError}</span>}
           <Button variant="outline" size="sm" onClick={exportCsv} disabled={exporting || loading}>
             <Download className="h-4 w-4" />

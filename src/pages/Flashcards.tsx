@@ -278,7 +278,7 @@ export default function Flashcards() {
       </div>
 
       <Tabs value={filter} onValueChange={setFilter}>
-        <TabsList className="flex-wrap h-auto gap-1">
+        <TabsList className="flex-wrap h-auto justify-start gap-1 max-w-full overflow-x-auto">
           <TabsTrigger value="all">All Sets</TabsTrigger>
           <TabsTrigger value="due" className="gap-1">
             <Clock className="h-3 w-3" /> Due for Review
@@ -297,9 +297,9 @@ export default function Flashcards() {
             {filteredSets.map((s) => (
               <Card key={s.id} className="hover:shadow-md transition-shadow group">
                 <CardHeader className="pb-2 cursor-pointer" onClick={() => startStudy(s.id)}>
-                  <div className="flex items-start justify-between">
+                  <div className="flex flex-wrap items-start justify-between gap-2">
                     <CardTitle className="text-base group-hover:text-primary transition-colors">{s.title}</CardTitle>
-                    {s.topics?.name && <Badge variant="secondary" className="text-[10px] shrink-0">{s.topics.name}</Badge>}
+                    {s.topics?.name && <Badge variant="secondary" className="text-[10px] shrink-0 max-w-full">{s.topics.name}</Badge>}
                   </div>
                   {s.description && <p className="text-xs text-muted-foreground">{s.description}</p>}
                 </CardHeader>

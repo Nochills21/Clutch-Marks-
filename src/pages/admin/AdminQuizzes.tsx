@@ -218,8 +218,8 @@ export default function AdminQuizzes() {
       <div className="space-y-3">
         {quizzes.map((q) => (
           <Card key={q.id} className="neon-border bg-card">
-            <CardContent className="flex items-center justify-between p-4">
-              <div>
+            <CardContent className="flex flex-wrap items-center justify-between gap-3 p-4">
+              <div className="min-w-0">
                 <p className="font-medium">{q.title}</p>
                 <div className="flex gap-2 mt-1">
                   <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
@@ -227,7 +227,7 @@ export default function AdminQuizzes() {
                   {q.exam_file_url && <Badge variant="outline" className="border-primary/30 text-primary">📎 Exam File</Badge>}
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="ml-auto flex shrink-0 gap-2">
                 <Button size="sm" variant="outline" className="border-border/60 hover:border-primary/30" onClick={() => loadQuestions(q.id)}>Questions</Button>
                 <Button size="icon" variant="ghost" onClick={() => { setEditing(q); setTitle(q.title); setDescription(q.description ?? ""); setTopicId(q.topic_id ?? ""); setTimeLimit(q.time_limit_minutes ?? ""); setIsPublished(q.is_published); setOpen(true); }}><Pencil className="h-4 w-4" /></Button>
                 <Button size="icon" variant="ghost" onClick={async () => { await supabase.from("quizzes").delete().eq("id", q.id); load(); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>
