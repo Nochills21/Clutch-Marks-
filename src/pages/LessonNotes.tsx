@@ -10,19 +10,23 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { openProtectedFile } from "@/lib/contentFiles";
 import { PreviewBanner } from "@/components/PreviewBanner";
+import { SITE_URL } from "@/lib/seoRoutes";
 import { WatermarkOverlay } from "@/components/WatermarkOverlay";
-import { useNoteProgress, downloadNote, type NoteRow } from "@/pages/Notes";
+import { useNoteProgress, downloadNote, type NoteRow } from "./Notes";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVEL_LABELS } from "@/lib/subjects";
 import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { QueryError } from "@/components/QueryError";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
 
 export default function LessonNotes() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
   const { user, role } = useAuth();
+  const { failure, report } = useLoadFailure("this lesson");
   const [reloadKey, setReloadKey] = useState(0);
   const bump = () => setReloadKey((k) => k + 1);
   const [lesson, setLesson] = useState<any>(null);
@@ -36,45 +40,52 @@ export default function LessonNotes() {
     if (!lessonId) return;
     const load = async () => {
       setLoading(true);
-      const { data: l } = await supabase
+      const { data: l, error: lessonError } = await supabase
         .from("lessons")
-        .select("id, title, content, topic_id, topics(name, subject_levels(level, subjects(name, slug)))")
+        .select("id, title, content, topic_id, topics(name, subject_levels(id, level, subjects(name, slug)))")
         .eq("id", lessonId)
         .maybeSingle();
+      // Report before bailing, and always settle `loading` — returning here
+      // with the spinner still on left the page stuck.
+      if (lessonError) { report(lessonError); setLoading(false); return; }
       setLesson(l);
       if (l?.topic_id) {
-        const { data } = await supabase
+        const { data, error: notesError } = await supabase
           .from("study_materials")
           .select("id, title, file_url, content, topic_id")
           .eq("material_type", "notes")
           .eq("topic_id", l.topic_id)
           .order("title");
+        if (notesError) { report(notesError); setLoading(false); return; }
         const t: any = l as any;
         setNotes((data ?? []).map((m: any) => ({
           id: m.id,
           title: m.title,
           file_url: m.file_url,
           content: m.content,
+          material_type: m.material_type ?? "notes",
           topic_id: m.topic_id,
           topic_name: t.topics?.name ?? "",
           subject_name: t.topics?.subject_levels?.subjects?.name ?? "",
           subject_id: "",
+          subject_level_id: t.topics?.subject_levels?.id ?? "",
           level: t.topics?.subject_levels?.level ?? "",
         })));
       }
       if (user) {
-        const { data: p } = await supabase
+        const { data: p, error: progressError } = await supabase
           .from("lesson_progress")
           .select("completed")
           .eq("user_id", user.id)
           .eq("lesson_id", lessonId)
           .maybeSingle();
+        if (progressError) { report(progressError); setLoading(false); return; }
         setLessonDone(!!p?.completed);
       }
       setLoading(false);
     };
     load();
-  }, [lessonId, user, reloadKey]);
+  }, [lessonId, user, reloadKey, report]);
 
   const toggleLesson = async () => {
     if (!user || !lessonId) return;
@@ -107,6 +118,15 @@ export default function LessonNotes() {
 
   if (loading) {
     return <div className="space-y-3"><Skeleton className="h-10 w-48" /><Skeleton className="h-40 rounded-xl" /></div>;
+  }
+
+  if (failure) {
+    return (
+      <div className="space-y-4">
+        <SEOHead title="Lesson Notes — Clutch Marks" description="View and download the uploaded notes for this lesson." path={`/lessons/${lessonId}/notes`} />
+        <QueryError message={failure} onRetry={() => window.location.reload()} />
+      </div>
+    );
   }
 
   if (!lesson) {
@@ -143,7 +163,7 @@ export default function LessonNotes() {
           "@context": "https://schema.org",
           "@type": "LearningResource",
           name: `${lesson.title} — Notes`,
-          url: `https://clutch-marks.lovable.app/lessons/${lessonId}/notes`,
+          url: `${SITE_URL}/lessons/${lessonId}/notes`,
           learningResourceType: "Lesson notes",
           educationalLevel:
             (level && (LEVEL_LABELS[level as "OL"] ?? level)) || undefined,
@@ -154,7 +174,7 @@ export default function LessonNotes() {
           provider: {
             "@type": "EducationalOrganization",
             name: "Clutch Marks",
-            url: "https://clutch-marks.lovable.app/",
+            url: `${SITE_URL}/`,
           },
         }}
       />

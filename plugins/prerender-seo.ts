@@ -1,7 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import type { Plugin, ResolvedConfig } from "vite";
-import { ROUTE_META, SITE_URL, SITE_NAME, type RouteMeta } from "../src/lib/seoRoutes";
+import { ROUTE_META, SITE_URL, SITE_NAME, type RouteMeta } from "../frontend/src/lib/seoRoutes";
 
 /**
  * Emits a static HTML file per public route with route-specific

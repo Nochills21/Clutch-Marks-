@@ -1,8 +1,14 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /admin
 
 User-agent: Bingbot
 Allow: /
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /admin
 
 User-agent: Twitterbot
 Allow: /
@@ -12,5 +18,12 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /progress
+Disallow: /announcements
+Disallow: /feedback
 
 Sitemap: https://clutchmarks.study/sitemap.xml

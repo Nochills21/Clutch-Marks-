@@ -1,36 +1,66 @@
-// Admin home: platform-wide stats.
+// Admin home: platform stats, with every content figure scoped to the subject
+// chosen in the picker above them. The catalogue is multi-subject, so a single
+// "Lessons 100" said nothing about the subject the admin was actually looking
+// at; the scope now follows the picker and the tile set spells out questions and
+// notes as well as lessons, quizzes and materials.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Users, Brain, FileText, Megaphone, ArrowRight, Zap, CreditCard } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
+import { BookOpen, Users, Brain, FileText, Megaphone, ArrowRight, Zap, CreditCard, HelpCircle, ClipboardList } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+const ALL = "all";
+
 export function AdminDashboard() {
-  const [stats, setStats] = useState({ topics: 0, lessons: 0, quizzes: 0, students: 0, materials: 0, pendingPayments: 0 });
+  const [scope, setScope] = useState<string>(ALL);
+  const { data: options = [] } = useSubjectLevelOptions();
+
+  const [counts, setCounts] = useState({ topics: 0, lessons: 0, quizzes: 0, questions: 0, notes: 0, materials: 0 });
+  const [platform, setPlatform] = useState({ students: 0, pendingPayments: 0 });
 
   useEffect(() => {
     const load = async () => {
-      const [t, l, q, s, m, pp] = await Promise.all([
-        supabase.from("topics").select("id", { count: "exact", head: true }),
-        supabase.from("lessons").select("id", { count: "exact", head: true }),
-        supabase.from("quizzes").select("id", { count: "exact", head: true }),
+      const [countsRes, s, pp] = await Promise.all([
+        // NULL means "every subject"; the same RPC backs the student dashboard,
+        // so both pages count the catalogue the same way.
+        supabase.rpc("get_dashboard_counts", { _level_ids: scope === ALL ? null : [scope] }),
         supabase.from("user_roles").select("id", { count: "exact", head: true }).eq("role", "student"),
-        supabase.from("study_materials").select("id", { count: "exact", head: true }),
         supabase.from("subscriptions").select("id", { count: "exact", head: true }).eq("status", "pending_payment"),
       ]);
-      setStats({ topics: t.count ?? 0, lessons: l.count ?? 0, quizzes: q.count ?? 0, students: s.count ?? 0, materials: m.count ?? 0, pendingPayments: pp.count ?? 0 });
+      const c = ((countsRes.data ?? []) as any[])[0];
+      if (c) {
+        setCounts({
+          topics: Number(c.topics_total ?? 0),
+          lessons: Number(c.lessons_total ?? 0),
+          quizzes: Number(c.quizzes_total ?? 0),
+          questions: Number(c.questions_total ?? 0),
+          notes: Number(c.notes_total ?? 0),
+          materials: Number(c.materials_total ?? 0),
+        });
+      }
+      setPlatform({ students: s.count ?? 0, pendingPayments: pp.count ?? 0 });
     };
     load();
-  }, []);
+  }, [scope]);
+
+  const scopeLabel = scope === ALL ? "All subjects" : options.find((o) => o.id === scope)?.label ?? "All subjects";
 
   const cards = [
-    { label: "Lessons", value: stats.lessons, icon: FileText, link: "/admin/lessons" },
-    { label: "Quizzes", value: stats.quizzes, icon: Brain, link: "/admin/quizzes" },
-    { label: "Pending payments", value: stats.pendingPayments, icon: CreditCard, link: "/admin/payments" },
-    { label: "Students", value: stats.students, icon: Users, link: "/admin/accounts" },
-    { label: "Materials", value: stats.materials, icon: FileText, link: "/admin/materials" },
-    { label: "Topics", value: stats.topics, icon: BookOpen, link: "/dashboard" },
+    { label: "Lessons", value: counts.lessons, icon: FileText, link: "/admin/lessons" },
+    { label: "Quizzes", value: counts.quizzes, icon: Brain, link: "/admin/quizzes" },
+    { label: "Questions", value: counts.questions, icon: HelpCircle, link: "/admin/quizzes" },
+    // Both figures live in study_materials: "Notes & summaries" is what the
+    // /notes library lists, "All materials" adds any other type. Today every
+    // material is a note or summary, so the two agree — they diverge as soon as
+    // another type lands.
+    { label: "Notes & summaries", value: counts.notes, icon: ClipboardList, link: "/admin/materials" },
+    { label: "All materials", value: counts.materials, icon: FileText, link: "/admin/materials" },
+    { label: "Topics", value: counts.topics, icon: BookOpen, link: "/dashboard" },
+    { label: "Students", value: platform.students, icon: Users, link: "/admin/accounts" },
+    { label: "Pending payments", value: platform.pendingPayments, icon: CreditCard, link: "/admin/payments" },
   ];
 
   const quickActions = [
@@ -55,8 +85,29 @@ export function AdminDashboard() {
         </div>
       </div>
 
+      {/* Scope picker — the content figures below follow it */}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <span className="eyebrow">Showing</span>
+        <Select value={scope} onValueChange={setScope}>
+          <SelectTrigger className="h-9 w-64">
+            <SelectValue placeholder="All subjects" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value={ALL}>All subjects</SelectItem>
+            {options.map((o) => (
+              <SelectItem key={o.id} value={o.id}>
+                {o.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <p className="text-xs text-muted-foreground">
+          Content totals follow <span className="text-foreground">{scopeLabel}</span>; students and payments are always platform-wide.
+        </p>
+      </div>
+
       {/* Stats */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((c) => (
           <Link key={c.label} to={c.link}>
             <div className="stat-card group cursor-pointer">

@@ -54,7 +54,19 @@ export function QuestionList({ items, attempts, onStart, onBookmark, loading }: 
         const a = attempts[q.id];
         const status = !a ? "new" : a.last_correct ? "mastered" : "wrong";
         return (
-          <Card key={q.id} className="transition-colors hover:border-primary/30">
+          <Card
+            key={q.id}
+            role="button"
+            tabIndex={0}
+            onClick={() => onStart(q)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onStart(q);
+              }
+            }}
+            className="cursor-pointer transition-colors hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+          >
             <CardContent className="p-4 flex items-center gap-4">
               <div className="flex-1 min-w-0">
                 <p className="text-[11px] text-muted-foreground mb-1 truncate">{q.quiz_title}</p>
@@ -79,8 +91,19 @@ export function QuestionList({ items, attempts, onStart, onBookmark, loading }: 
               >
                 {status === "new" ? "New" : status === "mastered" ? "Correct" : "Retry"}
               </Badge>
-              <BookmarkButton questionId={q.id} bookmarked={q.bookmarked} onChange={(next) => onBookmark(q.id, next)} />
-              <Button size="sm" onClick={() => onStart(q)}>Practise</Button>
+              {/* Keep the bookmark from also opening the question. */}
+              <span className="flex shrink-0" onClick={(e) => e.stopPropagation()}>
+                <BookmarkButton questionId={q.id} bookmarked={q.bookmarked} onChange={(next) => onBookmark(q.id, next)} />
+              </span>
+              <Button
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onStart(q);
+                }}
+              >
+                Practise
+              </Button>
             </CardContent>
           </Card>
         );

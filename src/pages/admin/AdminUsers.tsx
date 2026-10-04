@@ -25,6 +25,8 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { validateUploadFile, getSafeUploadExtension } from "@/lib/fileValidation";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 
 type RoleName = "student" | "parent" | "admin";
 
@@ -56,6 +58,7 @@ export default function AdminUsers() {
   const [rows, setRows] = useState<UserRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
+  const { failure, report, clear } = useLoadFailure("accounts");
 
   // Filters
   const [search, setSearch] = useState("");
@@ -109,17 +112,28 @@ export default function AdminUsers() {
 
   const load = async () => {
     setLoading(true);
-    const { data: roles } = await supabase
+    clear();
+    const { data: roles, error: rolesError } = await supabase
       .from("user_roles")
       .select("id, user_id, role, is_approved");
 
+    // A failed read used to hit the `!roles` bail-out and render an empty
+    // console, which reads as "there are no accounts at all".
+    if (rolesError) {
+      report(rolesError);
+      setRows([]);
+      setLoading(false);
+      return;
+    }
     if (!roles) { setLoading(false); return; }
 
     const userIds = roles.map((r) => r.user_id);
-    const { data: profiles } = await supabase
+    const { data: profiles, error: profilesError } = await supabase
       .from("profiles")
       .select("user_id, full_name, username, email")
       .in("user_id", userIds);
+    // Names are cosmetic, but a silent failure made every account "Unknown".
+    if (profilesError) report(profilesError);
 
     setRows(
       roles.map((r) => {
@@ -137,10 +151,13 @@ export default function AdminUsers() {
     );
 
     // Subscription state per user (admins can select all subscriptions).
-    const { data: subs } = await supabase
+    const { data: subs, error: subsError } = await supabase
       .from("subscriptions")
       .select("id, user_id, plan_id, status")
       .in("status", ["active", "pending_payment"]);
+    // Only cosmetic (the paid badge), but a silent failure made paying students
+    // look like free ones.
+    if (subsError) report(subsError);
     const subMap: Record<string, { id: string; plan_id: string; status: string }> = {};
     ((subs ?? []) as any[]).forEach((s) => { subMap[s.user_id] = s; });
     setPaidSubs(subMap);
@@ -378,11 +395,18 @@ export default function AdminUsers() {
   const openReports = async (student: UserRow) => {
     setReportsStudent(student);
     setLoadingReports(true);
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("weekly_reports")
       .select("*")
       .eq("student_user_id", student.user_id)
       .order("uploaded_at", { ascending: false });
+    // Otherwise the dialog presented an empty report list over a failed read.
+    if (error) {
+      toast({ title: "Could not load reports", description: error.message, variant: "destructive" });
+      setReports([]);
+      setLoadingReports(false);
+      return;
+    }
     setReports((data ?? []) as WeeklyReport[]);
     setLoadingReports(false);
   };
@@ -697,6 +721,8 @@ export default function AdminUsers() {
           </p>
         </CardContent>
       </Card>
+
+      {failure && <QueryError message={failure} onRetry={load} />}
 
       <Tabs defaultValue={pending.length > 0 ? "pending" : "all"}>
         <TabsList className="flex-wrap h-auto">
@@ -1015,13 +1041,15 @@ export default function AdminUsers() {
                       {new Date(r.uploaded_at).toLocaleDateString()}
                     </TableCell>
                     <TableCell className="text-right space-x-2">
-                      <Button size="sm" variant="outline" className="gap-1" onClick={() => downloadReport(r)}>
+                      <Button size="sm" variant="outline" className="gap-1" aria-label={`Download report ${r.week_label || r.file_name}`} title="Download report" onClick={() => downloadReport(r)}>
                         <Download className="h-3 w-3" />
                       </Button>
                       <Button
                         size="sm"
                         variant="outline"
                         className="gap-1 text-destructive"
+                        aria-label={`Delete report ${r.week_label || r.file_name}`}
+                        title="Delete report"
                         onClick={() => deleteReport(r)}
                       >
                         <Trash2 className="h-3 w-3" />

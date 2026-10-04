@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Canonical, publicly reachable routes only. The previous sitemap listed
+       client-side redirects (/homework, /revision, /heatmap, /smart-revision,
+       /question-bank), a path with no route at all (/calendar -> 404), and the
+       sign-in page (/auth), which is now noindex. Those are handled by 301
+       redirects in vercel.json instead, so crawlers never index a redirect. -->
   <url>
     <loc>https://clutchmarks.study/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://clutchmarks.study/auth</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://clutchmarks.study/subjects</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://clutchmarks.study/lessons</loc>
@@ -18,15 +23,10 @@
   <url>
     <loc>https://clutchmarks.study/notes</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://clutchmarks.study/quizzes</loc>
-    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://clutchmarks.study/homework</loc>
+    <loc>https://clutchmarks.study/quizzes</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -36,24 +36,9 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://clutchmarks.study/revision</loc>
+    <loc>https://clutchmarks.study/practice</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://clutchmarks.study/progress</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://clutchmarks.study/calendar</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://clutchmarks.study/announcements</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clutchmarks.study/past-papers</loc>
@@ -62,22 +47,27 @@
   </url>
   <url>
     <loc>https://clutchmarks.study/study-planner</loc>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clutchmarks.study/heatmap</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://clutchmarks.study/pricing</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clutchmarks.study/smart-revision</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://clutchmarks.study/downloads</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://clutchmarks.study/question-bank</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://clutchmarks.study/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://clutchmarks.study/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

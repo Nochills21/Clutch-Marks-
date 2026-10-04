@@ -1,0 +1,42 @@
+# Continuous integration.
+#
+# Why this exists: Vercel deploys `main` on push, and nothing used to run the
+# typechecker, the tests or a production build before that happened. A change
+# that broke the build, or that shipped a page which crashes on mount, would
+# only be discovered in production. The same three commands are what a developer
+# runs locally via `npm run verify`.
+#
+# Note on the install step: the repo carries a bun lockfile (bun.lock) and
+# nothing else, and Vercel installs with bun. `--frozen-lockfile` makes CI fail
+# loudly if package.json and bun.lock have drifted apart, which is exactly the
+# situation that would otherwise produce a Vercel build different from local. If
+# this step fails, run `bun install` locally and commit the refreshed lockfile.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Tests
+        run: bun run test
+
+      - name: Production build
+        run: bun run build

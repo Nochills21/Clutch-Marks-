@@ -11,6 +11,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Switch } from "@/components/ui/switch";
 import { Plus, Pencil, Trash2, Brain, Upload } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 import { Badge } from "@/components/ui/badge";
 import { getSafeUploadExtension } from "@/lib/fileValidation";
 
@@ -34,12 +36,23 @@ export default function AdminQuizzes() {
   const [qOptions, setQOptions] = useState(["", "", "", ""]);
   const [qCorrect, setQCorrect] = useState(0);
   const [qExplanation, setQExplanation] = useState("");
+  const { failure, report, clear } = useLoadFailure("quizzes");
 
   const load = async () => {
+    clear();
     const [q, t] = await Promise.all([
       supabase.from("quizzes").select("*, topics(name)").order("created_at", { ascending: false }),
       supabase.from("topics").select("*").order("sort_order"),
     ]);
+    // Both reads used to collapse into `?? []`, so a failed request rendered an
+    // empty console with no hint anything had gone wrong.
+    const error = q.error ?? t.error;
+    if (error) {
+      report(error);
+      setQuizzes([]);
+      setTopics([]);
+      return;
+    }
     setQuizzes(q.data ?? []);
     setTopics(t.data ?? []);
   };
@@ -47,7 +60,14 @@ export default function AdminQuizzes() {
   useEffect(() => { load(); }, []);
 
   const loadQuestions = async (quizId: string) => {
-    const { data } = await supabase.from("questions").select("*").eq("quiz_id", quizId).order("sort_order");
+    const { data, error } = await supabase.from("questions").select("*").eq("quiz_id", quizId).order("sort_order");
+    // Otherwise a failed read showed "this quiz has no questions".
+    if (error) {
+      report(error);
+      setQuestions([]);
+      setQuestionsOpen(quizId);
+      return;
+    }
     setQuestions(data ?? []);
     setQuestionsOpen(quizId);
   };
@@ -85,7 +105,12 @@ export default function AdminQuizzes() {
     if (editing) {
       await supabase.from("quizzes").update(payload).eq("id", editing.id);
     } else {
-      const { data } = await supabase.from("quizzes").insert(payload).select("id").single();
+      const { data, error } = await supabase.from("quizzes").insert(payload).select("id").single();
+      // A failed insert still toasted "Created", leaving the admin with no quiz.
+      if (error) {
+        toast({ title: "Could not create the quiz", description: error.message, variant: "destructive" });
+        return;
+      }
       quizId = data?.id;
     }
 
@@ -149,6 +174,9 @@ export default function AdminQuizzes() {
             <Button onClick={addQuestion}>Add Question</Button>
           </CardContent>
         </Card>
+        {failure && questionsOpen && (
+          <QueryError message={failure} onRetry={() => loadQuestions(questionsOpen)} className="mb-3" />
+        )}
         <div className="space-y-3">
           {questions.map((q, i) => (
             <Card key={q.id} className="neon-border bg-card">
@@ -163,7 +191,7 @@ export default function AdminQuizzes() {
                     ))}
                   </div>
                 </div>
-                <Button size="icon" variant="ghost" onClick={() => removeQuestion(q.id)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                <Button size="icon" variant="ghost" aria-label="Delete question" title="Delete question" onClick={() => removeQuestion(q.id)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
               </CardContent>
             </Card>
           ))}
@@ -215,6 +243,7 @@ export default function AdminQuizzes() {
           </DialogContent>
         </Dialog>
       </div>
+      {failure && <QueryError message={failure} onRetry={load} />}
       <div className="space-y-3">
         {quizzes.map((q) => (
           <Card key={q.id} className="neon-border bg-card">
@@ -229,8 +258,8 @@ export default function AdminQuizzes() {
               </div>
               <div className="ml-auto flex shrink-0 gap-2">
                 <Button size="sm" variant="outline" className="border-border/60 hover:border-primary/30" onClick={() => loadQuestions(q.id)}>Questions</Button>
-                <Button size="icon" variant="ghost" onClick={() => { setEditing(q); setTitle(q.title); setDescription(q.description ?? ""); setTopicId(q.topic_id ?? ""); setTimeLimit(q.time_limit_minutes ?? ""); setIsPublished(q.is_published); setOpen(true); }}><Pencil className="h-4 w-4" /></Button>
-                <Button size="icon" variant="ghost" onClick={async () => { await supabase.from("quizzes").delete().eq("id", q.id); load(); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                <Button size="icon" variant="ghost" aria-label={`Edit ${q.title}`} title={`Edit ${q.title}`} onClick={() => { setEditing(q); setTitle(q.title); setDescription(q.description ?? ""); setTopicId(q.topic_id ?? ""); setTimeLimit(q.time_limit_minutes ?? ""); setIsPublished(q.is_published); setOpen(true); }}><Pencil className="h-4 w-4" /></Button>
+                <Button size="icon" variant="ghost" aria-label={`Delete ${q.title}`} title={`Delete ${q.title}`} onClick={async () => { await supabase.from("quizzes").delete().eq("id", q.id); load(); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>
               </div>
             </CardContent>
           </Card>

@@ -1,3 +1,17 @@
+-- ⚠️ DO NOT APPLY AS-IS — this seed cannot run against the live schema and
+-- would break every topic URL if it did:
+--   1. It inserts into `public.topics (… , slug, …)`, but the live `topics`
+--      table has NO `slug` column (base.sql defines id/name/description/
+--      sort_order/subject_level_id/timestamps), so the insert fails with 42703.
+--   2. Its slug format (`types-of-number-sets-powers-and-roots-1-1`) is not what
+--      the client derives. `frontend/src/lib/topicUrls.ts` slugifies the topic
+--      NAME (`1.1 Types of number, sets, powers and roots` ->
+--      `1-1-types-of-number-sets-powers-and-roots`), so rows inserted with the
+--      slugs below would be reachable only by their exact stored slug while the
+--      UI keeps linking to the name-derived slug. Every topic link 404s.
+-- Reconcile it against the live 100-topic set (and this slug scheme) before
+-- applying, or drop the `slug` column from the insert and let names drive URLs.
+--
 -- Study-notes content seed: IGCSE (OL) + AS/A2 topic notes generated from the
 -- curated markdown study pack (6 packs: Maths, Physics, Computer Science).
 -- Topics: 150. Idempotent: existing topics are UPDATED in place

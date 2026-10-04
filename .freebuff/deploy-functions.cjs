@@ -1,24 +1,29 @@
 // Deploy edge functions via Management API using proper multipart/form-data.
-// verify_jwt: true for everything except resolve-login-email (pre-auth lookup).
+// verify_jwt: true for everything except the pre-auth / webhook functions.
+//
+// Source of truth is backend/supabase/functions/. The supabase/functions/
+// mirror lags behind for several slugs, and deploying the stale mirror is how
+// serve-material shipped without its entitlement gate and the CORS header on
+// the PDF branch. Always deploy from backend/.
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
-const TOKEN = (fs.readFileSync(".freebuff/get-keys.cjs", "utf8").match(/sbp_[a-f0-9]+/) || [])[0];
+const TOKEN = (fs.readFileSync('.freebuff/get-keys.cjs', 'utf8').match(/sbp_[a-f0-9]+/) || [])[0];
 const REF = 'zzliiazovezhxbmfeqco';
 
-const FUNCS_DIR = 'supabase/functions';
+const FUNCS_DIR = path.join('backend', 'supabase', 'functions');
 const SLUGS = [
   { slug: 'resolve-login-email', verifyJwt: false },
   { slug: 'welcome-email', verifyJwt: false },
   { slug: 'email-events', verifyJwt: false },
   { slug: 'feedback-alert', verifyJwt: false },
   { slug: 'weekly-digest', verifyJwt: false },
-  { slug: 'weekly-digest', verifyJwt: false },
   { slug: 'manage-accounts', verifyJwt: true },
   { slug: 'promote-admin', verifyJwt: true },
   { slug: 'quiz-feedback', verifyJwt: true },
   { slug: 'generate-questions', verifyJwt: true },
   { slug: 'study-planner', verifyJwt: true },
+  { slug: 'serve-material', verifyJwt: true },
 ];
 
 function request(method, apiPath, body, contentType) {

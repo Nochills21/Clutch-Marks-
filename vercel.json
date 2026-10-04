@@ -3,14 +3,19 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [{ "source": "/([^/]*)", "destination": "/index.html" }],
-  "environment": {
-    "VITE_SITE_URL": "https://clutchmarks.study"
-  },
-  "buildEnvironmentVariables": {
-    "VITE_SUPABASE_URL": "https://zzliiazovezhxbmfeqco.supabase.co",
-    "VITE_SUPABASE_PUBLISHABLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6bGlpYXpvdmV6aHhibWZlcWNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODczMjQ0MzksImV4cCI6MjEwMjkwMDQzOX0.5Ihi_QZWhV6KBieDcVuJVLVWgA8AS1dZxqMXa3rd6H4"
-  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "redirects": [
+    { "source": "/homework", "destination": "/quizzes", "permanent": true },
+    { "source": "/revision", "destination": "/notes", "permanent": true },
+    { "source": "/heatmap", "destination": "/progress", "permanent": true },
+    { "source": "/review", "destination": "/practice", "permanent": true },
+    { "source": "/smart-revision", "destination": "/practice", "permanent": true },
+    { "source": "/question-bank", "destination": "/practice", "permanent": true },
+    { "source": "/subject-progress", "destination": "/progress", "permanent": true },
+    { "source": "/admin/users", "destination": "/admin/accounts", "permanent": true },
+    { "source": "/admin/students", "destination": "/admin/accounts", "permanent": true },
+    { "source": "/admin/admins", "destination": "/admin/accounts", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

@@ -21,6 +21,7 @@ import { openProtectedFile, getSignedUrl } from "@/lib/contentFiles";
 import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { toast } from "sonner";
+import { loadFailureMessage } from "@/lib/net";
 import {
   FileText, Search, Download, CheckCircle2, Circle, AlertCircle, RotateCcw, ExternalLink, Eye, Loader2,
 } from "lucide-react";
@@ -31,29 +32,42 @@ export interface NoteRow {
   title: string;
   file_url: string | null;
   content: string | null;
+  material_type: string;
   topic_id: string | null;
   topic_name: string;
   subject_name: string;
   subject_id: string;
+  subject_level_id: string;
   level: string;
 }
+
+/** Material types this library surfaces, in the order the filter offers them. */
+export const LIBRARY_TYPES = ["notes", "summary"] as const;
+
+// A ceiling so the library cannot silently grow into an unbounded query.
+const LIBRARY_LIMIT = 500;
 
 export async function fetchNotes(): Promise<NoteRow[]> {
   const { data, error } = await supabase
     .from("study_materials")
-    .select("id, title, file_url, content, topic_id, topics(id, name, subject_levels(level, subjects(id, name)))")
-    .eq("material_type", "notes")
-    .order("title");
+    .select("id, title, file_url, content, material_type, topic_id, topics(id, name, subject_levels(id, level, subjects(id, name)))")
+    // Previously pinned to "notes", which hid every "summary" material from the
+    // library — half the content was only reachable from a topic page.
+    .in("material_type", LIBRARY_TYPES as unknown as string[])
+    .order("title")
+    .limit(LIBRARY_LIMIT);
   if (error) throw error;
   return (data ?? []).map((m: any) => ({
     id: m.id,
     title: m.title,
     file_url: m.file_url,
     content: m.content,
+    material_type: m.material_type ?? "notes",
     topic_id: m.topic_id,
     topic_name: m.topics?.name ?? "Unassigned",
     subject_name: m.topics?.subject_levels?.subjects?.name ?? "General",
     subject_id: m.topics?.subject_levels?.subjects?.id ?? "none",
+    subject_level_id: m.topics?.subject_levels?.id ?? "",
     level: m.topics?.subject_levels?.level ?? "",
   }));
 }
@@ -64,15 +78,28 @@ export function useNoteProgress() {
 
   useEffect(() => {
     if (!user) return;
-    supabase
-      .from("material_progress")
-      .select("material_id, completed")
-      .eq("user_id", user.id)
-      .then(({ data }) => {
+    (async () => {
+      try {
+        const { data, error } = await supabase
+          .from("material_progress")
+          .select("material_id, completed")
+          .eq("user_id", user.id);
+        // PostgREST resolves with `{ error }` rather than rejecting, so the
+        // old `catch` below never fired for a failed query: the tick marks just
+        // silently vanished. Say so instead.
+        if (error) {
+          toast.error(loadFailureMessage("your study progress", error));
+          return;
+        }
         const map: Record<string, boolean> = {};
         (data ?? []).forEach((r: any) => { map[r.material_id] = r.completed; });
         setDone(map);
-      });
+      } catch (e) {
+        // A failed progress read must not surface as an unhandled rejection;
+        // the list still works, it just shows nothing as studied yet.
+        console.error("Could not load note progress:", e);
+      }
+    })();
   }, [user]);
 
   const toggle = async (materialId: string) => {
@@ -111,8 +138,14 @@ export default function Notes() {
   const [q, setQ] = useState("");
   const [subject, setSubject] = useState("all");
   const [level, setLevel] = useState("all");
+  const [type, setType] = useState("all");
   const [viewing, setViewing] = useState<NoteRow | null>(null);
   const { done, toggle } = useNoteProgress();
+  // The library is scoped to the student's picked subject-levels, the same way
+  // the dashboard tiles are. Without this a Mathematics + Physics student read
+  // Computer Science A2 notes under a "Showing only your subjects" banner.
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const scoped = !isAdminRole && prefsLoaded && pickedIds.size > 0;
 
   const load = async () => {
     setLoading(true);
@@ -135,11 +168,22 @@ export default function Notes() {
 
   const visible = useMemo(() => {
     const term = q.trim().toLowerCase();
-    return notes.filter((n) =>
-      (subject === "all" || n.subject_id === subject) &&
-      (level === "all" || n.level === level) &&
-      (!term || n.title.toLowerCase().includes(term) || n.topic_name.toLowerCase().includes(term)));
-  }, [notes, q, subject, level]);
+    return notes.filter((n) => {
+      if (scoped && !pickedIds.has(n.subject_level_id)) return false;
+      if (subject !== "all" && n.subject_id !== subject) return false;
+      if (level !== "all" && n.level !== level) return false;
+      if (type !== "all" && n.material_type !== type) return false;
+      if (!term) return true;
+      // Search the body too, not just the title: students look for a term they
+      // remember reading, not the note's heading.
+      const body = (n.content ?? "").replace(/<[^>]*>/g, " ").toLowerCase();
+      return (
+        n.title.toLowerCase().includes(term) ||
+        n.topic_name.toLowerCase().includes(term) ||
+        body.includes(term)
+      );
+    });
+  }, [notes, q, subject, level, type, scoped, pickedIds]);
 
   const completedCount = visible.filter((n) => done[n.id]).length;
   const progressPct = visible.length ? Math.round((completedCount / visible.length) * 100) : 0;
@@ -148,7 +192,6 @@ export default function Notes() {
   // level) before any notes are shown. While preferences are still loading we
   // render nothing — never the content itself. Sits after every hook so the
   // early returns never change hook order.
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
   if (!isAdminRole && !prefsLoaded) {
     return (
       <div className="flex justify-center py-24">
@@ -221,6 +264,14 @@ export default function Notes() {
             {LEVELS.map((l) => <SelectItem key={l} value={l}>{LEVEL_LABELS[l]}</SelectItem>)}
           </SelectContent>
         </Select>
+        <Select value={type} onValueChange={setType}>
+          <SelectTrigger className="w-full sm:w-[150px]" aria-label="Material type"><SelectValue placeholder="Type" /></SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All types</SelectItem>
+            <SelectItem value="notes">Notes</SelectItem>
+            <SelectItem value="summary">Summaries</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       {error && (
@@ -284,7 +335,10 @@ export default function Notes() {
                           </>
                         )}
                         <span className="text-muted-foreground/30">·</span>
-                        <span className="text-xs text-muted-foreground truncate">{n.topic_name}</span>
+                        <span className="min-w-0 text-xs text-muted-foreground truncate">{n.topic_name}</span>
+                        {n.material_type === "summary" && (
+                          <Badge variant="outline" className="text-[10px] capitalize">Summary</Badge>
+                        )}
                       </div>
                     </div>
 
@@ -303,14 +357,23 @@ export default function Notes() {
                           <Eye className="h-3.5 w-3.5" /> Read
                         </Button>
                       )}
-                      <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url}
-                        onClick={() => n.file_url && openProtectedFile("study-materials", n.file_url)}>
-                        <ExternalLink className="h-3.5 w-3.5" /> Open
-                      </Button>
-                      <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url}
-                        onClick={() => downloadNote(n)}>
-                        <Download className="h-3.5 w-3.5" />
-                      </Button>
+                      {/* File-backed controls only appear when there is a file. Every
+                          material in the library is HTML-only today, so these used to
+                          render as 60 dead, unlabelled buttons per page. */}
+                      {n.file_url && (
+                        <>
+                          <Button size="sm" variant="ghost" className="gap-1"
+                            onClick={() => openProtectedFile("study-materials", n.file_url!)}>
+                            <ExternalLink className="h-3.5 w-3.5" /> Open
+                          </Button>
+                          <Button size="sm" variant="ghost"
+                            aria-label={`Download ${n.title}`}
+                            title={`Download ${n.title}`}
+                            onClick={() => downloadNote(n)}>
+                            <Download className="h-3.5 w-3.5" />
+                          </Button>
+                        </>
+                      )}
                     </div>
                   </CardContent>
                 </Card>

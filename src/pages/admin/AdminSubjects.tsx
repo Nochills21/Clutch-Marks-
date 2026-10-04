@@ -256,7 +256,7 @@ export default function AdminSubjects() {
                 </div>
                 <div className="flex items-center justify-between rounded-lg border p-3">
                   <div><p className="text-sm font-medium">Visible to students</p><p className="text-xs text-muted-foreground">Hidden subjects only show for admins.</p></div>
-                  <Switch checked={form.is_active} onCheckedChange={(v) => setForm({ ...form, is_active: v })} />
+                  <Switch aria-label="Visible to students" checked={form.is_active} onCheckedChange={(v) => setForm({ ...form, is_active: v })} />
                 </div>
               </div>
               <DialogFooter><Button onClick={saveSubject}>{editing ? "Save changes" : "Create subject"}</Button></DialogFooter>
@@ -289,10 +289,10 @@ export default function AdminSubjects() {
                 </div>
               </div>
               <div className="flex gap-1 shrink-0">
-                <Button size="icon" variant="ghost" onClick={() => { setEditing(s); setForm({ name: s.name, slug: s.slug, description: s.description ?? "", icon: s.icon, color: s.color, sort_order: s.sort_order, is_active: s.is_active }); setOpen(true); }}>
+                <Button size="icon" variant="ghost" aria-label={`Edit ${s.name}`} title={`Edit ${s.name}`} onClick={() => { setEditing(s); setForm({ name: s.name, slug: s.slug, description: s.description ?? "", icon: s.icon, color: s.color, sort_order: s.sort_order, is_active: s.is_active }); setOpen(true); }}>
                   <Pencil className="h-4 w-4" />
                 </Button>
-                <Button size="icon" variant="ghost" onClick={() => removeSubject(s)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                <Button size="icon" variant="ghost" aria-label={`Delete ${s.name}`} title={`Delete ${s.name}`} onClick={() => removeSubject(s)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
               </div>
             </CardHeader>
             <CardContent className="grid gap-3 md:grid-cols-3">
@@ -305,7 +305,13 @@ export default function AdminSubjects() {
                         <p className="text-sm font-semibold">{LEVEL_LABELS[l.level]}</p>
                         <p className="text-[11px] text-muted-foreground">{lvlTopics.length} topic{lvlTopics.length === 1 ? "" : "s"}</p>
                       </div>
-                      <Switch checked={l.is_active} onCheckedChange={(v) => toggleLevel(l, v)} />
+                      {/* A bare switch announces just "switch, on": name it for the
+                          subject + level it actually controls. */}
+                      <Switch
+                        checked={l.is_active}
+                        aria-label={`Show ${s.name} — ${LEVEL_LABELS[l.level]} to students`}
+                        onCheckedChange={(v) => toggleLevel(l, v)}
+                      />
                     </div>
                     <div className="space-y-1 max-h-40 overflow-y-auto">
                       {lvlTopics.map((t) => (

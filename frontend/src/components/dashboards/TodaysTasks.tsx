@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
+import { loadFailureMessage } from "@/lib/net";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sparkles, CalendarClock } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -52,23 +53,37 @@ export function TodaysTasks() {
   const { user } = useAuth();
   const [planItems, setPlanItems] = useState<PlanItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [failure, setFailure] = useState<string | null>(null);
+  const [reload, setReload] = useState(0);
 
   useEffect(() => {
     if (!user) return;
+    let cancelled = false;
     const load = async () => {
       setLoading(true);
-      const { data: planRes } = await supabase
+      setFailure(null);
+      const { data: planRes, error } = await supabase
         .from("study_plans")
         .select("content, created_at")
         .eq("user_id", user.id)
         .order("created_at", { ascending: false })
         .limit(1);
+      if (cancelled) return;
+      // A failed read used to fall through to "Nothing scheduled", which sent
+      // the student off to generate a plan they may already have.
+      if (error) {
+        setFailure(loadFailureMessage("today's tasks", error));
+        setPlanItems([]);
+        setLoading(false);
+        return;
+      }
       const planContent = planRes?.[0]?.content ?? "";
       setPlanItems(extractTodayLines(planContent).map((l) => ({ line: l })));
       setLoading(false);
     };
     load();
-  }, [user]);
+    return () => { cancelled = true; };
+  }, [user, reload]);
 
   return (
     <Card className="surface">
@@ -85,6 +100,16 @@ export function TodaysTasks() {
       <CardContent className="space-y-4">
         {loading ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
+        ) : failure ? (
+          <p className="text-sm text-destructive">
+            {failure}{" "}
+            <button
+              onClick={() => setReload((n) => n + 1)}
+              className="text-primary/90 underline decoration-primary/30 underline-offset-4 transition-colors hover:text-primary"
+            >
+              Try again
+            </button>
+          </p>
         ) : planItems.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             Nothing scheduled.{" "}

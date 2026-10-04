@@ -8,9 +8,12 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
-    include: ["src/**/*.{test,spec}.{ts,tsx}"],
+    // The `@` alias resolves to frontend/src everywhere else (vite.config.ts),
+    // so unit tests must live there too — including root src/ here meant the
+    // tests exercised a different tree than the one that ships.
+    include: ["frontend/src/**/*.{test,spec}.{ts,tsx}"],
   },
   resolve: {
-    alias: { "@": path.resolve(__dirname, "./src") },
+    alias: { "@": path.resolve(__dirname, "./frontend/src") },
   },
 });

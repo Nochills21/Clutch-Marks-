@@ -1,8 +1,9 @@
 // Login + signup (student or parent), with password policy and breach check.
-// Students log in with their email; optional parent email at signup auto-links
-// the child to that parent account (instant if it exists, queued if not).
-// Admins may additionally sign in with a username (resolved server-side).
-// Includes a forgot-password flow (reset link via email).
+// Anyone signs in with their email *or* their username: a username is traded
+// for a session server-side by the `login-with-username` edge function, which
+// verifies the password and never hands the account's email back to the client.
+// Optional parent email at signup auto-links the child to that parent account
+// (instant if it exists, queued if not). Includes a forgot-password flow.
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -40,25 +41,30 @@ export default function Auth() {
   const [parentEmail, setParentEmail] = useState("");
   const [role, setRole] = useState<string>("student");
 
-  const resolveEmail = async (
+  const GENERIC_LOGIN_ERROR = "Invalid email/username or password";
+
+  // Username sign-in: the edge function resolves the identifier, checks the
+  // password against the auth server and returns only a session. There is no
+  // client-side fallback that guesses an email — guessing is an account
+  // enumeration vector and can't be rate-limited from the browser.
+  const signInWithUsername = async (
     identifier: string,
-  ): Promise<{ email: string | null; throttled: boolean }> => {
-    const trimmed = identifier.trim();
-    if (!trimmed) return { email: null, throttled: false };
-    // If it already looks like an email, use it directly
-    if (trimmed.includes("@")) return { email: trimmed.toLowerCase(), throttled: false };
-    // Otherwise resolve the username server-side (service-role edge function)
-    try {
-      const { data, error } = await supabase.functions.invoke("resolve-login-email", {
-        body: { identifier: trimmed },
-      });
-      const status = (error as { context?: { status?: number } } | null)?.context?.status;
-      if (status === 429) return { email: null, throttled: true };
-      if (error || !data?.email) return { email: null, throttled: false };
-      return { email: data.email as string, throttled: false };
-    } catch {
-      return { email: null, throttled: false };
-    }
+    password: string,
+  ): Promise<{ ok: boolean; throttled: boolean }> => {
+    const { data, error } = await supabase.functions.invoke("login-with-username", {
+      body: { identifier, password },
+    });
+    const status = (error as { context?: { status?: number } } | null)?.context?.status;
+    if (status === 429) return { ok: false, throttled: true };
+    const accessToken = (data as { access_token?: string } | null)?.access_token;
+    const refreshToken = (data as { refresh_token?: string } | null)?.refresh_token;
+    if (error || !accessToken || !refreshToken) return { ok: false, throttled: false };
+    // Persist the session exactly as a password grant would have.
+    const { error: sessionError } = await supabase.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    });
+    return { ok: !sessionError, throttled: false };
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -71,37 +77,34 @@ export default function Auth() {
 
     setLoading(true);
     try {
-      const { email: resolved, throttled } = await resolveEmail(loginIdentifier);
-      if (throttled) {
+      const identifier = loginIdentifier.trim();
+      // Emails go straight to the auth server; anything else is a username.
+      const result = identifier.includes("@")
+        ? {
+            ok: !(
+              await supabase.auth.signInWithPassword({
+                email: identifier.toLowerCase(),
+                password: loginPassword,
+              })
+            ).error,
+            throttled: false,
+          }
+        : await signInWithUsername(identifier, loginPassword);
+
+      if (result.throttled) {
         toast({
           title: "Too many attempts",
           description: "Please wait a minute before trying again.",
           variant: "destructive",
         });
-        setLoading(false);
-        return;
-      }
-      const email = resolved;
-      // No fallback: if the resolver can't confirm the username, don't guess a
-      // synthetic email — guessing emails client-side is an account-enumeration
-      // vector and can't be rate-limited server-side.
-      if (!email) {
-        toast({ title: "Login failed", description: "Invalid email/username or password", variant: "destructive" });
-        setLoading(false);
-        return;
-      }
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password: loginPassword,
-      });
-      if (error) {
+      } else if (!result.ok) {
         // Always the same generic message — never reveal whether the account exists
-        toast({ title: "Login failed", description: "Invalid email/username or password", variant: "destructive" });
+        toast({ title: "Login failed", description: GENERIC_LOGIN_ERROR, variant: "destructive" });
       } else {
         navigate("/dashboard");
       }
     } catch {
-      toast({ title: "Login failed", description: "Invalid email/username or password", variant: "destructive" });
+      toast({ title: "Login failed", description: GENERIC_LOGIN_ERROR, variant: "destructive" });
     }
     setLoading(false);
   };
@@ -211,9 +214,9 @@ export default function Auth() {
               <form onSubmit={handleLogin}>
                 <CardContent className="space-y-4 pt-0">
                   <div className="space-y-2">
-                    <Label htmlFor="login-identifier" className="text-sm font-medium">Email</Label>
-                    <Input id="login-identifier" type="text" inputMode="email" autoComplete="username" placeholder="you@example.com" value={loginIdentifier} onChange={e => setLoginIdentifier(e.target.value)} required className={inputClasses} />
-                    <p className="text-xs text-muted-foreground">Admins can also sign in with their username.</p>
+                    <Label htmlFor="login-identifier" className="text-sm font-medium">Email or username</Label>
+                    <Input id="login-identifier" type="text" autoComplete="username" placeholder="you@example.com" value={loginIdentifier} onChange={e => setLoginIdentifier(e.target.value)} required className={inputClasses} />
+                    <p className="text-xs text-muted-foreground">Use the email you signed up with, or your Clutch Marks username.</p>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="login-password" className="text-sm font-medium">Password</Label>

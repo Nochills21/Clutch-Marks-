@@ -2,15 +2,13 @@
 // appear everywhere; others are hidden. At least one subject is required —
 // students with nothing picked see the SubjectGate prompt instead of content.
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
 import { Settings2, Loader2 } from "lucide-react";
-import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
 
 export function SubjectPicker() {
   const { toast } = useToast();
@@ -19,21 +17,7 @@ export function SubjectPicker() {
   const [draft, setDraft] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
 
-  const { data: options = [] } = useQuery({
-    queryKey: ["subject-level-options"],
-    enabled: open,
-    queryFn: async () => {
-      const { data } = await supabase
-        .from("subject_levels")
-        .select("id, level, subjects(name), is_active")
-        .eq("is_active", true)
-        .order("sort_order");
-      return (data ?? []).map((l: any) => ({
-        id: l.id,
-        label: `${l.subjects?.name ?? "Subject"} — ${LEVEL_LABELS[l.level as SubjectLevelCode] ?? l.level}`,
-      }));
-    },
-  });
+  const { data: options = [] } = useSubjectLevelOptions(open);
 
   const openDialog = () => { setDraft([...pickedIds]); setOpen(true); };
   const toggle = (id: string) =>
@@ -62,9 +46,31 @@ export function SubjectPicker() {
         <DialogHeader>
           <DialogTitle>Choose your subjects</DialogTitle>
           <DialogDescription>
-            Pick the subjects (and levels) you study — only those appear in Lessons, Practice, Quizzes and Notes. At least one is required.
+            Pick the subjects (and levels) you study. Everything else is hidden across
+            Lessons, Practice, Past Papers, Quizzes and Notes. At least one is required —
+            nothing is ever deleted, and you can show all of them again at any time.
           </DialogDescription>
         </DialogHeader>
+        <div className="flex items-center gap-2 pb-1">
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-7 px-2 text-xs"
+            onClick={() => setDraft(options.map(o => o.id))}
+          >
+            Select all
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-7 px-2 text-xs"
+            onClick={() => setDraft([])}
+          >
+            Clear
+          </Button>
+        </div>
         <div className="max-h-[300px] overflow-y-auto space-y-2 pr-1">
           {options.map(o => (
             <label key={o.id} className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer hover:bg-accent/50">
@@ -75,7 +81,9 @@ export function SubjectPicker() {
         </div>
         <DialogFooter className="sm:justify-between">
           <p className="text-xs text-muted-foreground">
-            {draft.length === 0 ? "Select at least one subject." : `${draft.length} selected`}
+            {draft.length === 0
+              ? "Select at least one subject."
+              : `${draft.length} of ${options.length} selected`}
           </p>
           <Button onClick={save} disabled={saving || draft.length === 0} className="gap-2">
             {saving && <Loader2 className="h-4 w-4 animate-spin" />} Save

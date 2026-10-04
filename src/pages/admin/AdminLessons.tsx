@@ -10,13 +10,25 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Plus, Pencil, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { Badge } from "@/components/ui/badge";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
+
+/** PostgREST's "no rows for .single()" code — an expected result here, not a failure. */
+const NO_ROWS = "PGRST116";
 
 async function resolveTopicId(name: string): Promise<string | null> {
   if (!name.trim()) return null;
   const trimmed = name.trim();
-  const { data: existing } = await supabase.from("topics").select("id").ilike("name", trimmed).limit(1).single();
+  const { data: existing, error: lookupError } = await supabase
+    .from("topics").select("id").ilike("name", trimmed).limit(1).single();
+  // Anything other than "no rows" is a real failure. Swallowing it made a
+  // broken lookup look like "topic not found", so the save quietly created a
+  // second topic with the same name.
+  if (lookupError && lookupError.code !== NO_ROWS) throw lookupError;
   if (existing) return existing.id;
-  const { data: created } = await supabase.from("topics").insert({ name: trimmed }).select("id").single();
+  const { data: created, error: createError } = await supabase
+    .from("topics").insert({ name: trimmed }).select("id").single();
+  if (createError) throw createError;
   return created?.id ?? null;
 }
 
@@ -31,16 +43,30 @@ export default function AdminLessons() {
   const [videoUrl, setVideoUrl] = useState("");
   const [sortOrder, setSortOrder] = useState(0);
   const [zoomUrl, setZoomUrl] = useState("");
+  const { failure, report, clear } = useLoadFailure("lessons");
 
   const load = async () => {
-    const { data } = await supabase.from("lessons").select("*, topics(name)").order("sort_order");
+    clear();
+    const { data, error } = await supabase.from("lessons").select("*, topics(name)").order("sort_order");
+    // Ignoring this showed an empty console to an admin whose request failed.
+    if (error) {
+      report(error);
+      setLessons([]);
+      return;
+    }
     setLessons(data ?? []);
   };
 
   useEffect(() => { load(); }, []);
 
   const save = async () => {
-    const topicId = await resolveTopicId(topicName);
+    let topicId: string | null = null;
+    try {
+      topicId = await resolveTopicId(topicName);
+    } catch (e: any) {
+      toast({ title: "Could not look up that topic", description: e?.message, variant: "destructive" });
+      return;
+    }
     const payload = { title, content, topic_id: topicId!, video_url: videoUrl || null, zoom_url: zoomUrl || null, sort_order: sortOrder };
     if (!topicId) {
       toast({ title: "Error", description: "Please enter a topic name", variant: "destructive" });
@@ -87,6 +113,7 @@ export default function AdminLessons() {
           </DialogContent>
         </Dialog>
       </div>
+      {failure && <QueryError message={failure} onRetry={load} />}
       <div className="space-y-3">
         {lessons.map((l) => (
           <Card key={l.id} className="border-border/60 shadow-sm">
@@ -96,8 +123,8 @@ export default function AdminLessons() {
                 <Badge variant="secondary" className="mt-1">{l.topics?.name ?? "No topic"}</Badge>
               </div>
               <div className="flex gap-2">
-                <Button size="icon" variant="ghost" onClick={() => openEdit(l)}><Pencil className="h-4 w-4" /></Button>
-                <Button size="icon" variant="ghost" onClick={() => remove(l.id)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                <Button size="icon" variant="ghost" aria-label={`Edit ${l.title}`} title={`Edit ${l.title}`} onClick={() => openEdit(l)}><Pencil className="h-4 w-4" /></Button>
+                <Button size="icon" variant="ghost" aria-label={`Delete ${l.title}`} title={`Delete ${l.title}`} onClick={() => remove(l.id)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
               </div>
             </CardContent>
           </Card>

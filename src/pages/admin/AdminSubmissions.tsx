@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/useToast";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
@@ -56,6 +58,7 @@ export default function AdminSubmissions() {
   const [hwSubmissions, setHwSubmissions] = useState<HWSubmission[]>([]);
   const [quizSubmissions, setQuizSubmissions] = useState<QuizSubmission[]>([]);
   const [loading, setLoading] = useState(true);
+  const { failure, report, clear } = useLoadFailure("submissions");
 
   // Grading dialog
   const [gradeTarget, setGradeTarget] = useState<HWSubmission | null>(null);
@@ -71,18 +74,29 @@ export default function AdminSubmissions() {
 
   const loadData = async () => {
     setLoading(true);
+    clear();
 
     // Load homework submissions with joined data
-    const { data: hwData } = await supabase
+    const { data: hwData, error: hwError } = await supabase
       .from("homework_submissions")
       .select("id, homework_id, user_id, status, file_url, content, submitted_at, grade, feedback, correction_file_url")
       .order("submitted_at", { ascending: false });
 
     // Load quiz attempts that have submission files
-    const { data: quizData } = await supabase
+    const { data: quizData, error: quizError } = await supabase
       .from("quiz_attempts")
       .select("id, quiz_id, user_id, score, total_questions, completed_at, submission_file_url, correction_file_url, answers")
       .order("started_at", { ascending: false });
+
+    // Both tabs used to render "nothing submitted" over a failed request.
+    const loadError = hwError ?? quizError;
+    if (loadError) {
+      report(loadError);
+      setHwSubmissions([]);
+      setQuizSubmissions([]);
+      setLoading(false);
+      return;
+    }
 
     // Get unique user IDs and homework/quiz IDs
     const allUserIds = [
@@ -253,6 +267,11 @@ export default function AdminSubmissions() {
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
+  }
+
+  // Say the read failed rather than showing two empty tabs.
+  if (failure) {
+    return <QueryError message={failure} onRetry={loadData} />;
   }
 
   return (

@@ -2,7 +2,19 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  // Every tree that renders must be scanned. The app's components, hooks and
+  // lib live in frontend/src (the `@` alias points there) while the pages and
+  // entry live in ./src — with frontend/src missing, every utility class used
+  // only inside a component was never generated (the sidebar's `md:flex` did
+  // not exist, so the desktop sidebar stayed display:none and the hamburger
+  // appeared to do nothing).
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./frontend/src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
   	container: {
@@ -56,6 +68,17 @@ export default {
   				DEFAULT: 'hsl(var(--warning))',
   				foreground: 'hsl(var(--warning-foreground))'
   			},
+  			// The signature scale, already defined as CSS variables in
+  			// src/index.css ("new code should use --gold/--gold-soft/--gold-deep
+  			// directly"). Without these keys, classes like `bg-gold-soft/20`
+  			// silently resolved to nothing.
+  			gold: {
+  				DEFAULT: 'hsl(var(--gold))',
+  				bright: 'hsl(var(--gold-bright))',
+  				soft: 'hsl(var(--gold-soft))',
+  				deep: 'hsl(var(--gold-deep))',
+  				tint: 'hsl(var(--gold-tint))'
+  			},
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',
@@ -73,6 +96,11 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		keyframes: {
+  			// Used by the one-time-code input's caret (input-otp).
+  			'caret-blink': {
+  				'0%,70%,100%': { opacity: '1' },
+  				'20%,50%': { opacity: '0' }
+  			},
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -91,6 +119,7 @@ export default {
   			}
   		},
   		animation: {
+  			'caret-blink': 'caret-blink 1.25s ease-out infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
@@ -148,5 +177,8 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  // `@tailwindcss/typography` is a declared devDependency and the app already
+  // writes `prose prose-sm dark:prose-invert` (src/pages/Lessons.tsx), so the
+  // plugin has to be enabled or those classes do nothing.
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

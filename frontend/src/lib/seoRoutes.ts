@@ -7,7 +7,13 @@
  *  - page components via <SEOHead />
  */
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL as string) || "https://clutemark.s.study";
+// Read Vite's env defensively: this module is imported by the build-time
+// prerender plugin, and inside the bundled vite.config the `import.meta.env`
+// define is not applied — so the bare property access used to throw at config
+// load time and take the whole dev server down with it.
+const viteEnv = ((import.meta as { env?: Record<string, string | undefined> }).env) ?? {};
+
+export const SITE_URL = viteEnv.VITE_SITE_URL || "https://clutchmarks.study";
 export const SITE_NAME = "Clutch Marks";
 
 export interface RouteMeta {

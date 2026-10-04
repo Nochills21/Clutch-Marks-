@@ -12,12 +12,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
-import { topicNotesPath, topicQuizPath, topicPapersPath, slugifyTopicName } from "@/lib/topicUrls";
+import { topicNotesPath, topicQuizPath, topicPapersPath, topicSlugOf } from "@/lib/topicUrls";
+import { SITE_URL } from "@/lib/seoRoutes";
 import { usePreviewSlice, PreviewLimit } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
-import { BookOpen, FileText, Brain, Archive, Database, ArrowLeft, ArrowRight, Search, Sparkles } from "lucide-react";
+import { BookOpen, FileText, Brain, Archive, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw } from "lucide-react";
+import { loadFailureMessage } from "@/lib/net";
 
 interface BankQuestion {
   id: string;
@@ -60,6 +62,11 @@ export default function Subject() {
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [papers, setPapers] = useState<any[]>([]);
   const [questions, setQuestions] = useState<BankQuestion[]>([]);
+  // The real reason a load failed. Without it a dropped request fell through to
+  // the "isn't available yet" card and the student was told the subject does not
+  // exist.
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [retryKey, setRetryKey] = useState(0);
 
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
   const needsSubjectPick = !isAdminRole && prefsLoaded && pickedIds.size === 0;
@@ -74,22 +81,26 @@ export default function Subject() {
     let active = true;
     (async () => {
       setLoading(true);
+      setLoadError(null);
       setSearch(""); setTopicFilter(ALL); setDifficulty(ALL); setExamType(ALL);
-      const { data: subj } = await supabase
+      const { data: subj, error: subjError } = await supabase
         .from("subjects").select("*").eq("slug", slug).maybeSingle();
       if (!active) return;
+      if (subjError) { setLoadError(loadFailureMessage("this subject", subjError)); setLoading(false); return; }
       setSubject(subj ?? null);
       if (!subj) { setLoading(false); return; }
 
-      const { data: sl } = await supabase
+      const { data: sl, error: slError } = await supabase
         .from("subject_levels").select("*").eq("subject_id", subj.id).eq("level", levelCode).maybeSingle();
       if (!active) return;
+      if (slError) { setLoadError(loadFailureMessage("this subject", slError)); setLoading(false); return; }
       setSubjectLevel(sl ?? null);
       if (!sl) { setLoading(false); return; }
 
-      const { data: tp } = await supabase
+      const { data: tp, error: tpError } = await supabase
         .from("topics").select("*").eq("subject_level_id", sl.id).order("sort_order");
       if (!active) return;
+      if (tpError) { setLoadError(loadFailureMessage("this subject", tpError)); setLoading(false); return; }
       const topicList = tp ?? [];
       setTopics(topicList);
       const ids = topicList.map((t: any) => t.id);
@@ -102,6 +113,11 @@ export default function Subject() {
           supabase.from("past_papers").select("id, title, year, session, paper_number, topic_id").in("topic_id", ids).order("year", { ascending: false }),
         ]);
         if (!active) return;
+        if (ls.error || ms.error || qz.error || pp.error) {
+          setLoadError(loadFailureMessage("this subject", ls.error ?? ms.error ?? qz.error ?? pp.error));
+          setLoading(false);
+          return;
+        }
         setLessons(ls.data ?? []);
         setMaterials(ms.data ?? []);
         setQuizzes((qz.data ?? []).filter((q: any) => q.is_published));
@@ -112,14 +128,14 @@ export default function Subject() {
       setLoading(false);
     })();
     return () => { active = false; };
-  }, [slug, levelCode]);
+  }, [slug, levelCode, retryKey]);
 
   // questions come through the secure RPC (no answers exposed)
   useEffect(() => {
     if (!subjectLevel) { setQuestions([]); return; }
     let active = true;
     (async () => {
-      const { data } = await supabase.rpc("browse_questions", {
+      const { data, error: rpcError } = await supabase.rpc("browse_questions", {
         _topic_id: topicFilter === ALL ? null : topicFilter,
         _subject_level_id: subjectLevel.id,
         _difficulty: difficulty === ALL ? null : difficulty,
@@ -128,13 +144,16 @@ export default function Subject() {
         _limit: 200,
         _offset: 0,
       });
-      if (active) setQuestions(((data ?? []) as unknown as BankQuestion[]));
+      if (!active) return;
+      if (rpcError) { setLoadError(loadFailureMessage("the question bank", rpcError)); return; }
+      setQuestions(((data ?? []) as unknown as BankQuestion[]));
     })();
     return () => { active = false; };
   }, [subjectLevel, topicFilter, difficulty, examType, search]);
 
   const topicNameMap = useMemo(() => new Map(topics.map((t) => [t.id, t.name])), [topics]);
-  const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, slugifyTopicName(t.name)])), [topics]);
+  // Prefer the stored slug so links survive a topic rename.
+  const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, topicSlugOf(t)])), [topics]);
 
   const matchesText = (...values: (string | null | undefined)[]) => {
     const q = search.trim().toLowerCase();
@@ -188,7 +207,10 @@ export default function Subject() {
   }
 
   // Students only see subject-levels they picked; admins see everything.
-  if (!isAdminRole && prefsLoaded && !(pickedIds.has(subjectLevel?.id ?? ""))) {
+  // `subjectLevel` must be non-null: without that, an unknown level (or a
+  // failed lookup) also satisfied this test and the student was told they had
+  // not selected a subject they never chose.
+  if (!isAdminRole && prefsLoaded && subjectLevel && !pickedIds.has(subjectLevel.id)) {
     return (
       <Card>
         <CardHeader>
@@ -204,14 +226,17 @@ export default function Subject() {
     );
   }
 
-  if (!subject || !subjectLevel) {
+  if (loadError || !subject || !subjectLevel) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Subject not found</CardTitle>
-          <CardDescription>This subject or level isn't available yet.</CardDescription>
+          <CardTitle>{loadError ? "Couldn't load this subject" : "Subject not found"}</CardTitle>
+          <CardDescription>{loadError ?? "This subject or level isn't available yet."}</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-wrap gap-2">
+          <Button variant="outline" className="gap-2" onClick={() => setRetryKey((k) => k + 1)}>
+            <RotateCcw className="h-4 w-4" /> Try again
+          </Button>
           <Button asChild variant="outline" className="gap-2">
             <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
           </Button>
@@ -263,11 +288,11 @@ export default function Subject() {
           "@type": "Course",
           name: `${subject.name} ${LEVEL_LABELS[levelCode]}`,
           description: `Lessons, revision materials, exams and a question bank for ${subject.name} ${LEVEL_LABELS[levelCode]}.`,
-          url: `https://clutch-marks.lovable.app/study/${slug}/${level}`,
+          url: `${SITE_URL}/study/${slug}/${level}`,
           provider: {
             "@type": "EducationalOrganization",
             name: "Clutch Marks",
-            url: "https://clutch-marks.lovable.app/",
+            url: `${SITE_URL}/`,
           },
         }}
       />

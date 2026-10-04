@@ -45,7 +45,12 @@ export default function StudyPlanner() {
       .select("*")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false });
-    (q as any).then(({ data }) => {
+    (q as any).then(({ data, error }: any) => {
+      // Report instead of silently showing an empty planner.
+      if (error) {
+        toast({ title: "Could not load your plans", description: error.message, variant: "destructive" });
+        return;
+      }
       setSavedPlans(data ?? []);
     });
   };

@@ -14,10 +14,12 @@ import {
   topicQuizPath,
   topicPapersPath,
   slugifyTopicName,
+  topicSlugOf,
 } from "@/lib/topicUrls";
-import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles } from "lucide-react";
+import { SITE_URL } from "@/lib/seoRoutes";
+import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
-import { openProtectedFile } from "@/lib/contentFiles";
+import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
 import { usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
@@ -48,6 +50,8 @@ export default function TopicPapers() {
   const topicSlug = slugifyTopicName(topic ?? "");
   const [topicId, setTopicId] = useState<string | null>(null);
   const [papers, setPapers] = useState<TopicPaper[]>([]);
+  // Bumped by "Try again" to re-run the load effect.
+  const [retryKey, setRetryKey] = useState(0);
   const { toast } = useToast();
   const { isPreview, hasPaid } = usePlanAccess();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
@@ -68,13 +72,28 @@ export default function TopicPapers() {
     }
   };
 
+  // External papers route through serve-external-paper, which enforces the plan
+  // and audits the click; a gated rejection becomes an upgrade prompt.
+  const openExternal = async (url: string, label?: string) => {
+    try {
+      await openExternalPaper(url, label);
+    } catch (e: any) {
+      if (e instanceof ExternalPaperGated) {
+        toast({ title: "Full plan required", description: e.message });
+        return;
+      }
+      toast({ title: "Error", description: e?.message ?? "Unable to open link", variant: "destructive" });
+    }
+  };
+
   useEffect(() => {
     let active = true;
     (async () => {
       setLoading(true);
       setError(null);
       try {
-        const { data: sub } = await supabase.from("subjects").select("*").ilike("slug", subject ?? "").limit(1);
+        const { data: sub, error: subError } = await supabase.from("subjects").select("*").ilike("slug", subject ?? "").limit(1);
+        if (subError) throw subError;
         const subjectRow = sub?.[0] ?? null;
         if (!subjectRow) {
           setError("Subject not found");
@@ -83,7 +102,8 @@ export default function TopicPapers() {
         }
         setSubjectMeta(subjectRow);
 
-        const { data: sl } = await supabase.from("subject_levels").select("*").eq("subject_id", subjectRow.id).eq("level", (level ?? "").toUpperCase() as SubjectLevelCode).limit(1);
+        const { data: sl, error: slError } = await supabase.from("subject_levels").select("*").eq("subject_id", subjectRow.id).eq("level", (level ?? "").toUpperCase() as SubjectLevelCode).limit(1);
+        if (slError) throw slError;
         const levelRow = sl?.[0] ?? null;
         if (!levelRow) {
           setError("Level not found");
@@ -92,9 +112,16 @@ export default function TopicPapers() {
         }
         setSubjectLevel(levelRow);
 
-        const { data: tps } = await supabase.from("topics").select("*").eq("subject_level_id", levelRow.id).order("sort_order");
+        const { data: tps, error: tpsError } = await supabase.from("topics").select("*").eq("subject_level_id", levelRow.id).order("sort_order");
+        if (tpsError) throw tpsError;
         const topicList = tps ?? [];
-        const topicRow = topicList.find((t) => slugifyTopicName(t.name) === topicSlug || t.name.toLowerCase() === (topic ?? "").replace(/-/g, " ").toLowerCase());
+        const topicRow = topicList.find(
+          (t) =>
+            topicSlugOf(t) === topicSlug ||
+            // Last-resort match for URLs minted before slugs were persisted.
+            slugifyTopicName(t.name) === topicSlug ||
+            t.name.toLowerCase() === (topic ?? "").replace(/-/g, " ").toLowerCase(),
+        );
         if (!topicRow) {
           setError("Topic not found on this level");
           setLoading(false);
@@ -104,7 +131,8 @@ export default function TopicPapers() {
         setTopicId(topicRow.id);
 
         if (active && topicRow) {
-          const { data } = await supabase.from("past_papers").select("*").eq("topic_id", topicRow.id).order("year", { ascending: false });
+          const { data, error: papersError } = await supabase.from("past_papers").select("*").eq("topic_id", topicRow.id).order("year", { ascending: false });
+          if (papersError) throw papersError;
           if (active) setPapers((data ?? []) as unknown as TopicPaper[]);
         }
       } catch (e: any) {
@@ -114,7 +142,7 @@ export default function TopicPapers() {
       }
     })();
     return () => { active = false; };
-  }, [subject, level, topic, topicSlug]);
+  }, [subject, level, topic, topicSlug, retryKey]);
 
   if (!isAdminRole && !prefsLoaded) {
     return (
@@ -162,10 +190,15 @@ export default function TopicPapers() {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Past papers not found</CardTitle>
+          <CardTitle>
+            {error && !/not found/i.test(error) ? "Couldn't load these past papers" : "Past papers not found"}
+          </CardTitle>
           <CardDescription>{error ?? "No past papers have been linked to this topic yet."}</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-wrap gap-2">
+          <Button variant="outline" className="gap-2" onClick={() => setRetryKey((k) => k + 1)}>
+            <RotateCcw className="h-4 w-4" /> Try again
+          </Button>
           <Button asChild variant="outline" className="gap-2">
             <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
           </Button>
@@ -190,18 +223,18 @@ export default function TopicPapers() {
           "@type": "LearningResource",
           name: `${topicTitle} — Past Papers & Mark Schemes`,
           description: `Past papers and mark schemes for ${topicTitle} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, organised by year and session.`,
-          url: `https://clutch-marks.lovable.app${topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
+          url: `${SITE_URL}${topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
           educationalLevel: LEVEL_LABELS[levelCode],
           about: { "@type": "Thing", name: topicTitle },
           isPartOf: {
             "@type": "Course",
             name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-            url: `https://clutch-marks.lovable.app/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
           },
           provider: {
             "@type": "EducationalOrganization",
             name: "Clutch Marks",
-            url: "https://clutch-marks.lovable.app/",
+            url: `${SITE_URL}/`,
           },
         }}
       />
@@ -298,10 +331,13 @@ export default function TopicPapers() {
                     </Badge>
                   )}
                   {p.source_url && (
-                    <Button asChild size="sm" variant="outline" className="gap-1.5 text-xs">
-                      <a href={p.source_url} target="_blank" rel="noopener noreferrer">
-                        Official paper <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="gap-1.5 text-xs"
+                      onClick={() => openExternal(p.source_url!, p.title)}
+                    >
+                      Official paper <ExternalLink className="h-3.5 w-3.5" />
                     </Button>
                   )}
                 </div>

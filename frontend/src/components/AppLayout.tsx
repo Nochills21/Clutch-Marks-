@@ -10,6 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { NotificationCenter } from "@/components/NotificationCenter";
 import { ContentProtection } from "@/components/ContentProtection";
+import { SubjectFilterNotice } from "@/components/SubjectFilterNotice";
 import { useDeviceType } from "@/hooks/useDevice";
 
 export function AppLayout() {
@@ -129,6 +130,8 @@ export function AppLayout() {
             <NotificationCenter />
           </header>
           <main className="flex-1 p-4 sm:p-5 md:p-7 lg:p-9">
+            {/* Says what the subject picker is hiding, and undoes it. */}
+            <SubjectFilterNotice />
             <Outlet />
           </main>
         </div>

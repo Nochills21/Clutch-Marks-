@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { exportLessonToPdf } from "@/lib/pdfExport";
 import { SEOHead } from "@/components/SEOHead";
 import { openSignedFile } from "@/lib/contentFiles";
-import { topicNotesPath, slugifyTopicName } from "@/lib/topicUrls";
+import { topicNotesPath, topicSlugOf } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { usePreviewSlice, PreviewLimit, usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
@@ -31,7 +31,7 @@ export default function Lessons() {
   const [selectedLesson, setSelectedLesson] = useState<any>(null);
   const [notes, setNotes] = useState<any[]>([]);
   const [topicPaths, setTopicPaths] = useState<Record<string, string | undefined>>({});
-  const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, slugifyTopicName(t.name)])), [topics]);
+  const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, topicSlugOf(t)])), [topics]);
   const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function Lessons() {
       for (const t of topicsList) {
         const sl = slMap.get((t as any).subject_level_id);
         const slug = sl ? subMap.get(sl.subject_id) : undefined;
-        paths[t.id] = slug && sl ? topicNotesPath(slug, sl.level.toLowerCase(), slugifyTopicName(t.name)) : undefined;
+        paths[t.id] = slug && sl ? topicNotesPath(slug, sl.level.toLowerCase(), topicSlugOf(t)) : undefined;
       }
       setTopicPaths(paths);
     };
@@ -262,7 +262,7 @@ export default function Lessons() {
                           className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm hover:bg-muted transition-colors text-left"
                         >
                           <FileText className="h-4 w-4 text-primary shrink-0" />
-                          <span className="flex-1 truncate">{n.title}</span>
+                          <span className="min-w-0 flex-1 truncate">{n.title}</span>
                           <span className="text-xs text-muted-foreground">Notes</span>
                         </button>
                       );

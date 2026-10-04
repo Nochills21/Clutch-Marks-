@@ -11,6 +11,8 @@ import { Plus, Pencil, Trash2, ChevronDown, ChevronUp, Layers } from "lucide-rea
 import { useToast } from "@/hooks/useToast";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 
 export default function AdminFlashcards() {
   const { toast } = useToast();
@@ -26,12 +28,23 @@ export default function AdminFlashcards() {
   const [cardFront, setCardFront] = useState("");
   const [cardBack, setCardBack] = useState("");
   const [editingCard, setEditingCard] = useState<any>(null);
+  const { failure, report, clear } = useLoadFailure("flashcard sets");
 
   const load = async () => {
+    clear();
     const [setsRes, topicsRes] = await Promise.all([
       supabase.from("flashcard_sets").select("*, topics(name)").order("created_at", { ascending: false }),
       supabase.from("topics").select("*").order("sort_order"),
     ]);
+    // `?? []` on a failed request rendered "No flashcard sets yet" over a console
+    // that actually holds data.
+    const error = setsRes.error ?? topicsRes.error;
+    if (error) {
+      report(error);
+      setSets([]);
+      setTopics([]);
+      return;
+    }
     setSets(setsRes.data ?? []);
     setTopics(topicsRes.data ?? []);
   };
@@ -39,7 +52,13 @@ export default function AdminFlashcards() {
   useEffect(() => { load(); }, []);
 
   const loadCards = async (setId: string) => {
-    const { data } = await supabase.from("flashcards").select("*").eq("set_id", setId).order("sort_order");
+    const { data, error } = await supabase.from("flashcards").select("*").eq("set_id", setId).order("sort_order");
+    // A failed read looked like a deck that has no cards.
+    if (error) {
+      report(error);
+      setCards([]);
+      return;
+    }
     setCards(data ?? []);
   };
 
@@ -150,6 +169,8 @@ export default function AdminFlashcards() {
         </Dialog>
       </div>
 
+      {failure && <QueryError message={failure} onRetry={load} />}
+
       {sets.length === 0 && (
         <Card className="border-dashed"><CardContent className="py-12 text-center text-muted-foreground"><Layers className="mx-auto h-10 w-10 mb-3 opacity-40" />No flashcard sets yet. Create one to get started.</CardContent></Card>
       )}
@@ -167,8 +188,8 @@ export default function AdminFlashcards() {
                 {s.topics?.name && <Badge variant="secondary" className="shrink-0 max-w-full">{s.topics.name}</Badge>}
               </div>
               <div className="flex items-center gap-2 shrink-0">
-                <Button variant="ghost" size="icon" onClick={(e) => { e.stopPropagation(); editSet(s); }}><Pencil className="h-4 w-4" /></Button>
-                <Button variant="ghost" size="icon" onClick={(e) => { e.stopPropagation(); deleteSet(s.id); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                <Button variant="ghost" size="icon" aria-label={`Edit ${s.title}`} title={`Edit ${s.title}`} onClick={(e) => { e.stopPropagation(); editSet(s); }}><Pencil className="h-4 w-4" /></Button>
+                <Button variant="ghost" size="icon" aria-label={`Delete ${s.title}`} title={`Delete ${s.title}`} onClick={(e) => { e.stopPropagation(); deleteSet(s.id); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>
                 {expandedSet === s.id ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </div>
             </div>
@@ -195,8 +216,8 @@ export default function AdminFlashcards() {
                           <p className="text-sm font-medium truncate">{c.front}</p>
                           <p className="text-xs text-muted-foreground truncate">{c.back}</p>
                         </div>
-                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => startEditCard(c)}><Pencil className="h-3 w-3" /></Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => deleteCard(c.id)}><Trash2 className="h-3 w-3 text-destructive" /></Button>
+                        <Button variant="ghost" size="icon" className="h-8 w-8" aria-label={`Edit card “${c.front}”`} title="Edit card" onClick={() => startEditCard(c)}><Pencil className="h-3 w-3" /></Button>
+                        <Button variant="ghost" size="icon" className="h-8 w-8" aria-label={`Delete card “${c.front}”`} title="Delete card" onClick={() => deleteCard(c.id)}><Trash2 className="h-3 w-3 text-destructive" /></Button>
                       </div>
                     ))}
                   </div>

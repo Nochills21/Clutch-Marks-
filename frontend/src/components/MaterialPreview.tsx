@@ -24,12 +24,14 @@ export function MaterialPreview({ fileUrl, previewUrl, pageCount, sourceRange, v
   useEffect(() => {
     let cancelled = false;
     setFailed(false);
-    if (!previewUrl) { setSrc(null); return; }
+    // The compact variant renders no image, so signing a URL for it burned a
+    // storage round-trip per row for nothing.
+    if (variant === "compact" || !previewUrl) { setSrc(null); return; }
     getSignedUrl("study-materials", previewUrl, 600)
       .then((url) => { if (!cancelled) setSrc(url); })
       .catch(() => { if (!cancelled) setFailed(true); });
     return () => { cancelled = true; };
-  }, [previewUrl]);
+  }, [previewUrl, variant]);
 
   const badges = (
     <>
@@ -63,7 +65,17 @@ export function MaterialPreview({ fileUrl, previewUrl, pageCount, sourceRange, v
     <div className="flex shrink-0 flex-col items-center gap-1">
       <div className="relative h-16 w-14 overflow-hidden rounded-md border bg-white shadow-sm dark:bg-muted/40">
         {src ? (
-          <img src={src} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
+          // Decorative: the material title sits next to it, so an empty alt is
+          // correct and keeps screen readers from repeating the title.
+          <img
+            src={src}
+            alt=""
+            width={56}
+            height={64}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover object-top"
+          />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
             <FileText className="h-4 w-4 animate-pulse text-muted-foreground/40" />

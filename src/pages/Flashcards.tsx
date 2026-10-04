@@ -1,5 +1,5 @@
 // Spaced-repetition flashcard study.
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +13,10 @@ import { SEOHead } from "@/components/SEOHead";
 import { usePlanAccess, FREE_PREVIEW_LIMIT, PreviewLimit } from "@/components/PreviewLimit";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { QueryError } from "@/components/QueryError";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { useToast } from "@/hooks/useToast";
+import { loadFailureMessage } from "@/lib/net";
 
 // SM-2 Algorithm
 function sm2(quality: number, prev: { ease_factor: number; interval_days: number; repetitions: number }) {
@@ -40,6 +44,8 @@ const qualityMap = [
 
 export default function Flashcards() {
   const { user } = useAuth();
+  const { toast } = useToast();
+  const { failure, report } = useLoadFailure("your flashcard sets");
   const [sets, setSets] = useState<any[]>([]);
   const [topics, setTopics] = useState<any[]>([]);
   const [filter, setFilter] = useState("all");
@@ -56,21 +62,27 @@ export default function Flashcards() {
       supabase.from("flashcard_sets").select("*, topics(name), flashcards(id)").order("created_at", { ascending: false }),
       supabase.from("topics").select("*").order("sort_order"),
     ]);
+    if (setsRes.error || topicsRes.error) {
+      report(setsRes.error ?? topicsRes.error);
+      return;
+    }
     setSets(setsRes.data ?? []);
     setTopics(topicsRes.data ?? []);
-  }, []);
+  }, [report]);
 
   // Load due counts per set
   const loadDueCounts = useCallback(async () => {
     if (!user) return;
-    const { data: progress } = await supabase.from("flashcard_progress").select("flashcard_id, next_review_at").eq("user_id", user.id);
+    const { data: progress, error: progressError } = await supabase.from("flashcard_progress").select("flashcard_id, next_review_at").eq("user_id", user.id);
+    if (progressError) { report(progressError); return; }
     const now = new Date();
     const dueMap: Record<string, boolean> = {};
     (progress ?? []).forEach((p: any) => {
       if (new Date(p.next_review_at) <= now) dueMap[p.flashcard_id] = true;
     });
 
-    const { data: allCards } = await supabase.from("flashcards").select("id, set_id");
+    const { data: allCards, error: allCardsError } = await supabase.from("flashcards").select("id, set_id");
+    if (allCardsError) { report(allCardsError); return; }
     const reviewed = new Set((progress ?? []).map((p: any) => p.flashcard_id));
     const counts: Record<string, number> = {};
     (allCards ?? []).forEach((c: any) => {
@@ -80,14 +92,23 @@ export default function Flashcards() {
       }
     });
     setDueCount(counts);
-  }, [user]);
+  }, [user, report]);
 
   useEffect(() => { loadSets(); loadDueCounts(); }, [loadSets, loadDueCounts]);
 
   const startStudy = async (setId: string) => {
     if (!user) return;
-    const { data: cards } = await supabase.from("flashcards").select("*").eq("set_id", setId).order("sort_order");
-    const { data: prog } = await supabase.from("flashcard_progress").select("*").eq("user_id", user.id);
+    const { data: cards, error: cardsError } = await supabase.from("flashcards").select("*").eq("set_id", setId).order("sort_order");
+    const { data: prog, error: progError } = await supabase.from("flashcard_progress").select("*").eq("user_id", user.id);
+    // Without this the deck came back empty and tapping a set did nothing.
+    if (cardsError || progError) {
+      toast({
+        title: "Couldn't open that set",
+        description: loadFailureMessage("these flashcards", cardsError ?? progError),
+        variant: "destructive",
+      });
+      return;
+    }
     const pMap: Record<string, any> = {};
     (prog ?? []).forEach((p: any) => { pMap[p.flashcard_id] = p; });
     setProgressMap(pMap);
@@ -129,6 +150,7 @@ export default function Flashcards() {
   };
 
   const { isPreview, hasPaid, loading: planLoading } = usePlanAccess();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   // Topic ids belonging to the subject-levels the student picked. Admins and
   // unauthenticated previews see everything; students only see their picked
@@ -144,41 +166,42 @@ export default function Flashcards() {
     return topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id);
   }, [topics, pickedIds, isAdminRole, prefsLoaded]);
 
+  // Everything the student is entitled to see, scoped to their picked subjects
+  // and the active tab. Kept separate from the free-plan slice so the header
+  // can say "4 of 8 sets" instead of comparing against all 100 in the catalogue.
+  const scopedSets = useMemo(() => sets.filter((s) => {
+    // Subject/level gate: only show sets whose topic belongs to a picked
+    // subject-level. Admins and the loading/preview states bypass this.
+    if (!isAdminRole && prefsLoaded && pickedTopicIds.size > 0) {
+      if (!pickedTopicIds.has(s.topic_id)) return false;
+    }
+    if (filter === "all") return true;
+    if (filter === "due") return (dueCount[s.id] ?? 0) > 0;
+    return s.topic_id === filter;
+  }), [sets, filter, dueCount, isAdminRole, prefsLoaded, pickedTopicIds]);
+
   const filteredSets = useMemo(() => {
-    const out = sets.filter((s) => {
-      // Subject/level gate: only show sets whose topic belongs to a picked
-      // subject-level. Admins and the loading/preview states bypass this.
-      if (!isAdminRole && prefsLoaded && pickedTopicIds.size > 0) {
-        if (!pickedTopicIds.has(s.topic_id)) return false;
-      }
-      if (filter === "all") return true;
-      if (filter === "due") return (dueCount[s.id] ?? 0) > 0;
-      return s.topic_id === filter;
-    });
     // Free-plan preview: mirror Lessons — show at most FREE_PREVIEW_LIMIT
     // flashcard sets per subject-level, so a free student picking "Ol Math"
     // never sees Physics/CS sets and only gets a small slice of Ol Math.
-    if (isPreview && !hasPaid && out.length > 0) {
-      const byLevel = new Map<string, any[]>();
-      for (const s of out) {
-        const tid = s.topic_id;
-        const sl = topics.find((t: any) => t.id === tid)?.subject_level_id;
-        if (sl) byLevel.set(sl, (byLevel.get(sl) || []).concat(s));
-      }
-      const limited = new Set<string>();
-      for (const [, items] of byLevel) {
-        items.slice(0, FREE_PREVIEW_LIMIT).forEach((s) => limited.add(s.id));
-      }
-      return out.filter((s) => limited.has(s.id));
+    if (!(isPreview && !hasPaid) || scopedSets.length === 0) return scopedSets;
+    const byLevel = new Map<string, any[]>();
+    for (const s of scopedSets) {
+      const tid = s.topic_id;
+      const sl = topics.find((t: any) => t.id === tid)?.subject_level_id;
+      if (sl) byLevel.set(sl, (byLevel.get(sl) || []).concat(s));
     }
-    return out;
-  }, [sets, filter, dueCount, isAdminRole, prefsLoaded, pickedTopicIds, isPreview, hasPaid, topics, FREE_PREVIEW_LIMIT]);
+    const limited = new Set<string>();
+    for (const [, items] of byLevel) {
+      items.slice(0, FREE_PREVIEW_LIMIT).forEach((s) => limited.add(s.id));
+    }
+    return scopedSets.filter((s) => limited.has(s.id));
+  }, [scopedSets, isPreview, hasPaid, topics, FREE_PREVIEW_LIMIT]);
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any flashcard content is shown. While preferences are still
   // loading we render nothing — never the content itself. Placed after every
   // hook so the early returns never change hook order.
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
   if (!isAdminRole && !prefsLoaded) {
     return (
       <div className="flex justify-center py-24">
@@ -272,10 +295,12 @@ export default function Flashcards() {
         <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>
         <p className="text-muted-foreground text-sm">
           {isPreview && !hasPaid
-            ? `Preview: ${filteredSets.length} of ${sets.length} sets — full access unlocks everything.`
+            ? `Preview: ${filteredSets.length} of ${scopedSets.length} sets — full access unlocks everything.`
             : "Study with spaced repetition to remember key concepts"}
         </p>
       </div>
+
+      {failure && <QueryError message={failure} onRetry={() => { window.location.reload(); }} />}
 
       <Tabs value={filter} onValueChange={setFilter}>
         <TabsList className="flex-wrap h-auto justify-start gap-1 max-w-full overflow-x-auto">
@@ -318,8 +343,20 @@ export default function Flashcards() {
                     className="w-full gap-2 text-xs h-7"
                     onClick={async (e) => {
                       e.stopPropagation();
-                      const { data: cards } = await supabase.from("flashcards").select("front, back").eq("set_id", s.id).order("sort_order");
-                      if (cards && cards.length > 0) exportFlashcardsToPdf(s.title, cards);
+                      const { data: cards, error: exportError } = await supabase.from("flashcards").select("front, back").eq("set_id", s.id).order("sort_order");
+                      if (exportError) {
+                        toast({
+                          title: "Couldn't export this set",
+                          description: loadFailureMessage("these flashcards", exportError),
+                          variant: "destructive",
+                        });
+                        return;
+                      }
+                      if (!cards || cards.length === 0) {
+                        toast({ title: "Nothing to export", description: "This set has no cards yet." });
+                        return;
+                      }
+                      exportFlashcardsToPdf(s.title, cards);
                     }}
                   >
                     <Download className="h-3 w-3" /> Export PDF
@@ -328,9 +365,9 @@ export default function Flashcards() {
               </Card>
             ))}
           </div>
-          {isPreview && !hasPaid && filteredSets.length < sets.length && (
+          {isPreview && !hasPaid && filteredSets.length < scopedSets.length && (
             <PreviewLimit
-              hiddenCount={sets.length - filteredSets.length}
+              hiddenCount={scopedSets.length - filteredSets.length}
               what="flashcard sets"
             />
           )}

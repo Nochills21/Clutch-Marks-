@@ -11,6 +11,8 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/useToast";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { Heart, Link2, Unlink, RefreshCw, BookOpen, Brain, Activity } from "lucide-react";
 
@@ -30,29 +32,49 @@ export function ParentDashboard() {
   const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
   const [statsLoading, setStatsLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
+  // Two independent loads, so two independent failure reports.
+  const { failure, report, clear } = useLoadFailure("your linked students");
+  const { failure: statsFailure, report: reportStats, clear: clearStats } =
+    useLoadFailure("progress for this student");
+  const [statsReload, setStatsReload] = useState(0);
 
   const loadLinks = useCallback(async () => {
     if (!user) return;
     setLoading(true);
     // Plain select + per-link profile lookup: the embed hint is ambiguous in
     // PostgREST (table has FKs to both auth.users and profiles).
-    const { data: links } = await supabase
+    clear();
+    const { data: links, error: linksError } = await supabase
       .from("parent_student_links")
       .select("student_id")
       .eq("parent_id", user.id);
+    // Without this, a failed read fell through to the "No Student Linked"
+    // empty state and told the parent they had no children.
+    if (linksError) {
+      report(linksError);
+      setChildren([]);
+      setActive(null);
+      setLoading(false);
+      return;
+    }
     const kids: Child[] = [];
     for (const l of links ?? []) {
-      const { data: p } = await supabase
+      const { data: p, error: profileError } = await supabase
         .from("profiles")
         .select("full_name, email, user_id")
         .eq("user_id", l.student_id)
         .maybeSingle();
+      // A failed lookup used to drop that child from the list silently.
+      if (profileError) {
+        report(profileError);
+        continue;
+      }
       if (p) kids.push({ user_id: p.user_id, full_name: p.full_name, email: p.email });
     }
     setChildren(kids);
     setActive(prev => kids.find(k => k.user_id === prev?.user_id) ?? kids[0] ?? null);
     setLoading(false);
-  }, [user]);
+  }, [clear, report, user]);
 
   useEffect(() => { loadLinks(); }, [loadLinks]);
 
@@ -60,6 +82,7 @@ export function ParentDashboard() {
     if (!active) { setStats({ attempts: [], lessons: [] }); return; }
     let cancelled = false;
     setStatsLoading(true);
+    clearStats();
     (async () => {
       const [attempts, lessons] = await Promise.all([
         supabase.from("quiz_attempts")
@@ -76,20 +99,33 @@ export function ParentDashboard() {
           .limit(10),
       ]);
       if (cancelled) return;
+      const statsError = attempts.error ?? lessons.error;
+      if (statsError) {
+        reportStats(statsError);
+        setStats({ attempts: [], lessons: [] });
+        setStatsLoading(false);
+        return;
+      }
       // Resolve display titles with plain lookups (embeds are ambiguous on these
       // tables because of dual FKs to auth.users and public tables).
       const titleMap = new Map<string, string>();
       const quizIds = [...new Set((attempts.data ?? []).map((a: any) => a.quiz_id).filter(Boolean))];
       const lessonIds = [...new Set((lessons.data ?? []).map((l: any) => l.lesson_id).filter(Boolean))];
+      let lookupError: unknown = null;
       if (quizIds.length) {
-        const { data } = await supabase.from("quizzes").select("id, title").in("id", quizIds);
+        const { data, error } = await supabase.from("quizzes").select("id, title").in("id", quizIds);
+        lookupError ??= error;
         (data ?? []).forEach((q: any) => titleMap.set(`q:${q.id}`, q.title));
       }
       if (lessonIds.length) {
-        const { data } = await supabase.from("lessons").select("id, title").in("id", lessonIds);
+        const { data, error } = await supabase.from("lessons").select("id, title").in("id", lessonIds);
+        lookupError ??= error;
         (data ?? []).forEach((l: any) => titleMap.set(`l:${l.id}`, l.title));
       }
       if (cancelled) return;
+      // Titles are cosmetic — a failed lookup still shows "Quiz"/"Lesson" — but
+      // say so rather than letting the generic label look like real data.
+      if (lookupError) reportStats(lookupError);
       setStats({
         attempts: (attempts.data ?? []).map((a: any) => ({ ...a, quiz_title: titleMap.get(`q:${a.quiz_id}`) ?? "Quiz" })),
         lessons: (lessons.data ?? []).map((l: any) => ({ ...l, lesson_title: titleMap.get(`l:${l.lesson_id}`) ?? "Lesson" })),
@@ -97,7 +133,7 @@ export function ParentDashboard() {
       setStatsLoading(false);
     })();
     return () => { cancelled = true; };
-  }, [active]);
+  }, [active, statsReload, clearStats, reportStats]);
 
   const linkChild = async () => {
     const email = childEmail.trim().toLowerCase();
@@ -121,11 +157,14 @@ export function ParentDashboard() {
         return;
       }
       // Verify the target really is a student before linking.
-      const { data: roleRow } = await supabase
+      const { data: roleRow, error: roleError } = await supabase
         .from("user_roles")
         .select("role")
         .eq("user_id", profile.user_id)
         .maybeSingle();
+      // Otherwise a failed role read reported "only students can be linked",
+      // blaming the user for our own failed request.
+      if (roleError) throw roleError;
       if (roleRow?.role !== "student") {
         toast({ title: "Cannot link", description: "Only student accounts can be linked.", variant: "destructive" });
         return;
@@ -205,7 +244,9 @@ export function ParentDashboard() {
         </CardContent>
       </Card>
 
-      {!active ? (
+      {failure ? (
+        <QueryError message={failure} onRetry={loadLinks} />
+      ) : !active ? (
         <Card>
           <CardContent className="flex flex-col items-center justify-center py-14 text-center">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 mb-5">
@@ -219,6 +260,10 @@ export function ParentDashboard() {
         </Card>
       ) : (
         <>
+          {statsFailure && (
+            <QueryError message={statsFailure} onRetry={() => setStatsReload(n => n + 1)} />
+          )}
+
           <div className="grid gap-4 sm:grid-cols-3">
             <Card><CardContent className="p-4 flex items-center gap-3">
               <Brain className="h-8 w-8 text-primary" />
