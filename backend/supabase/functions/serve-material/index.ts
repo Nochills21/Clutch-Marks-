@@ -2,6 +2,14 @@
 // watermark burned into every page (tiled diagonal "Clutch Marks" + identity
 // footer), then logs the download to the admin audit trail.
 //
+// Entitlement is enforced here, not just in the UI: an account without an active
+// paid subscription (and not an admin) receives only the first
+// FREE_PREVIEW_PAGES pages of the document. The free-plan slide was previously
+// computed in the browser (usePreviewSliceWithLimit), which hid rows from the
+// list but still served the complete file to anyone who asked — the full text
+// was one network-tab request away. Truncating at serve time means the rest of
+// the document never reaches an unentitled client at all.
+//
 // Why server-side: client-side watermarks are trivially stripped; stamping the
 // bytes at serve time means any re-shared copy still carries the identity.
 //
@@ -17,6 +25,9 @@ const corsHeaders = {
 
 const ALLOWED_BUCKETS = new Set(["study-materials", "past-papers", "quiz-files"]);
 
+/** Pages a non-paying account receives. Mirrors FREE_PREVIEW_LIMIT's intent. */
+const FREE_PREVIEW_PAGES = 3;
+
 function json(body: object, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -24,7 +35,22 @@ function json(body: object, status = 200) {
   });
 }
 
-const escapePdf = (s: string) => s.replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
+/**
+ * HTTP-safe filename for `Content-Disposition`.
+ *
+ * The original used a PDF-string escaper here, which escapes backslashes and
+ * parentheses — the wrong alphabet for an HTTP header. A filename containing a
+ * quote or a newline could break out of the quoted value, so this strips
+ * anything that is not plainly safe instead.
+ */
+function safeFilename(name: string): string {
+  const cleaned = name
+    .replace(/[^\w.\- ]+/g, "_")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 120);
+  return cleaned || "file";
+}
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -55,6 +81,22 @@ Deno.serve(async (req) => {
       return json({ error: "Your account is awaiting approval" }, 403);
     }
 
+    // ── Entitlement: does this account receive the whole document? ─────────
+    // Same rule as the client's useSubscription: admins always do; a paid
+    // subscription does while it is active and has not lapsed.
+    let hasFullAccess = roleRow.role === "admin";
+    if (!hasFullAccess) {
+      const { data: sub } = await adminClient
+        .from("subscriptions")
+        .select("status, ends_at")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      hasFullAccess =
+        !!sub && sub.status === "active" && (!sub.ends_at || new Date(sub.ends_at) > new Date());
+    }
+
     // ── Request validation ─────────────────────────────────────────────────
     const { bucket, path } = await req.json().catch(() => ({ bucket: null, path: null }));
     if (!ALLOWED_BUCKETS.has(bucket) || typeof path !== "string" || !path.trim()) {
@@ -77,21 +119,37 @@ Deno.serve(async (req) => {
     if (!isPdf) {
       return new Response(buf, {
         headers: {
+          // corsHeaders is REQUIRED here: the caller is the app origin, so a
+          // response without Access-Control-Allow-Origin is blocked by the
+          // browser even after a successful preflight. Omitting it made every
+          // download fall back to a plain signed URL — unwatermarked and
+          // unaudited.
+          ...corsHeaders,
           "Content-Type": fileData.type || "application/octet-stream",
-          "Content-Disposition": `inline; filename="${path.split("/").pop() ?? "file"}"`,
+          "Content-Disposition": `inline; filename="${safeFilename(path.split("/").pop() ?? "file")}"`,
           "Cache-Control": "private, no-store",
         },
       });
     }
 
     // ── Identity string burned into the document ───────────────────────────
-    const stamp = `Licensed to ${user.email ?? user.id} · ClutchPrep`;
+    const stamp = `Licensed to ${user.email ?? user.id} · Clutch Marks`;
     const now = new Date();
     const utc = now.toISOString().replace("T", " ").slice(0, 19) + " UTC";
 
     const pdf = await PDFDocument.load(buf);
-    const font = await pdf.embedFont(StandardFonts.Helvetica);
-    const pages = pdf.getPages();
+    const totalPages = pdf.getPageCount();
+
+    // Free accounts are handed just the opening pages of the real document.
+    let doc = pdf;
+    if (!hasFullAccess && totalPages > FREE_PREVIEW_PAGES) {
+      doc = await PDFDocument.create();
+      const kept = await doc.copyPages(pdf, pdf.getPageIndices().slice(0, FREE_PREVIEW_PAGES));
+      for (const page of kept) doc.addPage(page);
+    }
+
+    const font = await doc.embedFont(StandardFonts.Helvetica);
+    const pages = doc.getPages();
 
     for (const page of pages) {
       const { width, height } = page.getSize();
@@ -105,7 +163,7 @@ Deno.serve(async (req) => {
         for (let x = -stepX; x < width + stepX; x += stepX) {
           // Stagger alternate rows for a woven look.
           const offsetX = (Math.round(y / stepY) % 2 === 0) ? 0 : stepX / 2;
-          page.drawText("CLUTCH", {
+          page.drawText("CLUTCH MARKS", {
             x: x + offsetX,
             y,
             size: fontSize,
@@ -128,14 +186,24 @@ Deno.serve(async (req) => {
       });
     }
 
+    // Truncated previews say so on the page itself, so a shared screenshot
+    // cannot be mistaken for the whole document.
+    if (pages.length < totalPages) {
+      const last = pages[pages.length - 1];
+      last.drawText(
+        `Preview: pages 1-${pages.length} of ${totalPages} - Clutch Marks`,
+        { x: 24, y: 30, size: 9, font, color: rgb(0.5, 0.2, 0.2), opacity: 0.9 },
+      );
+    }
+
     // Traceable metadata (survives many PDF tools even when visuals are cropped).
-    pdf.setTitle(path.split("/").pop() ?? "ClutchPrep material");
-    pdf.setProducer("ClutchPrep serve-material");
-    pdf.setKeywords([`license:${user.email ?? user.id}`, `ts:${now.toISOString()}`]);
+    doc.setTitle(path.split("/").pop() ?? "Clutch Marks material");
+    doc.setProducer("Clutch Marks serve-material");
+    doc.setKeywords([`license:${user.email ?? user.id}`, `ts:${now.toISOString()}`]);
 
     // useObjectStreams:false keeps the info dictionary plaintext — the
     // traceability metadata stays greppable in any PDF inspector.
-    const stamped = await pdf.save({ useObjectStreams: false });
+    const stamped = await doc.save({ useObjectStreams: false });
 
     // ── Audit: attribute this serve to the receiving account ───────────────
     // Awaited (not fire-and-forget): the isolate can terminate right after the
@@ -146,7 +214,13 @@ Deno.serve(async (req) => {
       p_entity: bucket,
       p_entity_id: null,
       p_entity_label: label,
-      p_details: { path, user_id: user.id, pages: pages.length },
+      p_details: {
+        path,
+        user_id: user.id,
+        pages: pages.length,
+        total_pages: totalPages,
+        preview: pages.length < totalPages,
+      },
       p_actor_id: user.id,
       p_actor_username: user.email ?? user.id,
     });
@@ -154,9 +228,13 @@ Deno.serve(async (req) => {
 
     return new Response(stamped as unknown as BodyInit, {
       headers: {
+        ...corsHeaders,
         "Content-Type": "application/pdf",
-        "Content-Disposition": `inline; filename="${escapePdf(label) || "file.pdf"}"`,
+        "Content-Disposition": `inline; filename="${safeFilename(label)}"`,
         "Cache-Control": "private, no-store",
+        // Lets a client (or a support query) see that this was a truncated serve.
+        "X-Clutchmarks-Preview": pages.length < totalPages ? "truncated" : "full",
+        "X-Clutchmarks-Pages": String(pages.length),
       },
     });
   } catch (e) {

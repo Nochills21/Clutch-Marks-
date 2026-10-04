@@ -39,9 +39,9 @@ Resend sends email. **No shared hosting anywhere.**
 - **Edge Functions** (Deno) — `resolve-login-email`, `welcome-email`,
   `weekly-digest`, `feedback-alert`, `email-events` (Resend webhooks),
   `manage-accounts`, `promote-admin`, `quiz-feedback`, `generate-questions`,
-  `study-planner`.
+  `study-planner`, `past-papers-harvest`.
 - **pg_cron + pg_net** — nightly audit-log archiving; weekly parent digest
-  (Mondays 07:00 UTC).
+  (Mondays 07:00 UTC); weekly past-paper link check / harvest (Mondays 06:00 UTC).
 
 ## 3. Resend — transactional email
 
@@ -70,7 +70,8 @@ without any hosting plan at all.
 - Production URL: `https://clutchmarks.com` (update Supabase Auth `site_url` when live).
 - Local dev: `npm run dev` (Vite, port 8080).
 - Secrets inventory: `RESEND_API_KEY`, `WELCOME_FROM_EMAIL`, `RESEND_WEBHOOK_SECRET`,
-  `DIGEST_SECRET`, `FEEDBACK_ALERT_SECRET`, `WELCOME_SECRET` (Supabase function
-  secrets / `private.app_secrets`); `VITE_PLAUSIBLE_DOMAIN` (Pages build env).
+  `DIGEST_SECRET`, `FEEDBACK_ALERT_SECRET`, `WELCOME_SECRET`, `HARVEST_SECRET`
+  (Supabase function secrets / `private.app_secrets`); `VITE_PLAUSIBLE_DOMAIN`
+  (Pages build env).
 - Deploy checklist: push to `main` → Pages auto-deploys → apply Supabase
   migrations manually via the apply-migration script → verify preview.

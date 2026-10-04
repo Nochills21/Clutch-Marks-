@@ -67,7 +67,7 @@ export function BookmarkedSection() {
                       className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                     >
                       <FileText className="h-[18px] w-[18px] shrink-0" />
-                      <span className="truncate">{m.title}</span>
+                      <span className="min-w-0 truncate">{m.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

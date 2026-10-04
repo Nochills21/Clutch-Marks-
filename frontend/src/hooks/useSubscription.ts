@@ -5,6 +5,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
+import { retrySupabase } from "@/lib/net";
 
 /** How many items per list a free (non-paying) user may open, per subject-level. */
 export const FREE_PREVIEW_LIMIT = 2;
@@ -27,19 +28,30 @@ export function useSubscription(): PlanState {
     if (!user || role === "admin") { setLoading(false); return; }
     let cancelled = false;
     setLoading(true);
-    supabase
-      .from("subscriptions")
-      .select("plan_id, status, ends_at")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
-      .limit(1)
+    // As with subject picks, `loading` must settle either way or a single
+    // dropped request pins the plan gate open forever.
+    retrySupabase(() =>
+      supabase
+        .from("subscriptions")
+        .select("plan_id, status, ends_at")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false })
+        .limit(1),
+    )
       .then(({ data }) => {
         if (cancelled) return;
         const sub = data?.[0];
         const active = !!sub && sub.status === "active" && (!sub.ends_at || new Date(sub.ends_at) > new Date());
         setPlanId(active ? sub!.plan_id : "free");
         setHasPaid(active);
-        setLoading(false);
+      })
+      .catch((error) => {
+        // Fail to the free plan rather than to an endless spinner; `refresh()`
+        // (and any remount) retries.
+        console.error("Could not load subscription:", error);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
       });
     return () => { cancelled = true; };
   }, [user, role, tick]);

@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/useToast";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { Check, X, RefreshCw, Landmark, Wallet, ReceiptText, Download } from "lucide-react";
 
@@ -36,14 +38,24 @@ export default function AdminPayments() {
   const { role } = useAuth();
   const [rows, setRows] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const { failure, report, clear } = useLoadFailure("subscription requests");
 
   const load = async () => {
     setLoading(true);
-    const { data } = await supabase
+    clear();
+    const { data, error } = await supabase
       .from("subscriptions")
       .select("*, profiles(username, full_name, email), plans(name, months, price_monthly)")
       .order("created_at", { ascending: false })
       .limit(200);
+    // A failed read rendered "No subscription requests yet.", so an admin could
+    // believe nobody had paid.
+    if (error) {
+      report(error);
+      setRows([]);
+      setLoading(false);
+      return;
+    }
     setRows(data ?? []);
     setLoading(false);
   };
@@ -102,6 +114,12 @@ export default function AdminPayments() {
             <TableBody>
               {loading ? (
                 <TableRow><TableCell colSpan={8} className="py-10 text-center text-muted-foreground">Loading…</TableCell></TableRow>
+              ) : failure ? (
+                <TableRow>
+                  <TableCell colSpan={8} className="py-6">
+                    <QueryError message={failure} onRetry={load} />
+                  </TableCell>
+                </TableRow>
               ) : rows.length === 0 ? (
                 <TableRow><TableCell colSpan={8} className="py-10 text-center text-muted-foreground">No subscription requests yet.</TableCell></TableRow>
               ) : (

@@ -7,9 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Clock, CheckCircle2, XCircle, Download, Upload, Sparkles, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
+import { loadFailureMessage } from "@/lib/net";
+import { ToastAction } from "@/components/ui/toast";
 import { SEOHead } from "@/components/SEOHead";
 import { validateUploadFile } from "@/lib/fileValidation";
-import { FREE_PREVIEW_LIMIT, usePlanAccess } from "@/components/PreviewLimit";
+import { FREE_PREVIEW_LIMIT, PreviewLimit, usePlanAccess, usePreviewSliceWithLimit } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -58,16 +60,48 @@ export default function Quizzes() {
 
   useEffect(() => {
     supabase.from("quizzes").select("*, topics(*)").eq("is_published", true).order("created_at", { ascending: false })
-      .then(({ data }) => setQuizzes(data ?? []));
+      .then(({ data, error }) => {
+        // PostgREST resolves with { error } instead of throwing, so ignoring it
+        // turned a failed query into an empty list — "no quizzes yet" when the
+        // truth was "could not load".
+        if (error) {
+          toast({ title: "Could not load quizzes", description: error.message, variant: "destructive" });
+          return;
+        }
+        setQuizzes(data ?? []);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [previewQuizzes, setPreviewQuizzes] = useState<any[]>([]);
-  const [previewLoading, setPreviewLoading] = useState(false);
-
-  // Subject & level gate: students must pick at least one subject (and its
-  // level) before any quiz content is shown. While preferences are still
-  // loading we render nothing — never the content itself.
+  // Subject & level gate INPUTS. The gate itself renders below, after every
+  // hook: returning early from above the hooks would change the hook count
+  // between renders and trip React's "fewer hooks than expected" guard.
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+
+  // Quizzes whose topic belongs to one of the student's picked subject-levels.
+  //
+  // `topics` is a to-one embed (quizzes.topic_id → topics.id), so PostgREST
+  // returns an OBJECT. Reading it as an array (`topics?.[0]`) was undefined for
+  // every quiz, which left the topic→level map empty and silently turned the
+  // subject filter into a no-op — every student saw every subject's quizzes,
+  // including the ones they had not picked.
+  const visibleQuizzes = useMemo(() => {
+    if (isAdminRole) return quizzes;
+    if (!prefsLoaded) return [];
+    return quizzes.filter((q) => {
+      const sl = (q as any).topics?.subject_level_id as string | undefined;
+      return sl ? pickedIds.has(sl) : false;
+    });
+  }, [quizzes, isAdminRole, prefsLoaded, pickedIds]);
+
+  // Free-plan preview: the first two quizzes of the picked subjects, sliced from
+  // the same list the cards render. The previous approach rendered rows from
+  // `get_free_preview`, whose shape (item_id / item_type / title) is not a quiz
+  // row at all — free students got cards labelled "General" whose Start Quiz did
+  // nothing, and paid students had their subject filter bypassed entirely.
+  const { slice: shownQuizzes, hiddenCount } =
+    usePreviewSliceWithLimit(visibleQuizzes, FREE_PREVIEW_LIMIT);
+
   if (!isAdminRole && !prefsLoaded) {
     return (
       <div className="flex justify-center py-24">
@@ -84,38 +118,18 @@ export default function Quizzes() {
     );
   }
 
-  // Free-plan preview: scoped to the first subject-level the student picked,
-  // so a free student who picks "Ol Math" sees only Ol Math quizzes (2 of them)
-  // rather than 2 quizzes drawn from every subject.
-  const previewSubjectLevelId = useMemo(() => {
-    if (isAdminRole || !prefsLoaded) return null;
-    const picked = [...pickedIds];
-    return picked.length > 0 ? picked[0] : null;
-  }, [isAdminRole, prefsLoaded, pickedIds]);
-
-  // Topic ids belonging to the subject-levels the student picked, derived from
-  // the loaded quizzes' nested topics (quizzes were loaded with topics(*)).
-  const pickedTopicIds = useMemo(() => {
-    if (isAdminRole || !prefsLoaded) return new Set<string>();
-    const topicToSl = new Map<string, string>();
-    for (const q of quizzes) {
-      const t = (q as any).topics?.[0];
-      if (t?.subject_levels?.id) topicToSl.set((q as any).topic_id, t.subject_levels.id);
-    }
-    return new Set([...topicToSl.values()].filter((sl) => pickedIds.has(sl)));
-  }, [quizzes, isAdminRole, prefsLoaded, pickedIds]);
-
-  useEffect(() => {
-    if (planLoading || hasPaid) { setPreviewQuizzes([]); setPreviewLoading(false); return; }
-    setPreviewLoading(true);
-    supabase.rpc("get_free_preview", { _subject_level_id: previewSubjectLevelId })
-      .then(({ data }) => { setPreviewQuizzes(data ?? []); setPreviewLoading(false); });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    ;
-  }, [planLoading, hasPaid, previewSubjectLevelId]);
-
   const startQuiz = async (quiz: any) => {
-    const { data } = await supabase.rpc("get_student_questions", { _quiz_id: quiz.id });
+    const { data, error: questionsError } = await supabase.rpc("get_student_questions", { _quiz_id: quiz.id });
+    // Without this a failed fetch opened an empty quiz that looked broken.
+    if (questionsError) {
+      toast({
+        title: "Couldn't open that quiz",
+        description: loadFailureMessage("this quiz", questionsError),
+        variant: "destructive",
+        action: <ToastAction altText="Retry" onClick={() => startQuiz(quiz)}>Retry</ToastAction>,
+      });
+      return;
+    }
     setQuestions((data as StudentQuestion[]) ?? []);
     setActiveQuiz(quiz);
     setAnswers({});
@@ -192,30 +206,6 @@ export default function Quizzes() {
     }
   };
 
-  // For paid users: show only quizzes whose topic belongs to a picked
-  // subject-level. Admins see everything.
-  const visibleQuizzes = useMemo(() => {
-    if (isAdminRole) return quizzes;
-    if (!prefsLoaded) return previewQuizzes; // gate will block rendering anyway
-    // Derive topic_id -> subject_level_id from the quizzes' nested topics.
-    // quizzes were loaded with topics(*) so each quiz has topics[0] with
-    // subject_levels(level, subjects(...)).
-    const topicToSl = new Map<string, string>();
-    for (const q of quizzes) {
-      const t = (q as any).topics?.[0];
-      if (t?.subject_levels?.id) topicToSl.set((q as any).topic_id, t.subject_levels.id);
-    }
-    if (pickedTopicIds.size === 0) {
-      // No topics loaded yet or no picks — fall back to preview for free users.
-      return hasPaid ? quizzes : previewQuizzes;
-    }
-    const scoped = quizzes.filter((q) => {
-      const sl = topicToSl.get((q as any).topic_id);
-      return sl && pickedIds.has(sl);
-    });
-    return hasPaid ? scoped : previewQuizzes;
-  }, [quizzes, hasPaid, previewQuizzes, isAdminRole, prefsLoaded, pickedIds, pickedTopicIds]);
-
   if (activeQuiz) {
     const hasExamFile = !!activeQuiz.exam_file_url;
 
@@ -237,8 +227,17 @@ export default function Quizzes() {
               <p className="text-sm text-muted-foreground">Download the exam, solve it, then upload your answers below.</p>
               <Button variant="outline" className="gap-2 border-primary/30 hover:border-primary/50" onClick={async () => {
                 const path = activeQuiz.exam_file_url;
-                const { data } = await supabase.storage.from("quiz-files").createSignedUrl(path, 3600);
-                if (data?.signedUrl) window.open(data.signedUrl, "_blank", "noopener,noreferrer");
+                const { data, error: signError } = await supabase.storage.from("quiz-files").createSignedUrl(path, 3600);
+                // A silent failure here meant "Download Exam" simply did nothing.
+                if (signError || !data?.signedUrl) {
+                  toast({
+                    title: "Couldn't open the exam file",
+                    description: loadFailureMessage("this exam file", signError),
+                    variant: "destructive",
+                  });
+                  return;
+                }
+                window.open(data.signedUrl, "_blank", "noopener,noreferrer");
               }}>
                 <Download className="h-4 w-4" /> Download Exam
               </Button>
@@ -385,16 +384,14 @@ export default function Quizzes() {
         <h1 className="text-2xl font-bold tracking-tight">Quizzes</h1>
         <p className="text-muted-foreground">Test your knowledge</p>
       </div>
-      {previewLoading ? (
-        <p className="text-muted-foreground">Loading quizzes…</p>
-      ) : visibleQuizzes.length === 0 ? (
+      {shownQuizzes.length === 0 ? (
         <Card className="neon-border bg-card"><CardContent className="flex flex-col items-center py-12">
           <Brain className="h-12 w-12 text-muted-foreground/50 mb-4" />
           <p className="text-muted-foreground">No quizzes available yet.</p>
         </CardContent></Card>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {visibleQuizzes.map((q) => (
+          {shownQuizzes.map((q) => (
             <Card key={q.id} className="cursor-pointer neon-border bg-card hover:border-primary/40 transition-all" onClick={() => startQuiz(q)}>
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
@@ -414,6 +411,7 @@ export default function Quizzes() {
           ))}
         </div>
       )}
+      <PreviewLimit hiddenCount={hiddenCount} what="quizzes" />
     </div>
   );
 }

@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SEOHead } from "@/components/SEOHead";
 import { useToast } from "@/hooks/useToast";
 import { useAuth } from "@/lib/auth";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { MessageSquareHeart, Loader2, Send, History } from "lucide-react";
 
@@ -44,17 +46,26 @@ export default function FeedbackPage() {
   const [sending, setSending] = useState(false);
   const [mine, setMine] = useState<FeedbackRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const { failure, report, clear } = useLoadFailure("your feedback history");
 
   const loadMine = useCallback(async () => {
     setLoading(true);
-    const { data } = await supabase
+    clear();
+    const { data, error } = await supabase
       .from("content_feedback")
       .select("id, tool, tool_label, rating, message, status, created_at")
       .order("created_at", { ascending: false })
       .limit(25);
+    if (error) {
+      // An ignored `error` here rendered "Nothing yet" over a failed request.
+      report(error);
+      setMine([]);
+      setLoading(false);
+      return;
+    }
     setMine((data ?? []) as FeedbackRow[]);
     setLoading(false);
-  }, []);
+  }, [clear, report]);
 
   useEffect(() => { loadMine(); }, [loadMine]);
 
@@ -164,6 +175,8 @@ export default function FeedbackPage() {
         <h2 className="text-sm font-semibold flex items-center gap-2 mb-3"><History className="h-4 w-4 text-primary" /> Your recent feedback</h2>
         {loading ? (
           <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+        ) : failure ? (
+          <QueryError message={failure} onRetry={loadMine} />
         ) : mine.length === 0 ? (
           <p className="text-sm text-muted-foreground">Nothing yet — you'll see your reports and their status here.</p>
         ) : (

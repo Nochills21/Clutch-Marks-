@@ -1,65 +1,125 @@
 // App root: theme + query + auth providers, every route (student, admin, topic pages),
 // and query-string-preserving redirects from merged legacy routes.
-import { Toaster } from "@/components/ui/toaster";
+import { Suspense, lazy } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
+// The app carries two feedback channels: `useToast()` (the shadcn/radix store
+// behind almost every toast call) and sonner, which two pages import directly.
+// Only sonner used to be mounted, so every `useToast()` message was dispatched
+// into a store nothing rendered — login failures, password-policy rejections
+// and admin confirmations all vanished silently. Mount both.
+import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/lib/auth";
+import { isTransientError } from "@/lib/net";
 import { AppLayout } from "@/components/AppLayout";
 import { AdminRoute } from "@/components/AdminRoute";
 import { ApprovalGate } from "@/components/ApprovalGate";
+// The landing page stays eager: it is the most visited entry point and the one
+// that decides whether a first-time visitor bounces, so it must not wait on a
+// second network round trip for its own chunk.
 import Index from "./pages/Index";
-import Auth from "./pages/Auth";
-import Dashboard from "./pages/Dashboard";
-import Lessons from "./pages/Lessons";
-import Notes from "./pages/Notes";
-import LessonNotes from "./pages/LessonNotes";
-import Quizzes from "./pages/Quizzes";
-import Practice from "./pages/Practice";
-import FeedbackPage from "./pages/FeedbackPage";
-import Leaderboard from "./pages/Leaderboard";
-import ResetPassword from "./pages/ResetPassword";
-import { PrivacyPolicy, TermsOfService } from "./pages/Legal";
-import Downloads from "./pages/Downloads";
-import ProgressPage from "./pages/ProgressPage";
-import Announcements from "./pages/Announcements";
 
-import AdminLessons from "./pages/admin/AdminLessons";
-import AdminQuizzes from "./pages/admin/AdminQuizzes";
-import AdminMaterials from "./pages/admin/AdminMaterials";
-import AdminAnnouncements from "./pages/admin/AdminAnnouncements";
+// Everything else is fetched on demand. Previously every page was imported
+// statically, so all ~40 routes — including every admin screen and the
+// jsPDF/html2canvas export libraries — were pulled into a single 1.2 MB
+// initial chunk (341 kB gzip) that every visitor downloaded before seeing
+// anything.
+const Auth = lazy(() => import("./pages/Auth"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Lessons = lazy(() => import("./pages/Lessons"));
+const Notes = lazy(() => import("./pages/Notes"));
+const LessonNotes = lazy(() => import("./pages/LessonNotes"));
+const Quizzes = lazy(() => import("./pages/Quizzes"));
+const Practice = lazy(() => import("./pages/Practice"));
+const FeedbackPage = lazy(() => import("./pages/FeedbackPage"));
+const Leaderboard = lazy(() => import("./pages/Leaderboard"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+// Legal.tsx exposes named exports, so map them onto lazy's default-export contract.
+const PrivacyPolicy = lazy(() =>
+  import("./pages/Legal").then((m) => ({ default: m.PrivacyPolicy })),
+);
+const TermsOfService = lazy(() =>
+  import("./pages/Legal").then((m) => ({ default: m.TermsOfService })),
+);
+const Downloads = lazy(() => import("./pages/Downloads"));
+const ProgressPage = lazy(() => import("./pages/ProgressPage"));
+const Announcements = lazy(() => import("./pages/Announcements"));
 
-import AdminUsers from "./pages/admin/AdminUsers";
-import AdminSubmissions from "./pages/admin/AdminSubmissions";
-import AdminGradeBook from "./pages/admin/AdminGradeBook";
-import AdminFlashcards from "./pages/admin/AdminFlashcards";
-import AdminQuestionBank from "./pages/admin/AdminQuestionBank";
-import Flashcards from "./pages/Flashcards";
-import PastPapers from "./pages/PastPapers";
-import AdminPastPapers from "./pages/admin/AdminPastPapers";
-import AdminAuditLog from "./pages/admin/AdminAuditLog";
-import StudyPlanner from "./pages/StudyPlanner";
-import Subjects from "./pages/Subjects";
-import Pricing from "./pages/Pricing";
-import AdminPayments from "./pages/admin/AdminPayments";
-import AdminFeedback from "./pages/admin/AdminFeedback";
-import AdminSuppressions from "./pages/admin/AdminSuppressions";
-import Subject from "./pages/Subject";
-import TopicNotes from "./pages/TopicNotes";
-import TopicQuiz from "./pages/TopicQuiz";
-import TopicPapers from "./pages/TopicPapers";
-import AdminSubjects from "./pages/admin/AdminSubjects";
+const AdminLessons = lazy(() => import("./pages/admin/AdminLessons"));
+const AdminQuizzes = lazy(() => import("./pages/admin/AdminQuizzes"));
+const AdminMaterials = lazy(() => import("./pages/admin/AdminMaterials"));
+const AdminAnnouncements = lazy(() => import("./pages/admin/AdminAnnouncements"));
+const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
+const AdminSubmissions = lazy(() => import("./pages/admin/AdminSubmissions"));
+const AdminGradeBook = lazy(() => import("./pages/admin/AdminGradeBook"));
+const AdminFlashcards = lazy(() => import("./pages/admin/AdminFlashcards"));
+const AdminQuestionBank = lazy(() => import("./pages/admin/AdminQuestionBank"));
+const Flashcards = lazy(() => import("./pages/Flashcards"));
+const PastPapers = lazy(() => import("./pages/PastPapers"));
+const AdminPastPapers = lazy(() => import("./pages/admin/AdminPastPapers"));
+const AdminAuditLog = lazy(() => import("./pages/admin/AdminAuditLog"));
+const StudyPlanner = lazy(() => import("./pages/StudyPlanner"));
+const Subjects = lazy(() => import("./pages/Subjects"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const AdminPayments = lazy(() => import("./pages/admin/AdminPayments"));
+const AdminFeedback = lazy(() => import("./pages/admin/AdminFeedback"));
+const AdminSuppressions = lazy(() => import("./pages/admin/AdminSuppressions"));
+const Subject = lazy(() => import("./pages/Subject"));
+const TopicNotes = lazy(() => import("./pages/TopicNotes"));
+const TopicQuiz = lazy(() => import("./pages/TopicQuiz"));
+const TopicPapers = lazy(() => import("./pages/TopicPapers"));
+const AdminSubjects = lazy(() => import("./pages/admin/AdminSubjects"));
 
-import NotFound from "./pages/NotFound";
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-const queryClient = new QueryClient();
+// Defaults matter here: a bare `new QueryClient()` refetches on every window
+// focus and every remount, which on a slow connection meant a burst of requests
+// each time a student switched back to the tab. These values keep the cached
+// data authoritative for a minute and retry only genuinely transient failures.
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60_000,
+      gcTime: 5 * 60_000,
+      refetchOnWindowFocus: false,
+      retry: (failureCount, error) => {
+        if (failureCount >= 2) return false;
+        // Never retry a request the server actively rejected (RLS denial, bad
+        // payload): repeating it cannot help and doubles the load.
+        const status = (error as { status?: number; statusCode?: number } | null);
+        const code = status?.status ?? status?.statusCode;
+        if (typeof code === "number") return code === 429 || code >= 500;
+        return isTransientError(error);
+      },
+      // Jittered backoff so a recovering backend is not stampeded.
+      retryDelay: (attempt) => Math.min(4_000, 400 * 2 ** attempt) + Math.random() * 250,
+    },
+    mutations: {
+      // Writes are never auto-retried: a timeout does not mean the insert failed.
+      retry: 0,
+    },
+  },
+});
 
 // Redirect that preserves the query string (e.g. /review?level=…&mode=… → /practice?…).
 function RedirectPreservingQuery({ to }: { to: string }) {
   const location = useLocation();
   return <Navigate to={{ pathname: to, search: location.search }} replace />;
+}
+
+// Shown while a route's chunk downloads. Deliberately tiny and layout-neutral:
+// it replaces the spinner, not the page chrome, so navigating between sections
+// does not visibly tear down the sidebar.
+function RouteFallback() {
+  return (
+    <div className="flex min-h-[50vh] items-center justify-center" role="status" aria-live="polite">
+      <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
+      <span className="sr-only">Loading…</span>
+    </div>
+  );
 }
 
 // Dark-luxe is the designed default; the light paper theme stays available via
@@ -70,10 +130,11 @@ const App = () => (
   <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
         <Sonner />
+        <Toaster />
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <AuthProvider>
+            <Suspense fallback={<RouteFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
@@ -137,6 +198,7 @@ const App = () => (
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </Suspense>
           </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>

@@ -18,7 +18,18 @@ export default function AdminAnnouncements() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const load = () => supabase.from("announcements").select("*").order("published_at", { ascending: false }).then(({ data }) => setAnnouncements(data ?? []));
+  const load = () =>
+    supabase
+      .from("announcements")
+      .select("*")
+      .order("published_at", { ascending: false })
+      .then(({ data, error }) => {
+        if (error) {
+          toast({ title: "Could not load announcements", description: error.message, variant: "destructive" });
+          return;
+        }
+        setAnnouncements(data ?? []);
+      });
 
   useEffect(() => { load(); }, []);
 
@@ -52,7 +63,7 @@ export default function AdminAnnouncements() {
                 <p className="font-medium">{a.title}</p>
                 <p className="text-xs text-muted-foreground">{format(new Date(a.published_at), "PPP")}</p>
               </div>
-              <Button size="icon" variant="ghost" onClick={async () => { await supabase.from("announcements").delete().eq("id", a.id); load(); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+              <Button size="icon" variant="ghost" aria-label={`Delete ${a.title}`} title={`Delete ${a.title}`} onClick={async () => { await supabase.from("announcements").delete().eq("id", a.id); load(); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>
             </CardContent>
           </Card>
         ))}

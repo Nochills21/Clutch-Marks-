@@ -1,5 +1,20 @@
 [
  {
+  "id": "0e100ce9-da0c-4b7e-8551-40d1fe894d68",
+  "entity_type": "material",
+  "entity_id": "77c32ddd-d720-4973-9b42-3e1600709841",
+  "title": "Operating Systems — Study Notes",
+  "content": "<h2>Operating Systems</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> OS roles, memory/process management, hardware–software layer, interrupts, buffers, utility software.</p>\n\n<h3>1. What an OS does</h3>\n<p>Manages memory, processes/files, I/O via drivers, security (users, permissions), and provides the UI (CLI/GUI) between user, applications and hardware.</p>\n\n<h3>2. Memory and process management</h3>\n<ul>\n<li>Paging/segmentation move programs in/out; virtual memory extends RAM to disk when RAM is full.</li>\n<li>Multitasking: scheduler gives each process time slices; context switching saves/restores state.</li>\n</ul>\n\n<h3>3. Interrupts and buffers</h3>\n<p>Interrupts signal events (I/O complete, timer); CPU saves context, services via ISR, resumes. Buffers hold data in transit (printing) so slow devices don't block the CPU; spooling queues jobs.</p>\n\n<h3>4. Utility software</h3>\n<p>Disk formatter, defragmenter (reduces head movement on HDDs; unnecessary for SSD), backup scheduler, compression, antivirus, file compression.</p>\n\n<h3>5. UI and drivers</h3>\n<p>CLI: precise, scriptable, low overhead. GUI: icons/windows, discoverable, more resources. Device drivers translate OS calls to hardware specifics — each device needs its own.</p>\n\n<p><strong>Exam tips:</strong> \"manage\" verbs earn marks: manages memory, manages processes, manages peripherals; explain virtual memory by RAM-full scenario, not definition alone.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
   "id": "24950def-0ad6-43c8-a3be-6b228383927d",
   "entity_type": "lesson",
   "entity_id": "bf53adf9-5763-47d1-8896-32310e726c79",
@@ -13,6 +28,126 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-21 17:56:46.150401+00"
+ },
+ {
+  "id": "2649b832-54c0-4326-a859-06ad537b0a97",
+  "entity_type": "material",
+  "entity_id": "cad3375c-cc3e-4846-8a72-441509ebada1",
+  "title": "Electricity & Circuits — Study Notes",
+  "content": "<h2>Electricity &amp; Circuits</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> simple circuits, current, p.d., resistance, series/parallel, electrical safety, practical electricity.</p>\n\n<h3>1. Circuit symbols &amp; current</h3>\n<p>Conventional current: + → − (electron flow opposite). I = Q/t. Ammeter in series; voltmeter in parallel.</p>\n\n<h3>2. Current, p.d., e.m.f.</h3>\n<ul>\n<li>Current: rate of charge flow; same everywhere in series.</li>\n<li>p.d.: energy per coulomb <em>across a component</em>; e.m.f.: electrical energy per coulomb <em>given by the source</em>.</li>\n</ul>\n\n<h3>3. Resistance</h3>\n<ul>\n<li>R = V/I. Ohmic conductor: V ∝ I at constant temperature.</li>\n<li>Series: R = R₁ + R₂ + …; same current; p.d. shares in proportion to R.</li>\n<li>Parallel: 1/R = 1/R₁ + 1/R₂; same p.d.; current splits (inverse-R share).</li>\n<li>Resistance ∝ length, ∝ 1/area (wires).</li>\n</ul>\n\n<h3>4. Components</h3>\n<p>Fixed/variable resistors, LDR (light ↑ R ↓), thermistor (T ↑ R ↓), diode/LED (one-way), relay, filament lamp (R grows as T rises — V–I curve flattens).</p>\n\n<h3>5. Power and energy</h3>\n<p>P = VI = I²R = V²/R; E = VIt. Fuse rating just above normal current; earth wire, double insulation, circuit breakers (trip quickly, resettable).</p>\n<p><strong>Example:</strong> 230 V, 2 A heater: P = 460 W; correct fuse 3 A or 5 A.</p>\n\n<h3>6. Digital electronics basics (syllabus 4.5 context)</h3>\n<p>Analogue vs digital; logic gates drive outputs from inputs (see CS link); sensors feed comparator-style circuits.</p>\n\n<p><strong>Exam tips:</strong> series: current same; parallel: p.d. same — say which before calculating; always compute total resistance first in mixed circuits.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "2eeb7b03-3ee3-4745-b8c7-c9662efd7b67",
+  "entity_type": "material",
+  "entity_id": "e08e10e6-d123-407a-877f-dcc7c82c3d5b",
+  "title": "Forces & Motion — Study Notes",
+  "content": "<h2>Forces &amp; Motion</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> motion (speed, acceleration, graphs); mass &amp; weight; density link; force basics (F = ma, resultant); momentum (Extended); turning effects; equilibrium.</p>\n\n<h3>1. Kinematics</h3>\n<ul>\n<li>Speed = distance/time; average speed = (u + v)/2 for uniform acceleration.</li>\n<li>Acceleration a = (v − u)/t.</li>\n<li>SUVAT (uniform a): v = u + at; s = ut + ½at²; v² = u² + 2as.</li>\n</ul>\n\n<h3>2. Motion graphs</h3>\n<ul>\n<li>Distance–time: gradient = speed.</li>\n<li>Speed–time: gradient = acceleration; area = distance. Negative gradient = deceleration.</li>\n<li>Free fall 1: g ≈ 9.8 m/s² (use 10) — v = gt from rest.</li>\n</ul>\n\n<h3>3. Mass, weight, density</h3>\n<p>W = mg (g ≈ 10 N/kg). Weight acts at the centre of mass; mass is invariant. Density ρ = m/V.</p>\n\n<h3>4. Newton's laws and resultant force</h3>\n<ul>\n<li>Resultant: colinear addition/subtraction; perpendicular by Pythagoras.</li>\n<li>F = ma. Terminal velocity: drag grows with speed until it balances weight.</li>\n<li>Third law pairs: equal magnitude, opposite direction, different bodies.</li>\n</ul>\n\n<h3>5. Momentum (Extended)</h3>\n<p>p = mv; impulse Ft = Δ(mv); conservation: Σp<sub>before</sub> = Σp<sub>after</sub> (explosions, collisions).</p>\n<p><strong>Example:</strong> 2 kg at 3 m/s hits 1 kg at rest, combined 1 m/s: 6 = 3v ⇒ v = 2 m/s.</p>\n\n<h3>6. Moments and equilibrium</h3>\n<ul>\n<li>Moment = F × perpendicular distance from pivot.</li>\n<li>Principle of moments: Σclockwise = Σanticlockwise.</li>\n<li>Equilibrium: resultant force = 0 and resultant moment = 0.</li>\n</ul>\n<p><strong>Example:</strong> 100 N at 0.3 m balances F at 0.5 m: F = 60 N.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "2f270082-ad33-4b37-a837-2362743213c4",
+  "entity_type": "material",
+  "entity_id": "798f9e7d-33c5-456e-9070-c32874b67978",
+  "title": "Earth & Space — Study Notes",
+  "content": "<h2>Earth &amp; Space</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> Earth &amp; Solar System; stars &amp; the Universe (Extended).</p>\n\n<h3>1. Earth, Moon, Sun</h3>\n<p>Earth rotates 24 h (day/night), orbits 365¼ d (year + leap). Moon orbits Earth ~27.3 d; phases from viewing angle; lunar/solar eclipses when aligned. Seasons from axial tilt (23.5°), not distance.</p>\n\n<h3>2. Solar system</h3>\n<p>Planets (Mercury → Neptune), dwarf planets (Pluto), moons, asteroids, comets (eccentric orbits, tails away from Sun), natural satellites. Gravity keeps orbits; orbital speed &amp; radius relate to the central mass.</p>\n\n<h3>3. Orbital motion</h3>\n<p>Orbital speed v = 2πr/T. T grows with r (Kepler trend). Comets speed up near the Sun (ellipse, Sun at focus).</p>\n\n<h3>4. Stars (Extended)</h3>\n<p>Star formation: nebula → protostar (gravity, KE→thermal) → main sequence (hydrogen fusion: H→He, radiation pressure balances gravity) → red giant → white dwarf (Sun-mass) or supergiant → supernova → neutron star/black hole (massive stars). Elements heavier than iron form in supernovae.</p>\n\n<h3>5. Universe (Extended)</h3>\n<p>The Sun is one star in the Milky Way; the Milky Way is one of billions of galaxies. Redshift: receding galaxies show stretched wavelengths → the Universe is expanding → Big Bang model; CMB is the afterglow. Hubble: farther ⇒ faster recession.</p>\n\n<h3>6. Scales</h3>\n<p>light-year = distance light travels in a year (9.5 × 10¹⁵ m); astronomical unit = Earth–Sun distance (1.5 × 10¹¹ m).</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "561a12bb-1c63-4068-9624-dd4b6812d4af",
+  "entity_type": "material",
+  "entity_id": "944a7eb4-3cc4-4439-bc06-3250049bf117",
+  "title": "Measurement & Units — Study Notes",
+  "content": "<h2>Measurement &amp; Units</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> 1.1 lengths &amp; volumes; 1.2 density; 1.3 forces &amp; motion context (measurements) — plus measurement techniques, SI units, scalars/vectors.</p>\n\n<h3>1. Measuring</h3>\n<ul>\n<li>Length: ruler (mm), vernier calipers (0.1 mm / 0.01 cm), micrometer screw gauge (0.01 mm).</li>\n<li>Volume: measuring cylinder read at the meniscus bottom; regular solids by calculation; irregular by displacement (eureka can).</li>\n<li>Time: stopwatch — human reaction time ±0.2 s; measure many oscillations and divide (e.g. 20 T).</li>\n<li>Pendulum: T = time/oscillations; f = 1/T.</li>\n</ul>\n\n<h3>2. SI units and prefixes</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Quantity</th><th>Unit</th><th>Symbol</th></tr>\n<tr><td>length</td><td>metre</td><td>m</td></tr>\n<tr><td>mass</td><td>kilogram</td><td>kg</td></tr>\n<tr><td>time</td><td>second</td><td>s</td></tr>\n<tr><td>current</td><td>ampere</td><td>A</td></tr>\n<tr><td>temperature</td><td>kelvin (°C used)</td><td>K</td></tr></table>\n<p>kilo 10³; centi 10⁻²; milli 10⁻³; micro 10⁻⁶; nano 10⁻⁹.</p>\n\n<h3>3. Scalars and vectors</h3>\n<p>Scalars: distance, speed, mass, energy, time. Vectors: displacement, velocity, acceleration, force, weight, momentum. Vector addition by scale diagram (tip-to-tail) or by components.</p>\n\n<h3>4. Density</h3>\n<p>ρ = m/V (kg/m³ or g/cm³; 1 g/cm³ = 1000 kg/m³). Determining: mass on balance; volume by displacement. Floating: ρ<sub>object</sub> &lt; ρ<sub>fluid</sub>.</p>\n\n<h3>5. Accuracy and improvements</h3>\n<p>Avoid parallax (eye level with reading), zero errors (subtract the zero reading), measure multiple laps for small times. Suggest improvements by naming the error and the fix.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "5625ef50-1203-4581-9f80-4231af0ec8d5",
+  "entity_type": "material",
+  "entity_id": "37c076d2-e903-4a57-8672-96dd9b97fbec",
+  "title": "Web Technologies — Study Notes",
+  "content": "<h2>Web Technologies</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> HTML structure/tags, CSS styling, JS interactivity, the DOM, microprocessors/controllers in web context.</p>\n\n<h3>1. HTML</h3>\n<pre>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;&lt;title&gt;Page&lt;/title&gt;&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1&gt;Heading&lt;/h1&gt;\n  &lt;p&gt;Paragraph with &lt;strong&gt;bold&lt;/strong&gt; text&lt;/p&gt;\n  &lt;img src=\"pic.jpg\" alt=\"description\"&gt;\n  &lt;a href=\"https://example.com\"&gt;Link&lt;/a&gt;\n  &lt;table&gt;&lt;tr&gt;&lt;td&gt;cell&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;\n&lt;/body&gt;\n&lt;/html&gt;</pre>\n<p>Head holds metadata/title; body holds visible content; hypertext links via &lt;a href&gt;.</p>\n\n<h3>2. CSS</h3>\n<pre>p { color: red; font-size: 14px; }\n.highlight { background-color: yellow; }\n#header { text-align: center; }</pre>\n<p>Element, class (.) and id (#) selectors; inline vs external stylesheets; separation of content (HTML) from presentation (CSS).</p>\n\n<h3>3. JavaScript and the DOM</h3>\n<pre>document.getElementById(\"demo\").innerHTML = \"Hello\";\ndocument.getElementsByClassName(\"item\")[0].style.color = \"blue\";</pre>\n<p>DOM = the browser's object model of the page; JS reads/changes it for interactivity (validation, sliders, dynamic text). Events (click, submit) trigger functions.</p>\n\n<h3>4. How pages load</h3>\n<p>URL → DNS lookup → server request → HTML parsed → assets fetched → DOM built → render. Layers: structure (HTML) → presentation (CSS) → behaviour (JS).</p>\n\n<p><strong>Exam tips:</strong> write tags with correct closing pairs; explain DOM operations as \"find element by id … then change property\"; separate structure/presentation/behaviour in answers.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "601cf6aa-b7b8-4f3b-bddf-135d2822a1ed",
+  "entity_type": "material",
+  "entity_id": "fc1ffd6d-f913-4c5a-9336-ec908c9223ec",
+  "title": "Hardware & Architecture — Study Notes",
+  "content": "<h2>Hardware &amp; Architecture</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> von Neumann model, FDE cycle, registers, buses, RAM/ROM, secondary storage, embedded systems.</p>\n\n<h3>1. Von Neumann model</h3>\n<p>CPU (ALU, control unit, registers) + memory + I/O on shared buses; instructions stored as data (stored program concept).</p>\n\n<h3>2. Registers</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Register</th><th>Role</th></tr>\n<tr><td>PC</td><td>address of next instruction</td></tr>\n<tr><td>MAR</td><td>address being read/written</td></tr>\n<tr><td>MDR</td><td>data/instruction in transit</td></tr>\n<tr><td>ACC</td><td>ALU results accumulator</td></tr></table>\n\n<h3>3. FDE cycle</h3>\n<p>Fetch: PC → MAR; memory → MDR → CIR; PC + 1. Decode: control unit interprets opcode. Execute: ALU/registers act. Interrupts can pause between cycles.</p>\n\n<h3>4. Buses and performance</h3>\n<p>Address bus (one-way, width ⇒ addressable memory), data bus (two-way, width ⇒ bits per transfer), control bus. Performance factors: clock speed, cache size, core count — explain the effect, not just the name.</p>\n\n<h3>5. RAM vs ROM</h3>\n<p>RAM: volatile, read/write, holds running programs + data. ROM: non-volatile, read-only, bootstrap/firmware. Embedded systems: dedicated microprocessors inside devices (washing machines, engines) — one function, low cost, hard to update.</p>\n\n<h3>6. Secondary storage</h3>\n<ul>\n<li><strong>Magnetic (HDD)</strong>: platters, read/write heads; high capacity, cheap per GB, moving parts (shock-sensitive).</li>\n<li><strong>Optical (CD/DVD/Blu-ray)</strong>: laser pits/lands; cheap, portable, slow, small capacity.</li>\n<li><strong>Solid state (SSD/flash)</strong>: NAND cells; fast, silent, robust, no moving parts, more expensive per GB, finite write cycles.</li>\n</ul>\n<p>Choose by use case: video editing (SSD), archive (optical/magnetic), tablets (flash).</p>\n\n<p><strong>Exam tips:</strong> trace FDE with register values; compare storage on capacity, speed, cost, durability, portability; always tie a performance factor to its <em>effect</em>.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "67388eea-835c-436e-a6cb-956ab70d11e9",
+  "entity_type": "material",
+  "entity_id": "f2259878-433e-406d-9dea-7531aff6d69a",
+  "title": "Programming Concepts — Study Notes",
+  "content": "<h2>Programming Concepts</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> variables/constants, data types, selection/iteration, arrays, file handling, subroutines, scope, IDE tools.</p>\n\n<h3>1. Basics</h3>\n<p>Constants vs variables; types: INTEGER, REAL, CHAR, STRING, BOOLEAN, DATE; casting between them. Declaration with meaningful names.</p>\n\n<h3>2. Selection and iteration</h3>\n<pre>IF score >= 50 THEN\n  grade ← \"pass\"\nELSE\n  grade ← \"fail\"\nENDIF\n\nCASE OF grade\n  \"A\" : OUTPUT \"excellent\"\n  OTHERWISE : OUTPUT \"keep going\"\nENDCASE\n\nREPEAT\n  INPUT pin\nUNTIL pin = storedPin\n\nFOR i ← 1 TO 10 STEP 2 ... NEXT i</pre>\n<p>WHILE: condition first (may not run); REPEAT: runs at least once.</p>\n\n<h3>3. Arrays</h3>\n<p>Fixed size, indexed (0- or 1-based per spec); 2D arrays: row, column. Bounds errors when index leaves range. Traversal with FOR loops.</p>\n\n<h3>4. Files</h3>\n<pre>OPENFILE \"data.txt\" FOR READ\nREADFILE \"data.txt\", line\nCLOSEFILE \"data.txt\"\n\nOPENFILE \"log.txt\" FOR APPEND\nWRITEFILE \"log.txt\", record</pre>\n<p>Modes: READ, WRITE (overwrites), APPEND (adds).</p>\n\n<h3>5. Subroutines</h3>\n<p>Procedure (no return) vs function (returns value). Parameters by value (copy) vs reference (original). Local scope inside; global shared — declare deliberately, avoid overuse.</p>\n\n<h3>6. IDE tools</h3>\n<p>Syntax highlighting, autocompletion, breakpoints, single stepping, variable watch — name the tool <em>and</em> its debugging benefit.</p>\n\n<p><strong>Exam tips:</strong> use the exam pseudocode style exactly; for 2D arrays, loop rows outer/columns inner; choose WHILE vs REPEAT by \"must it run once?\"</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "6f6f24c1-fc4a-4029-8a2a-912011f3f8b0",
+  "entity_type": "material",
+  "entity_id": "1ad7eb98-7831-4f23-85f8-9790a66e4ca4",
+  "title": "Ethics, Security & Impact — Study Notes",
+  "content": "<h2>Ethics, Security &amp; Impact</h2>\n<p><strong>Cambridge IGCSE 0478 (2026–2028):</strong> ethics &amp; professional codes, cyber security threats and protection, malware, online safety, digital currency, environmental/employment impact.</p>\n\n<h3>1. Ethics and codes</h3>\n<p>ACM/IEEE-CS/BCS codes: public interest, competence, integrity, privacy. Applying: identify the principle → apply to scenario → stakeholders affected → consequences.</p>\n\n<h3>2. Threats</h3>\n<ul>\n<li><strong>Malware</strong>: virus (attaches, replicates via host), worm (self-spreads), trojan (disguised), spyware, ransomware.</li>\n<li><strong>Social</strong>: phishing (fake emails/sites), pharming (DNS/hosts redirect), shoulder surfing, brute force.</li>\n<li><strong>Technical</strong>: interception (packet sniffing), SQL injection (malicious input into queries), DoS (flooding services).</li>\n</ul>\n\n<h3>3. Cyber security</h3>\n<p>Cyber security protects data, systems and users from attack. A <strong>vulnerability</strong> is a weakness an attack can use; a <strong>threat</strong> is what exploits it.</p>\n<ul>\n<li><strong>Vulnerabilities</strong>: default or weak passwords, unpatched software, misconfigured access rights, unsecured or public Wi-Fi, removable media (memory sticks), insider threat, unencrypted data in transit.</li>\n<li><strong>Malware</strong>: virus (needs a host file and replicates when that file runs), worm (self-spreads across a network), trojan (disguised as useful software), spyware (records activity), ransomware (encrypts files and demands payment), adware.</li>\n<li><strong>Social engineering</strong>: phishing (fake email or site asks for details), pharming (malicious redirect via DNS or the hosts file), blagging (invented story), shoulder surfing, brute-force and dictionary attacks.</li>\n<li><strong>Technical attacks</strong>: interception / packet sniffing on an unsecured network, SQL injection (malicious input typed into a query field), denial of service and DDoS (flooding a service so it cannot respond), session hijacking.</li>\n</ul>\n<p><strong>Protection</strong>: strong unique passwords plus 2FA; biometric authentication (fingerprint, face); encryption so intercepted data is unreadable (plaintext is turned into ciphertext with a key — HTTPS/TLS does this on websites); firewalls filtering traffic by IP address and port; anti-malware that scans, blocks and quarantines; patching and updates; user access levels so staff reach only what they need; regular backups; user training; penetration testing to find holes first.</p>\n<p><strong>Answer shape:</strong> name the threat precisely (pharming is not phishing), then give the <em>matched</em> defence — pharming → keep DNS servers and hosts files secure and check HTTPS certificates.</p>\n\n<h3>4. Digital currency</h3>\n<p>A <strong>digital currency</strong> exists only in electronic form. A <strong>cryptocurrency</strong> (for example Bitcoin) is a decentralised digital currency secured by cryptography and recorded on a <strong>blockchain</strong>.</p>\n<ul>\n<li><strong>Blockchain</strong>: a distributed ledger — every node holds a copy. Transactions are grouped into blocks, and each block stores the hash of the previous block, so altering an old record breaks the chain and is rejected by the network.</li>\n<li><strong>Keys and wallets</strong>: the owner holds a public key (the address others pay to) and a private key (proves ownership and signs a payment). A wallet stores these keys — lose the private key and the money is gone.</li>\n<li><strong>Transactions</strong>: broadcast to the network, checked by nodes and added to a block; the verifier (miner) is rewarded. No bank or central authority is involved.</li>\n</ul>\n<p><strong>Advantages:</strong> quick international transfers, low transaction fees, no central authority to fail or censor, a transparent ledger, and coins cannot be counterfeited. <strong>Disadvantages:</strong> the value is very volatile, payments are irreversible, mining uses large amounts of energy, it appeals to criminals and ransomware demands, it needs internet access and technical care, and there is little consumer protection if a wallet is lost or stolen.</p>\n\n<h3>5. Defences</h3>\n<p>Antivirus/antispyware (scan, quarantine), firewalls (port/IP filtering), 2FA + biometrics, strong passwords + managers, encryption (HTTPS, VPN), access levels, patches/updates, user training.</p>\n\n<h3>6. Online behaviour</h3>\n<p>Digital footprint, cyberbullying, fake news, privacy settings, verification of sources.</p>\n\n<h3>7. Wider impact</h3>\n<p>Employment: automation displaces roles but creates IT jobs. Environment: e-waste, energy use vs paperless efficiency. Monitoring: workplace tracking, CCTV — balance with privacy laws (GDPR-style).</p>\n\n<p><strong>Exam tips:</strong> name the threat precisely (pharming ≠ phishing), then the <em>matched</em> defence; ethics answers need principle + application, not opinion.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
   "id": "82f4c7dc-0d04-4996-80b5-c724477cd122",
@@ -30,6 +165,231 @@
   "created_at": "2026-09-20 19:21:59.516938+00"
  },
  {
+  "id": "8a0ec4f8-000f-4df4-a2a4-71643d9c1ca5",
+  "entity_type": "material",
+  "entity_id": "11594218-4521-43d6-bccd-fb79cda469b4",
+  "title": "Networking & Communication — Study Notes",
+  "content": "<h2>Networking &amp; Communication</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> transmission modes, serial/parallel, packet switching, protocols, LAN/WAN, hardware, security layers.</p>\n\n<h3>1. Transmission basics</h3>\n<ul>\n<li>Serial: one bit at a time — reliable over distance, cheaper cable.</li>\n<li>Parallel: several bits at once — faster over short runs; skew/crosstalk limit distance.</li>\n<li>Simplex / half-duplex / full-duplex direction; bandwidth (bits/s) vs bit rate.</li>\n</ul>\n\n<h3>2. Packets</h3>\n<p>Header (sender/receiver addresses, sequence number) + payload + trailer (checksum). Packet switching: routes vary, packets reassembled at destination; checksum failure → re-request. Benefits: robustness, shared lines; delays/reassembly overhead.</p>\n\n<h3>3. Protocols</h3>\n<p>TCP/IP stack layers (application, transport, network, link). HTTP/HTTPS (TLS encryption), FTP (with login + commands), email: SMTP send, POP3/IMAP retrieve. Bluetooth/Wi-Fi for WPAN/WLAN.</p>\n\n<h3>4. Network types &amp; hardware</h3>\n<p>LAN (site) vs WAN (internet). Router (joins networks, IP), switch (MAC frames within LAN), gateway (protocol translation), NIC, WAP. MAC address (burned-in, layer 2) vs IP address (assigned, layer 3).</p>\n\n<h3>5. Security in transmission</h3>\n<p>Encryption scrambles plaintext → ciphertext (key needed); HTTPS = HTTP over TLS; firewall packet filtering by port/IP; authentication (user+pass, 2FA); access levels.</p>\n\n<p><strong>Exam tips:</strong> explain <em>why</em> skew limits parallel over distance; compare MAC vs IP in a table; protocol questions want \"rules for communication\", not acronyms alone.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "8e12f109-b7b5-45d3-b17c-da2f3676c009",
+  "entity_type": "material",
+  "entity_id": "3dd6d5c0-35ea-44c6-8f24-ad74aad0d101",
+  "title": "Data Representation — Study Notes",
+  "content": "<h2>Data Representation</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> binary/hex, two's complement, BCD, text/image/sound encoding, file sizes, compression.</p>\n\n<h3>1. Number systems</h3>\n<ul>\n<li>Binary place values 128…1; hex digits 0–9, A–F; one hex digit = one nibble (4 bits).</li>\n<li>Conversions: binary ↔ decimal ↔ hex. 0101 1010 → 5A; FF = 255.</li>\n<li><strong>BCD</strong>: 4 bits per decimal digit — 0029 → 0000 0000 0010 1001. Used in clocks/calculators; easier digit conversions, more bits than pure binary.</li>\n</ul>\n\n<h3>2. Two's complement (signed)</h3>\n<p>MSB is negative: −128 64 32 16 8 4 2 1. −5 = 1111 1011. Range 8-bit: −128…+127.</p>\n<p>Negating: invert bits, add 1. Subtraction: add the negated number — 7 − 5 = 7 + (−5) = 0000 0111 + 1111 1011 = 0000 0010.</p>\n\n<h3>3. Text</h3>\n<p>ASCII 7-bit (128 chars) → extended sets; Unicode for all scripts (UTF-8 variable width). Character sets map codes to glyphs; uppercase/lowercase codes differ by one bit.</p>\n\n<h3>4. Images and sound</h3>\n<ul>\n<li>Bitmap: pixels; colour depth = bits per pixel. File size (bits) = W × H × depth. Metadata (width, height, depth) stores dimensions.</li>\n<li>Sound: sample rate (Hz), resolution (bits per sample), track duration × channels. Higher rate/depth = better fidelity, larger files.</li>\n</ul>\n\n<h3>5. Compression</h3>\n<ul>\n<li><strong>Lossless</strong> (RLE, ZIP): exact restore — text/code must use it. RLE example: AAABBBCC → 3A3B2C; effective with runs.</li>\n<li><strong>Lossy</strong> (JPEG, MP3): discards perceptually minor data — photos/music OK, text never.</li>\n</ul>\n\n<p><strong>Exam tips:</strong> show full working in conversions; for size questions write the formula first with units; state the <em>reason</em> a compression type suits the file.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "9038ac73-6a9d-4383-a36a-d35129a3c0ea",
+  "entity_type": "material",
+  "entity_id": "230d770c-b169-4153-b7a0-41297244195b",
+  "title": "Algorithms & Programming — Study Notes",
+  "content": "<h2>Algorithms &amp; Programming</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> pseudocode, flowcharts, standard algorithms (linear/bubble), trace tables, validation &amp; verification.</p>\n\n<h3>1. Pseudocode</h3>\n<pre>OUTPUT \"Enter n\"\nINPUT n\nIF n MOD 2 = 0 THEN\n  OUTPUT \"even\"\nELSE\n  OUTPUT \"odd\"\nENDIF\n\nFOR i ← 1 TO 10\n  total ← total + i\nNEXT i\n\nWHILE total < 100\n  total ← total + n\nENDWHILE\n\nFUNCTION square(x : INTEGER) RETURNS INTEGER\n  RETURN x * x\nENDFUNCTION</pre>\n<p>Assignment ←, comparison =, MOD/DIV for remainders/quotients.</p>\n\n<h3>2. Flowchart symbols</h3>\n<p>Terminator (oval), process (rectangle), decision (diamond), input/output (parallelogram), flow lines with arrows.</p>\n\n<h3>3. Standard algorithms</h3>\n<ul>\n<li>Linear search: check each item until found/end — works unsorted.</li>\n<li>Bubble sort: repeated adjacent swaps; largest bubbles to the end each pass; n−1 passes max; early exit when no swaps.</li>\n<li>Counting/totaling patterns; max/min with a running best value.</li>\n</ul>\n\n<h3>4. Trace tables</h3>\n<p>One column per variable; log every assignment in order; watch loop counters and reassignments.</p>\n<pre>x ← 1; total ← 0\nWHILE x <= 4\n  total ← total + x * 2\n  x ← x + 1\nENDWHILE  // total = 20</pre>\n\n<h3>5. Validation vs verification</h3>\n<ul>\n<li><strong>Validation</strong>: automatic checks on data — range (exam mark 0–100), length (password ≥ 8), type, format (postcode pattern), presence (field not empty), check digit (barcode).</li>\n<li><strong>Verification</strong>: data matches the source — double entry, visual/proof reading.</li>\n</ul>\n\n<h3>6. Testing</h3>\n<p>Normal (typical), abnormal (rejects invalid), boundary (extremes just inside/outside). Test data tables list input → expected output.</p>\n\n<p><strong>Exam tips:</strong> write pseudocode with ENDIF/NEXT/ENDWHILE terminators; in trace tables record the condition result too; boundary choices need \"just above/below/at\" values.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "917a7d44-34b8-4356-9226-468db1c13196",
+  "entity_type": "material",
+  "entity_id": "e1c1569d-a45c-4ebe-8012-6df10e500034",
+  "title": "Number — Indices and Standard Form — Study Notes",
+  "content": "<h2>Number — Indices and Standard Form</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> index laws, negative and fractional indices, standard form arithmetic.</p>\n\n<h3>1. Index laws</h3>\n<ul>\n<li>aᵐ × aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ</li>\n<li>a⁰ = 1; a⁻ⁿ = 1/aⁿ; a^(1/n) = ⁿ√a; a^(m/n) = (ⁿ√a)ᵐ</li>\n</ul>\n<p><strong>Examples:</strong> 27^(2/3) = (³√27)² = 9; 5⁻² = 1/25; (2x³)² = 4x⁶.</p>\n\n<h3>2. Standard form</h3>\n<p>a × 10ⁿ with 1 ≤ a &lt; 10.</p>\n<ul>\n<li>47 382 = 4.7382 × 10⁴; 0.0056 = 5.6 × 10⁻³</li>\n<li>Multiplication: multiply a's, add powers. Division: divide a's, subtract powers.</li>\n</ul>\n<p><strong>Example:</strong> (3 × 10⁵) × (4 × 10⁻²) = 12 × 10³ = 1.2 × 10⁴.</p>\n\n<h3>3. Calculator use</h3>\n<p>Use the ×10ˣ key, not 10 ^; keep working in standard form and convert at the end. Give final answers in the form asked (often 3 s.f. standard form).</p>\n\n<h3>4. Solving index equations</h3>\n<p>Match bases: 2ˣ = 32 ⇒ 2ˣ = 2⁵ ⇒ x = 5. With different bases, rewrite (8 = 2³).</p>\n\n<p><strong>Exam tips:</strong> check a is in [1, 10) before writing standard form; in \"multiply out\" questions apply the power to <em>every</em> factor including coefficients.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "946ae1c8-d16f-4b4c-acc6-b1a8cd44be6a",
+  "entity_type": "material",
+  "entity_id": "410f9140-4fa3-467e-8cac-852bafc28653",
+  "title": "Logic Gates & Boolean Logic — Study Notes",
+  "content": "<h2>Logic Gates &amp; Boolean Logic</h2>\n<p><strong>Cambridge IGCSE 0478 (2026–2028):</strong> six gates, truth tables, logic expressions, building/describing circuits, problem-to-logic mapping.</p>\n\n<h3>1. The six gates</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr></table>\n<p>NOT inverts. NAND = AND + invert; NOR = OR + invert; XOR = 1 when inputs differ.</p>\n\n<h3>2. Truth tables</h3>\n<p>2 inputs → 4 rows; 3 inputs → 8 rows. Work gate by gate, adding intermediate columns for sub-circuit outputs.</p>\n\n<h3>3. Logic expressions</h3>\n<p>A Boolean expression describes a circuit in logic: X = A AND NOT B, or X = (A OR B) AND C. Brackets fix the order — work out bracketed parts first, then AND, then OR.</p>\n<ul>\n<li><strong>Circuit → expression</strong>: label the output of every gate (P, Q, …), write one expression per gate in order, then combine them at the final gate.</li>\n<li><strong>Truth table → expression</strong>: mark the rows where the output is 1; for each such row write a term that is true only in that row (write NOT for an input that is 0, AND between the inputs); join the terms with OR. For XOR: X = (NOT A AND B) OR (A AND NOT B).</li>\n<li><strong>Expression → truth table</strong>: add an intermediate column for each sub-expression before the output column.</li>\n<li><strong>Rules used to simplify</strong>: A AND 1 = A; A AND 0 = 0; A OR 1 = 1; A OR 0 = A; A AND A = A; A AND NOT A = 0; A OR NOT A = 1; NOT(NOT A) = A; X OR (X AND Y) = X. (AS extension, 9618: De Morgan's laws — NOT(A AND B) = NOT A OR NOT B and NOT(A OR B) = NOT A AND NOT B.)</li>\n</ul>\n<p><strong>Example:</strong> a light X is on only when switch A is on and switch B is off → X = A AND NOT B, so X = 1 in exactly one row of its truth table (A = 1, B = 0).</p>\n\n<h3>4. Problem → logic</h3>\n<p>Define inputs/outputs first. Alarm rings (X=1) if sensor P triggered AND (door D OR window W): X = P AND (D OR W). Then draw the circuit: OR first, then AND.</p>\n\n<h3>5. Describing circuits</h3>\n<p>Write the expression from a diagram gate by gate; annotate output of each gate (X, Y) before combining.</p>\n\n<p><strong>Exam tips:</strong> check your truth table row count before writing; in problem questions, state \"input P = 1 means sensor triggered\" — definitions earn marks.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "973e5b6a-f4ce-47b1-b685-0029438c94a9",
+  "entity_type": "material",
+  "entity_id": "944cae75-d042-4e44-adb7-84ee5a7e4f18",
+  "title": "Thermal Physics — Study Notes",
+  "content": "<h2>Thermal Physics</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> kinetic particle model; thermal expansion; specific heat capacity; melting/boiling; conduction, convection, radiation.</p>\n\n<h3>1. Kinetic model</h3>\n<p>Solid: fixed positions, vibrate — fixed shape/volume. Liquid: move around, touching — fixed volume, flows. Gas: far apart, fast random motion — fills container. Brownian motion evidences random molecular motion.</p>\n\n<h3>2. Gas pressure and temperature</h3>\n<p>Pressure from wall collisions. Heating at fixed volume → faster particles → more frequent, harder collisions → higher pressure.</p>\n\n<h3>3. Thermal expansion</h3>\n<p>Heating → particles vibrate more → solids expand slightly (gases expand most). Applications: bimetallic strip (fire alarm/thermostat), gaps in bridges/rails; the liquid-in-glass thermometer.</p>\n\n<h3>4. Specific heat capacity</h3>\n<p>c = ΔE/(mΔθ). Heating: ΔE = mcΔθ.</p>\n<p><strong>Example:</strong> 2 kg water (c = 4200), 20→80 °C: ΔE = 2×4200×60 = 504 kJ.</p>\n<p>High c of water → coolant; temperature rise measured with known heater power P in time t: c = Pt/(mΔθ).</p>\n\n<h3>5. State changes</h3>\n<p>Melting/boiling at fixed temperature despite heating (energy breaks bonds, not temperature). Condensation/ freezing release energy. Impurities raise melting point of mixtures/lower freezing; boiling needs nucleation.</p>\n\n<h3>6. Transfer: conduction, convection, radiation</h3>\n<ul>\n<li><strong>Conduction</strong>: mainly metals (delocalised electrons + lattice vibration); non-metals poor; insulators trap air.</li>\n<li><strong>Convection</strong>: hot fluid expands, density falls, rises; denser cool fluid sinks — currents.</li>\n<li><strong>Radiation</strong>: infrared EM waves; no medium; matte black best absorber/emitter, shiny silver worst.</li>\n</ul>\n<p>Applications: vacuum flask, house insulation, car radiators, solar heating panels.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "a1b09a22-1324-4b39-8072-91349a18a678",
+  "entity_type": "material",
+  "entity_id": "d7f2e9e8-ff4a-4fba-9960-48d8ca800dd6",
+  "title": "Nuclear Physics — Study Notes",
+  "content": "<h2>Nuclear Physics</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> nuclear model, radioactivity, decay types, half-life, safety, fission/fusion (Extended).</p>\n\n<h3>1. The nuclear model</h3>\n<p>Nucleus (protons +, neutrons 0) with orbiting electrons (−). Nuclide notation ᴬ_Z X. Isotopes: same Z, different A. Rutherford scattering established the nuclear model; proton number Z, nucleon number A.</p>\n\n<h3>2. Radiation types</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Type</th><th>Nature</th><th>Range (air)</th><th>Stopped by</th></tr>\n<tr><td>alpha α</td><td>helium nucleus (2p2n)</td><td>few cm</td><td>paper</td></tr>\n<tr><td>beta β⁻</td><td>fast electron</td><td>~20–30 cm</td><td>few mm aluminium</td></tr>\n<tr><td>gamma γ</td><td>EM wave</td><td>very far</td><td>thick lead/concrete</td></tr></table>\n<p>Deflection in fields: α/β opposite, γ none. Ionising: α &gt; β &gt; γ. Background radiation: radon, cosmic, rocks, medical, fallout.</p>\n\n<h3>3. Decay equations</h3>\n<ul>\n<li>α: A −4, Z −2 (e.g. ²³⁸₉₂U → ²³⁴₉₀Th + α).</li>\n<li>β⁻: neutron → proton; A same, Z +1 (e.g. ¹⁴₆C → ¹⁴₇N + β⁻).</li>\n<li>γ: no change to A or Z.</li>\n</ul>\n<p>Balance A and Z on both sides — that is the check.</p>\n\n<h3>4. Half-life</h3>\n<p>Time for half the unstable nuclei to decay (random process). Read from a decay curve or count halves: 80 → 40 → 20 over two half-lives.</p>\n<p><strong>Example:</strong> 800 Bq, half-life 2 h → 200 Bq after 4 h.</p>\n\n<h3>5. Safety and uses</h3>\n<p>Uses: medical tracers (β/γ), sterilisation, thickness gauge (β), dating (C-14), smoke alarms (α). Safety: distance, time, shielding, wear badges, store in lead. Handle with tongs; never point at people.</p>\n\n<h3>6. Fission and fusion (Extended)</h3>\n<p>Fission: heavy nucleus splits (U-235 + neutron), chain reaction controlled by moderators/control rods — power stations. Fusion: light nuclei join (stellar) — needs huge T/P; releases more energy per kg; no long-lived waste.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "a32e16b6-f43b-4de9-98bc-7b70006d5ede",
+  "entity_type": "material",
+  "entity_id": "61da5c21-d745-4a51-ba0c-2a861af41061",
+  "title": "Pressure & Density — Study Notes",
+  "content": "<h2>Pressure &amp; Density</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> pressure &amp; pressure differences in fluids, density review (Extended pressure-depth).</p>\n\n<h3>1. Pressure basics</h3>\n<p>p = F/A (Pa = N/m²). Increase F or decrease A to raise pressure; explain applications (snowshoes, knives, hydraulic press).</p>\n\n<h3>2. Liquids</h3>\n<ul>\n<li>Pressure increases with depth: p = ρgh (Extended).</li>\n<li>Same level, same liquid ⇒ same pressure (hydrostatic paradox).</li>\n<li>Hydraulic systems transmit pressure — force multiplier: F₁/A₁ = F₂/A₂.</li>\n</ul>\n\n<h3>3. Atmospheric pressure</h3>\n<p>~10⁵ Pa at sea level; demonstrated by collapsing can, mercury barometer 760 mmHg; decreases with altitude.</p>\n\n<h3>4. Density revisited</h3>\n<p>ρ = m/V; floating condition; upthrust = weight of displaced fluid (qualitative).</p>\n\n<h3>5. Gas pressure (particle model)</h3>\n<p>Particles collide with walls → force per area. Volume ↓ at same T ⇒ pressure ↑ (more frequent collisions). Temperature ↑ ⇒ faster particles ⇒ more frequent, harder impacts.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "a54d4a8f-ae29-4074-a24b-39ca967379b4",
+  "entity_type": "material",
+  "entity_id": "410f9140-4fa3-467e-8cac-852bafc28653",
+  "title": "Logic Gates & Boolean Logic — Study Notes",
+  "content": "<h2>Logic Gates &amp; Boolean Logic</h2>\n<p><strong>Cambridge IGCSE 0478 (2026–2028):</strong> six gates, truth tables, building/describing circuits, problem-to-logic mapping.</p>\n\n<h3>1. The six gates</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr></table>\n<p>NOT inverts. NAND = AND + invert; NOR = OR + invert; XOR = 1 when inputs differ.</p>\n\n<h3>2. Truth tables</h3>\n<p>2 inputs → 4 rows; 3 inputs → 8 rows. Work gate by gate, adding intermediate columns for sub-circuit outputs.</p>\n\n<h3>3. Problem → logic</h3>\n<p>Define inputs/outputs first. Alarm rings (X=1) if sensor P triggered AND (door D OR window W): X = P AND (D OR W). Then draw the circuit: OR first, then AND.</p>\n\n<h3>4. Describing circuits</h3>\n<p>Write the expression from a diagram gate by gate; annotate output of each gate (X, Y) before combining.</p>\n\n<p><strong>Exam tips:</strong> check your truth table row count before writing; in problem questions, state \"input P = 1 means sensor triggered\" — definitions earn marks.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 17:11:43.051229+00"
+ },
+ {
+  "id": "ae884f49-69e3-4b43-99c5-b8fb68067f6c",
+  "entity_type": "material",
+  "entity_id": "4c3feece-d824-42a8-88ae-a9f3c5c313f7",
+  "title": "Waves & Sound — Study Notes",
+  "content": "<h2>Waves &amp; Sound</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> general wave properties; reflection/refraction/diffraction; sound.</p>\n\n<h3>1. Wave basics</h3>\n<p>v = fλ. Transverse (oscillation ⊥ travel — light, water, S-waves) vs longitudinal (parallel — sound, P-waves). Amplitude, wavelength, frequency f = 1/T; wavefront diagrams.</p>\n\n<h3>2. Ripple tank behaviours</h3>\n<ul>\n<li><strong>Reflection</strong>: angle in = angle out; speed/frequency unchanged, direction changes.</li>\n<li><strong>Refraction</strong>: speed change at boundary bends wavefronts (shallow water slows ripples).</li>\n<li><strong>Diffraction</strong>: spreading through gaps ≈ λ wide; around edges.</li>\n</ul>\n\n<h3>3. Electromagnetic spectrum (order)</h3>\n<p>Radio → micro → IR → visible (red 700 nm – violet 400 nm) → UV → X → gamma. All travel at 3 × 10⁸ m/s in vacuum; transverse; uses and dangers (IR heating; UV skin; X/gamma ionising).</p>\n\n<h3>4. Sound</h3>\n<ul>\n<li>Longitudinal; needs a medium (bell in vacuum demo). Speed ~340 m/s air, faster in liquids/solids.</li>\n<li>Range 20 Hz–20 kHz; ultrasound &gt; 20 kHz (sonar, prenatal scans, cleaning).</li>\n<li>Pitch ↔ frequency; loudness ↔ amplitude.</li>\n</ul>\n\n<h3>5. Echo problems</h3>\n<p>Distance = (v × t)/2 (there and back).</p>\n<p><strong>Example:</strong> echo after 0.6 s, v = 340 → cliff 102 m away.</p>\n\n<p><strong>Exam tips:</strong> in diagrams always label wavelength as crest-to-crest; for refraction, state \"changes speed\" first, then direction; quote EM uses with the hazard.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "aea0e3db-679c-410d-8816-679689af5ac1",
+  "entity_type": "material",
+  "entity_id": "410f9140-4fa3-467e-8cac-852bafc28653",
+  "title": "Logic Gates & Boolean Logic — Study Notes",
+  "content": "<h2>Logic Gates &amp; Boolean Logic</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> six gates, truth tables, building/describing circuits, problem-to-logic mapping.</p>\n\n<h3>1. The six gates</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr></table>\n<p>NOT inverts. NAND = AND + invert; NOR = OR + invert; XOR = 1 when inputs differ.</p>\n\n<h3>2. Truth tables</h3>\n<p>2 inputs → 4 rows; 3 inputs → 8 rows. Work gate by gate, adding intermediate columns for sub-circuit outputs.</p>\n\n<h3>3. Problem → logic</h3>\n<p>Define inputs/outputs first. Alarm rings (X=1) if sensor P triggered AND (door D OR window W): X = P AND (D OR W). Then draw the circuit: OR first, then AND.</p>\n\n<h3>4. Describing circuits</h3>\n<p>Write the expression from a diagram gate by gate; annotate output of each gate (X, Y) before combining.</p>\n\n<p><strong>Exam tips:</strong> check your truth table row count before writing; in problem questions, state \"input P = 1 means sensor triggered\" — definitions earn marks.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "aec53005-b856-4416-8c0d-83ab30b12cd3",
+  "entity_type": "material",
+  "entity_id": "1cbe3f90-97ce-4f84-8928-e7f861cadf0e",
+  "title": "Ethics, Security & Impact — Quick Revision Summary",
+  "content": "<h2>Quick revision: Ethics, Security & Impact</h2>\n<p><strong>Computer Science — OL.</strong> ethics &amp; professional codes, security threats, malware, online safety, environmental/employment impact.</p>\n<ul>\n<li>1. Ethics and codes</li>\n<li>2. Threats</li>\n<li>3. Defences</li>\n<li>4. Online behaviour</li>\n<li>5. Wider impact</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "b159e986-d65e-497d-afb4-f33a9242a350",
+  "entity_type": "material",
+  "entity_id": "9fe2f14b-5551-4243-bd1c-cc87b02ee427",
+  "title": "Number — Indices and Standard Form — Quick Revision Summary",
+  "content": "<h2>Quick revision: Number — Indices and Standard Form</h2>\n<p><strong>Mathematics — OL.</strong> index laws, negative and fractional indices, standard form arithmetic.</p>\n<ul>\n<li>1. Index laws</li>\n<li>2. Standard form</li>\n<li>3. Calculator use</li>\n<li>4. Solving index equations</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "b25ea473-c615-423c-8902-327b578ba2ce",
+  "entity_type": "material",
+  "entity_id": "f4ec1c0b-4462-46b9-98fe-457d9fbd7e90",
+  "title": "Robotics & AI — Study Notes",
+  "content": "<h2>Robotics &amp; AI</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> AI characteristics, machine learning basics, robotics/simulation contexts, automated systems.</p>\n\n<h3>1. AI characteristics</h3>\n<p>Systems exhibiting: planning, learning, reasoning, problem-solving, perception, knowledge representation. Narrow (task-specific) vs general AI distinction for discussion answers.</p>\n\n<h3>2. Machine learning</h3>\n<p>Supervised (labelled data — spam filters), unsupervised (clusters — segmentation), reinforcement (rewards — game agents). Training/evaluation loop: train on a set, test on unseen data; overfitting = memorising rather than generalising.</p>\n\n<h3>3. Robotics</h3>\n<p>Components: sensors (input), processors (decision), actuators/motors (output), power. Examples: manufacturing arms, delivery drones, autonomous vehicles (LIDAR + vision). Benefits: precision, 24/7 operation, dangerous jobs; concerns: job displacement, safety, cost.</p>\n\n<h3>4. Automated systems &amp; simulation</h3>\n<p>Sensors → processor → actuators loops (greenhouses, traffic lights, self-checkouts). Simulation models real systems cheaply and safely (flight training, weather, crash tests) — limitations: model quality, missing variables.</p>\n\n<h3>5. Ethics of AI</h3>\n<p>Bias from unrepresentative training data; opacity of decisions; accountability for errors; privacy of training data; effect on employment.</p>\n\n<p><strong>Exam tips:</strong> for \"describe how AI could be used in X\" — tie each AI characteristic to a concrete step in the scenario; for evaluations, give both sides then a justified conclusion.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "b6eeafb9-22d8-478e-ab13-5a2b332d74d6",
+  "entity_type": "material",
+  "entity_id": "e57fcf07-484e-4716-b79e-2e80f4c59824",
+  "title": "Database Systems — Study Notes",
+  "content": "<h2>Database Systems</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> limitations of file-based systems; relational concepts; SQL (SELECT, FROM, WHERE, ORDER BY, GROUP BY, INNER JOIN, SUM, COUNT); DBMS features.</p>\n\n<h3>1. File-based problems</h3>\n<p>Data repetition (wasted space, inconsistency), fixed queries, no concurrent access control — solved by a DBMS with shared, structured tables.</p>\n\n<h3>2. Relational concepts</h3>\n<ul>\n<li>Table, record, field; primary key (unique); secondary key (indexed search field); foreign key links tables.</li>\n<li>One-to-many relationships via foreign keys; no repeating groups (1NF mindset).</li>\n</ul>\n\n<h3>3. SQL</h3>\n<pre>SELECT Title, Year FROM Films\nWHERE Genre = 'Sci-Fi' AND Year > 2015\nORDER BY Year DESC;\n\nSELECT Genre, COUNT(*) AS NumFilms, SUM(Rating) AS TotalRating\nFROM Films\nGROUP BY Genre;\n\nSELECT s.Name, f.Title\nFROM Students s INNER JOIN Loans l ON s.StudentID = l.StudentID\nINNER JOIN Films f ON l.FilmID = f.FilmID;</pre>\n<p>WHERE filters rows; GROUP BY aggregates; JOIN combines on matching keys.</p>\n\n<h3>4. DBMS features</h3>\n<p>Data dictionary (schema, types, constraints), query processor, forms/reports, access rights (read/write per user), data integrity (validation rules), backup/recovery.</p>\n\n<p><strong>Exam tips:</strong> write SQL keywords uppercase; alias joined tables (s, l, f); when asked \"why relational\", cite reduced redundancy + flexible queries.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
   "id": "bb23712f-7138-4b97-ba3c-3365fd9d67ec",
   "entity_type": "material",
   "entity_id": "c015774f-319c-423f-94e2-c1b6a3505c70",
@@ -45,6 +405,36 @@
   "created_at": "2026-09-20 19:23:13.08623+00"
  },
  {
+  "id": "d9f76de8-2121-4640-b105-d1dbfd35aac4",
+  "entity_type": "material",
+  "entity_id": "b6a60bd2-bb48-4e1a-a466-d85e083f3864",
+  "title": "Logic Gates & Boolean Logic — Quick Revision Summary",
+  "content": "<h2>Quick revision: Logic Gates & Boolean Logic</h2>\n<p><strong>Computer Science — OL.</strong> six gates, truth tables, building/describing circuits, problem-to-logic mapping.</p>\n<ul>\n<li>1. The six gates</li>\n<li>2. Truth tables</li>\n<li>3. Problem → logic</li>\n<li>4. Describing circuits</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "da4e9fc8-d27b-470d-b9c3-e1e0b8e0be6d",
+  "entity_type": "material",
+  "entity_id": "1ad7eb98-7831-4f23-85f8-9790a66e4ca4",
+  "title": "Ethics, Security & Impact — Study Notes",
+  "content": "<h2>Ethics, Security &amp; Impact</h2>\n<p><strong>Cambridge IGCSE 0478 (2023–2025):</strong> ethics &amp; professional codes, security threats, malware, online safety, environmental/employment impact.</p>\n\n<h3>1. Ethics and codes</h3>\n<p>ACM/IEEE-CS/BCS codes: public interest, competence, integrity, privacy. Applying: identify the principle → apply to scenario → stakeholders affected → consequences.</p>\n\n<h3>2. Threats</h3>\n<ul>\n<li><strong>Malware</strong>: virus (attaches, replicates via host), worm (self-spreads), trojan (disguised), spyware, ransomware.</li>\n<li><strong>Social</strong>: phishing (fake emails/sites), pharming (DNS/hosts redirect), shoulder surfing, brute force.</li>\n<li><strong>Technical</strong>: interception (packet sniffing), SQL injection (malicious input into queries), DoS (flooding services).</li>\n</ul>\n\n<h3>3. Defences</h3>\n<p>Antivirus/antispyware (scan, quarantine), firewalls (port/IP filtering), 2FA + biometrics, strong passwords + managers, encryption (HTTPS, VPN), access levels, patches/updates, user training.</p>\n\n<h3>4. Online behaviour</h3>\n<p>Digital footprint, cyberbullying, fake news, privacy settings, verification of sources.</p>\n\n<h3>5. Wider impact</h3>\n<p>Employment: automation displaces roles but creates IT jobs. Environment: e-waste, energy use vs paperless efficiency. Monitoring: workplace tracking, CCTV — balance with privacy laws (GDPR-style).</p>\n\n<p><strong>Exam tips:</strong> name the threat precisely (pharming ≠ phishing), then the <em>matched</em> defence; ethics answers need principle + application, not opinion.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
   "id": "e1d250fc-07b6-408f-a587-df47a2e373f6",
   "entity_type": "lesson",
   "entity_id": "fdc18cc4-d701-46d2-9b30-b3c37f8ebbed",
@@ -58,5 +448,50 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-21 17:56:49.948062+00"
+ },
+ {
+  "id": "f19959df-7d2d-4cc1-8917-540ba53be73b",
+  "entity_type": "material",
+  "entity_id": "d371087c-b171-4536-ae7e-16eadfdba067",
+  "title": "Energy, Work & Power — Study Notes",
+  "content": "<h2>Energy, Work &amp; Power</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> stores and transfers, KE/PE, work, energy sources, power, efficiency.</p>\n\n<h3>1. Energy stores &amp; transfers</h3>\n<p>Stores: kinetic, gravitational, elastic, chemical, nuclear, thermal. Transfer mechanisms: mechanically, electrically, heating, waves. Energy is conserved overall; transfers via <strong>work</strong> done.</p>\n\n<h3>2. Formulas</h3>\n<ul>\n<li>KE = ½mv²; PE = mgh.</li>\n<li>Work W = Fd (force along displacement, joules).</li>\n<li>Power P = W/t = E/t; P = Fv for constant speed.</li>\n</ul>\n<p><strong>Example:</strong> 0.5 kg at 4 m/s: KE = 4 J. Lift 2 kg by 3 m: PE = 60 J (g = 10).</p>\n\n<h3>3. Energy sources</h3>\n<p>Renewable: solar, wind, hydro, geothermal, biofuel, tidal — replenished. Non-renewable: fossil fuels, nuclear — finite. Discuss reliability, cost, pollution for \"evaluate\" questions.</p>\n\n<h3>4. Efficiency</h3>\n<p>Efficiency = useful output ÷ total input (×100%). Sankey diagrams show losses.</p>\n<p><strong>Example:</strong> motor: 150 J useful from 600 J → 25%.</p>\n\n<h3>5. Energy-chain problems</h3>\n<p>Equating KE loss to PE gain: v = √(2gh) for frictionless drop; braking distance grows with v².</p>\n\n<p><strong>Exam tips:</strong> define work as \"force × distance moved <em>in the direction of the force</em>\"; use g = 10 unless told otherwise; efficiency is a ratio — no units.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "f3562fe0-4b19-4eae-ab36-9326c23268d7",
+  "entity_type": "material",
+  "entity_id": "1ad7eb98-7831-4f23-85f8-9790a66e4ca4",
+  "title": "Ethics, Security & Impact — Study Notes",
+  "content": "<h2>Ethics, Security &amp; Impact</h2>\n<p><strong>Cambridge IGCSE 0478 (2026–2028):</strong> ethics &amp; professional codes, security threats, malware, online safety, environmental/employment impact.</p>\n\n<h3>1. Ethics and codes</h3>\n<p>ACM/IEEE-CS/BCS codes: public interest, competence, integrity, privacy. Applying: identify the principle → apply to scenario → stakeholders affected → consequences.</p>\n\n<h3>2. Threats</h3>\n<ul>\n<li><strong>Malware</strong>: virus (attaches, replicates via host), worm (self-spreads), trojan (disguised), spyware, ransomware.</li>\n<li><strong>Social</strong>: phishing (fake emails/sites), pharming (DNS/hosts redirect), shoulder surfing, brute force.</li>\n<li><strong>Technical</strong>: interception (packet sniffing), SQL injection (malicious input into queries), DoS (flooding services).</li>\n</ul>\n\n<h3>3. Defences</h3>\n<p>Antivirus/antispyware (scan, quarantine), firewalls (port/IP filtering), 2FA + biometrics, strong passwords + managers, encryption (HTTPS, VPN), access levels, patches/updates, user training.</p>\n\n<h3>4. Online behaviour</h3>\n<p>Digital footprint, cyberbullying, fake news, privacy settings, verification of sources.</p>\n\n<h3>5. Wider impact</h3>\n<p>Employment: automation displaces roles but creates IT jobs. Environment: e-waste, energy use vs paperless efficiency. Monitoring: workplace tracking, CCTV — balance with privacy laws (GDPR-style).</p>\n\n<p><strong>Exam tips:</strong> name the threat precisely (pharming ≠ phishing), then the <em>matched</em> defence; ethics answers need principle + application, not opinion.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 17:11:43.051229+00"
+ },
+ {
+  "id": "fc6713f3-c975-4583-8039-744d00660abb",
+  "entity_type": "material",
+  "entity_id": "53568d22-201e-404e-83d9-0e61912f2c1b",
+  "title": "Magnetism & Electromagnetism — Study Notes",
+  "content": "<h2>Magnetism &amp; Electromagnetism</h2>\n<p><strong>Cambridge IGCSE 0625 (2023–2025):</strong> magnets &amp; fields; magnetic effect of a current; force on a current-carrying conductor; motor effect; electromagnetic induction (Extended); transformers (Extended).</p>\n\n<h3>1. Magnets and fields</h3>\n<p>Iron/steel/cobalt/nickel; like poles repel. Field lines exit N, enter S; compass plotting; plotting compass aligns with field. Induced magnetism: iron (temporary) vs steel (permanent).</p>\n\n<h3>2. Electromagnets</h3>\n<p>Solenoid field like a bar magnet; strength ↑ with current, turns, iron core. Uses: relays, scrapyard crane, electric bell, speaker. Hard/soft magnetic materials choose permanent vs core use.</p>\n\n<h3>3. Force on a current-carrying conductor</h3>\n<p>F = BIL, direction by Fleming's left hand (fIeld, current, force). Reversing current or field reverses force. D.C. motor: coil, commutator reverses current each half-turn for continuous rotation; speed/torque ↑ with current, field strength, turns/area.</p>\n\n<h3>4. Electromagnetic induction (Extended)</h3>\n<p>Induced e.m.f. when a conductor cuts field lines or flux changes. Fleming's right hand (generator). Factors: speed, field strength, turns. A.C. generator: slip rings; dynamo effect; Lenz's law opposes change (direction of induced current).</p>\n\n<h3>5. Transformers (Extended)</h3>\n<p>V<sub>p</sub>/V<sub>s</sub> = N<sub>p</sub>/N<sub>s</sub>; P<sub>in</sub> ≈ P<sub>out</sub> (100% assumed): I<sub>p</sub>V<sub>p</sub> = I<sub>s</sub>V<sub>s</sub>. Step-up raises V, lowers I → lower I²R transmission losses; a.c. required (changing flux).</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-09-30 16:51:29.172364+00"
  }
 ]

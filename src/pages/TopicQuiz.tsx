@@ -19,7 +19,9 @@ import {
   topicQuizPath,
   topicPapersPath,
   slugifyTopicName,
+  topicSlugOf,
 } from "@/lib/topicUrls";
+import { SITE_URL } from "@/lib/seoRoutes";
 import {
   Brain,
   CheckCircle2,
@@ -29,6 +31,7 @@ import {
   ArrowLeft,
   Bookmark,
   Play,
+  RotateCcw,
 } from "lucide-react";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -69,6 +72,8 @@ export default function TopicQuiz() {
   const [score, setScore] = useState<{ correct: number; total: number } | null>(null);
   const [results, setResults] = useState<{ question_id: string; selected: number; correct_option: number; explanation: string | null; options: string[] }[]>([]);
   const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>([]);
+  // Bumped by "Try again" to re-run the load effect.
+  const [retryKey, setRetryKey] = useState(0);
 
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
@@ -80,7 +85,8 @@ export default function TopicQuiz() {
       setLoading(true);
       setError(null);
       try {
-        const { data: sub } = await supabase.from("subjects").select("*").ilike("slug", subject ?? "").limit(1);
+        const { data: sub, error: subError } = await supabase.from("subjects").select("*").ilike("slug", subject ?? "").limit(1);
+        if (subError) throw subError;
         const subjectRow = sub?.[0] ?? null;
         if (!subjectRow) {
           setError("Subject not found");
@@ -89,7 +95,8 @@ export default function TopicQuiz() {
         }
         setSubjectMeta(subjectRow);
 
-        const { data: sl } = await supabase.from("subject_levels").select("*").eq("subject_id", subjectRow.id).eq("level", (level ?? "").toUpperCase() as SubjectLevelCode).limit(1);
+        const { data: sl, error: slError } = await supabase.from("subject_levels").select("*").eq("subject_id", subjectRow.id).eq("level", (level ?? "").toUpperCase() as SubjectLevelCode).limit(1);
+        if (slError) throw slError;
         const levelRow = sl?.[0] ?? null;
         if (!levelRow) {
           setError("Level not found");
@@ -98,9 +105,16 @@ export default function TopicQuiz() {
         }
         setSubjectLevel(levelRow);
 
-        const { data: tps } = await supabase.from("topics").select("*").eq("subject_level_id", levelRow.id).order("sort_order");
+        const { data: tps, error: tpsError } = await supabase.from("topics").select("*").eq("subject_level_id", levelRow.id).order("sort_order");
+        if (tpsError) throw tpsError;
         const topicList = tps ?? [];
-        const topicRow = topicList.find((t) => slugifyTopicName(t.name) === topicSlug || t.name.toLowerCase() === (topic ?? "").replace(/-/g, " ").toLowerCase());
+        const topicRow = topicList.find(
+          (t) =>
+            topicSlugOf(t) === topicSlug ||
+            // Last-resort match for URLs minted before slugs were persisted.
+            slugifyTopicName(t.name) === topicSlug ||
+            t.name.toLowerCase() === (topic ?? "").replace(/-/g, " ").toLowerCase(),
+        );
         if (!topicRow) {
           setError("Topic not found on this level");
           setLoading(false);
@@ -110,7 +124,7 @@ export default function TopicQuiz() {
         setTopicId(topicRow.id);
 
         if (active) {
-          const { data } = await supabase.rpc("browse_questions", {
+          const { data, error: questionsError } = await supabase.rpc("browse_questions", {
             _topic_id: topicRow.id,
             _subject_level_id: levelRow.id,
             _difficulty: null,
@@ -119,6 +133,7 @@ export default function TopicQuiz() {
             _limit: 200,
             _offset: 0,
           });
+          if (questionsError) throw questionsError;
           if (active && data) {
             setQuestions((data as unknown as TopicQuestion[]) ?? []);
             setBookmarkedQuestions((data as unknown as TopicQuestion[]).filter((q) => q.bookmarked));
@@ -131,7 +146,7 @@ export default function TopicQuiz() {
       }
     })();
     return () => { active = false; };
-  }, [subject, level, topic, topicSlug]);
+  }, [subject, level, topic, topicSlug, retryKey]);
 
   const topicSourceLink = useMemo(() => {
     if (!subjectMeta || !subjectLevel) return "#";
@@ -242,10 +257,15 @@ export default function TopicQuiz() {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Topic questions not found</CardTitle>
+          <CardTitle>
+            {error && !/not found/i.test(error) ? "Couldn't load these questions" : "Topic questions not found"}
+          </CardTitle>
           <CardDescription>{error ?? "No questions have been added for this topic yet."}</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-wrap gap-2">
+          <Button variant="outline" className="gap-2" onClick={() => setRetryKey((k) => k + 1)}>
+            <RotateCcw className="h-4 w-4" /> Try again
+          </Button>
           <Button asChild variant="outline" className="gap-2">
             <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
           </Button>
@@ -271,18 +291,18 @@ export default function TopicQuiz() {
           "@type": "LearningResource",
           name: `${topicLabel} — Topic Questions`,
           description: `Exam-style questions for ${topicLabel} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, with instant marking and explanations.`,
-          url: `https://clutch-marks.lovable.app${topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
+          url: `${SITE_URL}${topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
           educationalLevel: LEVEL_LABELS[levelCode],
           about: { "@type": "Thing", name: topicLabel },
           isPartOf: {
             "@type": "Course",
             name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-            url: `https://clutch-marks.lovable.app/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
           },
           provider: {
             "@type": "EducationalOrganization",
             name: "Clutch Marks",
-            url: "https://clutch-marks.lovable.app/",
+            url: `${SITE_URL}/`,
           },
         }}
       />
@@ -393,7 +413,7 @@ export default function TopicQuiz() {
           const isWrong = result && selectedOption !== -1 && selectedOption !== result.correct_option;
 
           return (
-            <Card key={question.id} className="round-borders">
+            <Card key={question.id}>
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <div className="min-w-0">

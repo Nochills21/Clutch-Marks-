@@ -18,6 +18,8 @@ import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useToast } from "@/hooks/useToast";
+import { loadFailureMessage } from "@/lib/net";
 import { SubjectPicker } from "@/components/SubjectPicker";
 import { SubjectGate } from "@/components/SubjectGate";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
@@ -69,6 +71,7 @@ interface LevelOption { id: string; label: string }
 
 export default function Practice() {
   const { user } = useAuth();
+  const { toast } = useToast();
   const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
   const [params, setParams] = useSearchParams();
   const tab = params.get("tab") ?? "topics";
@@ -101,6 +104,9 @@ export default function Practice() {
   const [drillDone, setDrillDone] = useState(false);
   const [drillTopic, setDrillTopic] = useState("");
   const [loadingWeak, setLoadingWeak] = useState(true);
+  // Which topic's drill is being fetched, so the button can show progress
+  // instead of looking dead between the click and the request landing.
+  const [drillLoadingId, setDrillLoadingId] = useState<string | null>(null);
 
   // ---------- Review list (incorrect/bookmarked) ----------
   const [levelOptions, setLevelOptions] = useState<LevelOption[]>([]);
@@ -177,11 +183,12 @@ export default function Practice() {
 
   useEffect(() => {
     (async () => {
-      const { data } = await supabase
+      const { data, error: levelsError } = await supabase
         .from("subject_levels")
         .select("id, level, subjects(name)")
         .eq("is_active", true)
         .order("sort_order");
+      if (levelsError) { setError(loadFailureMessage("your subjects", levelsError)); return; }
       setLevelOptions(
         (data ?? []).map((l: any) => ({
           id: l.id,
@@ -195,10 +202,20 @@ export default function Practice() {
 
   const loadBankAttempts = async () => {
     if (!user) return;
-    const { data } = await supabase
+    const { data, error: attemptsError } = await supabase
       .from("practice_attempts")
       .select("question_id, last_correct, attempts_count, last_attempt_at")
       .eq("user_id", user.id);
+    if (attemptsError) {
+      // Decorative (the "tried N times" marks), so it stays a toast rather
+      // than blanking the whole question list.
+      toast({
+        title: "Couldn't load your practice history",
+        description: loadFailureMessage("your practice history", attemptsError),
+        variant: "destructive",
+      });
+      return;
+    }
     const map: Record<string, Attempt> = {};
     (data ?? []).forEach((a: any) => { map[a.question_id] = a; });
     setBankAttempts(map);
@@ -228,13 +245,19 @@ export default function Practice() {
   useEffect(() => {
     if (tab !== "topics" || !bankTopicId) return;
     (async () => {
-      const { data } = await supabase.rpc("browse_questions", {
+      const { data, error } = await supabase.rpc("browse_questions", {
         _topic_id: bankTopicId,
         _difficulty: bankDifficulty === "all" ? null : bankDifficulty,
         _exam_type: bankExamType === "all" ? null : bankExamType,
         _limit: 200,
         _offset: 0,
       });
+      if (error) {
+        // An empty panel is not the same as "no questions here".
+        toast({ title: "Could not load questions", description: error.message, variant: "destructive" });
+        setBankQuestions([]);
+        return;
+      }
       setBankQuestions(((data ?? []) as unknown as BankQuestion[]));
     })();
   }, [tab, bankTopicId, bankDifficulty, bankExamType]);
@@ -254,29 +277,73 @@ export default function Practice() {
 
   // ---------- Drill flow ----------
   const buildSession = async (topicId: string, topicName: string) => {
-    const { data: qs } = await supabase.rpc("get_practice_questions", { _topic_id: topicId, _limit: 10 });
-    const pool: DrillQuestion[] = (qs ?? []).map((q: any) => ({
-      id: q.id,
-      question_text: q.question_text,
-      options: Array.isArray(q.options) ? q.options : [],
-      topic_name: topicName,
-    }));
-    if (pool.length === 0) return;
-    setDrill(pool);
-    setDrillTopic(topicName);
-    setDrillIdx(0);
-    setDrillSelected(null);
-    setDrillCorrect(0);
-    setDrillDone(false);
+    // `if (pool.length === 0) return;` used to end this function with no state
+    // change and no message, so clicking Drill on a topic without published
+    // questions looked like a dead button. Errors were discarded too (the RPC
+    // result's `error` was never read), which hid real failures the same way.
+    if (drillLoadingId) return;
+    setDrillLoadingId(topicId);
+    try {
+      const { data: qs, error } = await supabase.rpc("get_practice_questions", {
+        _topic_id: topicId,
+        _limit: 10,
+      });
+      if (error) {
+        toast({
+          title: "Could not start the drill",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
+      const pool: DrillQuestion[] = (qs ?? []).map((q: any) => ({
+        id: q.id,
+        question_text: q.question_text,
+        options: Array.isArray(q.options) ? q.options : [],
+        topic_name: topicName,
+      }));
+      if (pool.length === 0) {
+        toast({
+          title: "No questions to drill yet",
+          description: `Nothing published for ${topicName} yet — try another topic or the Topic questions tab.`,
+        });
+        return;
+      }
+      setDrill(pool);
+      setDrillTopic(topicName);
+      setDrillIdx(0);
+      setDrillSelected(null);
+      setDrillCorrect(0);
+      setDrillDone(false);
+    } catch (e: any) {
+      toast({
+        title: "Could not start the drill",
+        description: e?.message ?? "Unexpected error",
+        variant: "destructive",
+      });
+    } finally {
+      setDrillLoadingId(null);
+    }
   };
 
   const handleDrillAnswer = async (i: number) => {
     if (drillSelected !== null) return;
     setDrillSelected(i);
-    const { data } = await supabase.rpc("check_practice_answer", {
+    const { data, error } = await supabase.rpc("check_practice_answer", {
       _question_id: drill[drillIdx].id,
       _selected: i,
     });
+    // Without this, a failed marking call left the option highlighted with no
+    // verdict and no explanation — indistinguishable from a broken answer.
+    if (error || !data) {
+      setDrillSelected(null);
+      toast({
+        title: "Could not check that answer",
+        description: error?.message ?? "Please try again.",
+        variant: "destructive",
+      });
+      return;
+    }
     const result = (data ?? {}) as { correct?: boolean; correct_option?: number; explanation?: string | null };
     setDrill((prev) => prev.map((q, k) => k === drillIdx ? { ...q, correct_option: result.correct_option, explanation: result.explanation ?? null } : q));
     if (result.correct) setDrillCorrect((c) => c + 1);
@@ -310,8 +377,18 @@ export default function Practice() {
   const submitBankQuestion = async (i: number) => {
     if (!bankActive || bankSelected !== null) return;
     setBankSelected(i);
-    const { data } = await supabase.rpc("check_practice_answer", { _question_id: bankActive.id, _selected: i });
-    if (!data) return;
+    const { data, error } = await supabase.rpc("check_practice_answer", { _question_id: bankActive.id, _selected: i });
+    // `if (!data) return;` used to leave the chosen option highlighted forever
+    // with no verdict: the student clicks an answer and nothing happens.
+    if (error || !data) {
+      setBankSelected(null);
+      toast({
+        title: "Could not check that answer",
+        description: error?.message ?? "Please try again.",
+        variant: "destructive",
+      });
+      return;
+    }
     const r = data as any;
     setBankReveal({ correct_option: r.correct_option, explanation: r.explanation, correct: r.correct });
     loadBankAttempts();
@@ -332,6 +409,26 @@ export default function Practice() {
     if (isAdmin || !prefsLoaded) return bankTopics;
     return bankTopics.filter((t) => pickedSlByTopic.get(t.id));
   }, [bankTopics, pickedIds, prefsLoaded, isAdmin, pickedSlByTopic]);
+
+  // The summary RPC is platform-wide, so its totals used to read "2 / 1940" and
+  // its topic list named subjects the student never picked. Scope it the same
+  // way as every other list on this page.
+  const visibleBankSummary = useMemo(() => {
+    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return bankSummary;
+    return bankSummary.filter((s) => pickedSlByTopic.has(s.topic_id));
+  }, [bankSummary, pickedIds, prefsLoaded, isAdmin, pickedSlByTopic]);
+
+  // Keep the topic picker showing something real. It defaults to the first
+  // topic in the whole bank, which for a student is usually NOT one of their
+  // picked subject-levels — a Radix Select with a value that has no matching
+  // item renders blank, so the control looked empty (and broken) while it was
+  // silently filtering the question list.
+  useEffect(() => {
+    if (tab !== "topics" || visibleBankTopics.length === 0) return;
+    if (!visibleBankTopics.some((t) => t.id === bankTopicId)) {
+      setBankTopicId(visibleBankTopics[0].id);
+    }
+  }, [tab, visibleBankTopics, bankTopicId]);
 
   const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
 
@@ -493,7 +590,7 @@ export default function Practice() {
         {/* Topic questions (old QuestionBank) */}
         <TabsContent value="topics" className="mt-4 space-y-4">
           <SavedProgressPanel
-            summary={bankSummary}
+            summary={visibleBankSummary}
             loading={summaryLoading}
             error={null}
             onRetry={loadBankSummary}
@@ -526,7 +623,7 @@ export default function Practice() {
               </Select>
               <div className="relative flex-1 min-w-[180px]">
                 <Search className="h-4 w-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                <Input className="pl-9" placeholder="Search questions…" value={bankSearch} onChange={(e) => setBankSearch(e.target.value)} />
+                <Input className="pl-9" aria-label="Search topic questions" placeholder="Search questions…" value={bankSearch} onChange={(e) => setBankSearch(e.target.value)} />
               </div>
             </CardContent>
           </Card>
@@ -570,7 +667,7 @@ export default function Practice() {
               </Select>
               <div className="relative flex-1 min-w-[180px]">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search questions or topics" className="pl-9" />
+                <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search questions or topics" aria-label="Search review questions" className="pl-9" />
               </div>
             </CardContent>
           </Card>
@@ -690,8 +787,14 @@ export default function Practice() {
                         </div>
                         <p className="font-semibold text-sm truncate">{t.name}</p>
                       </div>
-                      <Button size="sm" onClick={() => buildSession(t.id, t.name)} className="gap-1 shrink-0">
-                        <Brain className="h-4 w-4" /> Drill
+                      <Button
+                        size="sm"
+                        onClick={() => buildSession(t.id, t.name)}
+                        disabled={drillLoadingId !== null}
+                        className="gap-1 shrink-0"
+                      >
+                        <Brain className="h-4 w-4" />
+                        {drillLoadingId === t.id ? "Starting…" : "Drill"}
                       </Button>
                     </CardContent>
                   </Card>

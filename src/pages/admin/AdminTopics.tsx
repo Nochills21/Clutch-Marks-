@@ -147,8 +147,8 @@ export default function AdminTopics() {
                       {uploadingTopic === t.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
                       Upload notes
                     </Button>
-                    <Button size="icon" variant="ghost" onClick={() => openEdit(t)}><Pencil className="h-4 w-4" /></Button>
-                    <Button size="icon" variant="ghost" onClick={() => remove(t.id)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                    <Button size="icon" variant="ghost" aria-label={`Edit ${t.name}`} title={`Edit ${t.name}`} onClick={() => openEdit(t)}><Pencil className="h-4 w-4" /></Button>
+                    <Button size="icon" variant="ghost" aria-label={`Delete ${t.name}`} title={`Delete ${t.name}`} onClick={() => remove(t.id)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
                   </div>
                 </div>
 
@@ -157,11 +157,11 @@ export default function AdminTopics() {
                     {topicNotes.map((n) => (
                       <div key={n.id} className="flex items-center gap-2 text-sm">
                         <FileText className="h-4 w-4 text-muted-foreground shrink-0" />
-                        <span className="flex-1 truncate">{n.title}</span>
-                        <Button size="icon" variant="ghost" onClick={() => n.file_url && openSignedFile("study-materials", n.file_url)}>
+                        <span className="min-w-0 flex-1 truncate">{n.title}</span>
+                        <Button size="icon" variant="ghost" disabled={!n.file_url} aria-label={`Open ${n.title}`} title={n.file_url ? `Open ${n.title}` : "No file uploaded"} onClick={() => n.file_url && openSignedFile("study-materials", n.file_url)}>
                           <ExternalLink className="h-4 w-4" />
                         </Button>
-                        <Button size="icon" variant="ghost" onClick={() => removeNote(n)}>
+                        <Button size="icon" variant="ghost" aria-label={`Delete ${n.title}`} title={`Delete ${n.title}`} onClick={() => removeNote(n)}>
                           <Trash2 className="h-4 w-4 text-destructive" />
                         </Button>
                       </div>

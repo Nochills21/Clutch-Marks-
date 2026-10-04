@@ -19,7 +19,7 @@ import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { BrandLockup } from "@/components/BrandMark";
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { countUnreadAnnouncements } from "@/lib/announcements";
 
 
 const studentLinks = [
@@ -77,21 +77,24 @@ export function AppSidebar() {
   const isAdmin = studentPreview || role === "admin";
   const links = role === "admin" ? adminLinks : role === "parent" ? parentLinks : studentLinks;
 
-  // Unread announcements count shown as a red badge on the Announcements tab.
-    // Unread announcement count for the red badge on the Announcements tab.
+  // Unread count for the red badge on the Announcements tab.
+  //
+  // Read state is per user (public.announcement_reads, migration
+  // 20260929121000) — not the deprecated global `announcements.unread` flag,
+  // which could only ever show every student the same number, and not
+  // `notifications` either, which is a different feed and was empty, so the
+  // badge never appeared. Opening the announcements feed records the reads and
+  // clears this count.
   const [unreadCount, setUnreadCount] = useState<number | undefined>(undefined);
   useEffect(() => {
     if (!user) return;
     let mounted = true;
-    (supabase as any)
-      .from("announcements")
-      .select("id")
-      .eq("user_id", user.id)
-      .eq("read", false)
-      .then(({ data }) => {
-        if (mounted) setUnreadCount(data?.length ?? 0);
+    countUnreadAnnouncements(user.id)
+      .then((count) => {
+        if (mounted) setUnreadCount(count);
       })
       .catch(() => {
+        // A failed count must not invent a badge.
         if (mounted) setUnreadCount(0);
       });
     return () => {
@@ -141,7 +144,7 @@ export function AppSidebar() {
                     >
                       <item.icon className="h-[17px] w-[17px] shrink-0 opacity-80 group-hover:opacity-100" />
                       <span>{item.title}</span>
-                      {item.title === "Announcements" && studentPreview && (
+                      {item.title === "Announcements" && (role !== "admin" || studentPreview) && (
                         <span className="ml-auto flex shrink-0 items-center justify-center rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-semibold text-white shadow-sm">
                           {unreadCount ?? 0}
                         </span>

@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { History, Pencil, RotateCcw } from "lucide-react";
+import { History, Pencil, RotateCcw, AlertCircle } from "lucide-react";
+import DOMPurify from "dompurify";
 
 export type EditableEntity = "lesson" | "material";
 
@@ -35,18 +36,31 @@ export function ContentEditor({ entityType, entityId, initialTitle, initialConte
   const [content, setContent] = useState(initialContent ?? "");
   const [saving, setSaving] = useState(false);
   const [revisions, setRevisions] = useState<any[]>([]);
+  const [revisionsLoading, setRevisionsLoading] = useState(false);
+  const [revisionsError, setRevisionsError] = useState<string | null>(null);
   const [preview, setPreview] = useState(false);
 
   useEffect(() => { setTitle(initialTitle); setContent(initialContent ?? ""); }, [initialTitle, initialContent, open]);
 
   const loadRevisions = async () => {
-    const { data } = await supabase
-      .from("content_revisions")
-      .select("id, version, title, created_at, created_by_username")
-      .eq("entity_type", entityType)
-      .eq("entity_id", entityId)
-      .order("version", { ascending: false });
-    setRevisions(data ?? []);
+    setRevisionsLoading(true);
+    setRevisionsError(null);
+    try {
+      const { data, error } = await supabase
+        .from("content_revisions")
+        .select("id, version, title, created_at, created_by_username")
+        .eq("entity_type", entityType)
+        .eq("entity_id", entityId)
+        .order("version", { ascending: false });
+      if (error) throw error;
+      setRevisions(data ?? []);
+    } catch (e: any) {
+      // Without this the History tab claimed "No previous versions yet" for
+      // what was actually a failed query, hiding real history.
+      setRevisionsError(e?.message ?? "Could not load version history");
+    } finally {
+      setRevisionsLoading(false);
+    }
   };
 
   useEffect(() => { if (open) loadRevisions(); }, [open, entityType, entityId]);
@@ -113,7 +127,7 @@ export function ContentEditor({ entityType, entityId, initialTitle, initialConte
                 {preview ? (
                   <div
                     className="min-h-64 rounded-md border bg-muted/30 p-4 text-sm [&_h2]:text-lg [&_h2]:font-semibold [&_h3]:font-semibold [&_code]:rounded [&_code]:bg-muted [&_code]:px-1 [&_pre]:overflow-x-auto [&_pre]:rounded [&_pre]:bg-muted [&_pre]:p-3 [&_table]:w-full [&_table]:border"
-                    dangerouslySetInnerHTML={{ __html: content }}
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
                   />
                 ) : (
                   <Textarea value={content} onChange={(e) => setContent(e.target.value)} className="min-h-64 font-mono text-xs" />
@@ -131,7 +145,13 @@ export function ContentEditor({ entityType, entityId, initialTitle, initialConte
           </TabsContent>
 
           <TabsContent value="history" className="pt-2">
-            {revisions.length === 0 ? (
+            {revisionsLoading ? (
+              <p className="py-6 text-center text-sm text-muted-foreground">Loading history…</p>
+            ) : revisionsError ? (
+              <p className="flex items-center justify-center gap-2 py-6 text-center text-sm text-destructive">
+                <AlertCircle className="h-4 w-4" /> {revisionsError}
+              </p>
+            ) : revisions.length === 0 ? (
               <p className="py-6 text-center text-sm text-muted-foreground">No previous versions yet — history starts from the first edit.</p>
             ) : (
               <Table>

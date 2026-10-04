@@ -6,9 +6,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Flame, Zap, Trophy } from "lucide-react";
 import { useXP } from "@/hooks/useXP";
 
-// Sum of the per-tool daily caps in the award_xp calls (quiz 200, practice 100,
-// lesson 60, note 60, flashcards 40).
-const DAILY_MAX = 460;
+// Sum of the per-tool daily caps in the award_xp calls (quiz 200, paper 150,
+// practice 100, lesson 60, note 60, flashcards 40).
+const DAILY_MAX = 610;
 
 export function XpStreakCard() {
   const { summary, loading } = useXP();

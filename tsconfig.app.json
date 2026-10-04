@@ -18,7 +18,7 @@
     "noUnusedParameters": false,
     "paths": {
       "@/*": [
-        "./src/*"
+        "./frontend/src/*"
       ],
       "@backend/*": [
         "./backend/*"
@@ -33,6 +33,7 @@
     "useDefineForClassFields": true
   },
   "include": [
-    "src"
+    "src",
+    "frontend/src"
   ]
 }

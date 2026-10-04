@@ -11,6 +11,7 @@ import { BrandHero } from "@/components/BrandHero";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { useMySubjects } from "@/hooks/useMySubjects";
 
 interface SubjectRow {
   subject_id: string;
@@ -51,39 +52,72 @@ function GoldRail({ value, className = "" }: { value: number; className?: string
 export function StudentDashboard() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [stats, setStats] = useState({ lessons: 0, completed: 0, quizzes: 0 });
+  const [counts, setCounts] = useState({
+    topics: 0,
+    lessons: 0,
+    lessonsDone: 0,
+    quizzes: 0,
+    questions: 0,
+    notes: 0,
+    notesDone: 0,
+    materials: 0,
+  });
   const [announcements, setAnnouncements] = useState<any[]>([]);
   const [subjectRows, setSubjectRows] = useState<SubjectRow[]>([]);
-  const [subjectLoading, setSubjectLoading] = useState(true);
-  const [notesDone, setNotesDone] = useState(0);
-  const [notesTotal, setNotesTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  // Every instrument on this page follows the same subject filter as the rest
+  // of the app. It used to count the whole catalogue, so a student narrowed to
+  // Mathematics — O Level read "0 of 100 lessons" beside "7 hidden".
+  const { pickedIds, loaded: picksLoaded, isAdmin } = useMySubjects();
+  const pickedKey = [...pickedIds].sort().join(",");
+  const scoped = picksLoaded && !isAdmin && pickedIds.size > 0;
 
   useEffect(() => {
     if (!user) return;
-    const load = async () => {
-      const [lessonsRes, progressRes, quizzesRes, announcementsRes] = await Promise.all([
-        supabase.from("lessons").select("id", { count: "exact", head: true }),
-        supabase.from("lesson_progress").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("completed", true),
-        supabase.from("quizzes").select("id", { count: "exact", head: true }).eq("is_published", true),
-        supabase.from("announcements").select("*").order("published_at", { ascending: false }).limit(3),
-      ]);
-      setStats({ lessons: lessonsRes.count ?? 0, completed: progressRes.count ?? 0, quizzes: quizzesRes.count ?? 0 });
-      setAnnouncements(announcementsRes.data ?? []);
+    // Wait for the picks: counting before they land paints platform-wide totals
+    // for a student who has narrowed the app down to one subject.
+    if (!picksLoaded) return;
+    const levelIds = scoped ? [...pickedIds] : null;
+    let cancelled = false;
 
-      const [subjectRes, notesTotalRes, notesDoneRes] = await Promise.all([
+    const load = async () => {
+      const [countsRes, announcementsRes, subjectRes] = await Promise.all([
+        // One RPC returns every dashboard figure for the chosen scope, so the
+        // tiles can never disagree with each other or with the ledger below.
+        supabase.rpc("get_dashboard_counts", { _level_ids: levelIds }),
+        supabase.from("announcements").select("*").order("published_at", { ascending: false }).limit(3),
         supabase.rpc("get_subject_progress"),
-        supabase.from("study_materials").select("id", { count: "exact", head: true }).eq("material_type", "notes"),
-        supabase.from("material_progress").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("completed", true),
       ]);
-      setSubjectRows(((subjectRes.data ?? []) as unknown as SubjectRow[]));
-      setNotesTotal(notesTotalRes.count ?? 0);
-      setNotesDone(notesDoneRes.count ?? 0);
-      setSubjectLoading(false);
+      if (cancelled) return;
+      const c = ((countsRes.data ?? []) as any[])[0];
+      if (c) {
+        setCounts({
+          topics: Number(c.topics_total ?? 0),
+          lessons: Number(c.lessons_total ?? 0),
+          lessonsDone: Number(c.lessons_done ?? 0),
+          quizzes: Number(c.quizzes_total ?? 0),
+          questions: Number(c.questions_total ?? 0),
+          notes: Number(c.notes_total ?? 0),
+          notesDone: Number(c.notes_done ?? 0),
+          materials: Number(c.materials_total ?? 0),
+        });
+      }
+      setAnnouncements(announcementsRes.data ?? []);
+      const rows = ((subjectRes.data ?? []) as unknown as SubjectRow[]);
+      setSubjectRows(levelIds ? rows.filter((r) => levelIds.includes(r.subject_level_id)) : rows);
+      setLoading(false);
     };
     load();
-  }, [user]);
+    return () => { cancelled = true; };
+    // `pickedKey` stands in for the picked set: the Set identity changes on
+    // every write, the key only changes when the selection actually does.
+  }, [user, picksLoaded, scoped, pickedKey]);
 
-  const completionPct = stats.lessons > 0 ? Math.round((stats.completed / stats.lessons) * 100) : 0;
+  const completionPct = counts.lessons > 0 ? Math.round((counts.lessonsDone / counts.lessons) * 100) : 0;
+  const scopeLabel = scoped
+    ? `Across your ${pickedIds.size} chosen subject${pickedIds.size > 1 ? "s" : ""}`
+    : "Across every subject";
 
   const now = new Date();
   const firstName = (user?.user_metadata?.full_name as string | undefined)?.split(" ")[0]
@@ -93,10 +127,11 @@ export function StudentDashboard() {
 
   // Every instrument card navigates to the page that explains its number.
   const statCards = [
-    { label: "Lessons done", value: `${stats.completed}/${stats.lessons}`, icon: BookOpen, to: "/lessons" },
+    { label: "Lessons done", value: `${counts.lessonsDone}/${counts.lessons}`, icon: BookOpen, to: "/lessons" },
     { label: "Overall progress", value: `${completionPct}%`, icon: TrendingUp, to: "/progress" },
-    { label: "Quizzes available", value: String(stats.quizzes), icon: Brain, to: "/quizzes" },
-    { label: "Notes studied", value: `${notesDone}/${notesTotal}`, icon: ClipboardList, to: "/notes" },
+    { label: "Quizzes available", value: String(counts.quizzes), icon: Brain, to: "/quizzes" },
+    { label: "Questions in bank", value: String(counts.questions), icon: ClipboardList, to: "/practice" },
+    { label: "Notes studied", value: `${counts.notesDone}/${counts.notes}`, icon: ClipboardList, to: "/notes" },
   ];
 
   const quickActions = [
@@ -140,7 +175,7 @@ export function StudentDashboard() {
             </div>
             <GoldRail value={completionPct} className="max-w-xl" />
             <p className="num text-xs text-muted-foreground">
-              {stats.completed} of {stats.lessons} lessons completed
+              {counts.lessonsDone} of {counts.lessons} lessons completed · {scopeLabel.toLowerCase()}
             </p>
           </div>
           <div className="hidden w-72 shrink-0 lg:block" aria-hidden="true">
@@ -149,8 +184,11 @@ export function StudentDashboard() {
         </div>
       </section>
 
-      {/* Instrument strip */}
-      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Instrument strip — every figure here is scoped to the same subjects as
+          the rest of the app, and the caption says so. */}
+      <section className="space-y-3">
+        <p className="num text-[11px] uppercase tracking-[0.14em] text-muted-foreground">{scopeLabel}</p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {statCards.map((s) => (
           <button
             key={s.label}
@@ -166,6 +204,7 @@ export function StudentDashboard() {
             <p className="num mt-4 font-display text-3xl font-semibold tracking-tight">{s.value}</p>
           </button>
         ))}
+        </div>
       </section>
 
       {/* Streak + XP */}
@@ -186,7 +225,7 @@ export function StudentDashboard() {
           </Link>
         </div>
 
-        {subjectLoading ? (
+        {loading ? (
           <div className="grid gap-3 sm:grid-cols-2">{[0, 1].map((i) => <Skeleton key={i} className="h-32 rounded-2xl" />)}</div>
         ) : subjectRows.length === 0 ? (
           <Card className="surface">
@@ -197,7 +236,7 @@ export function StudentDashboard() {
         ) : (
           <ul className="divide-y divide-border/60 overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
             {subjectRows.map((r, i) => {
-              const materialsPct = pct(Number(r.lessons_completed), Number(r.lessons_total));
+              const lessonsPct = pct(Number(r.lessons_completed), Number(r.lessons_total));
               return (
                 <li key={`${r.subject_id}-${r.subject_level_id}`} className="p-5 transition-colors duration-300 hover:bg-secondary/40">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -212,11 +251,11 @@ export function StudentDashboard() {
                       {LEVEL_LABELS[r.level] ?? r.level}
                     </Badge>
                     <span className="num ml-auto text-xs text-muted-foreground">
-                      {Number(r.lessons_completed)}/{Number(r.lessons_total)} materials · {materialsPct}%
+                      {Number(r.lessons_completed)}/{Number(r.lessons_total)} lessons · {lessonsPct}%
                     </span>
                   </div>
 
-                  <GoldRail value={materialsPct} className="mt-4 max-w-md" />
+                  <GoldRail value={lessonsPct} className="mt-4 max-w-md" />
 
                   <dl className="mt-4 flex flex-wrap gap-x-10 gap-y-3">
                     <div>
@@ -233,11 +272,21 @@ export function StudentDashboard() {
                     <div>
                       <dt className="eyebrow">Bank used</dt>
                       <dd className="num mt-1 text-base font-semibold">
+                        {/* "Bank used" counts AI-generated practice questions, of
+                            which there are none yet: printing 0/0 read as a broken
+                            figure, so say when there is nothing to count. */}
                         <Link
                           to={`/study/${r.subject_slug}/${(r.level as SubjectLevelCode).toLowerCase()}#bank`}
                           replace
+                          title={
+                            Number(r.ai_questions_total) > 0
+                              ? "Practice questions answered"
+                              : "No generated practice questions for this subject yet"
+                          }
                         >
-                          {Number(r.ai_questions_answered)}/{Number(r.ai_questions_total)}
+                          {Number(r.ai_questions_total) > 0
+                            ? `${Number(r.ai_questions_answered)}/${Number(r.ai_questions_total)}`
+                            : "—"}
                         </Link>
                       </dd>
                     </div>

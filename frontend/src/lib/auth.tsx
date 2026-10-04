@@ -1,7 +1,8 @@
 // Auth context: Supabase session, role (admin/student/parent), approval state,
 // and the admin-only student-preview mode. Every gated component consumes this.
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { retrySupabase, withRetry } from "@/lib/net";
 import type { User, Session } from "@supabase/supabase-js";
 import { useSyncExternalStore } from "react";
 
@@ -65,35 +66,73 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [sessionLoading, setSessionLoading] = useState(true);
   const [roleLoading, setRoleLoading] = useState(false);
 
-  const fetchRole = async (userId: string) => {
-    setRoleLoading(true);
-    try {
-      const { data } = await supabase
-        .from("user_roles")
-        .select("role, is_approved")
-        .eq("user_id", userId)
-        .maybeSingle();
-      if (data) {
-        setRole(data.role as AppRole);
-        setIsApproved(data.is_approved ?? false);
-      } else {
+  // Both `getSession()` and `onAuthStateChange` report the same signed-in user
+  // on boot, which used to fire three identical `user_roles` queries per page
+  // load. Coalesce them onto one in-flight request per user.
+  const roleRequest = useRef<{ userId: string; promise: Promise<void> } | null>(null);
+
+  const fetchRole = useCallback((userId: string): Promise<void> => {
+    if (roleRequest.current?.userId === userId) return roleRequest.current.promise;
+
+    const promise = (async () => {
+      setRoleLoading(true);
+      try {
+        // A transient blip must not silently demote an admin to a student.
+        const { data } = await retrySupabase(() =>
+          supabase
+            .from("user_roles")
+            .select("role, is_approved")
+            .eq("user_id", userId)
+            .maybeSingle(),
+        );
+        if (data) {
+          setRole(data.role as AppRole);
+          setIsApproved(data.is_approved ?? false);
+        } else {
+          setRole(null);
+          setIsApproved(false);
+        }
+      } catch (error) {
+        console.error("auth: could not load role", error);
         setRole(null);
         setIsApproved(false);
+        // Drop the cache so a later auth event can retry instead of inheriting
+        // this failed lookup for the rest of the session.
+        roleRequest.current = null;
+      } finally {
+        setRoleLoading(false);
       }
-    } finally {
-      setRoleLoading(false);
-    }
-  };
+    })();
+
+    roleRequest.current = { userId, promise };
+    return promise;
+  }, []);
 
   useEffect(() => {
+    let active = true;
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
+        if (!active) return;
         setSession(session);
         setUser(session?.user ?? null);
         if (session?.user) {
-          setRoleLoading(true);
-          setTimeout(() => fetchRole(session.user.id), 0);
+          // Deferred: awaiting a query inside the auth callback can deadlock the
+          // GoTrue client while it still holds its lock.
+          //
+          // Only raise the loading flag when this call will actually run a
+          // query. `getSession()` normally resolves first and already looked the
+          // role up, so `fetchRole` below returns the cached promise and clears
+          // nothing — raising the flag here left `roleLoading` true forever and
+          // pinned every AppLayout route behind the "Loading..." spinner. That
+          // hang was race-dependent, so it only hit some loads.
+          setTimeout(() => {
+            if (!active) return;
+            if (roleRequest.current?.userId !== session.user!.id) setRoleLoading(true);
+            fetchRole(session.user!.id);
+          }, 0);
         } else {
+          roleRequest.current = null;
           setRole(null);
           setIsApproved(false);
           setRoleLoading(false);
@@ -102,18 +141,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     );
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        setRoleLoading(true);
-        fetchRole(session.user.id);
-      }
-      setSessionLoading(false);
-    });
+    // Retry the restore: without this, a single dropped packet made the app
+    // treat a signed-in student as signed out. The promise ALWAYS settles, so
+    // `sessionLoading` can no longer stay true and pin the whole app behind a
+    // spinner forever.
+    withRetry(() => supabase.auth.getSession(), { attempts: 3 })
+      .then(({ data }) => {
+        if (!active) return;
+        const session = data?.session ?? null;
+        setSession(session);
+        setUser(session?.user ?? null);
+        if (session?.user) fetchRole(session.user.id);
+      })
+      .catch((error) => {
+        console.error("auth: could not restore session", error);
+      })
+      .finally(() => {
+        if (active) setSessionLoading(false);
+      });
 
-    return () => subscription.unsubscribe();
-  }, []);
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
+  }, [fetchRole]);
 
   // Kill preview mode whenever the signed-in user changes or signs out.
   useEffect(() => {

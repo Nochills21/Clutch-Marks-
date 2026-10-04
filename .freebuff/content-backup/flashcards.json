@@ -1,1 +1,4130 @@
-[]
+[
+ {
+  "id": "001fe310-323b-4a6b-8731-d2a33c2267c2",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Quadratic sequences",
+  "back": "Second difference = 2a → an² + bn + c. 3, 8, 15, 24 … has second difference 2 → n² + bn + c; subtract n² → 2, 4, 6, 8 → 2n; so nth term = n² + 2n.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "008188d4-a34e-42ba-9971-73cdf8f1f048",
+  "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
+  "front": "Operating System Roles",
+  "back": "Manage memory (paging/segmentation, virtual memory to disk)",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "014ab0f5-24cc-4d95-ba55-3b34e3d51263",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Reflection",
+  "back": "mirror line (x = 0, y = x, y = −x…).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "018bc253-307a-46ed-9eaf-00ee4c1401ed",
+  "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
+  "front": "Flowchart symbols",
+  "back": "Terminator (oval), process (rectangle), decision (diamond), input/output (parallelogram), flow lines with arrows.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "01de10f6-d479-47e9-9060-4b91d94a0828",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Boolean Algebra Laws",
+  "back": "De Morgan: (A·B)′ = A′ + B′; (A + B)′ = A′ · B′",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "032a273a-be07-4fd5-82c5-6968f9d1f518",
+  "set_id": "28bb1f09-6952-4f4e-92c4-6c35021913dd",
+  "front": "Completing the Square",
+  "back": "Rewrite x² + bx + c as (x + b/2)² − (b/2)² + c.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "0373b67c-7ed7-46cc-98e3-f0cd335f587d",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "front": "Displacement",
+  "back": "s: distance in a given direction (vector)",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "038a99ff-131f-434b-ab82-45605a745daa",
+  "set_id": "455e704e-95e1-4823-816d-1b2d5ff53510",
+  "front": "Defences",
+  "back": "Antivirus/antispyware (scan, quarantine), firewalls (port/IP filtering), 2FA + biometrics, strong passwords + managers, encryption (HTTPS, VPN), access levels, patches/updates, user training.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "03ef6e9a-c368-430d-a266-05f65026d918",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Von Neumann Model",
+  "back": "CPU (ALU, control unit, registers: PC, MAR, MDR, ACC) + memory + I/O, sharing one bus system; instructions fetched–decoded–executed in cycles.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "04b9c34b-9840-4af5-baee-cb0cad192241",
+  "set_id": "831cdc0c-4b12-4f8e-a7b9-93f1201c0fa9",
+  "front": "Universe (Extended)",
+  "back": "The Sun is one star in the Milky Way; the Milky Way is one of billions of galaxies. Redshift: receding galaxies show stretched wavelengths → the Universe is expanding → Big Bang model; CMB is the afterglow. Hubble: farther ⇒ faster recession.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "04c498f8-a2cb-4578-a475-bf3e533f1f9c",
+  "set_id": "80486809-9b4a-4872-b410-9dd248bc7ff1",
+  "front": "Standard candles",
+  "back": "(Cepheid variables, Type Ia supernovae) have known L, so measuring I gives d.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "0507bf52-f678-4b5e-b216-d0f59b2b9769",
+  "set_id": "b1b233a0-7284-4174-9c6d-2f2954f74428",
+  "front": "Simple Harmonic Motion",
+  "back": "Acceleration is proportional to displacement and opposite: a = −ω²x.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "05b79eeb-d37e-4d59-b6d3-562020b90bcb",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "front": "Pseudocode Conventions",
+  "back": "IF x > 10 THEN ... ELSE ... ENDIF",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "062b8381-09e4-4077-b1c8-7c4356413024",
+  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
+  "front": "Linked List",
+  "back": "Nodes with data + pointer. Insert/delete O(1) at a known node; search O(n). Traversal follows next pointers until null.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "066accbf-ed8b-4215-9404-53c17a0d0cc3",
+  "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
+  "front": "Gravitational Field",
+  "back": "Newton's law: F = Gm₁m₂/r², G = 6.67 × 10⁻¹¹ N m² kg⁻².",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "06d353f3-c9b5-4e36-b0d7-4342076da27d",
+  "set_id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
+  "front": "Coherence and Path Difference",
+  "back": "Two sources are coherent if they share frequency and constant phase difference. Maxima occur where path difference = nλ; minima where it = (n + ½)λ.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "0791a1a8-b221-419d-a24d-7a3ff8a5e0cb",
+  "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
+  "front": "Paradigms",
+  "back": "Procedural : programs as sequences of instructions in procedures — good for straightforward algorithms.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "0816720d-4fe9-4e0a-b43c-faa49cf0647d",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Area",
+  "back": "Triangle ½bh; trapezium ½(a + b)h; parallelogram bh.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "08afd3f6-d2ae-46ff-8df2-a917c5a6b94f",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Simultaneous equations",
+  "back": "Elimination: 2x + y = 7 and x − y = 2 → add → 3x = 9 → x = 3, y = 1.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "09d8b5e9-fb5c-472f-bfcc-366a5cef5e44",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Algebra with angles",
+  "back": "Set up equations from the theorem: cyclic quad (2x + 10) + (3x − 5) = 180 ⇒ x = 35.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "0a26004e-c4a3-42b4-9033-146d0ce13633",
+  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
+  "front": "Radians",
+  "back": "One radian is the angle subtending an arc equal in length to the radius. π radians = 180°.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "0a5a27eb-e4e1-429c-85d6-bdcf0476257f",
+  "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
+  "front": "Momentum (Extended)",
+  "back": "p = mv; impulse Ft = Δ(mv); conservation: Σp before = Σp after (explosions, collisions).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "0ab86167-7e57-46e3-9de2-e49ebf191e11",
+  "set_id": "885776d4-313d-4b22-9d4a-ff3ba4192fac",
+  "front": "Transformers (Extended)",
+  "back": "V p /V s = N p /N s ; P in ≈ P out (100% assumed): I p V p = I s V s . Step-up raises V, lowers I → lower I²R transmission losses; a.c. required (changing flux).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "0b207a1a-e329-4049-9973-4619995495c0",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "The Formula",
+  "back": "P(X = r) = ⁿCᵣ pʳ(1 − p)ⁿ⁻ʳ for r = 0, 1, ..., n. The ⁿCᵣ counts which r of the n trials were the successes.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "0b507fb4-0fb8-42d6-aadb-12949901ab90",
+  "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
+  "front": "Scalar (Dot) Product",
+  "back": "a · b = |a||b| cos θ = a₁b₁ + a₂b₂.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "0b550003-a276-4c98-b04e-cf6f26334660",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "front": "The FDE Cycle",
+  "back": "Fetch : PC → MAR; read memory → MDR; instruction → CIR; PC increments",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "0b7a5338-dbf9-4cbc-8c04-654102caf3c1",
+  "set_id": "523d46a0-2a1f-411f-a791-464a78deb79e",
+  "front": "JavaScript and the DOM",
+  "back": "document.getElementById(\"demo\").innerHTML = \"Hello\";",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "0bc628c9-1737-4ea5-a91b-fa60e7f939ac",
+  "set_id": "f5cb3b33-586a-4deb-8b89-287ad8bb3fb4",
+  "front": "Fields from Currents",
+  "back": "Long straight wire: B = μ₀I/(2πr), circling by the right-hand grip rule",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "0c4a1a99-d62f-4f38-a25b-98f663dfff95",
+  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
+  "front": "Arc Length",
+  "back": "Example: r = 6, θ = π/3 gives s = 2π.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "0d010b9b-e02e-4e6a-980b-dc3f78d8ab79",
+  "set_id": "e8b72d9a-9879-43c2-897b-42e2576de483",
+  "front": "AI characteristics",
+  "back": "Systems exhibiting: planning, learning, reasoning, problem-solving, perception, knowledge representation. Narrow (task-specific) vs general AI distinction for discussion answers.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "0d0efd63-7758-4b6d-9e91-e525e8a4d1a3",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "Variance and Standard Deviation",
+  "back": "variance s² = Σ(x − x̄)²/n (the definitional form)",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "0d9c45eb-96cd-4a26-ab59-eb9b5e213043",
+  "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
+  "front": "Pseudocode",
+  "back": "WHILE total Assignment ←, comparison =, MOD/DIV for remainders/quotients.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "0db46f25-abce-4f02-9f39-b66304ee6f81",
+  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
+  "front": "Complexity",
+  "back": "Operation Array Linked List Hash",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "0efb0e3c-4e63-4a13-9a29-c579bcca189f",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Forming equations",
+  "back": "Translate shapes/situations: \"rectangle length 3 cm more than width, perimeter 34\" → 2w + 2(w + 3) = 34 → w = 7.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "10140909-3711-42af-94ad-188aca855ee0",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Bearing problems",
+  "back": "Draw both north lines, transfer angles via parallel lines, then pick sine/cosine rule.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "10447fae-0b0d-466b-b95d-8b8a579dd7bb",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Histograms",
+  "back": "Bar area ∝ frequency: FD = frequency ÷ class width. Recover frequencies as FD × width; unequal widths need FDs on the axis.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "10c3fe9f-ee75-4745-a232-5d578bf603d7",
+  "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
+  "front": "Chain Rule",
+  "back": "Example: y = (3x − 1)⁵: dy/dx = 5(3x − 1)⁴ × 3 = 15(3x − 1)⁴.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "110f5ee0-cd4e-48ec-9557-f6ab7eaea2b5",
+  "set_id": "c4738d08-03c9-4492-8940-bc84efd3f4a5",
+  "front": "Energy Forms",
+  "back": "Gravitational PE: Ep = mgh",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "11dce240-2c69-4366-b4c4-3593e1c1cd38",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Circle theorems (Extended)",
+  "back": "Angle at centre = 2 × angle at circumference (same arc).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "11fb7db9-18ed-497e-b555-f325804429bb",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "front": "Registers",
+  "back": "PC address of next instruction",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "123be820-d7df-4aa0-b60e-65af3f6993c5",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Quadratics by formula",
+  "back": "x = (−b ± √(b² − 4ac)) / 2a.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "126f84a9-d040-42ba-b7b6-8c937f4faa89",
+  "set_id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
+  "front": "The Principle of Superposition",
+  "back": "When waves meet, displacements add. In phase → constructive (big amplitude); antiphase → destructive (cancellation).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "129fd95a-c934-4adb-92a9-8291e2a63f23",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "front": "DDL and DML",
+  "back": "DDL defines structure: CREATE TABLE, ALTER TABLE, DROP. DML manipulates data: SELECT ... FROM ... WHERE, INSERT INTO, UPDATE, DELETE. Joins combine related tables: FROM Student s JOIN Enrolment e ON s.id = e.StudentID. Aggregates:",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "134535c5-5993-4148-8360-393a79288f0a",
+  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
+  "front": "Rearranging",
+  "back": "Exam tips: never mix degrees into s = rθ; convert first. Sketch the sector and mark r and θ before computing, and check whether a question asks for the major or minor sector.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "136f513c-c44d-4f49-b759-a87d02c4ea3f",
+  "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
+  "front": "Half-life",
+  "back": "time for half the nuclei to decay. N = N₀ e^(−λt), λ = ln 2 / t½.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "14495b5a-f1de-462c-928d-4e914492e48d",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "The Modulus Function",
+  "back": "|x| measures distance from zero: |x| = x for x ≥ 0, −x for x < 0. Its graph is V-shaped.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "149ecfc2-9542-4bd2-b1a8-b84e10c01329",
+  "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
+  "front": "Resistance",
+  "back": "R = V/I. Ohmic conductor: V ∝ I at constant temperature.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "151a5ed0-8ecf-4e0a-8adc-f26e347abbfa",
+  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
+  "front": "Unbiased Variance",
+  "back": "The estimator with divisor (n − 1) is the unbiased sample variance:",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "155a7eab-0215-448f-ba8b-86efd32c05d4",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "front": "Sorting",
+  "back": "Algorithm Best Average Idea",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "162a55c5-ccf1-4a01-82ee-85207ff6be61",
+  "set_id": "c03773f6-3aad-460d-b245-9551bc332765",
+  "front": "Truth tables",
+  "back": "2 inputs → 4 rows; 3 inputs → 8 rows. Work gate by gate, adding intermediate columns for sub-circuit outputs.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "16d602be-d2b1-49ac-9662-77f32e2ecea0",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Pythagoras combinations",
+  "back": "Find a missing side with Pythagoras before applying a ratio when two sides are known instead of an angle.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "1779cb01-39c5-4070-af6b-c65aadb8d20c",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "The ratios",
+  "back": "Label sides first (opposite, adjacent, hypotenuse) with respect to the marked angle, then choose:",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "18e71b29-fde6-4c5a-9df3-016b3e8f1e89",
+  "set_id": "e7dff2a4-8ff1-4b1b-9c02-e2aa020fd343",
+  "front": "Basics",
+  "back": "A wave transfers energy without net transfer of matter.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "193234f0-0841-465d-98bd-2bfaeece178b",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Charts",
+  "back": "Bar charts, pie charts (angle = fraction × 360°), time series, pictograms. Compare data sets with like-for-like totals; comment on trends.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "19f47914-4588-4ad7-863e-6446c963c291",
+  "set_id": "b1b233a0-7284-4174-9c6d-2f2954f74428",
+  "front": "Energy in SHM",
+  "back": "E = ½mω²x₀² total (constant), exchanged between KE (max at centre) and PE (max at extremes).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "19fd2031-ca3d-4b80-8d73-e01ad7925692",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "de Moivre and Roots",
+  "back": "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "1a9277d6-64bc-43dc-a404-e0b9684cfffd",
+  "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
+  "front": "Registers",
+  "back": "PC address of next instruction",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "1b34e261-8191-460f-ac55-8d2a9e41b8ae",
+  "set_id": "9098acae-a3f2-4054-8d98-91edace9d7c6",
+  "front": "Relational concepts",
+  "back": "Table, record, field; primary key (unique); secondary key (indexed search field); foreign key links tables.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "1b3a8cb1-52b4-4ad7-9c53-4ac9117a8585",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Completing the square",
+  "back": "x² + bx + c = (x + b/2)² − (b/2)² + c. x² − 6x + 5 = (x − 3)² − 4 → minimum at (3, −4). Use for turning points and for solving when factorising fails.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "1bb225b1-c393-4e47-8452-820432cb24e6",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Area of a triangle",
+  "back": "A = ½ab sin C (C = included angle between sides a and b).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "1c2baaae-0857-4925-a411-8ca7fcee8462",
+  "set_id": "e7dff2a4-8ff1-4b1b-9c02-e2aa020fd343",
+  "front": "The Wave Equation",
+  "back": "v = fλ. Frequency f is set by the source; speed v by the medium.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "1c407ba8-f53d-4327-ab96-fbfe46fb55ab",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "front": "Client-Server vs Peer-to-Peer",
+  "back": "Client-server: central services, easy administration, single point of failure. P2P: every node shares files directly — cheap, hard to manage (torrents, blockchain).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "1c985bc1-9533-4a36-b7c1-ea0f6203b3f4",
+  "set_id": "afe11917-e1c6-4ca5-b710-9ebab500ae91",
+  "front": "Machine Learning",
+  "back": "Supervised : learns from labelled data (spam detection)",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "1cef60a3-1c90-4a23-a4c2-546705a3fe99",
+  "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
+  "front": "BCD",
+  "back": "4 bits per decimal digit — 0029 → 0000 0000 0010 1001. Used in clocks/calculators; easier digit conversions, more bits than pure binary.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "1d4c692f-beda-4628-bf72-23b2c29f0f6c",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Quartiles and IQR",
+  "back": "Q₁ at n/4, Q₃ at 3n/4 (position); IQR = Q₃ − Q₁ — less affected by outliers than the range.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "1e985c3b-721e-4333-a742-2fbc2942dc6c",
+  "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
+  "front": "Trapezium Rule",
+  "back": "A ≈ h/2 [y₀ + 2(y₁ + … + yₙ₋₁) + yₙ], h = (b − a)/n. More strips → better estimate; always an over-estimate for convex curves.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "1f56edec-6901-48a8-873d-1440604c2126",
+  "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
+  "front": "Probability Distributions",
+  "back": "A discrete random variable X takes values xᵢ with probabilities pᵢ where each pᵢ ≥ 0 and Σpᵢ = 1. A probability distribution can be given as a table, a formula, or a function. Any missing probability is found by subtraction.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "201fb0ad-f32b-43bb-8654-703ff8994317",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "front": "Serial",
+  "back": "one bit at a time — cheaper, reliable over distance",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "20a0f8f3-8212-4614-896d-9126454e8676",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "Expectation and Variance",
+  "back": "The mean is the balancing point of the area under the density. For symmetric densities the mean sits at the symmetry point — worth spotting before integrating.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "21f035b5-2be0-4427-b86c-7d0b282058d1",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Using the line",
+  "back": "Interpolation (inside the data range) is reliable; extrapolation (outside) is a risk — say so if asked.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "22a71de5-4934-48a6-aace-11008702f1c0",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Composite functions",
+  "back": "fg(x) = f(g(x)) — g first. f(x) = 2x − 5, g(x) = x²: gf(2) = g(1) = 1; fg(3) = f(9) = 13.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "22aec09d-088b-4bcf-9408-0f532fbf0f20",
+  "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
+  "front": "The Nucleus",
+  "back": "Protons + neutrons (nucleons). Nuclide notation: ᴬZX — Z protons, A nucleons. Isotopes share Z, differ in N.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "231d3e03-420a-4459-be55-a7180d47517d",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Standard form",
+  "back": "47 382 = 4.7382 × 10⁴; 0.0056 = 5.6 × 10⁻³",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "23830416-00c4-4952-a2e0-616a0e7e9a0c",
+  "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
+  "front": "Secondary storage",
+  "back": "Magnetic (HDD) : platters, read/write heads; high capacity, cheap per GB, moving parts (shock-sensitive).",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "243fb161-265b-4dd4-84f8-5d78790ee4a8",
+  "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
+  "front": "Recursion",
+  "back": "A recursive routine calls itself with a smaller input and a base case that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "258f0c04-1e07-4ad2-9fa8-1ca47f03a1ca",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Compound change",
+  "back": "Multiplierⁿ. Simple interest I = Prt/100 vs compound P(1 + r/100)ⁿ.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "25bd6f43-5a54-4bc2-9575-36cc455a18ee",
+  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
+  "front": "Independence",
+  "back": "A and B are independent exactly when P(A ∩ B) = P(A)·P(B). Do not confuse independent (no influence on probabilities) with mutually exclusive (cannot co-occur). Mutually exclusive events with non-zero probabilities are never independent.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "26377958-4039-448b-8f78-a34f6852c0d6",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Reverse percentages",
+  "back": "Original = new ÷ multiplier. \"After a 20% increase a coat is $72\" → 72 ÷ 1.2 = $60. \"After 12% discount a phone is $440\" → 440 ÷ 0.88 = $500.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "266ff030-d7fc-45d2-a570-3543e12f534d",
+  "set_id": "e7dff2a4-8ff1-4b1b-9c02-e2aa020fd343",
+  "front": "Intensity",
+  "back": "I = P/A. Intensity ∝ amplitude² — doubling the amplitude quadruples the intensity.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "26a8287d-3419-4fdb-a68a-f359f85bc783",
+  "set_id": "a879a465-9acf-4470-b36f-b0ffec1b0cdf",
+  "front": "State changes",
+  "back": "Melting/boiling at fixed temperature despite heating (energy breaks bonds, not temperature). Condensation/ freezing release energy. Impurities raise melting point of mixtures/lower freezing; boiling needs nucleation.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "27e9d662-8b98-4ca8-b9cb-243984d0ea1b",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "front": "Assembly and Addressing",
+  "back": "Immediate (#5), direct (address holds value), indirect (address points to address), indexed (base + offset — arrays), relative (PC + offset — jumps).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "281d07f0-aff0-4dfa-8064-dd860ef4c95e",
+  "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
+  "front": "Combinations",
+  "back": "parallel adds (C = C₁ + C₂); series: 1/C = 1/C₁ + 1/C₂ (opposite to resistors).",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "286615ec-351a-4f04-897d-11adf1cc976e",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Tree diagrams",
+  "back": "Multiply along branches; add between outcome paths. Label end products like 4/10 × 6/9 = 4/15.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "296c8137-d55c-49f8-95c1-0a9882437252",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Examples",
+  "back": "27^(2/3) = (³√27)² = 9; 5⁻² = 1/25; (2x³)² = 4x⁶.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "2ab000d0-39d5-4e55-bd21-f852df0f966c",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Units",
+  "back": "1 m² = 10 000 cm²; 1 m³ = 1 000 000 cm³; 1 litre = 1000 cm³. Convert area/volume factors carefully (square/cube the length factor).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "2bc9b868-7411-44f4-b393-89db79867c02",
+  "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
+  "front": "Assembly Essentials",
+  "back": "The opcode names the operation (LDM load, STR store, ADD, CMP compare, JMP branch, IN/OUT for I/O). The operand names the data. The assembler translates mnemonics to machine code one-to-one; two-pass assemblers resolve forward references via the symbol table.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "2be3ff4b-2d78-463f-8158-36fe22bbc638",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Simplifying and sharing ratios",
+  "back": "Scale both parts by the same factor: 250 g : 0.4 kg = 250 : 400 = 5 : 8.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "2c094390-fabc-49f5-b309-beb6177e0a5c",
+  "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
+  "front": "Coding",
+  "back": "Subtract a constant and divide by a convenient width: y = (x − a)/b. Then x̄ = b·ȳ + a. Coding simplifies arithmetic and always preserves the relationship — the coded mean decodes exactly.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 17:17:36.353219+00"
+ },
+ {
+  "id": "2c31e229-d9e5-462e-bbe5-1c423ec8c77f",
+  "set_id": "b1b233a0-7284-4174-9c6d-2f2954f74428",
+  "front": "Circular Motion Recap",
+  "back": "Angular speed ω = 2π/T; v = ωr; a = ω²r = v²/r; F = mv²/r toward the centre.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "2c5eb63d-0f22-415f-a835-9df394aa7584",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "front": "Recursion",
+  "back": "A function calling itself with a base case. Factorial: f(0)=1, f(n)=n·f(n−1). Stack frames handle state.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "2d3ec296-a8ee-42ce-bf6e-4186f0452abb",
+  "set_id": "e551bfc9-96bf-48fa-8002-4ce1e4309572",
+  "front": "Adding Poissons",
+  "back": "If X ~ Po(λ₁) and Y ~ Po(λ₂) are independent, then X + Y ~ Po(λ₁ + λ₂). Two independent queues merging into one server produce a Poisson with summed rate.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 17:18:58.398694+00"
+ },
+ {
+  "id": "2d857e18-ca48-4ca7-8ead-a0ff79232167",
+  "set_id": "f5cb3b33-586a-4deb-8b89-287ad8bb3fb4",
+  "front": "Electromagnetic Induction",
+  "back": "Faraday: induced EMF = rate of flux cutting = N dΦ/dt. Lenz: induced effects oppose the change (negative sign).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "2db4c1a3-0ac8-437c-b718-a7b166f837f2",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Notation",
+  "back": "∈ belongs to; ∉ not in; ∅ empty set; ξ (or U) universal set; n(A) = number of elements.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "2ed513eb-1600-4d13-a5a0-69ce78744566",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "front": "2NF",
+  "back": "1NF + no partial dependency on a composite key",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "2f2c868f-c7dc-4b77-a1cb-06d2039d5bda",
+  "set_id": "cd385889-515c-4680-b051-d794d6c084b0",
+  "front": "Decay equations",
+  "back": "α: A −4, Z −2 (e.g. ²³⁸₉₂U → ²³⁴₉₀Th + α).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "2f47698f-6614-4a49-a8a6-106752c12666",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "Cumulative Probabilities",
+  "back": "P(X ≤ 2) = P(0) + P(1) + P(2). \"At least\" questions convert by the complement: P(X ≥ 2) = 1 − P(X ≤ 1). Keep one extra decimal place in intermediate steps to avoid rounding drift.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "307ff867-e6f9-47c6-9b9c-640c68ff9052",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "front": "Network Types",
+  "back": "LAN : small site, privately owned; WAN : large geographic scale (the internet)",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "309f341a-f0d6-486b-b61c-a42ee926f982",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "front": "Top-down (stepwise refinement)",
+  "back": "decompose into modules — planned structure",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "314139e7-9445-45be-bec0-9664eac0ef87",
+  "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
+  "front": "Potential",
+  "back": "V = W/q, scalar; E = −dV/dr. Potential energy of q at V is qV.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "3184aef8-4851-483f-a245-4a60297ce2a5",
+  "set_id": "c477df2e-d7ac-46bd-852e-5af9a0a6be07",
+  "front": "Photons",
+  "back": "E = hf = hc/λ, h = 6.63 × 10⁻³⁴ J s.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "327487c7-547c-4e0b-9c61-52187db14f7c",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Sine rule",
+  "back": "a/sin A = b/sin B = c/sin C. Use when a matching angle–side pair is known.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "32f30a2c-5275-4302-aaec-7f68fae2eb88",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "Modelling Decisions",
+  "back": "If trials are dependent (drawing without replacement from a small population) binomial is not appropriate. If p changes between trials it is not binomial. When n is large and p small, the binomial is approximately Poisson — but at A2 you usually stay exact.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "3457a5b4-d3a5-4e09-9b24-24cf77435b16",
+  "set_id": "497ae389-85dc-4f75-96e7-df7758a38994",
+  "front": "Ripple tank behaviours",
+  "back": "Reflection : angle in = angle out; speed/frequency unchanged, direction changes.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "3529b237-d2f5-40cf-a653-765cb0d3805f",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Bounds (Extended)",
+  "back": "Measured to nearest u: UB = +u/2, LB = −u/2. Division p/q: max = UB p ÷ LB q .",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "35b0a29a-46c2-4030-9c1c-336c08a64584",
+  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
+  "front": "Distribution of the Sample Mean",
+  "back": "For a sample of size n from a population with mean μ and variance σ²:",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "35c6b41f-6c43-4601-9892-133e5edfbbf2",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Tangents and rates",
+  "back": "Gradient of tangent at a point = instantaneous rate: draw a large triangle, rise/run. Area under a speed–time graph = distance (trapezium estimate).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "367e4e2c-37e6-44ba-a591-6ee28eac185d",
+  "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
+  "front": "Linkers and Loaders",
+  "back": "Static linking copies library code into the executable; dynamic linking binds at runtime (smaller files, shared libraries). The loader places the program in memory, relocating addresses.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "368c2b0c-e694-431e-b840-8c39ac858c35",
+  "set_id": "9098acae-a3f2-4054-8d98-91edace9d7c6",
+  "front": "DBMS features",
+  "back": "Data dictionary (schema, types, constraints), query processor, forms/reports, access rights (read/write per user), data integrity (validation rules), backup/recovery.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "36ac2107-f5ed-4531-b206-4f3b6ab6440b",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Elevation and depression",
+  "back": "Elevation: angle up from horizontal; depression: down. Both measured from the horizontal line at the observer.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "36bb75a3-3617-40e6-86bb-fb8a8f88c22f",
+  "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
+  "front": "Basics",
+  "back": "Constants vs variables; types: INTEGER, REAL, CHAR, STRING, BOOLEAN, DATE; casting between them. Declaration with meaningful names.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "36ee0f09-9c6f-4b14-b179-07c0bb347937",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "Probability Density Functions",
+  "back": "A continuous variable X is described by a density f(x) with f(x) ≥ 0 and ∫f(x)dx = 1 over all x. Probabilities are areas:",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "37843a06-4a25-45e2-8c7d-d72a5cff8b33",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Integers : … −2, −1, 0, 1, 2 … Primes",
+  "back": "exactly two factors; 2 is the only even prime; 1 is not prime.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "380394c9-c643-41c1-a85b-3dae4edc1618",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Place value",
+  "back": "In 47 382 the digit 7 has value 7000. Rounding to significant figures: keep n digits, round using the next digit (≥5 up).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "384d43a2-5286-4a82-ac3a-45390c8e2a31",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Bearings",
+  "back": "Measured clockwise from north; three figures: 065°, 128°, 300°.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "385d1516-53d9-4a93-8c3c-73c6a10e3c69",
+  "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
+  "front": "Variance",
+  "back": "where E(X²) = Σxᵢ²pᵢ — square the values before multiplying by probabilities. The standard deviation is √Var(X).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "38635b97-7d33-44fa-8dcc-673d163bdb80",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Constructing Circuits",
+  "back": "Truth table → Boolean expression → gates. A half adder: S = A XOR B, C = A AND B.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "38eb9190-9621-4c6a-bf6b-563ef7cd4b43",
+  "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
+  "front": "Uniform Fields",
+  "back": "Between parallel plates: E = V/d, constant.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "39be67e8-544a-4d59-87fc-14f23a97f3ed",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Polygons",
+  "back": "Interior angle sum = (n − 2) × 180°. Regular polygon: exterior = 360° ÷ n; interior = 180° − exterior.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "3a1d153a-b571-4a9e-b130-c6e74d35a395",
+  "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
+  "front": "Standard algorithms",
+  "back": "Linear search: check each item until found/end — works unsorted.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3a7e94b8-3b52-4db6-914c-80edece07305",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Graphical solutions",
+  "back": "Simultaneous: intersection points. Quadratic = line: intersections give roots. Read off carefully to the accuracy allowed.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3b05c66c-cd2f-4bdb-b327-ed001d2a51e2",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Special sequences",
+  "back": "Even/odd, triangular (½n(n+1)), squares, cubes, Fibonacci-type (each term = sum of previous two), geometric (×r).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3b4bc7d3-c350-4513-8a56-e825ed5a8f10",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "front": "Binary Arithmetic",
+  "back": "Add: 0+0=0, 0+1=1, 1+1=0 carry 1, 1+1+1=1 carry 1. Overflow happens when a result exceeds the word size.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "3b8be2c1-9ff7-4818-ab8c-459d757d80f6",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "Compound Angles",
+  "back": "sin(A ± B) = sin A cos B ± cos A sin B",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "3bddcf61-66bb-4685-8067-404ff54b13e7",
+  "set_id": "c4738d08-03c9-4492-8940-bc84efd3f4a5",
+  "front": "Work",
+  "back": "W = Fs cos θ — force × displacement in the force's direction. Unit: joule (J).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "3cc08366-e37d-4b77-ba53-a1864efd20ac",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Conversions",
+  "back": "Fraction → decimal by division; decimal → percentage ×100. Recurring decimals: let x = 0.7̄, then 10x − x = 7 ⇒ x = 7/9.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "3cf11f67-8e14-4e3e-b410-0e0a9434d06f",
+  "set_id": "4f973854-1af0-40b2-9dfb-3bedc8f864fb",
+  "front": "Sensors and Signals",
+  "back": "Sensors measure physical quantities: temperature (thermistor), light (LDR), pressure, humidity, sound. Most output analogue signals varying continuously; computers need digital values, so an ADC (analogue-to-digital converter) samples the signal.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "3d405ef7-84a6-49b4-861f-7cff62d77f15",
+  "set_id": "831cdc0c-4b12-4f8e-a7b9-93f1201c0fa9",
+  "front": "Orbital motion",
+  "back": "Orbital speed v = 2πr/T. T grows with r (Kepler trend). Comets speed up near the Sun (ellipse, Sun at focus).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3d5d580a-8a62-465a-8b6b-46070b0a96d0",
+  "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
+  "front": "Charging and Discharging",
+  "back": "Exponential: V = V₀ e^(−t/RC). Time constant RC: after one RC, V falls to 37%. Half-life t½ = 0.69 RC.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "3d610af6-a3b0-4974-b8ed-adff7d43cf50",
+  "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
+  "front": "Malware and Defences",
+  "back": "Viruses, worms, trojans, spyware, phishing. Defences: antivirus (signature + heuristic scanning), firewalls (packet filtering by port/IP), sandboxing, user education, patches.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "3d9ff8fc-b621-4948-86b7-d5f6e7907cbb",
+  "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
+  "front": "EMF and Internal Resistance",
+  "back": "ε = I(R + r) — some voltage is 'lost' inside the battery. Terminal voltage V = ε − Ir drops as load current rises.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3dcdd394-da21-4ea5-b5fe-842b417e0951",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "When Binomial Applies",
+  "back": "X ~ B(n, p) counts successes in n independent trials when:",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "3e5c9826-1149-4f64-8b1f-86eafb7c73ee",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "front": "Restricted Permutations",
+  "back": "No two specified people adjacent: arrange everyone else, then slot the restricted people into gaps. For n people with 2 who must be separated: arrange the other n − 2 (ways), then place 2 people in distinct gaps between them.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3e7ab94e-1a06-45af-a272-1e1cf0a793f8",
+  "set_id": "e7dff2a4-8ff1-4b1b-9c02-e2aa020fd343",
+  "front": "Polarization",
+  "back": "Only transverse waves can be polarised — proof that light is transverse. Malus' law: I = I₀ cos²θ between polariser axes.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3e99db67-e814-41d3-bbe3-7c5ffef7df74",
+  "set_id": "80486809-9b4a-4872-b410-9dd248bc7ff1",
+  "front": "Wien and Stefan–Boltzmann",
+  "back": "Wien: λ_max T = 2.9 × 10⁻³ m K — hotter stars are bluer",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "3f9f1c9d-8401-403f-b0e4-1a2efbbb5369",
+  "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
+  "front": "The TCP/IP Stack",
+  "back": "Four layers: Application (HTTP, FTP, SMTP, DNS), Transport (TCP reliable, connection-oriented with sequence numbers and acknowledgements; UDP fast, connectionless), Internet (IP addressing and routing), Link (physical delivery on the local network).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "3fa21d94-7fdf-48b7-90ca-9267d5b284fa",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Rotation",
+  "back": "centre, angle, direction (anticlockwise positive).",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "3ff97b73-61f9-4f0c-8235-141b2484e7bf",
+  "set_id": "1ce6db4b-f232-4278-bd11-5f6f13344436",
+  "front": "Weight and Mass",
+  "back": "Weight W = mg — a force in newtons; mass in kg is invariant. A 70 kg person weighs about 687 N.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "404bfd12-fa95-471c-b273-8cb3526400b8",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "front": "Relational Basics",
+  "back": "Tables (relations) of records with fields. Keys :",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "4270bfe6-87ea-4a5f-a8cf-7a2e33a6e268",
+  "set_id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
+  "front": "Diffraction Grating",
+  "back": "d sin θ = nθth order maximum. More slits → sharper, brighter maxima. The number of visible orders is the largest n with sin θ ≤ 1.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "435e1bfe-32c1-48ea-8809-73bcef3ecb92",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Direct proportion",
+  "back": "y = kx. Best method: find the unit value, then multiply.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "43a3569c-cfb1-4690-b310-4c37aaa3e6c2",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Cosine rule",
+  "back": "a² = b² + c² − 2bc cos A. Use with two sides + included angle, or all three sides (then cos A = (b² + c² − a²)/(2bc)).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "43ec62bb-8b0a-49d3-aeab-47225b8f28a6",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Similarity",
+  "back": "Equal angles + sides in proportion. Scale factor k = corresponding new ÷ old.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "4448fa33-3e53-42c2-a965-50ec58cc8a06",
+  "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
+  "front": "Rates of Change",
+  "back": "dy/dx is a rate: if V = 4/3 πr³, then dV/dr = 4πr² links volume change to radius change.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "44f0b070-21ef-488a-a718-2137bd089ab8",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Averages",
+  "back": "Mean = Σfx/Σf from frequency tables. Median = middle value (ordered data). Mode = most frequent. Range = max − min.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "452c1f65-091e-4f12-b57c-f911615534ab",
+  "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
+  "front": "Addressing Modes",
+  "back": "Immediate : operand is the constant itself, ADD #5.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "4586b7d8-66c0-47f9-b6b0-65b85fbfec08",
+  "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
+  "front": "Selection and iteration",
+  "back": "OTHERWISE : OUTPUT \"keep going\"",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "45968ad4-e00a-480d-b296-f3bf131d1113",
+  "set_id": "e8b72d9a-9879-43c2-897b-42e2576de483",
+  "front": "Ethics of AI",
+  "back": "Bias from unrepresentative training data; opacity of decisions; accountability for errors; privacy of training data; effect on employment.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "45978678-a86b-43d3-a643-533ef24ed2ee",
+  "set_id": "31a9d2a1-e5fe-4c70-a9da-d39861746fed",
+  "front": "Formulas",
+  "back": "Work W = Fd (force along displacement, joules).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "45a5eabb-c8ad-4860-bcfc-34c96c3de5b8",
+  "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
+  "front": "Arrays",
+  "back": "Fixed size, indexed (0- or 1-based per spec); 2D arrays: row, column. Bounds errors when index leaves range. Traversal with FOR loops.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "462cb305-2c39-4c68-86b9-0c196199be28",
+  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
+  "front": "Pointer types",
+  "back": "store a memory address; the dereference operator returns the value at that address, which is how linked structures reference their nodes.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "47242691-cde8-4716-a916-9dd3f7c28d5b",
+  "set_id": "e7dff2a4-8ff1-4b1b-9c02-e2aa020fd343",
+  "front": "Doppler Effect",
+  "back": "Observed frequency changes with relative motion: f′ = f(v ± v_o)/(v ∓ v_s). Approaching sources sound higher.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "47442828-edb0-42a4-870b-64073ba7522d",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Shading regions",
+  "back": "Draw the boundary line: dashed for </>, solid for ≤/≥.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "479ba2fd-9ca9-49b5-b358-242a1782fbf5",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "front": "Interrupts",
+  "back": "Signals that pause the current program (I/O complete, timer, errors). The CPU saves context, runs the ISR, then resumes — enabling multitasking.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "4801c3cc-4961-45d6-ad1b-fc625bb828cf",
+  "set_id": "523d46a0-2a1f-411f-a791-464a78deb79e",
+  "front": "CSS",
+  "back": "p { color: red; font-size: 14px; }",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "4819314b-7e21-4606-b342-934fa369f765",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Logic Gates",
+  "back": "NOT inverts; NAND is 'AND then NOT'; XOR outputs 1 when inputs differ.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "491b8247-fa38-421e-aa61-9b1473ba4812",
+  "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
+  "front": "Standardising",
+  "back": "Convert any normal variable to the standard normal Z ~ N(0, 1) with",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "497c1224-c79a-494f-bc7b-b75284d3b010",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "The Median and Mode",
+  "back": "The median m solves ∫₋∞ᵐ f(x) dx = 0.5 (left half of the area). The mode is the x maximising f(x). For uniform densities the median is the midpoint.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "49bab2f0-4139-439f-884b-7a68f3aef409",
+  "set_id": "e81f8f6e-40e2-4374-95a2-7c71e27fecca",
+  "front": "Interrupts and buffers",
+  "back": "Interrupts signal events (I/O complete, timer); CPU saves context, services via ISR, resumes. Buffers hold data in transit (printing) so slow devices don't block the CPU; spooling queues jobs.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "49cb1aa6-b503-4cff-9d5d-c6569eebf89c",
+  "set_id": "cd385889-515c-4680-b051-d794d6c084b0",
+  "front": "Half-life",
+  "back": "Time for half the unstable nuclei to decay (random process). Read from a decay curve or count halves: 80 → 40 → 20 over two half-lives.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "4ac3074d-81a8-499b-9272-356043983dc9",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "Product and Quotient Rules",
+  "back": "Example: y = x² e^x gives dy/dx = 2x e^x + x² e^x = e^x(2x + x²).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "4b8f157b-c69f-4fb0-8cef-8209f9fdb96b",
+  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
+  "front": "Inverse Functions",
+  "back": "f⁻¹ reverses f: f⁻¹f(x) = x. To find it, swap x and y in y = f(x) and rearrange.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "4ba0de47-5d07-4946-9182-67bb9d835e97",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Combined events",
+  "back": "Independent: P(A and B) = P(A) × P(B).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "4c7ebfa3-b0f5-47f7-9529-41b3f0054860",
+  "set_id": "c00d9e5c-b51b-4f4a-bf17-00c87ec8cceb",
+  "front": "Young modulus E = σ/ε",
+  "back": "(Pa) — a material property, independent of shape",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "4f23aa92-50a7-4779-9846-fe08866842d0",
+  "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
+  "front": "HTML",
+  "back": "gives structure and content: elements, attributes, forms for user input.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "501b6eff-2d79-491f-b2e3-78bebb747985",
+  "set_id": "e551bfc9-96bf-48fa-8002-4ce1e4309572",
+  "front": "The Formula",
+  "back": "P(X = r) = e^(−λ) λʳ / r! for r = 0, 1, 2, ...",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "503f9773-394e-4908-8d1c-1dbe900c299f",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "front": "Projectiles",
+  "back": "Resolve into independent components: horizontal at constant velocity (s = ut), vertical under gravity (SUVAT).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5084ab34-0513-4fc5-8a00-a5f5cdf3c692",
+  "set_id": "f5cb3b33-586a-4deb-8b89-287ad8bb3fb4",
+  "front": "Force on a Moving Charge",
+  "back": "F = BQv sin θ, always perpendicular to v → circular paths: r = mv/(BQ) (basis of cyclotrons and mass spectrometers).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "51f455bb-0482-419e-972e-9218f5525ee1",
+  "set_id": "e9b98d96-8bf8-4eb1-983c-f70911c3b90a",
+  "front": "Gradients and Equations of Lines",
+  "back": "Gradient m = (y₂ − y₁)/(x₂ − x₁). From ax + by + c = 0, the gradient is −a/b.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "53f75dfe-65f2-4d2e-9ea9-5deaa4abb3e2",
+  "set_id": "a879a465-9acf-4470-b36f-b0ffec1b0cdf",
+  "front": "Thermal expansion",
+  "back": "Heating → particles vibrate more → solids expand slightly (gases expand most). Applications: bimetallic strip (fire alarm/thermostat), gaps in bridges/rails; the liquid-in-glass thermometer.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "5479d93d-70ec-48a1-b2aa-96c561cecf85",
+  "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
+  "front": "Indefinite Integrals",
+  "back": "Reverse the power rule and add a constant: ∫ xⁿ dx = xⁿ⁺¹/(n+1) + c (n ≠ −1).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "5574dfed-ae3a-4df2-867e-f8b39f2927c7",
+  "set_id": "e9b98d96-8bf8-4eb1-983c-f70911c3b90a",
+  "front": "Midpoint and Distance",
+  "back": "Midpoint of (x₁, y₁), (x₂, y₂): ((x₁+x₂)/2, (y₁+y₂)/2).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "55b113d8-3eba-437b-907d-8ad6279b7532",
+  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
+  "front": "Sector Area",
+  "back": "Example: r = 5, θ = 1.2 gives A = ½ × 25 × 1.2 = 15.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "55ed4101-ac58-48f2-8609-4beda392e80f",
+  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
+  "front": "Arrays and Lists",
+  "back": "Contiguous, indexed, O(1) access; fixed size. 2D arrays: element (i, j) — rows × columns.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "55ed49ea-b480-4025-a218-767359f5098d",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "front": "Combinations — Order Irrelevant",
+  "back": "The number of ways of choosing r objects from n is",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "56556008-d2b1-42a8-b42a-bb1b8c13efbf",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "front": "Hardware",
+  "back": "Routers join networks by IP; switches forward frames by MAC within a LAN; gateways translate protocols.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "5663b09b-a1df-411a-a15c-1765a23eec27",
+  "set_id": "9b378e2f-83f6-427f-9158-3f5014c14443",
+  "front": "Hash Tables",
+  "back": "Covered in file organisation, but as an ADT a hash table pairs a hash function with bucket storage for O(1) average access.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 17:18:58.864874+00"
+ },
+ {
+  "id": "5672072e-a9c2-4815-88d3-dc270f869000",
+  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
+  "front": "Hash Table",
+  "back": "Hash function maps keys → index. Collisions resolved by chaining or open addressing. Average O(1) lookup, worst O(n).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "56941949-e2c8-4923-8932-5da35c1e8758",
+  "set_id": "c4738d08-03c9-4492-8940-bc84efd3f4a5",
+  "front": "Efficiency",
+  "back": "Efficiency = useful output / total input × 100%.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "57013a09-2bf0-47f4-80bc-7db6838291d1",
+  "set_id": "831cdc0c-4b12-4f8e-a7b9-93f1201c0fa9",
+  "front": "Stars (Extended)",
+  "back": "Star formation: nebula → protostar (gravity, KE→thermal) → main sequence (hydrogen fusion: H→He, radiation pressure balances gravity) → red giant → white dwarf (Sun-mass) or supergiant → supernova → neutron star/black hole (massive stars).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "571c8837-7339-4be8-bb9e-aa3491440220",
+  "set_id": "9098acae-a3f2-4054-8d98-91edace9d7c6",
+  "front": "File-based problems",
+  "back": "Data repetition (wasted space, inconsistency), fixed queries, no concurrent access control — solved by a DBMS with shared, structured tables.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "58050978-b6e8-43bc-8cde-6f99f5f109f6",
+  "set_id": "885776d4-313d-4b22-9d4a-ff3ba4192fac",
+  "front": "Electromagnets",
+  "back": "Solenoid field like a bar magnet; strength ↑ with current, turns, iron core. Uses: relays, scrapyard crane, electric bell, speaker. Hard/soft magnetic materials choose permanent vs core use.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "59707f33-2500-4962-b35a-1b47106b9f00",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Inverse proportion",
+  "back": "y = k/x (product constant). 4 workers 6 days ⇒ 24 worker-days ⇒ 8 workers take 3 days. Square-law: y ∝ 1/x².",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5a20a42e-4c97-4ddb-a8f3-2b6abbb94fe3",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "One-Tailed vs Two-Tailed",
+  "back": "One-tailed tests take the whole α in one direction. Two-tailed tests split α across both tails: compare against α/2 on each side, or equivalently check whether the observation falls in the extreme 2.5% (for α = 5%).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "5bc4879b-4fb0-4130-8d2e-835d051c00d2",
+  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
+  "front": "Segment Area",
+  "back": "A = ½r²(θ − sin θ). For r = 2, θ = π/2: A = 2(π/2 − 1) = π − 2.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "5bd669d8-3fd8-4d70-8874-71d7b0a90dbb",
+  "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
+  "front": "Current, p.d., e.m.f.",
+  "back": "Current: rate of charge flow; same everywhere in series.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "5bee368e-8851-41cd-ab93-7344dc0585ad",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Calculator use",
+  "back": "Use the ×10ˣ key, not 10 ^; keep working in standard form and convert at the end. Give final answers in the form asked (often 3 s.f. standard form).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5c62aea2-7481-41c3-98ee-78ff9796ab24",
+  "set_id": "1ce6db4b-f232-4278-bd11-5f6f13344436",
+  "front": "Friction and Connected Bodies",
+  "back": "Draw free-body diagrams, then apply F = ma along each axis. For a towed car and trailer, the tow-bar tension appears as an internal pair (equal and opposite).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5c7a3762-de2d-44e5-8a99-99eb3268eaa5",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "The R-Form",
+  "back": "a sin x + b cos x = R sin(x + α) with R = √(a² + b²) and tan α = b/a.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5d50b66e-c94e-4a29-a9b9-ed3671686262",
+  "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
+  "front": "Voltage and Power",
+  "back": "V = W/Q (joules per coulomb)",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "5d5be8be-f0a8-4ca7-acce-200f1e6d56ea",
+  "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
+  "front": "Linear Transforms",
+  "back": "E(aX + b) = a·E(X) + b and Var(aX + b) = a²·Var(X)",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5ddba5cd-69d2-444d-baf1-b1a403a140db",
+  "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
+  "front": "SQL Injection",
+  "back": "An attack where crafted input changes the meaning of a query. If a login query concatenates the username directly, entering X OR 1=1 can match every row. Defences: parameterised queries (prepared statements)",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "5e2263f6-a63a-45b9-8e9f-1c6bcda7be9c",
+  "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
+  "front": "IDE tools",
+  "back": "Syntax highlighting, autocompletion, breakpoints, single stepping, variable watch — name the tool and its debugging benefit.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5ed4ff34-a205-48f3-9584-a09e3ae89ce4",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Constructions",
+  "back": "Perpendicular bisector of a segment: equal arcs from both ends, join the crossings.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5efecd4a-df26-4025-858a-79237ad72a28",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Double inequalities",
+  "back": "Handle both sides: −3 < 2x + 1 ≤ 7 → −4 < 2x ≤ 6 → −2 < x ≤ 3.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "5f8b6b86-505b-475c-ab1a-15392c3b640a",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Inverse functions",
+  "back": "Swap x and y, rearrange. f(x) = 2x − 5 ⇒ f⁻¹(x) = (x + 5)/2. Domain of inverse = range of original. Verify: f⁻¹(f(x)) = x.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "6099f6cc-458e-4094-843c-fc788ebf020a",
+  "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
+  "front": "Potential Dividers",
+  "back": "V_out = V_in × R₂/(R₁ + R₂). Used with LDRs/thermistors to make sensor circuits.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "613abe8f-89a6-42f3-8389-c600a54466ee",
+  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
+  "front": "Stack (LIFO)",
+  "back": "push/pop/peek at one end. Uses: call stacks, undo, expression evaluation, DFS.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "62097445-4344-45e3-b920-143017350244",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "front": "Relational Concepts",
+  "back": "A table (relation) stores rows (tuples) and columns (attributes). The primary key uniquely identifies each row; a foreign key references a primary key in another table, creating the relationship. A composite key uses two or more columns together.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "6218cda0-e164-497b-9dc9-5daf589e5ca4",
+  "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
+  "front": "SI units and prefixes",
+  "back": "temperature kelvin (°C used) K",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "62bcdf22-b474-480d-8e9a-e97c130ad30d",
+  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
+  "front": "Conditional Probability",
+  "back": "P(A | B) = P(A ∩ B)/P(B) — the probability of A given that B has occurred. The condition shrinks the sample space.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "6376ad61-48b5-44a3-a315-7b91f84f87fa",
+  "set_id": "a879a465-9acf-4470-b36f-b0ffec1b0cdf",
+  "front": "Transfer: conduction, convection, radiation",
+  "back": "Conduction : mainly metals (delocalised electrons + lattice vibration); non-metals poor; insulators trap air.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "6393005d-86c0-4506-a011-137fc89fb8d8",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Positive",
+  "back": "both increase (revision time vs score).",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "63db1bd8-45cd-4e97-8bdf-43ea3d8d0d98",
+  "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
+  "front": "Testing",
+  "back": "White-box tests trace internal paths; black-box tests check specification behaviour. Choose normal, boundary and erroneous data. Dry runs use trace tables recording variables line by line; a trace of recursion should log each call and its return.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "64757a07-d6f9-42e3-ad2c-000e1d66748f",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "front": "Number Systems and Ranges",
+  "back": "Unsigned binary with n bits stores 0 to 2ⁿ − 1. Two's complement represents negatives: the MSB has value −2ⁿ⁻¹.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "64aa53bb-bf45-4e32-8aa4-ad6ebed59ff0",
+  "set_id": "80486809-9b4a-4872-b410-9dd248bc7ff1",
+  "front": "The Big Bang",
+  "back": "Evidence: Hubble expansion, cosmic microwave background (2.7 K), hydrogen/helium abundance. Age estimate: t ≈ 1/H₀ ≈ 14 billion years. The fate question: critical density, Ω.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "64ab5952-0a20-456e-8e55-5645ead4f510",
+  "set_id": "cd385889-515c-4680-b051-d794d6c084b0",
+  "front": "Radiation types",
+  "back": "Type Nature Range (air) Stopped by",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "650ed01b-1e4e-4bcc-99f0-94bf71d906ef",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Vector geometry",
+  "back": "Midpoint of AB = ½(a + b). Prove collinearity: show AB = k·BC (shared point). Prove parallelogram: AB = DC. Use route paths: AC = AB + BC.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "66abfc14-027c-4e65-a9db-52e689ba11a0",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Core angle facts",
+  "back": "Line 180°; point 360°; vertically opposite equal.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "672582b8-2f83-4e76-a18b-d744dbbef34e",
+  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
+  "front": "Tree Diagrams",
+  "back": "Branch probabilities multiply along a path; outcomes at the end of complete paths add. Draw one branch set per stage of the experiment. For two draws without replacement from a bag of 5 red and 3 blue: P(RR) = (5/8)(4/7) = 20/56.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "67647e2d-4301-43bf-96ff-089527bf3739",
+  "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
+  "front": "Circular Motion",
+  "back": "Angular speed ω = v/r = 2π/T (rad s⁻¹). Centripetal acceleration a = v²/r = ω²r, always directed to the centre; centripetal force F = mv²/r.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "6766fe2a-1ae6-4362-865f-dd0c95c92ea0",
+  "set_id": "c03773f6-3aad-460d-b245-9551bc332765",
+  "front": "Problem → logic",
+  "back": "Define inputs/outputs first. Alarm rings (X=1) if sensor P triggered AND (door D OR window W): X = P AND (D OR W). Then draw the circuit: OR first, then AND.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "677b3a3c-0314-45e0-9b57-c8ff499aae62",
+  "set_id": "885776d4-313d-4b22-9d4a-ff3ba4192fac",
+  "front": "Electromagnetic induction (Extended)",
+  "back": "Induced e.m.f. when a conductor cuts field lines or flux changes. Fleming's right hand (generator). Factors: speed, field strength, turns. A.C. generator: slip rings; dynamo effect; Lenz's law opposes change (direction of induced current).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "67823a88-a3f5-4db9-a703-964360925b13",
+  "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
+  "front": "Digital electronics basics (syllabus 4.5 context)",
+  "back": "Analogue vs digital; logic gates drive outputs from inputs (see CS link); sensors feed comparator-style circuits.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "67d201ea-2da9-420b-ba29-da5b94f24b3d",
+  "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
+  "front": "FDE cycle",
+  "back": "Fetch: PC → MAR; memory → MDR → CIR; PC + 1. Decode: control unit interprets opcode. Execute: ALU/registers act. Interrupts can pause between cycles.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "68429cff-c895-4770-8df3-1b8f349e36d5",
+  "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
+  "front": "Testing",
+  "back": "Normal (typical), abnormal (rejects invalid), boundary (extremes just inside/outside). Test data tables list input → expected output.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "68ce043d-f89e-4424-b19a-c10ca441c864",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "Chain Rule Everywhere",
+  "back": "d/dx [ln(3x)] = 3/(3x) = 1/x; d/dx [e^(2x)] = 2e^(2x); d/dx [sin²x] = 2 sin x cos x.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "69172bb5-b07a-42bd-8b3e-f293627be989",
+  "set_id": "e81f8f6e-40e2-4374-95a2-7c71e27fecca",
+  "front": "Memory and process management",
+  "back": "Paging/segmentation move programs in/out; virtual memory extends RAM to disk when RAM is full.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "69b56e7c-20e0-4130-88cc-dd316975cbf3",
+  "set_id": "455e704e-95e1-4823-816d-1b2d5ff53510",
+  "front": "Cyber security",
+  "back": "Cyber security protects data, systems and users from attack. A vulnerability is a weakness an attack can use; a threat is what exploits it.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "69c614c7-a613-4727-8f35-3e9bf5f09744",
+  "set_id": "919d900d-ae45-4830-8da9-109e9a3aa6f8",
+  "front": "Centre of Gravity",
+  "back": "The point where the weight appears to act. For stable equilibrium the line of action must pass through the base.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "69e5541b-c127-4f80-a9f4-1ce34079898a",
+  "set_id": "d4f947db-3e96-4f3e-a58f-03f3030285c3",
+  "front": "Liquids",
+  "back": "Pressure increases with depth: p = ρgh (Extended).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "6a864919-af3c-4feb-b0b5-9a1e255e2727",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Operating on fractions",
+  "back": "Add/subtract: common denominator. 2/3 + 1/4 = 8/12 + 3/12 = 11/12.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "6a871e34-21f0-460d-b792-5e8984ebfd0b",
+  "set_id": "d4f947db-3e96-4f3e-a58f-03f3030285c3",
+  "front": "Gas pressure (particle model)",
+  "back": "Particles collide with walls → force per area. Volume ↓ at same T ⇒ pressure ↑ (more frequent collisions). Temperature ↑ ⇒ faster particles ⇒ more frequent, harder impacts.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "6a911898-b919-48bd-9a48-db7c43c6b941",
+  "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
+  "front": "Current and Charge",
+  "back": "I = Q/t — charge per second, in amperes. Conventional current flows + to ��� (electrons drift the other way).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "6a91d66d-2526-4375-9181-de7273c680a2",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Probability links",
+  "back": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B) — inclusion–exclusion from the diagram.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "6ae64eca-f6ad-45fe-be66-d401936f342b",
+  "set_id": "c4738d08-03c9-4492-8940-bc84efd3f4a5",
+  "front": "Conservation of Energy",
+  "back": "Energy changes between forms but the total stays constant (no external work).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "6b33ae80-5952-4e22-acbe-94d6196a9ed8",
+  "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
+  "front": "Validation vs verification",
+  "back": "Validation : automatic checks on data — range (exam mark 0–100), length (password ≥ 8), type, format (postcode pattern), presence (field not empty), check digit (barcode).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "6b3eeff1-803d-4236-926d-e948b2a52c31",
+  "set_id": "f5cb3b33-586a-4deb-8b89-287ad8bb3fb4",
+  "front": "Force on a Current",
+  "back": "F = BIL sin θ (Fleming's left hand: field-index, current-first-finger, force-thumb).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "6b81f55e-64ca-4b8f-83c6-244df811412b",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "Uniform Distribution",
+  "back": "If f(x) = 1/(b − a) on [a, b], every point is equally likely. Then E(X) = (a + b)/2 and Var(X) = (b − a)²/12 — memorise both; they are quick exam marks.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "6c32a7d2-7d9f-4358-ad56-b7344efb891f",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "front": "Searching",
+  "back": "Linear : check each item, O(n), works unsorted",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "6c78190f-e242-49af-97dd-88f8fff450c5",
+  "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
+  "front": "Number systems",
+  "back": "Binary place values 128…1; hex digits 0–9, A–F; one hex digit = one nibble (4 bits).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "6ce0523e-6ba7-4d3d-afd6-1f09062747b7",
+  "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
+  "front": "Effects of Data Changes",
+  "back": "Adding a constant a to every value adds a to the mean and median (the mode too) but leaves the spread untouched. Multiplying every value by b multiplies mean and median by b.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "6d4c0639-641c-4665-8811-1a81ab4c2aa3",
+  "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
+  "front": "Binomial Expansion",
+  "back": "(1 + x)ⁿ = 1 + nx + n(n − 1)/2! x² + n(n − 1)(n − 2)/3! x³ + …, valid for |x| < 1.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "6dc1d025-75e0-4baf-a8e2-327ac389ac96",
+  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
+  "front": "Transformations",
+  "back": "Notation Effect on y = f(x)",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "6e08b2c9-f879-4e17-99d0-0f0514044e90",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Basics",
+  "back": "P(event) = favourable/total; 0 ≤ P ≤ 1; P(not A) = 1 − P(A). Probabilities of a complete set sum to 1 — use to find a missing probability.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "6ec90426-a058-4b61-8a60-13fc188db9af",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "front": "Normalisation",
+  "back": "1NF : atomic values, no repeating groups.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "70443af7-cd96-44fc-bbb7-f2b552ace1f5",
+  "set_id": "cd385889-515c-4680-b051-d794d6c084b0",
+  "front": "The nuclear model",
+  "back": "Nucleus (protons +, neutrons 0) with orbiting electrons (−). Nuclide notation ᴬ_Z X. Isotopes: same Z, different A. Rutherford scattering established the nuclear model; proton number Z, nucleon number A.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "70a59f92-90a5-4293-9fc1-8ec7d6bae022",
+  "set_id": "1ce6db4b-f232-4278-bd11-5f6f13344436",
+  "front": "different bodies.\nExample",
+  "back": "a 2 kg mass with a 10 N resultant accelerates at 5 m s⁻².",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "70acca7f-d500-401f-8318-604dd3d38a5b",
+  "set_id": "e81f8f6e-40e2-4374-95a2-7c71e27fecca",
+  "front": "Utility software",
+  "back": "Disk formatter, defragmenter (reduces head movement on HDDs; unnecessary for SSD), backup scheduler, compression, antivirus, file compression.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "70e23496-daaf-46f1-bcbd-35cb635ddcf3",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Linear sequences",
+  "back": "nth term = a + (n − 1)d. 5, 8, 11, … → 3n + 2. Check n = 1, 2, 3.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "715dbd78-48f6-4355-a094-f7a3b4d7b575",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Substitution",
+  "back": "a = 3, b = −2: 2a² − b = 2(9) + 2 = 20. Always bracket substituted negatives.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "71b782ae-0bf6-42bf-b766-d828340edc3f",
+  "set_id": "75e23a9f-6953-4d9b-a2c6-6db249ef6d40",
+  "front": "Transmission basics",
+  "back": "Serial: one bit at a time — reliable over distance, cheaper cable.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "732c81a9-113d-4eb8-a8ee-91d8a9094569",
+  "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
+  "front": "Components",
+  "back": "Fixed/variable resistors, LDR (light ↑ R ↓), thermistor (T ↑ R ↓), diode/LED (one-way), relay, filament lamp (R grows as T rises — V–I curve flattens).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "7392116b-9d50-4b13-9e1e-2529ac154f5a",
+  "set_id": "885776d4-313d-4b22-9d4a-ff3ba4192fac",
+  "front": "Magnets and fields",
+  "back": "Iron/steel/cobalt/nickel; like poles repel. Field lines exit N, enter S; compass plotting; plotting compass aligns with field. Induced magnetism: iron (temporary) vs steel (permanent).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "7439c354-c9f5-4008-8d36-dbc96656e7c2",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Length, area, volume factors",
+  "back": "Length ×k; area ×k²; volume ×k³ — including reverse problems.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "74917a52-5fc1-4139-8238-9716f4a07faa",
+  "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
+  "front": "Examples",
+  "back": "∫ x³ dx = x⁴/4 + c; ∫ 1/x dx = ln|x| + c; ∫ sin x dx = −cos x + c; ∫ e^x dx = e^x + c.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "75304ce9-4ffa-4213-a619-d6416bd1c051",
+  "set_id": "c03773f6-3aad-460d-b245-9551bc332765",
+  "front": "Logic expressions",
+  "back": "A Boolean expression describes a circuit in logic: X = A AND NOT B, or X = (A OR B) AND C. Brackets fix the order — work out bracketed parts first, then AND, then OR.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "77276539-475b-4219-af14-e69f14219246",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "The Framework",
+  "back": "The null hypothesis H₀ is the default claim (no change, p = p₀). The alternative H₁ is what a suspicious observation suggests (p > p₀, p < p₀, or p ≠ p₀).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "775f290e-bc1b-41dc-a2d8-3e14a00f50a6",
+  "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
+  "front": "The Model",
+  "back": "A continuous distribution with the familiar bell shape, symmetric about the mean, described by two parameters: X ~ N(μ, σ²). The curve is fully determined by μ (centre) and σ (width). Total probability is 1, and because X is continuous, P(X = a)",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "77c1a978-6fcc-4d06-acd9-68bf6c9e5b30",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Area/volume calculations from similarity",
+  "back": "Find k from a matching length pair, then apply the right power. Watch hidden pairs (radii, heights, slants).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "77d535f4-7f83-42db-a7c9-cb71ebc7b506",
+  "set_id": "28bb1f09-6952-4f4e-92c4-6c35021913dd",
+  "front": "The Discriminant",
+  "back": "Δ = b² − 4ac decides how the curve meets the x-axis:",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "7827ff21-cc0a-4df3-945d-16675d2e3e7c",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "Double Angles",
+  "back": "cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "788af3ba-03c1-4fd1-a864-04e9f13aa885",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Symmetry",
+  "back": "Line symmetry (reflect) and rotational symmetry order — for 2-D shapes and 3-D solids (prisms, cubes, pyramids).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "78ce38c3-a0c8-4d4a-805e-1f96305fbf74",
+  "set_id": "75e23a9f-6953-4d9b-a2c6-6db249ef6d40",
+  "front": "Security in transmission",
+  "back": "Encryption scrambles plaintext → ciphertext (key needed); HTTPS = HTTP over TLS; firewall packet filtering by port/IP; authentication (user+pass, 2FA); access levels.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "79162264-e79e-495c-b960-0839515b0491",
+  "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
+  "front": "Angle Between Vectors",
+  "back": "Example: between (1, 0) and (1, 1): cos θ = 1/(1 × √2), θ = 45°.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "79512203-0fd5-4a7f-b7af-05594f7f6e54",
+  "set_id": "31a9d2a1-e5fe-4c70-a9da-d39861746fed",
+  "front": "Efficiency",
+  "back": "Efficiency = useful output ÷ total input (×100%). Sankey diagrams show losses.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "799aee38-055b-4d21-92c8-75d2315e1589",
+  "set_id": "b1b233a0-7284-4174-9c6d-2f2954f74428",
+  "front": "Damping and Resonance",
+  "back": "Damping removes energy: light damping → slow decay; critical → fastest return without oscillation. Resonance: driving at the natural frequency gives maximum amplitude (microwave ovens, swing pushing, bridge disasters).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "7a40bf51-a18c-4c72-b828-88c3c73baeb2",
+  "set_id": "885776d4-313d-4b22-9d4a-ff3ba4192fac",
+  "front": "Force on a current-carrying conductor",
+  "back": "F = BIL, direction by Fleming's left hand (fIeld, current, force). Reversing current or field reverses force. D.C. motor: coil, commutator reverses current each half-turn for continuous rotation; speed/torque ↑ with current, field strength, turns/area.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "7a5f3662-fd2a-42e6-8dfb-bade66b6d59e",
+  "set_id": "9b378e2f-83f6-427f-9158-3f5014c14443",
+  "front": "Binary Search Trees",
+  "back": "Each node has up to two children; left subtree keys are smaller, right subtree keys larger. Search, insert and (average-case) delete are O(log n). An in-order traversal outputs keys in ascending order. A degenerate (linear)",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "7ac35fbb-97ff-47b8-9cc8-49e63f0b3615",
+  "set_id": "65a3fb9e-eba1-4524-9302-e30cfb17e9be",
+  "front": "Superposition Applications",
+  "back": "Young's double slit: x = λD/a — evidence light is a wave",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "7b137c70-ed12-46d9-baec-be1532fb9b58",
+  "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
+  "front": "Coulomb's Law",
+  "back": "F = q₁q₂/(4πε₀r²). Field strength E = F/q (N C⁻¹); for a point charge E = q/(4πε₀r²).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "7d8b9a6e-0285-4e45-8aa5-dcae21c7709e",
+  "set_id": "afe11917-e1c6-4ca5-b710-9ebab500ae91",
+  "front": "ACM/IEEE-CS and BCS",
+  "back": "codes: public interest, competence, integrity, avoid harm, respect privacy. Violations cost trust and employment.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "7e32b750-e77f-4b2f-a03a-009a3726af6d",
+  "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
+  "front": "Density",
+  "back": "ρ = m/V (kg/m³ or g/cm³; 1 g/cm³ = 1000 kg/m³). Determining: mass on balance; volume by displacement. Floating: ρ object < ρ fluid .",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "7f0ec7d8-161c-4354-aead-bf855fb016d3",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "front": "Velocity",
+  "back": "v: rate of change of displacement, v = ds/dt",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "7f229e4d-a7e3-4d27-bd98-368a5431a0fc",
+  "set_id": "455e704e-95e1-4823-816d-1b2d5ff53510",
+  "front": "Digital currency",
+  "back": "A digital currency exists only in electronic form. A cryptocurrency (for example Bitcoin) is a decentralised digital currency secured by cryptography and recorded on a blockchain .",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "7f664851-214c-4b35-be15-1437f575a68e",
+  "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
+  "front": "IDEs",
+  "back": "Editors with syntax highlighting, autocompletion, debugger (breakpoints, stepping, variable watch), and integrated compilation.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "7f9c2f09-df91-4cf1-8ab5-58fa9f19ea6f",
+  "set_id": "4f973854-1af0-40b2-9dfb-3bedc8f864fb",
+  "front": "ADC (analogue-to-digital converter)",
+  "back": "samples the signal. Resolution depends on bits — an 8-bit ADC gives 256 levels. A",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "7ffb2ca5-4c96-4fa3-aa57-63fb52cf1381",
+  "set_id": "54511eff-803f-49a4-b183-77b3c2fdbb45",
+  "front": "Gas Laws",
+  "back": "Boyle: pV = constant (T fixed)",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "80203723-6453-433f-a806-e6618a09436b",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Correlation ≠ causation",
+  "back": "A third factor may drive both variables (ice-cream sales and drownings both rise with temperature). Describe relationships, don't over-claim.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "81e1547c-d92a-44b1-8c90-aa2d91bc8e39",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "Conclusions in Context",
+  "back": "Never just say \"reject H₀\". Conclude in the language of the problem: \"there is sufficient evidence at the 5% level that the proportion has increased\". State the significance level, the direction, and the real-world quantity.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 17:17:36.353219+00"
+ },
+ {
+  "id": "8248f595-ae96-4b40-9522-9e52bbc24c19",
+  "set_id": "497ae389-85dc-4f75-96e7-df7758a38994",
+  "front": "Sound",
+  "back": "Longitudinal; needs a medium (bell in vacuum demo). Speed ~340 m/s air, faster in liquids/solids.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "82980c47-f2ba-4e6c-a782-52569f30bf29",
+  "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
+  "front": "Circuit symbols & current",
+  "back": "Conventional current: + → − (electron flow opposite). I = Q/t. Ammeter in series; voltmeter in parallel.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "83866441-8e80-4f94-aec1-783fdcfc40d0",
+  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
+  "front": "Queue (FIFO)",
+  "back": "enqueue at rear, dequeue at front. Uses: print queues, schedulers, BFS. A circular queue reuses vacated slots with head/tail pointers modulo capacity.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "83bdcbe5-f2af-4cbf-b13e-bbf09ccf3d09",
+  "set_id": "1ce6db4b-f232-4278-bd11-5f6f13344436",
+  "front": "Newton's Laws",
+  "back": "A body stays at rest or in uniform motion unless acted on by a resultant force.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "83d03433-1a05-4338-a25d-15ebc1e28528",
+  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
+  "front": "enumerated type",
+  "back": "lists named values in order: TYPE Months = (Jan, Feb, Mar ...). Internally each value is an integer index starting at 0.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "8568dff7-a534-4bb4-9f98-87bb0088a070",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "front": "The Multiplication Principle",
+  "back": "If a task is done in successive stages with m, n, ... choices at each stage, the total is the product of the choices. This underpins every counting problem: a menu with 4 starters and 6 mains gives 24 meals.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "866d517b-8c6b-4004-afd4-062325078d21",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "Implicit Differentiation",
+  "back": "Differentiate both sides w.r.t. x, treating y as a function of x (terms in y pick up dy/dx).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "866ff098-1536-4fff-86e3-6689cf81a3b9",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "Range and Quartiles",
+  "back": "The range is max − min — quick but destroyed by a single outlier. Quartiles split ordered data into quarters: Q₁ at position (n + 1)/4, Q₃ at 3(n + 1)/4 (raw data). The interquartile range, IQR = Q₃ − Q₁, is the spread of the middle 50% and resists outliers.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "876bc17a-8e8e-4b4e-a752-09fcf4de96fd",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "Basics",
+  "back": "i² = −1. A complex number z = a + bi has real part a and imaginary part b. Two numbers are equal iff both parts match.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "876e6a00-49b8-43a5-a5a8-cb5409ae85b1",
+  "set_id": "1ce6db4b-f232-4278-bd11-5f6f13344436",
+  "front": "Conservation",
+  "back": "in a collision with no external forces, total momentum is unchanged.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "886c9e72-2dc3-4a92-a5c1-74ff18ff7c44",
+  "set_id": "75e23a9f-6953-4d9b-a2c6-6db249ef6d40",
+  "front": "Packets",
+  "back": "Header (sender/receiver addresses, sequence number) + payload + trailer (checksum). Packet switching: routes vary, packets reassembled at destination; checksum failure → re-request. Benefits: robustness, shared lines; delays/reassembly overhead.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "89252f11-9d13-4441-b85f-9106fd85f8b7",
+  "set_id": "a879a465-9acf-4470-b36f-b0ffec1b0cdf",
+  "front": "Kinetic model",
+  "back": "Solid: fixed positions, vibrate — fixed shape/volume. Liquid: move around, touching — fixed volume, flows. Gas: far apart, fast random motion — fills container. Brownian motion evidences random molecular motion.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "8a493810-6f1a-4bb3-a4b7-547b9e9175fd",
+  "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
+  "front": "Object-oriented",
+  "back": "classes encapsulate state (attributes) and behaviour (methods); supports",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "8ae388ad-49c1-443d-8dd5-c58eb84f3aec",
+  "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
+  "front": "Kinematics",
+  "back": "Speed = distance/time; average speed = (u + v)/2 for uniform acceleration.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "8b20e74e-82a1-4aa2-8aea-e29e0a7009db",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Index laws",
+  "back": "aᵐ × aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "8b2623ee-6aa7-47d6-80cd-0e32e9fa127d",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Straight lines",
+  "back": "Gradient m = (y₂ − y₁)/(x₂ − x₁).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "8b582f54-c6a7-4882-b877-f51299dfa735",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "3-D trigonometry",
+  "back": "Identify the plane containing the required angle; use 3-D Pythagoras d² = x² + y² + z² for space diagonals; angle between a line and a plane uses the projection onto the plane.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "8b687866-a38b-4697-af21-680d04529b54",
+  "set_id": "919d900d-ae45-4830-8da9-109e9a3aa6f8",
+  "front": "Free-Body Diagrams",
+  "back": "Draw every force on one body: weight (down), normal reactions (perpendicular to surfaces), tension (along strings), friction (opposing motion).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "8b8f2dc2-d77b-46e0-a978-5bd92eb13aec",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "front": "Images and Sound",
+  "back": "Bitmap: pixels with colour depth (bits per pixel). File size = width × height × depth.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "8d5d9fe1-55e4-40d9-a2ac-b65356aa6e62",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Congruence",
+  "back": "Criteria: SSS, SAS, ASA (AAS), RHS. State the criterion used when proving triangles congruent, then transfer matching sides/angles.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "8ec31d91-5019-44b5-858e-c54ab5ee3945",
+  "set_id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
+  "front": "Stationary Waves",
+  "back": "Two identical waves travelling opposite directions (e.g. wave + reflection) create nodes (no movement) and antinodes (max movement), spaced λ/2 apart. Strings and closed pipes resonate at f₁ = v/2L (fundamental) and harmonics.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "8f071a03-0b2d-4d1d-b0ba-463a4ce03526",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "front": "Fetch",
+  "back": "PC → MAR; read memory → MDR; instruction → CIR; PC increments",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "8f7f8563-b2aa-4a4a-af09-44748967b4e5",
+  "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
+  "front": "Trace tables",
+  "back": "One column per variable; log every assignment in order; watch loop counters and reassignments.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "901aa9e1-da4e-486c-ad79-2ec666295024",
+  "set_id": "c477df2e-d7ac-46bd-852e-5af9a0a6be07",
+  "front": "Wave–Particle Duality",
+  "back": "de Broglie: λ = h/p = h/(mv). Electrons diffract like waves — electron microscopes exploit short electron wavelengths.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "924a475e-a91f-47f3-b837-05d16e00ab7a",
+  "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
+  "front": "Fission and Fusion",
+  "back": "Both release energy by moving toward iron (peak binding energy per nucleon): heavy nuclei split (fission, reactors), light nuclei merge (fusion, stars).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "92d107af-9e79-44af-975e-ff3fe19c2f01",
+  "set_id": "cd385889-515c-4680-b051-d794d6c084b0",
+  "front": "Fission and fusion (Extended)",
+  "back": "Fission: heavy nucleus splits (U-235 + neutron), chain reaction controlled by moderators/control rods — power stations. Fusion: light nuclei join (stellar) — needs huge T/P; releases more energy per kg; no long-lived waste.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "9405427a-b030-471d-a4ba-33edb1befcb6",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Algebraic fractions",
+  "back": "Factorise top and bottom fully, then cancel: (x² − 9)/(x + 3) = (x − 3). To add, use a common denominator: 1/(x+1) + 2/(x−1) = (3x + 1)/((x+1)(x−1)).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "9422b905-63f4-42ab-8270-d3d3220f5758",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Linear equations",
+  "back": "3(x − 2) = x + 4 → 3x − 6 = x + 4 → 2x = 10 → x = 5. With fractions, multiply through by the LCD first.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "94c4bd17-05b3-49ac-8dd4-522840f16523",
+  "set_id": "c477df2e-d7ac-46bd-852e-5af9a0a6be07",
+  "front": "Energy Levels and Line Spectra",
+  "back": "Atoms absorb/emit photons matching level gaps: hf = E₁ − E₂. Emission lines are bright; absorption dark.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "94ce9ded-2724-450b-bf41-66a68f4a1938",
+  "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
+  "front": "Searching and Sorting",
+  "back": "Linear search : O(n), works unsorted.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "94e18394-cd84-4367-9326-85528ee90707",
+  "set_id": "28bb1f09-6952-4f4e-92c4-6c35021913dd",
+  "front": "Curve and Line Intersections",
+  "back": "Set the equations equal; the resulting quadratic's discriminant tells you if the line is a secant (Δ > 0), tangent (Δ = 0) or misses (Δ < 0).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "94e1a334-6e19-42a0-a893-4554a08ef627",
+  "set_id": "831cdc0c-4b12-4f8e-a7b9-93f1201c0fa9",
+  "front": "Earth, Moon, Sun",
+  "back": "Earth rotates 24 h (day/night), orbits 365¼ d (year + leap). Moon orbits Earth ~27.3 d; phases from viewing angle; lunar/solar eclipses when aligned. Seasons from axial tilt (23.5°), not distance.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "94e8b8bb-2d38-4e9f-8890-3c480768b677",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "Expectation and Variance",
+  "back": "E(X) = np and Var(X) = np(1 − p)",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "97d728d4-fc48-4f5d-a3a2-48f9fe07e0fc",
+  "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
+  "front": "Models and Protection",
+  "back": "Client-server centralises services (web, email, files); peer-to-peer shares directly (torrents, small LANs). Firewalls filter traffic by rules; proxy servers sit between clients and the internet, caching and filtering;",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "9838a33e-1715-44eb-8cde-bac971146994",
+  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
+  "front": "one-one",
+  "back": "If not, restrict the domain (e.g. f(x) = x² for x ≥ 0 has f⁻¹(x) = √x). Graphically, y = f⁻¹(x) is the reflection of y = f(x) in the line y = x, and the range of f becomes the domain of f⁻¹.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "98aa1e6a-db41-4a8d-a561-68fe934a4e66",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Vectors",
+  "back": "Column vector (x; y); magnitude = √(x² + y²).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "996f7bc0-ee2f-4a94-a4f0-74b96563114a",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "Reciprocal Functions",
+  "back": "sec θ = 1/cos θ, cosec θ = 1/sin θ, cot θ = 1/tan θ. Key identity: 1 + cot²θ = cosec²θ.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "99870f77-9cd9-4b42-8630-a6c9378f82f5",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Correlation types",
+  "back": "Positive : both increase (revision time vs score).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "9ac2ce40-bb2a-4640-a99d-c42178cd41ef",
+  "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
+  "front": "Images and sound",
+  "back": "Bitmap: pixels; colour depth = bits per pixel. File size (bits) = W × H × depth. Metadata (width, height, depth) stores dimensions.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "9b134c51-a5fb-4c5c-82db-3271d277d152",
+  "set_id": "497ae389-85dc-4f75-96e7-df7758a38994",
+  "front": "Echo problems",
+  "back": "Distance = (v × t)/2 (there and back).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "9b4a2a82-aa77-4253-9f91-098108265408",
+  "set_id": "afe11917-e1c6-4ca5-b710-9ebab500ae91",
+  "front": "AI Characteristics",
+  "back": "Systems exhibiting: planning, learning, reasoning, problem-solving, perception, knowledge representation.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "9b9396d6-e986-44a6-b915-9684fa36d0db",
+  "set_id": "e8b72d9a-9879-43c2-897b-42e2576de483",
+  "front": "Machine learning",
+  "back": "Supervised (labelled data — spam filters), unsupervised (clusters — segmentation), reinforcement (rewards — game agents). Training/evaluation loop: train on a set, test on unseen data; overfitting = memorising rather than generalising.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "9b9a747a-1aec-4825-9280-f42aa0be8a0b",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Order of operations",
+  "back": "BIDMAS. 3 + 4 × 2² = 3 + 16 = 19. Insert brackets yourself when translating words: \"3 added to the product of 4 and 2²\" = 3 + (4 × 2²).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "9bf06334-5168-4367-a033-790235a13dd9",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "Substitution",
+  "back": "Reverse of the chain rule. For ∫ 2x e^(x²) dx, let u = x²: du = 2x dx, so the integral is ∫ e^u du = e^(x²) + c.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "9c9deddb-1d59-4374-9b68-b415378d8296",
+  "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
+  "front": "Tangents and Normals",
+  "back": "The tangent gradient at a point is dy/dx there; the normal gradient is −1/(dy/dx).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "9d0813f8-20a2-47d7-b5a3-ec5391ce082d",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Solving",
+  "back": "Like equations, but reverse the sign when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "9d56c616-63f1-4469-8592-f0ac68131181",
+  "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
+  "front": "The Median",
+  "back": "The median is the middle value: position (n + 1)/2 for ordered raw data. With n even, average the two middle values. The median ignores the size of extreme values, so it describes skewed data more honestly.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "9d586ed6-8eeb-4cc1-a6f9-738b9da6a15e",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Loci",
+  "back": "Fixed distance from a point = circle; from a line = parallel lines with rounded ends; equidistant from two points = perpendicular bisector; from two lines = angle bisector.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "9d74fd34-ab27-4474-a435-39ed0726803b",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "front": "Design Approaches",
+  "back": "Top-down (stepwise refinement) : decompose into modules — planned structure",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "9f10e479-3308-4d07-92c2-0517708e2080",
+  "set_id": "75e23a9f-6953-4d9b-a2c6-6db249ef6d40",
+  "front": "Protocols",
+  "back": "TCP/IP stack layers (application, transport, network, link). HTTP/HTTPS (TLS encryption), FTP (with login + commands), email: SMTP send, POP3/IMAP retrieve. Bluetooth/Wi-Fi for WPAN/WLAN.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a1095359-cad3-4074-ae39-e630a5690bb8",
+  "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
+  "front": "Text",
+  "back": "ASCII 7-bit (128 chars) → extended sets; Unicode for all scripts (UTF-8 variable width). Character sets map codes to glyphs; uppercase/lowercase codes differ by one bit.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a135f7ae-2fe2-47d4-aa47-1a3e90b05a7d",
+  "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
+  "front": "Stationary Points",
+  "back": "Set dy/dx = 0, then classify with the second derivative:",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "a1e4d5b1-8f7b-4329-b044-05db6ac60bea",
+  "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
+  "front": "Position and Direction",
+  "back": "The line through point A with direction d: r = a + t d. Two lines are parallel if their directions are multiples.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "a21b8337-8cfe-49a3-a829-4c1dba2ebe78",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "Conjugates",
+  "back": "z̄ = a − bi. zz̄ = a² + b² (real). Dividing: multiply numerator and denominator by the conjugate.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "a337e30e-bad6-4f20-842b-de850be24695",
+  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
+  "front": "Composite Functions",
+  "back": "fg(x) means f(g(x)) — apply g first, then f. Order matters.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "a385e30c-6b28-483f-b2a0-8a069f19dbb2",
+  "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
+  "front": "Files",
+  "back": "OPENFILE \"data.txt\" FOR READ",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a44c8adc-3328-4dda-af91-e627911d51dd",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Surds",
+  "back": "A surd is a root that cannot be written as a rational number: √2, √3, 3√5.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a5bce61b-4985-41df-ac69-741a56964715",
+  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
+  "front": "Basic Rules",
+  "back": "For an event A with P(A) = p: 0 ≤ p ≤ 1, and P(A′) = 1 − P(A). For mutually exclusive events, probabilities add: P(A ∪ B) = P(A) + P(B). For events that can occur together, subtract the overlap:",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "a5fdd5b2-4691-4225-aaea-eb74064ac809",
+  "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
+  "front": "Compression",
+  "back": "Lossless (RLE, ZIP): exact restore — text/code must use it. RLE example: AAABBBCC → 3A3B2C; effective with runs.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a6046bdc-ecd1-482a-8371-0a3c5593f356",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "Modulus–Argument Form",
+  "back": "z = r(cos θ + i sin θ), r = |z|, θ = arg z. Useful for powers and roots.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a6821bbe-da36-414e-91ad-6f177ccded82",
+  "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
+  "front": "Mass, weight, density",
+  "back": "W = mg (g ≈ 10 N/kg). Weight acts at the centre of mass; mass is invariant. Density ρ = m/V.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "a7d9b5ca-6ea9-430f-953e-1b217ef557ab",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "Standard Derivatives",
+  "back": "sin x → cos x; cos x → −sin x; tan x → sec²x",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "a844b914-a351-4af1-b8ac-3e47e60ccd4c",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Factorising",
+  "back": "Common factor: 6x²y − 9xy² = 3xy(2x − 3y).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a95dcfc9-29f3-4072-829b-3e98aaff3d40",
+  "set_id": "54511eff-803f-49a4-b183-77b3c2fdbb45",
+  "front": "Kinetic Theory",
+  "back": "½m⟨c²⟩ = (3/2)kT — temperature measures mean translational KE. Also pV = ⅓Nm⟨c²⟩.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "a9f237ea-b776-410e-b7ab-3dd3151a200f",
+  "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
+  "front": "Normal Approximation to the Binomial",
+  "back": "For large n with p near ½, X ~ B(n, p) ≈ N(np, np(1 − p)). The condition usually quoted at this level is np > 5 and n(1 − p) > 5. Apply a continuity correction: to approximate P(X ≥ 12) for a binomial, compute P(Y > 11.5) for the normal Y.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 17:18:59.82718+00"
+ },
+ {
+  "id": "aa81cc7d-cc59-4e08-a886-00a4584496be",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "Critical Regions",
+  "back": "The critical region is the set of values of the test statistic that would lead to rejection. Its boundary is the critical value. For B(20, 0.3) at the 5% level with H₁: p > 0.3, find the smallest k with P(X ≥ k) < 0.05 — that k opens the critical region.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 17:17:36.353219+00"
+ },
+ {
+  "id": "aac829dc-0291-43bb-bc20-2596c1d12ca9",
+  "set_id": "455e704e-95e1-4823-816d-1b2d5ff53510",
+  "front": "Threats",
+  "back": "Malware : virus (attaches, replicates via host), worm (self-spreads), trojan (disguised), spyware, ransomware.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "abde5f1f-56a4-4a5c-a93e-5721b98e22ac",
+  "set_id": "497ae389-85dc-4f75-96e7-df7758a38994",
+  "front": "Wave basics",
+  "back": "v = fλ. Transverse (oscillation ⊥ travel — light, water, S-waves) vs longitudinal (parallel — sound, P-waves). Amplitude, wavelength, frequency f = 1/T; wavefront diagrams.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ac0d236e-9b93-4682-b858-496e629c518a",
+  "set_id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
+  "front": "Double-Slit (Young)",
+  "back": "Fringe spacing x = λD/a (D = slit–screen distance, a = slit separation).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ac87e5e5-911c-45f5-bc27-90a0c25957e7",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Transformations — full descriptions",
+  "back": "Reflection : mirror line (x = 0, y = x, y = −x…).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ace2d1b5-7702-4a15-bcbe-85bce3afc541",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Solving index equations",
+  "back": "Match bases: 2ˣ = 32 ⇒ 2ˣ = 2⁵ ⇒ x = 5. With different bases, rewrite (8 = 2³).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "adcd967e-df66-45d0-ade1-5fc6f66427d8",
+  "set_id": "e9b98d96-8bf8-4eb1-983c-f70911c3b90a",
+  "front": "Intersections and Bisectors",
+  "back": "Intersections: solve the equations simultaneously. The perpendicular bisector of AB passes through the midpoint of AB with gradient −1/m(AB) — equate distances PA = PB for the locus method.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "add19a13-7331-4576-b6d8-b1b7c5a20ffd",
+  "set_id": "cd385889-515c-4680-b051-d794d6c084b0",
+  "front": "Safety and uses",
+  "back": "Uses: medical tracers (β/γ), sterilisation, thickness gauge (β), dating (C-14), smoke alarms (α). Safety: distance, time, shielding, wear badges, store in lead. Handle with tongs; never point at people.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "aeb38444-9af2-4ce1-aba3-386d7fb29d56",
+  "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
+  "front": "Backwards Problems",
+  "back": "Given a probability, find μ or σ. Convert the target percentile to a z-value from the table, then solve (x − μ)/σ = z.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "aeedcdcf-34f6-4a43-97cc-020c850072de",
+  "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
+  "front": "Fetch-Execute",
+  "back": "Fetch: PC gives address, instruction loads into the CIR, PC increments. Decode: control unit interprets the opcode. Execute: the operation runs, possibly updating registers or memory. Interrupts are checked at cycle boundaries.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "af7991ce-84c9-4c27-881f-30d8e326c61d",
+  "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
+  "front": "Lines and Points",
+  "back": "Foot of perpendicular from P to a line, intersection of two lines, and shortest distances all come from dot products and parameter t.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "af7dc217-61e5-4ad5-b82b-b1ce9c25c9ba",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "front": "Normalisation",
+  "back": "1NF : atomic values, no repeating groups",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "af998d44-9a47-4771-9dce-ac93d4b1d9ea",
+  "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
+  "front": "Orbits",
+  "back": "For a circular orbit, gravity supplies the centripetal force: GMm/r² = mv²/r, so v = √(GM/r) — higher orbits move slower but have longer periods (Kepler's third law: T² ∝ r³).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b06eb525-4e11-40ad-bc7b-4e175f410ebd",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "front": "Transactions and Concurrency",
+  "back": "A transaction is a unit of work obeying ACID: Atomicity (all or nothing), Consistency (rules preserved), Isolation (concurrent transactions do not interfere), Durability (committed data survives crashes). Record locking blocks conflicting simultaneous edits;",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b0dc792e-2616-4623-8e47-0cc42dfb050a",
+  "set_id": "31a9d2a1-e5fe-4c70-a9da-d39861746fed",
+  "front": "Energy-chain problems",
+  "back": "Equating KE loss to PE gain: v = √(2gh) for frictionless drop; braking distance grows with v².",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "b18d91f0-4237-454b-80bd-7b1ba1b8f2aa",
+  "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
+  "front": "Accuracy and improvements",
+  "back": "Avoid parallax (eye level with reading), zero errors (subtract the zero reading), measure multiple laps for small times. Suggest improvements by naming the error and the fix.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "b1bcbf1c-0398-48b6-aa7e-8b15ee697681",
+  "set_id": "497ae389-85dc-4f75-96e7-df7758a38994",
+  "front": "Reflection",
+  "back": "angle in = angle out; speed/frequency unchanged, direction changes.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "b225ecca-04e0-4bcd-b5bb-ffe5ddfca383",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "Partial Fractions",
+  "back": "Reverse of combining fractions — needed before binomial expansion of rational functions.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b303423d-b874-444b-9d1d-9a7701b21f20",
+  "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
+  "front": "The Mean",
+  "back": "For data x₁, ..., xₙ the mean is",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "b4cf1eb2-9392-4c09-ac75-fda3bbb43f6b",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Regions algebra",
+  "back": "With region variables x, y, z: use the totals to form equations, e.g. n(A ∪ B) = n(A) + n(B) − n(A ∩ B).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b535a6b2-c485-475f-9aaf-2b25fc035072",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Outliers",
+  "back": "Points far from the trend: identify, and comment on their effect on the line; ignore them when drawing the best fit if instructed.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b58a1688-4353-4c4d-af54-2a616ca4974c",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Venn diagrams",
+  "back": "Fill the intersection first, then work outwards. Two sets: only A, both, only B, neither.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "b5edefbf-aa59-4aa2-8a96-0d05f6ece3b9",
+  "set_id": "4f973854-1af0-40b2-9dfb-3bedc8f864fb",
+  "front": "analogue",
+  "back": "signals varying continuously; computers need",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b6b679cf-e40e-4187-9112-6c6ca359b8c0",
+  "set_id": "c477df2e-d7ac-46bd-852e-5af9a0a6be07",
+  "front": "The Photoelectric Effect",
+  "back": "Light above a threshold frequency ejects electrons instantly; intensity alone does nothing below f₀.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "b75d67ae-8732-46eb-ad40-e822cf8c2e46",
+  "set_id": "31a9d2a1-e5fe-4c70-a9da-d39861746fed",
+  "front": "Energy sources",
+  "back": "Renewable: solar, wind, hydro, geothermal, biofuel, tidal — replenished. Non-renewable: fossil fuels, nuclear — finite. Discuss reliability, cost, pollution for \"evaluate\" questions.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "b7b44723-0079-46a9-82f0-bf60a2a3ac5b",
+  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
+  "front": "Venn Diagrams",
+  "back": "Draw the universe first, then the events. Fill from the intersection outwards: if P(A) = 0.6, P(B) = 0.5 and P(A ∩ B) = 0.25, then only-A = 0.35, only-B = 0.25, neither = 0.15. Every region must sum to 1.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "b7fef6dd-7821-4eaa-b7e0-ddf70ebe65ef",
+  "set_id": "65a3fb9e-eba1-4524-9302-e30cfb17e9be",
+  "front": "Progressive vs Stationary",
+  "back": "Progressive waves transfer energy; stationary waves store it in loops. Stationary patterns arise from two identical waves travelling in opposite directions (reflections on strings, air columns).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "b940e1ea-7a91-471e-a080-5895fe2d6dd3",
+  "set_id": "4f973854-1af0-40b2-9dfb-3bedc8f864fb",
+  "front": "Monitoring vs Control",
+  "back": "Monitoring : sensors feed data to the computer, which only records, displays or raises alarms — no action taken on the environment.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b99f0acb-70f6-43ab-bb13-93531b56622d",
+  "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
+  "front": "Hashing vs Encryption",
+  "back": "Hashing (e.g. SHA-256) is one-way: passwords should be stored hashed with a unique salt, never encrypted reversibly.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "b9ab377a-4aad-445e-94e6-42d5ebbea0d7",
+  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
+  "front": "Hashing",
+  "back": "A common method is division hashing: Address = Key MOD TableSize. A good hash distributes keys evenly; load factor above roughly 70 percent degrades performance.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b9f8a1cd-0498-434f-a4d7-5105efb9d3ac",
+  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
+  "front": "User-Defined Types",
+  "back": "A user-defined type is derived from existing types. An enumerated type lists named values in order: TYPE Months = (Jan, Feb, Mar ...). Internally each value is an integer index starting at 0. Pointer types store a memory address;",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ba21c4f3-1607-4ef0-878e-d61bd7243851",
+  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
+  "front": "Central Limit Theorem",
+  "back": "Whatever the population shape, for large n (rule of thumb n ≥ 30) the sample mean is approximately normal: x̄ ~ N(μ, σ²/n). This is why the normal appears constantly in inference.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ba5bc032-0ba7-4b55-a77c-f20dd86759e3",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "Finding Unknown Constants",
+  "back": "Piecewise densities carry an unknown k: impose that the total area is 1 (and continuity at joins where required). One equation, one unknown.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "bad61355-a580-4f38-b34b-97b0c9cbb304",
+  "set_id": "e8b72d9a-9879-43c2-897b-42e2576de483",
+  "front": "Robotics",
+  "back": "Components: sensors (input), processors (decision), actuators/motors (output), power. Examples: manufacturing arms, delivery drones, autonomous vehicles (LIDAR + vision). Benefits: precision, 24/7 operation, dangerous jobs; concerns:",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "bba13145-5407-4c19-8f84-70f45bba5177",
+  "set_id": "d4f947db-3e96-4f3e-a58f-03f3030285c3",
+  "front": "Density revisited",
+  "back": "ρ = m/V; floating condition; upthrust = weight of displaced fluid (qualitative).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "bbd26e71-4faf-4a96-adec-569706e5e1c3",
+  "set_id": "a879a465-9acf-4470-b36f-b0ffec1b0cdf",
+  "front": "Specific heat capacity",
+  "back": "c = ΔE/(mΔθ). Heating: ΔE = mcΔθ.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "bc4fe44d-45c5-4dad-a288-3fdb427e445e",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "front": "foreign key",
+  "back": "references a primary key in another table, creating the relationship. A composite key uses two or more columns together.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "bcca585d-3660-40b7-8c62-12ac5abb5d16",
+  "set_id": "54511eff-803f-49a4-b183-77b3c2fdbb45",
+  "front": "Specific Heat and Latent Heat",
+  "back": "Heating: Q = mcΔθ (c = specific heat capacity)",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "be6704ff-9fcd-4e55-9a13-54eb854918bd",
+  "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
+  "front": "The Mode",
+  "back": "The most frequent value. A dataset may have no mode or several. For grouped data the modal class is the one with the highest frequency density (frequency ÷ class width), not the highest frequency.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "be7e4952-468d-43dc-8146-17cf0370a560",
+  "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
+  "front": "Components and Arithmetic",
+  "back": "A vector a = 3i + 4j has magnitude |a| = √(3² + 4²) = 5. Parallel vectors are scalar multiples; unit vector = a/|a|.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "be9691fb-e267-4be5-817a-3dfab1e298b6",
+  "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
+  "front": "Resistance and Resistivity",
+  "back": "R = V/I; R = ρL/A. Resistivity ρ is a material property (Ω m). Metals' resistance rises with temperature; thermistors' falls (NTC).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "bece778c-f296-48f3-9056-13287d0bb508",
+  "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
+  "front": "Scalars and vectors",
+  "back": "Scalars: distance, speed, mass, energy, time. Vectors: displacement, velocity, acceleration, force, weight, momentum. Vector addition by scale diagram (tip-to-tail) or by components.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "bf1ee55f-cf64-44c3-9b65-f770ca2af225",
+  "set_id": "e551bfc9-96bf-48fa-8002-4ce1e4309572",
+  "front": "The Model",
+  "back": "X ~ Po(λ) counts events in a fixed interval of time or space when events occur independently, at a constant average rate λ, and never twice at the same instant. Classic settings:",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "bf253165-be72-4d34-bf52-4915f1ba4d5b",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "Test for a Binomial Proportion",
+  "back": "With X ~ B(n, p₀) under H₀, compute the probability of results at least as extreme as the observed count in the direction of H₁.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "bf5adcbe-cc73-4769-9c3b-05423bb5e8f0",
+  "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
+  "front": "Encryption",
+  "back": "Symmetric : one shared key (AES). Fast, but key distribution is the weak point.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "c0546a35-faaf-44fe-90f6-e73b947f5bde",
+  "set_id": "31a9d2a1-e5fe-4c70-a9da-d39861746fed",
+  "front": "Energy stores & transfers",
+  "back": "Stores: kinetic, gravitational, elastic, chemical, nuclear, thermal. Transfer mechanisms: mechanically, electrically, heating, waves. Energy is conserved overall; transfers via work done.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "c0c9af6a-9e57-4cbf-8681-a72e9ecbd765",
+  "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
+  "front": "Addressing and Subnetting",
+  "back": "IPv4 addresses are 32 bits, written dotted decimal, split into network + host portions by the subnet mask. ANDing an IP with the mask yields the network ID. 192.168.4.0/26 means the first 26 bits are network, leaving 6 host bits: 64 addresses, 62 usable.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "c12a4bb0-240a-49be-ab95-27040efd51fa",
+  "set_id": "831cdc0c-4b12-4f8e-a7b9-93f1201c0fa9",
+  "front": "Solar system",
+  "back": "Planets (Mercury → Neptune), dwarf planets (Pluto), moons, asteroids, comets (eccentric orbits, tails away from Sun), natural satellites. Gravity keeps orbits; orbital speed & radius relate to the central mass.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "c147bece-d7c5-455a-b3ec-078eb2d833e6",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Collecting like terms",
+  "back": "5x + 3y − 2x + y = 3x + 4y. Terms need identical letter parts (x² and x are not like terms).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "c15ae68c-07e0-40d8-9226-fa69695874f9",
+  "set_id": "056e492d-c0f3-49c8-9a02-be16b1fafeec",
+  "front": "Solving Equations",
+  "back": "Use the symmetry of the graphs. For sin x = 1/2 in 0 ≤ x ≤ 2π: the acute answer is π/6, and the second solution is π − π/6 = 5π/6.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "c22415d1-03c6-4db3-86a4-361d26a8ab2d",
+  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
+  "front": "File Organisation",
+  "back": "Serial : records in insertion order; searching checks every record. Simple but slow.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c2a5cbfd-4b36-4186-bb49-340f6646653d",
+  "set_id": "9b378e2f-83f6-427f-9158-3f5014c14443",
+  "front": "Linked Lists",
+  "back": "Each node holds a value and a pointer to the next node; a start pointer marks the head and a null marks the end. Insertion rewires two pointers — no shifting — giving O(1) insertion at a known position, but access requires walking the list, O(n).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "c331ff9d-d8a1-4e20-af81-0c15381664a0",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Cumulative frequency",
+  "back": "Running totals vs upper class boundaries; the curve ends at (max, n). Median at n/2; Q₁/Q₃ at n/4 and 3n/4; box plot from the five-figure summary.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c369d5d1-8fce-4782-a7cc-689aa950d6f5",
+  "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
+  "front": "Capacitance",
+  "back": "C = Q/V (farads). Energy stored: W = ½QV = ½CV².",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "c3a5fe0a-3879-4523-81a6-bae18942d7a2",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "front": "Compression",
+  "back": "Lossless (ZIP, run-length encoding): exact reconstruction — required for text/code",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "c559558a-4dbe-43b4-9ebe-1780b4b51700",
+  "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
+  "front": "Procedural",
+  "back": "programs as sequences of instructions in procedures — good for straightforward algorithms.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c561597d-a56e-4c6e-8da4-0ef0b4dbbd5b",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Negative numbers and calculators",
+  "back": "Bracket negatives when substituting. Know the ×10ˣ, x², √, ˣ√ and fraction keys; give answers to 3 s.f. unless told otherwise.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c58a17a4-54f2-4f2f-b9bb-12cb67ea6bbb",
+  "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
+  "front": "Independent Variables",
+  "back": "If X and Y are independent: E(X + Y) = E(X) + E(Y) and Var(X + Y) = Var(X) + Var(Y). The addition rule for expectation always holds; the variance addition needs independence. The same applies to differences: Var(X − Y) = Var(X) + Var(Y)",
+  "sort_order": 4,
+  "created_at": "2026-09-30 17:18:58.398694+00"
+ },
+ {
+  "id": "c5c4d4c0-ed57-49d3-8dad-b553312cf7be",
+  "set_id": "919d900d-ae45-4830-8da9-109e9a3aa6f8",
+  "front": "every",
+  "back": "direction and the resultant moment is zero.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c5fb3def-fa46-4602-b71a-7024dcbe4ec0",
+  "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
+  "front": "Series and Parallel",
+  "back": "Series: same current, R_total = R₁ + R₂ + …",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c632b506-db4a-4c9a-95bb-98bc811aaf8b",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Volume and surface area",
+  "back": "Cuboid V = lbh; prism V = cross-section × length.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c6a93e1a-3382-42fa-9f3e-f78373d4b795",
+  "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
+  "front": "Buses and performance",
+  "back": "Address bus (one-way, width ⇒ addressable memory), data bus (two-way, width ⇒ bits per transfer), control bus. Performance factors: clock speed, cache size, core count — explain the effect, not just the name.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c6ce66b5-4418-4ac4-9d71-274c71c655c6",
+  "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
+  "front": "Radioactive Decay",
+  "back": "Type What changes Stopped by",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "c725134d-bf36-4561-90c3-500fb1ac0993",
+  "set_id": "919d900d-ae45-4830-8da9-109e9a3aa6f8",
+  "front": "Moments and the Principle of Moments",
+  "back": "Moment = force × perpendicular distance from the pivot.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "c7a74c27-1e6f-4459-9901-4c8cad3019c7",
+  "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
+  "front": "Arithmetic Progressions (AP)",
+  "back": "Terms increase by a common difference d.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "c7b4aa28-7999-4391-b8f8-a68ec85bb787",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "Standard Integrals",
+  "back": "With linear arguments: ∫ e^(3x) dx = e^(3x)/3 + c; ∫ cos 2x dx = sin 2x/2 + c.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "c844d72e-6dd5-409a-9726-d610e621905e",
+  "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
+  "front": "Moments and equilibrium",
+  "back": "Moment = F × perpendicular distance from pivot.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "c86a9953-8266-4725-8434-a6c31bc54dc8",
+  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
+  "front": "Records",
+  "back": "A record groups related fields of different types under one identifier, for example a Student record with name : STRING and mark : INTEGER. Arrays of records are the standard structure for storing a table of items in memory.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "c8cb6922-9086-49a2-9d3b-6150df88fdc7",
+  "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
+  "front": "Assembler",
+  "back": "assembly → machine code (1:1)",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "ca414d01-2fe0-4a36-bfba-155b00480bfc",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Drawing curves",
+  "back": "Table of values, plot, smooth curve. Parabola symmetry axis x = −b/2a. Recognise reciprocal y = 1/x (two branches) and exponential y = aˣ (through (0,1)).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "ca54443d-9174-43bf-bb34-0e7f141cee77",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "front": "Permutations — Order Matters",
+  "back": "The number of ways of arranging r objects from n distinct objects is",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "ca5da8c2-b803-4a12-ba82-939451796dc2",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "front": "Transactions",
+  "back": "ACID: A tomicity (all or nothing), C onsistency (rules hold), I solation (no interference), D urability (committed = permanent). Record locking prevents conflicting simultaneous edits.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "caa41284-8ba9-4d50-8b2a-6eb4236313eb",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "front": "ASCII",
+  "back": "7 bits, 128 characters, English only",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "cb4c0294-7a90-45cc-9894-c3993cba85f8",
+  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
+  "front": "Using x̄ to Estimate",
+  "back": "Given sample data, estimate μ by x̄ and σ² by the unbiased s². When the population is normal, x̄ is exactly normal for any n — the CLT is only needed for non-normal populations.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "cb899e30-1134-49d7-b8bb-7137106334a6",
+  "set_id": "75e23a9f-6953-4d9b-a2c6-6db249ef6d40",
+  "front": "Network types & hardware",
+  "back": "LAN (site) vs WAN (internet). Router (joins networks, IP), switch (MAC frames within LAN), gateway (protocol translation), NIC, WAP. MAC address (burned-in, layer 2) vs IP address (assigned, layer 3).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "cbb9e703-2dc0-485d-af43-90834f98b314",
+  "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
+  "front": "Thinking Ahead, Abstractly, Systematically",
+  "back": "Abstraction : keep essential features, drop detail — a metro map ignores street geometry.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ccde3745-3ea7-4494-86b1-086f90a94dcd",
+  "set_id": "65a3fb9e-eba1-4524-9302-e30cfb17e9be",
+  "front": "Harmonics",
+  "back": "A string fixed at both ends: f₁ = v/2L, then 2f₁, 3f₁… Closed pipes resonate at odd multiples; open pipes at all multiples.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "cd386f7a-55ee-4885-a1d8-036d8662383f",
+  "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
+  "front": "Symmetry Shortcuts",
+  "back": "P(X > μ) = 0.5. P(X < a) for a above the mean uses the complement. Tables usually give Φ(z) for z ≥ 0 only; use Φ(−z) = 1 − Φ(z).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "cdab649f-4c1f-487d-9053-2d06e46f491c",
+  "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
+  "front": "Expectation",
+  "back": "It is a weighted average — the long-run average value over many repetitions. E(X) need not equal any value X can actually take.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "ce570127-28c3-4037-ab51-39b431f19df2",
+  "set_id": "919d900d-ae45-4830-8da9-109e9a3aa6f8",
+  "front": "Equilibrium",
+  "back": "A body is in equilibrium when the resultant force is zero in every direction and the resultant moment is zero.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "cf881955-f8b7-4d5a-ba82-5c60900c0283",
+  "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
+  "front": "Definite Integrals",
+  "back": "∫ₐᵇ f(x) dx = [F(x)]ₐᵇ = F(b) − F(a). Constants of integration cancel.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "cfe9096a-5f71-481e-9d67-9bc119560221",
+  "set_id": "c03773f6-3aad-460d-b245-9551bc332765",
+  "front": "Expression → truth table",
+  "back": "add an intermediate column for each sub-expression before the output column.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "d01e2c91-4de5-4a54-a302-4a62401ec691",
+  "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
+  "front": "Subroutines",
+  "back": "Procedure (no return) vs function (returns value). Parameters by value (copy) vs reference (original). Local scope inside; global shared — declare deliberately, avoid overuse.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d0490c7f-5b01-40ee-82cf-5c2284df9ecf",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "Combining and Scaling Datasets",
+  "back": "Multiplying every value by b multiplies s by |b| and the variance by b². Adding a constant changes nothing in the spread. Two merged datasets: compute combined Σx and Σx² from each part, then apply the computational formula.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 17:17:36.353219+00"
+ },
+ {
+  "id": "d0c0573c-83a8-4dcc-9716-5485e3d51030",
+  "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
+  "front": "Newton's laws and resultant force",
+  "back": "Resultant: colinear addition/subtraction; perpendicular by Pythagoras.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "d0d4b7b4-e05c-485a-ae2a-a975f23bb211",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Line of best fit",
+  "back": "Balance points either side of the line; it need not pass through the origin. Use two well-separated points on your line (not necessarily data points) to estimate its gradient and equation.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "d1c5e36c-b342-4213-bf8b-9de07700de53",
+  "set_id": "65a3fb9e-eba1-4524-9302-e30cfb17e9be",
+  "front": "Polarization Applications",
+  "back": "Polaroid sunglasses cut glare from horizontal surfaces; stress analysis in plastics; LCD screens control light with twisted polarizers. Malus' law I = I₀cos²θ.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "d1f17512-392a-4198-b526-ba4425e3d122",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Integer solutions",
+  "back": "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "d319b301-4647-42d7-b685-951c3db31996",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Relative frequency (experimental)",
+  "back": "Relative frequency = successes ÷ trials. More trials → closer to theoretical probability; compare with expected counts (n × P).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d379b022-7fe2-43bb-b0fb-e144301eb739",
+  "set_id": "54511eff-803f-49a4-b183-77b3c2fdbb45",
+  "front": "Internal Energy",
+  "back": "Sum of random kinetic + potential energies of molecules. Temperature rise → KE up; phase change → PE up (bonds stretch) at constant temperature.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "d391c625-c684-473b-b43b-a8ecf1b00cb1",
+  "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
+  "front": "Measuring",
+  "back": "Length: ruler (mm), vernier calipers (0.1 mm / 0.01 cm), micrometer screw gauge (0.01 mm).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "d3a5bf67-a2a4-42d8-997c-82b00084496b",
+  "set_id": "e9b98d96-8bf8-4eb1-983c-f70911c3b90a",
+  "front": "Parallel and Perpendicular",
+  "back": "Parallel lines: equal gradients.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "d4d5af49-a3eb-42d5-806b-46e3cef49b69",
+  "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
+  "front": "Basic Rules",
+  "back": "d/dx (k) = 0, d/dx (kx) = k",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "d4f57ab3-b46a-4064-b378-8d4e4779a1ad",
+  "set_id": "c4738d08-03c9-4492-8940-bc84efd3f4a5",
+  "front": "Power",
+  "back": "P = W/t = Fv. Unit: watt (W = J s⁻¹).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d64fbfb8-de45-4743-acec-38e3d458c07e",
+  "set_id": "497ae389-85dc-4f75-96e7-df7758a38994",
+  "front": "Electromagnetic spectrum (order)",
+  "back": "Radio → micro → IR → visible (red 700 nm – violet 400 nm) → UV → X → gamma. All travel at 3 × 10⁸ m/s in vacuum; transverse; uses and dangers (IR heating; UV skin; X/gamma ionising).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "d695ef4c-7ebe-4ebb-ace2-c286f770683b",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Finding angles",
+  "back": "Use inverse keys: θ = sin⁻¹(opp/hyp). tan θ = 3/4 ⇒ θ = 36.9° (1 d.p.).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "d747d949-eb2a-46ad-912f-fbe16ec5b96f",
+  "set_id": "919d900d-ae45-4830-8da9-109e9a3aa6f8",
+  "front": "Resolving Forces",
+  "back": "Any force F at angle θ splits into F cos θ (along) and F sin θ (perpendicular).",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "d752ac58-5200-43c2-b32e-8cf1a201e530",
+  "set_id": "d4f947db-3e96-4f3e-a58f-03f3030285c3",
+  "front": "Atmospheric pressure",
+  "back": "~10⁵ Pa at sea level; demonstrated by collapsing can, mercury barometer 760 mmHg; decreases with altitude.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "d77496ce-7dfb-4a8f-92b7-be005d4c70d0",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Rates",
+  "back": "Unit rates (per item, per litre), exchange rates (draw the arrow to the target currency), best buys (price per unit, careful with multi-packs). Speed/density/pressure are compound-measure rates (Mensuration).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d79574a0-f8a1-4e42-a22b-a1b57b291805",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "Integration by Parts",
+  "back": "∫ u (dv/dx) dx = uv − ∫ v (du/dx) dx. Choose u to be the part that simplifies when differentiated (LIATE: logs, inverse trig, algebraic, trig, exponential).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d8cff297-22d4-4f43-adff-c85b3e00cb67",
+  "set_id": "e551bfc9-96bf-48fa-8002-4ce1e4309572",
+  "front": "Mean and Variance",
+  "back": "The defining signature of the Poisson:",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d92c9ee0-9bff-423f-86e1-f997e763522f",
+  "set_id": "c00d9e5c-b51b-4f4a-bf17-00c87ec8cceb",
+  "front": "Breaking Stress",
+  "back": "The maximum stress a material withstands — strong materials have high breaking stress, stiff materials have high E.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d92f98d0-ce84-4a89-aa88-e920cdc6e72f",
+  "set_id": "1ce6db4b-f232-4278-bd11-5f6f13344436",
+  "front": "Momentum",
+  "back": "p = mv (vector, kg m s⁻¹). Resultant force = rate of change of momentum: F = Δp/Δt.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "d963561c-1729-4369-8f1e-81719332b40c",
+  "set_id": "831cdc0c-4b12-4f8e-a7b9-93f1201c0fa9",
+  "front": "Scales",
+  "back": "light-year = distance light travels in a year (9.5 × 10¹⁵ m); astronomical unit = Earth–Sun distance (1.5 × 10¹¹ m).",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "da6c2ef9-76e6-4bdf-a3c7-3e0d7888738b",
+  "set_id": "523d46a0-2a1f-411f-a791-464a78deb79e",
+  "front": "How pages load",
+  "back": "URL → DNS lookup → server request → HTML parsed → assets fetched → DOM built → render. Layers: structure (HTML) → presentation (CSS) → behaviour (JS).",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "da792700-7ef0-4f05-907c-e43278be93be",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Percentage change",
+  "back": "change ÷ original × 100. Increase $80 by 15%: 80 × 1.15 = $92.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "da9e8d5c-4053-44cd-bb0c-293e3c21102e",
+  "set_id": "4f973854-1af0-40b2-9dfb-3bedc8f864fb",
+  "front": "Simulation and Modelling",
+  "back": "A simulation is a program that models a real system to test scenarios safely and cheaply: weather models, traffic flows, epidemic spread. Models use abstractions — chosen variables and equations — with a time step. Advantages:",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "dabedc72-3826-4d6d-ae87-9fd48d3786c5",
+  "set_id": "056e492d-c0f3-49c8-9a02-be16b1fafeec",
+  "front": "Graphs and Transformations",
+  "back": "y = a sin(bx) + c has amplitude a, period 2π/b, and vertical shift c.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "db20144b-3adc-4fac-921c-8434af9894c0",
+  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
+  "front": "domain",
+  "back": "to exactly one output in the",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "db3332dd-c64f-41cc-bfbc-d2b164b1fb0e",
+  "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
+  "front": "Translators",
+  "back": "Assembler : assembly → machine code (1:1)",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "db4119bb-e062-41ef-b287-4dfe47813e66",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "front": "Combinations with Constraints",
+  "back": "At least / at most: split into cases and add. A team of 5 from 6 boys and 5 girls with at least 3 girls is ⁵C₃⁶C₂ + ⁵C₄⁶C₁ + ⁵C₅⁶C₀.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "dbcee12e-f9cb-4ef4-aab0-b1eccdbf9cc2",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "front": "Graphs",
+  "back": "Gradient of a displacement–time graph = velocity",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "dc440e81-2287-4c06-b3cc-4a8dee2e2b26",
+  "set_id": "c00d9e5c-b51b-4f4a-bf17-00c87ec8cceb",
+  "front": "Hooke's Law",
+  "back": "Up to the limit of proportionality, F = kx — extension is proportional to load. k is the spring constant (N m⁻¹).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "dc60541c-94dc-4765-ae82-b4512ab9de90",
+  "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
+  "front": "Internet",
+  "back": "(IP addressing and routing),",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "dcb71da4-64c6-417d-b1fd-1d34f10105e6",
+  "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
+  "front": "RAM vs ROM",
+  "back": "RAM: volatile, read/write, holds running programs + data. ROM: non-volatile, read-only, bootstrap/firmware. Embedded systems: dedicated microprocessors inside devices (washing machines, engines) — one function, low cost, hard to update.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "dd4a4a4f-10be-43b2-a245-4c170e42841d",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "Polynomial Division and the Remainder Theorem",
+  "back": "Divide to rewrite p(x) = (x − a)q(x) + r. The remainder when dividing by (x − a) equals p(a).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ddc5705d-f57c-4dbb-adb2-231719295acb",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "Partial Fractions",
+  "back": "Break rational functions into pieces like ∫ 1/(x+1) dx = ln|x + 1| + c.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "de1bf9ea-c1e9-4a75-b737-63055a0d1974",
+  "set_id": "c03773f6-3aad-460d-b245-9551bc332765",
+  "front": "The six gates",
+  "back": "NOT inverts. NAND = AND + invert; NOR = OR + invert; XOR = 1 when inputs differ.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "de2db7ed-e283-48f3-99c3-50fc22066a31",
+  "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
+  "front": "slower but have longer",
+  "back": "periods (Kepler's third law: T² ∝ r³).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "df9b7fd9-9fe3-468b-89d5-48cc0e7fb141",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "front": "1NF",
+  "back": "atomic values, no repeating groups",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "dfc71886-6a05-4481-adb5-d52abf0a4779",
+  "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
+  "front": "Areas Under Curves",
+  "back": "Area between a curve and the x-axis = ∫ₐᵇ y dx, where y ≥ 0. If the curve dips below the axis, split the integral at the roots and add the absolute values.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "e01b1e6d-9e6d-48af-8c4d-f8c59dd2a86c",
+  "set_id": "9098acae-a3f2-4054-8d98-91edace9d7c6",
+  "front": "SQL",
+  "back": "SELECT Title, Year FROM Films",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "e0c96347-cea4-4485-b621-3fa6d9a0d8d2",
+  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
+  "front": "Populations, Samples, Statistics",
+  "back": "A parameter describes the population (μ, σ²); a statistic describes the sample (x̄, s²). A statistic is unbiased if its expectation equals the population parameter: E(x̄) = μ always holds for the sample mean.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "e1a4bd7d-f428-430b-bcaf-6a2030e1e45a",
+  "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
+  "front": "Mass–Energy",
+  "back": "E = mc². Mass difference Δm in nuclear reactions becomes energy; binding energy = energy released assembling the nucleus. 1 u ≈ 931 MeV.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "e22a1300-533e-43e4-b0a9-a610a68d196c",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Types of number",
+  "back": "Integers : … −2, −1, 0, 1, 2 … Primes : exactly two factors; 2 is the only even prime; 1 is not prime.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "e26ab51f-5502-4590-9b15-494294862701",
+  "set_id": "9b378e2f-83f6-427f-9158-3f5014c14443",
+  "front": "Stacks and Queues",
+  "back": "A stack is LIFO (push and pop at the top); a queue is FIFO (enqueue at the rear, dequeue from the front). Both can be arrays with index pointers or linked lists. Stack uses include call stacks and expression evaluation;",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "e314764d-bc8e-4f91-84f5-8bbccc3d0ee4",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "front": "SUVAT (uniform acceleration only)",
+  "back": "Sign convention matters: take up as positive and g = −9.81 m s⁻² for falling objects.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "e3a6cb93-118b-47b7-8e60-186d961261d1",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "front": "SQL",
+  "back": "SELECT name, grade FROM students",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "e3e67718-9bd3-4863-bc57-248bd3e7d764",
+  "set_id": "523d46a0-2a1f-411f-a791-464a78deb79e",
+  "front": "HTML",
+  "back": "<head><title>Page</title></head>",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "e41ac17c-32ad-428b-98fe-a9675ad9820f",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "Argand Diagram",
+  "back": "Plot z as the point (a, b). |z| = √(a² + b²) is the modulus (distance from origin); arg z = tan⁻¹(b/a) is the argument (angle). Multiply two numbers: moduli multiply, arguments add.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "e54e3302-fe98-4bf9-9cb0-89231d109d65",
+  "set_id": "056e492d-c0f3-49c8-9a02-be16b1fafeec",
+  "front": "Using Identities",
+  "back": "If sin x = 0.6 with x acute, then cos x = √(1 − 0.36) = 0.8 (positive in the first quadrant).",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "e5933df6-43ff-456c-810e-fb55c65bca9e",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "front": "Text",
+  "back": "ASCII : 7 bits, 128 characters, English only",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "e5e6187d-916b-4a34-a076-f50ed55fe772",
+  "set_id": "80486809-9b4a-4872-b410-9dd248bc7ff1",
+  "front": "Hubble's Law",
+  "back": "Galaxies recede with v = Hd, H₀ ≈ 2.2 × 10⁻¹⁸ s⁻¹. Redshift z = Δλ/λ ≈ v/c for small z.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "e6378f5e-f07f-40c9-b261-4ddec5abc9ef",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "reverse the sign",
+  "back": "when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "e6b53296-dbd9-4572-ae37-5e6389a06b6e",
+  "set_id": "455e704e-95e1-4823-816d-1b2d5ff53510",
+  "front": "Online behaviour",
+  "back": "Digital footprint, cyberbullying, fake news, privacy settings, verification of sources.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "e6cd283b-a56b-4b84-9612-894928e12c66",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Problem solving",
+  "back": "Flow/filling: volume ÷ rate = time. Packing: divide volumes (check edge alignment). Nets for surface area: label every face before adding.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "e6d17557-2f6b-44a5-bac9-de3d66b43ce3",
+  "set_id": "afe11917-e1c6-4ca5-b710-9ebab500ae91",
+  "front": "Ethics of AI",
+  "back": "Bias in training data → unfair outputs; opaque decisions → accountability gaps; job displacement; autonomous weapons.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "e90e68f3-92cc-44dc-bbbd-9292ccf9684e",
+  "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
+  "front": "Geometric Progressions (GP)",
+  "back": "Terms multiply by a common ratio r.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "e949c85f-13f5-490b-af45-2c0082cdbe2d",
+  "set_id": "afe11917-e1c6-4ca5-b710-9ebab500ae91",
+  "front": "Ethical Scenarios",
+  "back": "Collecting more personal data than needed (privacy)",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "e95dfe7e-2ab2-4729-b424-5c875e9ac051",
+  "set_id": "e81f8f6e-40e2-4374-95a2-7c71e27fecca",
+  "front": "What an OS does",
+  "back": "Manages memory, processes/files, I/O via drivers, security (users, permissions), and provides the UI (CLI/GUI) between user, applications and hardware.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "e9b2ef35-26ca-4ae0-96fe-b90e351e4935",
+  "set_id": "e81f8f6e-40e2-4374-95a2-7c71e27fecca",
+  "front": "UI and drivers",
+  "back": "CLI: precise, scriptable, low overhead. GUI: icons/windows, discoverable, more resources. Device drivers translate OS calls to hardware specifics — each device needs its own.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "eaa54c89-4798-41a4-9174-b4f0a732459a",
+  "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
+  "front": "Switching",
+  "back": "Circuit switching : a dedicated path is held for the call (traditional telephone) — wasteful if idle.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "eb2dec39-9158-4e0f-8501-13753aff561c",
+  "set_id": "e8b72d9a-9879-43c2-897b-42e2576de483",
+  "front": "Automated systems & simulation",
+  "back": "Sensors → processor → actuators loops (greenhouses, traffic lights, self-checkouts). Simulation models real systems cheaply and safely (flight training, weather, crash tests) — limitations: model quality, missing variables.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ebf11c78-d3ee-4c78-bf46-57d7cbdf57e5",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "Parametric Curves",
+  "back": "For x = f(t), y = g(t): dy/dx = (dy/dt)/(dx/dt).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ed065d9c-570a-451a-82a9-32b5132ff3f5",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Conditional probability",
+  "back": "P(A|B) = P(A ∩ B)/P(B). From tree diagrams it is the \"given the first branch happened\" re-weighting.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ed3ece50-d72d-4434-afd2-e34170ba58a4",
+  "set_id": "e7dff2a4-8ff1-4b1b-9c02-e2aa020fd343",
+  "front": "EM Spectrum",
+  "back": "Radio → micro → IR → visible (400–700 nm) → UV → X-ray → gamma. All travel at c = 3 × 10⁸ m s⁻¹ in vacuum.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "edba7bc0-257d-4c02-929d-2b8623018718",
+  "set_id": "9b378e2f-83f6-427f-9158-3f5014c14443",
+  "front": "in-order traversal",
+  "back": "outputs keys in ascending order. A degenerate (linear) tree from sorted input degrades to O(n).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 17:18:58.864874+00"
+ },
+ {
+  "id": "ee07367e-6048-4eca-8e51-142f40a64119",
+  "set_id": "e551bfc9-96bf-48fa-8002-4ce1e4309572",
+  "front": "Scaling the Interval",
+  "back": "If X ~ Po(λ) per hour, then 3 hours gives Y ~ Po(3λ). Rates must be adjusted to the same interval before computing anything. Halving an interval halves λ.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ee9fa176-5a33-411c-b832-85844da402b2",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "front": "Packets and Protocols",
+  "back": "Data splits into packets with header (addresses, sequence) and trailer (checksum). A protocol is an agreed rule set — without one, devices cannot interpret signals.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "ef9a51f2-c786-4546-8961-83fc0a8f2866",
+  "set_id": "a879a465-9acf-4470-b36f-b0ffec1b0cdf",
+  "front": "Gas pressure and temperature",
+  "back": "Pressure from wall collisions. Heating at fixed volume → faster particles → more frequent, harder collisions → higher pressure.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "efa32ed4-fbd9-4182-92e4-2dfe754a4cbd",
+  "set_id": "4f973854-1af0-40b2-9dfb-3bedc8f864fb",
+  "front": "Real-Time Considerations",
+  "back": "Control systems are often real-time: late output can be wrong output. Sampling rate must exceed twice the highest signal frequency (Nyquist) to avoid aliasing.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "eff123e1-84c7-498d-b1cb-b6bf0807d58b",
+  "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
+  "front": "Two's complement (signed)",
+  "back": "MSB is negative: −128 64 32 16 8 4 2 1. −5 = 1111 1011. Range 8-bit: −128…+127.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "f0c8ebf6-42b0-40c5-a87e-98dd64a58dd9",
+  "set_id": "c00d9e5c-b51b-4f4a-bf17-00c87ec8cceb",
+  "front": "Force–Extension Graphs",
+  "back": "Gradient of the linear region = k",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f10b9dcb-a691-4310-9144-09dcf52b1b32",
+  "set_id": "afe11917-e1c6-4ca5-b710-9ebab500ae91",
+  "front": "Professional Bodies",
+  "back": "ACM/IEEE-CS and BCS codes: public interest, competence, integrity, avoid harm, respect privacy. Violations cost trust and employment.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "f1231eeb-c19e-46da-80e8-ed9f796a044c",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "factor",
+  "back": "that is the factor theorem. Divide out fully to reduce a cubic to a quadratic and factorise completely.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f142a213-ae5c-471f-aa11-2256418aadfe",
+  "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
+  "front": "Von Neumann model",
+  "back": "CPU (ALU, control unit, registers) + memory + I/O on shared buses; instructions stored as data (stored program concept).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "f2ae986c-1b09-4ec5-a0ee-452b094ca098",
+  "set_id": "c03773f6-3aad-460d-b245-9551bc332765",
+  "front": "Describing circuits",
+  "back": "Write the expression from a diagram gate by gate; annotate output of each gate (X, Y) before combining.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f38595b8-53c2-447e-8c66-8ce65ec186c8",
+  "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
+  "front": "Transport",
+  "back": "(TCP reliable, connection-oriented with sequence numbers and acknowledgements; UDP fast, connectionless),",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "f4092d51-2a7d-4e3a-916d-d0e92d308ca6",
+  "set_id": "28bb1f09-6952-4f4e-92c4-6c35021913dd",
+  "front": "Quadratic Inequalities",
+  "back": "Solve by sketching. For x² − 5x + 4 < 0, factorise: (x − 1)(x − 4) < 0, and the curve is below the axis between the roots, so 1 < x < 4.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "f4199778-9242-4170-9f35-00cc1e15df60",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "front": "primary key",
+  "back": "uniquely identifies each row; a",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f527077d-c033-48fc-a2fb-e9129598e682",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Function notation",
+  "back": "f(x) = 2x − 5: f(3) = 1. Solve f(x) = 11 → x = 8.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f6d709f5-c493-47d4-9aab-15e5650ea22c",
+  "set_id": "d4f947db-3e96-4f3e-a58f-03f3030285c3",
+  "front": "Pressure basics",
+  "back": "p = F/A (Pa = N/m²). Increase F or decrease A to raise pressure; explain applications (snowshoes, knives, hydraulic press).",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "f6e7ba42-45ed-4ce1-97d2-27e22d0ef46d",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Expanding",
+  "back": "Single: 3(2x − 5) = 6x − 15.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f7fe4a84-f5b8-4f0d-95a7-23fdadf01d4a",
+  "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
+  "front": "Motion graphs",
+  "back": "Distance–time: gradient = speed.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "f8f5352a-a45b-49ff-86b1-341a1d99348a",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "front": "Transmission",
+  "back": "Serial : one bit at a time — cheaper, reliable over distance",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "f8f6a5a1-f7e4-4a6d-87e3-10f04978e7ae",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Shading",
+  "back": "For A ∩ B′ shade where A and outside-B overlap. (A ∪ B)′ = A′ ∩ B′ (De Morgan) — check every region.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f8ff8b45-678d-4d45-a151-bf12473cf051",
+  "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
+  "front": "Power and energy",
+  "back": "P = VI = I²R = V²/R; E = VIt. Fuse rating just above normal current; earth wire, double insulation, circuit breakers (trip quickly, resettable).",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "f97edb2d-af0f-4cb5-b319-1b4dd5fd17a7",
+  "set_id": "c00d9e5c-b51b-4f4a-bf17-00c87ec8cceb",
+  "front": "Stress, Strain, Young Modulus",
+  "back": "Young modulus E = σ/ε (Pa) — a material property, independent of shape",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "f991ca77-90b6-441d-a0fc-549f2b15b115",
+  "set_id": "80486809-9b4a-4872-b410-9dd248bc7ff1",
+  "front": "Luminosity and Intensity",
+  "back": "Luminosity L is total power radiated (W). Intensity at distance d: I = L/(4πd²) — the key to distances.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "f9c4b2dc-2840-4865-bba6-c25292c3f04c",
+  "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
+  "front": "Potential",
+  "back": "Gravitational potential φ = −GM/r (zero at infinity). Potential gradient gives field strength: g = −dφ/dr.",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "fad04c24-906b-4b1b-9ccc-bafeb46d811b",
+  "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
+  "front": "The Three Layers",
+  "back": "HTML gives structure and content: elements, attributes, forms for user input.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "fafdb556-2df4-4576-b9a4-b92e1d822042",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Interpreting",
+  "back": "Roots = x-intercepts; y-intercept from x = 0.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "fc3bc6dd-9ae9-4772-98e2-4392fd8561f9",
+  "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
+  "front": "CSS",
+  "back": "gives presentation: selectors, properties, responsive layout.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "fc88db35-d377-4663-8a99-824cab4fe572",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "front": "Buses",
+  "back": "Address bus : one-way, CPU → memory (width sets addressable space)",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "fc9b21a7-e003-491a-b79a-15c5896567d7",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "front": "Definitions",
+  "back": "Displacement s: distance in a given direction (vector)",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "fdcec10e-3f0b-4e70-acee-1d643c40b0a3",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Flip-Flops (Bistables)",
+  "back": "SR latch : set/reset, invalid state S=R=1",
+  "sort_order": 3,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "fe442ed0-7662-43e9-8f9f-f5598a45033e",
+  "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
+  "front": "Thinking ahead",
+  "back": "pre-plan inputs, outputs and reusable components; pre-calculate tables where possible.",
+  "sort_order": 4,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "febb4b44-cead-42d5-927a-dba22b7a0cd0",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Scale drawings",
+  "back": "1 cm : 500 m style scales; measure, convert, and quote distances/bearings from your drawing to the accuracy allowed.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "fef1465a-d56f-4fba-8d39-2db7fb24c211",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "Grouped Data",
+  "back": "Use class midpoints as x. The result is an estimate — grouping discards within-class detail.",
+  "sort_order": 2,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "ff8b1d00-97f3-4b8c-9e70-1568605d48ce",
+  "set_id": "455e704e-95e1-4823-816d-1b2d5ff53510",
+  "front": "Ethics and codes",
+  "back": "ACM/IEEE-CS/BCS codes: public interest, competence, integrity, privacy. Applying: identify the principle → apply to scenario → stakeholders affected → consequences.",
+  "sort_order": 0,
+  "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ffcf18b9-332c-4933-83b5-c64a1e63b788",
+  "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
+  "front": "base case",
+  "back": "that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow. Any recursion can be rewritten with a loop and explicit stack.",
+  "sort_order": 5,
+  "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "ffedc692-198f-49f9-82f7-89a08a251310",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Combined transformations",
+  "back": "Apply right-to-left: \"reflect in y = x, then rotate 90°\" — rotate the reflected image.",
+  "sort_order": 1,
+  "created_at": "2026-09-29 18:46:41.1524+00"
+ }
+]

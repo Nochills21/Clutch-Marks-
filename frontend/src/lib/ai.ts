@@ -4,6 +4,13 @@
 // Both workers enforce approval gates + audit logging server-side.
 
 import { supabase } from "@/integrations/supabase/client";
+import { AI_TIMEOUT_MS, TIMEOUT_HEADER } from "@/lib/net";
+
+/**
+ * AI generation legitimately outlasts a normal request, so these calls raise
+ * the ceiling above `DEFAULT_TIMEOUT_MS` instead of being cut off mid-plan.
+ */
+const aiRequest = { headers: { [TIMEOUT_HEADER]: String(AI_TIMEOUT_MS) } };
 
 export type AiProvider = "cloudflare" | "openai" | "lovable";
 
@@ -51,12 +58,18 @@ export async function callStudyPlanner(
   input: AiStudyPlanInput,
   provider: AiProvider = "cloudflare",
 ): Promise<AiStudyPlanOutput> {
-  const { data, error } = await supabase.functions.invoke("ai-study-planner", {
+  // The deployed worker is named `study-planner`. This used to request
+  // `ai-study-planner`, which does not exist, so every call 404'd and the
+  // planner silently served the offline fallback forever.
+  const { data, error } = await supabase.functions.invoke("study-planner", {
     body: input,
+    ...aiRequest,
   });
   if (error || !data) {
     // Fallback: build a deterministic plan inline so the planner stays
-    // functional even before the worker is configured.
+    // functional even before the worker is configured. Logged so a real outage
+    // is distinguishable from the intentional offline plan.
+    console.warn("study-planner unavailable, using offline plan:", error?.message ?? "no data");
     return buildFallbackPlan(input);
   }
   if (data.error) {
@@ -88,24 +101,45 @@ function buildFallbackPlan(input: AiStudyPlanInput): AiStudyPlanOutput {
   return { plan: lines.join("\n"), model: "offline-fallback", costCents: 0 };
 }
 
+/** Names the exact past paper a correction is scoped to (paper-scoped practice). */
+export interface PaperRef {
+  id?: string;
+  title?: string;
+  session?: string | null;
+  year?: number | null;
+  paperNumber?: string | null;
+  markSchemeUrl?: string | null;
+}
+
 /**
  * Call the AI paper auto-correction worker.
+ *
+ * `paperRef` (optional) anchors the marking to one specific past paper, so the
+ * paper-scoped practice flow corrects against that paper rather than a generic
+ * set of answers. It is ignored by clients that don't send it.
  */
 export async function callPaperCorrector(
   paper: string | CorrectedPaperInput[],
   provider: AiProvider = "cloudflare",
   subjectLevelId?: string,
+  paperRef?: PaperRef,
 ): Promise<AiCorrectionOutput> {
   const { data, error } = await supabase.functions.invoke("ai-correction", {
     body: {
       paper,
       subjectLevelId,
+      paperRef,
       model: "llama-3.1-8b-instruct",
       provider,
     },
+    ...aiRequest,
   });
   if (error || !data) {
-    throw new Error(error?.message ?? "AI correction worker returned no data");
+    // Name the worker in the message: this endpoint is a separate deployment and
+    // an undeployed function otherwise surfaces only as "non-2xx status code".
+    throw new Error(
+      `AI marking is unavailable right now (ai-correction): ${error?.message ?? "no data"}`,
+    );
   }
   return {
     corrected_papers: data.corrected_papers ?? [],
@@ -134,10 +168,17 @@ export async function persistCorrection(
   subjectLevelId: string | undefined,
   model: string,
 ): Promise<{ id: string }> {
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+  // A failed auth read must not be reported as "Not signed in" — that blamed the
+  // student for a request that never landed.
+  if (userError) throw userError;
+  const user = userData.user;
+  if (!user) throw new Error("Not signed in");
+
   const { data, error } = await (supabase as any)
     .from("ai_correction")
     .insert({
-      user_id: supabase.auth.getUser().then(u => u.data.user?.id),
+      user_id: user.id,
       subject_level_id: subjectLevelId ?? null,
       paper_text: paperText,
       corrected_papers: corrected,

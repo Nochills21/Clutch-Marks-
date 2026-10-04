@@ -225,7 +225,9 @@ declare
   _xp integer := 0;
 begin
   if _user_id is null then raise exception 'Not authenticated'; end if;
-  if not public.is_user_approved(_user_id) then raise exception 'Account not approved'; end if;
+  if not (public.is_user_approved(_user_id) or public.has_role(_user_id, 'admin')) then
+    raise exception 'Account not approved';
+  end if;
 
   for _q in
     select q.id, q.correct_option, q.explanation, q.options
@@ -244,20 +246,29 @@ begin
     _results := _results || jsonb_build_object(
       'question_id', _q.id,
       'correct_option', _q.correct_option,
-      'selected_option', _selected,
+      'selected', _selected,
       'explanation', _q.explanation,
-      'is_correct', _selected = _q.correct_option
+      'options', _q.options
     );
   end loop;
 
+  -- Fixed 2026-10-01: this inserted a nonexistent `total` column and never set
+  -- `completed_at` (which every progress/XP/gradebook query filters on). The
+  -- authoritative definition, including the payload shape the client reads, now
+  -- lives in 20261001120000_grade_quiz_attempts_fix.sql.
   if _total > 0 then
-    insert into public.quiz_attempts (quiz_id, user_id, score, total, submission_file_url, created_at)
-    values (_quiz_id, _user_id, _correct, _total, _submission_file_url, now())
+    insert into public.quiz_attempts (quiz_id, user_id, score, total_questions, submission_file_url, answers, completed_at)
+    values (
+      _quiz_id, _user_id, _correct, _total, _submission_file_url,
+      (select jsonb_agg(jsonb_build_object('question_id', k, 'selected', (_answers->>k)::integer))
+         from jsonb_object_keys(_answers) k),
+      now()
+    )
     returning id into _selected;
     perform public.touch_streak(_user_id);
   end if;
 
-  return jsonb_build_object('attempt_id', _selected, 'score', _correct, 'total', _total, 'xp_earned', _xp, 'results', _results);
+  return jsonb_build_object('correct', _correct, 'total', _total, 'attempt_id', _selected, 'xp_earned', _xp, 'results', _results);
 end;
 $$;
 

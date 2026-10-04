@@ -7,6 +7,31 @@ import { injectAnalytics } from "./plugins/inject-analytics";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Top-level resolve.alias is what BOTH the dev server and the production
+  // bundle read. Keeping it only under build.rollupOptions silently broke dev
+  // ("Failed to resolve import @/…").
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "frontend/src"),
+      "@backend": path.resolve(__dirname, "./backend"),
+    },
+    // The repo carries two node_modules (root + frontend/) and the `@` alias
+    // pulls source from frontend/src, so libraries used to load twice —
+    // "Invalid hook call / more than one copy of React", and two distinct
+    // SupabaseClient classes (~600 kB of duplicated vendor code). The two
+    // trees are installed independently and there is no root lockfile, so
+    // their copies can drift to different versions. Pin every library that is
+    // reachable from both trees to a single copy.
+    dedupe: [
+      "react",
+      "react-dom",
+      "react/jsx-runtime",
+      "@supabase/supabase-js",
+      "jspdf",
+      "html2canvas",
+      "dompurify",
+    ],
+  },
   server: {
     host: "::",
     port: 8080,
@@ -20,12 +45,6 @@ export default defineConfig(({ mode }) => ({
     prerenderSeo(),
     injectAnalytics(),
   ].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@backend": path.resolve(__dirname, "./backend"),
-    },
-  },
   build: {
     // minify aggressively and de-duplicate the two huge ancillaries (pdfExport
     // and html2canvas are each split into their own ~200-500 kB chunk).
@@ -43,6 +62,11 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
+    // Only the real app entry. Left to the default glob, the scanner also
+    // parses frontend/index.html and the checked-in 2 MB production/
+    // clutchmarks-frontend.html single-file bundle, which esbuild cannot parse
+    // ("Expected ) but found ;") — it aborts dependency scanning entirely.
+    entries: ["index.html"],
     // pre-bundle heavy third-party node_modules so first load is fast
     include: [
       "@radix-ui/react-dialog",
@@ -58,10 +82,10 @@ export default defineConfig(({ mode }) => ({
       "next-themes",
       "@tanstack/react-query",
       "react-resizable-panels",
-      "html2canvas",
+      // No source file imports html2canvas or pdf-lib (pdf-lib isn't even
+      // installed); listing them only made Vite warn about a failed prebundle.
       "dompurify",
       "jspdf",
-      "pdf-lib",
     ],
   },
 }));

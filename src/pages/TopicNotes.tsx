@@ -14,10 +14,14 @@ import {
   topicQuizPath,
   topicPapersPath,
   slugifyTopicName,
+  topicSlugOf,
 } from "@/lib/topicUrls";
-import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil } from "lucide-react";
+import { SITE_URL } from "@/lib/seoRoutes";
+import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
+import { openProtectedFile } from "@/lib/contentFiles";
+import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -47,11 +51,12 @@ export default function TopicNotes() {
       setLoading(true);
       setError(null);
       try {
-        const { data: sub } = await supabase
+        const { data: sub, error: subError } = await supabase
           .from("subjects")
           .select("*")
           .ilike("slug", subject ?? "")
           .limit(1);
+        if (subError) throw subError;
         const subjectRow = sub?.[0] ?? null;
         if (!subjectRow) {
           setError("Subject not found");
@@ -60,12 +65,13 @@ export default function TopicNotes() {
         }
         setSubjectMeta(subjectRow);
 
-        const { data: sl } = await supabase
+        const { data: sl, error: slError } = await supabase
           .from("subject_levels")
           .select("*")
           .eq("subject_id", subjectRow.id)
           .eq("level", (level ?? "").toUpperCase() as SubjectLevelCode)
           .limit(1);
+        if (slError) throw slError;
         const levelRow = sl?.[0] ?? null;
         if (!levelRow) {
           setError("Level not found");
@@ -74,16 +80,21 @@ export default function TopicNotes() {
         }
         setSubjectLevel(levelRow);
 
-        const { data: tps } = await supabase
+        const { data: tps, error: tpsError } = await supabase
           .from("topics")
           .select("*")
           .eq("subject_level_id", levelRow.id)
           .order("sort_order");
+        if (tpsError) throw tpsError;
         const topicList = tps ?? [];
 
         const normalizedTopic = topic?.replace(/-/g, " ") ?? "";
         const topicId = topicList.find(
-          (t) => t.name.toLowerCase() === normalizedTopic.toLowerCase() || slugifyTopicName(t.name) === topicSlug,
+          (t) =>
+            t.name.toLowerCase() === normalizedTopic.toLowerCase() ||
+            topicSlugOf(t) === topicSlug ||
+            // Last-resort match for URLs minted before slugs were persisted.
+            slugifyTopicName(t.name) === topicSlug,
         )?.id;
         if (!topicId) {
           setError("Topic not found on this level");
@@ -160,10 +171,18 @@ export default function TopicNotes() {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Topic not found</CardTitle>
+          {/* A failed request is not the same as a missing topic. Saying
+              "not found" for a dropped connection sent students looking for a
+              problem in their notes instead of retrying. */}
+          <CardTitle>
+            {error && !/not found/i.test(error) ? "Couldn't load this topic" : "Topic not found"}
+          </CardTitle>
           <CardDescription>{error ?? "The topic you are looking for is not yet available."}</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-wrap gap-2">
+          <Button variant="outline" className="gap-2" onClick={bumpRevision}>
+            <RotateCcw className="h-4 w-4" /> Try again
+          </Button>
           <Button asChild variant="outline" className="gap-2">
             <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
           </Button>
@@ -191,18 +210,18 @@ export default function TopicNotes() {
           "@type": "LearningResource",
           name: `${topicTitle} — Revision Notes`,
           description: `Revision notes and study materials for ${topicTitle} in ${subjectMeta.name} ${levelLabel} at Clutch Marks.`,
-          url: `https://clutch-marks.lovable.app${topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
+          url: `${SITE_URL}${topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
           educationalLevel: levelLabel,
           about: { "@type": "Thing", name: topicTitle },
           isPartOf: {
             "@type": "Course",
             name: `${subjectMeta.name} ${levelLabel}`,
-            url: `https://clutch-marks.lovable.app/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
           },
           provider: {
             "@type": "EducationalOrganization",
             name: "Clutch Marks",
-            url: "https://clutch-marks.lovable.app/",
+            url: `${SITE_URL}/`,
           },
         }}
       />
@@ -309,10 +328,13 @@ export default function TopicNotes() {
             <p className="text-sm text-muted-foreground py-4 text-center">No revision notes have been uploaded for this topic yet.</p>
           ) : (
             materials.map((m) => (
-              <Link
+              // A plain row, not a Link: wrapping the whole card in a link to
+              // /notes made every material behave as "go to the library", which
+              // threw away the topic the student was reading and hid the fact
+              // that a downloadable file exists at all.
+              <div
                 key={m.id}
-                to={`/notes`}
-                className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
+                className="flex items-center justify-between gap-2 rounded-lg border p-3 transition-colors hover:bg-muted/50"
               >
                 <MaterialPreview
                   fileUrl={m.file_url}
@@ -343,13 +365,36 @@ export default function TopicNotes() {
                   )}
                   <Badge
                     variant={m.material_type === "notes" ? "secondary" : "outline"}
-                    className="text-[10px]"
+                    className="text-[10px] capitalize"
                   >
                     {m.material_type}
                   </Badge>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                  {m.file_url ? (
+                    <>
+                      <Button size="sm" variant="ghost" className="gap-1 h-8"
+                        onClick={() => openProtectedFile("study-materials", m.file_url)}>
+                        <ExternalLink className="h-3.5 w-3.5" /> Open
+                      </Button>
+                      <Button size="sm" variant="ghost" className="gap-1 h-8"
+                        onClick={async () => {
+                          try {
+                            await openProtectedFile("study-materials", m.file_url, m.title);
+                          } catch (e: any) {
+                            toast.error(e?.message ?? "Could not download this file");
+                          }
+                        }}>
+                        <Download className="h-3.5 w-3.5" />
+                      </Button>
+                    </>
+                  ) : (
+                    <Button asChild size="sm" variant="ghost" className="gap-1 h-8">
+                      <Link to="/notes">
+                        Read <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </Button>
+                  )}
                 </div>
-              </Link>
+              </div>
             ))
           )}
         </CardContent>

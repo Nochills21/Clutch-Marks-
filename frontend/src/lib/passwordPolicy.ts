@@ -4,6 +4,11 @@
 // function for admin-created/updated accounts) because the managed-config
 // complexity field is unavailable on this plan.
 
+import { fetchWithTimeout, TIMEOUT_HEADER } from "@/lib/net";
+
+/** The breach check runs during signup, so it must never stall the form. */
+const BREACH_CHECK_TIMEOUT_MS = 5_000;
+
 export const PASSWORD_RULES_TEXT =
   "At least 6 characters, with an uppercase letter, a lowercase letter, a number, and a symbol";
 
@@ -53,8 +58,11 @@ export async function isBreachedPassword(password: string): Promise<boolean> {
       .toUpperCase();
     const prefix = hash.slice(0, 5);
     const suffix = hash.slice(5);
-    const res = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`, {
-      headers: { "Add-Padding": "true" },
+    const res = await fetchWithTimeout(`https://api.pwnedpasswords.com/range/${prefix}`, {
+      headers: {
+        "Add-Padding": "true",
+        [TIMEOUT_HEADER]: String(BREACH_CHECK_TIMEOUT_MS),
+      },
     });
     if (!res.ok) return false;
     const body = await res.text();

@@ -6,7 +6,8 @@ import { useToast } from "@/hooks/useToast";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { PaperPractice, type PracticePaper } from "@/components/PaperPractice";
 import { SEOHead } from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,9 +15,20 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { openProtectedFile } from "@/lib/contentFiles";
-import { Loader2, FileText, Search } from "lucide-react";
+import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
+import {
+  boardLabel,
+  archiveBoard,
+  archivePaperGroup,
+  paperSortKey,
+  sortSessions,
+  SESSION_ORDER,
+  filterArchivePapers,
+} from "@/lib/pastPaperFiles";
+import { Loader2, FileText, Search, ExternalLink, Clock, Trophy } from "lucide-react";
 import { AiCorrectionForm } from "@/components/AiCorrectionForm";
+import { QueryError } from "@/components/QueryError";
+import { loadFailureMessage } from "@/lib/net";
 type AiCorrectionOutput = any;
 
 interface PastPaper {
@@ -42,34 +54,73 @@ const LEVEL_FILTERS = [
 
 const levelLabel = (l: string | null) => LEVEL_FILTERS.find((f) => f.id === l)?.label ?? l;
 
+// `paper_number` rows already read "Paper 1 (12)" — prefixing another "Paper"
+// rendered "Paper Paper 1 (12)".
+const paperLabel = (n: string | null) => (!n ? "—" : /^paper\b/i.test(n) ? n : `Paper ${n}`);
+
 export default function PastPapers() {
   const { toast } = useToast();
   const { user } = useAuth();
+  const qc = useQueryClient();
   const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
   const [search, setSearch] = useState("");
   const [yearFilter, setYearFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
+  const [boardFilter, setBoardFilter] = useState("all");
+  const [paperFilter, setPaperFilter] = useState("all");
+  const [sessionFilter, setSessionFilter] = useState("all");
   const [correction, setCorrection] = useState<AiCorrectionOutput | null>(null);
+  const [practicePaper, setPracticePaper] = useState<PracticePaper | null>(null);
 
-  const { data: topics } = useQuery({
+  const { data: topics, error: topicsError } = useQuery({
     queryKey: ["topics"],
     queryFn: async () => {
-      const { data } = await supabase.from("topics").select("*").order("sort_order");
+      // Throw so React Query surfaces the failure; ignoring `error` here meant
+      // a broken request looked exactly like "no topics exist".
+      const { data, error } = await supabase.from("topics").select("*").order("sort_order");
+      if (error) throw error;
       return data ?? [];
     },
   });
 
-  const { data: papers, isLoading } = useQuery({
+  const { data: papers, isLoading, error: papersError, refetch: refetchPapers } = useQuery({
     queryKey: ["past_papers"],
     queryFn: async () => {
-      const { data } = await supabase.from("past_papers").select("*, topics(name, subject_levels(id))").order("year", { ascending: false });
+      const { data, error } = await supabase.from("past_papers").select("*, topics(name, subject_levels(level, subjects(name, slug)))").order("year", { ascending: false });
+      if (error) throw error;
       return data ?? [];
     },
   });
 
+  // Saved sittings for this student, so each card can surface a best score.
+  const { data: attempts } = useQuery({
+    queryKey: ["past_paper_attempts", user?.id],
+    enabled: !!user,
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("past_paper_attempts")
+        .select("id, paper_id, percentage, created_at")
+        .eq("user_id", user!.id)
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return data ?? [];
+    },
+  });
+
+  // Best score + number of sittings per paper (rows arrive newest-first, so the
+  // first percentage seen for a paper is its most recent).
+  const attemptsByPaper = useMemo(() => {
+    const m = new Map<string, { best: number; count: number }>();
+    for (const a of attempts ?? []) {
+      if (!a.paper_id || a.percentage == null) continue;
+      const cur = m.get(a.paper_id);
+      if (!cur) m.set(a.paper_id, { best: a.percentage, count: 1 });
+      else m.set(a.paper_id, { best: Math.max(cur.best, a.percentage), count: cur.count + 1 });
+    }
+    return m;
+  }, [attempts]);
+
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
-  const { slice: visiblePapers } = usePreviewSliceWithLimit(scopedPapers ?? [], FREE_PREVIEW_LIMIT);
-  const years = [...new Set(visiblePapers?.map((p: any) => p.year) ?? [])].sort((a, b) => b - a);
 
   const handleCorrect = (result: AiCorrectionOutput) => {
     setCorrection(result);
@@ -87,13 +138,32 @@ export default function PastPapers() {
     }
   };
 
+  // External papers route through serve-external-paper, which enforces the
+  // plan and audits the click. A gated rejection becomes an upgrade prompt.
+  const handleOpenExternal = async (url: string, label?: string) => {
+    try {
+      await openExternalPaper(url, label);
+    } catch (e: any) {
+      if (e instanceof ExternalPaperGated) {
+        toast({ title: "Full plan required", description: e.message });
+        return;
+      }
+      toast({ title: "Unable to open link", description: e?.message ?? "Please try again", variant: "destructive" });
+    }
+  };
+
   const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
 
   // Past papers whose topic belongs to a subject-level the student picked.
   // Admins see everything.
+  // `topics` is loaded with `select("*")`, so there is no nested
+  // `subject_levels` object on it — reading `t.subject_levels?.id` left this map
+  // permanently empty, which made `scopedPapers` empty and left every student
+  // staring at "No past papers match your search". The topic row carries
+  // `subject_level_id` directly.
   const topicToSl = useMemo(() => {
     const m = new Map<string, string>();
-    (topics ?? []).forEach((t: any) => { if (t.subject_levels?.id) m.set(t.id, t.subject_levels.id); });
+    (topics ?? []).forEach((t: any) => { if (t.subject_level_id) m.set(t.id, t.subject_level_id); });
     return m;
   }, [topics]);
 
@@ -107,28 +177,52 @@ export default function PastPapers() {
     });
   }, [papers, isAdmin, prefsLoaded, pickedIds, topicToSl]);
 
-  const filteredPapers = (visiblePapers ?? [])
-    .filter((p: any) => {
-      // Scope to picked subjects (already applied via scopedPapers -> visiblePapers
-      // chain, but enforce again in case visiblePapers includes unscoped items).
-      if (!isAdmin && prefsLoaded) {
-        const tid = p.topic_id;
-        if (tid) {
-          const sl = topicToSl.get(tid);
-          if (sl && !pickedIds.has(sl)) return false;
-        }
-      }
-      return (levelFilter === "all" || p.level === levelFilter) &&
-        (search === "" ||
-        p.title?.toLowerCase().includes(search.toLowerCase()) ||
-        p.paper_number?.toLowerCase().includes(search.toLowerCase()) ||
-        p.session?.toLowerCase().includes(search.toLowerCase()));
-    });
+  // Filter options come from the whole subject-scoped archive, not the free
+  // slice, so a student can see (and reach) every board / paper / session on
+  // offer. Sessions always include the full board calendar, `Specimen` included.
+  const boardOptions = useMemo(() => {
+    const set = new Set<string>();
+    (scopedPapers ?? []).forEach((p: any) => set.add(archiveBoard(p)));
+    return [...set].sort((a, b) => a.localeCompare(b));
+  }, [scopedPapers]);
 
-  const groupedPapers = years.map((y) => ({
-    year: y,
-    papers: filteredPapers.filter((p: any) => p.year === y),
-  })).filter((g) => (yearFilter === "all" ? true : g.year === Number(yearFilter)));
+  const paperOptions = useMemo(() => {
+    const set = new Set<string>();
+    (scopedPapers ?? []).forEach((p: any) => set.add(archivePaperGroup(p)));
+    return [...set].sort((a, b) => paperSortKey(a).localeCompare(paperSortKey(b)));
+  }, [scopedPapers]);
+
+  const sessionOptions = useMemo(() => {
+    const set = new Set<string>(SESSION_ORDER);
+    (scopedPapers ?? []).forEach((p: any) => { if (p.session) set.add(p.session); });
+    return [...set].sort(sortSessions);
+  }, [scopedPapers]);
+
+  // Every filter — search included — runs BEFORE the free-preview slice. It used
+  // to be applied to `visiblePapers` (the slice), so a free student searching
+  // for an older paper or a specimen only ever searched the first
+  // `FREE_PREVIEW_LIMIT` rows and concluded the paper did not exist.
+  const matchedPapers = useMemo(
+    () => filterArchivePapers(scopedPapers ?? [], {
+      search,
+      level: levelFilter,
+      board: boardFilter,
+      paper: paperFilter,
+      session: sessionFilter,
+    }),
+    [scopedPapers, search, levelFilter, boardFilter, paperFilter, sessionFilter],
+  );
+
+  // Year chips reflect the papers that survive the other filters, so switching
+  // board or session never offers a year that would come up empty.
+  const years = [...new Set(matchedPapers.map((p: any) => p.year))].sort((a, b) => b - a);
+  const yearScoped = yearFilter === "all" ? matchedPapers : matchedPapers.filter((p: any) => p.year === Number(yearFilter));
+  const { slice: visiblePapers } = usePreviewSliceWithLimit(yearScoped, FREE_PREVIEW_LIMIT);
+  const filteredPapers = visiblePapers ?? [];
+
+  const groupedPapers = years
+    .map((y) => ({ year: y, papers: filteredPapers.filter((p: any) => p.year === y) }))
+    .filter((g) => g.papers.length > 0);
 
   if (!isAdmin && !prefsLoaded) {
     return (
@@ -162,6 +256,14 @@ export default function PastPapers() {
         </p>
       </div>
 
+      {/* A failed load says so, with a retry, instead of showing a year list. */}
+      {(papersError || topicsError) && (
+        <QueryError
+          message={loadFailureMessage("past papers", papersError ?? topicsError)}
+          onRetry={() => refetchPapers()}
+        />
+      )}
+
       {/* AI auto-correction form */}
       <div className="max-w-4xl mx-auto">
         <AiCorrectionForm
@@ -174,18 +276,22 @@ export default function PastPapers() {
       {/* Filters */}
       <Card>
         <CardContent className="pt-6">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1">
-              <Search className="h-4 w-4 mr-2 text-muted-foreground" />
+          <div className="flex flex-col gap-4">
+            <div className="relative">
+              {/* The icon used to sit as a block above the field; every other
+                  search box in the app nests it inside on the left. */}
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search papers... (e.g. 2024, Paper 1, Chem)"
+                className="pl-9"
+                aria-label="Search past papers"
+                placeholder="Search papers... (e.g. 2024, Paper 1, Chem, Specimen)"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
             <div className="flex flex-wrap gap-2">
               <Select value={levelFilter} onValueChange={setLevelFilter}>
-                <SelectTrigger className="w-[170px]">
+                <SelectTrigger className="w-[170px]" aria-label="Filter by level">
                   <SelectValue placeholder="Level" />
                 </SelectTrigger>
                 <SelectContent>
@@ -194,15 +300,57 @@ export default function PastPapers() {
                   ))}
                 </SelectContent>
               </Select>
+              <Select value={boardFilter} onValueChange={setBoardFilter}>
+                <SelectTrigger className="w-[200px]" aria-label="Filter by exam board">
+                  <SelectValue placeholder="Board" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All boards</SelectItem>
+                  {boardOptions.map((b) => (
+                    <SelectItem key={b} value={b}>{b}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={paperFilter} onValueChange={setPaperFilter}>
+                <SelectTrigger className="w-[200px]" aria-label="Filter by paper">
+                  <SelectValue placeholder="Paper" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All papers</SelectItem>
+                  {paperOptions.map((p) => (
+                    <SelectItem key={p} value={p}>{p}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={sessionFilter} onValueChange={setSessionFilter}>
+                <SelectTrigger className="w-[160px]" aria-label="Filter by session">
+                  <SelectValue placeholder="Session" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All sessions</SelectItem>
+                  {sessionOptions.map((s) => (
+                    <SelectItem key={s} value={s}>{s}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {/* Year chips come from the papers actually in scope. They used to
+                  be hard-coded to 2024/2023, which offered two years that did
+                  not match the newest papers (2025) and hid the real ones. */}
               <Button variant="outline" onClick={() => setYearFilter("all")} className={yearFilter === "all" ? "bg-primary text-primary-foreground" : ""}>
                 All years
               </Button>
-              <Button variant="outline" onClick={() => setYearFilter("2024")} className={yearFilter === "2024" ? "bg-primary text-primary-foreground" : ""}>
-                2024
-              </Button>
-              <Button variant="outline" onClick={() => setYearFilter("2023")} className={yearFilter === "2023" ? "bg-primary text-primary-foreground" : ""}>
-                2023
-              </Button>
+              {years.map((y) => (
+                <Button
+                  key={y}
+                  variant="outline"
+                  onClick={() => setYearFilter(String(y))}
+                  className={yearFilter === String(y) ? "bg-primary text-primary-foreground" : ""}
+                >
+                  {y}
+                </Button>
+              ))}
             </div>
           </div>
         </CardContent>
@@ -228,45 +376,106 @@ export default function PastPapers() {
             g.papers.map((p: any) => (
               <Card key={p.id} className="hover:shadow-md transition-shadow group">
                 <CardHeader className="pb-2">
-                  <div className="flex items-start justify-between gap-2">
+                  <div className="flex flex-wrap items-start justify-between gap-2">
                     <CardTitle className="text-base group-hover:text-primary transition-colors">
                       {p.title}
                     </CardTitle>
-                    <div className="flex shrink-0 gap-1">
-                      <Button variant="ghost" size="sm" disabled={!p.paper_url} onClick={() => handleOpenFile(p.paper_url ?? "")}>
-                        Paper
-                      </Button>
+                    {/* Nothing in the archive has a PDF yet, so the primary action
+                        used to be a disabled "Paper" button next to the words
+                        "Awaiting upload" — a dead end. Point students at the exam
+                        board's own page instead, and only show the download
+                        buttons when there is actually a file to download. */}
+                    <div className="flex shrink-0 flex-wrap justify-end gap-1">
+                      {p.paper_url ? (
+                        <Button variant="ghost" size="sm" onClick={() => handleOpenFile(p.paper_url ?? "")}>
+                          Paper
+                        </Button>
+                      ) : null}
                       {p.mark_scheme_url && (
                         <Button variant="ghost" size="sm" onClick={() => handleOpenFile(p.mark_scheme_url ?? "")}>
                           Mark scheme
                         </Button>
                       )}
+                      {!p.paper_url && p.source_url && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="gap-1"
+                          onClick={() => handleOpenExternal(p.source_url!, boardLabel(p.source_url) ?? undefined)}
+                        >
+                          {boardLabel(p.source_url) ?? "Board site"}
+                          <ExternalLink className="h-3 w-3" />
+                        </Button>
+                      )}
                     </div>
                   </div>
-                  <CardDescription className="space-y-1">
-                    <span className="flex items-center gap-1.5">
-                      {p.level && (
+                  {/* CardDescription renders a <p>, and the level Badge renders a
+                      <div> — invalid nesting, which React warns about. */}
+                  <div className="text-sm text-muted-foreground space-y-1">
+                    <div className="flex items-center gap-1.5">
+                      {(p.level ?? p.topics?.subject_levels?.level) && (
                         <Badge variant="outline" className="text-[10px] uppercase tracking-[0.08em]">
-                          {levelLabel(p.level)}
+                          {levelLabel(p.level ?? p.topics?.subject_levels?.level)}
                         </Badge>
                       )}
                       <span>
                         {p.session ? `${p.session} · Year ${p.year}` : `Year ${p.year}`}
-                        {p.topic_name && <span className="text-xs text-muted-foreground"> · {p.topic_name}</span>}
+                        {/* `topic_name` is not a column on past_papers — the topic
+                            arrives as the nested `topics` embed. */}
+                        {p.topics?.name && <span className="text-xs text-muted-foreground"> · {p.topics.name}</span>}
                       </span>
-                    </span>
-                  </CardDescription>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-xs text-muted-foreground">
-                    Paper {p.paper_number ?? "—"} · {p.paper_url ? "Downloadable" : "Pending"}
+                    {paperLabel(p.paper_number)} ·{" "}
+                    {p.paper_url
+                      ? "Downloadable"
+                      : p.source_url
+                        ? "Not in our library yet — open it on the board's site"
+                        : "Awaiting upload"}
                   </p>
+                  <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+                    <Button
+                      size="sm"
+                      className="gap-1.5"
+                      onClick={() => setPracticePaper({
+                        id: p.id,
+                        title: p.title,
+                        session: p.session ?? null,
+                        year: p.year,
+                        paper_number: p.paper_number ?? null,
+                      })}
+                    >
+                      <Clock className="h-3.5 w-3.5" /> Practise
+                    </Button>
+                    {(() => {
+                      const score = attemptsByPaper.get(p.id);
+                      if (!score) return null;
+                      return (
+                        <Badge variant="outline" className="gap-1 text-[10px] text-primary">
+                          <Trophy className="h-3 w-3" /> Best {score.best}%
+                          {score.count > 1 ? ` · ${score.count} sittings` : ""}
+                        </Badge>
+                      );
+                    })()}
+                  </div>
                 </CardContent>
               </Card>
             ))
           )}
         </div>
       )}
+
+      {/* Timed, paper-scoped practice. Saving an attempt awards XP server-side
+          and refreshes the per-card best score. */}
+      <PaperPractice
+        paper={practicePaper}
+        open={practicePaper !== null}
+        onOpenChange={(o) => { if (!o) setPracticePaper(null); }}
+        onSaved={() => qc.invalidateQueries({ queryKey: ["past_paper_attempts"] })}
+      />
 
       {correction && (
         <Card className="mx-auto max-w-4xl">

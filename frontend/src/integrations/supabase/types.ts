@@ -51,6 +51,26 @@ export type Database = {
         Relationships: []
       }
 
+      announcement_reads: {
+        Row: {
+          announcement_id: string
+          read_at: string
+          user_id: string
+        }
+        Insert: {
+          announcement_id: string
+          read_at?: string
+          user_id: string
+        }
+        Update: {
+          announcement_id?: string
+          read_at?: string
+          user_id?: string
+        }
+        // Empty on purpose: user_id references auth.users, which is not part of
+        // the generated public schema, so naming it here would not typecheck.
+        Relationships: []
+      }
       announcements: {
         Row: {
           content: string
@@ -628,6 +648,149 @@ export type Database = {
         }
         Relationships: []
       }
+      past_paper_attempts: {
+        Row: {
+          corrected_papers: Json | null
+          created_at: string
+          duration_seconds: number | null
+          id: string
+          paper_id: string | null
+          paper_number: string | null
+          paper_title: string
+          percentage: number | null
+          score: number
+          session: string | null
+          time_limit_seconds: number | null
+          total_marks: number
+          user_id: string
+          xp_earned: number
+          year: number | null
+        }
+        Insert: {
+          corrected_papers?: Json | null
+          created_at?: string
+          duration_seconds?: number | null
+          id?: string
+          paper_id?: string | null
+          paper_number?: string | null
+          paper_title: string
+          percentage?: number | null
+          score?: number
+          session?: string | null
+          time_limit_seconds?: number | null
+          total_marks?: number
+          user_id: string
+          xp_earned?: number
+          year?: number | null
+        }
+        Update: {
+          corrected_papers?: Json | null
+          created_at?: string
+          duration_seconds?: number | null
+          id?: string
+          paper_id?: string | null
+          paper_number?: string | null
+          paper_title?: string
+          percentage?: number | null
+          score?: number
+          session?: string | null
+          time_limit_seconds?: number | null
+          total_marks?: number
+          user_id?: string
+          xp_earned?: number
+          year?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "past_paper_attempts_paper_id_fkey"
+            columns: ["paper_id"]
+            isOneToOne: false
+            referencedRelation: "past_papers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      past_paper_link_checks: {
+        Row: {
+          checked_at: string
+          content_type: string | null
+          created_paper_id: string | null
+          error: string | null
+          file_name: string | null
+          host: string | null
+          id: string
+          ok: boolean
+          paper_id: string | null
+          review_status: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          session: string | null
+          slot: string
+          source: string
+          source_code: string | null
+          status: number | null
+          url: string
+          year: number | null
+        }
+        Insert: {
+          checked_at?: string
+          content_type?: string | null
+          created_paper_id?: string | null
+          error?: string | null
+          file_name?: string | null
+          host?: string | null
+          id?: string
+          ok?: boolean
+          paper_id?: string | null
+          review_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          session?: string | null
+          slot: string
+          source?: string
+          source_code?: string | null
+          status?: number | null
+          url: string
+          year?: number | null
+        }
+        Update: {
+          checked_at?: string
+          content_type?: string | null
+          created_paper_id?: string | null
+          error?: string | null
+          file_name?: string | null
+          host?: string | null
+          id?: string
+          ok?: boolean
+          paper_id?: string | null
+          review_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          session?: string | null
+          slot?: string
+          source?: string
+          source_code?: string | null
+          status?: number | null
+          url?: string
+          year?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "past_paper_link_checks_created_paper_id_fkey"
+            columns: ["created_paper_id"]
+            isOneToOne: false
+            referencedRelation: "past_papers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "past_paper_link_checks_paper_id_fkey"
+            columns: ["paper_id"]
+            isOneToOne: false
+            referencedRelation: "past_papers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       past_papers: {
         Row: {
           created_at: string
@@ -1086,6 +1249,7 @@ export type Database = {
           description: string | null
           id: string
           name: string
+          slug: string | null
           sort_order: number
           subject_level_id: string | null
           updated_at: string
@@ -1095,6 +1259,7 @@ export type Database = {
           description?: string | null
           id?: string
           name: string
+          slug?: string | null
           sort_order?: number
           subject_level_id?: string | null
           updated_at?: string
@@ -1104,6 +1269,7 @@ export type Database = {
           description?: string | null
           id?: string
           name?: string
+          slug?: string | null
           sort_order?: number
           subject_level_id?: string | null
           updated_at?: string
@@ -1236,6 +1402,9 @@ export type Database = {
       }
     }
     Functions: {
+      approve_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
+      dismiss_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
+      resolve_paper_link: { Args: { p_check_id: string }; Returns: Json }
       browse_questions: {
         Args: {
           _difficulty?: string
@@ -1364,6 +1533,21 @@ export type Database = {
         Returns: boolean
       }
       is_user_approved: { Args: { _user_id: string }; Returns: boolean }
+      record_paper_attempt: {
+        Args: {
+          p_corrected_papers?: Json
+          p_duration_seconds?: number
+          p_paper_id: string
+          p_paper_number?: string
+          p_paper_title: string
+          p_score: number
+          p_session?: string
+          p_time_limit_seconds?: number
+          p_total_marks: number
+          p_year?: number
+        }
+        Returns: Json
+      }
       register_login_lookup: {
         Args: { _client_key: string; _max?: number; _window_seconds?: number }
         Returns: boolean
@@ -1380,6 +1564,19 @@ export type Database = {
           is_published: boolean
           is_ai_generated: boolean
           created_at: string
+        }[]
+      }
+      get_dashboard_counts: {
+        Args: { _level_ids?: string[] | null }
+        Returns: {
+          lessons_done: number
+          lessons_total: number
+          materials_total: number
+          notes_done: number
+          notes_total: number
+          questions_total: number
+          quizzes_total: number
+          topics_total: number
         }[]
       }
     }

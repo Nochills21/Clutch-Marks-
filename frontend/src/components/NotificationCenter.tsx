@@ -1,6 +1,6 @@
 // Bell menu: reads the user's notifications (owner alerts land here).
 import { useEffect, useState, useCallback } from "react";
-import { Bell, Check, CheckCheck } from "lucide-react";
+import { Bell, Check, CheckCheck, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -9,6 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { formatDistanceToNow } from "date-fns";
 import { cn } from "@/lib/utils";
+import { loadFailureMessage } from "@/lib/net";
 
 interface Notification {
   id: string;
@@ -27,6 +28,7 @@ export function NotificationCenter() {
   const [items, setItems] = useState<Notification[]>([]);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [failure, setFailure] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     if (!user) {
@@ -34,13 +36,28 @@ export function NotificationCenter() {
       setLoading(false);
       return;
     }
-    // Unread announcements only — the bell counts from here, never from the
-    // full list, so a read announcement stops chiming.
-    const { data } = await supabase
+    // The most recent announcements, newest first.
+    //
+    // NOTE: these are the global `announcements` rows, which carry no per-user
+    // read state at all (the table is id/title/content/published_at/created_at).
+    // There is therefore no "unread" filter to apply here — a badge that
+    // claims otherwise has to count per-user rows from `notifications` (see
+    // AppSidebar). Do not reintroduce a `read` filter on this table: the column
+    // does not exist and PostgREST answers 400.
+    const { data, error } = await supabase
       .from("announcements")
       .select("id, title, content, created_at")
       .order("created_at", { ascending: false })
       .limit(30);
+    setLoading(false);
+    // A failed read rendered the empty "No announcements yet" state, which is a
+    // lie when the request simply failed.
+    if (error) {
+      setFailure(loadFailureMessage("announcements", error));
+      setItems([]);
+      return;
+    }
+    setFailure(null);
     setItems((data ?? []).map((d: any) => ({
       id: d.id,
       title: d.title,
@@ -48,7 +65,6 @@ export function NotificationCenter() {
       read: false,
       created_at: d.created_at,
     })) as Notification[]);
-    setLoading(false);
   }, [user]);
 
   useEffect(() => {
@@ -113,6 +129,13 @@ export function NotificationCenter() {
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10 text-center">
               <p className="text-sm text-muted-foreground">Loading…</p>
+            </div>
+          ) : failure ? (
+            <div className="flex flex-col items-center justify-center gap-2 px-4 py-10 text-center">
+              <p className="text-sm text-destructive">{failure}</p>
+              <Button variant="outline" size="sm" className="gap-1" onClick={() => load()}>
+                <RotateCcw className="h-3.5 w-3.5" /> Try again
+              </Button>
             </div>
           ) : items.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-10 text-center">

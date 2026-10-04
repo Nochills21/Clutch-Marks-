@@ -162,6 +162,13 @@ export async function handler(req: Request): Promise<Response> {
     // Extract a per-subject-level context. The client pages pass a `subjectLevelId`.
     const subjectLevelId = body.subjectLevelId ?? null;
 
+    // Optional paper context: the paper-scoped practice flow names the exact
+    // past paper being sat so marking is anchored to that paper, not a generic
+    // set of answers. Unknown to older clients, so it is entirely optional.
+    const paperRef = (body.paperRef ?? null) as
+      | { title?: string; session?: string | null; year?: number | null; paperNumber?: string | null; markSchemeUrl?: string | null }
+      | null;
+
     // Build rubric + mark-scheme text from the lesson/syllabus tables when available.
     // Fall back to a generic prompt if no context is present.
     let rubric = "";
@@ -200,6 +207,19 @@ Mark scheme style:
 ## Student's own notes
 - They flagged: ${latestAttempt.comment}`;
       }
+    }
+
+    if (paperRef && (paperRef.title || paperRef.paperNumber)) {
+      const descriptor = [
+        paperRef.title,
+        paperRef.session ?? undefined,
+        paperRef.year ? String(paperRef.year) : undefined,
+        paperRef.paperNumber ?? undefined,
+      ].filter(Boolean).join(" · ");
+      rubric += `
+## Paper being sat
+- ${descriptor}
+- Mark the student's answers against this paper's mark scheme for the questions they attempted.`;
     }
 
     // Assembly per-question input

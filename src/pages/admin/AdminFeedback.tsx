@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { SEOHead } from "@/components/SEOHead";
 import { useToast } from "@/hooks/useToast";
 import { useAuth } from "@/lib/auth";
+import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { MessageSquareHeart, Loader2, Check, X, Mail } from "lucide-react";
 
@@ -42,29 +44,41 @@ export default function AdminFeedback() {
   const [rows, setRows] = useState<FeedbackRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "open" | "resolved">("open");
+  const { failure, report, clear } = useLoadFailure("the feedback inbox");
 
   const load = useCallback(async () => {
     setLoading(true);
-    const { data } = await supabase
+    clear();
+    const { data, error } = await supabase
       .from("content_feedback")
       .select("id, user_id, tool, tool_label, rating, message, status, created_at")
       .order("created_at", { ascending: false })
       .limit(200);
+    // Without this an admin saw "Nothing here." over a failed request.
+    if (error) {
+      report(error);
+      setRows([]);
+      setLoading(false);
+      return;
+    }
     // Fetch reporter identities in one follow-up query (embeds are ambiguous
     // on dual-FK tables).
     const list = (data ?? []) as FeedbackRow[];
     const userIds = [...new Set(list.map(r => r.user_id))];
     if (userIds.length) {
-      const { data: profiles } = await supabase
+      const { data: profiles, error: profilesError } = await supabase
         .from("profiles")
         .select("user_id, email, full_name")
         .in("user_id", userIds);
+      // Names are cosmetic, but a silent failure here made every reporter look
+      // like an unknown account.
+      if (profilesError) report(profilesError);
       const pmap = new Map((profiles ?? []).map(p => [p.user_id, p]));
       list.forEach(r => { r.profiles = pmap.get(r.user_id) ?? null; });
     }
     setRows(list);
     setLoading(false);
-  }, []);
+  }, [clear, report]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -103,6 +117,8 @@ export default function AdminFeedback() {
 
       {loading ? (
         <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+      ) : failure ? (
+        <QueryError message={failure} onRetry={load} />
       ) : shown.length === 0 ? (
         <Card><CardContent className="py-10 text-center text-sm text-muted-foreground">Nothing here.</CardContent></Card>
       ) : (
@@ -120,7 +136,7 @@ export default function AdminFeedback() {
                 <div className="flex items-center justify-between gap-2 pt-1">
                   <p className="text-xs text-muted-foreground flex items-center gap-1.5 min-w-0">
                     <Mail className="h-3 w-3" />
-                    <span className="truncate">{f.profiles?.full_name || f.profiles?.email || f.user_id.slice(0, 8)}</span>
+                    <span className="min-w-0 truncate">{f.profiles?.full_name || f.profiles?.email || f.user_id.slice(0, 8)}</span>
                   </p>
                   {f.status === "open" ? (
                     <div className="flex gap-2 shrink-0">

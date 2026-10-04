@@ -346,7 +346,7 @@ export default function ProgressPage() {
               <CardContent className="space-y-4">
                 <div>
                   <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-muted-foreground flex items-center gap-1"><FileText className="h-3.5 w-3.5" /> Material completed</span>
+                    <span className="text-muted-foreground flex items-center gap-1"><FileText className="h-3.5 w-3.5" /> Lessons completed</span>
                     <span className="font-semibold">{r.lessons_completed}/{r.lessons_total} · {lessonPct}%</span>
                   </div>
                   <Progress value={lessonPct} className="h-2" />
@@ -354,7 +354,7 @@ export default function ProgressPage() {
 
                 <div>
                   <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-muted-foreground flex items-center gap-1"><Brain className="h-3.5 w-3.5" /> Quiz average ({r.quiz_attempts} attempts)</span>
+                    <span className="text-muted-foreground flex items-center gap-1"><Brain className="h-3.5 w-3.5" /> Quiz average ({r.quiz_attempts} {Number(r.quiz_attempts) === 1 ? "attempt" : "attempts"})</span>
                     <span className="font-semibold">{Math.round(Number(r.quiz_avg_score))}%</span>
                   </div>
                   <Progress value={Number(r.quiz_avg_score)} className="h-2" />
@@ -363,7 +363,13 @@ export default function ProgressPage() {
                 <div>
                   <div className="flex justify-between text-xs mb-1.5">
                     <span className="text-muted-foreground flex items-center gap-1"><Sparkles className="h-3.5 w-3.5" /> Question bank used</span>
-                    <span className="font-semibold">{r.ai_questions_answered}/{r.ai_questions_total} · {aiAcc}% correct</span>
+                    {/* Only generated (AI) questions land in this bank; with none
+                        published yet, "0/0 · 0% correct" looked like a fault. */}
+                    <span className="font-semibold">
+                      {Number(r.ai_questions_total) > 0
+                        ? `${Number(r.ai_questions_answered)}/${Number(r.ai_questions_total)} · ${aiAcc}% correct`
+                        : "—"}
+                    </span>
                   </div>
                   <Progress value={aiPct} className="h-2" />
                 </div>

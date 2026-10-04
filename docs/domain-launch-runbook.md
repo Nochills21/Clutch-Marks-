@@ -9,8 +9,7 @@ Everything is prepped. Follow in order. Nothing here needs code changes.
 - ✅ Weekly parent digest + feedback error alerts deployed, secret-gated
 - ✅ Resend domain record created (id `f4f26552-9d65-4790-ba91-2db911513020`, Tokyo region)
 - ✅ `site_url` = `https://clutchmarks.study` (see step 5)
-- ✅ Frontend builds clean (`npm run build` → `dist/`) — verified on the
-  `frontend/` split copy of the repo
+- ✅ Frontend builds clean (`npm run build` → `dist/`) — verified from the repo root
 - ✅ Bounce/complaint suppression pipeline built (waits only for the webhook secret)
 
 ## 1. Frontend deploy (10 min, can be done BEFORE the domain arrives)

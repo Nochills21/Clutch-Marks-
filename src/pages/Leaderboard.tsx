@@ -102,7 +102,7 @@ export default function Leaderboard() {
                               i + 1
                             )}
                           </span>
-                          <span className="flex-1 truncate">
+                          <span className="min-w-0 flex-1 truncate">
                             {MEDALS[i] ? `${MEDALS[i]} ` : ""}
                             {r.display_name}
                             {r.user_id === user?.id && <span className="ml-1 text-xs text-muted-foreground">(you)</span>}

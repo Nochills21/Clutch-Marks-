@@ -146,12 +146,16 @@ export default function Pricing() {
         receipt_path: path,
         updated_at: new Date().toISOString(),
       };
-      const { data: existing } = await supabase
+      const { data: existing, error: existingError } = await supabase
         .from("subscriptions")
         .select("id")
         .eq("user_id", user.id)
         .eq("plan_id", selected)
         .maybeSingle();
+      // A failed lookup leaves `existing` undefined, and the code below would
+      // then INSERT a *second* request for the same plan instead of updating
+      // the first — so a dropped request duplicated the student's payment row.
+      if (existingError) throw existingError;
       const { error } = existing?.id
         ? await supabase.from("subscriptions").update(payload).eq("id", existing.id)
         : await supabase.from("subscriptions").insert({ user_id: user.id, plan_id: selected, ...payload });

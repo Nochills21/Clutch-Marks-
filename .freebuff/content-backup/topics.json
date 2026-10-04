@@ -5,8 +5,9 @@
   "description": "Logic Gates & Boolean Logic — IGCSE Computer Science",
   "sort_order": 9,
   "created_at": "2026-09-18 14:13:09.461461+00",
-  "updated_at": "2026-09-18 14:13:09.461461+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "logic-gates-boolean-logic"
  },
  {
   "id": "0745f8f9-88a6-4f86-8476-dcaf63ce9d12",
@@ -14,8 +15,9 @@
   "description": "Ratio notation, simplifying ratios, sharing in a given ratio, direct and inverse proportion.",
   "sort_order": 3,
   "created_at": "2026-08-22 13:58:32.281675+00",
-  "updated_at": "2026-08-22 13:58:32.281675+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "number-ratio-rate-and-proportion"
  },
  {
   "id": "0a0f911e-7056-47a9-ac2b-6882707c60cf",
@@ -23,8 +25,9 @@
   "description": "Three-figure bearings, drawing and interpreting loci, and construction using compasses.",
   "sort_order": 14,
   "created_at": "2026-08-22 14:11:28.323032+00",
-  "updated_at": "2026-08-22 14:11:28.323032+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "mensuration-bearings-and-loci"
  },
  {
   "id": "0bea2707-6672-4f20-8be1-a847f759f0ca",
@@ -32,8 +35,9 @@
   "description": "Solving linear equations, simultaneous equations (substitution and elimination), and quadratic equations.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:07:00.140027+00",
-  "updated_at": "2026-08-22 14:07:00.140027+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "algebra-equations"
  },
  {
   "id": "0d304099-312f-4f88-8a91-09ff16f5c605",
@@ -41,8 +45,9 @@
   "description": "Probability density functions, probabilities as areas, and E(X), Var(X) for continuous variables.",
   "sort_order": 15,
   "created_at": "2026-09-21 17:57:07.271528+00",
-  "updated_at": "2026-09-21 17:57:22.465951+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "continuous-random-variables"
  },
  {
   "id": "0f4bcc9a-e4a0-4c6a-ae8d-2354b6190d2e",
@@ -50,8 +55,9 @@
   "description": "Reflections, rotations, translations, enlargements. Vector notation, addition, subtraction, and geometric problems.",
   "sort_order": 15,
   "created_at": "2026-08-22 14:11:33.635664+00",
-  "updated_at": "2026-08-22 14:11:33.635664+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "transformations-and-vectors"
  },
  {
   "id": "10de5ecf-fb90-45c3-a301-0562eb466a1c",
@@ -59,8 +65,9 @@
   "description": "Area of triangles, rectangles, circles, sectors, composite shapes. Volume of prisms, cylinders, spheres, cones.",
   "sort_order": 13,
   "created_at": "2026-08-22 14:11:22.09688+00",
-  "updated_at": "2026-08-22 14:11:22.09688+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "mensuration-area-and-volume"
  },
  {
   "id": "1323a228-279d-4364-a21f-b07cff9db871",
@@ -68,8 +75,9 @@
   "description": "Web Technologies and Security — Cambridge International A Level Computer Science (9618)",
   "sort_order": 7,
   "created_at": "2026-09-20 18:43:06.890851+00",
-  "updated_at": "2026-09-20 18:43:06.890851+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "web-technologies-and-security"
  },
  {
   "id": "15a26a2d-cb1f-4059-810f-1698500fe548",
@@ -77,8 +85,9 @@
   "description": "Kinematics — Cambridge International AS Level Physics (9702)",
   "sort_order": 1,
   "created_at": "2026-09-20 18:41:52.16148+00",
-  "updated_at": "2026-09-20 18:41:52.16148+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "kinematics"
  },
  {
   "id": "16bdef5e-f234-4bc1-a036-52816e2bfe44",
@@ -86,8 +95,9 @@
   "description": "Nuclear Physics - IGCSE Physics",
   "sort_order": 9,
   "created_at": "2026-09-14 18:41:43.236298+00",
-  "updated_at": "2026-09-14 18:41:43.236298+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "nuclear-physics"
  },
  {
   "id": "173c5405-6729-40ad-9f97-7bc228e9b856",
@@ -95,8 +105,9 @@
   "description": "Set notation, Venn diagrams, intersection, union, complement, subsets, and the number system.",
   "sort_order": 5,
   "created_at": "2026-08-22 13:58:44.364679+00",
-  "updated_at": "2026-08-22 13:58:44.364679+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "number-sets"
  },
  {
   "id": "1b6d51a7-a379-4b4a-9d3b-b461c1cf291a",
@@ -104,8 +115,9 @@
   "description": "Oscillations and Waves II — Cambridge International A Level Physics (9702)",
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:30.624634+00",
-  "updated_at": "2026-09-20 18:42:30.624634+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "oscillations-and-waves-ii"
  },
  {
   "id": "1bdc4fd6-0627-40d3-a8e4-bbe5827c51e0",
@@ -113,8 +125,9 @@
   "description": "Ethics and AI — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:56.00896+00",
-  "updated_at": "2026-09-20 18:42:56.00896+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "ethics-and-ai"
  },
  {
   "id": "1fb446d5-10eb-407d-9d60-e5ca030eeb1c",
@@ -122,8 +135,9 @@
   "description": "Circular Measure — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:39.292786+00",
-  "updated_at": "2026-09-20 17:50:39.292786+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "circular-measure"
  },
  {
   "id": "2232b534-eded-4d6f-8ca5-54ad3a4a7ba4",
@@ -131,8 +145,9 @@
   "description": "Simulation, Sensors and Real Data — Cambridge International A Level Computer Science (9618)",
   "sort_order": 5,
   "created_at": "2026-09-20 18:43:04.308315+00",
-  "updated_at": "2026-09-20 18:43:04.308315+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "simulation-sensors-and-real-data"
  },
  {
   "id": "26473ecc-28e3-439a-9b19-a50032d1eef7",
@@ -140,8 +155,9 @@
   "description": "Coordinate Geometry — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 3,
   "created_at": "2026-09-20 17:50:37.656453+00",
-  "updated_at": "2026-09-20 17:50:37.656453+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "coordinate-geometry"
  },
  {
   "id": "295188ea-695e-4f5b-b9d1-4eec5a9a3655",
@@ -149,8 +165,9 @@
   "description": "Laws of indices (powers), zero and negative indices, fractional indices, and standard form calculations.",
   "sort_order": 4,
   "created_at": "2026-08-22 13:58:38.785362+00",
-  "updated_at": "2026-08-22 13:58:38.785362+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "number-indices-and-standard-form"
  },
  {
   "id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
@@ -158,8 +175,9 @@
   "description": "Converting between fractions, decimals and percentages. Adding, subtracting, multiplying and dividing fractions. Percentage increase/decrease.",
   "sort_order": 2,
   "created_at": "2026-08-22 13:58:27.066276+00",
-  "updated_at": "2026-08-22 13:58:27.066276+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "number-fractions-decimals-and-percentages"
  },
  {
   "id": "33144da3-195d-4c11-b5f8-a1c05eec5286",
@@ -167,8 +185,9 @@
   "description": "Electric Fields and Capacitance — Cambridge International A Level Physics (9702)",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:16.626143+00",
-  "updated_at": "2026-09-20 18:42:16.626143+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "electric-fields-and-capacitance"
  },
  {
   "id": "333739b9-8c29-4b03-b1c0-ec9767823dfd",
@@ -176,8 +195,9 @@
   "description": "Waves — Cambridge International AS Level Physics (9702)",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:01.466487+00",
-  "updated_at": "2026-09-20 18:42:01.466487+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "waves"
  },
  {
   "id": "33c4669d-3ed3-4432-9bb5-8e96aa3beb01",
@@ -185,8 +205,9 @@
   "description": "Vectors — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 6,
   "created_at": "2026-09-20 17:50:56.264849+00",
-  "updated_at": "2026-09-21 17:57:18.646331+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "vectors"
  },
  {
   "id": "346acb48-363d-495f-bf45-5170082e4abb",
@@ -194,8 +215,9 @@
   "description": "Networks and the Internet — Cambridge International A Level Computer Science (9618)",
   "sort_order": 6,
   "created_at": "2026-09-20 18:43:05.593125+00",
-  "updated_at": "2026-09-20 18:43:05.593125+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "networks-and-the-internet"
  },
  {
   "id": "34c0d0f1-9536-4a5e-b120-fb820be09963",
@@ -203,8 +225,9 @@
   "description": "Earth & Space - IGCSE Physics",
   "sort_order": 10,
   "created_at": "2026-09-14 18:41:44.258803+00",
-  "updated_at": "2026-09-14 18:41:44.258803+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "earth-space"
  },
  {
   "id": "35378b08-5638-4278-84b4-def6b1041f0a",
@@ -212,8 +235,9 @@
   "description": "Algorithms & Programming — IGCSE Computer Science",
   "sort_order": 2,
   "created_at": "2026-09-18 14:12:54.711122+00",
-  "updated_at": "2026-09-18 14:12:54.711122+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "algorithms-programming"
  },
  {
   "id": "35b1da75-be47-4c45-8751-9a70ae75875a",
@@ -221,8 +245,9 @@
   "description": "Thermal Physics - IGCSE Physics",
   "sort_order": 5,
   "created_at": "2026-09-14 18:41:39.044995+00",
-  "updated_at": "2026-09-14 18:41:39.044995+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "thermal-physics"
  },
  {
   "id": "35f68612-7b75-4b25-be1a-76da65c19f92",
@@ -230,8 +255,9 @@
   "description": "Conditions for congruence (SSS, SAS, ASA, RHS), similar triangles, and scale factors.",
   "sort_order": 12,
   "created_at": "2026-08-22 14:11:16.349069+00",
-  "updated_at": "2026-08-22 14:11:16.349069+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "geometry-congruence-and-similarity"
  },
  {
   "id": "3688b9a5-187f-429d-b812-7b76fc6010ad",
@@ -239,8 +265,9 @@
   "description": "Dynamics — Cambridge International AS Level Physics (9702)",
   "sort_order": 2,
   "created_at": "2026-09-20 18:41:53.725258+00",
-  "updated_at": "2026-09-20 18:41:53.725258+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "dynamics"
  },
  {
   "id": "372710b0-fcac-4f55-af62-67b9bec5940c",
@@ -248,8 +275,9 @@
   "description": "Data Structures — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:50.223922+00",
-  "updated_at": "2026-09-20 18:42:50.223922+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "data-structures"
  },
  {
   "id": "39682f0d-d101-4e70-8f91-05961d6c2a80",
@@ -257,8 +285,9 @@
   "description": "Waves & Sound - IGCSE Physics",
   "sort_order": 6,
   "created_at": "2026-09-14 18:41:40.163096+00",
-  "updated_at": "2026-09-14 18:41:40.163096+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "waves-sound"
  },
  {
   "id": "3aef5c79-5146-499d-b4ce-b7118005ffe7",
@@ -266,8 +295,9 @@
   "description": "Hardware & Architecture — IGCSE Computer Science",
   "sort_order": 3,
   "created_at": "2026-09-18 14:12:56.574118+00",
-  "updated_at": "2026-09-18 14:12:56.574118+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "hardware-architecture"
  },
  {
   "id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
@@ -275,8 +305,9 @@
   "description": "Processor Fundamentals — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 4,
   "created_at": "2026-09-20 18:42:46.913303+00",
-  "updated_at": "2026-09-20 18:42:46.913303+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "processor-fundamentals"
  },
  {
   "id": "3cbd0390-fca7-434d-aa02-241ce0947848",
@@ -284,8 +315,9 @@
   "description": "Electricity & Circuits - IGCSE Physics",
   "sort_order": 7,
   "created_at": "2026-09-14 18:41:40.994891+00",
-  "updated_at": "2026-09-14 18:41:40.994891+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "electricity-circuits"
  },
  {
   "id": "3e08bf8f-4227-40a9-b6af-783b81e8b31f",
@@ -293,8 +325,9 @@
   "description": "The normal model N(μ, σ²), standardising, and using the normal approximation to the binomial.",
   "sort_order": 13,
   "created_at": "2026-09-20 17:50:57.717213+00",
-  "updated_at": "2026-09-21 17:57:21.749105+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "the-normal-distribution"
  },
  {
   "id": "4149e92f-7b66-43ee-af8a-cab08f65524a",
@@ -302,8 +335,9 @@
   "description": "Trigonometry — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 5,
   "created_at": "2026-09-20 17:50:40.906712+00",
-  "updated_at": "2026-09-20 17:50:40.906712+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "trigonometry"
  },
  {
   "id": "46485f71-55f2-4888-9462-d12d7a3833a2",
@@ -311,8 +345,9 @@
   "description": "Work, Energy and Power — Cambridge International AS Level Physics (9702)",
   "sort_order": 4,
   "created_at": "2026-09-20 18:41:58.258294+00",
-  "updated_at": "2026-09-20 18:41:58.258294+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "work-energy-and-power"
  },
  {
   "id": "4a093751-70de-4b7b-a451-94efe48c280c",
@@ -320,8 +355,9 @@
   "description": "Angles on a line, at a point, in triangles, quadrilaterals, and polygons. Parallel line angles.",
   "sort_order": 11,
   "created_at": "2026-08-22 14:11:10.484725+00",
-  "updated_at": "2026-08-22 14:11:10.484725+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "geometry-angles-and-polygons"
  },
  {
   "id": "4a4ae03f-b502-41f7-8136-209e2a811174",
@@ -329,8 +365,9 @@
   "description": "Complex Numbers — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 5,
   "created_at": "2026-09-20 17:50:54.983351+00",
-  "updated_at": "2026-09-21 17:57:18.239351+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "complex-numbers"
  },
  {
   "id": "4be1bf79-d264-44d6-84e3-4a5db1319923",
@@ -338,8 +375,9 @@
   "description": "Bernoulli trials, the binomial model B(n, p), expectation and variance, and modelling decisions.",
   "sort_order": 12,
   "created_at": "2026-09-21 17:57:03.253611+00",
-  "updated_at": "2026-09-21 17:57:21.284325+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "binomial-distribution"
  },
  {
   "id": "4c782793-d5fc-4e1f-8696-69c53dedb9ed",
@@ -347,8 +385,9 @@
   "description": "Programming Concepts — IGCSE Computer Science",
   "sort_order": 7,
   "created_at": "2026-09-18 14:13:04.861562+00",
-  "updated_at": "2026-09-18 14:13:04.861562+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "programming-concepts"
  },
  {
   "id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
@@ -356,8 +395,9 @@
   "description": "Measurement & Units - IGCSE Physics",
   "sort_order": 1,
   "created_at": "2026-09-14 18:41:33.527609+00",
-  "updated_at": "2026-09-14 18:41:33.527609+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "measurement-units"
  },
  {
   "id": "4fbcf844-f1cc-41c3-a81d-e4dba7ad964b",
@@ -365,8 +405,9 @@
   "description": "Energy, Work & Power - IGCSE Physics",
   "sort_order": 3,
   "created_at": "2026-09-14 18:41:36.80422+00",
-  "updated_at": "2026-09-14 18:41:36.80422+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "energy-work-power"
  },
  {
   "id": "50490955-308d-4170-b70a-697d18aaec9f",
@@ -374,8 +415,9 @@
   "description": "Forces & Motion - IGCSE Physics",
   "sort_order": 2,
   "created_at": "2026-09-14 18:41:35.053925+00",
-  "updated_at": "2026-09-14 18:41:35.053925+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "forces-motion"
  },
  {
   "id": "51150c0c-c3dd-4edd-b870-5eba0ce9ffd0",
@@ -383,8 +425,9 @@
   "description": "Counting arrangements and selections: permutations, combinations, restricted arrangements and grouped items.",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:59.444613+00",
-  "updated_at": "2026-09-21 17:57:19.049751+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "permutations-and-combinations"
  },
  {
   "id": "52889198-3121-4be7-8cd7-e3bd37e97430",
@@ -392,8 +435,9 @@
   "description": "Thermal Physics — Cambridge International A Level Physics (9702)",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:15.158174+00",
-  "updated_at": "2026-09-20 18:42:15.158174+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "thermal-physics"
  },
  {
   "id": "52d5c1d0-d6ba-4ae6-9dbd-ece542b7f34c",
@@ -401,8 +445,9 @@
   "description": "Mean, median and mode for raw and grouped data; effect of data changes; coding.",
   "sort_order": 9,
   "created_at": "2026-09-21 17:56:55.890817+00",
-  "updated_at": "2026-09-21 17:57:19.99679+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "numerical-measures-of-central-tendency"
  },
  {
   "id": "532f32af-de30-4ad5-a9be-33e0d552a831",
@@ -410,8 +455,9 @@
   "description": "Hardware and Logic Gates — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:45.532179+00",
-  "updated_at": "2026-09-20 18:42:45.532179+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "hardware-and-logic-gates"
  },
  {
   "id": "580136d1-5758-460e-8f79-7a04e39b9899",
@@ -419,8 +465,9 @@
   "description": "Programming Paradigms and Low-Level — Cambridge International A Level Computer Science (9618)",
   "sort_order": 3,
   "created_at": "2026-09-20 18:43:01.267088+00",
-  "updated_at": "2026-09-20 18:43:01.267088+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "programming-paradigms-and-low-level"
  },
  {
   "id": "5883f323-f4cd-4741-a6bc-a9c051b11ebf",
@@ -428,8 +475,9 @@
   "description": "Quadratics — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 1,
   "created_at": "2026-09-20 17:50:34.504941+00",
-  "updated_at": "2026-09-20 17:50:34.504941+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "quadratics"
  },
  {
   "id": "59f8ecd0-7203-4de2-bd02-01f15a70529b",
@@ -437,8 +485,9 @@
   "description": "Database Systems — IGCSE Computer Science",
   "sort_order": 6,
   "created_at": "2026-09-18 14:13:03.397126+00",
-  "updated_at": "2026-09-18 14:13:03.397126+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "database-systems"
  },
  {
   "id": "5adbea4d-ca06-48c6-808b-ebf4588c2bed",
@@ -446,8 +495,9 @@
   "description": "Simplifying algebraic expressions, collecting like terms, expanding brackets, and factorising.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:06:54.000461+00",
-  "updated_at": "2026-08-22 14:06:54.000461+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "algebra-simplifying-and-expanding"
  },
  {
   "id": "5fa07820-06cf-4f42-85a4-74f5a3da9bde",
@@ -455,8 +505,9 @@
   "description": "Integration — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 8,
   "created_at": "2026-09-20 17:50:47.141979+00",
-  "updated_at": "2026-09-20 17:50:47.141979+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "integration"
  },
  {
   "id": "6111cf0b-63cc-4804-a218-1b16e82da4f3",
@@ -464,8 +515,9 @@
   "description": "Using sine, cosine and tangent to find missing sides and angles in right-angled triangles. 3D trigonometry.",
   "sort_order": 16,
   "created_at": "2026-08-22 14:15:47.331439+00",
-  "updated_at": "2026-08-22 14:15:47.331439+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "trigonometry-right-angled-triangles"
  },
  {
   "id": "628446d9-f59a-4542-a298-a0cd8234fc25",
@@ -473,8 +525,9 @@
   "description": "Null and alternative hypotheses, test statistics, significance levels and one/two-tailed tests.",
   "sort_order": 17,
   "created_at": "2026-09-21 17:57:13.133957+00",
-  "updated_at": "2026-09-21 17:57:23.327139+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "hypothesis-testing"
  },
  {
   "id": "68a0c8be-5eba-4a82-a948-a4baef78c57d",
@@ -482,8 +535,9 @@
   "description": "Astronomy and Cosmology — Cambridge International A Level Physics (9702)",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:32.140479+00",
-  "updated_at": "2026-09-20 18:42:32.140479+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "astronomy-and-cosmology"
  },
  {
   "id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
@@ -491,8 +545,9 @@
   "description": "Whole number operations, ordering, rounding, significant figures, estimation, and the four operations with integers.",
   "sort_order": 1,
   "created_at": "2026-08-22 13:58:21.303012+00",
-  "updated_at": "2026-08-22 13:58:21.303012+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "number-arithmetic-and-place-value"
  },
  {
   "id": "76639184-3968-4dca-92f4-c5b52f558d8e",
@@ -500,8 +555,9 @@
   "description": "Databases and Data Definition — Cambridge International A Level Computer Science (9618)",
   "sort_order": 4,
   "created_at": "2026-09-20 18:43:02.886338+00",
-  "updated_at": "2026-09-20 18:43:02.886338+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "databases-and-data-definition"
  },
  {
   "id": "786d1694-9f44-4f8f-98d9-5ec1ce06f2ba",
@@ -509,8 +565,9 @@
   "description": "Ethics, Security & Impact — IGCSE Computer Science",
   "sort_order": 8,
   "created_at": "2026-09-18 14:13:07.269162+00",
-  "updated_at": "2026-09-18 14:13:07.269162+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "ethics-security-impact"
  },
  {
   "id": "7ea1e393-fa84-4b4d-8673-86465d48e9c4",
@@ -518,8 +575,9 @@
   "description": "Further Trigonometry — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 2,
   "created_at": "2026-09-20 17:50:50.417183+00",
-  "updated_at": "2026-09-21 17:57:16.938592+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "further-trigonometry"
  },
  {
   "id": "8300c19d-75f8-4cf3-9ee2-53a0b0cbe5da",
@@ -527,8 +585,9 @@
   "description": "Solving linear inequalities, representing on number lines, and combined inequalities.",
   "sort_order": 8,
   "created_at": "2026-08-22 14:07:05.875978+00",
-  "updated_at": "2026-08-22 14:07:05.875978+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "algebra-inequalities"
  },
  {
   "id": "8eef118f-639b-44a5-b503-80241e2bb58e",
@@ -536,8 +595,9 @@
   "description": "Quantum Physics — Cambridge International A Level Physics (9702)",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:20.07172+00",
-  "updated_at": "2026-09-20 18:42:20.07172+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "quantum-physics"
  },
  {
   "id": "8f594323-a3fc-48d1-9d85-9a623aaeb0dc",
@@ -545,8 +605,9 @@
   "description": "Plotting linear graphs, finding gradients and intercepts, interpreting real-life graphs.",
   "sort_order": 10,
   "created_at": "2026-08-22 14:07:20.529232+00",
-  "updated_at": "2026-08-22 14:07:20.529232+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "algebra-graphs"
  },
  {
   "id": "8f5f82ea-a53d-45ad-afb8-87e365ba6342",
@@ -554,8 +615,9 @@
   "description": "Sine rule, cosine rule, and the area of a triangle formula ½ab sin C for non-right-angled triangles.",
   "sort_order": 17,
   "created_at": "2026-08-22 14:15:52.764012+00",
-  "updated_at": "2026-08-22 14:15:52.764012+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "trigonometry-sine-and-cosine-rules"
  },
  {
   "id": "91eac2dd-1acc-4ec2-8800-90ce2d4cc43e",
@@ -563,8 +625,9 @@
   "description": "Forces and Equilibrium — Cambridge International AS Level Physics (9702)",
   "sort_order": 3,
   "created_at": "2026-09-20 18:41:56.292634+00",
-  "updated_at": "2026-09-20 18:41:56.292634+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "forces-and-equilibrium"
  },
  {
   "id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
@@ -572,8 +635,9 @@
   "description": "Information Representation — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:36.43701+00",
-  "updated_at": "2026-09-20 18:42:36.43701+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "information-representation"
  },
  {
   "id": "965f1ced-091e-4f23-8f27-57fdb3db0b24",
@@ -581,8 +645,9 @@
   "description": "Computational Thinking and Problem-Solving — Cambridge International A Level Computer Science (9618)",
   "sort_order": 8,
   "created_at": "2026-09-20 18:43:08.327181+00",
-  "updated_at": "2026-09-20 18:43:08.327181+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "computational-thinking-and-problem-solving"
  },
  {
   "id": "98dfbd94-3f76-4fa5-8e2e-c72c0c9a154a",
@@ -590,8 +655,9 @@
   "description": "Magnetic Fields and Electromagnetism — Cambridge International A Level Physics (9702)",
   "sort_order": 4,
   "created_at": "2026-09-20 18:42:18.63371+00",
-  "updated_at": "2026-09-20 18:42:18.63371+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "magnetic-fields-and-electromagnetism"
  },
  {
   "id": "9a277064-37cf-40c5-a484-34372e2f058b",
@@ -599,8 +665,9 @@
   "description": "Discrete random variables: expectation, variance, E(aX+b), and combining independent variables.",
   "sort_order": 11,
   "created_at": "2026-09-21 17:57:01.30703+00",
-  "updated_at": "2026-09-21 17:57:20.908257+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "probability-distributions"
  },
  {
   "id": "9b5eb0a4-aa5e-48cb-9dda-3af34851da61",
@@ -608,8 +675,9 @@
   "description": "Counting rare random events per unit interval: the Poisson model, its mean and variance.",
   "sort_order": 14,
   "created_at": "2026-09-21 17:57:05.254889+00",
-  "updated_at": "2026-09-21 17:57:22.132343+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "poisson-distribution"
  },
  {
   "id": "9c985dc8-bbb0-4506-9dfc-2f49b774fc24",
@@ -617,8 +685,9 @@
   "description": "Nuclear Physics — Cambridge International A Level Physics (9702)",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:28.75806+00",
-  "updated_at": "2026-09-20 18:42:28.75806+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "nuclear-physics"
  },
  {
   "id": "9cc8a08c-1858-49b0-a80b-745a8dd4535b",
@@ -626,8 +695,9 @@
   "description": "Magnetism & Electromagnetism - IGCSE Physics",
   "sort_order": 8,
   "created_at": "2026-09-14 18:41:42.200257+00",
-  "updated_at": "2026-09-14 18:41:42.200257+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "magnetism-electromagnetism"
  },
  {
   "id": "9d69ae0a-cb99-4780-88a1-42025848a024",
@@ -635,8 +705,9 @@
   "description": "Basic probability, combined events, tree diagrams, AND/OR rules, and conditional probability.",
   "sort_order": 19,
   "created_at": "2026-08-22 14:16:07.958372+00",
-  "updated_at": "2026-08-22 14:16:07.958372+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "statistics-probability"
  },
  {
   "id": "a7777cab-478a-471d-8bd8-475dca83ab0e",
@@ -644,8 +715,9 @@
   "description": "Data Representation — IGCSE Computer Science",
   "sort_order": 1,
   "created_at": "2026-09-18 14:12:52.685061+00",
-  "updated_at": "2026-09-18 14:12:52.685061+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "data-representation"
  },
  {
   "id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
@@ -653,8 +725,9 @@
   "description": "Motion in a Circle and Gravity — Cambridge International AS Level Physics (9702)",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:11.30139+00",
-  "updated_at": "2026-09-20 18:42:11.30139+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "motion-in-a-circle-and-gravity"
  },
  {
   "id": "ae90cac1-2832-4627-86f3-9b53192ca288",
@@ -662,8 +735,9 @@
   "description": "Robotics & AI — IGCSE Computer Science",
   "sort_order": 11,
   "created_at": "2026-09-18 14:13:15.461368+00",
-  "updated_at": "2026-09-18 14:13:15.461368+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "robotics-ai"
  },
  {
   "id": "b777d569-655f-4776-95fd-ef3be62361e9",
@@ -671,8 +745,9 @@
   "description": "Range, interquartile range, variance and standard deviation for raw and grouped data.",
   "sort_order": 10,
   "created_at": "2026-09-21 17:56:58.418623+00",
-  "updated_at": "2026-09-21 17:57:20.523407+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "measures-of-variation-and-standard-deviation"
  },
  {
   "id": "b7daf14f-974d-4ad7-a848-07dd64176630",
@@ -680,8 +755,9 @@
   "description": "Differentiation II — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 3,
   "created_at": "2026-09-20 17:50:51.823709+00",
-  "updated_at": "2026-09-21 17:57:17.318683+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "differentiation-ii"
  },
  {
   "id": "bb600e06-32eb-473e-ac3e-6e1bd64cb01e",
@@ -689,8 +765,9 @@
   "description": "Pressure & Density - IGCSE Physics",
   "sort_order": 4,
   "created_at": "2026-09-14 18:41:37.816759+00",
-  "updated_at": "2026-09-14 18:41:37.816759+00",
-  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
+  "slug": "pressure-density"
  },
  {
   "id": "bebaa1ac-0640-4b08-8f4e-425b352daaa7",
@@ -698,8 +775,9 @@
   "description": "Unbiased estimators, the sample mean distribution, the central limit theorem and confidence ideas.",
   "sort_order": 16,
   "created_at": "2026-09-21 17:57:10.239027+00",
-  "updated_at": "2026-09-21 17:57:22.824138+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "sampling-and-estimation"
  },
  {
   "id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
@@ -707,8 +785,9 @@
   "description": "Further Algebra — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 1,
   "created_at": "2026-09-20 17:50:49.023975+00",
-  "updated_at": "2026-09-21 17:57:16.61464+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "further-algebra"
  },
  {
   "id": "cd7deaf4-1e3a-42af-9f1d-19aa44a2bb36",
@@ -716,8 +795,9 @@
   "description": "Differentiation — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:45.491307+00",
-  "updated_at": "2026-09-20 17:50:45.491307+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "differentiation"
  },
  {
   "id": "ce670b3a-a111-4f36-bf7e-7dc86ce1ff0b",
@@ -725,8 +805,9 @@
   "description": "Plotting scatter diagrams, lines of best fit, positive/negative/no correlation.",
   "sort_order": 20,
   "created_at": "2026-08-22 14:16:13.7741+00",
-  "updated_at": "2026-08-22 14:16:13.7741+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "scatter-diagrams-and-correlation"
  },
  {
   "id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
@@ -734,8 +815,9 @@
   "description": "Programming and Algorithms — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:51.655167+00",
-  "updated_at": "2026-09-20 18:42:51.655167+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "programming-and-algorithms"
  },
  {
   "id": "d2429c9a-82ec-4a86-8bdc-a119666cecef",
@@ -743,8 +825,9 @@
   "description": "Functions — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 2,
   "created_at": "2026-09-20 17:50:36.170005+00",
-  "updated_at": "2026-09-20 17:50:36.170005+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "functions"
  },
  {
   "id": "d5e94211-9e09-4ccf-8086-47c044ed468a",
@@ -752,8 +835,9 @@
   "description": "Electricity: D.C. Circuits — Cambridge International AS Level Physics (9702)",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:05.493558+00",
-  "updated_at": "2026-09-20 18:42:05.493558+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "electricity-d-c-circuits"
  },
  {
   "id": "d6c1020a-24ea-4820-b974-1126d494e3ab",
@@ -761,8 +845,9 @@
   "description": "Materials: Deformation — Cambridge International AS Level Physics (9702)",
   "sort_order": 5,
   "created_at": "2026-09-20 18:41:59.991266+00",
-  "updated_at": "2026-09-20 18:41:59.991266+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "materials-deformation"
  },
  {
   "id": "d731e71c-1bcb-47b4-8837-644b3fd97e29",
@@ -770,8 +855,9 @@
   "description": "Abstract Data Types — Cambridge International A Level Computer Science (9618)",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:59.397982+00",
-  "updated_at": "2026-09-20 18:42:59.397982+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "abstract-data-types"
  },
  {
   "id": "d97eed92-d609-4e1a-92c1-ac8c5dbc0e1a",
@@ -779,8 +865,9 @@
   "description": "Linear sequences, finding nth term, pattern recognition, and simple functions.",
   "sort_order": 9,
   "created_at": "2026-08-22 14:07:11.733348+00",
-  "updated_at": "2026-08-22 14:07:11.733348+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "algebra-sequences-and-functions"
  },
  {
   "id": "df5b0bf8-9064-466a-ae6f-9afe1aafea09",
@@ -788,8 +875,9 @@
   "description": "Collecting and representing data. Frequency tables, bar charts, histograms, pie charts, cumulative frequency, and box plots.",
   "sort_order": 18,
   "created_at": "2026-08-22 14:16:01.636442+00",
-  "updated_at": "2026-08-22 14:16:01.636442+00",
-  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
+  "slug": "statistics-data-handling"
  },
  {
   "id": "e1e9eead-fb8c-402e-9894-ec34fa6a8e79",
@@ -797,8 +885,9 @@
   "description": "Web Technologies — IGCSE Computer Science",
   "sort_order": 10,
   "created_at": "2026-09-18 14:13:13.262699+00",
-  "updated_at": "2026-09-18 14:13:13.262699+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "web-technologies"
  },
  {
   "id": "e8237701-4e22-468e-a25f-6bd96b5f22e1",
@@ -806,8 +895,9 @@
   "description": "Circular Motion and SHM — Cambridge International A Level Physics (9702)",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:13.565963+00",
-  "updated_at": "2026-09-20 18:42:13.565963+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "circular-motion-and-shm"
  },
  {
   "id": "ebe3caea-37e6-47ae-ba8e-1a5cb713196b",
@@ -815,8 +905,9 @@
   "description": "Sequences and Series — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 6,
   "created_at": "2026-09-20 17:50:43.080291+00",
-  "updated_at": "2026-09-20 17:50:43.080291+00",
-  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "sequences-and-series"
  },
  {
   "id": "ec102c32-7550-40e8-91ec-985ec72ff83c",
@@ -824,8 +915,9 @@
   "description": "Data Types and File Organisation — Cambridge International A Level Computer Science (9618)",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:57.855497+00",
-  "updated_at": "2026-09-20 18:42:57.855497+00",
-  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "data-types-and-file-organisation"
  },
  {
   "id": "ef569055-35ca-414b-b7bc-e7211c868d3d",
@@ -833,8 +925,9 @@
   "description": "Superposition — Cambridge International AS Level Physics (9702)",
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:03.179807+00",
-  "updated_at": "2026-09-20 18:42:03.179807+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "superposition"
  },
  {
   "id": "f08508a7-5ca2-4527-97d4-cd63ac22309e",
@@ -842,8 +935,9 @@
   "description": "Probability rules, Venn diagrams, tree diagrams, conditional probability and independence.",
   "sort_order": 8,
   "created_at": "2026-09-21 17:56:52.852832+00",
-  "updated_at": "2026-09-21 17:57:19.448542+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "probability"
  },
  {
   "id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
@@ -851,8 +945,9 @@
   "description": "System Software and Security — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:48.469276+00",
-  "updated_at": "2026-09-20 18:42:48.469276+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "system-software-and-security"
  },
  {
   "id": "f1b2a357-bf31-42e4-bd85-5d0dc790bb69",
@@ -860,8 +955,9 @@
   "description": "Integration II — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:53.155809+00",
-  "updated_at": "2026-09-21 17:57:17.853848+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "integration-ii"
  },
  {
   "id": "f349b89f-57b4-461a-b10f-66ca9fbab4ae",
@@ -869,8 +965,9 @@
   "description": "Operating Systems — IGCSE Computer Science",
   "sort_order": 5,
   "created_at": "2026-09-18 14:13:01.685541+00",
-  "updated_at": "2026-09-18 14:13:01.685541+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "operating-systems"
  },
  {
   "id": "f52cc259-2b6e-4aca-818b-56556bf68950",
@@ -878,8 +975,9 @@
   "description": "Databases — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:53.258279+00",
-  "updated_at": "2026-09-20 18:42:53.258279+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "databases"
  },
  {
   "id": "f5ce9e1c-9c8f-46d2-95bd-ac9687b6ea07",
@@ -887,8 +985,9 @@
   "description": "Communication and Networking — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:40.475421+00",
-  "updated_at": "2026-09-20 18:42:40.475421+00",
-  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
+  "slug": "communication-and-networking"
  },
  {
   "id": "f77dc80c-eb16-4cfe-9819-c5ace7fd3080",
@@ -896,7 +995,8 @@
   "description": "Networking & Communication — IGCSE Computer Science",
   "sort_order": 4,
   "created_at": "2026-09-18 14:12:59.261157+00",
-  "updated_at": "2026-09-18 14:12:59.261157+00",
-  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c"
+  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
+  "slug": "networking-communication"
  }
 ]

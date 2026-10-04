@@ -16,6 +16,10 @@ dist-ssr
 .env
 .env.*
 !.env.example
+# .env.production is deliberately tracked: it carries only public build-time
+# values (site URL + the publishable/anon key, which ships in the client bundle
+# anyway) so a Vercel build can never silently ship without Supabase config.
+!.env.production
 
 # Editor directories and files
 .vscode/*
@@ -59,3 +63,6 @@ dist-ssr
 .freebuff/pdftool/out/
 Notes.zip
 .temp/
+
+# Local content backups (scripts/backup-content.cjs) — large, machine-specific.
+backups/

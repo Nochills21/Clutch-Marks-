@@ -1,16 +1,14 @@
 // Full-page gate for students who haven't picked any subjects yet. Lessons and
 // Practice render this instead of content until the student makes a pick —
 // so "opening Lessons" always means first choosing what you study.
-import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/useToast";
-import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
 import { BookOpen, Loader2, GraduationCap } from "lucide-react";
 
 export function SubjectGate() {
@@ -19,20 +17,11 @@ export function SubjectGate() {
   const [picked, setPicked] = useState<Set<string>>(new Set());
   const [saving, setSaving] = useState(false);
 
-  const { data: options = [], isLoading } = useQuery({
-    queryKey: ["subject-level-options"],
-    queryFn: async () => {
-      const { data } = await supabase
-        .from("subject_levels")
-        .select("id, level, subjects(name), is_active")
-        .eq("is_active", true)
-        .order("sort_order");
-      return (data ?? []).map((l: any) => ({
-        id: l.id,
-        label: `${l.subjects?.name ?? "Subject"} — ${LEVEL_LABELS[l.level as SubjectLevelCode] ?? l.level}`,
-      }));
-    },
-  });
+  const { data: options = [], isLoading } = useSubjectLevelOptions();
+
+  // Picking a subset here hides every other subject everywhere, which is easy
+  // to do by accident on first run. Offer the escape hatch up front.
+  const selectAll = () => setPicked(new Set(options.map((o: any) => o.id)));
 
   const toggle = (id: string) =>
     setPicked(p => {
@@ -69,6 +58,11 @@ export function SubjectGate() {
           <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
         ) : (
           <>
+            <div className="mb-2 flex w-full justify-end">
+              <Button variant="ghost" size="sm" className="h-7 px-2 text-xs" onClick={selectAll}>
+                Select all subjects
+              </Button>
+            </div>
             <div className="w-full max-h-[320px] overflow-y-auto space-y-2 mb-6 pr-1">
               {options.map(o => (
                 <label key={o.id} className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer hover:bg-accent/50 text-left">

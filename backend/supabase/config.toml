@@ -1,1 +1,8 @@
-project_id = "mijxrrtwmzybwqbvkjdb"
+# Supabase CLI project config.
+#
+# This value is the project ref the CLI links to: `supabase link`, `supabase db
+# push`, `supabase functions deploy` and `supabase gen types` all target it. It
+# previously held a different ref (mijxrrtwmzybwqbvkjdb), which would have sent
+# db push / function deploys at the wrong project. It must match the ref in
+# VITE_SUPABASE_URL (backend/supabase/.temp/project-ref).
+project_id = "zzliiazovezhxbmfeqco"
