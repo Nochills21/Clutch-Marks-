@@ -105,6 +105,34 @@ Rules:
 - Fill in correct_answer from the mark scheme even if the student got nothing.
 - Never output anything except the JSON array.`;
 
+/** Pull a JSON array out of the model's reply, tolerating markdown fences. */
+function parseModelJson(text: string): unknown {
+  const cleaned = text
+    .trim()
+    .replace(/^```(?:json)?/i, "")
+    .replace(/```$/i, "")
+    .trim();
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    // Fall back to the outermost JSON array found in the reply.
+    const start = cleaned.indexOf("[");
+    const end = cleaned.lastIndexOf("]");
+    if (start !== -1 && end > start) {
+      return JSON.parse(cleaned.slice(start, end + 1));
+    }
+    throw new Error("The marking model did not return valid JSON.");
+  }
+}
+
+/** Stable hash of the submitted paper, for the audit log. */
+async function sha256Hex(text: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
 export async function handler(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -256,4 +284,75 @@ Return ONLY a JSON array. No markdown fences, no explanations outside the JSON.`
     }
 
     // Normalize the LLM response to JSON. Since the prompt says "no markdown fences",
-    // we just try JSON.parse. If the LLM added ``
+    // parseModelJson strips a fence anyway and retries once before giving up.
+    const parsed = parseModelJson(llmOutput);
+    if (!Array.isArray(parsed) || parsed.length === 0) {
+      throw new Error("The marking model returned no usable results. Please try again.");
+    }
+
+    const auditRef = crypto.randomUUID();
+
+    const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+      const marksEarned = Number(raw?.marks_earned ?? 0) || 0;
+      const totalMarks = Number(raw?.total_marks ?? 0) || 0;
+      return {
+        question: String(raw?.question ?? `Question ${idx + 1}`),
+        original_answer: String(raw?.original_answer ?? ""),
+        correct_answer: String(raw?.correct_answer ?? ""),
+        marks_earned: marksEarned,
+        total_marks: totalMarks,
+        feedback: String(raw?.feedback ?? ""),
+        // Recompute the grade from the marks so a stray model value can never
+        // report more than 100%.
+        grade: totalMarks > 0 ? Math.round((marksEarned / totalMarks) * 100) : 0,
+        comment: String(raw?.comment ?? ""),
+        watermark: `Clutch Marks · AI-marked · ${auditRef.slice(0, 8)}`,
+        audit_ref: auditRef,
+      };
+    });
+
+    const totalPossible = corrected.reduce((s, q) => s + q.total_marks, 0);
+    const totalEarned = corrected.reduce((s, q) => s + q.marks_earned, 0);
+    const overallGrade = totalPossible > 0
+      ? Math.round((totalEarned / totalPossible) * 100)
+      : 0;
+
+    // Audit log is written with the service role: students never write here.
+    const inputHash = await sha256Hex(
+      typeof paperText === "string" ? paperText : JSON.stringify(paperText),
+    );
+    const { error: auditError } = await admin.from("ai_audit_log").insert({
+      user_id: user.id,
+      action: "paper_correction",
+      input_hash: inputHash,
+      model: modelName,
+      provider: PROVIDER,
+      output_preview: JSON.stringify(corrected).slice(0, 2000),
+      grade: overallGrade,
+      corrected_paper: corrected,
+      cost_cents: 0,
+    });
+    // A failed audit write must not lose the student's marking.
+    if (auditError) console.error("ai-correction audit log failed:", auditError.message);
+
+    return new Response(
+      JSON.stringify({
+        corrected_papers: corrected,
+        overall_grade: overallGrade,
+        total_possible: totalPossible,
+        total_earned: totalEarned,
+        audit_ref: auditRef,
+      }),
+      { headers: { ...corsHeaders, "Content-Type": "application/json" } },
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unexpected error";
+    console.error("ai-correction failed:", message);
+    return new Response(
+      JSON.stringify({ error: message }),
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+    );
+  }
+}
+
+Deno.serve(handler);
