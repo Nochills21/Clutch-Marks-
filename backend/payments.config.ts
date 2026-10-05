@@ -8,18 +8,17 @@
 
 export const PAYMENT = {
   bankTransfer: {
-    // Riyadh Bank — receiving account
-    bankName: "Riyadh Bank",
+    // Receiving account — IBAN only (bank name intentionally not published)
     accountHolder: "Thaer Saadeh",
     iban: "SA9320000002550258779940",
-    accountNo: "2550258779940",
     // WhatsApp reference so bank-side queries reach the right person
     whatsappRef: "0547388010",
   },
 
   // Urpay e-wallet receiving number
   urpay: {
-    number: "+966 0547388010",
+    number: "+966547388010",
+    name: "Zaid Saadeh",
   },
 
   // Billing contact details

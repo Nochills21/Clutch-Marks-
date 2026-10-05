@@ -1,5 +1,10 @@
 # Domain Launch Runbook — clutchmarks.study
 
+> **Partially superseded (5 October 2026).** The Cloudflare Pages steps here are
+> obsolete — the frontend is on Vercel and the API on Render. Steps 3–5
+> (Supabase, Resend, verification) are still accurate. Canonical checklist:
+> [deploy-vercel-render.md](./deploy-vercel-render.md) §6.
+
 Everything is prepped. Follow in order. Nothing here needs code changes.
 
 ## 0. What's already done (no domain needed)

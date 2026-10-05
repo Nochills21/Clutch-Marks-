@@ -20,14 +20,90 @@ export interface RouteMeta {
   path: string;
   title: string;
   description: string;
+  /** Social card for this route, as a path under /public (see scripts/make-og-image.mjs). */
+  ogImage?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const organization = {
   "@type": "EducationalOrganization",
+  "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: `${SITE_URL}/`,
+  description:
+    "Online revision platform for Maths, Physics and Computer Science at O Level (IGCSE), AS and A2 — notes, exam-style topic questions with instant marking, and a past-paper archive.",
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/icon-512.png`,
+    width: 512,
+    height: 512,
+  },
 };
+
+/** Fallback social card, used by any route without its own ogImage. */
+export const DEFAULT_OG_IMAGE = "/og.png";
+
+/** Absolute social-card URL for a route (og:image / twitter:image). */
+export function ogImageUrl(meta: Pick<RouteMeta, "ogImage">): string {
+  return `${SITE_URL}${meta.ogImage ?? DEFAULT_OG_IMAGE}`;
+}
+
+/** Shared FAQ copy — also rendered on /pricing. Keep answers factual. */
+export const FAQ_ITEMS: { q: string; a: string }[] = [
+  {
+    q: "What subjects and levels does Clutch Marks cover?",
+    a: "Maths, Physics and Computer Science at O Level (IGCSE), AS and A2. Every subject has topic notes, exam-style questions with instant marking, and a past-paper archive with mark schemes.",
+  },
+  {
+    q: "How much does Clutch Marks cost?",
+    a: "You can preview every level for free. Full access is $20/month, $12/month when billed quarterly ($36), or $5/month when billed annually ($60).",
+  },
+  {
+    q: "How do I pay?",
+    a: "Pay by bank transfer or with the Urpay e-wallet. Choose your plan and method, send the total, then upload your receipt so we can match the payment — plans activate within 24 hours.",
+  },
+  {
+    q: "Is my payment receipt private?",
+    a: "Yes. Receipts are stored privately and only the admins verifying your payment can view them.",
+  },
+  {
+    q: "Do I need a credit card to start?",
+    a: "No. You can start with the free preview of every level and upgrade only when you are ready.",
+  },
+];
+
+/** FAQPage node for any route that renders the FAQ. */
+const faqPage = () => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+});
+
+/** Course + offers node for the pricing page. Prices mirror the plan cards. */
+const course = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Clutch Marks — Maths, Physics & Computer Science Revision",
+  description:
+    "Self-paced Maths, Physics and Computer Science revision for O Level (IGCSE), AS and A2: topic notes, exam-style questions with instant AI marking, flashcards and past papers with mark schemes.",
+  url: `${SITE_URL}/pricing`,
+  inLanguage: "en",
+  educationalLevel: ["O Level (IGCSE)", "AS Level", "A2 Level"],
+  provider: organization,
+  offers: [
+    { "@type": "Offer", name: "Monthly", price: "20", priceCurrency: "USD" },
+    { "@type": "Offer", name: "3 Months", price: "36", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Annual", price: "60", priceCurrency: "USD" },
+  ],
+};
+
+/** Pricing-page structured data. Keep in sync with the visible FAQ on /pricing
+ *  and the plan cards — Google ignores FAQ markup whose Q&A is not on the page. */
+export const PRICING_JSON_LD = [course, faqPage()];
 
 export const ROUTE_META: RouteMeta[] = [
   {
@@ -55,12 +131,14 @@ export const ROUTE_META: RouteMeta[] = [
   },
   {
     path: "/subjects",
+    ogImage: "/og/subjects.png",
     title: "Subjects & Levels — Clutch Marks",
     description:
       "Choose Maths, Physics or Computer Science at OL, AS or A2 and jump straight into lessons, materials, exams and the AI question bank.",
   },
   {
     path: "/lessons",
+    ogImage: "/og/lessons.png",
     title: "Lessons — Clutch Marks",
     description:
       "Browse structured lessons covering the full syllabus with video and text content for Maths, Physics and Computer Science.",
@@ -77,6 +155,7 @@ export const ROUTE_META: RouteMeta[] = [
   },
   {
     path: "/notes",
+    ogImage: "/og/notes.png",
     title: "Topic Notes — Clutch Marks",
     description:
       "Search and filter uploaded topic notes by subject, level and keyword, then open, download and track what you've studied.",
@@ -93,12 +172,14 @@ export const ROUTE_META: RouteMeta[] = [
   },
   {
     path: "/quizzes",
+    ogImage: "/og/quizzes.png",
     title: "Quizzes — Clutch Marks",
     description:
       "Test your understanding with timed quizzes and instant AI feedback across every topic and level.",
   },
   {
     path: "/past-papers",
+    ogImage: "/og/past-papers.png",
     title: "Past Papers & Mark Schemes — Clutch Marks",
     description:
       "Download past exam papers and mark schemes by year, session and paper number to practise under exam conditions.",
@@ -115,18 +196,21 @@ export const ROUTE_META: RouteMeta[] = [
   },
   {
     path: "/flashcards",
+    ogImage: "/og/flashcards.png",
     title: "Flashcards — Clutch Marks",
     description:
       "Study key terms and concepts with spaced-repetition flashcards built for exam recall.",
   },
   {
     path: "/practice",
+    ogImage: "/og/practice.png",
     title: "Practice — Clutch Marks",
     description:
       "Topic questions, smart drills on your weakest areas, and every question you got wrong or saved — one practice hub.",
   },
   {
     path: "/study-planner",
+    ogImage: "/og/study-planner.png",
     title: "Study Planner — Clutch Marks",
     description:
       "Create personalised study plans and organise your exam preparation schedule week by week.",
@@ -200,7 +284,34 @@ export const ROUTE_META: RouteMeta[] = [
     description:
       "Track per-subject aggregates and per-topic mastery in one colour-coded view of your strengths and weaknesses.",
   },
+  {
+    path: "/pricing",
+    title: "Plans & Pricing — Clutch Marks",
+    description:
+      "Unlock every subject and level from $5/month. Pay by bank transfer or Urpay — plans activate within 24 hours.",
+    ogImage: "/og/pricing.png",
+    jsonLd: PRICING_JSON_LD,
+  },
+  {
+    path: "/downloads",
+    title: "Downloads — Clutch Marks",
+    description:
+      "Download revision notes, formula sheets and past papers for Maths, Physics and Computer Science."
+  },
+  {
+    path: "/privacy",
+    title: "Privacy Policy — Clutch Marks",
+    description:
+      "How Clutch Marks collects, uses and protects student data, written to be readable by students and parents."
+  },
+  {
+    path: "/terms",
+    title: "Terms of Service — Clutch Marks",
+    description:
+      "The terms you agree to when you use Clutch Marks."
+  },
 ];
+
 
 export function getRouteMeta(path: string): RouteMeta | undefined {
   return ROUTE_META.find((r) => r.path === path);

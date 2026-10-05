@@ -1,5 +1,10 @@
 # Launch-Week Checklist
 
+> **Superseded (5 October 2026).** This page describes an older plan
+> (`clutchmarks.com` on Cloudflare Pages). The live setup is Vercel + Render +
+> Cloudflare DNS. See [deploy-vercel-render.md](./deploy-vercel-render.md) §0 for
+> the current wiring and §6 for the consolidated launch checklist.
+
 Live status audit: 24 September 2026. ✅ = done and verified · ⏳ = blocked on
 you (or the domain) · 🔧 = I can do it on your word (~time estimate).
 
