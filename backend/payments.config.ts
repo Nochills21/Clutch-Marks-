@@ -10,6 +10,7 @@ export const PAYMENT = {
   bankTransfer: {
     // Receiving account — IBAN only (bank name intentionally not published)
     accountHolder: "Thaer Saadeh",
+    bankName: "Riyad Bank",
     iban: "SA9320000002550258779940",
     // WhatsApp reference so bank-side queries reach the right person
     whatsappRef: "0547388010",
