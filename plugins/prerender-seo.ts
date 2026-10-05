@@ -1,7 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import type { Plugin, ResolvedConfig } from "vite";
-import { ROUTE_META, SITE_URL, SITE_NAME, type RouteMeta } from "../frontend/src/lib/seoRoutes";
+import { ROUTE_META, SITE_URL, SITE_NAME, ogImageUrl, type RouteMeta } from "../frontend/src/lib/seoRoutes";
 
 /**
  * Emits a static HTML file per public route with route-specific
@@ -29,6 +29,8 @@ function buildHead(meta: RouteMeta) {
   const url = `${SITE_URL}${meta.path === "/" ? "/" : meta.path}`;
   const title = escapeAttr(meta.title);
   const description = escapeAttr(meta.description);
+  // Per-route social card, so each shared link previews with its own artwork.
+  const image = ogImageUrl(meta);
 
   const tags = [
     `<title>${title}</title>`,
@@ -39,9 +41,14 @@ function buildHead(meta: RouteMeta) {
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:url" content="${url}" />`,
+    `<meta property="og:image" content="${image}" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:alt" content="${title}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
+    `<meta name="twitter:image" content="${image}" />`,
   ];
 
   if (meta.jsonLd) {
@@ -59,8 +66,8 @@ function renderRoute(shell: string, meta: RouteMeta) {
     /\s*<title>[\s\S]*?<\/title>/i,
     /\s*<meta\s+name="description"[^>]*>/gi,
     /\s*<link\s+rel="canonical"[^>]*>/gi,
-    /\s*<meta\s+property="og:(type|title|description|url|site_name)"[^>]*>/gi,
-    /\s*<meta\s+name="twitter:(card|title|description)"[^>]*>/gi,
+    /\s*<meta\s+property="og:(type|title|description|url|site_name|image|image:width|image:height|image:alt)"[^>]*>/gi,
+    /\s*<meta\s+name="twitter:(card|title|description|image)"[^>]*>/gi,
     /\s*<script\s+type="application\/ld\+json"[\s\S]*?<\/script>/gi,
   ]);
 

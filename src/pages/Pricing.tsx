@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { useSubscription } from "@/hooks/useSubscription";
 import { SEOHead } from "@/components/SEOHead";
+import { FAQ_ITEMS, PRICING_JSON_LD } from "@/lib/seoRoutes";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +16,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
 import { validateUploadFile } from "@/lib/fileValidation";
-import { Check, Sparkles, Loader2, Clock, Landmark, Wallet, Upload, FileText, ShieldCheck } from "lucide-react";
+import { Check, Copy, Sparkles, Loader2, Clock, Landmark, Wallet, Upload, FileText, ShieldCheck } from "lucide-react";
 
 const PLANS = [
   {
@@ -68,6 +69,70 @@ const PAYMENT_METHODS: {
   { id: "ewallet_urpay", label: "E-Wallet (Urpay)", tagline: "Send via the Urpay app — attach your payment screenshot.", icon: Wallet },
 ];
 
+/**
+ * Where to send money. Single source of truth: the same rows render on the
+ * page's "How payment works" card and inside the request dialog, so the two
+ * can never drift apart.
+ */
+const PAYMENT_REFERENCE = "Your account's email";
+
+const PAYMENT_DETAILS: Record<PaymentMethod, { label: string; rows: { key: string; value: string }[] }> = {
+  bank_transfer: {
+    label: "Bank Transfer",
+    rows: [
+      { key: "Account name", value: "Thaer Saadeh" },
+      { key: "IBAN", value: "SA9320000002550258779940" },
+    ],
+  },
+  ewallet_urpay: {
+    label: "E-Wallet (Urpay)",
+    rows: [
+      { key: "Urpay wallet number", value: "+966547388010" },
+      { key: "Name", value: "Zaid Saadeh" },
+    ],
+  },
+};
+
+/**
+ * Receiving-detail rows with a copy button each. Shared by the "How payment
+ * works" card and the request dialog so both always show the same values.
+ */
+function PaymentDetailsRows({
+  method,
+  copied,
+  onCopy,
+  compact = false,
+}: {
+  method: PaymentMethod;
+  copied: string | null;
+  onCopy: (value: string, label: string) => void;
+  compact?: boolean;
+}) {
+  return (
+    <dl className={compact ? "space-y-1" : "space-y-1.5"}>
+      {PAYMENT_DETAILS[method].rows.map((row) => (
+        <div key={row.key} className="flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <dt className="text-[10.5px] uppercase tracking-[0.14em] text-muted-foreground">{row.key}</dt>
+            <dd className="truncate font-mono text-xs text-foreground">{row.value}</dd>
+          </div>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="shrink-0 gap-1.5"
+            onClick={() => onCopy(row.value, row.key)}
+            aria-label={`Copy ${row.key}`}
+          >
+            {copied === row.key ? <Check className="h-3.5 w-3.5 text-primary" /> : <Copy className="h-3.5 w-3.5" />}
+            <span className="text-[11px]">{copied === row.key ? "Copied" : "Copy"}</span>
+          </Button>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export default function Pricing() {
   const { user, role } = useAuth();
   const { planId, refresh } = useSubscription();
@@ -83,6 +148,45 @@ export default function Pricing() {
   const [method, setMethod] = useState<PaymentMethod | null>(null);
   const [receipt, setReceipt] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  /** Copy a payment detail, with a fallback for non-secure contexts. */
+  const copyField = async (value: string, label: string) => {
+    let ok = false;
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+        ok = true;
+      }
+    } catch {
+      // fall through to the execCommand path
+    }
+    if (!ok) {
+      try {
+        const el = document.createElement("textarea");
+        el.value = value;
+        el.setAttribute("readonly", "");
+        el.style.position = "fixed";
+        el.style.opacity = "0";
+        document.body.appendChild(el);
+        el.select();
+        ok = document.execCommand("copy");
+        document.body.removeChild(el);
+      } catch {
+        ok = false;
+      }
+    }
+    if (ok) {
+      setCopied(label);
+      window.setTimeout(() => setCopied((c) => (c === label ? null : c)), 2000);
+    } else {
+      toast({
+        title: "Copy failed",
+        description: `${label}: ${value}`,
+        variant: "destructive",
+      });
+    }
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -189,6 +293,7 @@ export default function Pricing() {
         title="Plans & Pricing — Clutch Marks"
         description="A preview of every subject at every level. Unlock everything from $5/month — A* prep for Maths, Physics and Computer Science."
         path="/pricing"
+        jsonLd={PRICING_JSON_LD}
       />
       <div className="text-center space-y-3">
         <Badge variant="secondary" className="gap-1.5"><Sparkles className="h-3 w-3" /> Simple pricing</Badge>
@@ -271,28 +376,39 @@ export default function Pricing() {
             <li>Click <span className="font-medium text-foreground">Request plan</span> and choose your method.</li>
             <li>Send the total using one of:
               <div className="ml-6 mt-2 grid gap-2 sm:grid-cols-2">
-                <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
-                  <p className="font-medium flex items-center gap-1.5"><Landmark className="h-3.5 w-3.5 text-primary" /> Bank Transfer</p>
-                  <p className="mt-1 font-mono text-[11px] space-y-0.5">
-                    Bank: <span className="text-muted-foreground">[to be added by site owner]</span><br />
-                    Account name: <span className="text-muted-foreground">[to be added]</span><br />
-                    IBAN / Account no.: <span className="text-muted-foreground">[to be added]</span><br />
-                    Reference: your account email
-                  </p>
-                </div>
-                <div className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
-                  <p className="font-medium flex items-center gap-1.5"><Wallet className="h-3.5 w-3.5 text-primary" /> E-Wallet (Urpay)</p>
-                  <p className="mt-1 font-mono text-[11px]">
-                    Urpay number / alias: <span className="text-muted-foreground">[to be added by site owner]</span><br />
-                    Name: <span className="text-muted-foreground">[to be added]</span><br />
-                    Reference: your account email
-                  </p>
-                </div>
+                {PAYMENT_METHODS.map((m) => (
+                  <div key={m.id} className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
+                    <p className="font-medium flex items-center gap-1.5"><m.icon className="h-3.5 w-3.5 text-primary" /> {PAYMENT_DETAILS[m.id].label}</p>
+                    <div className="mt-1.5">
+                      <PaymentDetailsRows method={m.id} copied={copied} onCopy={copyField} compact />
+                    </div>
+                    <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
+                      Reference: <span className="font-medium text-foreground">{PAYMENT_REFERENCE}</span> — the reference must be the email on your Clutch Marks account, otherwise we cannot match your payment.
+                    </p>
+                  </div>
+                ))}
               </div>
             </li>
             <li>Upload the transaction receipt in the request form so we can match your payment.</li>
             <li>We verify and activate your plan — usually within 24 hours.</li>
           </ol>
+        </CardContent>
+      </Card>
+
+      {/* Visible FAQ — mirrors the FAQPage structured data so the markup
+          Google reads corresponds to content actually on the page. */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Frequently asked questions</CardTitle>
+          <CardDescription>Quick answers about plans, payment and access.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {FAQ_ITEMS.map((item) => (
+            <div key={item.q} className="space-y-1">
+              <h3 className="text-sm font-medium text-foreground">{item.q}</h3>
+              <p className="text-sm text-muted-foreground">{item.a}</p>
+            </div>
+          ))}
         </CardContent>
       </Card>
 
@@ -329,6 +445,21 @@ export default function Pricing() {
                 ))}
               </div>
             </div>
+
+            {/* Receiving details for the chosen method — surfaced here so the
+                student can copy the IBAN / wallet number without scrolling
+                back up to the "How payment works" card. */}
+            {method && (
+              <div className="space-y-2 rounded-xl border bg-muted/30 p-3">
+                <p className="text-xs font-medium text-foreground">
+                  Send {selectedPlan?.price}{selectedPlan?.per} to this {PAYMENT_DETAILS[method].label} account
+                </p>
+                <PaymentDetailsRows method={method} copied={copied} onCopy={copyField} />
+                <p className="text-[11px] leading-snug text-muted-foreground">
+                  Reference: <span className="font-medium text-foreground">{PAYMENT_REFERENCE}</span> — the reference must be the email on your Clutch Marks account, otherwise we cannot match your payment.
+                </p>
+              </div>
+            )}
 
             {/* Full name */}
             <div className="space-y-2">
