@@ -15,6 +15,7 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/lib/auth";
 import { isTransientError } from "@/lib/net";
 import { AppLayout } from "@/components/AppLayout";
+import { PublicShell } from "@/components/PublicShell";
 import { AdminRoute } from "@/components/AdminRoute";
 import { ApprovalGate } from "@/components/ApprovalGate";
 // The landing page stays eager: it is the most visited entry point and the one
@@ -140,6 +141,13 @@ const App = () => (
               <Route path="/auth" element={<Auth />} />
               {/* Public: blog-funnel gated download page (no auth required). */}
               <Route path="/downloads" element={<Downloads />} />
+              {/* Public marketing/legal pages: reachable (and indexable) without
+                  signing in. Their actions still require an account. */}
+              <Route element={<PublicShell />}>
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<TermsOfService />} />
+              </Route>
               <Route element={<AppLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route element={<ApprovalGate />}>
@@ -152,12 +160,9 @@ const App = () => (
                   <Route path="/feedback" element={<FeedbackPage />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="/reset-password" element={<ResetPassword />} />
-                  <Route path="/privacy" element={<PrivacyPolicy />} />
-                  <Route path="/terms" element={<TermsOfService />} />
                   <Route path="/progress" element={<ProgressPage />} />
                   <Route path="/announcements" element={<Announcements />} />
                   <Route path="/past-papers" element={<PastPapers />} />
-                  <Route path="/pricing" element={<Pricing />} />
                   <Route path="/study-planner" element={<StudyPlanner />} />
                   <Route path="/heatmap" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/smart-revision" element={<RedirectPreservingQuery to="/practice" />} />
