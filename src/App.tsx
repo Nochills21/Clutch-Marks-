@@ -1,6 +1,7 @@
 // App root: theme + query + auth providers, every route (student, admin, topic pages),
 // and query-string-preserving redirects from merged legacy routes.
 import { Suspense, lazy } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 // The app carries two feedback channels: `useToast()` (the shadcn/radix store
 // behind almost every toast call) and sonner, which two pages import directly.
@@ -203,6 +204,7 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
+    <Analytics />
   </ThemeProvider>
 );
 
