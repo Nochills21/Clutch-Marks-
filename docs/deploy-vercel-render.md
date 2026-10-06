@@ -188,12 +188,46 @@ still **`pending`** because the registrar still points at Vercel's nameservers
   `curl -s https://api.clutchmarks.study/healthz` → `ok`
 - **TXT-based verification** (any vendor that insists on DNS rather than a meta
   tag) becomes possible only now.
-- **Resend webhook** — Resend → Webhooks → add
-  `https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/email-events`,
-  subscribe to `email.bounced` + `email.complained`, copy the signing secret into
-  the Supabase function secret `RESEND_WEBHOOK_SECRET`.
+- **Resend webhook** — ✅ registered 5 Oct 2026 and verified live (6 Oct): a real
+  `email.complained` event reached `email-events` and was written to
+  `email_suppressions`. Endpoint
+  `https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/email-events`, events
+  `email.bounced` + `email.complained`, signing secret in `RESEND_WEBHOOK_SECRET`.
+  The sending domain is verified — see `infrastructure.md` §3.
 - **Supabase Auth** — already set: Site URL `https://clutchmarks.study`; redirects
   `https://clutchmarks.study/**` and `https://www.clutchmarks.study/**`.
+
+### Clearing the stale "Login – Vercel" search entry
+
+Searching the brand name used to surface a result titled **"Login – Vercel"** —
+Google's cached record from crawling the deployment while it was still
+unbranded/protected. Checked 6 October 2026: this is **cache only, nothing on the
+site is wrong any more**.
+
+- The live pages are publicly crawlable and carry the right head: `<title>Clutch
+  Marks — …</title>`, `og:site_name = Clutch Marks`, canonical, and a `WebSite`
+  + `EducationalOrganization` JSON-LD whose `logo` is `/icon-512.png`.
+- `robots.txt`, `sitemap.xml` and every canonical reference only
+  `clutchmarks.study` — no `vercel.app` anywhere.
+- The obvious `*.vercel.app` aliases (`clutch`, `clutch-marks`, `clutchmarks`,
+  `top-67-master`) all return **404**, so there is no alias host left to
+  de-index — do not add a `vercel.json` noindex rule for one, and don't
+  re-enable Vercel Deployment Protection on production (it is what produced the
+  "Login – Vercel" page in the first place).
+
+Only the owner can clear the cached entry:
+
+1. Search Console → the `clutchmarks.study` property → **URL Inspection** →
+   `https://clutchmarks.study/` → *Request indexing*.
+2. Still in Search Console → **Removals** → *New request* → *Temporary removal*
+   → `https://clutchmarks.study/` (clears the cached snippet for ~6 months while
+   the re-crawl lands). Only one removal is allowed at a time, so do the homepage.
+3. Re-submit `https://clutchmarks.study/sitemap.xml` under *Sitemaps*.
+
+The **favicon** beside the result and the site name both refresh on Google's own
+schedule (days to a few weeks) — that delay is Google's, not a site fault. The
+brand assets are now the real logo, so what lands after the re-crawl is correct:
+see `infrastructure.md` for the asset pipeline.
 
 ### Expectation setting
 

@@ -1,7 +1,7 @@
 /**
- * Single source of truth for site identity, so the switch from the temporary
- * pages.dev host to clutchmarks.com is one build variable rather than a sweep
- * through hard-coded URLs.
+ * Single source of truth for site identity, so moving the public origin (preview
+ * host, custom domain, or a future rename) is one build variable rather than a
+ * sweep through hard-coded URLs.
  *
  * The JSON-LD blocks inside older pages still hard-code the original Lovable
  * URL — those should be migrated to SITE.url as each page is restyled.
