@@ -57,11 +57,11 @@ Supabase function secrets → `RESEND_WEBHOOK_SECRET`.
 ## 5. Verify end-to-end (launch checklist)
 
 - [ ] `https://clutchmarks.study` loads the app; `www` resolves to root
-- [ ] Sign up a real student → welcome email arrives from `@clutchmarks.com`
+- [ ] Sign up a real student → welcome email arrives from `@clutchmarks.study`
 - [ ] Forgot-password email arrives with `clutchmarks.study` reset links
 - [ ] Resend domain shows "Verified"; test-mode warning gone
 - [ ] Weekly digest fires (invoke with `dryRun:false` via secret)
-- [ ] Feedback error report emails admins from `@clutchmarks.com`
+- [ ] Feedback error report emails admins from `@clutchmarks.study`
 - [ ] Privacy/Terms/Support links work; SEO meta shows the new domain
 
 ## 6. After launch
