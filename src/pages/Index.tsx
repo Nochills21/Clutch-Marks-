@@ -4,7 +4,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { BrandHero } from "@/components/BrandHero";
 import { SEOHead } from "@/components/SEOHead";
 import { SubjectPicker } from "@/components/SubjectPicker";
 import { BrandLockup } from "@/components/BrandMark";
@@ -143,7 +142,14 @@ export default function Index() {
                     SM Study Mode
                   </span>
                 </div>
-                <BrandHero className="relative w-full" />
+                <img
+                  src="/brand/cover.jpg"
+                  width={1600}
+                  height={893}
+                  alt="Master your clutch moments — achieve your best marks with focused tools"
+                  decoding="async"
+                  className="relative w-full rounded-xl"
+                />
               </div>
             </div>
           </div>
@@ -274,6 +280,33 @@ export default function Index() {
             </a>
           </div>
         </div>
+        <div className="container px-4 pb-12">
+          <div className="mx-auto max-w-2xl">
+            <p className="mb-6 text-center text-sm leading-relaxed text-muted-foreground sm:text-left">
+              Hey — I&apos;m Zaid Saadeh, from Al Rowad International Schools. I&apos;m 16, and I&apos;ve been
+              building Clutch Marks for a really long time, so I&apos;d genuinely appreciate your
+              support. Thank you &lt;3.
+            </p>
+            <p className="text-center text-sm text-muted-foreground sm:text-left">
+              <span className="font-medium text-foreground">Contact</span>
+              <span className="mx-2 text-muted-foreground/60">·</span>
+              <a
+                href="https://wa.me/966547388010?text=Hi,%20I%20reached%20you%20from%20Clutch%20Marks"
+                className="font-medium text-foreground underline-offset-4 hover:text-primary"
+              >
+                WhatsApp: +966 54 738 8010
+              </a>
+              <span className="mx-2 text-muted-foreground/60">·</span>
+              <a
+                href="mailto:Clutchmarks.support@gmail.com?subject=Clutch%20Marks%20feedback"
+                className="font-medium text-foreground underline-offset-4 hover:text-primary"
+              >
+                Email: Clutchmarks.support@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+
         <div className="container px-4 pb-8">
           <p className="text-center text-xs text-muted-foreground/70 sm:text-left">
             &copy; {new Date().getFullYear()} {SITE.name}. Past paper links point to the official

@@ -9,11 +9,17 @@ Everything is prepped. Follow in order. Nothing here needs code changes.
 
 ## 0. What's already done (no domain needed)
 
-- ✅ Email pipeline works (welcome email sent + verified via Resend)
-- ✅ `RESEND_API_KEY` + `WELCOME_FROM_EMAIL` set as Supabase secrets
+- ✅ Email pipeline **verified** 6 Oct 2026 — welcome email accepted by Resend
+  (`HTTP 200`, `{"sent":true}`). It was *not* working before that: until the
+  sending domain was verified the sender was still on Resend's test address and
+  every send was rejected 403. See `infrastructure.md` §3 for the full state.
+- ✅ `RESEND_API_KEY` + `WELCOME_FROM_EMAIL` + `SITE_URL` set as Supabase secrets
+- ✅ Resend sending domain `clutchmarks.study` **verified** (record id
+  `f4f26552-9d65-4790-ba91-2db911513020`, Tokyo region) — DKIM/SPF/DMARC resolve
+  publicly and the `send` subdomain has Resend's SES return-path MX
+- ✅ Resend webhook registered → `email-events` (bounce/complaint suppression)
 - ✅ Weekly parent digest + feedback error alerts deployed, secret-gated
-- ✅ Resend domain record created (id `f4f26552-9d65-4790-ba91-2db911513020`, Tokyo region)
-- ✅ `site_url` = `https://clutchmarks.study` (see step 5)
+- ✅ `site_url` = `https://clutchmarks.study` (see step 3)
 - ✅ Frontend builds clean (`npm run build` → `dist/`) — verified from the repo root
 - ✅ Bounce/complaint suppression pipeline built (waits only for the webhook secret)
 
@@ -47,19 +53,27 @@ Supabase dashboard → Authentication → URL Configuration → Site URL:
 Also add to **Redirect URLs**: `https://clutchmarks.study/**` and
 `https://www.clutchmarks.study/**`.
 
-## 4. Resend webhook (5 min — activates bounce protection)
+## 4. Resend webhook (DONE — registered 5 Oct 2026)
 
-Resend → Webhooks → Add endpoint →
-`https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/email-events`,
-subscribe to `email.bounced` + `email.complained`, copy the signing secret →
-Supabase function secrets → `RESEND_WEBHOOK_SECRET`.
+Registered in Resend → Webhooks:
+`https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/email-events`, subscribed
+to `email.bounced` + `email.complained`, signing secret stored as the Supabase
+function secret `RESEND_WEBHOOK_SECRET`.
+
+Known-live, not just deployed: a real `email.complained` event has already run
+through it and landed in `email_suppressions`. Requests without valid svix
+headers are rejected `401` (so a `svix verify failed: Missing required headers`
+line in the logs means a probe hit the URL by hand, not that Resend is broken).
 
 ## 5. Verify end-to-end (launch checklist)
 
 - [ ] `https://clutchmarks.study` loads the app; `www` resolves to root
-- [ ] Sign up a real student → welcome email arrives from `@clutchmarks.study`
+- [x] Resend domain shows "Verified"; the test-mode restriction is gone (6 Oct 2026)
+- [x] Signup welcome email accepted by Resend from `@clutchmarks.study`
+- [x] Resend webhook → `email-events` delivering (a real complaint was suppressed)
+- [ ] Sign up a real student → welcome email **arrives in the inbox** (accepted by
+      Resend ≠ landed; confirm once in a real mailbox)
 - [ ] Forgot-password email arrives with `clutchmarks.study` reset links
-- [ ] Resend domain shows "Verified"; test-mode warning gone
 - [ ] Weekly digest fires (invoke with `dryRun:false` via secret)
 - [ ] Feedback error report emails admins from `@clutchmarks.study`
 - [ ] Privacy/Terms/Support links work; SEO meta shows the new domain

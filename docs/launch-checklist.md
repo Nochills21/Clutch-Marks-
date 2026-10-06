@@ -19,17 +19,21 @@ you (or the domain) · 🔧 = I can do it on your word (~time estimate).
   build `npm run build`, output `dist`) → live `clutchmarks.pages.dev` immediately,
   custom domain attaches once the domain exists (runbook §1, ~10 min — **can be
   done before the domain arrives**)
-- 🔧 Verify Resend domain (`clutchmarks.study`) at Resend → flip sender to `no-reply@clutchmarks.study` → test-mode
-  restriction lifts (runbook §4, ~5 min + DNS propagation wait)
+- ✅ **Resend domain `clutchmarks.study` verified** (6 Oct 2026) — sender is
+  `no-reply@clutchmarks.study` via `WELCOME_FROM_EMAIL`; the test-mode
+  restriction is gone and `welcome-email` now returns `{"sent":true}`. Details:
+  `infrastructure.md` §3
 - 🔧 Update Supabase `site_url` → `https://clutchmarks.study` + redirect URLs
   (runbook §5, ~2 min)
 - ⏳ Set `VITE_PLAUSIBLE_DOMAIN=clutchmarks.study` in the Vercel build env → next
   deploy activates analytics (~2 min in the Cloudflare dashboard)
-- ⏳ Register the Resend webhook → `.../functions/v1/email-events`, events
-  `email.bounced` + `email.complained`, signing secret → Supabase function secret
-  `RESEND_WEBHOOK_SECRET` (~5 min; suppression pipeline is built and waiting)
-- 🔧 `support@clutchmarks.study` forwarding via Cloudflare Email Routing (runbook §8,
-  ~10 min, free)
+- ✅ **Resend webhook registered** (5 Oct 2026) → `.../functions/v1/email-events`,
+  events `email.bounced` + `email.complained`, signing secret in
+  `RESEND_WEBHOOK_SECRET`. Verified live — a real complaint was suppressed.
+- ✅ **Inbound `support@clutchmarks.study` is live via Resend Inbound** (apex MX
+  `inbound-smtp.ap-northeast-1.amazonaws.com`) — no Cloudflare Email Routing
+  needed; it cannot work while the Cloudflare zone is inactive. Set the
+  forwarding destination in the Resend dashboard if it isn't already.
 
 ## 2. Pre-launch verification (I run these once the domain is live)
 

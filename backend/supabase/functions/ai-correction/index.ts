@@ -15,33 +15,70 @@ const corsHeaders = {
 // Optional: free override to switch providers without redeploying env vars.
 const PROVIDER = Deno.env.get("AI_PROVIDER") || "cloudflare";
 
-// Cloudflare Workers AI
+// Workers AI retires models; a stale or bare name is rejected outright
+// ("No such model"). `llama-3.1-8b-instruct` was deprecated on 2026-05-30 and
+// older clients still send its short name, so map known names and default.
+const MODEL_ALIASES: Record<string, string> = {
+  "llama-3.1-8b-instruct": "@cf/meta/llama-3.1-8b-instruct-fp8",
+  "@cf/meta/llama-3.1-8b-instruct": "@cf/meta/llama-3.1-8b-instruct-fp8",
+  "llama-3.1-8b-instruct-fp8": "@cf/meta/llama-3.1-8b-instruct-fp8",
+  "llama-3.3-70b-instruct-fp8-fast": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+};
+const DEFAULT_CF_MODEL = Deno.env.get("CLOUDFLARE_MODEL") ||
+  "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
+
+/** Accept a full `@cf/...` id, map a legacy/short name, else fall back. */
+function resolveModel(raw: unknown): string {
+  if (typeof raw === "string" && raw.trim()) {
+    const name = raw.trim();
+    if (MODEL_ALIASES[name]) return MODEL_ALIASES[name];
+    if (name.startsWith("@cf/")) return name;
+  }
+  return DEFAULT_CF_MODEL;
+}
+
+// Cloudflare Workers AI.
+// Uses `/ai/run/<model>` (the standard envelope) rather than the
+// OpenAI-compatible route, and returns the raw `response`: some models answer
+// with a JSON string while others (e.g. llama-3.3-70b) hand back an
+// already-parsed object, so both shapes must be tolerated downstream.
 async function callCloudflareAI(
   model: string,
   prompt: string,
   system: string,
-): Promise<string> {
+): Promise<unknown> {
   const apiKey = Deno.env.get("CLOUDFLARE_API_KEY");
+  const accountId = Deno.env.get("CLOUDFLARE_ACCOUNT_ID");
   if (!apiKey) throw new Error("CLOUDFLARE_API_KEY not set");
-  const res = await fetch("https://api.cloudflare.com/client/v4/accounts/" +
-    Deno.env.get("CLOUDFLARE_ACCOUNT_ID") + "/ai/v1/chat/completions", {
+  if (!accountId) throw new Error("CLOUDFLARE_ACCOUNT_ID not set");
+  const res = await fetch(
+    `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`,
+    {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model,
         messages: [
           { role: "system", content: system },
           { role: "user", content: prompt },
         ],
         max_tokens: 2048,
       }),
-    });
-  if (!res.ok) throw new Error(`Cloudflare AI error: ${res.status}`);
+    },
+  );
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "");
+    throw new Error(`Cloudflare AI error: ${res.status} ${detail.slice(0, 200)}`);
+  }
   const data = await res.json();
-  return data.choices?.[0]?.message?.content ?? "";
+  if (data.success === false) {
+    throw new Error(
+      `Cloudflare AI error: ${JSON.stringify(data.errors ?? data).slice(0, 200)}`,
+    );
+  }
+  return data.result?.response ?? "";
 }
 
 // Lovable / OpenAI-compatible fallback
@@ -105,9 +142,13 @@ Rules:
 - Fill in correct_answer from the mark scheme even if the student got nothing.
 - Never output anything except the JSON array.`;
 
-/** Pull a JSON array out of the model's reply, tolerating markdown fences. */
-function parseModelJson(text: string): unknown {
-  const cleaned = text
+/**
+ * Normalise the model's reply into JSON, tolerating markdown fences, a JSON
+ * string, or an already-parsed array/object (Workers AI models differ).
+ */
+function parseModelJson(text: unknown): unknown {
+  if (typeof text === "object" && text !== null) return text;
+  const cleaned = String(text ?? "")
     .trim()
     .replace(/^```(?:json)?/i, "")
     .replace(/```$/i, "")
@@ -255,7 +296,7 @@ Mark scheme style:
     const paperText = Array.isArray(rawPaper)
       ? rawPaper.map((p: any) =>
         `Q: ${p.question || "Question " + (p.idx ?? "")}\nStudent answer: ${p.answer || p.text || ""}`
-      ).join("\n\n---)\n\n")
+      ).join("\n\n---\n\n")
       : rawPaper;
 
     const fullPrompt = `${rubric}
@@ -266,9 +307,15 @@ ${paperText}
 ## Instructions
 Return ONLY a JSON array. No markdown fences, no explanations outside the JSON.`;
 
-    // Prompt + model selection
-    const modelName = model || "llama-3.1-8b-instruct";
-    let llmOutput: string;
+    // Prompt + model selection. The client may still send the retired
+    // `llama-3.1-8b-instruct`; resolve it per provider so the request is valid.
+    const requestedModel = typeof model === "string" && model.trim()
+      ? model.trim()
+      : "";
+    const modelName = PROVIDER === "cloudflare"
+      ? resolveModel(requestedModel)
+      : (requestedModel || "gpt-4o-mini");
+    let llmOutput: unknown;
     if (PROVIDER === "cloudflare") {
       llmOutput = await callCloudflareAI(
         modelName,

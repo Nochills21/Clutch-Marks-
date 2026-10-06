@@ -129,7 +129,8 @@ export async function callPaperCorrector(
       paper,
       subjectLevelId,
       paperRef,
-      model: "llama-3.1-8b-instruct",
+      // No model is pinned here: the worker resolves a current Workers AI model
+      // (the old `llama-3.1-8b-instruct` was retired and made every call fail).
       provider,
     },
     ...aiRequest,
