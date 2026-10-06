@@ -202,7 +202,7 @@ export function AppSidebar() {
             </a>
             <span className="text-sidebar-foreground/20 text-[11px]">·</span>
             <a
-              href="mailto:support@clutchmarks.com"
+              href="mailto:support@clutchmarks.study"
               title="Contact support"
               className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
             >

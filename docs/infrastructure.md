@@ -1,14 +1,14 @@
 # Infrastructure — what lives where
 
 Clutch Marks runs on **two platforms plus a sender**. Everything is free-tier
-friendly: Cloudflare (domain + DNS + Pages) and Supabase are the only platforms;
+friendly: Cloudflare (domain + DNS) and Supabase are the only platforms;
 Resend sends email. **No shared hosting anywhere.**
 
 ```
 ┌────────────────────┐   DNS records          ┌──────────────────┐
 │    CLOUDFLARE      │───────────────────────►│      RESEND      │
 │  Registrar:        │   DKIM/SPF/DMARC       │ transactional    │
-│  clutchmarks.com   │                        │ email (sending)  │
+│  clutchmarks.study │                        │ email (sending)  │
 │  DNS authority     │                        └──────────────────┘
 │  Pages (CDN host)  │
 │  static React app  │                        ┌──────────────────┐
@@ -22,13 +22,13 @@ Resend sends email. **No shared hosting anywhere.**
 
 ## 1. Cloudflare — domain, DNS, frontend hosting
 
-- **Registrar** for `clutchmarks.com` (at-cost pricing, ~$10/yr, no upsells).
+- **Registrar** for `clutchmarks.study` (at-cost pricing, ~$10/yr, no upsells).
 - **DNS authority** — all records live here: site A/CNAME → Pages, Resend
   DKIM/SPF/DMARC TXT records, and any future blog records.
 - **Pages** hosts the static React app free: connects to GitHub
   (`Nochills21/top-67`), auto-deploys on every push to `main`, instant rollbacks,
   preview URLs for branches, HTTPS automatic. SPA fallback is built in.
-- Custom domain: add `clutchmarks.com` + `www` in the Pages project; Cloudflare
+- Custom domain: add `clutchmarks.study` + `www` in the Pages project; Cloudflare
   provisions certificates automatically since DNS is already on-platform.
 
 ## 2. Supabase — all backend logic
@@ -45,11 +45,12 @@ Resend sends email. **No shared hosting anywhere.**
 
 ## 3. Resend — transactional email
 
-- Sends all app email (welcome, digests, error alerts) from `@clutchmarks.com`
-  once the domain is verified in Resend (DNS records live in Cloudflare).
+- Sends all app email (welcome, digests, error alerts) from `@clutchmarks.study`
+  once the domain is verified in Resend (DNS records live in Vercel).
+  Current sender: `no-reply@clutchmarks.study` (forwarded to Gmail).
 - Webhooks (`email.bounced`, `email.complained`) post back to the `email-events`
   function, feeding the suppression list that protects deliverability.
-- `support@clutchmarks.com` (inbound mail) is handled separately — see the
+- `support@clutchmarks.study` (inbound mail) is handled separately — see the
   runbook's forwarding section (Cloudflare Email Routing, free).
 
 ## Future: marketing blog
@@ -59,15 +60,15 @@ The blog lives on **Cloudflare Pages too** — no WordPress needed. Two options:
 1. **Same Pages project** (recommended): add a `/blog` section to the repo with
    static/SSG posts (Astro, or plain markdown rendered at build). Deploys with
    the app, shares the domain, zero extra infra.
-2. **Second Pages project** on `blog.clutchmarks.com` if content tooling should
+2. **Second Pages project** on `blog.clutchmarks.study` if content tooling should
    stay decoupled from app releases.
 
-Cloudflare Email Routing can also provide `support@clutchmarks.com` forwarding
+Cloudflare Email Routing can also provide `support@clutchmarks.study` forwarding
 without any hosting plan at all.
 
 ## Reference
 
-- Production URL: `https://clutchmarks.com` (update Supabase Auth `site_url` when live).
+- Production URL: `https://clutchmarks.study` (Supabase Auth `site_url` already set).
 - Local dev: `npm run dev` (Vite, port 8080).
 - Secrets inventory: `RESEND_API_KEY`, `WELCOME_FROM_EMAIL`, `RESEND_WEBHOOK_SECRET`,
   `DIGEST_SECRET`, `FEEDBACK_ALERT_SECRET`, `WELCOME_SECRET`, `HARVEST_SECRET`

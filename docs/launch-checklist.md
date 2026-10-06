@@ -1,7 +1,7 @@
 # Launch-Week Checklist
 
 > **Superseded (5 October 2026).** This page describes an older plan
-> (`clutchmarks.com` on Cloudflare Pages). The live setup is Vercel + Render +
+> (`clutchmarks.study` on Vercel). The live setup is Vercel + Render +
 > Cloudflare DNS. See [deploy-vercel-render.md](./deploy-vercel-render.md) §0 for
 > the current wiring and §6 for the consolidated launch checklist.
 
@@ -10,7 +10,7 @@ you (or the domain) · 🔧 = I can do it on your word (~time estimate).
 
 ## 1. Domain & hosting (the critical path)
 
-- ⏳ **Buy `clutchmarks.com` in Cloudflare Registrar** — the single blocker for everything
+- ⏳ **Claim `clutchmarks.study` in Cloudflare Registrar** — the single blocker for everything
   below. (Registry checked today: still unregistered. ~$10/yr at-cost; DNS and
   Pages hosting are already on Cloudflare, so nothing else to buy.)
 - 🔧 Add the 4 Resend DNS records + site CNAME records (runbook §3, ~10 min
@@ -19,21 +19,21 @@ you (or the domain) · 🔧 = I can do it on your word (~time estimate).
   build `npm run build`, output `dist`) → live `clutchmarks.pages.dev` immediately,
   custom domain attaches once the domain exists (runbook §1, ~10 min — **can be
   done before the domain arrives**)
-- 🔧 Verify Resend domain → flip sender to `hello@clutchmarks.com` → test-mode
+- 🔧 Verify Resend domain (`clutchmarks.study`) at Resend → flip sender to `no-reply@clutchmarks.study` → test-mode
   restriction lifts (runbook §4, ~5 min + DNS propagation wait)
-- 🔧 Update Supabase `site_url` → `https://clutchmarks.com` + redirect URLs
+- 🔧 Update Supabase `site_url` → `https://clutchmarks.study` + redirect URLs
   (runbook §5, ~2 min)
-- ⏳ Set `VITE_PLAUSIBLE_DOMAIN=clutchmarks.com` in the Pages build env → next
+- ⏳ Set `VITE_PLAUSIBLE_DOMAIN=clutchmarks.study` in the Vercel build env → next
   deploy activates analytics (~2 min in the Cloudflare dashboard)
 - ⏳ Register the Resend webhook → `.../functions/v1/email-events`, events
   `email.bounced` + `email.complained`, signing secret → Supabase function secret
   `RESEND_WEBHOOK_SECRET` (~5 min; suppression pipeline is built and waiting)
-- 🔧 `support@clutchmarks.com` forwarding via Cloudflare Email Routing (runbook §8,
+- 🔧 `support@clutchmarks.study` forwarding via Cloudflare Email Routing (runbook §8,
   ~10 min, free)
 
 ## 2. Pre-launch verification (I run these once the domain is live)
 
-- 🔧 Full email sweep: signup → welcome from `@clutchmarks.com`; forgot-password
+- 🔧 Full email sweep: signup → welcome from `@clutchmarks.study`; forgot-password
   link lands on `/reset-password`; weekly digest dry-run `dryRun:false`; feedback
   error alert reaches both admins; suppressed address stays skipped
 - 🔧 E2E student flow on production: signup → subject pick → lesson → quiz →

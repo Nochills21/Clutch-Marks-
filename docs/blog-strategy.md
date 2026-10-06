@@ -2,7 +2,7 @@
 
 The blog lives on the **same Cloudflare Pages project** as the app (a `/blog`
 section built with a static site generator — Astro or markdown-at-build), or on
-a separate `blog.clutchmarks.com` Pages project if content releases should stay
+a separate `blog.clutchmarks.study` Pages project if content releases should stay
 decoupled from app deploys. The blog's single job:
 capture students searching for exam help and funnel them into the app.
 
@@ -23,7 +23,7 @@ entire businesses on this traffic.
 ## Site structure
 
 ```
-blog.clutchmarks.com/
+blog.clutchmarks.study/
 ├── /                            ← homepage: latest posts + free-tool CTA
 ├── /category/igcse/             ← IGCSE (O Level) posts
 ├── /category/as-level/          ← AS posts
@@ -46,7 +46,7 @@ blog.clutchmarks.com/
 Each subject guide is a long, definitive page ("IGCSE Maths: complete 0580 guide —
 syllabus, topics, grading, past papers, how to get an A*") targeting the big-volume
 keyword. It links to every supporting post on that subject AND to the app's
-matching subject page (`clutchmarks.com/study/maths/ol`).
+matching subject page (`clutchmarks.study/study/maths/ol`).
 
 Supporting posts target long-tail keywords and all link back to their pillar
 (internal linking = SEO authority flows to where the signup CTA lives).
@@ -135,7 +135,7 @@ built-in retention (streaks, XP, weak-topic practice, parent emails) does the re
 - **Cross-linking rules:** every post links to (a) its pillar page, (b) 2–3 sibling
   posts, (c) exactly one deep app link (a specific subject/topic page, never the
   homepage). The app links are dofollow — that's the point.
-- **Canonical clarity:** blog lives on the same domain (`clutchmarks.com/blog`)
+- **Canonical clarity:** blog lives on the same domain (`clutchmarks.study/blog`)
   or a subdomain — either way no canonical conflicts with the app. Set
   `Organization` schema referencing both.
 - **E-E-A-T signals:** author bio "written by Cambridge examiners" (only if true —
@@ -154,7 +154,7 @@ built-in retention (streaks, XP, weak-topic practice, parent emails) does the re
 
 ## Launch sequence
 
-1. Buy domain in Cloudflare → DNS setup (see domain-launch-runbook) → app live on `clutchmarks.com`
+1. Buy domain in Cloudflare → DNS setup (see domain-launch-runbook) → app live on `clutchmarks.study`
 2. Add the blog to the Pages project (Astro `/blog` section) or a second Pages project on `blog.`
 3. Build the blog template + pillar-page structure (fast static theme)
 4. Publish 3 posts before announcing anything (sites with 1 post don't rank)

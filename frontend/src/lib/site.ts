@@ -15,7 +15,7 @@ export const SITE = {
   tagline: "Revise smarter. Score higher.",
   description:
     "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at OL, AS and A2.",
-  supportEmail: "support@clutchmarks.com",
+  supportEmail: "support@clutchmarks.study",
   /** Brand gold — keep in step with --gold in src/index.css. */
   gold: "#E8B01E",
   goldDeep: "#C6821A",

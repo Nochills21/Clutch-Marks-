@@ -2,7 +2,7 @@
 
 *Aligned to the Cambridge IGCSE Mathematics 0580 syllabus for exams in 2025, 2026 and 2027. Last updated: September 2026.*
 
-> **TL;DR:** 0580 rewards structured practice more than any other IGCSE subject. Know the syllabus inside out, drill past papers by topic, and target your weak areas with timed practice. Every topic below links to free practice questions and revision notes on [Clutch Marks](https://clutchmarks.com/subjects).
+> **TL;DR:** 0580 rewards structured practice more than any other IGCSE subject. Know the syllabus inside out, drill past papers by topic, and target your weak areas with timed practice. Every topic below links to free practice questions and revision notes on [Clutch Marks](https://clutchmarks.study/subjects).
 
 ---
 
@@ -42,14 +42,14 @@ The syllabus has **four content strands**. Below is every topic, what it actuall
 
 ### Topic-by-topic breakdown
 
-**Number** ([revise Number topics](https://clutchmarks.com/subjects))
+**Number** ([revise Number topics](https://clutchmarks.study/subjects))
 - **Arithmetic and place value** — operations, order of operations, rounding, estimation. Marks come from showing clear working.
 - **Fractions, decimals, percentages** — conversions, percentage increase/decrease, reverse percentages (the classic 3-mark question), compound interest.
 - **Ratio, rate and proportion** — sharing in a ratio, direct/inverse proportion, unit rates, speed–distance–time.
 - **Indices and standard form** — the index laws, negative and fractional indices, writing/using standard form. Almost guaranteed 3–5 marks per paper.
 - **Sets** — Venn diagrams, union/intersection/complement notation. Popular as a 4-mark Venn problem.
 
-**Algebra** ([revise Algebra topics](https://clutchmarks.com/subjects))
+**Algebra** ([revise Algebra topics](https://clutchmarks.study/subjects))
 - **Simplifying and expanding** — collecting terms, expanding double brackets, factorising (including quadratics).
 - **Equations** — linear, simultaneous (elimination and substitution), quadratic (factorising and formula). Show every line: method marks survive arithmetic slips.
 - **Inequalities** — solving, number-line representation, **shade-the-correct-region** graph questions.
@@ -93,7 +93,7 @@ What that means in practice:
 
 ## The 90-day A* plan
 
-*(This is the same plan our [Study Planner](https://clutchmarks.com/study-planner) generates personalised to your weak topics — free.)*
+*(This is the same plan our [Study Planner](https://clutchmarks.study/study-planner) generates personalised to your weak topics — free.)*
 
 **Days 1–20 — Diagnose and rebuild foundations**
 - Take one recent Paper 2 and one Paper 4 **untimed**, syllabus open. Mark harshly with the mark scheme. List every dropped mark by topic — this list is your revision syllabus, not the textbook's.
@@ -123,7 +123,7 @@ Past papers are the highest-yield revision tool in 0580 — but most students us
 - **Every paper twice, three months apart.** The second pass tests memory vs. understanding.
 - **Wrong-answer autopsy:** for each lost mark, one line in a log — topic, why, and the correct method. Re-read the log weekly.
 
-The [Past Papers section on Clutch Marks](https://clutchmarks.com/past-papers) indexes Cambridge 0580 papers by session (2019–2025) and links each to its topics, so you can go straight from a wrong answer to targeted practice on that topic.
+The [Past Papers section on Clutch Marks](https://clutchmarks.study/past-papers) indexes Cambridge 0580 papers by session (2019–2025) and links each to its topics, so you can go straight from a wrong answer to targeted practice on that topic.
 
 ---
 
@@ -157,9 +157,9 @@ The [Past Papers section on Clutch Marks](https://clutchmarks.com/past-papers) i
 
 Everything above is broken into interactive topics on the platform — revision notes aligned to the 2025–2027 syllabus, topic-by-topic quizzes with worked explanations, and a mistake-tracking practice engine:
 
-- [All Mathematics topics (O Level, AS and A2)](https://clutchmarks.com/subjects)
-- [Take a free topic quiz](https://clutchmarks.com/quizzes) — no signup needed to try
-- [Generate your personal 90-day study plan](https://clutchmarks.com/study-planner) — free, adapts to your weak topics
-- [Browse past papers by topic](https://clutchmarks.com/past-papers)
+- [All Mathematics topics (O Level, AS and A2)](https://clutchmarks.study/subjects)
+- [Take a free topic quiz](https://clutchmarks.study/quizzes) — no signup needed to try
+- [Generate your personal 90-day study plan](https://clutchmarks.study/study-planner) — free, adapts to your weak topics
+- [Browse past papers by topic](https://clutchmarks.study/past-papers)
 
-*Found an error in this guide? [Tell us](https://clutchmarks.com/feedback) — content errors get fixed same-day.*
+*Found an error in this guide? [Tell us](https://clutchmarks.study/feedback) — content errors get fixed same-day.*
