@@ -16,6 +16,27 @@ const viteEnv = ((import.meta as { env?: Record<string, string | undefined> }).e
 export const SITE_URL = viteEnv.VITE_SITE_URL || "https://clutchmarks.study";
 export const SITE_NAME = "Clutch Marks";
 
+/**
+ * Robots directives, written out instead of left to Google's defaults.
+ *
+ * With no `robots` meta at all, Google chooses its own snippet/image limits,
+ * and a stale result title can sit there through many recrawls.
+ * `max-image-preview:large` is what lets the preview artwork show in results.
+ */
+export const ROBOTS_INDEX =
+  "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+
+/** Auth/private pages: keep them out of the index, but keep following links. */
+export const ROBOTS_NOINDEX = "noindex, follow";
+
+/**
+ * A host that must never represent the site (Vercel preview/branch aliases,
+ * any non-canonical origin). Those deployments sit behind Vercel Deployment
+ * Protection, so a crawler that lands on one is served Vercel's own SSO page —
+ * which is how "Login – Vercel" gets attached to the brand in search results.
+ */
+export const ROBOTS_NOINDEX_NOFOLLOW = "noindex, nofollow";
+
 export interface RouteMeta {
   path: string;
   title: string;
@@ -23,6 +44,8 @@ export interface RouteMeta {
   /** Social card for this route, as a path under /public (see scripts/make-og-image.mjs). */
   ogImage?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Keep this route out of the index (auth, sign-in, account pages). */
+  noindex?: boolean;
 }
 
 const organization = {
@@ -116,6 +139,9 @@ export const ROUTE_META: RouteMeta[] = [
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: SITE_NAME,
+        // Helps Google's Site Names feature pick "Clutch Marks" for the domain
+        // instead of whatever title a stale/odd crawl left behind.
+        alternateName: ["ClutchMarks", "clutchmarks.study"],
         url: `${SITE_URL}/`,
         description:
           "Study Maths, Physics and Computer Science at OL, AS and A2 with interactive lessons, practice quizzes and revision tools.",
@@ -128,6 +154,16 @@ export const ROUTE_META: RouteMeta[] = [
     title: "Log In or Sign Up — Clutch Marks",
     description:
       "Log in to Clutch Marks or create an account to access lessons, topic notes, quizzes and past papers for Maths, Physics and Computer Science.",
+    // A sign-in page must never be what Google shows for the domain.
+    noindex: true,
+  },
+  {
+    // Where Google hands the session back. A redirect endpoint has nothing to
+    // index, and a crawl would only ever see a spinner.
+    path: "/auth/callback",
+    title: "Signing in — Clutch Marks",
+    description: "Completing sign-in.",
+    noindex: true,
   },
   {
     path: "/subjects",

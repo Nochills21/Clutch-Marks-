@@ -1,7 +1,16 @@
 import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import type { Plugin, ResolvedConfig } from "vite";
-import { ROUTE_META, SITE_URL, SITE_NAME, ogImageUrl, type RouteMeta } from "../frontend/src/lib/seoRoutes";
+import {
+  ROUTE_META,
+  SITE_URL,
+  SITE_NAME,
+  ROBOTS_INDEX,
+  ROBOTS_NOINDEX,
+  ROBOTS_NOINDEX_NOFOLLOW,
+  ogImageUrl,
+  type RouteMeta,
+} from "../frontend/src/lib/seoRoutes";
 
 /**
  * Emits a static HTML file per public route with route-specific
@@ -12,6 +21,19 @@ import { ROUTE_META, SITE_URL, SITE_NAME, ogImageUrl, type RouteMeta } from "../
  *
  * The React app still boots normally from the same HTML shell.
  */
+
+/**
+ * Vercel exposes VERCEL_ENV ("production" | "preview" | "development") to the
+ * build. Preview/branch deployments are served behind Vercel Deployment
+ * Protection, so a crawler that reaches one gets Vercel's own sign-in page —
+ * the one that can end up titled "Login – Vercel" in a search result for the
+ * brand. Such a build never emits an indexable robots tag.
+ */
+function robotsFor(meta: RouteMeta) {
+  const env = process.env.VERCEL_ENV;
+  if (env === "preview" || env === "development") return ROBOTS_NOINDEX_NOFOLLOW;
+  return meta.noindex ? ROBOTS_NOINDEX : ROBOTS_INDEX;
+}
 
 function escapeAttr(value: string) {
   return value
@@ -34,6 +56,7 @@ function buildHead(meta: RouteMeta) {
 
   const tags = [
     `<title>${title}</title>`,
+    `<meta name="robots" content="${robotsFor(meta)}" />`,
     `<meta name="description" content="${description}" />`,
     `<link rel="canonical" href="${url}" />`,
     `<meta property="og:site_name" content="${SITE_NAME}" />`,
@@ -64,6 +87,8 @@ function renderRoute(shell: string, meta: RouteMeta) {
   // ones (charset, viewport, verification, og:image, twitter:image).
   const cleaned = stripTags(shell, [
     /\s*<title>[\s\S]*?<\/title>/i,
+    // Replaced per route below — the shell's default must not survive next to it.
+    /\s*<meta\s+name="robots"[^>]*>/gi,
     /\s*<meta\s+name="description"[^>]*>/gi,
     /\s*<link\s+rel="canonical"[^>]*>/gi,
     /\s*<meta\s+property="og:(type|title|description|url|site_name|image|image:width|image:height|image:alt)"[^>]*>/gi,
@@ -109,6 +134,19 @@ export function prerenderSeo(): Plugin {
         mkdirSync(dirname(target), { recursive: true });
         writeFileSync(target, html);
         prerendered += 1;
+      }
+
+      // Keep the sitemap's freshness signal honest. `<lastmod>` is what asks a
+      // crawler to come back and replace a stale result title, so it is stamped
+      // with the build date instead of whatever the checked-in file says.
+      const sitemapPath = resolve(outDir, "sitemap.xml");
+      try {
+        const sitemap = readFileSync(sitemapPath, "utf8");
+        const today = new Date().toISOString().slice(0, 10);
+        const refreshed = sitemap.replace(/<lastmod>[^<]*<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
+        if (refreshed !== sitemap) writeFileSync(sitemapPath, refreshed);
+      } catch {
+        // No sitemap in this build — nothing to refresh.
       }
 
       // eslint-disable-next-line no-console
