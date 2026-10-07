@@ -131,9 +131,14 @@ export const PRICING_JSON_LD = [course, faqPage()];
 export const ROUTE_META: RouteMeta[] = [
   {
     path: "/",
-    title: "Clutch Marks — Maths, Physics & Computer Science Revision",
+    // Must stay identical to the <SEOHead> on src/pages/Index.tsx. This entry is
+    // what the prerenderer writes into the static HTML; the component is what
+    // runs in the browser. When the two disagreed, the same URL carried two
+    // different titles depending on whether Google executed JavaScript — the
+    // kind of inconsistency that leaves a stale title in the index for weeks.
+    title: "Clutch Marks — Revision Notes, Topic Questions & Past Papers",
     description:
-      "Study Maths, Physics and Computer Science at OL, AS and A2 with interactive lessons, practice quizzes and revision tools.",
+      "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at OL, AS and A2.",
     jsonLd: [
       {
         "@context": "https://schema.org",
