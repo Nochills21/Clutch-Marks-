@@ -1,6 +1,14 @@
 // Sets document title/meta/canonical/JSON-LD per page.
 import { Helmet } from "react-helmet-async";
-import { SITE_NAME, SITE_URL, getRouteMeta, ogImageUrl } from "@/lib/seoRoutes";
+import {
+  SITE_NAME,
+  SITE_URL,
+  ROBOTS_INDEX,
+  ROBOTS_NOINDEX,
+  ROBOTS_NOINDEX_NOFOLLOW,
+  getRouteMeta,
+  ogImageUrl,
+} from "@/lib/seoRoutes";
 
 interface SEOHeadProps {
   title: string;
@@ -15,11 +23,26 @@ interface SEOHeadProps {
 
 export function SEOHead({ title, description, path, noindex, ogImage, jsonLd }: SEOHeadProps) {
   const url = path ? `${SITE_URL}${path}` : `${SITE_URL}/`;
-  // Route-level card from ROUTE_META, so runtime metadata matches the
+  // Route-level metadata from ROUTE_META, so runtime tags match the
   // prerendered HTML the crawlers already saw.
-  const image = ogImageUrl({
-    ogImage: ogImage ?? (path ? getRouteMeta(path)?.ogImage : undefined),
-  });
+  const routeMeta = path ? getRouteMeta(path) : undefined;
+  const image = ogImageUrl({ ogImage: ogImage ?? routeMeta?.ogImage });
+
+  // Mirrors the prerender plugin: auth/private routes stay out of the index, and
+  // so does any host that isn't the canonical origin. A Vercel preview or branch
+  // alias sits behind Deployment Protection and serves Vercel's own sign-in page
+  // to a crawler — that is what put "Login – Vercel" next to the brand in search.
+  const robots = (() => {
+    if (noindex || routeMeta?.noindex) return ROBOTS_NOINDEX;
+    if (typeof window === "undefined") return ROBOTS_INDEX;
+    const host = window.location.hostname.toLowerCase();
+    const canonical = (() => {
+      try { return new URL(SITE_URL).hostname.toLowerCase(); } catch { return ""; }
+    })();
+    const isLocal = host === "localhost" || host === "127.0.0.1" || host === "::1";
+    if (canonical && host !== canonical && !isLocal) return ROBOTS_NOINDEX_NOFOLLOW;
+    return ROBOTS_INDEX;
+  })();
   return (
     <Helmet>
       <title>{title}</title>
@@ -37,7 +60,7 @@ export function SEOHead({ title, description, path, noindex, ogImage, jsonLd }: 
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      {noindex && <meta name="robots" content="noindex, follow" />}
+      <meta name="robots" content={robots} />
       {jsonLd && (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       )}

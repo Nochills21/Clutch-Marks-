@@ -1,13 +1,20 @@
+# Crawl rules.
+#
+# /auth and /reset-password are deliberately NOT disallowed here. A Disallow
+# blocks the fetch, which means Google can never read the `noindex` those pages
+# send (see the X-Robots-Tag headers in vercel.json), so a sign-in page can stay
+# indexed indefinitely — and a *sign-in* page is exactly what should never
+# represent the domain. Allowing the crawl is what actually removes it.
+#
+# The remaining Disallows are private, signed-in-only app routes. They have no
+# public inbound links, so they are not discovered in the first place.
+
 User-agent: Googlebot
 Allow: /
-Disallow: /auth
-Disallow: /reset-password
 Disallow: /admin
 
 User-agent: Bingbot
 Allow: /
-Disallow: /auth
-Disallow: /reset-password
 Disallow: /admin
 
 User-agent: Twitterbot
@@ -18,8 +25,6 @@ Allow: /
 
 User-agent: *
 Allow: /
-Disallow: /auth
-Disallow: /reset-password
 Disallow: /admin
 Disallow: /dashboard
 Disallow: /progress
