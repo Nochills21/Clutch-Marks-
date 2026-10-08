@@ -149,7 +149,7 @@ export default function StudyPlanner() {
 
   return (
     <div className="space-y-8">
-      <SEOHead title="Study Planner — Clutch Marks" description="Create personalized study plans and organize your exam preparation schedule." path="/study-planner" />
+      <SEOHead path="/study-planner" />
       <div>
         <h1 className="text-3xl font-bold flex items-center gap-2">
           <Sparkles className="h-7 w-7 text-primary" /> AI Study Planner

@@ -254,6 +254,11 @@ export default function AdminPastPapers() {
       total: rows.length,
       papers: rows.filter((p) => p.paper_url).length,
       markSchemes: rows.filter((p) => p.mark_scheme_url).length,
+      // Must mirror the `needsFileOnly` filter below exactly. The button used to
+      // show `total - papers` (rows with no question paper) while the filter it
+      // toggles listed every row missing *either* file, so the count never
+      // matched the list it produced.
+      needsFile: rows.filter((p) => !p.paper_url || !p.mark_scheme_url).length,
     };
   }, [papers]);
 
@@ -403,7 +408,7 @@ export default function AdminPastPapers() {
             onClick={() => setNeedsFileOnly((v) => !v)}
           >
             <AlertTriangle className="h-4 w-4" /> Needs a file
-            {coverage.total > 0 && ` (${coverage.total - coverage.papers})`}
+            {coverage.total > 0 && ` (${coverage.needsFile})`}
           </Button>
           <Button variant="outline" className="gap-2" onClick={() => { setBulkOpen(true); setBulkMatches([]); }}>
             <FolderUp className="h-4 w-4" /> Bulk attach

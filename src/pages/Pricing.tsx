@@ -290,8 +290,6 @@ export default function Pricing() {
   return (
     <div className="space-y-8">
       <SEOHead
-        title="Plans & Pricing — Clutch Marks"
-        description="A preview of every subject at every level. Unlock everything from $5/month — A* prep for Maths, Physics and Computer Science."
         path="/pricing"
         jsonLd={PRICING_JSON_LD}
       />

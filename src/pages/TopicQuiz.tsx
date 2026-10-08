@@ -21,7 +21,7 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { SITE_URL } from "@/lib/seoRoutes";
+import { SITE_URL, breadcrumbJsonLd } from "@/lib/seoRoutes";
 import {
   Brain,
   CheckCircle2,
@@ -54,7 +54,6 @@ export default function TopicQuiz() {
     level: string;
     topic: string;
   }>();
-  const { user } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -75,6 +74,7 @@ export default function TopicQuiz() {
   // Bumped by "Try again" to re-run the load effect.
   const [retryKey, setRetryKey] = useState(0);
 
+  const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   const topicLabel = useMemo(() => (topicTitle ?? topic?.replace(/-/g, " ")?.trim() ?? "").replace(/\b\w/g, (c) => c.toUpperCase()), [topicTitle, topic]);
@@ -218,7 +218,7 @@ export default function TopicQuiz() {
       </div>
     );
   }
-  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
     return (
       <div className="space-y-6">
         <SEOHead title={`${topicLabel} — Topic Questions | Clutch Marks`} description="Exam-style topic questions with instant marking." path={topicQuizPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
@@ -237,7 +237,10 @@ export default function TopicQuiz() {
   }
 
   // Students only see topics belonging to a subject-level they picked.
-  if (!isAdminRole && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+  // Anonymous visitors are not enrolled in any subject yet, so they see the
+  // topic regardless; signing in and picking it afterwards personalises the
+  // view.
+  if (!isAdminRole && user && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
     return (
       <Card>
         <CardHeader>
@@ -286,25 +289,44 @@ export default function TopicQuiz() {
         title={`${topicLabel} — Topic Questions | ${subjectMeta.name} ${LEVEL_LABELS[levelCode]} | Clutch Marks`}
         description={`Exam-style topic questions for ${topicLabel} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}. Instant marking, worked answers and AI feedback.`}
         path={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "LearningResource",
-          name: `${topicLabel} — Topic Questions`,
-          description: `Exam-style questions for ${topicLabel} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, with instant marking and explanations.`,
-          url: `${SITE_URL}${topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
-          educationalLevel: LEVEL_LABELS[levelCode],
-          about: { "@type": "Thing", name: topicLabel },
-          isPartOf: {
-            "@type": "Course",
-            name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-            url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "LearningResource",
+            name: `${topicLabel} — Topic Questions`,
+            description: `Exam-style questions for ${topicLabel} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, with instant marking and explanations.`,
+            url: `${SITE_URL}${topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
+            educationalLevel: LEVEL_LABELS[levelCode],
+            about: { "@type": "Thing", name: topicLabel },
+            isPartOf: {
+              "@type": "Course",
+              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
+              url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            },
+            provider: {
+              "@type": "EducationalOrganization",
+              name: "Clutch Marks",
+              url: `${SITE_URL}/`,
+            },
           },
-          provider: {
-            "@type": "EducationalOrganization",
-            name: "Clutch Marks",
-            url: `${SITE_URL}/`,
-          },
-        }}
+          // Same trail as <TopicBreadcrumb> renders — markup that invents a crumb
+          // the student cannot see is what Google drops (or penalises).
+          breadcrumbJsonLd([
+            { name: "Subjects", path: "/subjects" },
+            {
+              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
+              path: `/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            },
+            {
+              name: topicLabel,
+              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
+            },
+            {
+              name: "Topic Questions",
+              path: topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
+            },
+          ]),
+        ]}
       />
 
       <TopicBreadcrumb

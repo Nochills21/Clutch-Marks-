@@ -57,7 +57,7 @@ export default function ResetPassword() {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center px-4 geo-pattern">
-      <SEOHead title="Reset Password — Clutch Marks" description="Set a new password for your Clutch Marks account." path="/reset-password" />
+      <SEOHead path="/reset-password" />
       <Card className="w-full max-w-sm neon-border bg-card/80 backdrop-blur-xl shadow-2xl">
         <CardHeader className="pb-2 text-center">
           <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20">

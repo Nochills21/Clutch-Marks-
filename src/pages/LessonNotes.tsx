@@ -107,7 +107,7 @@ export default function LessonNotes() {
       </div>
     );
   }
-  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
     return (
       <div className="space-y-6">
         <SEOHead title="Lesson Notes — Clutch Marks" description="View and download the uploaded notes for this lesson." path={`/lessons/${lessonId}/notes`} />

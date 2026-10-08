@@ -17,6 +17,7 @@ import { SITE_URL } from "@/lib/seoRoutes";
 import { usePreviewSlice, PreviewLimit } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
 import { BookOpen, FileText, Brain, Archive, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw } from "lucide-react";
 import { loadFailureMessage } from "@/lib/net";
@@ -68,8 +69,9 @@ export default function Subject() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [retryKey, setRetryKey] = useState(0);
 
+  const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
-  const needsSubjectPick = !isAdminRole && prefsLoaded && pickedIds.size === 0;
+  const needsSubjectPick = !isAdminRole && user && prefsLoaded && pickedIds.size === 0;
 
   // filters
   const [search, setSearch] = useState("");
@@ -210,7 +212,7 @@ export default function Subject() {
   // `subjectLevel` must be non-null: without that, an unknown level (or a
   // failed lookup) also satisfied this test and the student was told they had
   // not selected a subject they never chose.
-  if (!isAdminRole && prefsLoaded && subjectLevel && !pickedIds.has(subjectLevel.id)) {
+  if (!isAdminRole && user && prefsLoaded && subjectLevel && !pickedIds.has(subjectLevel.id)) {
     return (
       <Card>
         <CardHeader>

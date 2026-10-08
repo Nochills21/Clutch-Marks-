@@ -16,13 +16,15 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { SITE_URL } from "@/lib/seoRoutes";
-import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw } from "lucide-react";
+import { SITE_URL, breadcrumbJsonLd } from "@/lib/seoRoutes";
+import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw, Download } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
+import { paperFileName } from "@/lib/pastPaperFiles";
 import { usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
 
 interface TopicPaper {
@@ -54,6 +56,7 @@ export default function TopicPapers() {
   const [retryKey, setRetryKey] = useState(0);
   const { toast } = useToast();
   const { isPreview, hasPaid } = usePlanAccess();
+  const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   // Free-plan limit for this topic's past papers: show the first 2 records
@@ -69,6 +72,16 @@ export default function TopicPapers() {
       await openProtectedFile("past-papers", url);
     } catch (e: any) {
       toast({ title: "Error", description: e?.message ?? "Unable to open file", variant: "destructive" });
+    }
+  };
+
+  // Save-to-disk variant of openPaper: same watermarked bytes, but the browser
+  // is told to download them (with a sensible filename) instead of previewing.
+  const downloadPaper = async (url: string, name: string) => {
+    try {
+      await openProtectedFile("past-papers", url, name);
+    } catch (e: any) {
+      toast({ title: "Error", description: e?.message ?? "Unable to download file", variant: "destructive" });
     }
   };
 
@@ -151,7 +164,7 @@ export default function TopicPapers() {
       </div>
     );
   }
-  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
     return (
       <div className="space-y-6">
         <SEOHead title={`${topicTitle ?? "Past Papers"} — Clutch Marks`} description="Past papers and mark schemes." path={topicPapersPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
@@ -170,7 +183,10 @@ export default function TopicPapers() {
   }
 
   // Students only see topics belonging to a subject-level they picked.
-  if (!isAdminRole && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+  // Anonymous visitors are not enrolled in any subject yet, so they see the
+  // topic regardless; signing in and picking it afterwards personalises the
+  // view.
+  if (!isAdminRole && user && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
     return (
       <Card>
         <CardHeader>
@@ -218,25 +234,44 @@ export default function TopicPapers() {
         title={`${topicTitle} — Past Papers & Mark Schemes | ${subjectMeta.name} ${LEVEL_LABELS[levelCode]} | Clutch Marks`}
         description={`Past papers and mark schemes for ${topicTitle} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}. Practise under real exam conditions with papers sorted by year.`}
         path={topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "LearningResource",
-          name: `${topicTitle} — Past Papers & Mark Schemes`,
-          description: `Past papers and mark schemes for ${topicTitle} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, organised by year and session.`,
-          url: `${SITE_URL}${topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
-          educationalLevel: LEVEL_LABELS[levelCode],
-          about: { "@type": "Thing", name: topicTitle },
-          isPartOf: {
-            "@type": "Course",
-            name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-            url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "LearningResource",
+            name: `${topicTitle} — Past Papers & Mark Schemes`,
+            description: `Past papers and mark schemes for ${topicTitle} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, organised by year and session.`,
+            url: `${SITE_URL}${topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
+            educationalLevel: LEVEL_LABELS[levelCode],
+            about: { "@type": "Thing", name: topicTitle },
+            isPartOf: {
+              "@type": "Course",
+              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
+              url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            },
+            provider: {
+              "@type": "EducationalOrganization",
+              name: "Clutch Marks",
+              url: `${SITE_URL}/`,
+            },
           },
-          provider: {
-            "@type": "EducationalOrganization",
-            name: "Clutch Marks",
-            url: `${SITE_URL}/`,
-          },
-        }}
+          // Same trail as <TopicBreadcrumb> renders — markup that invents a crumb
+          // the student cannot see is what Google drops (or penalises).
+          breadcrumbJsonLd([
+            { name: "Subjects", path: "/subjects" },
+            {
+              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
+              path: `/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            },
+            {
+              name: topicTitle,
+              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
+            },
+            {
+              name: "Past Papers & Mark Schemes",
+              path: topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
+            },
+          ]),
+        ]}
       />
 
       <TopicBreadcrumb
@@ -316,14 +351,38 @@ export default function TopicPapers() {
                 </div>
                 <div className="flex flex-wrap items-center gap-2 sm:shrink-0 sm:justify-end">
                   {p.paper_url && (
-                    <Button size="sm" variant="outline" className="gap-1.5 text-xs" onClick={() => openPaper(p.paper_url!)}>
-                      <FileText className="h-3.5 w-3.5" /> Paper
-                    </Button>
+                    <>
+                      <Button size="sm" variant="outline" className="gap-1.5 text-xs" onClick={() => openPaper(p.paper_url!)}>
+                        <FileText className="h-3.5 w-3.5" /> Paper
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="gap-1.5 text-xs"
+                        aria-label={`Download ${p.title} question paper`}
+                        title="Download question paper"
+                        onClick={() => downloadPaper(p.paper_url!, paperFileName(p.title, "paper"))}
+                      >
+                        <Download className="h-3.5 w-3.5" /> Download
+                      </Button>
+                    </>
                   )}
                   {p.mark_scheme_url && (
-                    <Button size="sm" variant="outline" className="gap-1.5 text-xs text-green-600 border-green-200 hover:bg-green-50" onClick={() => openPaper(p.mark_scheme_url!)}>
-                      <FileCheck className="h-3.5 w-3.5" /> Mark Scheme
-                    </Button>
+                    <>
+                      <Button size="sm" variant="outline" className="gap-1.5 text-xs text-green-600 border-green-200 hover:bg-green-50" onClick={() => openPaper(p.mark_scheme_url!)}>
+                        <FileCheck className="h-3.5 w-3.5" /> Mark Scheme
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="gap-1.5 text-xs text-green-600"
+                        aria-label={`Download ${p.title} mark scheme`}
+                        title="Download mark scheme"
+                        onClick={() => downloadPaper(p.mark_scheme_url!, paperFileName(p.title, "mark-scheme"))}
+                      >
+                        <Download className="h-3.5 w-3.5" /> Download
+                      </Button>
+                    </>
                   )}
                   {!p.paper_url && !p.mark_scheme_url && (
                     <Badge variant="secondary" className="gap-1.5 text-[10px] text-muted-foreground">

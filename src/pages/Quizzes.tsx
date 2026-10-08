@@ -37,7 +37,6 @@ interface GradeResult {
 }
 
 export default function Quizzes() {
-  const { user } = useAuth();
   const { toast } = useToast();
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [activeQuiz, setActiveQuiz] = useState<any>(null);
@@ -76,6 +75,7 @@ export default function Quizzes() {
   // Subject & level gate INPUTS. The gate itself renders below, after every
   // hook: returning early from above the hooks would change the hook count
   // between renders and trip React's "fewer hooks than expected" guard.
+  const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   // Quizzes whose topic belongs to one of the student's picked subject-levels.
@@ -88,11 +88,15 @@ export default function Quizzes() {
   const visibleQuizzes = useMemo(() => {
     if (isAdminRole) return quizzes;
     if (!prefsLoaded) return [];
+    // Anonymous visitors are not enrolled in anything, so they see the whole
+    // published list. A signed-in student is scoped to their picks; either way
+    // the free-plan slice above them decides how many are actually shown.
+    if (!user) return quizzes;
     return quizzes.filter((q) => {
       const sl = (q as any).topics?.subject_level_id as string | undefined;
       return sl ? pickedIds.has(sl) : false;
     });
-  }, [quizzes, isAdminRole, prefsLoaded, pickedIds]);
+  }, [quizzes, isAdminRole, prefsLoaded, pickedIds, user]);
 
   // Free-plan preview: the first two quizzes of the picked subjects, sliced from
   // the same list the cards render. The previous approach rendered rows from
@@ -109,10 +113,10 @@ export default function Quizzes() {
       </div>
     );
   }
-  if (!isAdminRole && pickedIds.size === 0) {
+  if (!isAdminRole && user && pickedIds.size === 0) {
     return (
       <div className="space-y-6">
-        <SEOHead title="Quizzes — Clutch Marks" description="Test your knowledge with MCQ quizzes, get instant feedback, and review explanations." path="/quizzes" />
+        <SEOHead path="/quizzes" />
         <SubjectGate />
       </div>
     );
@@ -211,7 +215,7 @@ export default function Quizzes() {
 
     return (
       <div className="space-y-6 max-w-3xl mx-auto">
-        <SEOHead title="Quiz — Clutch Marks" description="Test your knowledge with MCQ quizzes, get instant feedback, and review explanations." path="/quizzes" />
+        <SEOHead path="/quizzes" />
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold">{activeQuiz.title}</h1>
@@ -379,7 +383,7 @@ export default function Quizzes() {
   return (
     <div className="space-y-6">
       <PreviewBanner />
-      <SEOHead title="Quizzes — Clutch Marks" description="Test your knowledge with MCQ quizzes, get instant feedback, and review explanations." path="/quizzes" />
+      <SEOHead path="/quizzes" />
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Quizzes</h1>
         <p className="text-muted-foreground">Test your knowledge</p>

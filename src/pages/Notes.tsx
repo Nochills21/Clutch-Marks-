@@ -14,7 +14,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/SEOHead";
-import { getRouteMeta } from "@/lib/seoRoutes";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { openProtectedFile, getSignedUrl } from "@/lib/contentFiles";
@@ -144,6 +143,7 @@ export default function Notes() {
   // The library is scoped to the student's picked subject-levels, the same way
   // the dashboard tiles are. Without this a Mathematics + Physics student read
   // Computer Science A2 notes under a "Showing only your subjects" banner.
+  const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
   const scoped = !isAdminRole && prefsLoaded && pickedIds.size > 0;
 
@@ -199,14 +199,10 @@ export default function Notes() {
       </div>
     );
   }
-  if (!isAdminRole && pickedIds.size === 0) {
+  if (!isAdminRole && user && pickedIds.size === 0) {
     return (
       <div className="mx-auto max-w-4xl space-y-8">
-        <SEOHead
-          title="Revision Notes — Clutch Marks"
-          description="Search and filter uploaded topic notes by subject, level and keyword, then open, download and track what you've studied."
-          path="/notes"
-        />
+        <SEOHead path="/notes" />
         <SubjectGate />
       </div>
     );
@@ -215,12 +211,7 @@ export default function Notes() {
   return (
     <div className="mx-auto max-w-4xl space-y-8">
       <WatermarkOverlay />
-      <SEOHead
-        title="Revision Notes — Clutch Marks"
-        description="Search and filter uploaded topic notes by subject, level and keyword, then open, download and track what you've studied."
-        path="/notes"
-        jsonLd={getRouteMeta("/notes")?.jsonLd}
-      />
+      <SEOHead path="/notes" />
 
       {/* ---------- masthead ---------- */}
       <header>

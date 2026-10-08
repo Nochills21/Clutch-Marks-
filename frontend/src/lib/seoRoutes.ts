@@ -128,6 +128,54 @@ const course = {
  *  and the plan cards — Google ignores FAQ markup whose Q&A is not on the page. */
 export const PRICING_JSON_LD = [course, faqPage()];
 
+/**
+ * BreadcrumbList for a topic page, mirroring the visible <TopicBreadcrumb>.
+ *
+ * Google renders breadcrumb rich results from this markup, and it is the only
+ * structured data that tells a crawler the topic page sits under a subject and
+ * level rather than floating on its own. Markup must match the on-page trail:
+ * a crumb that is not a real, reachable URL is ignored (or penalised), so every
+ * item here is one of the app's actual routes.
+ */
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
+/**
+ * Head fields for a route: the shared table's values, unless the page supplies
+ * its own.
+ *
+ * Only parameterised pages (the /study/:slug/:level/:topic/... trio) should
+ * supply their own — the table cannot know which topic is being rendered. Every
+ * literal route reads its title and description from ROUTE_META so the static
+ * (prerendered) and runtime (React) heads cannot disagree. They used to: pages
+ * carried their own literals, and /practice alone shipped four different
+ * descriptions depending on which render branch ran, so the same URL described
+ * itself differently to Googlebot-with-JS and Googlebot-without.
+ */
+export function headFor(
+  path: string,
+  own?: { title?: string; description?: string },
+): { title: string; description: string; noindex: boolean } {
+  const meta = getRouteMeta(path);
+  return {
+    title: own?.title ?? meta?.title ?? SITE_NAME,
+    description: own?.description ?? meta?.description ?? "",
+    // OR, not override: a page can add noindex but never remove it from a route
+    // the table already marked private.
+    noindex: Boolean(meta?.noindex),
+  };
+}
+
 export const ROUTE_META: RouteMeta[] = [
   {
     path: "/",
@@ -241,6 +289,10 @@ export const ROUTE_META: RouteMeta[] = [
     title: "Flashcards — Clutch Marks",
     description:
       "Study key terms and concepts with spaced-repetition flashcards built for exam recall.",
+    // Behind <ApprovalGate>, which redirects a signed-out visitor to /auth. A
+    // crawler can only ever see that redirect, so the page must not be
+    // advertised as indexable (and stays out of the sitemap).
+    noindex: true,
   },
   {
     path: "/practice",
@@ -248,6 +300,7 @@ export const ROUTE_META: RouteMeta[] = [
     title: "Practice — Clutch Marks",
     description:
       "Topic questions, smart drills on your weakest areas, and every question you got wrong or saved — one practice hub.",
+    noindex: true,
   },
   {
     path: "/study-planner",
@@ -255,6 +308,7 @@ export const ROUTE_META: RouteMeta[] = [
     title: "Study Planner — Clutch Marks",
     description:
       "Create personalised study plans and organise your exam preparation schedule week by week.",
+    noindex: true,
   },
   {
     path: "/study/:slug/:level/:topic/notes",
@@ -318,38 +372,78 @@ export const ROUTE_META: RouteMeta[] = [
     title: "Announcements — Clutch Marks",
     description:
       "Read the latest Clutch Marks announcements about lessons, exams and platform updates.",
+    // Behind the approval gate; a crawler sees the sign-in redirect.
+    noindex: true,
   },
   {
     path: "/progress",
     title: "Progress — Clutch Marks",
     description:
       "Track per-subject aggregates and per-topic mastery in one colour-coded view of your strengths and weaknesses.",
+    // Personal to the signed-in student: a crawler only ever sees the sign-in
+    // redirect, so there is nothing here for the index to hold.
+    noindex: true,
   },
   {
     path: "/pricing",
     title: "Plans & Pricing — Clutch Marks",
     description:
-      "Unlock every subject and level from $5/month. Pay by bank transfer or Urpay — plans activate within 24 hours.",
+      "Unlock every subject and level from $5/month — preview any level free. Pay by bank transfer or Urpay; plans activate within 24 hours.",
     ogImage: "/og/pricing.png",
     jsonLd: PRICING_JSON_LD,
   },
   {
     path: "/downloads",
     title: "Downloads — Clutch Marks",
+    // Names the actual qualifications and syllabus codes — this is what a
+    // student searching "IGCSE 0580 formula sheet" matches against.
     description:
-      "Download revision notes, formula sheets and past papers for Maths, Physics and Computer Science."
+      "Download formula sheets and reference sheets for every subject and level: Cambridge IGCSE 0580/0625/0478, Edexcel IAL AS/A2 Maths and Physics, Cambridge 9618 Computer Science."
   },
   {
     path: "/privacy",
     title: "Privacy Policy — Clutch Marks",
     description:
-      "How Clutch Marks collects, uses and protects student data, written to be readable by students and parents."
+      "How Clutch Marks collects, uses and protects student and parent data — in plain language."
   },
   {
     path: "/terms",
     title: "Terms of Service — Clutch Marks",
     description:
-      "The terms you agree to when you use Clutch Marks."
+      "The rules for using Clutch Marks — fair use, content ownership, and account policies in plain language."
+  },
+
+  // ---- Utility and account routes ----------------------------------------
+  // Crawlable but never indexable. Deliberately NOT disallowed in
+  // public/robots.txt: a Disallow would block the fetch, and a blocked fetch
+  // means this noindex is never read (that is how /auth stayed indexed).
+  // Deliberately absent from public/sitemap.xml, which only lists indexable
+  // routes — seoConsistency.test.ts enforces both of those rules.
+  {
+    path: "/dashboard",
+    title: "Dashboard — Clutch Marks",
+    description:
+      "Your Clutch Marks console: today's tasks, this week's progress and the subjects you study.",
+    noindex: true,
+  },
+  {
+    path: "/leaderboard",
+    title: "Leaderboard — Clutch Marks",
+    description:
+      "An optional leaderboard for students who choose to be listed. Nobody is ranked unless they opt in.",
+    noindex: true,
+  },
+  {
+    path: "/feedback",
+    title: "Feedback — Clutch Marks",
+    description: "Send the Clutch Marks team a bug report or a suggestion.",
+    noindex: true,
+  },
+  {
+    path: "/reset-password",
+    title: "Reset Password — Clutch Marks",
+    description: "Set a new password for your Clutch Marks account.",
+    noindex: true,
   },
 ];
 

@@ -8,14 +8,12 @@ type Section = { heading: string; body: React.ReactNode };
 
 function LegalShell({
   title,
-  description,
   updated,
   intro,
   sections,
   path,
 }: {
   title: string;
-  description: string;
   updated: string;
   intro: string;
   sections: Section[];
@@ -23,7 +21,7 @@ function LegalShell({
 }) {
   return (
     <div className="mx-auto max-w-3xl space-y-6">
-      <SEOHead title={title} description={description} path={path} />
+      <SEOHead path={path} />
       <div>
         <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
         <p className="text-sm text-muted-foreground mt-1">Last updated: {updated}</p>
@@ -199,7 +197,6 @@ export function PrivacyPolicy() {
   return (
     <LegalShell
       title="Privacy Policy"
-      description="How Clutch Marks collects, uses and protects student and parent data — in plain language."
       path="/privacy"
       updated={UPDATED}
       intro="We collect the minimum we need: your name, email and learning activity. We never sell your data, we never show ads, and parents only see learning progress. Delete your account any time and your data goes with it."
@@ -212,7 +209,6 @@ export function TermsOfService() {
   return (
     <LegalShell
       title="Terms of Service"
-      description="The rules for using Clutch Marks — fair use, content ownership, and account policies in plain language."
       path="/terms"
       updated={UPDATED}
       intro="Study honestly, keep your account to yourself, and don't share our materials outside the site — everything on Clutch Marks is watermarked and owned by us. Break the rules and we may suspend your account."

@@ -8,7 +8,7 @@ import { ParentDashboard } from "@/components/dashboards/ParentDashboard";
 export default function Dashboard() {
   const { role } = useAuth();
 
-  if (role === "admin") return <><SEOHead title="Dashboard — Clutch Marks" description="View your learning progress, upcoming tasks, and performance analytics at a glance." path="/dashboard" /><AdminDashboard /></>;
-  if (role === "parent") return <><SEOHead title="Dashboard — Clutch Marks" description="View your learning progress, upcoming tasks, and performance analytics at a glance." path="/dashboard" /><ParentDashboard /></>;
-  return <><SEOHead title="Dashboard — Clutch Marks" description="View your learning progress, upcoming tasks, and performance analytics at a glance." path="/dashboard" /><StudentDashboard /></>;
+  if (role === "admin") return <><SEOHead path="/dashboard" /><AdminDashboard /></>;
+  if (role === "parent") return <><SEOHead path="/dashboard" /><ParentDashboard /></>;
+  return <><SEOHead path="/dashboard" /><StudentDashboard /></>;
 }

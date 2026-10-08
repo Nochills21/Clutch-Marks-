@@ -21,11 +21,12 @@ import {
   archiveBoard,
   archivePaperGroup,
   paperSortKey,
+  paperFileName,
   sortSessions,
   SESSION_ORDER,
   filterArchivePapers,
 } from "@/lib/pastPaperFiles";
-import { Loader2, FileText, Search, ExternalLink, Clock, Trophy } from "lucide-react";
+import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download } from "lucide-react";
 import { AiCorrectionForm } from "@/components/AiCorrectionForm";
 import { QueryError } from "@/components/QueryError";
 import { loadFailureMessage } from "@/lib/net";
@@ -138,6 +139,16 @@ export default function PastPapers() {
     }
   };
 
+  // Save-to-disk variant. Same watermarked bytes as opening, but the browser is
+  // told to download (and what to call the file) instead of previewing it.
+  const handleDownloadFile = async (url: string, name: string) => {
+    try {
+      await openProtectedFile("past-papers", url, name);
+    } catch (e: any) {
+      toast({ title: "Unable to download file", description: e?.message ?? "Please try again", variant: "destructive" });
+    }
+  };
+
   // External papers route through serve-external-paper, which enforces the
   // plan and audits the click. A gated rejection becomes an upgrade prompt.
   const handleOpenExternal = async (url: string, label?: string) => {
@@ -152,7 +163,7 @@ export default function PastPapers() {
     }
   };
 
-  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
+  const needsSubjectPick = !isAdmin && user && prefsLoaded && pickedIds.size === 0;
 
   // Past papers whose topic belongs to a subject-level the student picked.
   // Admins see everything.
@@ -171,11 +182,15 @@ export default function PastPapers() {
     if (isAdmin || !prefsLoaded) return papers ?? [];
     return (papers ?? []).filter((p: any) => {
       const tid = p.topic_id;
-      if (!tid) return false; // untagged papers — hide from students
+      if (!tid) return false; // untagged papers — hide from everyone
       const sl = topicToSl.get(tid);
-      return sl && pickedIds.has(sl);
+      if (!sl) return false;
+      // Anonymous visitors have no picks, so the subject filter would empty the
+      // archive; they see every tagged paper, then the free-plan slice above
+      // them applies as it does for a signed-in student.
+      return !user || pickedIds.has(sl);
     });
-  }, [papers, isAdmin, prefsLoaded, pickedIds, topicToSl]);
+  }, [papers, isAdmin, prefsLoaded, pickedIds, topicToSl, user]);
 
   // Filter options come from the whole subject-scoped archive, not the free
   // slice, so a student can see (and reach) every board / paper / session on
@@ -234,7 +249,7 @@ export default function PastPapers() {
   if (needsSubjectPick) {
     return (
       <div className="space-y-6">
-        <SEOHead title="Past Papers — Clutch Marks" description="Browse and download past papers and mark schemes." path="/past-papers" />
+        <SEOHead path="/past-papers" />
         <SubjectGate />
       </div>
     );
@@ -242,11 +257,7 @@ export default function PastPapers() {
 
   return (
     <div className="space-y-8">
-      <SEOHead
-        title="Past Papers — Clutch Marks"
-        description="Browse and download IGCSE, AS and A Level past papers and mark schemes by year, session and paper number to practise under exam conditions."
-        path="/past-papers"
-      />
+      <SEOHead path="/past-papers" />
       <div>
         <h1 className="text-3xl font-bold flex items-center gap-2">
           <FileText className="h-7 w-7 text-primary" /> Past Papers
@@ -388,15 +399,19 @@ export default function PastPapers() {
                     <div className="flex shrink-0 flex-wrap justify-end gap-1">
                       {p.paper_url ? (
                         <Button variant="ghost" size="sm" onClick={() => handleOpenFile(p.paper_url ?? "")}>
-                          Paper
+                          View paper
                         </Button>
                       ) : null}
                       {p.mark_scheme_url && (
                         <Button variant="ghost" size="sm" onClick={() => handleOpenFile(p.mark_scheme_url ?? "")}>
-                          Mark scheme
+                          View mark scheme
                         </Button>
                       )}
-                      {!p.paper_url && p.source_url && (
+                      {/* A row can carry a paper but no mark scheme (or vice
+                          versa), so the board-site fallback must fire whenever
+                          *either* file is missing — keying it on `paper_url`
+                          alone left those rows with no way out. */}
+                      {(!p.paper_url || !p.mark_scheme_url) && p.source_url && (
                         <Button
                           variant="outline"
                           size="sm"
@@ -437,19 +452,45 @@ export default function PastPapers() {
                         : "Awaiting upload"}
                   </p>
                   <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-                    <Button
-                      size="sm"
-                      className="gap-1.5"
-                      onClick={() => setPracticePaper({
-                        id: p.id,
-                        title: p.title,
-                        session: p.session ?? null,
-                        year: p.year,
-                        paper_number: p.paper_number ?? null,
-                      })}
-                    >
-                      <Clock className="h-3.5 w-3.5" /> Practise
-                    </Button>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Button
+                        size="sm"
+                        className="gap-1.5"
+                        onClick={() => setPracticePaper({
+                          id: p.id,
+                          title: p.title,
+                          session: p.session ?? null,
+                          year: p.year,
+                          paper_number: p.paper_number ?? null,
+                        })}
+                      >
+                        <Clock className="h-3.5 w-3.5" /> Practise
+                      </Button>
+                      {p.paper_url && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="gap-1.5"
+                          aria-label={`Download ${p.title} question paper`}
+                          title="Download question paper"
+                          onClick={() => handleDownloadFile(p.paper_url!, paperFileName(p.title, "paper"))}
+                        >
+                          <Download className="h-3.5 w-3.5" /> Download paper
+                        </Button>
+                      )}
+                      {p.mark_scheme_url && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="gap-1.5"
+                          aria-label={`Download ${p.title} mark scheme`}
+                          title="Download mark scheme"
+                          onClick={() => handleDownloadFile(p.mark_scheme_url!, paperFileName(p.title, "mark-scheme"))}
+                        >
+                          <Download className="h-3.5 w-3.5" /> Download mark scheme
+                        </Button>
+                      )}
+                    </div>
                     {(() => {
                       const score = attemptsByPaper.get(p.id);
                       if (!score) return null;
