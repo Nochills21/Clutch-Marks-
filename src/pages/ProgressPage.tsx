@@ -74,7 +74,7 @@ function bandLabel(pctVal: number, attempts: number) {
 
 export default function ProgressPage() {
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
   const [rows, setRows] = useState<Row[]>([]);
   const [topics, setTopics] = useState<TopicStat[]>([]);
   const [topicSL, setTopicSL] = useState<Map<string, string>>(new Map());
@@ -226,8 +226,6 @@ export default function ProgressPage() {
     () => topics.filter((s) => pickedTopicIds.has(s.id)),
     [topics, pickedTopicIds],
   );
-
-  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
 
   if (!isAdmin && !prefsLoaded) {
     return (

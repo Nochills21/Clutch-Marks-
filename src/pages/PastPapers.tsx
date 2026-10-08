@@ -63,7 +63,7 @@ export default function PastPapers() {
   const { toast } = useToast();
   const { user } = useAuth();
   const qc = useQueryClient();
-  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
   const [search, setSearch] = useState("");
   const [yearFilter, setYearFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
@@ -162,8 +162,6 @@ export default function PastPapers() {
       toast({ title: "Unable to open link", description: e?.message ?? "Please try again", variant: "destructive" });
     }
   };
-
-  const needsSubjectPick = !isAdmin && user && prefsLoaded && pickedIds.size === 0;
 
   // Past papers whose topic belongs to a subject-level the student picked.
   // Admins see everything.

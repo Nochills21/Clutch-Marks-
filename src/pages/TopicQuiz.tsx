@@ -75,7 +75,7 @@ export default function TopicQuiz() {
   const [retryKey, setRetryKey] = useState(0);
 
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
   // The stored name wins verbatim: topicSeo.titleFor writes the static head from
   // the same string, so title-casing it here would give this URL two titles.
@@ -220,7 +220,8 @@ export default function TopicQuiz() {
       </div>
     );
   }
-  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
+  // "Does this reader still have to pick subjects?" is asked in one place.
+  if (needsSubjectPick) {
     return (
       <div className="space-y-6">
         <SEOHead title={`${topicLabel} — Topic Questions | Clutch Marks`} description="Exam-style topic questions with instant marking." path={topicQuizPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />

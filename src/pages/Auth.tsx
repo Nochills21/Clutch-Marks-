@@ -19,7 +19,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { captureAttribution, getAttribution, trackSignup } from "@/lib/analytics";
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
 import { fetchEnabledProviders, signInWithGoogle, NO_PROVIDERS } from "@/lib/oauthProviders";
-import { GraduationCap, ArrowLeft, Sparkles } from "lucide-react";
+import { GraduationCap, ArrowLeft, Sparkles, Mail } from "lucide-react";
 import { ForgotPasswordDialog } from "@/components/ForgotPasswordDialog";
 
 /** Google's mark, inline: the brand guidelines forbid recolouring it, so it is
@@ -70,6 +70,10 @@ export default function Auth() {
   const [loginIdentifier, setLoginIdentifier] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
+  // Set only when the signup succeeded but the project requires the student to
+  // confirm their email first: the account exists, there is no session yet, so
+  // the form has to hand over to a state that says what to do next.
+  const [awaitingConfirmation, setAwaitingConfirmation] = useState<string | null>(null);
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [fullName, setFullName] = useState("");
@@ -177,7 +181,7 @@ export default function Auth() {
       setLoading(false);
       return;
     }
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password: signupPassword,
       options: {
@@ -196,15 +200,27 @@ export default function Auth() {
     setLoading(false);
     if (error) {
       toast({ title: "Signup failed", description: error.message, variant: "destructive" });
+      return;
+    }
+    toast({
+      title: role === "parent" ? "Parent account created" : "Welcome to Clutch Marks!",
+      description: role === "parent"
+        ? "Children who signed up with your email are linked automatically."
+        : parent
+          ? "Account ready — we've linked your parent's account to yours."
+          : "Your account is ready — pick your subjects and start studying.",
+    });
+    // Signup used to end here: the account existed and, with email confirmation
+    // off, the session was already live, but the student stayed on the form with
+    // a toast that faded. The flow's first step — "pick your subjects and start
+    // studying" — was one click away and nothing said so. Every other way in
+    // (login, the Google callback, the emailed link, a password reset) already
+    // lands on /dashboard, so this one does too rather than inventing a second
+    // destination.
+    if (data.session) {
+      navigate("/dashboard", { replace: true });
     } else {
-      toast({
-        title: role === "parent" ? "Parent account created" : "Welcome to Clutch Marks!",
-        description: role === "parent"
-          ? "Children who signed up with your email are linked automatically."
-          : parent
-            ? "Account ready — we've linked your parent's account to yours."
-            : "Your account is ready — pick your subjects and start studying.",
-      });
+      setAwaitingConfirmation(email);
     }
   };
 
@@ -237,6 +253,28 @@ export default function Auth() {
         </div>
 
         <Card className="neon-border bg-card/80 backdrop-blur-xl shadow-2xl">
+          {awaitingConfirmation ? (
+            <CardContent className="space-y-5 p-7 text-center">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                <Mail className="h-6 w-6 text-primary" />
+              </div>
+              <div className="space-y-2">
+                <h2 className="text-lg font-semibold">Check your inbox</h2>
+                <p className="text-sm text-muted-foreground">
+                  We sent a confirmation link to{" "}
+                  <span className="font-medium text-foreground">{awaitingConfirmation}</span>. Open it
+                  to finish setting up your account, then sign in.
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Nothing after a few minutes? Check your spam folder, then try signing in — if the
+                  address already had an account, your password still works.
+                </p>
+              </div>
+              <Button className="w-full" onClick={() => setAwaitingConfirmation(null)}>
+                Back to sign in
+              </Button>
+            </CardContent>
+          ) : (
           <Tabs defaultValue="login">
             <CardHeader className="pb-4">
               <TabsList className="grid w-full grid-cols-2 bg-secondary/60">
@@ -333,6 +371,7 @@ export default function Auth() {
               </form>
             </TabsContent>
           </Tabs>
+          )}
         </Card>
 
         <div className="mt-6 flex justify-center">

@@ -144,8 +144,13 @@ export default function Notes() {
   // the dashboard tiles are. Without this a Mathematics + Physics student read
   // Computer Science A2 notes under a "Showing only your subjects" banner.
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
-  const scoped = !isAdminRole && prefsLoaded && pickedIds.size > 0;
+  const {
+    pickedIds,
+    loaded: prefsLoaded,
+    isAdmin: isAdminRole,
+    needsSubjectPick,
+    filtering,
+  } = useMySubjects();
 
   const load = async () => {
     setLoading(true);
@@ -169,7 +174,7 @@ export default function Notes() {
   const visible = useMemo(() => {
     const term = q.trim().toLowerCase();
     return notes.filter((n) => {
-      if (scoped && !pickedIds.has(n.subject_level_id)) return false;
+      if (filtering && !pickedIds.has(n.subject_level_id)) return false;
       if (subject !== "all" && n.subject_id !== subject) return false;
       if (level !== "all" && n.level !== level) return false;
       if (type !== "all" && n.material_type !== type) return false;
@@ -183,7 +188,7 @@ export default function Notes() {
         body.includes(term)
       );
     });
-  }, [notes, q, subject, level, type, scoped, pickedIds]);
+  }, [notes, q, subject, level, type, filtering, pickedIds]);
 
   const completedCount = visible.filter((n) => done[n.id]).length;
   const progressPct = visible.length ? Math.round((completedCount / visible.length) * 100) : 0;
@@ -199,7 +204,7 @@ export default function Notes() {
       </div>
     );
   }
-  if (!isAdminRole && user && pickedIds.size === 0) {
+  if (needsSubjectPick) {
     return (
       <div className="mx-auto max-w-4xl space-y-8">
         <SEOHead path="/notes" />
