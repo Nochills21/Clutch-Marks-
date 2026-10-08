@@ -109,8 +109,11 @@ export default function Index() {
                   Start revising <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
+              {/* A real route, not an in-page anchor: notes, topic questions and
+                  past papers are readable without an account, and the anchor only
+                  led to the subject picker, which needs one. */}
               <Button asChild size="lg" variant="outline" className="h-12 px-6 text-[15px]">
-                <a href="#subjects">Browse subjects</a>
+                <Link to="/subjects">Browse subjects</Link>
               </Button>
             </div>
 
@@ -197,7 +200,14 @@ export default function Index() {
                 practice sets.
               </p>
             </div>
-            <SubjectPicker />
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <SubjectPicker />
+              <Button asChild variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-foreground">
+                <Link to="/subjects">
+                  Browse every subject and level <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 

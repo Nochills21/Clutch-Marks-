@@ -227,7 +227,12 @@ export default function Notes() {
             ? "Loading notes…"
             : visible.length === 0
               ? "No notes in this view"
-              : `${completedCount} of ${visible.length} marked as studied — ${progressPct}% of this set`}
+              : // Study ticks are per-account: promising a progress figure to a
+                // visitor who has no account to record it against was a number
+                // that could never move.
+                !user
+                ? "Sign in to track which notes you've studied"
+                : `${completedCount} of ${visible.length} marked as studied — ${progressPct}% of this set`}
         </p>
         <hr className="rule-gold mt-6" />
       </header>
@@ -306,15 +311,19 @@ export default function Notes() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
 
-                    <button
-                      onClick={() => toggle(n.id)}
-                      aria-label={studied ? "Mark as not studied" : "Mark as studied"}
-                      className="shrink-0 transition-transform hover:scale-110"
-                    >
-                      {studied
-                        ? <CheckCircle2 className="h-5 w-5 text-primary" />
-                        : <Circle className="h-5 w-5 text-muted-foreground/40" />}
-                    </button>
+                    {/* Per-account control: hidden when signed out instead of
+                        rendering a toggle whose only outcome is "nothing". */}
+                    {user && (
+                      <button
+                        onClick={() => toggle(n.id)}
+                        aria-label={studied ? "Mark as not studied" : "Mark as studied"}
+                        className="shrink-0 transition-transform hover:scale-110"
+                      >
+                        {studied
+                          ? <CheckCircle2 className="h-5 w-5 text-primary" />
+                          : <Circle className="h-5 w-5 text-muted-foreground/40" />}
+                      </button>
+                    )}
 
                     <div className="min-w-0 flex-1">
                       <p className="font-display text-[15px] font-semibold leading-snug tracking-tight">
