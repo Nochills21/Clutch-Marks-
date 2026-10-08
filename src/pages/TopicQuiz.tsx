@@ -21,7 +21,7 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { topicHead } from "@/lib/topicSeo";
+import { topicDisplayName, topicHead } from "@/lib/topicSeo";
 import {
   Brain,
   CheckCircle2,
@@ -77,7 +77,9 @@ export default function TopicQuiz() {
   const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
-  const topicLabel = useMemo(() => (topicTitle ?? topic?.replace(/-/g, " ")?.trim() ?? "").replace(/\b\w/g, (c) => c.toUpperCase()), [topicTitle, topic]);
+  // The stored name wins verbatim: topicSeo.titleFor writes the static head from
+  // the same string, so title-casing it here would give this URL two titles.
+  const topicLabel = useMemo(() => topicDisplayName(topicTitle, topic ?? ""), [topicTitle, topic]);
 
   useEffect(() => {
     let active = true;

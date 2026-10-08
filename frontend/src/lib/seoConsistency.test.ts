@@ -16,7 +16,7 @@ import { describe, it, expect } from "vitest";
 import { ROUTE_META, SITE_URL, getRouteMeta, headFor } from "./seoRoutes";
 import { LEVELS } from "./levels";
 import { TOPIC_MANIFEST } from "./topicManifest.generated";
-import { TOPIC_PAGE_KINDS, topicHead } from "./topicSeo";
+import { TOPIC_PAGE_KINDS, topicDisplayName, topicHead } from "./topicSeo";
 
 const root = process.cwd();
 const read = (p: string) => readFileSync(root + p, "utf8");
@@ -182,6 +182,17 @@ describe("topic pages", () => {
 
     const paths = topicPaths();
     expect(new Set(paths).size, "two topics share a page path").toBe(paths.length);
+  });
+
+  it("shows a stored topic name verbatim, so page and prerendered head agree", () => {
+    // The quiz page used to title-case every word of the stored name, so the
+    // same URL read "Arithmetic And Place Value" in the browser and
+    // "Arithmetic and Place Value" in the static HTML a crawler reads.
+    expect(topicDisplayName("Number — Arithmetic and Place Value", "number-arithmetic-and-place-value"))
+      .toBe("Number — Arithmetic and Place Value");
+    // Only a slug (a URL older than the topic's slug column) gets cased up.
+    expect(topicDisplayName(null, "waves-sound")).toBe("Waves Sound");
+    expect(topicDisplayName("  ", "waves-sound")).toBe("Waves Sound");
   });
 
   it("keeps the ROUTE_META templates honest about the real wording", () => {

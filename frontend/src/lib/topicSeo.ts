@@ -83,6 +83,25 @@ const KIND_COPY: Record<TopicPageKind, KindCopy> = {
   },
 };
 
+/**
+ * The topic name to show, and to put in the head: the stored name verbatim.
+ *
+ * The quiz page used to title-case whatever it had, which re-cased the stored
+ * name too ("Arithmetic and Place Value" became "Arithmetic And Place Value")
+ * while the notes and papers pages, and the prerendered HTML for all three,
+ * used the stored name as-is — so one URL shipped two different titles depending
+ * on whether the crawler ran JavaScript. Only the slug fallback, for a URL
+ * minted before topics had slugs, is cased up here.
+ */
+export function topicDisplayName(storedName: string | null | undefined, slug: string): string {
+  const stored = (storedName ?? "").trim();
+  if (stored) return stored;
+  return slug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .trim();
+}
+
 /** Canonical path of one of a topic's three pages. */
 export function topicPath(input: TopicSeoInput, kind: TopicPageKind): string {
   return `/study/${input.subjectSlug}/${input.level.toLowerCase()}/${input.topicSlug}/${kind}`;
