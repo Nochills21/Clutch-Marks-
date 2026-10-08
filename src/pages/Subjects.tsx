@@ -12,12 +12,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { subjectIcon } from "@/lib/subjects";
+import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
 import { useToast } from "@/hooks/useToast";
 import { ChevronRight, Info, Loader2, Plus } from "lucide-react";
 
 export default function Subjects() {
+  const { user } = useAuth();
   const { pickedIds, loaded, isAdmin, savePicks } = useMySubjects();
   const { data: options = [], isLoading } = useSubjectLevelOptions();
   const { toast } = useToast();
@@ -28,6 +30,12 @@ export default function Subjects() {
   // they haven't chosen has to add it first. Without this the catalog offers
   // links that land on "You haven't selected this subject yet".
   const openSubject = async (id: string, href: string) => {
+    // Signed-out visitors have no account to save to, so every subject is simply
+    // openable — attempting the save would only raise a sign-in error.
+    if (!user) {
+      navigate(href);
+      return;
+    }
     setAdding(id);
     try {
       await savePicks([...pickedIds, id]);
@@ -44,7 +52,9 @@ export default function Subjects() {
   };
 
   // Students see their own subjects first; everything else stays reachable.
-  const isPicked = (id: string) => isAdmin || pickedIds.has(id);
+  // A signed-out visitor is not on a plan, so nothing is "added" for them: every
+  // card opens straight away instead of showing an Add step that cannot save.
+  const isPicked = (id: string) => isAdmin || !user || pickedIds.has(id);
   const ordered = [...options].sort((a, b) => Number(isPicked(b.id)) - Number(isPicked(a.id)));
   const pickedCount = options.filter((o) => pickedIds.has(o.id)).length;
 
@@ -87,7 +97,7 @@ export default function Subjects() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ordered.map((o) => {
-            const isYours = !isAdmin && pickedIds.has(o.id);
+            const isYours = !isAdmin && !!user && pickedIds.has(o.id);
             const Icon = subjectIcon(o.subjectName);
             const href = `/study/${o.subjectSlug}/${o.level}`;
 
@@ -104,7 +114,7 @@ export default function Subjects() {
                   <Badge variant="secondary" className="shrink-0 text-[10px]">
                     Yours
                   </Badge>
-                ) : isAdmin ? null : (
+                ) : isAdmin || !user ? null : (
                   <span className="flex shrink-0 items-center gap-1 text-xs text-primary">
                     {adding === o.id ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
@@ -124,9 +134,10 @@ export default function Subjects() {
               isYours || isAdmin ? "hover:border-primary/50" : "opacity-80 hover:opacity-100"
             }`;
 
-            // Admins and already-picked subjects open straight away; anything
-            // else has to join the student's subjects on the way through.
-            return isAdmin || isYours ? (
+            // Admins, signed-out visitors and already-picked subjects open
+            // straight away; a signed-in student without this subject has to
+            // join it on the way through.
+            return isAdmin || isYours || !user ? (
               <Link key={o.id} to={href} className="group">
                 <Card className={cardClass}>{inner}</Card>
               </Link>
