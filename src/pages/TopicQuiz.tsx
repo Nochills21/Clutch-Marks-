@@ -21,7 +21,7 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { SITE_URL, breadcrumbJsonLd } from "@/lib/seoRoutes";
+import { topicHead } from "@/lib/topicSeo";
 import {
   Brain,
   CheckCircle2,
@@ -280,54 +280,25 @@ export default function TopicQuiz() {
   const Icon = subjectIcon(subjectMeta.icon);
   const accent = subjectAccent(subjectMeta.color);
   const levelCode = subjectLevel.level as SubjectLevelCode;
+  const topicSeo = topicHead(
+    {
+      subjectSlug: subjectMeta.slug,
+      subjectName: subjectMeta.name,
+      level: subjectLevel.level,
+      topicSlug,
+      topicName: topicLabel,
+    },
+    "quiz",
+  );
 
   const topicQuestions = questions.length;
 
   return (
     <div className="space-y-6">
-      <SEOHead
-        title={`${topicLabel} — Topic Questions | ${subjectMeta.name} ${LEVEL_LABELS[levelCode]} | Clutch Marks`}
-        description={`Exam-style topic questions for ${topicLabel} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}. Instant marking, worked answers and AI feedback.`}
-        path={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-        jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: `${topicLabel} — Topic Questions`,
-            description: `Exam-style questions for ${topicLabel} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, with instant marking and explanations.`,
-            url: `${SITE_URL}${topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
-            educationalLevel: LEVEL_LABELS[levelCode],
-            about: { "@type": "Thing", name: topicLabel },
-            isPartOf: {
-              "@type": "Course",
-              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-              url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
-            },
-            provider: {
-              "@type": "EducationalOrganization",
-              name: "Clutch Marks",
-              url: `${SITE_URL}/`,
-            },
-          },
-          // Same trail as <TopicBreadcrumb> renders — markup that invents a crumb
-          // the student cannot see is what Google drops (or penalises).
-          breadcrumbJsonLd([
-            { name: "Subjects", path: "/subjects" },
-            {
-              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-              path: `/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
-            },
-            {
-              name: topicLabel,
-              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
-            },
-            {
-              name: "Topic Questions",
-              path: topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
-            },
-          ]),
-        ]}
-      />
+      {/* Title, description, canonical and JSON-LD come from topicSeo, which is
+          also what the build-time prerenderer writes into this URL's static HTML
+          — so the crawler's head and the browser's head cannot disagree. */}
+      <SEOHead {...topicSeo} />
 
       <TopicBreadcrumb
         subjectName={subjectMeta.name}

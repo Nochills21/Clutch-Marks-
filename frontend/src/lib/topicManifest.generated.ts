@@ -1,0 +1,123 @@
+// GENERATED FILE — do not hand-edit.
+//
+// Every topic that has a public page, as the live database had it when this was
+// last generated. The build prerenders one static HTML file per topic page and
+// lists them in sitemap.xml, and it reads this file rather than querying
+// Supabase, so a build can never publish a sitemap that is silently missing
+// topics because the network was down.
+//
+// Regenerate after adding, renaming or removing topics:
+//   node scripts/generate-topic-manifest.cjs
+//
+// Generated: 2026-10-08 · 100 topics
+export interface TopicManifestEntry {
+  subjectSlug: string;
+  subjectName: string;
+  /** Level code as stored in subject_levels: "OL" | "AS" | "A2". */
+  level: string;
+  topicSlug: string;
+  topicName: string;
+}
+
+export const TOPIC_MANIFEST: TopicManifestEntry[] = [
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "abstract-data-types", topicName: "Abstract Data Types" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "computational-thinking-and-problem-solving", topicName: "Computational Thinking and Problem-Solving" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "data-types-and-file-organisation", topicName: "Data Types and File Organisation" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "databases-and-data-definition", topicName: "Databases and Data Definition" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "networks-and-the-internet", topicName: "Networks and the Internet" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "programming-paradigms-and-low-level", topicName: "Programming Paradigms and Low-Level" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "simulation-sensors-and-real-data", topicName: "Simulation, Sensors and Real Data" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "A2", topicSlug: "web-technologies-and-security", topicName: "Web Technologies and Security" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "communication-and-networking", topicName: "Communication and Networking" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "data-structures", topicName: "Data Structures" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "databases", topicName: "Databases" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "ethics-and-ai", topicName: "Ethics and AI" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "hardware-and-logic-gates", topicName: "Hardware and Logic Gates" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "information-representation", topicName: "Information Representation" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "processor-fundamentals", topicName: "Processor Fundamentals" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "programming-and-algorithms", topicName: "Programming and Algorithms" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "AS", topicSlug: "system-software-and-security", topicName: "System Software and Security" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "algorithms-programming", topicName: "Algorithms & Programming" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "data-representation", topicName: "Data Representation" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "database-systems", topicName: "Database Systems" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "ethics-security-impact", topicName: "Ethics, Security & Impact" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "hardware-architecture", topicName: "Hardware & Architecture" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "logic-gates-boolean-logic", topicName: "Logic Gates & Boolean Logic" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "networking-communication", topicName: "Networking & Communication" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "operating-systems", topicName: "Operating Systems" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "programming-concepts", topicName: "Programming Concepts" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "robotics-ai", topicName: "Robotics & AI" },
+  { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "web-technologies", topicName: "Web Technologies" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "binomial-distribution", topicName: "Binomial Distribution" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "complex-numbers", topicName: "Complex Numbers" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "continuous-random-variables", topicName: "Continuous Random Variables" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "differentiation-ii", topicName: "Differentiation II" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "further-algebra", topicName: "Further Algebra" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "further-trigonometry", topicName: "Further Trigonometry" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "hypothesis-testing", topicName: "Hypothesis Testing" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "integration-ii", topicName: "Integration II" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "measures-of-variation-and-standard-deviation", topicName: "Measures of Variation and Standard Deviation" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "numerical-measures-of-central-tendency", topicName: "Numerical Measures of Central Tendency" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "permutations-and-combinations", topicName: "Permutations and Combinations" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "poisson-distribution", topicName: "Poisson Distribution" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "probability", topicName: "Probability" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "probability-distributions", topicName: "Probability Distributions" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "sampling-and-estimation", topicName: "Sampling and Estimation" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "the-normal-distribution", topicName: "The Normal Distribution" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "vectors", topicName: "Vectors" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "circular-measure", topicName: "Circular Measure" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "coordinate-geometry", topicName: "Coordinate Geometry" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "differentiation", topicName: "Differentiation" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "functions", topicName: "Functions" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "integration", topicName: "Integration" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "quadratics", topicName: "Quadratics" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "sequences-and-series", topicName: "Sequences and Series" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "AS", topicSlug: "trigonometry", topicName: "Trigonometry" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "algebra-equations", topicName: "Algebra — Equations" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "algebra-graphs", topicName: "Algebra — Graphs" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "algebra-inequalities", topicName: "Algebra — Inequalities" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "algebra-sequences-and-functions", topicName: "Algebra — Sequences and Functions" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "algebra-simplifying-and-expanding", topicName: "Algebra — Simplifying and Expanding" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "geometry-angles-and-polygons", topicName: "Geometry — Angles and Polygons" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "geometry-congruence-and-similarity", topicName: "Geometry — Congruence and Similarity" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "mensuration-area-and-volume", topicName: "Mensuration — Area and Volume" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "mensuration-bearings-and-loci", topicName: "Mensuration — Bearings and Loci" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "number-arithmetic-and-place-value", topicName: "Number — Arithmetic and Place Value" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "number-fractions-decimals-and-percentages", topicName: "Number — Fractions, Decimals and Percentages" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "number-indices-and-standard-form", topicName: "Number — Indices and Standard Form" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "number-ratio-rate-and-proportion", topicName: "Number — Ratio, Rate and Proportion" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "number-sets", topicName: "Number — Sets" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "scatter-diagrams-and-correlation", topicName: "Scatter Diagrams and Correlation" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "statistics-data-handling", topicName: "Statistics — Data Handling" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "statistics-probability", topicName: "Statistics — Probability" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "transformations-and-vectors", topicName: "Transformations and Vectors" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "trigonometry-right-angled-triangles", topicName: "Trigonometry — Right-Angled Triangles" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "OL", topicSlug: "trigonometry-sine-and-cosine-rules", topicName: "Trigonometry — Sine and Cosine Rules" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "astronomy-and-cosmology", topicName: "Astronomy and Cosmology" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "circular-motion-and-shm", topicName: "Circular Motion and SHM" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "electric-fields-and-capacitance", topicName: "Electric Fields and Capacitance" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "magnetic-fields-and-electromagnetism", topicName: "Magnetic Fields and Electromagnetism" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "nuclear-physics", topicName: "Nuclear Physics" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "oscillations-and-waves-ii", topicName: "Oscillations and Waves II" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "quantum-physics", topicName: "Quantum Physics" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "thermal-physics", topicName: "Thermal Physics" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "dynamics", topicName: "Dynamics" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "electricity-d-c-circuits", topicName: "Electricity: D.C. Circuits" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "forces-and-equilibrium", topicName: "Forces and Equilibrium" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "kinematics", topicName: "Kinematics" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "materials-deformation", topicName: "Materials: Deformation" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "motion-in-a-circle-and-gravity", topicName: "Motion in a Circle and Gravity" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "superposition", topicName: "Superposition" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "waves", topicName: "Waves" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "work-energy-and-power", topicName: "Work, Energy and Power" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "earth-space", topicName: "Earth & Space" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "electricity-circuits", topicName: "Electricity & Circuits" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "energy-work-power", topicName: "Energy, Work & Power" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "forces-motion", topicName: "Forces & Motion" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "magnetism-electromagnetism", topicName: "Magnetism & Electromagnetism" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "measurement-units", topicName: "Measurement & Units" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "nuclear-physics", topicName: "Nuclear Physics" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "pressure-density", topicName: "Pressure & Density" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "thermal-physics", topicName: "Thermal Physics" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "OL", topicSlug: "waves-sound", topicName: "Waves & Sound" },
+];
