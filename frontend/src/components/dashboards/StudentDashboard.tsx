@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
-import { XpStreakCard } from "@/components/XpStreakCard";
+import { YourWeekCard } from "@/components/YourWeekCard";
 import { BookOpen, Brain, ClipboardList, Megaphone, TrendingUp, Target, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { TodaysTasks } from "@/components/dashboards/TodaysTasks";
@@ -207,8 +207,8 @@ export function StudentDashboard() {
         </div>
       </section>
 
-      {/* Streak + XP */}
-      <XpStreakCard />
+      {/* The student's own week: days studied, goals, focus session, wins. */}
+      <YourWeekCard />
 
       {/* Per subject & level ledger */}
       <section className="space-y-4">

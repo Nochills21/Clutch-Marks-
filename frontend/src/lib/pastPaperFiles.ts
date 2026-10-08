@@ -253,6 +253,24 @@ export function boardLabel(sourceUrl: string | null | undefined): string | null 
   return host.replace(/^www\./, "");
 }
 
+/**
+ * A safe filename for a downloaded paper or mark scheme.
+ *
+ * Titles carry the board code in parentheses ("… (0478/12)"), and a `/` in the
+ * `download` attribute is read as a path separator, so the browser would keep
+ * only the tail. Strip the characters filesystems and the attribute dislike and
+ * append the slot so a paper and its mark scheme don't collide in Downloads.
+ */
+export function paperFileName(title: string, slot: "paper" | "mark-scheme"): string {
+  const safe = String(title ?? "")
+    .replace(/[\\/:*?"<>|]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 120)
+    .trim();
+  return `${safe || "past paper"}${slot === "mark-scheme" ? " (mark scheme)" : ""}.pdf`;
+}
+
 export const ALL_SESSIONS = SESSIONS;
 
 /** Sessions the boards run, in calendar order. `Specimen` is included so the

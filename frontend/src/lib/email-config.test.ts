@@ -1,12 +1,28 @@
 // Verification: verify the email configuration changes behave correctly.
 // Headless test that drives the actual source code and asserts expected state.
-import { readFileSync } from "fs";
+import { existsSync, readdirSync, readFileSync } from "fs";
 import { describe, it, expect } from "vitest";
 
 // The test runs from the repo root — use process.cwd() as the base.
 const root = process.cwd();
 
 const read = (p: string) => readFileSync(root + p, "utf8");
+
+/**
+ * Locate the built Legal chunk.
+ *
+ * Vite names chunks by content hash, so pinning the filename (the test used to
+ * read `Legal-0_rAszy6.js`) made this fail the moment Legal.tsx — or anything it
+ * imports — changed, even though the behaviour under test was fine. Find
+ * whichever `Legal-*.js` the current build emitted instead.
+ */
+const legalChunkPath = () => {
+  const dir = root + "/dist/assets";
+  if (!existsSync(dir)) throw new Error("dist/assets is missing — run `npm run build` before the test suite");
+  const file = readdirSync(dir).find((f) => /^Legal-.*\.js$/.test(f));
+  if (!file) throw new Error("no Legal-*.js chunk in dist/assets — run `npm run build` before the test suite");
+  return `${dir}/${file}`;
+};
 
 describe("Email configuration changes", () => {
   it("site.ts SITE.supportEmail is support@clutchmarks.study", () => {
@@ -55,7 +71,7 @@ describe("Email configuration changes", () => {
   });
 
   it("built JS contains support@clutchmarks.study in Legal component", () => {
-    const legalBuild = read("/dist/assets/Legal-0_rAszy6.js");
+    const legalBuild = readFileSync(legalChunkPath(), "utf8");
     expect(legalBuild).toContain("support@clutchmarks.study");
   });
 });

@@ -7,6 +7,7 @@ import {
   filterArchivePapers,
   matchPaperFiles,
   parsePaperFileName,
+  paperFileName,
   paperSortKey,
   sortSessions,
   type ArchivePaper,
@@ -222,5 +223,26 @@ describe("boardLabel", () => {
     expect(boardLabel("https://example.com/x")).toBe("example.com");
     expect(boardLabel(null)).toBeNull();
     expect(boardLabel("not a url")).toBeNull();
+  });
+});
+
+describe("paperFileName", () => {
+  it("strips the characters a filename cannot carry", () => {
+    // Titles embed the board code in parentheses, e.g. "(0478/12)"; a slash in a
+    // `download` attribute is read as a path separator, so the browser would
+    // keep only the tail after it.
+    expect(paperFileName("Cambridge IGCSE Computer Science 0478 — Paper 1 (0478/12)", "paper"))
+      .toBe("Cambridge IGCSE Computer Science 0478 — Paper 1 (0478 12).pdf");
+  });
+
+  it("labels a mark scheme so it cannot collide with its paper", () => {
+    const title = "Cambridge IGCSE Maths 0580 — Paper 2: Extended (0580/22)";
+    expect(paperFileName(title, "mark-scheme")).not.toBe(paperFileName(title, "paper"));
+    expect(paperFileName(title, "mark-scheme")).toMatch(/ \(mark scheme\)\.pdf$/);
+  });
+
+  it("never returns an empty name", () => {
+    expect(paperFileName("", "paper")).toBe("past paper.pdf");
+    expect(paperFileName("///", "paper")).toBe("past paper.pdf");
   });
 });

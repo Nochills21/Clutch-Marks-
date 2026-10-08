@@ -1130,6 +1130,75 @@ export type Database = {
           },
         ]
       }
+      // Wellbeing/gamification preferences. Written only through the
+      // my_study_prefs()/set_study_prefs() RPCs, never from the client table API.
+      student_prefs: {
+        Row: {
+          animations_enabled: boolean
+          created_at: string
+          encouragement_enabled: boolean
+          leaderboard_visible: boolean
+          reminders_enabled: boolean
+          session_minutes: number
+          updated_at: string
+          user_id: string
+          weekly_goal_days: number
+        }
+        Insert: {
+          animations_enabled?: boolean
+          created_at?: string
+          encouragement_enabled?: boolean
+          leaderboard_visible?: boolean
+          reminders_enabled?: boolean
+          session_minutes?: number
+          updated_at?: string
+          user_id: string
+          weekly_goal_days?: number
+        }
+        Update: {
+          animations_enabled?: boolean
+          created_at?: string
+          encouragement_enabled?: boolean
+          leaderboard_visible?: boolean
+          reminders_enabled?: boolean
+          session_minutes?: number
+          updated_at?: string
+          user_id?: string
+          weekly_goal_days?: number
+        }
+        // Empty on purpose: user_id references auth.users, which is not part of
+        // the generated public schema, so naming it here would not typecheck.
+        Relationships: []
+      }
+      // Focus sessions (10/20/30 minutes). A student's own row; finished through
+      // start_study_session()/finish_study_session().
+      study_sessions: {
+        Row: {
+          ended_at: string | null
+          id: string
+          planned_minutes: number
+          started_at: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          ended_at?: string | null
+          id?: string
+          planned_minutes: number
+          started_at?: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          ended_at?: string | null
+          id?: string
+          planned_minutes?: number
+          started_at?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       study_plans: {
         Row: {
           content: string
@@ -1526,6 +1595,20 @@ export type Database = {
       }
       my_xp_summary: {
         Args: Record<string, never>
+        Returns: Json
+      }
+      my_wins: {
+        Args: { _days?: number }
+        Returns: Json
+      }
+      my_study_prefs: {
+        Args: Record<string, never>
+        Returns: Json
+      }
+      set_study_prefs: { Args: { _patch: Json }; Returns: Json }
+      start_study_session: { Args: { _minutes?: number }; Returns: Json }
+      finish_study_session: {
+        Args: { _session_id: string; _completed?: boolean }
         Returns: Json
       }
       is_linked_parent: {

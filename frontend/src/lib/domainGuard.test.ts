@@ -1,4 +1,4 @@
-// Repo-wide guard against the retired "clutchmarks.com" domain.
+// Repo-wide guard against the retired .com domain.
 //
 // The public site moved to clutchmarks.study. A single stale hard-coded domain is
 // enough to point students at a dead host or a dead support inbox, and it can
