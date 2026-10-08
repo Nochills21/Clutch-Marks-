@@ -6,9 +6,11 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/lib/auth";
 
 export function WatermarkOverlay() {
   const [identity, setIdentity] = useState<string>("");
+  const { role } = useAuth();
 
   useEffect(() => {
     let active = true;
@@ -22,6 +24,12 @@ export function WatermarkOverlay() {
       active = false;
     };
   }, []);
+
+  // Admins are exempt, exactly as they are from ContentProtection. They are the
+  // ones uploading and checking the material, and tiling an admin's own address
+  // over the management screens they work in all day is pure noise — the trace
+  // is only meaningful on a student's screen.
+  if (role === "admin") return null;
 
   return (
     <div

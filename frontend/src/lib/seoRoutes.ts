@@ -310,7 +310,7 @@ export const ROUTE_META: RouteMeta[] = [
       "Create personalised study plans and organise your exam preparation schedule week by week.",
     noindex: true,
   },
-  // ---- Parameterised topic pages -----------------------------------------
+  // ---- Parameterised study pages -----------------------------------------
   // Templates, not copy: the real value of a placeholder depends on which topic
   // is in the URL, so these entries exist to declare the route shape and the
   // wording pattern. `topicSeo.ts` fills them in for the pages, the prerenderer
@@ -319,6 +319,11 @@ export const ROUTE_META: RouteMeta[] = [
   // becoming fiction. Because the wording does not live here, these entries carry
   // no jsonLd: the LearningResource + BreadcrumbList for a topic page is built
   // only in topicSeo.ts.
+  {
+    path: "/study/:slug/:level",
+    title: ":subject :levelLabel — Clutch Marks",
+    description: "Lessons, revision materials, exams and a question bank for :subject :levelLabel.",
+  },
   {
     path: "/study/:slug/:level/:topic/notes",
     title: ":topic — Notes | :subject :level | Clutch Marks",

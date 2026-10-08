@@ -366,7 +366,10 @@ export default function TopicQuiz() {
               <h2 className="text-lg font-semibold">{topicLabel} questions</h2>
               <p className="text-sm text-muted-foreground">{questions.length} question{questions.length === 1 ? "" : "s"} · tap each to answer</p>
             </div>
-            {!submitted && (
+            {/* Marking a quiz records an attempt against an account, so a
+                signed-out reader gets a sign-in prompt instead of a button that
+                silently does nothing (submit() returns early without a user). */}
+            {!submitted && user && (
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
@@ -374,6 +377,15 @@ export default function TopicQuiz() {
                 disabled={questions.length === 0}
               >
                 {questions.length === 0 ? "No questions yet" : "Submit answers"}
+              </Button>
+            )}
+            {!submitted && !user && questions.length > 0 && (
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
+              >
+                <Link to="/auth">Sign in to be marked</Link>
               </Button>
             )}
             {submitted && questions.length > 0 && (
