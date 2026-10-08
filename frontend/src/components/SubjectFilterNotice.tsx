@@ -11,19 +11,24 @@
 import { useState } from "react";
 import { Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
 import { useToast } from "@/hooks/useToast";
 import { hiddenLevels } from "@/lib/subjectPicks";
 
 export function SubjectFilterNotice() {
+  const { user } = useAuth();
   const { pickedIds, loaded, isAdmin, savePicks } = useMySubjects();
   const { toast } = useToast();
   const [dismissed, setDismissed] = useState(false);
   const [saving, setSaving] = useState(false);
 
   // Only students with picks loaded can be filtered; never fetch for admins.
-  const active = !isAdmin && loaded;
+  // `user` is required as well: an anonymous visitor on the now-public study
+  // pages has no picks by definition, so every subject looked "hidden" and the
+  // notice offered a "Show all" button that could only fail without an account.
+  const active = !isAdmin && loaded && !!user;
   const { data: options = [] } = useSubjectLevelOptions(active);
 
   const hiddenIds = hiddenLevels(options.map((o) => o.id), pickedIds);
