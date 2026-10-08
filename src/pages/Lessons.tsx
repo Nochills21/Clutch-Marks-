@@ -32,7 +32,7 @@ export default function Lessons() {
   const [notes, setNotes] = useState<any[]>([]);
   const [topicPaths, setTopicPaths] = useState<Record<string, string | undefined>>({});
   const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, topicSlugOf(t)])), [topics]);
-  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
 
   useEffect(() => {
     const load = async () => {
@@ -117,8 +117,8 @@ export default function Lessons() {
   }, [topics, pickedIds, lessons, isAdmin, isPreview]);
 
   // Only signed-in students are gated: an anonymous visitor has picked no
-  // subjects by definition and must still see the lesson index.
-  const needsSubjectPick = !isAdmin && !!user && prefsLoaded && pickedIds.size === 0;
+  // subjects by definition and must still see the lesson index. That rule lives
+  // in useMySubjects now, so this page cannot drift from the others.
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any lesson content renders — nothing is shown while prefs
@@ -130,7 +130,7 @@ export default function Lessons() {
       </div>
     );
   }
-  if (needsSubjectPick && user) {
+  if (needsSubjectPick) {
     return (
       <div className="space-y-6">
         <SEOHead path="/lessons" />

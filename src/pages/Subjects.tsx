@@ -124,14 +124,16 @@ export default function Subjects() {
                     Add
                   </span>
                 )}
-                {isAdmin || isYours ? (
+                {isAdmin || isYours || !user ? (
                   <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                 ) : null}
               </CardContent>
             );
 
+            // Dimming means "on the plan but not picked yet" — it is meaningless
+            // for a signed-out visitor, whose cards below are plain links.
             const cardClass = `h-full transition-colors ${
-              isYours || isAdmin ? "hover:border-primary/50" : "opacity-80 hover:opacity-100"
+              isYours || isAdmin || !user ? "hover:border-primary/50" : "opacity-80 hover:opacity-100"
             }`;
 
             // Admins, signed-out visitors and already-picked subjects open

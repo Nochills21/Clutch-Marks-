@@ -78,7 +78,7 @@ export default function Quizzes() {
   // between renders and trip React's "fewer hooks than expected" guard.
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
   // Quizzes whose topic belongs to one of the student's picked subject-levels.
   //
@@ -115,7 +115,7 @@ export default function Quizzes() {
       </div>
     );
   }
-  if (!isAdminRole && user && pickedIds.size === 0) {
+  if (needsSubjectPick) {
     return (
       <div className="space-y-6">
         <SEOHead path="/quizzes" />

@@ -72,7 +72,7 @@ interface LevelOption { id: string; label: string }
 export default function Practice() {
   const { user } = useAuth();
   const { toast } = useToast();
-  const { pickedIds, loaded: prefsLoaded, isAdmin } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick, filtering } = useMySubjects();
   const [params, setParams] = useSearchParams();
   const tab = params.get("tab") ?? "topics";
   const mode = params.get("mode") ?? "incorrect";
@@ -429,7 +429,7 @@ export default function Practice() {
   // its topic list named subjects the student never picked. Scope it the same
   // way as every other list on this page.
   const visibleBankSummary = useMemo(() => {
-    if (isAdmin || !prefsLoaded || pickedIds.size === 0) return bankSummary;
+    if (!filtering) return bankSummary;
     return bankSummary.filter((s) => pickedSlByTopic.has(s.topic_id));
   }, [bankSummary, pickedIds, prefsLoaded, isAdmin, pickedSlByTopic]);
 
@@ -444,8 +444,6 @@ export default function Practice() {
       setBankTopicId(visibleBankTopics[0].id);
     }
   }, [tab, visibleBankTopics, bankTopicId]);
-
-  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any practice content renders — nothing is shown while prefs

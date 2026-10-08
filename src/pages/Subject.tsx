@@ -70,8 +70,7 @@ export default function Subject() {
   const [retryKey, setRetryKey] = useState(0);
 
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
-  const needsSubjectPick = !isAdminRole && user && prefsLoaded && pickedIds.size === 0;
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
   // filters
   const [search, setSearch] = useState("");

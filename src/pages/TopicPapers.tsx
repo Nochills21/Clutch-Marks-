@@ -57,7 +57,7 @@ export default function TopicPapers() {
   const { toast } = useToast();
   const { isPreview, hasPaid } = usePlanAccess();
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
   // Free-plan limit for this topic's past papers: show the first 2 records
   // (follows the global FREE_PREVIEW_LIMIT policy); paid accounts see all.
@@ -164,7 +164,8 @@ export default function TopicPapers() {
       </div>
     );
   }
-  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
+  // "Does this reader still have to pick subjects?" is asked in one place.
+  if (needsSubjectPick) {
     return (
       <div className="space-y-6">
         <SEOHead title={`${topicTitle ?? "Past Papers"} — Clutch Marks`} description="Past papers and mark schemes." path={topicPapersPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />

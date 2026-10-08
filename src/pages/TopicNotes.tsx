@@ -44,7 +44,7 @@ export default function TopicNotes() {
   const bumpRevision = () => setReloadKey((k) => k + 1);
 
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
   useEffect(() => {
     let active = true;
@@ -133,7 +133,8 @@ export default function TopicNotes() {
       </div>
     );
   }
-  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
+  // "Does this reader still have to pick subjects?" is asked in one place.
+  if (needsSubjectPick) {
     return (
       <div className="space-y-6">
         <SEOHead title={`${topicTitle ?? "Revision Notes"} — Clutch Marks`} description="Revision notes, topic questions and past papers." path={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />

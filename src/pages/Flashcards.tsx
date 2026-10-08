@@ -150,7 +150,7 @@ export default function Flashcards() {
   };
 
   const { isPreview, hasPaid, loading: planLoading } = usePlanAccess();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
   // Topic ids belonging to the subject-levels the student picked. Admins and
   // unauthenticated previews see everything; students only see their picked
@@ -209,7 +209,7 @@ export default function Flashcards() {
       </div>
     );
   }
-  if (!isAdminRole && pickedIds.size === 0) {
+  if (needsSubjectPick) {
     return (
       <div className="space-y-6">
         <SEOHead path="/flashcards" />

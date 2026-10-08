@@ -34,7 +34,7 @@ export default function LessonNotes() {
   const [loading, setLoading] = useState(true);
   const [lessonDone, setLessonDone] = useState(false);
   const { done, toggle } = useNoteProgress();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
   useEffect(() => {
     if (!lessonId) return;
@@ -107,7 +107,8 @@ export default function LessonNotes() {
       </div>
     );
   }
-  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
+  // "Does this reader still have to pick subjects?" is asked in one place.
+  if (needsSubjectPick) {
     return (
       <div className="space-y-6">
         <SEOHead title="Lesson Notes — Clutch Marks" description="View and download the uploaded notes for this lesson." path={`/lessons/${lessonId}/notes`} />
