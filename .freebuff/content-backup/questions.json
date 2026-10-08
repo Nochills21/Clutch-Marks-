@@ -15238,7 +15238,7 @@
   "options": [
    "Like equations, but reverse the sign when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3",
    "Gradient of tangent at a point = instantaneous rate: draw a large triangle, rise/run. Area under a speed–time graph = distance (trapezium estimate)",
-   "���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
+   "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
    "Handle both sides: −3 < 2x + 1 ≤ 7 → −4 < 2x ≤ 6 → −2 < x ≤ 3"
   ],
   "correct_option": 1,
@@ -18564,7 +18564,7 @@
   "quiz_id": "eabebc13-93cb-435e-a55b-2839f9cf26fd",
   "question_text": "Which statement is missing from the \"Algebra — Inequalities\" notes?",
   "options": [
-   "���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
+   "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
    "Handle both sides: −3 < 2x + 1 ≤ 7 → −4 < 2x ≤ 6 → −2 < x ≤ 3",
    "x² + bx + c = (x + b/2)² − (b/2)² + c. x² − 6x + 5 = (x − 3)² − 4 → minimum at (3, −4). Use for turning points and for solving when factorising fails",
    "Draw the boundary line: dashed for </>, solid for ≤/≥"
@@ -19430,7 +19430,7 @@
   "options": [
    "Measured to nearest u: UB = +u/2, LB = −u/2. Division p/q: max = UB p ÷ LB q",
    "Draw a north line at both points; north lines are parallel, giving Z-angles",
-   "���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
+   "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
    "Quote the reason in brackets every time: \"∠ACB = 62° (angles in same segment)\""
   ],
   "correct_option": 0,
@@ -20390,7 +20390,7 @@
   "options": [
    "Draw a north line at both points; north lines are parallel, giving Z-angles",
    "y = k/x (product constant). 4 workers 6 days ⇒ 24 worker-days ⇒ 8 workers take 3 days. Square-law: y ∝ 1/x²",
-   "���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
+   "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
    "5x + 3y − 2x + y = 3x + 4y. Terms need identical letter parts (x² and x are not like terms)"
   ],
   "correct_option": 3,
@@ -22949,7 +22949,7 @@
   "question_text": "Which statement belongs to the \"Geometry — Angles and Polygons\" notes?",
   "options": [
    "Recognise reciprocal y = 1/x (two branches) and exponential y = aˣ (through (0,1))",
-   "���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
+   "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
    "Perpendicular bisector of a segment: equal arcs from both ends, join the crossings",
    "Quote the reason in brackets every time: \"∠ACB = 62° (angles in same segment)\""
   ],
@@ -23751,7 +23751,7 @@
    "Cambridge IGCSE 0580 (2025–2027): linear equations, simultaneous equations, quadratic formula, completing the square, forming equations from words",
    "Cambridge IGCSE 0580 (2025–2027): solving linear inequalities, integer solution sets, shading regions on graphs (linear programming context)",
    "Like equations, but reverse the sign when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3",
-   "���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>"
+   "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>"
   ],
   "correct_option": 0,
   "explanation": "The other three are all in the Algebra — Inequalities study notes; this one is not.",
@@ -25714,7 +25714,7 @@
  {
   "id": "d37eb76b-76dc-4ac4-ba90-ab28d4184de5",
   "quiz_id": "22a72e79-6ccc-4a29-91f9-33cbb369020a",
-  "question_text": "Which of these is covered by the \"Trigonometry �� Sine and Cosine Rules\" study notes?",
+  "question_text": "Which of these is covered by the \"Trigonometry — Sine and Cosine Rules\" study notes?",
   "options": [
    "BIDMAS. 3 + 4 × 2² = 3 + 16 = 19. Insert brackets yourself when translating words: \"3 added to the product of 4 and 2²\" = 3 + (4 × 2²)",
    "Cambridge IGCSE 0580 (2025–2027): area formula, sine rule, cosine rule, multi-step bearing and 3-D problems (Extended)",
@@ -30202,7 +30202,7 @@
    "Cambridge IGCSE 0580 (2025–2027): index laws, negative and fractional indices, standard form arithmetic, surds and rationalising denominators"
   ],
   "correct_option": 1,
-  "explanation": "From the Trigonometry — Sine and Cosine Rules study notes: “a² = b² + c�� − 2bc cos A. Use with two sides + included angle, or all three sides (then cos A = (b² + c² − a²)/(2bc))”.",
+  "explanation": "From the Trigonometry — Sine and Cosine Rules study notes: “a² = b² + c² − 2bc cos A. Use with two sides + included angle, or all three sides (then cos A = (b² + c² − a²)/(2bc))”.",
   "sort_order": 4,
   "created_at": "2026-09-26 09:37:48.672179+00",
   "difficulty": "medium"
@@ -30293,12 +30293,12 @@
   "question_text": "Which of these is covered by the \"Algebra — Inequalities\" study notes?",
   "options": [
    "Recognise reciprocal y = 1/x (two branches) and exponential y = aˣ (through (0,1))",
-   "���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
+   "−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>",
    "Set up equations from the theorem: cyclic quad (2x + 10) + (3x − 5) = 180 ⇒ x = 35",
    "Perpendicular bisector of a segment: equal arcs from both ends, join the crossings"
   ],
   "correct_option": 1,
-  "explanation": "From the Algebra — Inequalities study notes: “���1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>”.",
+  "explanation": "From the Algebra — Inequalities study notes: “−1 ≤ x < 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for </>”.",
   "sort_order": 2,
   "created_at": "2026-09-26 09:37:43.10517+00",
   "difficulty": "medium"

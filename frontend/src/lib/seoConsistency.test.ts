@@ -17,6 +17,7 @@ import { ROUTE_META, SITE_URL, getRouteMeta, headFor } from "./seoRoutes";
 import { LEVELS } from "./levels";
 import { TOPIC_MANIFEST } from "./topicManifest.generated";
 import { TOPIC_PAGE_KINDS, topicDisplayName, topicHead } from "./topicSeo";
+import { LEVEL_MANIFEST, levelHead, levelPath } from "./levelSeo";
 
 const root = process.cwd();
 const read = (p: string) => readFileSync(root + p, "utf8");
@@ -41,6 +42,9 @@ const attr = (value: string) =>
 /** Every topic page the site publishes, from the committed manifest. */
 const topicPaths = () =>
   TOPIC_MANIFEST.flatMap((t) => TOPIC_PAGE_KINDS.map((kind) => topicHead(t, kind).path));
+
+/** Every subject+level hub page, derived from the same manifest. */
+const levelPaths = () => LEVEL_MANIFEST.map((level) => levelPath(level));
 
 describe("the SPA shell", () => {
   it("does not claim a canonical for every route it is served for", () => {
@@ -162,15 +166,15 @@ function perRouteUnmarked(html: string): string[] {
     .filter((tag) => !tag.includes('data-seo="prerender"'));
 }
 
-// ---- Topic pages ---------------------------------------------------------
-// The 300 /study/... pages are the site's actual content, and until this work
+// ---- Study pages (subject+level hubs and their topic pages) ---------------
+// The 309 /study/... pages are the site's actual content, and until this work
 // the build left every one of them on the generic SPA shell: the homepage's
 // title, no canonical, no breadcrumb, and no sitemap entry, for any crawler that
 // does not execute JavaScript. These checks tie the four pieces together — the
 // committed manifest (which topics exist), the ROUTE_META templates (how the
 // wording is shaped), the emitted HTML and the shipped sitemap — so a missing or
-// drifted topic page fails here instead of shipping.
-describe("topic pages", () => {
+// drifted page fails here instead of shipping.
+describe("study pages", () => {
   it("lists a well-formed manifest entry per topic", () => {
     expect(TOPIC_MANIFEST.length).toBeGreaterThan(50);
     for (const topic of TOPIC_MANIFEST) {
@@ -182,6 +186,35 @@ describe("topic pages", () => {
 
     const paths = topicPaths();
     expect(new Set(paths).size, "two topics share a page path").toBe(paths.length);
+  });
+
+  it("gives every subject+level with topics a hub page", () => {
+    // The hub list is derived from the topic manifest on purpose: a level that
+    // gains topics cannot end up with pages but no hub.
+    expect(LEVEL_MANIFEST.length).toBeGreaterThan(5);
+    for (const level of LEVEL_MANIFEST) {
+      expect(LEVELS, `${level.subjectSlug} level`).toContain(level.level);
+      expect(
+        TOPIC_MANIFEST.some(
+          (t) => t.subjectSlug === level.subjectSlug && t.level === level.level,
+        ),
+        `${level.subjectSlug}/${level.level} has no topics`,
+      ).toBe(true);
+    }
+    const paths = levelPaths();
+    expect(new Set(paths).size, "two levels share a page path").toBe(paths.length);
+    for (const path of paths) {
+      expect(path, "level path shape").toMatch(/^\/study\/[a-z0-9-]+\/(ol|as|a2)$/);
+    }
+
+    // Every topic page must sit under a hub page that is actually emitted:
+    // a topic whose level has no hub would be reachable only from the sitemap.
+    for (const topic of topicPaths()) {
+      expect(
+        paths.some((level) => topic.startsWith(`${level}/`)),
+        `${topic} has no hub page`,
+      ).toBe(true);
+    }
   });
 
   it("shows a stored topic name verbatim, so page and prerendered head agree", () => {
@@ -220,12 +253,27 @@ describe("topic pages", () => {
       expect(fill(meta!.title), `${kind} title template`).toBe(head.title);
       expect(fill(meta!.description), `${kind} description template`).toBe(head.description);
     }
+
+    const levelMeta = ROUTE_META.find((m) => m.path === "/study/:slug/:level");
+    expect(levelMeta, "no ROUTE_META template for the level page").toBeDefined();
+    const levelSample = {
+      subjectSlug: sample.subjectSlug,
+      subjectName: sample.subjectName,
+      level: sample.level,
+    };
+    const level = levelHead(levelSample);
+    expect(fill(levelMeta!.title), "level title template").toBe(level.title);
+    expect(fill(levelMeta!.description), "level description template").toBe(level.description);
   });
 
-  it("prerenders every topic page with its own head", () => {
-    for (const topic of TOPIC_MANIFEST) {
-      for (const kind of TOPIC_PAGE_KINDS) {
-        const head = topicHead(topic, kind);
+  it("prerenders every study page with its own head", () => {
+    const levels = new Set(levelPaths());
+    const heads = [
+      ...LEVEL_MANIFEST.map((level) => levelHead(level)),
+      ...TOPIC_MANIFEST.flatMap((topic) => TOPIC_PAGE_KINDS.map((kind) => topicHead(topic, kind))),
+    ];
+    for (const head of heads) {
+      {
         const file = `dist${head.path}/index.html`;
         expect(existsSync(`${root}/${file}`), `${file} was not prerendered`).toBe(true);
         const html = read(`/${file}`);
@@ -237,10 +285,19 @@ describe("topic pages", () => {
         expect(canonicals.length, `${head.path} should have one canonical`).toBe(1);
         expect(canonicals[0], `${head.path} canonical`).toContain(`href="${SITE_URL}${head.path}"`);
 
-        // Breadcrumbs are the one piece of structured data that tells a crawler
-        // this page sits under a subject and level instead of floating alone.
-        expect(html, `${head.path} structured data`).toContain('"BreadcrumbList"');
-        expect(html, `${head.path} structured data`).toContain('"LearningResource"');
+        // Per-route structured data is what differs from the homepage shell; the
+        // level page uses a Course node + BreadcrumbList, the topic pages use a
+        // LearningResource node + BreadcrumbList, so assert both shapes against
+        // the path prefix rather than one node name.
+        const structured = /<script[^>]+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi;
+        const jsonld = html.match(structured) ?? [];
+        expect(jsonld.length, `${head.path} structured data count`).toBeGreaterThanOrEqual(1);
+        const json = jsonld.join("\n");
+        expect(
+          levels.has(head.path) ? json.includes('"Course"') : json.includes('"LearningResource"'),
+          `${head.path} structured data`,
+        ).toBe(true);
+        expect(json, `${head.path} structured data`).toContain('"BreadcrumbList"');
 
         const unmarked = perRouteUnmarked(html);
         expect(unmarked, `${head.path} has per-route tags the app cannot remove`).toEqual([]);
@@ -248,12 +305,13 @@ describe("topic pages", () => {
     }
   });
 
-  it("lists every topic page in the shipped sitemap, and nothing else", () => {
+  it("lists every study page in the shipped sitemap, and nothing else", () => {
     const listed = [...read("/dist/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g)].map(
       (m) => new URL(m[1]).pathname,
     );
     const expected = [
       ...ROUTE_META.filter((m) => !m.noindex && !isPlaceholder(m.path)).map((m) => m.path),
+      ...levelPaths(),
       ...topicPaths(),
     ].sort();
 

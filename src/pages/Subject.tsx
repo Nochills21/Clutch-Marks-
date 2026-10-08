@@ -12,8 +12,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { levelHead } from "@/lib/levelSeo";
 import { topicNotesPath, topicQuizPath, topicPapersPath, topicSlugOf } from "@/lib/topicUrls";
-import { SITE_URL } from "@/lib/seoRoutes";
 import { usePreviewSlice, PreviewLimit } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
@@ -281,23 +281,10 @@ export default function Subject() {
 
   return (
     <div className="space-y-6">
-      <SEOHead
-        title={`${subject.name} ${LEVEL_LABELS[levelCode]} — Clutch Marks`}
-        description={`Lessons, revision materials, exams and a question bank for ${subject.name} ${LEVEL_LABELS[levelCode]}.`}
-        path={`/study/${slug}/${level}`}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "Course",
-          name: `${subject.name} ${LEVEL_LABELS[levelCode]}`,
-          description: `Lessons, revision materials, exams and a question bank for ${subject.name} ${LEVEL_LABELS[levelCode]}.`,
-          url: `${SITE_URL}/study/${slug}/${level}`,
-          provider: {
-            "@type": "EducationalOrganization",
-            name: "Clutch Marks",
-            url: `${SITE_URL}/`,
-          },
-        }}
-      />
+      {/* Title, description, canonical and JSON-LD come from levelSeo, which is
+          also what the build-time prerenderer writes into this URL's static HTML
+          — so the crawler's head and the browser's head cannot disagree. */}
+      <SEOHead {...levelHead({ subjectSlug: slug, subjectName: subject.name, level })} />
 
       <div className={`glass-card p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
         <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>

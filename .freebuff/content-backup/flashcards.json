@@ -1779,7 +1779,7 @@
   "id": "6a911898-b919-48bd-9a48-db7c43c6b941",
   "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
   "front": "Current and Charge",
-  "back": "I = Q/t — charge per second, in amperes. Conventional current flows + to ��� (electrons drift the other way).",
+  "back": "I = Q/t — charge per second, in amperes. Conventional current flows + to − (electrons drift the other way).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
  },

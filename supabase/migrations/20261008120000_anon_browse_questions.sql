@@ -1,0 +1,23 @@
+-- Anonymous visitors can read published exam questions.
+--
+-- The public study pages (/study/:subject/:level and the per-topic quiz page)
+-- render question lists, and they were opened to signed-out visitors so that
+-- Googlebot and first-time readers can see the actual content. Their table reads
+-- were granted then (lessons/quizzes/past_papers/study_materials), but these two
+-- pages load their questions through `browse_questions`, an RPC that stayed
+-- authenticated-only — so a signed-out visitor got
+--   "Couldn't load these questions · permission denied for function browse_questions"
+-- on a page that is in sitemap.xml.
+--
+-- The grant is safe because the function itself is the gate: it is STABLE,
+-- SECURITY DEFINER and filters `z.is_published = true`, and its two
+-- caller-specific joins (`question_bookmarks`, `practice_attempts`) are keyed on
+-- auth.uid(), which is null for anon — so those simply come back false/0. No
+-- student, attempt, bookmark or account row is exposed, and questions belonging
+-- to unpublished quizzes stay out of reach.
+--
+-- Deliberately NOT granted here: `get_student_questions`, `grade_quiz` and
+-- `check_practice_answer`. Those write attempts for a signed-in user (or are
+-- approval-gated), so an anonymous caller can only get an empty result or a
+-- failure; the pages ask for a sign-in instead of calling them.
+grant execute on function public.browse_questions(uuid, uuid, text, text, text, integer, integer) to anon;

@@ -56,6 +56,11 @@ dist-ssr
 !.freebuff/apply-mig2.cjs
 !.freebuff/get-envkey.cjs
 !.freebuff/auto-sync.cjs
+# Reusable read-only audit tools, not one-off debug scripts: sql.cjs runs a
+# probe file against the live DB, audit-fffd.cjs sweeps every text column for
+# the U+FFFD replacement character.
+!.freebuff/sql.cjs
+!.freebuff/audit-fffd.cjs
 !.freebuff/content-backup/
 !.freebuff/pdftool/
 # Generated PDF artifacts (booklets, per-topic notes/questions) live in Supabase

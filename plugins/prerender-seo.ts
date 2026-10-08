@@ -13,6 +13,7 @@ import {
 } from "../frontend/src/lib/seoRoutes";
 import { TOPIC_MANIFEST } from "../frontend/src/lib/topicManifest.generated";
 import { TOPIC_PAGE_KINDS, topicHead } from "../frontend/src/lib/topicSeo";
+import { LEVEL_MANIFEST, levelHead, levelPath } from "../frontend/src/lib/levelSeo";
 
 /**
  * Emits a static HTML file per public route with route-specific
@@ -168,16 +169,22 @@ export function prerenderSeo(): Plugin {
         prerendered += 1;
       }
 
-      // Every topic page (100 topics x notes|quiz|papers) as real static HTML.
-      // These are the site's content pages, and without this they were served
-      // the generic SPA shell: the homepage's title, no canonical, no
-      // breadcrumb — to every crawler that does not execute JavaScript.
-      let topicPages = 0;
+      // Every subject+level hub page (9) and topic page (100 x notes|quiz|papers)
+      // as real static HTML. These are the site's content pages, and without this
+      // they were served the generic SPA shell: the homepage's title, no
+      // canonical, no breadcrumb — to every crawler that does not execute
+      // JavaScript, while the sitemap listed none of them.
+      let contentPages = 0;
+      for (const level of LEVEL_MANIFEST) {
+        const meta = levelHead(level);
+        writeRoute(resolve(outDir, `${meta.path.replace(/^\//, "")}/index.html`), shell, meta);
+        contentPages += 1;
+      }
       for (const topic of TOPIC_MANIFEST) {
         for (const kind of TOPIC_PAGE_KINDS) {
           const meta = topicHead(topic, kind);
           writeRoute(resolve(outDir, `${meta.path.replace(/^\//, "")}/index.html`), shell, meta);
-          topicPages += 1;
+          contentPages += 1;
         }
       }
 
@@ -190,21 +197,24 @@ export function prerenderSeo(): Plugin {
         let sitemap = readFileSync(sitemapPath, "utf8");
         const today = new Date().toISOString().slice(0, 10);
 
-        if (topicPages > 0 && !sitemap.includes(TOPIC_MARKER)) {
-          const entries = TOPIC_MANIFEST.flatMap((topic) =>
-            TOPIC_PAGE_KINDS.map((kind) => {
-              const { path } = topicHead(topic, kind);
-              const priority = kind === "notes" ? "0.7" : "0.6";
-              return `  <url>\n    <loc>${SITE_URL}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
-            }),
-          ).join("\n");
+        if (contentPages > 0 && !sitemap.includes(TOPIC_MARKER)) {
+          const url = (path: string, priority: string) =>
+            `  <url>\n    <loc>${SITE_URL}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+          const entries = [
+            ...LEVEL_MANIFEST.map((level) => url(levelPath(level), "0.8")),
+            ...TOPIC_MANIFEST.flatMap((topic) =>
+              TOPIC_PAGE_KINDS.map((kind) =>
+                url(topicHead(topic, kind).path, kind === "notes" ? "0.7" : "0.6"),
+              ),
+            ),
+          ].join("\n");
           sitemap = sitemap.replace(
             /\s*<\/urlset>/,
             `\n  ${TOPIC_MARKER}\n${entries}\n</urlset>`,
           );
-        } else if (topicPages === 0) {
+        } else if (contentPages === 0) {
           // eslint-disable-next-line no-console
-          console.warn("prerender-seo: no topics in the manifest — sitemap left without topic URLs");
+          console.warn("prerender-seo: empty manifest — sitemap left without study URLs");
         }
 
         // `<lastmod>` is what asks a crawler to come back and replace a stale
@@ -218,7 +228,7 @@ export function prerenderSeo(): Plugin {
 
       // eslint-disable-next-line no-console
       console.log(
-        `prerender-seo: wrote ${prerendered} route HTML files + ${topicPages} topic pages, sitemap has ${countSitemapEntries(sitemapPath)} URLs`,
+        `prerender-seo: wrote ${prerendered} route HTML files + ${contentPages} study pages, sitemap has ${countSitemapEntries(sitemapPath)} URLs`,
       );
     },
   };

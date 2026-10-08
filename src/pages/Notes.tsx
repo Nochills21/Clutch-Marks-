@@ -210,7 +210,10 @@ export default function Notes() {
 
   return (
     <div className="mx-auto max-w-4xl space-y-8">
-      <WatermarkOverlay />
+      {/* Only while a note is actually open. On the library list the watermark
+          covered the whole viewport — sidebar, filters and every card — without
+          protecting anything: the list shows titles and types, not content. */}
+      {viewing && <WatermarkOverlay />}
       <SEOHead path="/notes" />
 
       {/* ---------- masthead ---------- */}

@@ -147,6 +147,10 @@ export default function AdminSubmissions() {
     const marker = `/object/public/${bucket}/`;
     const idx = path.indexOf(marker);
     if (idx !== -1) cleanPath = path.slice(idx + marker.length);
+    if (!cleanPath) {
+      toast({ title: "Could not open file", description: `File path is empty after stripping the public URL prefix.`, variant: "destructive" });
+      return;
+    }
 
     const { data, error } = await supabase.storage.from(bucket).createSignedUrl(cleanPath, 3600);
     if (error || !data?.signedUrl) {

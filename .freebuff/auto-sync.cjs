@@ -32,6 +32,14 @@ function query(sql) {
       method: "POST",
       headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json", "Content-Length": Buffer.byteLength(body) },
     }, (res) => {
+      // Decode as UTF-8 across chunk boundaries. Without this, `d += chunk`
+      // decodes every HTTP chunk on its own, so a multi-byte character that
+      // straddles a boundary (—, −, ≤, ˣ, ₀ …) is left as one U+FFFD per byte —
+      // which is how the content backup silently rotted: the committed
+      // questions.json/lessons.json carried replacement characters that are not
+      // in the database. setEncoding installs a StringDecoder that holds the
+      // partial sequence until the rest of it arrives.
+      res.setEncoding("utf8");
       let d = "";
       res.on("data", (c) => (d += c));
       res.on("end", () => {
@@ -53,6 +61,11 @@ const TABLES = [
   "announcements", "content_revisions", "content_file_versions",
 ];
 
+// The last two are revision history: they record whatever was stored at the
+// time, so a U+FFFD in one of them is a faithful record of an old value rather
+// than damage introduced here. Current-content tables carry no such excuse.
+const HISTORY_TABLES = new Set(["content_revisions", "content_file_versions"]);
+
 async function dumpContent() {
   const dir = path.join(ROOT, ".freebuff", "content-backup");
   fs.mkdirSync(dir, { recursive: true });
@@ -60,7 +73,19 @@ async function dumpContent() {
   const counts = {};
   for (const t of TABLES) {
     const rows = await query(`select * from public.${t} order by 1`);
-    fs.writeFileSync(path.join(dir, `${t}.json`), JSON.stringify(rows, null, 1));
+    const text = JSON.stringify(rows, null, 1);
+    // A backup is only worth having if a restore from it is faithful. U+FFFD is
+    // never legitimate content, so a dump containing it means this reader (or
+    // the source) mangled a character: fail before writing, rather than commit
+    // and push damage that a later restore would write back into the database.
+    const damaged = (text.match(/\uFFFD/g) || []).length;
+    if (damaged > 0 && !HISTORY_TABLES.has(t)) {
+      throw new Error(`${t}.json would contain ${damaged} U+FFFD replacement character(s) — refusing to overwrite the backup`);
+    }
+    if (damaged > 0) {
+      log(`WARN: ${t}.json holds ${damaged} U+FFFD character(s) in revision history — recorded as stored`);
+    }
+    fs.writeFileSync(path.join(dir, `${t}.json`), text);
     counts[t] = rows.length;
     total += rows.length;
   }
@@ -103,9 +128,12 @@ function main() {
     log(`nothing staged for sync (unstaged non-sync files: ${status.trim() ? "yes" : "no"})`);
     return;
   }
-  // Head+tail scan is enough for credential detection and avoids buffering
-  // multi-MB diffs on routine content backups.
-  const staged = sh("git diff --cached --stat") + sh("git diff --cached | head -c 2000000");
+  // Head of the diff is enough for credential detection and avoids scanning
+  // multi-MB content backups. Truncate in Node, not with a `| head` pipe: this
+  // runs under cmd.exe, where `head` does not exist — the pipe made execSync
+  // throw every run after the dump, which left the corrupted dump staged and
+  // meant this sync had never actually pushed anything.
+  const staged = sh("git diff --cached --stat") + sh("git diff --cached").slice(0, 2000000);
 
   // Secret scan: Management token, JWTs, and the gitignored key file must never
   // enter history. Abort (and unstage) if any appear.
@@ -129,7 +157,17 @@ function main() {
   log(`pushed: ${msg}`);
 }
 
-dumpContent()
-  .then((n) => { log(`content dump ok (${n} rows)`); main(); })
-  .then(() => process.exit(0))
-  .catch((e) => { log(`ERROR: ${e.message}`); process.exit(1); });
+// `--dump-only` refreshes the backup without staging or pushing anything. Use it
+// when auditing content, so a content refresh cannot commit work in progress.
+const DUMP_ONLY = process.argv.includes("--dump-only");
+
+if (DUMP_ONLY) {
+  dumpContent()
+    .then((n) => { log(`content dump ok (${n} rows) — dump-only, nothing staged`); process.exit(0); })
+    .catch((e) => { log(`ERROR: ${e.message}`); process.exit(1); });
+} else {
+  dumpContent()
+    .then((n) => { log(`content dump ok (${n} rows)`); main(); })
+    .then(() => process.exit(0))
+    .catch((e) => { log(`ERROR: ${e.message}`); process.exit(1); });
+}

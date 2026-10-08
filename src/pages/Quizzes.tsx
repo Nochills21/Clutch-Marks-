@@ -5,6 +5,7 @@ import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 import { Brain, Clock, CheckCircle2, XCircle, Download, Upload, Sparkles, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { loadFailureMessage } from "@/lib/net";
@@ -76,6 +77,7 @@ export default function Quizzes() {
   // hook: returning early from above the hooks would change the hook count
   // between renders and trip React's "fewer hooks than expected" guard.
   const { user } = useAuth();
+  const navigate = useNavigate();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   // Quizzes whose topic belongs to one of the student's picked subject-levels.
@@ -123,6 +125,17 @@ export default function Quizzes() {
   }
 
   const startQuiz = async (quiz: any) => {
+    // Questions are loaded through an approval-gated RPC and marking writes an
+    // attempt, so a signed-out visitor is asked to sign in. Without this the
+    // card click ended in "permission denied for function get_student_questions".
+    if (!user) {
+      toast({
+        title: "Sign in to take this quiz",
+        description: "Attempts are saved to your account so your progress counts.",
+        action: <ToastAction altText="Sign in" onClick={() => navigate("/auth")}>Sign in</ToastAction>,
+      });
+      return;
+    }
     const { data, error: questionsError } = await supabase.rpc("get_student_questions", { _quiz_id: quiz.id });
     // Without this a failed fetch opened an empty quiz that looked broken.
     if (questionsError) {
