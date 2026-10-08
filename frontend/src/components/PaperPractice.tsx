@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Clock, Sparkles, Loader2, Flame, Zap, RotateCcw, AlertCircle } from "lucide-react";
+import { Clock, Sparkles, Loader2, CalendarCheck, Zap, RotateCcw, AlertCircle } from "lucide-react";
 
 export interface PracticePaper {
   id: string;
@@ -270,8 +270,11 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
                 {saved && saved.xp_earned > 0 && (
                   <Badge variant="secondary" className="gap-1"><Zap className="h-3 w-3" /> +{saved.xp_earned} XP</Badge>
                 )}
+                {/* "Days this week", not a streak: missing a day never resets it. */}
                 {saved && (
-                  <Badge variant="outline" className="gap-1"><Flame className="h-3 w-3" /> {saved.streak}-day streak</Badge>
+                  <Badge variant="outline" className="gap-1">
+                    <CalendarCheck className="h-3 w-3" /> {saved.streak} {saved.streak === 1 ? "day" : "days"} this week
+                  </Badge>
                 )}
               </div>
             </div>

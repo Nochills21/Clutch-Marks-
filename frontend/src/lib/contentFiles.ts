@@ -23,13 +23,32 @@ export function isExternalUrl(urlOrPath: string | null | undefined): boolean {
   return !!urlOrPath && /^https?:\/\//i.test(urlOrPath.trim());
 }
 
-/** Buckets are private — always read files through a short-lived signed URL. */
-export async function getSignedUrl(bucket: string, urlOrPath: string, expiresIn = 300) {
+/**
+ * Buckets are private — always read files through a short-lived signed URL.
+ *
+ * `downloadName` asks Storage for a `Content-Disposition: attachment` response,
+ * which is what keeps the fallback path a download instead of a preview. (The
+ * route that normally serves these files, serve-material, already returns an
+ * attachment when asked; without this the fallback silently swapped a download
+ * button into "opens a tab".)
+ */
+export async function getSignedUrl(bucket: string, urlOrPath: string, expiresIn = 300, downloadName?: string) {
   const { data, error } = await supabase.storage
     .from(bucket)
-    .createSignedUrl(toStoragePath(bucket, urlOrPath), expiresIn);
+    .createSignedUrl(toStoragePath(bucket, urlOrPath), expiresIn, downloadName ? { download: downloadName } : undefined);
   if (error) throw error;
   return data.signedUrl;
+}
+
+/** Trigger a forced download of an already-resolved URL (blob: or signed). */
+function downloadUrl(url: string, name: string) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.rel = "noopener noreferrer";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 }
 
 const FN_BASE = `${SUPABASE_URL_SAFE}/functions/v1/serve-material`;
@@ -123,13 +142,7 @@ export async function openProtectedFile(bucket: string, urlOrPath: string, downl
     const url = URL.createObjectURL(blob);
     if (downloadName) {
       // Forced-download variant (keeps the watermarked bytes).
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = downloadName;
-      a.rel = "noopener noreferrer";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      downloadUrl(url, downloadName);
     } else {
       window.open(url, "_blank", "noopener,noreferrer");
     }
@@ -139,18 +152,21 @@ export async function openProtectedFile(bucket: string, urlOrPath: string, downl
     // Awaited so a failure here reaches the caller's try/catch (which toasts)
     // instead of becoming an unhandled rejection nobody ever sees.
     console.warn("serve-material unavailable, falling back to a signed URL:", error);
-    await openSignedFile(bucket, path);
+    // Pass the download intent through: a signed URL that downloads is still
+    // the action the caller asked for.
+    await openSignedFile(bucket, path, downloadName);
   }
 }
 
-export async function openSignedFile(bucket: string, urlOrPath: string) {
+export async function openSignedFile(bucket: string, urlOrPath: string, downloadName?: string) {
   // External PDFs are not in our bucket: open them directly.
   if (isExternalUrl(urlOrPath)) {
     window.open(urlOrPath, "_blank", "noopener,noreferrer");
     return;
   }
-  const url = await getSignedUrl(bucket, urlOrPath);
-  window.open(url, "_blank", "noopener,noreferrer");
+  const url = await getSignedUrl(bucket, urlOrPath, 300, downloadName);
+  if (downloadName) downloadUrl(url, downloadName);
+  else window.open(url, "_blank", "noopener,noreferrer");
 }
 
 export interface FileVersion {
