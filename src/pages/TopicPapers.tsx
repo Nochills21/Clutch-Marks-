@@ -16,7 +16,7 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { SITE_URL, breadcrumbJsonLd } from "@/lib/seoRoutes";
+import { topicHead } from "@/lib/topicSeo";
 import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw, Download } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
@@ -226,53 +226,24 @@ export default function TopicPapers() {
   const Icon = subjectIcon(subjectMeta.icon);
   const accent = subjectAccent(subjectMeta.color);
   const levelCode = subjectLevel.level as SubjectLevelCode;
+  const topicSeo = topicHead(
+    {
+      subjectSlug: subjectMeta.slug,
+      subjectName: subjectMeta.name,
+      level: subjectLevel.level,
+      topicSlug,
+      topicName: topicTitle,
+    },
+    "papers",
+  );
 
   return (
     <div className="space-y-6">
       <PreviewBanner />
-      <SEOHead
-        title={`${topicTitle} — Past Papers & Mark Schemes | ${subjectMeta.name} ${LEVEL_LABELS[levelCode]} | Clutch Marks`}
-        description={`Past papers and mark schemes for ${topicTitle} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}. Practise under real exam conditions with papers sorted by year.`}
-        path={topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-        jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: `${topicTitle} — Past Papers & Mark Schemes`,
-            description: `Past papers and mark schemes for ${topicTitle} in ${subjectMeta.name} ${LEVEL_LABELS[levelCode]}, organised by year and session.`,
-            url: `${SITE_URL}${topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
-            educationalLevel: LEVEL_LABELS[levelCode],
-            about: { "@type": "Thing", name: topicTitle },
-            isPartOf: {
-              "@type": "Course",
-              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-              url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
-            },
-            provider: {
-              "@type": "EducationalOrganization",
-              name: "Clutch Marks",
-              url: `${SITE_URL}/`,
-            },
-          },
-          // Same trail as <TopicBreadcrumb> renders — markup that invents a crumb
-          // the student cannot see is what Google drops (or penalises).
-          breadcrumbJsonLd([
-            { name: "Subjects", path: "/subjects" },
-            {
-              name: `${subjectMeta.name} ${LEVEL_LABELS[levelCode]}`,
-              path: `/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
-            },
-            {
-              name: topicTitle,
-              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
-            },
-            {
-              name: "Past Papers & Mark Schemes",
-              path: topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
-            },
-          ]),
-        ]}
-      />
+      {/* Title, description, canonical and JSON-LD come from topicSeo, which is
+          also what the build-time prerenderer writes into this URL's static HTML
+          — so the crawler's head and the browser's head cannot disagree. */}
+      <SEOHead {...topicSeo} />
 
       <TopicBreadcrumb
         subjectName={subjectMeta.name}

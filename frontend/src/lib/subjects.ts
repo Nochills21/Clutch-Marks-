@@ -16,21 +16,11 @@ export function subjectIcon(name?: string | null): LucideIcon {
   return (name && SUBJECT_ICONS[name]) || BookOpen;
 }
 
-export type SubjectLevelCode = "OL" | "AS" | "A2";
-
-export const LEVELS: SubjectLevelCode[] = ["OL", "AS", "A2"];
-
-export const LEVEL_LABELS: Record<SubjectLevelCode, string> = {
-  OL: "O Level",
-  AS: "AS Level",
-  A2: "A2 Level",
-};
-
-export const LEVEL_DESCRIPTIONS: Record<SubjectLevelCode, string> = {
-  OL: "IGCSE / O Level foundations",
-  AS: "First year of A Level",
-  A2: "Second year of A Level",
-};
+// Level vocabulary lives in ./levels so the build-time prerender plugin can
+// import it without pulling lucide-react into the Vite config bundle. Re-exported
+// here because that is where the rest of the app imports it from.
+export { LEVELS, LEVEL_LABELS, LEVEL_DESCRIPTIONS, levelLabel } from "./levels";
+export type { SubjectLevelCode } from "./levels";
 
 export const SUBJECT_COLORS = ["primary", "purple", "cyan", "green", "amber", "pink"] as const;
 

@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { TopicBreadcrumb } from "@/components/TopicBreadcrumb";
 import { subjectIcon, subjectAccent, LEVELS, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { topicHead } from "@/lib/topicSeo";
 import {
   topicNotesPath,
   topicQuizPath,
@@ -16,7 +17,6 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { SITE_URL, breadcrumbJsonLd } from "@/lib/seoRoutes";
 import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
@@ -199,56 +199,27 @@ export default function TopicNotes() {
   const accent = subjectAccent(subjectMeta.color);
   const levelCode = subjectLevel.level as SubjectLevelCode;
   const levelLabel = LEVEL_LABELS[levelCode];
+  const topicSeo = topicHead(
+    {
+      subjectSlug: subjectMeta.slug,
+      subjectName: subjectMeta.name,
+      level: subjectLevel.level,
+      topicSlug,
+      topicName: topicTitle,
+    },
+    "notes",
+  );
 
   const topicLessons = lessons.length;
   const topicNotesCount = materials.length;
 
   return (
     <div className="space-y-6">
-      <SEOHead
-        title={`${topicTitle} — Revision Notes | ${subjectMeta.name} ${levelLabel} | Clutch Marks`}
-        description={`Revision notes, topic questions and past papers for ${topicTitle} in ${subjectMeta.name} ${levelLabel}.`}
-        path={topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-        jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "LearningResource",
-            name: `${topicTitle} — Revision Notes`,
-            description: `Revision notes and study materials for ${topicTitle} in ${subjectMeta.name} ${levelLabel} at Clutch Marks.`,
-            url: `${SITE_URL}${topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
-            educationalLevel: levelLabel,
-            about: { "@type": "Thing", name: topicTitle },
-            isPartOf: {
-              "@type": "Course",
-              name: `${subjectMeta.name} ${levelLabel}`,
-              url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
-            },
-            provider: {
-              "@type": "EducationalOrganization",
-              name: "Clutch Marks",
-              url: `${SITE_URL}/`,
-            },
-          },
-          // Mirrors <TopicBreadcrumb>: the trail Google is allowed to render must
-          // be the trail the student can see. /subjects and /study/:slug/:level
-          // are real routes, not invented ones.
-          breadcrumbJsonLd([
-            { name: "Subjects", path: "/subjects" },
-            {
-              name: `${subjectMeta.name} ${levelLabel}`,
-              path: `/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
-            },
-            {
-              name: topicTitle,
-              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
-            },
-            {
-              name: "Revision Notes",
-              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
-            },
-          ]),
-        ]}
-      />
+      {/* Title, description, canonical and JSON-LD all come from topicSeo, which
+          is also what the build-time prerenderer writes into this URL's static
+          HTML — the head a crawler reads without running JavaScript and the head
+          it reads after booting React are the same by construction. */}
+      <SEOHead {...topicSeo} />
 
       <TopicBreadcrumb
         subjectName={subjectMeta.name}

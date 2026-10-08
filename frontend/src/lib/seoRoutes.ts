@@ -310,62 +310,31 @@ export const ROUTE_META: RouteMeta[] = [
       "Create personalised study plans and organise your exam preparation schedule week by week.",
     noindex: true,
   },
+  // ---- Parameterised topic pages -----------------------------------------
+  // Templates, not copy: the real value of a placeholder depends on which topic
+  // is in the URL, so these entries exist to declare the route shape and the
+  // wording pattern. `topicSeo.ts` fills them in for the pages, the prerenderer
+  // and the sitemap, and seoConsistency.test.ts substitutes the same placeholders
+  // here and asserts the two still agree — keeping this table from quietly
+  // becoming fiction. Because the wording does not live here, these entries carry
+  // no jsonLd: the LearningResource + BreadcrumbList for a topic page is built
+  // only in topicSeo.ts.
   {
     path: "/study/:slug/:level/:topic/notes",
-    title: ":topic — Revision Notes | :subject :level | Clutch Marks",
-    description:
-      ":topic revision notes and study materials in :subject :level at Clutch Marks.",
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "LearningResource",
-      name: ":topic — Revision Notes",
-      educationalLevel: ":level",
-      about: { "@type": "Thing", name: ":topic" },
-      isPartOf: {
-        "@type": "Course",
-        name: ":subject :level",
-        url: `${SITE_URL}/study/:slug/:level`,
-      },
-      provider: organization,
-    },
+    title: ":topic — Notes | :subject :level | Clutch Marks",
+    description: "Revision notes, topic questions and past papers for :topic in :subject :levelLabel.",
   },
   {
     path: "/study/:slug/:level/:topic/quiz",
-    title: ":topic — Topic Questions | :subject :level | Clutch Marks",
+    title: ":topic — Quiz | :subject :level | Clutch Marks",
     description:
-      "Exam-style topic questions for :topic in :subject :level with instant marking and explanations.",
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "LearningResource",
-      name: ":topic — Topic Questions",
-      educationalLevel: ":level",
-      about: { "@type": "Thing", name: ":topic" },
-      isPartOf: {
-        "@type": "Course",
-        name: ":subject :level",
-        url: `${SITE_URL}/study/:slug/:level`,
-      },
-      provider: organization,
-    },
+      "Exam-style topic questions for :topic in :subject :levelLabel. Instant marking, worked answers and AI feedback.",
   },
   {
     path: "/study/:slug/:level/:topic/papers",
-    title: ":topic — Past Papers & Mark Schemes | :subject :level | Clutch Marks",
+    title: ":topic — Papers | :subject :level | Clutch Marks",
     description:
-      "Past papers and mark schemes for :topic in :subject :level, organised by year and session.",
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "LearningResource",
-      name: ":topic — Past Papers & Mark Schemes",
-      educationalLevel: ":level",
-      about: { "@type": "Thing", name: ":topic" },
-      isPartOf: {
-        "@type": "Course",
-        name: ":subject :level",
-        url: `${SITE_URL}/study/:slug/:level`,
-      },
-      provider: organization,
-    },
+      "Past papers and mark schemes for :topic in :subject :levelLabel. Practise under real exam conditions with papers sorted by year.",
   },
   {
     path: "/announcements",

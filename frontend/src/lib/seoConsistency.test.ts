@@ -13,7 +13,10 @@
 // back without failing the suite.
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { describe, it, expect } from "vitest";
-import { ROUTE_META, getRouteMeta, headFor } from "./seoRoutes";
+import { ROUTE_META, SITE_URL, getRouteMeta, headFor } from "./seoRoutes";
+import { LEVELS } from "./levels";
+import { TOPIC_MANIFEST } from "./topicManifest.generated";
+import { TOPIC_PAGE_KINDS, topicHead } from "./topicSeo";
 
 const root = process.cwd();
 const read = (p: string) => readFileSync(root + p, "utf8");
@@ -26,8 +29,18 @@ const sitemapUrls = () =>
   [...read("/public/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 
 const isPlaceholder = (path: string) => path.includes(":");
-const indexable = (path: string) =>
-  ROUTE_META.find((m) => m.path === path && !m.noindex) !== undefined;
+
+/** The tag kinds the app itself writes, and therefore has to be able to remove. */
+const REPLACED_BY_APP =
+  /<(?:link[^>]+rel="canonical"|meta[^>]+name="(?:description|robots)"|meta[^>]+property="og:|meta[^>]+name="twitter:|script[^>]+application\/ld\+json)/i;
+
+/** HTML-escape the way plugins/prerender-seo.ts does, for head comparisons. */
+const attr = (value: string) =>
+  value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/** Every topic page the site publishes, from the committed manifest. */
+const topicPaths = () =>
+  TOPIC_MANIFEST.flatMap((t) => TOPIC_PAGE_KINDS.map((kind) => topicHead(t, kind).path));
 
 describe("the SPA shell", () => {
   it("does not claim a canonical for every route it is served for", () => {
@@ -130,21 +143,111 @@ describe("prerendered pages", () => {
     // end up duplicated in the live DOM. The shell's own tags (author, icons,
     // manifest, Vite's modulepreload/stylesheet links) are not per-route, are not
     // replaced by Helmet, and must NOT carry the marker.
-    const replacedByApp =
-      /<(?:link[^>]+rel="canonical"|meta[^>]+name="(?:description|robots)"|meta[^>]+property="og:|meta[^>]+name="twitter:|script[^>]+application\/ld\+json)/i;
-
     for (const { path, html } of pages()) {
-      const head = html.slice(0, html.indexOf("</head>"));
-      const perRoute = [
-        ...head.matchAll(/<(?:meta|link)[^>]*>/gi),
-        ...head.matchAll(/<script type="application\/ld\+json"[^>]*>/gi),
-      ]
-        .map((m) => m[0])
-        .filter((tag) => replacedByApp.test(tag));
-
-      const unmarked = perRoute.filter((t) => !t.includes('data-seo="prerender"'));
+      const unmarked = perRouteUnmarked(html);
       expect(unmarked, `${path} has per-route tags the app cannot remove`).toEqual([]);
     }
+  });
+});
+
+/** Per-route head tags in `html` that the app could not remove at runtime. */
+function perRouteUnmarked(html: string): string[] {
+  const head = html.slice(0, html.indexOf("</head>"));
+  return [
+    ...head.matchAll(/<(?:meta|link)[^>]*>/gi),
+    ...head.matchAll(/<script type="application\/ld\+json"[^>]*>/gi),
+  ]
+    .map((m) => m[0])
+    .filter((tag) => REPLACED_BY_APP.test(tag))
+    .filter((tag) => !tag.includes('data-seo="prerender"'));
+}
+
+// ---- Topic pages ---------------------------------------------------------
+// The 300 /study/... pages are the site's actual content, and until this work
+// the build left every one of them on the generic SPA shell: the homepage's
+// title, no canonical, no breadcrumb, and no sitemap entry, for any crawler that
+// does not execute JavaScript. These checks tie the four pieces together — the
+// committed manifest (which topics exist), the ROUTE_META templates (how the
+// wording is shaped), the emitted HTML and the shipped sitemap — so a missing or
+// drifted topic page fails here instead of shipping.
+describe("topic pages", () => {
+  it("lists a well-formed manifest entry per topic", () => {
+    expect(TOPIC_MANIFEST.length).toBeGreaterThan(50);
+    for (const topic of TOPIC_MANIFEST) {
+      expect(topic.subjectSlug, "subject slug").toMatch(/^[a-z0-9-]+$/);
+      expect(topic.topicSlug, `${topic.subjectSlug} topic slug`).toMatch(/^[a-z0-9-]+$/);
+      expect(LEVELS, `${topic.subjectSlug}/${topic.topicSlug} level`).toContain(topic.level);
+      expect(topic.topicName.length, `${topic.topicSlug} name`).toBeGreaterThan(1);
+    }
+
+    const paths = topicPaths();
+    expect(new Set(paths).size, "two topics share a page path").toBe(paths.length);
+  });
+
+  it("keeps the ROUTE_META templates honest about the real wording", () => {
+    // The table cannot hold a topic's real title, so the entries are templates.
+    // A template that no longer describes what topicSeo produces is worse than
+    // no template: it documents wording the site does not ship.
+    const sample = {
+      subjectSlug: "mathematics",
+      subjectName: "Mathematics",
+      level: "OL",
+      topicSlug: "sample-topic",
+      topicName: "Sample Topic",
+    };
+    const fill = (template: string) =>
+      template
+        .replace(/:levelLabel/g, "O Level")
+        .replace(/:topic/g, sample.topicName)
+        .replace(/:subject/g, sample.subjectName)
+        .replace(/:level/g, sample.level);
+
+    for (const kind of TOPIC_PAGE_KINDS) {
+      const meta = ROUTE_META.find((m) => m.path === `/study/:slug/:level/:topic/${kind}`);
+      expect(meta, `no ROUTE_META template for the ${kind} page`).toBeDefined();
+      const head = topicHead(sample, kind);
+      expect(fill(meta!.title), `${kind} title template`).toBe(head.title);
+      expect(fill(meta!.description), `${kind} description template`).toBe(head.description);
+    }
+  });
+
+  it("prerenders every topic page with its own head", () => {
+    for (const topic of TOPIC_MANIFEST) {
+      for (const kind of TOPIC_PAGE_KINDS) {
+        const head = topicHead(topic, kind);
+        const file = `dist${head.path}/index.html`;
+        expect(existsSync(`${root}/${file}`), `${file} was not prerendered`).toBe(true);
+        const html = read(`/${file}`);
+
+        expect(html, `${head.path} title`).toContain(`<title>${attr(head.title)}</title>`);
+        expect(html, `${head.path} description`).toContain(`content="${attr(head.description)}"`);
+
+        const canonicals = html.match(/<link[^>]+rel="canonical"[^>]*>/gi) ?? [];
+        expect(canonicals.length, `${head.path} should have one canonical`).toBe(1);
+        expect(canonicals[0], `${head.path} canonical`).toContain(`href="${SITE_URL}${head.path}"`);
+
+        // Breadcrumbs are the one piece of structured data that tells a crawler
+        // this page sits under a subject and level instead of floating alone.
+        expect(html, `${head.path} structured data`).toContain('"BreadcrumbList"');
+        expect(html, `${head.path} structured data`).toContain('"LearningResource"');
+
+        const unmarked = perRouteUnmarked(html);
+        expect(unmarked, `${head.path} has per-route tags the app cannot remove`).toEqual([]);
+      }
+    }
+  });
+
+  it("lists every topic page in the shipped sitemap, and nothing else", () => {
+    const listed = [...read("/dist/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+      (m) => new URL(m[1]).pathname,
+    );
+    const expected = [
+      ...ROUTE_META.filter((m) => !m.noindex && !isPlaceholder(m.path)).map((m) => m.path),
+      ...topicPaths(),
+    ].sort();
+
+    expect([...listed].sort()).toEqual(expected);
+    expect(new Set(listed).size, "the sitemap repeats a URL").toBe(listed.length);
   });
 });
 

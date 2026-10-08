@@ -12,6 +12,13 @@
        noindex in ROUTE_META; seoConsistency.test.ts holds both halves of that
        rule to the route table.
 
+       The 300 /study/:subject/:level/:topic/(notes|quiz|papers) URLs are NOT
+       listed here: they depend on which topics the live database holds, and
+       this file is checked in. plugins/prerender-seo.ts appends them at build
+       time from the committed topic manifest, so the sitemap the site serves
+       lists ~310 URLs while this file stays the literal-route fallback that
+       seoConsistency.test.ts can check.
+
        <lastmod> is a freshness signal that makes Google recrawl the page and
        replace a stale result title. The prerender plugin refreshes it with the
        build date, so the checked-in value is only a fallback for local/static
