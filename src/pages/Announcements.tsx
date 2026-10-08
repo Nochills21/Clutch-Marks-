@@ -55,7 +55,7 @@ export default function Announcements() {
 
   return (
     <div className="space-y-6">
-      <SEOHead title="Announcements — Clutch Marks" description="Read the latest announcements, updates, and important news from Clutch Marks." path="/announcements" />
+      <SEOHead path="/announcements" />
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Announcements</h1>
         <p className="text-muted-foreground">Latest news and updates</p>

@@ -16,7 +16,7 @@
     "build:single": "vite build --config vite.single.config.ts && node scripts/build-single-file.cjs",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
-    "verify": "npm run typecheck && npm run test && npm run build",
+    "verify": "npm run typecheck && npm run build && npm run test",
     "backup:content": "node scripts/backup-content.cjs",
     "preview": "vite preview",
     "test": "vitest run",

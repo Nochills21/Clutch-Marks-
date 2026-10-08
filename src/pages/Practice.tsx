@@ -101,6 +101,7 @@ export default function Practice() {
   const [drillIdx, setDrillIdx] = useState(0);
   const [drillSelected, setDrillSelected] = useState<number | null>(null);
   const [drillCorrect, setDrillCorrect] = useState(0);
+  const [drillCorrected, setDrillCorrected] = useState(false);
   const [drillDone, setDrillDone] = useState(false);
   const [drillTopic, setDrillTopic] = useState("");
   const [loadingWeak, setLoadingWeak] = useState(true);
@@ -117,7 +118,10 @@ export default function Practice() {
   const [difficulty, setDifficulty] = useState("all");
   const [active, setActive] = useState<ReviewQuestion | null>(null);
   const [selected, setSelected] = useState<number | null>(null);
-  const [reveal, setReveal] = useState<{ correct_option: number; explanation: string | null; correct: boolean } | null>(null);
+  // `corrected` marks the case that matters most: this question was answered
+  // wrongly before, and now it isn't. The server pays extra XP for it, and it is
+  // the one piece of feedback worth calling out by name.
+  const [reveal, setReveal] = useState<{ correct_option: number; explanation: string | null; correct: boolean; corrected?: boolean } | null>(null);
   const [topicSL, setTopicSL] = useState<Map<string, string>>(new Map()); // topic_id -> subject_level_id
   const pickedSlByTopic = useMemo(
     () => new Map([...topicSL.entries()].filter(([, sl]) => pickedIds.has(sl))),
@@ -136,7 +140,7 @@ export default function Practice() {
   const [summaryLoading, setSummaryLoading] = useState(false);
   const [bankActive, setBankActive] = useState<BankQuestion | null>(null);
   const [bankSelected, setBankSelected] = useState<number | null>(null);
-  const [bankReveal, setBankReveal] = useState<{ correct_option: number; explanation: string | null; correct: boolean } | null>(null);
+  const [bankReveal, setBankReveal] = useState<{ correct_option: number; explanation: string | null; correct: boolean; corrected?: boolean } | null>(null);
 
   useEffect(() => {
     if (!user) return;
@@ -344,16 +348,17 @@ export default function Practice() {
       });
       return;
     }
-    const result = (data ?? {}) as { correct?: boolean; correct_option?: number; explanation?: string | null };
+    const result = (data ?? {}) as { correct?: boolean; correct_option?: number; explanation?: string | null; corrected_mistake?: boolean };
     setDrill((prev) => prev.map((q, k) => k === drillIdx ? { ...q, correct_option: result.correct_option, explanation: result.explanation ?? null } : q));
     if (result.correct) setDrillCorrect((c) => c + 1);
+    setDrillCorrected(Boolean(result.corrected_mistake));
   };
 
   const drillNext = () => {
-    if (drillIdx + 1 < drill.length) { setDrillIdx(drillIdx + 1); setDrillSelected(null); }
+    if (drillIdx + 1 < drill.length) { setDrillIdx(drillIdx + 1); setDrillSelected(null); setDrillCorrected(false); }
     else setDrillDone(true);
   };
-  const drillReset = () => { setDrill([]); setDrillDone(false); setDrillIdx(0); setDrillSelected(null); setDrillCorrect(0); };
+  const drillReset = () => { setDrill([]); setDrillDone(false); setDrillIdx(0); setDrillSelected(null); setDrillCorrect(0); setDrillCorrected(false); };
 
   // ---------- Review flow ----------
   const startReview = (q: ReviewQuestion) => { setActive(q); setSelected(null); setReveal(null); };
@@ -366,7 +371,12 @@ export default function Practice() {
     });
     if (error) { setError(error.message); return; }
     const res = data as any;
-    setReveal({ correct_option: res.correct_option, explanation: res.explanation, correct: res.correct });
+    setReveal({
+      correct_option: res.correct_option,
+      explanation: res.explanation,
+      correct: res.correct,
+      corrected: Boolean(res.corrected_mistake),
+    });
     setQuestions((prev) => prev.map((q) => q.id === active.id
       ? { ...q, last_correct: res.correct, attempts_count: q.attempts_count + 1 } : q));
   };
@@ -390,7 +400,12 @@ export default function Practice() {
       return;
     }
     const r = data as any;
-    setBankReveal({ correct_option: r.correct_option, explanation: r.explanation, correct: r.correct });
+    setBankReveal({
+      correct_option: r.correct_option,
+      explanation: r.explanation,
+      correct: r.correct,
+      corrected: Boolean(r.corrected_mistake),
+    });
     loadBankAttempts();
     loadBankSummary();
   };
@@ -445,7 +460,7 @@ export default function Practice() {
   if (needsSubjectPick) {
     return (
       <div className="space-y-6">
-        <SEOHead title="Practice — Clutch Marks" description="Topic questions, smart drills on your weakest areas, and every question you got wrong or saved." path="/practice" />
+        <SEOHead path="/practice" />
         <SubjectGate />
       </div>
     );
@@ -456,7 +471,7 @@ export default function Practice() {
     const q = drill[drillIdx];
     return (
       <div className="max-w-2xl mx-auto space-y-5">
-        <SEOHead title="Practice — Clutch Marks" description="Targeted practice on your weakest topics and the questions you missed." path="/practice" />
+        <SEOHead path="/practice" />
         <div className="flex items-center justify-between">
           <Button variant="ghost" onClick={drillReset}>← Exit</Button>
           <Badge variant="outline">{drillIdx + 1} / {drill.length}</Badge>
@@ -490,6 +505,11 @@ export default function Practice() {
                 </button>
               );
             })}
+            {drillCorrected && drillSelected !== null && (
+              <p className="text-xs text-primary/90 flex items-center gap-1.5 mt-2">
+                <Sparkles className="h-3.5 w-3.5" /> That one had you before — it doesn't now.
+              </p>
+            )}
             {drillSelected !== null && q.explanation && (
               <p className="text-xs text-muted-foreground bg-secondary/50 p-3 rounded-lg mt-2">{q.explanation}</p>
             )}
@@ -508,7 +528,7 @@ export default function Practice() {
     const pct = Math.round((drillCorrect / drill.length) * 100);
     return (
       <div className="max-w-md mx-auto text-center space-y-4 py-10">
-        <SEOHead title="Practice — Clutch Marks" description="Targeted practice on your weakest topics and the questions you missed." path="/practice" />
+        <SEOHead path="/practice" />
         <Sparkles className="h-12 w-12 text-primary mx-auto" />
         <h2 className="text-2xl font-bold">Session complete</h2>
         <p className="text-4xl font-bold neon-text">{drillCorrect}/{drill.length}</p>
@@ -523,7 +543,7 @@ export default function Practice() {
   if (bankActive) {
     return (
       <div className="max-w-2xl mx-auto space-y-5">
-        <SEOHead title="Practice — Clutch Marks" description="Practise topic questions with instant marking and explanations." path="/practice" />
+        <SEOHead path="/practice" />
         <div className="flex items-center justify-between">
           <Button variant="ghost" onClick={() => setBankActive(null)}>← Back to questions</Button>
           <Badge variant="outline">{bankActive.quiz_title}</Badge>
@@ -554,6 +574,11 @@ export default function Practice() {
                 </button>
               );
             })}
+            {bankReveal?.corrected && (
+              <p className="text-xs text-primary/90 flex items-center gap-1.5 mt-2">
+                <Sparkles className="h-3.5 w-3.5" /> That one had you before — it doesn't now.
+              </p>
+            )}
             {bankReveal?.explanation && (
               <p className="text-xs text-muted-foreground bg-secondary/50 p-3 rounded-lg mt-2">{bankReveal.explanation}</p>
             )}
@@ -569,13 +594,13 @@ export default function Practice() {
   // ---------- Render: hub ----------
   return (
     <div className="space-y-6">
-      <SEOHead title="Practice — Clutch Marks" description="Topic questions, smart drills on your weakest areas, and every question you got wrong or saved." path="/practice" />
+      <SEOHead path="/practice" />
       <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Target className="h-6 w-6 text-primary" /> Practice
           </h1>
-          <p className="text-muted-foreground">Every question in one place: browse by topic, drill weak areas, review mistakes.</p>
+          <p className="text-muted-foreground">Every question in one place: browse by topic, revisit the ones you're less sure of, and fix mistakes.</p>
         </div>
         <SubjectPicker />
       </div>
@@ -716,6 +741,11 @@ export default function Practice() {
                       {reveal.correct ? <CheckCircle2 className="h-4 w-4" /> : <XCircle className="h-4 w-4" />}
                       {reveal.correct ? "Correct" : "Not quite"}
                     </p>
+                    {reveal.corrected && (
+                      <p className="text-sm text-primary/90 flex items-center gap-1.5">
+                        <Sparkles className="h-4 w-4" /> That one had you before — it doesn't now.
+                      </p>
+                    )}
                     {reveal.explanation && <p className="text-sm text-muted-foreground">{reveal.explanation}</p>}
                     <div className="flex gap-2">
                       <Button size="sm" variant="outline" onClick={() => setActive(null)}>Close</Button>
@@ -802,7 +832,7 @@ export default function Practice() {
                 {visibleWeakTopics.length === 0 && (
                   <Card className="sm:col-span-2 lg:col-span-3"><CardContent className="py-6 text-center text-sm text-muted-foreground">
                     <Layers className="h-8 w-8 mx-auto mb-2 opacity-40" />
-                    Complete a quiz first so we can spot weak areas.
+                    Complete a quiz and we'll point you at the topics worth revisiting.
                   </CardContent></Card>
                 )}
               </div>

@@ -2662,7 +2662,7 @@
   "options": [
    "sec θ = 1/cos θ, cosec θ = 1/sin θ, cot θ = 1/tan θ. Key identity: 1 + cot²θ = cosec²θ",
    "Break rational functions into pieces like ∫ 1/(x+1) dx = ln|x + 1| + c",
-   "For a frequency table with midpoints x and frequencies f: x�� = Σfx/Σf",
+   "For a frequency table with midpoints x and frequencies f: x̄ = Σfx/Σf",
    "Var(X − Y) = Var(X) + Var(Y) — the subtraction does not cancel spread"
   ],
   "correct_option": 0,
@@ -25714,7 +25714,7 @@
  {
   "id": "d37eb76b-76dc-4ac4-ba90-ab28d4184de5",
   "quiz_id": "22a72e79-6ccc-4a29-91f9-33cbb369020a",
-  "question_text": "Which of these is covered by the \"Trigonometry — Sine and Cosine Rules\" study notes?",
+  "question_text": "Which of these is covered by the \"Trigonometry �� Sine and Cosine Rules\" study notes?",
   "options": [
    "BIDMAS. 3 + 4 × 2² = 3 + 16 = 19. Insert brackets yourself when translating words: \"3 added to the product of 4 and 2²\" = 3 + (4 × 2²)",
    "Cambridge IGCSE 0580 (2025–2027): area formula, sine rule, cosine rule, multi-step bearing and 3-D problems (Extended)",
@@ -30202,7 +30202,7 @@
    "Cambridge IGCSE 0580 (2025–2027): index laws, negative and fractional indices, standard form arithmetic, surds and rationalising denominators"
   ],
   "correct_option": 1,
-  "explanation": "From the Trigonometry — Sine and Cosine Rules study notes: “a² = b² + c² − 2bc cos A. Use with two sides + included angle, or all three sides (then cos A = (b² + c² − a²)/(2bc))”.",
+  "explanation": "From the Trigonometry — Sine and Cosine Rules study notes: “a² = b² + c�� − 2bc cos A. Use with two sides + included angle, or all three sides (then cos A = (b² + c² − a²)/(2bc))”.",
   "sort_order": 4,
   "created_at": "2026-09-26 09:37:48.672179+00",
   "difficulty": "medium"

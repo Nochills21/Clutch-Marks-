@@ -29,6 +29,7 @@ import Index from "./pages/Index";
 // initial chunk (341 kB gzip) that every visitor downloaded before seeing
 // anything.
 const Auth = lazy(() => import("./pages/Auth"));
+const AuthCallback = lazy(() => import("./pages/AuthCallback"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Lessons = lazy(() => import("./pages/Lessons"));
 const Notes = lazy(() => import("./pages/Notes"));
@@ -139,6 +140,10 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
+              {/* Where Google (and any future social provider) comes back with
+                  its session. Must stay outside AppLayout: there is no signed-in
+                  user yet when the redirect lands. */}
+              <Route path="/auth/callback" element={<AuthCallback />} />
               {/* Public: blog-funnel gated download page (no auth required). */}
               <Route path="/downloads" element={<Downloads />} />
               {/* Public marketing/legal pages: reachable (and indexable) without
@@ -149,21 +154,24 @@ const App = () => (
                 <Route path="/terms" element={<TermsOfService />} />
               </Route>
               <Route element={<AppLayout />}>
-                <Route path="/dashboard" element={<Dashboard />} />
+                {/* Public content pages -- notes, lessons, quizzes, past papers and
+                  the per-topic pages are now openly viewable (the content tables
+                  allow anonymous SELECT; files stay behind private storage).
+                  Students still pick subjects to filter their view, but an
+                  anonymous visitor sees the full content without a login wall so
+                  crawlers can index it. */}
                 <Route element={<ApprovalGate />}>
-                  <Route path="/lessons" element={<Lessons />} />
-                  <Route path="/lessons/:lessonId/notes" element={<LessonNotes />} />
-                  <Route path="/notes" element={<Notes />} />
-                  <Route path="/quizzes" element={<Quizzes />} />
+                  {/* Personal / account pages stay gated -- they are never indexed. */}
                   <Route path="/flashcards" element={<Flashcards />} />
                   <Route path="/practice" element={<Practice />} />
-                  <Route path="/feedback" element={<FeedbackPage />} />
-                  <Route path="/leaderboard" element={<Leaderboard />} />
-                  <Route path="/reset-password" element={<ResetPassword />} />
-                  <Route path="/progress" element={<ProgressPage />} />
-                  <Route path="/announcements" element={<Announcements />} />
-                  <Route path="/past-papers" element={<PastPapers />} />
                   <Route path="/study-planner" element={<StudyPlanner />} />
+                  <Route path="/progress" element={<ProgressPage />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/leaderboard" element={<Leaderboard />} />
+                  <Route path="/feedback" element={<FeedbackPage />} />
+                  <Route path="/reset-password" element={<ResetPassword />} />
+                  <Route path="/announcements" element={<Announcements />} />
+                  <Route path="/lessons/:lessonId/notes" element={<LessonNotes />} />
                   <Route path="/heatmap" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/smart-revision" element={<RedirectPreservingQuery to="/practice" />} />
                   <Route path="/question-bank" element={<RedirectPreservingQuery to="/practice" />} />
@@ -171,15 +179,19 @@ const App = () => (
                   <Route path="/review" element={<RedirectPreservingQuery to="/practice" />} />
                   <Route path="/subject-progress" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/revision" element={<Navigate to="/notes" replace />} />
-                  <Route path="/subjects" element={<Subjects />} />
-                  <Route path="/study/:slug/:level" element={<Subject />} />
-                  <Route path="/study/:slug/:level/:topic/notes" element={<TopicNotes />} />
-                  <Route path="/study/:slug/:level/:topic/quiz" element={<TopicQuiz />} />
-                  <Route path="/study/:slug/:level/:topic/papers" element={<TopicPapers />} />
-
                 </Route>
-                
-                
+
+                {/* Public study content: visible without signing in. */}
+                <Route path="/subjects" element={<Subjects />} />
+                <Route path="/study/:slug/:level" element={<Subject />} />
+                <Route path="/study/:slug/:level/:topic/notes" element={<TopicNotes />} />
+                <Route path="/study/:slug/:level/:topic/quiz" element={<TopicQuiz />} />
+                <Route path="/study/:slug/:level/:topic/papers" element={<TopicPapers />} />
+                <Route path="/lessons" element={<Lessons />} />
+                <Route path="/notes" element={<Notes />} />
+                <Route path="/quizzes" element={<Quizzes />} />
+                <Route path="/past-papers" element={<PastPapers />} />
+
                 <Route element={<AdminRoute />}>
                   <Route path="/admin/subjects" element={<AdminSubjects />} />
                   <Route path="/admin/lessons" element={<AdminLessons />} />

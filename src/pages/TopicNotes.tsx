@@ -16,7 +16,7 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { SITE_URL } from "@/lib/seoRoutes";
+import { SITE_URL, breadcrumbJsonLd } from "@/lib/seoRoutes";
 import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
@@ -43,6 +43,7 @@ export default function TopicNotes() {
   const [reloadKey, setReloadKey] = useState(0);
   const bumpRevision = () => setReloadKey((k) => k + 1);
 
+  const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole } = useMySubjects();
 
   useEffect(() => {
@@ -132,7 +133,7 @@ export default function TopicNotes() {
       </div>
     );
   }
-  if (!isAdminRole && prefsLoaded && pickedIds.size === 0) {
+  if (!isAdminRole && user && prefsLoaded && pickedIds.size === 0) {
     return (
       <div className="space-y-6">
         <SEOHead title={`${topicTitle ?? "Revision Notes"} — Clutch Marks`} description="Revision notes, topic questions and past papers." path={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
@@ -151,7 +152,10 @@ export default function TopicNotes() {
   }
 
   // Students only see topics belonging to a subject-level they picked.
-  if (!isAdminRole && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+  // Anonymous visitors are not enrolled in any subject yet, so they see the
+  // topic regardless; signing in and picking it afterwards personalises the
+  // view.
+  if (!isAdminRole && user && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
     return (
       <Card>
         <CardHeader>
@@ -205,25 +209,45 @@ export default function TopicNotes() {
         title={`${topicTitle} — Revision Notes | ${subjectMeta.name} ${levelLabel} | Clutch Marks`}
         description={`Revision notes, topic questions and past papers for ${topicTitle} in ${subjectMeta.name} ${levelLabel}.`}
         path={topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "LearningResource",
-          name: `${topicTitle} — Revision Notes`,
-          description: `Revision notes and study materials for ${topicTitle} in ${subjectMeta.name} ${levelLabel} at Clutch Marks.`,
-          url: `${SITE_URL}${topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
-          educationalLevel: levelLabel,
-          about: { "@type": "Thing", name: topicTitle },
-          isPartOf: {
-            "@type": "Course",
-            name: `${subjectMeta.name} ${levelLabel}`,
-            url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "LearningResource",
+            name: `${topicTitle} — Revision Notes`,
+            description: `Revision notes and study materials for ${topicTitle} in ${subjectMeta.name} ${levelLabel} at Clutch Marks.`,
+            url: `${SITE_URL}${topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}`,
+            educationalLevel: levelLabel,
+            about: { "@type": "Thing", name: topicTitle },
+            isPartOf: {
+              "@type": "Course",
+              name: `${subjectMeta.name} ${levelLabel}`,
+              url: `${SITE_URL}/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            },
+            provider: {
+              "@type": "EducationalOrganization",
+              name: "Clutch Marks",
+              url: `${SITE_URL}/`,
+            },
           },
-          provider: {
-            "@type": "EducationalOrganization",
-            name: "Clutch Marks",
-            url: `${SITE_URL}/`,
-          },
-        }}
+          // Mirrors <TopicBreadcrumb>: the trail Google is allowed to render must
+          // be the trail the student can see. /subjects and /study/:slug/:level
+          // are real routes, not invented ones.
+          breadcrumbJsonLd([
+            { name: "Subjects", path: "/subjects" },
+            {
+              name: `${subjectMeta.name} ${levelLabel}`,
+              path: `/study/${subjectMeta.slug}/${subjectLevel.level.toLowerCase()}`,
+            },
+            {
+              name: topicTitle,
+              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
+            },
+            {
+              name: "Revision Notes",
+              path: topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
+            },
+          ]),
+        ]}
       />
 
       <TopicBreadcrumb

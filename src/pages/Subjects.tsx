@@ -50,11 +50,7 @@ export default function Subjects() {
 
   return (
     <div className="space-y-6">
-      <SEOHead
-        title="Choose your subject — Clutch Marks"
-        description="Pick a subject and level to access lessons, revision material, exams and the AI question bank."
-        path="/subjects"
-      />
+      <SEOHead path="/subjects" />
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Choose a subject</h1>

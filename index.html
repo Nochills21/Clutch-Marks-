@@ -41,16 +41,23 @@
     <meta name="author" content="Clutch Marks" />
     <meta name="google-site-verification" content="m5Qj2P9Rv04eQ1Q05i5zYUceYinJWgsDtaHJgVjYv80" />
 
-    <!-- Update og:url + canonical to https://clutchmarks.study when the domain
-         is live (see docs/domain-launch-runbook.md). SITE.url in
-         src/lib/site.ts drives the in-app equivalents. -->
-    <link rel="canonical" href="https://clutchmarks.study/" />
+    <!-- No <link rel="canonical"> and no og:url here on purpose.
 
+         This file is the shell the static host serves for every URL that has no
+         prerendered file of its own — a 404, a /study/... path, any future route
+         — so a canonical pointing at "/" told Google that all of them were
+         copies of the homepage. That is a URL-consolidation signal: it is how a
+         whole content library gets quietly folded into one page.
+
+         The prerender plugin writes the correct canonical/og:url into each
+         route's own HTML (see plugins/prerender-seo.ts), and <SEOHead /> sets
+         them at runtime per page. A missing canonical is harmless; a wrong one
+         is not. Keep this file free of both. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Clutch Marks" />
     <meta property="og:title" content="Clutch Marks — Maths, Physics &amp; Computer Science Revision" />
     <meta property="og:description" content="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for IGCSE, AS and A Level." />
-    <meta property="og:url" content="https://clutchmarks.study/" />
+    <!-- No og:url deliberately — see the note above: it is replaced per route. -->
     <meta property="og:image" content="https://clutchmarks.study/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />

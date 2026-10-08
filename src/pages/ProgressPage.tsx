@@ -239,7 +239,7 @@ export default function ProgressPage() {
   if (needsSubjectPick) {
     return (
       <div className="space-y-6">
-        <SEOHead title="Progress — Clutch Marks" description="Track lessons, quiz scores, topic mastery and question-bank usage for every subject and level." path="/progress" />
+        <SEOHead path="/progress" />
         <SubjectGate />
       </div>
     );
@@ -256,11 +256,7 @@ export default function ProgressPage() {
 
   return (
     <div className="space-y-6">
-      <SEOHead
-        title="Progress — Clutch Marks"
-        description="Track lessons, quiz scores, topic mastery and question-bank usage for every subject and level."
-        path="/progress"
-      />
+      <SEOHead path="/progress" />
 
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
@@ -403,7 +399,7 @@ export default function ProgressPage() {
           <Card className="neon-border">
             <CardHeader className="pb-3">
               <CardTitle className="text-base">Recommended focus</CardTitle>
-              <CardDescription>Your weakest topics across quizzes, practice and saved questions — drill them in Practice.</CardDescription>
+              <CardDescription>Topics worth revisiting, gathered from quizzes, practice and your saved questions. A short drill on one of these moves your mark fastest.</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
               {weakest.map((w) => (
@@ -438,8 +434,8 @@ export default function ProgressPage() {
                   {(s.practiceIncorrect > 0 || s.bookmarked > 0) && (
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {s.practiceIncorrect > 0 && (
-                        <Badge variant="outline" className="gap-1 text-destructive border-destructive/40 text-[10px]">
-                          <AlertCircle className="h-3 w-3" /> {s.practiceIncorrect} wrong
+                        <Badge variant="outline" className="gap-1 text-muted-foreground text-[10px]">
+                          <RotateCcw className="h-3 w-3" /> {s.practiceIncorrect} to revisit
                         </Badge>
                       )}
                       {s.bookmarked > 0 && (

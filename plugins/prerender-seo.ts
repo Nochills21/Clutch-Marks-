@@ -35,6 +35,23 @@ function robotsFor(meta: RouteMeta) {
   return meta.noindex ? ROBOTS_NOINDEX : ROBOTS_INDEX;
 }
 
+/**
+ * Tag the prerendered head elements so the app can recognise and remove them.
+ *
+ * These static tags are what a crawler that does not run JavaScript reads. But
+ * react-helmet-async does not adopt tags it did not create — it appends its own —
+ * so without a marker every page ended up with two `robots` tags, two canonicals
+ * and two *different* `description` tags in the DOM once React had rendered.
+ * <SEOHead /> strips anything carrying this attribute before its own tags land,
+ * leaving exactly one of each. Do not emit a head tag here without it.
+ */
+function mark(tag: string) {
+  // <title> is left alone: react-helmet-async already removes any title it did
+  // not create, and deleting it here would blank the tab for a frame.
+  if (tag.startsWith("<title")) return tag;
+  return tag.replace(/^(<[a-z]+)/, `$1 data-seo="prerender"`);
+}
+
 function escapeAttr(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -72,11 +89,11 @@ function buildHead(meta: RouteMeta) {
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
     `<meta name="twitter:image" content="${image}" />`,
-  ];
+  ].map((tag) => mark(tag));
 
   if (meta.jsonLd) {
     const payload = JSON.stringify(meta.jsonLd).replace(/</g, "\\u003c");
-    tags.push(`<script type="application/ld+json">${payload}</script>`);
+    tags.push(mark(`<script type="application/ld+json">${payload}</script>`));
   }
 
   return tags.join("\n    ");

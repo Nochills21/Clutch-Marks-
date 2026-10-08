@@ -60,26 +60,11 @@ const PILLARS = [
 export default function Index() {
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead
-        title="Clutch Marks — Revision Notes, Topic Questions & Past Papers"
-        description="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at OL, AS and A2."
-        path="/"
-        jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: SITE.name,
-            url: `${SITE.url}/`,
-            description: SITE.description,
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
-            name: SITE.name,
-            url: `${SITE.url}/`,
-          },
-        ]}
-      />
+      {/* Title, description and JSON-LD come from ROUTE_META["/"] — the same
+          source the prerenderer writes into the static HTML. Duplicating them
+          here is how the homepage ended up with one title for crawlers that run
+          JavaScript and a different one for crawlers that don't. */}
+      <SEOHead path="/" />
 
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl">
         <div className="container flex h-16 items-center justify-between gap-3 px-4">

@@ -212,7 +212,7 @@ export default function Flashcards() {
   if (!isAdminRole && pickedIds.size === 0) {
     return (
       <div className="space-y-6">
-        <SEOHead title="Flashcards — Clutch Marks" description="Study key terms and concepts with spaced-repetition flashcards for Clutch Marks." path="/flashcards" />
+        <SEOHead path="/flashcards" />
         <SubjectGate />
       </div>
     );
@@ -226,7 +226,7 @@ export default function Flashcards() {
     if (studyComplete) {
       return (
         <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6">
-          <SEOHead title="Flashcards — Clutch Marks" description="Study key terms and concepts with spaced-repetition flashcards for Clutch Marks." path="/flashcards" />
+          <SEOHead path="/flashcards" />
           <CheckCircle2 className="h-16 w-16 text-success" />
           <h2 className="text-2xl font-bold text-foreground">Session Complete!</h2>
           <p className="text-muted-foreground">You reviewed all {studyCards.length} cards in this session.</p>
@@ -239,7 +239,7 @@ export default function Flashcards() {
 
     return (
       <div className="max-w-xl mx-auto space-y-6">
-        <SEOHead title="Flashcards — Clutch Marks" description="Study key terms and concepts with spaced-repetition flashcards for Clutch Marks." path="/flashcards" />
+        <SEOHead path="/flashcards" />
         <div className="flex items-center justify-between">
           <Button variant="ghost" onClick={() => { setStudySetId(null); setStudyCards([]); }}>
             <ArrowLeft className="h-4 w-4 mr-2" /> Back
@@ -290,7 +290,7 @@ export default function Flashcards() {
   // Browse mode
   return (
     <div className="space-y-6">
-      <SEOHead title="Flashcards — Clutch Marks" description="Study key terms and concepts with spaced-repetition flashcards for Clutch Marks." path="/flashcards" />
+      <SEOHead path="/flashcards" />
       <div>
         <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>
         <p className="text-muted-foreground text-sm">

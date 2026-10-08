@@ -106,7 +106,7 @@ export default function FeedbackPage() {
 
   return (
     <div className="space-y-6 max-w-3xl">
-      <SEOHead title="Feedback — Clutch Marks" description="Report errors or share suggestions on notes, quizzes and every other study tool." path="/feedback" />
+      <SEOHead path="/feedback" />
       <div>
         <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
           <MessageSquareHeart className="h-6 w-6 text-primary" /> Feedback

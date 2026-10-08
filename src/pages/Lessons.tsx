@@ -79,8 +79,13 @@ export default function Lessons() {
   const { loading: planLoading, isPreview, previewLimit, hasPaid } = usePlanAccess();
   const visibleTopics = useMemo(() => {
     if (isAdmin || !prefsLoaded) return topics;
-    // Students must pick subjects before Lessons shows anything.
-    const picked = topics.filter((t: any) => pickedIds.has((t as any).subject_level_id));
+    // Signed-in students are scoped to the subjects they picked. An anonymous
+    // visitor has no picks, and an empty pick set would filter the whole index
+    // away — they see every subject, still cut down by the free-plan slice
+    // below, exactly like a student on the free plan.
+    const picked = user
+      ? topics.filter((t: any) => pickedIds.has((t as any).subject_level_id))
+      : topics;
     if (planLoading) return picked;
     // Free plan: first 2 lessons per subject-level (preview limit)
     if (!isPreview) {
@@ -96,7 +101,7 @@ export default function Lessons() {
       return picked.filter((t) => limited.get(t.id)?.length > 0);
     }
     return picked;
-  }, [topics, pickedIds, prefsLoaded, isAdmin, lessons, planLoading, isPreview, FREE_PREVIEW_LIMIT]);
+  }, [topics, pickedIds, prefsLoaded, isAdmin, lessons, planLoading, isPreview, FREE_PREVIEW_LIMIT, user]);
 
   // Hidden lesson count for the free-plan upgrade prompt.
   const hiddenCount = useMemo(() => {
@@ -111,7 +116,9 @@ export default function Lessons() {
     return 0;
   }, [topics, pickedIds, lessons, isAdmin, isPreview]);
 
-  const needsSubjectPick = !isAdmin && prefsLoaded && pickedIds.size === 0;
+  // Only signed-in students are gated: an anonymous visitor has picked no
+  // subjects by definition and must still see the lesson index.
+  const needsSubjectPick = !isAdmin && !!user && prefsLoaded && pickedIds.size === 0;
 
   // Subject & level gate: students must pick at least one subject (and its
   // level) before any lesson content renders — nothing is shown while prefs
@@ -123,10 +130,10 @@ export default function Lessons() {
       </div>
     );
   }
-  if (needsSubjectPick) {
+  if (needsSubjectPick && user) {
     return (
       <div className="space-y-6">
-        <SEOHead title="Lessons — Clutch Marks" description="Structured lessons for your subjects at O Level, AS and A2 — progress tracked as you study." path="/lessons" />
+        <SEOHead path="/lessons" />
         <SubjectGate />
       </div>
     );
@@ -135,7 +142,7 @@ export default function Lessons() {
   if (selectedLesson) {
     return (
       <div className="space-y-4">
-        <SEOHead title="Lesson — Clutch Marks" description="Browse structured lessons covering the full syllabus with video and text content." path="/lessons" />
+        <SEOHead path="/lessons" />
         <Button variant="ghost" onClick={() => setSelectedLesson(null)} className="gap-2">
           ← Back to Lessons
         </Button>
@@ -185,7 +192,7 @@ export default function Lessons() {
   return (
     <div className="space-y-6">
       <PreviewBanner />
-      <SEOHead title="Lessons — Clutch Marks" description="Browse structured lessons covering the full syllabus with video and text content." path="/lessons" />
+      <SEOHead path="/lessons" />
       <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Lessons</h1>

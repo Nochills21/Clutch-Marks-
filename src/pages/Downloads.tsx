@@ -119,8 +119,6 @@ export default function Downloads() {
   return (
     <div className="mx-auto max-w-2xl space-y-6 py-6">
       <SEOHead
-        title="Formula Sheets — IGCSE, AS & A2 Maths, Physics, CS"
-        description="Download formula sheets and reference sheets for every subject and level: Cambridge IGCSE 0580/0625/0478, Edexcel IAL AS/A2 Maths and Physics, Cambridge 9618 Computer Science."
         path="/downloads"
       />
       <div>
