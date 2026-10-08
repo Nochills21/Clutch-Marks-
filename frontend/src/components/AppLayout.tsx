@@ -1,5 +1,5 @@
 // Shell: sidebar + topbar + routed content; device-aware layout.
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -13,9 +13,27 @@ import { ContentProtection } from "@/components/ContentProtection";
 import { SubjectFilterNotice } from "@/components/SubjectFilterNotice";
 import { useDeviceType } from "@/hooks/useDevice";
 
+// Routes that must render without an account. Their content is readable by
+// anonymous callers (the tables allow anonymous SELECT) and they are the pages a
+// crawler has to be able to reach, so bouncing to /auth here would both hide the
+// content from visitors and hand a search engine a sign-in redirect instead of
+// the page. Personal routes keep the redirect below.
+const PUBLIC_CONTENT_PREFIXES = [
+  "/subjects",
+  "/lessons",
+  "/notes",
+  "/quizzes",
+  "/past-papers",
+  "/study/",
+];
+
 export function AppLayout() {
   const { user, loading, isApproved, role, signOut } = useAuth();
   const device = useDeviceType();
+  const { pathname } = useLocation();
+  const isPublicContent = PUBLIC_CONTENT_PREFIXES.some(
+    (prefix) => pathname === prefix.replace(/\/$/, "") || pathname.startsWith(prefix),
+  );
 
 
   if (loading) {
@@ -29,9 +47,12 @@ export function AppLayout() {
     );
   }
 
-  if (!user) return <Navigate to="/auth" replace />;
+  if (!user && !isPublicContent) return <Navigate to="/auth" replace />;
 
-  if (!isApproved && role !== "admin") {
+  // `user` matters: without it an anonymous visitor on a public page would be
+  // shown the "waiting for admin approval" card, which is meaningless for
+  // someone who has not signed up.
+  if (user && !isApproved && role !== "admin") {
     return (
       <div className="flex min-h-screen items-center justify-center px-4 py-10 bg-background geo-pattern">
         <Card className="max-w-xl w-full surface-raised overflow-hidden">
