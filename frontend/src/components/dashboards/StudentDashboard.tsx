@@ -11,6 +11,7 @@ import { BrandHero } from "@/components/BrandHero";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { Button } from "@/components/ui/button";
 import { useMySubjects } from "@/hooks/useMySubjects";
 
 interface SubjectRow {
@@ -69,16 +70,19 @@ export function StudentDashboard() {
   // Every instrument on this page follows the same subject filter as the rest
   // of the app. It used to count the whole catalogue, so a student narrowed to
   // Mathematics — O Level read "0 of 100 lessons" beside "7 hidden".
-  const { pickedIds, loaded: picksLoaded, isAdmin } = useMySubjects();
+  // `filtering` comes from useMySubjects — the one place that decides whether a
+  // reader's picks are narrowing the catalogue. This page used to restate the
+  // condition, which is how it could count the whole platform for a student who
+  // had narrowed the app to one subject.
+  const { pickedIds, loaded: picksLoaded, filtering, needsSubjectPick } = useMySubjects();
   const pickedKey = [...pickedIds].sort().join(",");
-  const scoped = picksLoaded && !isAdmin && pickedIds.size > 0;
 
   useEffect(() => {
     if (!user) return;
     // Wait for the picks: counting before they land paints platform-wide totals
     // for a student who has narrowed the app down to one subject.
     if (!picksLoaded) return;
-    const levelIds = scoped ? [...pickedIds] : null;
+    const levelIds = filtering ? [...pickedIds] : null;
     let cancelled = false;
 
     const load = async () => {
@@ -112,10 +116,10 @@ export function StudentDashboard() {
     return () => { cancelled = true; };
     // `pickedKey` stands in for the picked set: the Set identity changes on
     // every write, the key only changes when the selection actually does.
-  }, [user, picksLoaded, scoped, pickedKey]);
+  }, [user, picksLoaded, filtering, pickedKey]);
 
   const completionPct = counts.lessons > 0 ? Math.round((counts.lessonsDone / counts.lessons) * 100) : 0;
-  const scopeLabel = scoped
+  const scopeLabel = filtering
     ? `Across your ${pickedIds.size} chosen subject${pickedIds.size > 1 ? "s" : ""}`
     : "Across every subject";
 
@@ -160,6 +164,38 @@ export function StudentDashboard() {
           </p>
         </div>
       </header>
+
+      {/* First run. The dashboard is where every way into the platform lands —
+          signup, login, the Google callback, the emailed link, a password reset
+          — so this is the one screen a brand-new student is guaranteed to see.
+          It used to show "across every subject" figures and nothing to click:
+          the flow ended here. The per-subject ledger below cannot carry this
+          prompt, because a new account still gets a row per subject with zeros
+          in it, so the "no activity yet" branch never renders for them. */}
+      {needsSubjectPick && (
+        <section className="surface-raised relative overflow-hidden">
+          <div className="bloom pointer-events-none absolute inset-0" aria-hidden="true" />
+          <div className="relative flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div className="space-y-2">
+              <p className="eyebrow">First step</p>
+              <h2 className="font-display text-2xl font-normal tracking-tight">
+                Start with your subjects
+              </h2>
+              <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+                Every figure here — and lessons, quizzes, notes and past papers — follows one
+                selection. Pick what you study and the platform narrows to it. Nothing is deleted,
+                and you can change it any time with “My subjects”.
+              </p>
+            </div>
+            <Button asChild className="shrink-0 gap-2">
+              <Link to="/subjects">
+                Choose your subjects
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </section>
+      )}
 
       {/* Course progress — the console's master gauge */}
       <section className="surface-raised relative overflow-hidden">
@@ -229,8 +265,21 @@ export function StudentDashboard() {
           <div className="grid gap-3 sm:grid-cols-2">{[0, 1].map((i) => <Skeleton key={i} className="h-32 rounded-2xl" />)}</div>
         ) : subjectRows.length === 0 ? (
           <Card className="surface">
-            <CardContent className="py-10 text-center">
-              <p className="text-sm text-muted-foreground">No subject activity yet — pick a subject to get started.</p>
+            <CardContent className="flex flex-col items-center gap-4 py-10 text-center">
+              {/* A brand-new student's first screen. This used to be one grey
+                  sentence with nothing to click, which is where the signup flow
+                  ended: the account existed and the page offered no next step. */}
+              <p className="max-w-sm text-sm text-muted-foreground">
+                {needsSubjectPick
+                  ? "Choose your subjects and every figure on this page is scoped to them — lessons, quizzes, notes and past papers all follow the same selection."
+                  : "No subject activity yet. Open a subject to see its lessons, notes and past papers."}
+              </p>
+              <Button asChild size="sm" className="gap-2">
+                <Link to="/subjects">
+                  {needsSubjectPick ? "Choose your subjects" : "Browse subjects"}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </CardContent>
           </Card>
         ) : (

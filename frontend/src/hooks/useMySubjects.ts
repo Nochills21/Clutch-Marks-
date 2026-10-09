@@ -9,7 +9,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { retrySupabase } from "@/lib/net";
-import { diffPicks } from "@/lib/subjectPicks";
+import { diffPicks, needsSubjectPick, picksAreFiltering } from "@/lib/subjectPicks";
 
 const EMPTY = new Set<string>();
 let picks: Set<string> = EMPTY; // stable reference; replaced only on change
@@ -96,7 +96,11 @@ export function useMySubjects() {
    * and never widens or narrows what they can see.
    */
   const savePicks = async (ids: string[]) => {
-    if (!user) return;
+    // Signed-out visitors reach the picker on the public pages (/subjects and
+    // the landing page). Returning silently here meant the picker toasted
+    // "Subjects updated" over a write that never happened. Fail loudly instead;
+    // callers either prompt for sign-in or skip the save deliberately.
+    if (!user) throw new Error("Sign in to save your subjects.");
     // Read the live module value, not this render's snapshot, so a rapid
     // second call diffs against the first call's optimistic result.
     const prev = picks;
@@ -129,5 +133,33 @@ export function useMySubjects() {
     }
   };
 
-  return { pickedIds: picked, loaded, isAdmin, savePicks };
+  // The two answers every page needs, derived in ONE place — see the pure
+  // predicates in @/lib/subjectPicks, which carry the tests.
+  //
+  // Thirteen pages used to spell these conditions out for themselves (near-miss
+  // copies of `!isAdmin && prefsLoaded && pickedIds.size === 0`), so they
+  // disagreed: three left out `loaded` and flashed the "pick your subjects" gate
+  // at a student who had already picked, one left out `user` entirely, and the
+  // sign-in prompt on the public pages counted an anonymous visitor as
+  // "missing a pick". A page can no longer get the question subtly wrong, and a
+  // signed-out reader is never "missing" anything: there is no account to save a
+  // pick to.
+  const reader = {
+    signedIn: !!user,
+    isAdmin,
+    loaded,
+    pickedCount: picked.size,
+  };
+
+  return {
+    pickedIds: picked,
+    loaded,
+    isAdmin,
+    savePicks,
+    signedIn: reader.signedIn,
+    /** A signed-in student who has not chosen subjects yet: show the picker. */
+    needsSubjectPick: needsSubjectPick(reader),
+    /** A signed-in student whose picks are actually hiding catalogue content. */
+    filtering: picksAreFiltering(reader),
+  };
 }
