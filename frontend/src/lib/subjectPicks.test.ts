@@ -1,5 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { diffPicks, hiddenLevels, isFiltering } from "./subjectPicks";
+import {
+  diffPicks,
+  hiddenLevels,
+  isFiltering,
+  needsSubjectPick,
+  picksAreFiltering,
+  type ReaderPicks,
+} from "./subjectPicks";
 
 describe("diffPicks", () => {
   it("writes nothing when the selection is unchanged", () => {
@@ -70,5 +77,63 @@ describe("hiddenLevels / isFiltering", () => {
   // Before the options load we must not claim anything is being filtered.
   it("does not claim to be filtering before the options are known", () => {
     expect(isFiltering([], new Set())).toBe(false);
+  });
+});
+
+describe("the one definition of who has to pick subjects", () => {
+  const reader = (over: Partial<ReaderPicks> = {}): ReaderPicks => ({
+    signedIn: true,
+    isAdmin: false,
+    loaded: true,
+    pickedCount: 0,
+    ...over,
+  });
+
+  it("asks a signed-in student with nothing picked to pick", () => {
+    expect(needsSubjectPick(reader())).toBe(true);
+    expect(picksAreFiltering(reader())).toBe(false);
+  });
+
+  it("leaves a signed-in student who has picked alone", () => {
+    const picked = reader({ pickedCount: 3 });
+    expect(needsSubjectPick(picked)).toBe(false);
+    expect(picksAreFiltering(picked)).toBe(true);
+  });
+
+  // The public study pages depend on this: a signed-out visitor must never be
+  // told they are missing a pick and must never be offered a "Show all" write.
+  it("never gates or filters an anonymous reader", () => {
+    const anon = reader({ signedIn: false });
+    expect(needsSubjectPick(anon)).toBe(false);
+    expect(picksAreFiltering(anon)).toBe(false);
+  });
+
+  it("never gates or filters an admin", () => {
+    for (const pickedCount of [0, 4]) {
+      const admin = reader({ isAdmin: true, pickedCount });
+      expect(needsSubjectPick(admin)).toBe(false);
+      expect(picksAreFiltering(admin)).toBe(false);
+    }
+  });
+
+  // Three pages used to skip this, and flashed the picker at a student who had
+  // already chosen subjects while their picks were still loading.
+  it("decides nothing until the picks have loaded", () => {
+    for (const pickedCount of [0, 3]) {
+      const loading = reader({ loaded: false, pickedCount });
+      expect(needsSubjectPick(loading)).toBe(false);
+      expect(picksAreFiltering(loading)).toBe(false);
+    }
+  });
+
+  it("never reports both at once", () => {
+    for (const pickedCount of [0, 1, 7]) {
+      for (const loaded of [true, false]) {
+        for (const signedIn of [true, false]) {
+          const r = reader({ pickedCount, loaded, signedIn });
+          expect(needsSubjectPick(r) && picksAreFiltering(r)).toBe(false);
+        }
+      }
+    }
   });
 });

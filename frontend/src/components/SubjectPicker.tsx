@@ -2,16 +2,20 @@
 // appear everywhere; others are hidden. At least one subject is required —
 // students with nothing picked see the SubjectGate prompt instead of content.
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
 import { Settings2, Loader2 } from "lucide-react";
+import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
 
 export function SubjectPicker() {
   const { toast } = useToast();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const { pickedIds, isAdmin, savePicks } = useMySubjects();
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState<string[]>([]);
@@ -23,6 +27,13 @@ export function SubjectPicker() {
   const toggle = (id: string) =>
     setDraft(d => d.includes(id) ? d.filter(x => x !== id) : [...d, id]);
   const save = async () => {
+    // No account, nothing to save to: send them to sign in rather than report a
+    // success that did not happen.
+    if (!user) {
+      setOpen(false);
+      navigate("/auth");
+      return;
+    }
     setSaving(true);
     try {
       await savePicks(draft);
@@ -46,9 +57,11 @@ export function SubjectPicker() {
         <DialogHeader>
           <DialogTitle>Choose your subjects</DialogTitle>
           <DialogDescription>
-            Pick the subjects (and levels) you study. Everything else is hidden across
-            Lessons, Practice, Past Papers, Quizzes and Notes. At least one is required —
-            nothing is ever deleted, and you can show all of them again at any time.
+            {user
+              ? "Pick the subjects (and levels) you study. Everything else is hidden across Lessons, Practice, Past Papers, Quizzes and Notes. At least one is required — nothing is ever deleted, and you can show all of them again at any time."
+              : // Ticks made here cannot be carried through the sign-in redirect,
+                // so the copy must not imply they are kept.
+                "Saving your subjects needs an account. Sign in to choose them — they're then remembered on your profile and can be changed at any time."}
           </DialogDescription>
         </DialogHeader>
         <div className="flex items-center gap-2 pb-1">
@@ -81,13 +94,24 @@ export function SubjectPicker() {
         </div>
         <DialogFooter className="sm:justify-between">
           <p className="text-xs text-muted-foreground">
-            {draft.length === 0
-              ? "Select at least one subject."
-              : `${draft.length} of ${options.length} selected`}
+            {!user
+              ? "Nothing here is saved until you sign in."
+              : draft.length === 0
+                ? "Select at least one subject."
+                : `${draft.length} of ${options.length} selected`}
           </p>
-          <Button onClick={save} disabled={saving || draft.length === 0} className="gap-2">
-            {saving && <Loader2 className="h-4 w-4 animate-spin" />} Save
-          </Button>
+          {user ? (
+            <Button onClick={save} disabled={saving || draft.length === 0} className="gap-2">
+              {saving && <Loader2 className="h-4 w-4 animate-spin" />} Save
+            </Button>
+          ) : (
+            <Button
+              className="gap-2"
+              onClick={() => { setOpen(false); navigate("/auth"); }}
+            >
+              Sign in to choose
+            </Button>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>
