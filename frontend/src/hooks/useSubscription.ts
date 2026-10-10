@@ -17,6 +17,45 @@ export type PlanState = {
   refresh: () => void;
 };
 
+type SubRow = { plan_id: string; status: string; ends_at: string | null };
+
+// A page easily mounts half a dozen gated components (lists, banners, dialogs),
+// and each one used to fire its own identical `subscriptions` query on mount.
+// Share one in-flight request per user and reuse a fresh result for 30s, so a
+// page load costs one round trip instead of N. Single-user app: one slot is
+// enough, keyed by user id.
+const SUB_TTL_MS = 30_000;
+let subCache: { userId: string; at: number; row: SubRow | null } | null = null;
+let subInflight: { userId: string; promise: Promise<SubRow | null> } | null = null;
+
+function loadSubscriptionRow(userId: string): Promise<SubRow | null> {
+  if (subCache && subCache.userId === userId && Date.now() - subCache.at < SUB_TTL_MS) {
+    return Promise.resolve(subCache.row);
+  }
+  if (subInflight && subInflight.userId === userId) return subInflight.promise;
+  const promise = retrySupabase(() =>
+    supabase
+      .from("subscriptions")
+      .select("plan_id, status, ends_at")
+      .eq("user_id", userId)
+      .order("created_at", { ascending: false })
+      .limit(1),
+  ).then(({ data }) => {
+    const row = (data?.[0] ?? null) as SubRow | null;
+    subCache = { userId, at: Date.now(), row };
+    if (subInflight?.promise === promise) subInflight = null;
+    return row;
+  }).catch((error) => {
+    // Fail to the free plan rather than to an endless spinner; `refresh()`
+    // (and any remount) retries.
+    console.error("Could not load subscription:", error);
+    if (subInflight?.promise === promise) subInflight = null;
+    return null;
+  });
+  subInflight = { userId, promise };
+  return promise;
+}
+
 export function useSubscription(): PlanState {
   const { user, role } = useAuth();
   const [loading, setLoading] = useState(true);
@@ -30,25 +69,12 @@ export function useSubscription(): PlanState {
     setLoading(true);
     // As with subject picks, `loading` must settle either way or a single
     // dropped request pins the plan gate open forever.
-    retrySupabase(() =>
-      supabase
-        .from("subscriptions")
-        .select("plan_id, status, ends_at")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(1),
-    )
-      .then(({ data }) => {
+    loadSubscriptionRow(user.id)
+      .then((sub) => {
         if (cancelled) return;
-        const sub = data?.[0];
         const active = !!sub && sub.status === "active" && (!sub.ends_at || new Date(sub.ends_at) > new Date());
         setPlanId(active ? sub!.plan_id : "free");
         setHasPaid(active);
-      })
-      .catch((error) => {
-        // Fail to the free plan rather than to an endless spinner; `refresh()`
-        // (and any remount) retries.
-        console.error("Could not load subscription:", error);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -56,7 +82,12 @@ export function useSubscription(): PlanState {
     return () => { cancelled = true; };
   }, [user, role, tick]);
 
-  const refresh = useCallback(() => setTick(t => t + 1), []);
+  const refresh = useCallback(() => {
+    // Bypass the shared cache so a just-completed checkout is picked up.
+    subCache = null;
+    subInflight = null;
+    setTick(t => t + 1);
+  }, []);
   return { loading, planId, hasPaid, refresh };
 }
 

@@ -37,6 +37,7 @@ import {
   type PaperRef,
 } from "@/lib/ai";
 import { exportMarkedPaperToPdf } from "@/lib/pdfExport";
+import { indicativeGradeLabel } from "@/lib/gradeBoundaries";
 import {
   AlertCircle,
   CheckCircle2,
@@ -332,7 +333,12 @@ export function SolvedPaperMarker({
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
                 Overall grade
               </p>
-              <p className="text-4xl font-bold leading-none text-primary">{result.overall_grade}%</p>
+              <p className="text-4xl font-bold leading-none text-primary">
+                {result.overall_grade}%
+                <span className="ml-2 align-middle text-base font-semibold text-muted-foreground">
+                  {indicativeGradeLabel(result.overall_grade)}
+                </span>
+              </p>
             </div>
             <p className="text-sm text-muted-foreground">
               {result.total_earned} of {result.total_possible} marks ·{" "}

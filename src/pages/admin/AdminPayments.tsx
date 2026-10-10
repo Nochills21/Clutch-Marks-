@@ -15,7 +15,7 @@ import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { Check, X, RefreshCw, Landmark, Wallet, ReceiptText, Download } from "lucide-react";
 
-const PLAN_PRICE: Record<string, string> = { free: "—", monthly: "$20/mo", quarterly: "$36 / 3mo", annual: "$60 / yr" };
+const PLAN_PRICE: Record<string, string> = { free: "—", monthly: "$40/mo", quarterly: "$72 / 3mo", annual: "$120 / yr" };
 
 const METHOD_LABEL: Record<string, string> = {
   bank_transfer: "Bank Transfer",

@@ -36,6 +36,8 @@ import {
   type ObjectiveMasteryRow,
 } from "@/lib/objectiveMastery";
 import { teachToHtml } from "@/lib/objectiveTeach";
+import { topicMasterySummary } from "@/lib/topicMastery";
+import { TopicMasteryRing } from "@/components/TopicMasteryRing";
 import {
   ArrowRight, BookOpen, CheckCircle2, Clock, GraduationCap, ListChecks, Play, RefreshCw, RotateCcw, X,
 } from "lucide-react";
@@ -280,19 +282,44 @@ export default function Mastery() {
           )}
 
           <div className="space-y-4">
-            {groups.map((group) => (
+            {groups.map((group) => {
+              const summary = topicMasterySummary(group.objectives);
+              // Strengthen = the weakest working objective in this topic: the
+              // one with the lowest correct share, so the drill starts where
+              // the marks are actually being lost.
+              const weakest = [...group.objectives]
+                .filter((o) => o.state === "working")
+                .sort((a, b) => a.correct / Math.max(1, a.checks) - b.correct / Math.max(1, b.checks))[0]
+                ?? [...group.objectives].sort((a, b) => a.sort_order - b.sort_order)[0];
+              return (
               <Card key={group.topic_id}>
                 <CardHeader className="pb-2">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <CardTitle className="text-sm">
-                      {group.topic_name}
-                      <span className="ml-2 text-xs font-normal text-muted-foreground">
-                        {group.subject_slug} {group.level}
-                      </span>
-                    </CardTitle>
-                    <Badge variant={group.complete ? "secondary" : "outline"} className="text-[11px]">
-                      {group.mastered} / {group.objectives.length} mastered
-                    </Badge>
+                    <div className="flex min-w-0 items-center gap-3">
+                      <TopicMasteryRing percent={summary.percent} band={summary.band} label={`${group.topic_name} mastery ${summary.percent}%`} />
+                      <CardTitle className="text-sm">
+                        {group.topic_name}
+                        <span className="ml-2 text-xs font-normal text-muted-foreground">
+                          {group.subject_slug} {group.level}
+                        </span>
+                      </CardTitle>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {summary.examReady ? (
+                        <Badge variant="secondary" className="gap-1 text-[11px] text-emerald-600">
+                          <CheckCircle2 className="h-3 w-3" /> Exam-ready
+                        </Badge>
+                      ) : (
+                        <Badge variant="outline" className="text-[11px]">
+                          {group.mastered} / {group.objectives.length} mastered
+                        </Badge>
+                      )}
+                      {!summary.examReady && weakest && (
+                        <Button size="sm" variant="outline" className="gap-1.5 text-xs" onClick={() => setActive(toRef(weakest))}>
+                          <RefreshCw className="h-3 w-3" /> Strengthen
+                        </Button>
+                      )}
+                    </div>
                   </div>
                   <Progress value={(group.mastered / group.objectives.length) * 100} className="mt-2 h-1.5" />
                 </CardHeader>
@@ -331,7 +358,8 @@ export default function Mastery() {
                   })}
                 </CardContent>
               </Card>
-            ))}
+              );
+            })}
           </div>
         </>
       )}

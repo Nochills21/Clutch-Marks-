@@ -86,7 +86,7 @@ const CARDS = [
   { out: "og/flashcards.png", title: "Flashcards", lines: ["Spaced-repetition flashcards for the terms", "and formulas you keep forgetting."] },
   { out: "og/practice.png", title: "Practice", lines: ["Topic questions, weak-area drills and every", "mistake you have saved — one hub."] },
   { out: "og/study-planner.png", title: "AI Study Planner", lines: ["A personalised revision schedule built from", "your quiz results and deadlines."] },
-  { out: "og/pricing.png", title: "Plans & Pricing", lines: ["Preview every level free — full access", "from $5/month."] },
+  { out: "og/pricing.png", title: "Plans & Pricing", lines: ["Preview every level free — full access", "from $10/month — A* guarantee."] },
 ];
 
 const logoBuffer = await sharp(logo).resize(150, 150).png().toBuffer();

@@ -10,13 +10,16 @@ import { supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";
 import { useAuth } from "@/lib/auth";
 import { useToast } from "@/hooks/useToast";
-import { callPaperCorrector, type AiCorrectionOutput } from "@/lib/ai";
+import { callPaperCorrector, isPlanRequiredError, type AiCorrectionOutput } from "@/lib/ai";
+import { usePlanAccess } from "@/components/PreviewLimit";
+import { Link } from "react-router-dom";
+import { indicativeGradeLabel } from "@/lib/gradeBoundaries";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Clock, Sparkles, Loader2, CalendarCheck, Zap, RotateCcw, AlertCircle } from "lucide-react";
+import { Clock, Sparkles, Loader2, CalendarCheck, Zap, RotateCcw, AlertCircle, Lock } from "lucide-react";
 
 export interface PracticePaper {
   id: string;
@@ -60,7 +63,12 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [timedOut, setTimedOut] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [planBlocked, setPlanBlocked] = useState(false);
   const [result, setResult] = useState<AiCorrectionOutput | null>(null);
+  const { loading: planLoading, isPreview } = usePlanAccess();
+  // Timed practice ends in AI marking, which is plan-gated: warn before the
+  // timer starts, never after it ends.
+  const showUpgrade = !planLoading && (isPreview || planBlocked);
   const [saved, setSaved] = useState<SavedAttempt | null>(null);
 
   const startedAtRef = useRef<number | null>(null);
@@ -78,6 +86,7 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
     setAnswers("");
     setTimedOut(false);
     setError(null);
+    setPlanBlocked(false);
     setResult(null);
     setSaved(null);
     setSecondsLeft(0);
@@ -155,10 +164,16 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
         description: `${out.overall_grade}%${attempt?.xp_earned ? ` · +${attempt.xp_earned} XP` : ""}`,
       });
     } catch (e: any) {
-      // Keep the answers and return to the running step so a transient failure
-      // (or an unavailable corrector) is retryable without losing the sitting.
-      setError(e?.message ?? "Correction failed — try again.");
-      setStep("running");
+      // A plan refusal swaps the dialog for an upgrade card; anything else
+      // keeps the answers and returns to the running step so a transient
+      // failure is retryable without losing the sitting.
+      if (isPlanRequiredError(e)) {
+        setPlanBlocked(true);
+        setStep("setup");
+      } else {
+        setError(e?.message ?? "Correction failed — try again.");
+        setStep("running");
+      }
     }
   };
 
@@ -180,7 +195,23 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
           </DialogDescription>
         </DialogHeader>
 
-        {step === "setup" && (
+        {step === "setup" && showUpgrade && (
+          <div className="flex flex-col items-center rounded-xl border border-dashed border-primary/30 bg-primary/5 px-6 py-8 text-center">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+              <Lock className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="font-semibold">Timed practice with AI marking is part of the full plan</h3>
+            <p className="mt-1 max-w-sm text-sm text-muted-foreground">
+              Sit any past paper under exam conditions and have every answer marked
+              against the mark scheme with XP for your score.
+            </p>
+            <Button asChild size="sm" className="mt-4 gap-2">
+              <Link to="/pricing"><Sparkles className="h-4 w-4" /> View plans</Link>
+            </Button>
+          </div>
+        )}
+
+        {step === "setup" && !showUpgrade && (
           <div className="space-y-4">
             <div className="space-y-2">
               <p className="text-sm font-medium">Time limit</p>
@@ -261,7 +292,12 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
             <div className="rounded-lg border p-4">
               <div className="flex items-baseline justify-between">
                 <span className="text-sm text-muted-foreground">Overall grade</span>
-                <span className="text-3xl font-bold text-primary">{result.overall_grade}%</span>
+                <span className="text-3xl font-bold text-primary">
+                  {result.overall_grade}%
+                  <span className="ml-2 align-middle text-sm font-semibold text-muted-foreground">
+                    {indicativeGradeLabel(result.overall_grade)}
+                  </span>
+                </span>
               </div>
               <p className="mt-1 text-sm text-muted-foreground">
                 {result.total_earned}/{result.total_possible} marks · saved to this paper

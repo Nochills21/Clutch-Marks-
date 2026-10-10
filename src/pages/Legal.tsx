@@ -365,7 +365,8 @@ const termsSections: Section[] = [
         download, copy, screenshot, republish or share our materials outside the site. Our content
         is watermarked with your account details, so if it ends up somewhere it shouldn't, we can
         tell which account shared it. Sharing paid content can lead to your account being suspended
-        and, for paid plans, no refund.
+        and, for paid plans, no refund — except through the A* guarantee on the Pricing page, whose
+        terms override this clause for qualifying claims.
       </p>
     ),
   },

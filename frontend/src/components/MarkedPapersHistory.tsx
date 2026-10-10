@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { exportMarkedPaperToPdf } from "@/lib/pdfExport";
+import { gradeForPercent } from "@/lib/gradeBoundaries";
 import type { AiCorrectionOutput, CorrectedPaper } from "@/lib/ai";
 import { loadFailureMessage } from "@/lib/net";
 import {
@@ -192,10 +193,12 @@ export function MarkedPapersHistory({ refreshKey = 0 }: { refreshKey?: number })
                     }`}
                   >
                     {grade}%
+                    <span className="sr-only">Indicative grade {gradeForPercent(grade)}</span>
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold">{rowTitle(row)}</p>
                     <p className="mt-0.5 text-xs text-muted-foreground">
+                      Indicative grade {gradeForPercent(grade)} ·{" "}
                       {new Date(row.created_at).toLocaleDateString(undefined, {
                         day: "numeric",
                         month: "short",

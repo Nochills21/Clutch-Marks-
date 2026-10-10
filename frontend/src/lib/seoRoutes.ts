@@ -79,7 +79,7 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "How much does Clutch Marks cost?",
-    a: "You can preview every level for free. Full access is $20/month, $12/month when billed quarterly ($36), or $5/month when billed annually ($60).",
+    a: "You can preview every level for free. Full access is $40/month, $24/month when billed quarterly ($72), or $10/month when billed annually ($120). Backed by the A* guarantee.",
   },
   {
     q: "How do I pay?",
@@ -92,6 +92,10 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "Do I need a credit card to start?",
     a: "No. You can start with the free preview of every level and upgrade only when you are ready.",
+  },
+  {
+    q: "What is the A* guarantee?",
+    a: "Finish the program in your subject — every topic Exam-ready on your mastery report plus at least 3 AI-marked past papers before the exam — and if your official CAIE or Edexcel result is below an A*, we refund your plan in full. Claim within 30 days of results day with your result slip; one claim per account.",
   },
 ];
 
@@ -118,9 +122,9 @@ const course = {
   educationalLevel: ["IGCSE", "AS Level", "A2 Level"],
   provider: organization,
   offers: [
-    { "@type": "Offer", name: "Monthly", price: "20", priceCurrency: "USD" },
-    { "@type": "Offer", name: "3 Months", price: "36", priceCurrency: "USD" },
-    { "@type": "Offer", name: "Annual", price: "60", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Monthly", price: "40", priceCurrency: "USD" },
+    { "@type": "Offer", name: "3 Months", price: "72", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Annual", price: "120", priceCurrency: "USD" },
   ],
 };
 
@@ -362,7 +366,7 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/pricing",
     title: "Plans & Pricing — Clutch Marks",
     description:
-      "Unlock every subject and level from $5/month — preview any level free. Pay by bank transfer or Urpay; plans activate within 24 hours.",
+      "Unlock every subject and level from $10/month — preview any level free. Pay by bank transfer or Urpay; plans activate within 24 hours.",
     ogImage: "/og/pricing.png",
     jsonLd: PRICING_JSON_LD,
   },

@@ -14,8 +14,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/useToast";
-import { Loader2, Sparkles, Wand2, AlertCircle, CheckCircle, XCircle } from "lucide-react";
-import { callPaperCorrector, CorrectedPaper, CorrectedPaperInput, AiCorrectionOutput } from "@/lib/ai";
+import { Link } from "react-router-dom";
+import { Loader2, Sparkles, Wand2, AlertCircle, CheckCircle, XCircle, Lock } from "lucide-react";
+import { callPaperCorrector, CorrectedPaper, CorrectedPaperInput, AiCorrectionOutput, isPlanRequiredError } from "@/lib/ai";
 
 interface AiCorrectionFormProps {
   subjectLevelId?: string;
@@ -41,6 +42,9 @@ export function AiCorrectionForm({
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<CorrectedPaper[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // A plan refusal is not a failure to retry: it swaps the form for an upgrade
+  // card (same pattern as SolvedPaperMarker's gate).
+  const [planBlocked, setPlanBlocked] = useState(false);
 
   const handleCorrect = async () => {
     if (!user) {
@@ -60,8 +64,12 @@ export function AiCorrectionForm({
       });
       if (onReset) onReset();
     } catch (e: any) {
-      setError(e?.message ?? "Correction failed — try again.");
-      toast({ title: "Correction failed", description: e?.message ?? "Please try again.", variant: "destructive" });
+      if (isPlanRequiredError(e)) {
+        setPlanBlocked(true);
+      } else {
+        setError(e?.message ?? "Correction failed — try again.");
+        toast({ title: "Correction failed", description: e?.message ?? "Please try again.", variant: "destructive" });
+      }
     } finally {
       setLoading(false);
     }
@@ -76,7 +84,20 @@ export function AiCorrectionForm({
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        {error && (
+        {planBlocked ? (
+          <div className="flex flex-col items-center rounded-xl border border-dashed border-primary/30 bg-primary/5 px-6 py-8 text-center">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+              <Lock className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="font-semibold">AI correction is part of the full plan</h3>
+            <p className="mt-1 max-w-sm text-sm text-muted-foreground">
+              Your answers stay right here — upgrade and correct them with one click.
+            </p>
+            <Button asChild size="sm" className="mt-4 gap-2">
+              <Link to="/pricing"><Sparkles className="h-4 w-4" /> View plans</Link>
+            </Button>
+          </div>
+        ) : error && (
           <div className="flex items-center gap-2 rounded-md bg-red-500/10 px-3 py-2 text-sm text-red-600">
             <AlertCircle className="h-4 w-4 shrink-0" />
             {error}
@@ -123,6 +144,7 @@ export function AiCorrectionForm({
               setPaper("");
               setResult(null);
               setError(null);
+              setPlanBlocked(false);
               onReset?.();
             }}
           >

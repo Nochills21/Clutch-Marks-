@@ -57,6 +57,10 @@ export default defineConfig(({ mode }) => ({
           react: ["react", "react-dom", "react-router-dom", "react-helmet-async", "next-themes", "@tanstack/react-query", "react-resizable-panels"],
           // peer libraries that ship 200-500 kB bundles and are loaded everywhere
           ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-select", "@radix-ui/react-tabs", "@radix-ui/react-toast", "@radix-ui/react-tooltip", "@radix-ui/react-accordion", "@radix-ui/react-alert-dialog", "@radix-ui/react-checkbox", "@radix-ui/react-switch", "@radix-ui/react-radio-group", "@radix-ui/react-slider", "@radix-ui/react-progress", "@radix-ui/react-separator"],
+          // The Supabase client (~150 kB) changes far less often than app code:
+          // its own chunk stays cached across deploys instead of being
+          // re-downloaded inside the entry chunk every release.
+          supabase: ["@supabase/supabase-js"],
         },
       },
     },

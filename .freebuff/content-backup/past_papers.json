@@ -135,21 +135,6 @@
   "level": "A2"
  },
  {
-  "id": "03e240c2-a66b-4abd-807f-96834d6f3d27",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2022,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/18da645f-d83b-4a49-b068-b5fb7ddd41cd.pdf",
-  "mark_scheme_url": "mark-schemes/6e1ef0fc-10c6-42cd-a54a-ca2d8ba722ab.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "03f9e997-d9c2-4542-92ca-2c83c7390ad7",
   "title": "Edexcel IAL Physics — Unit 4: Further Mechanics, Fields and Particles (WPH14/01)",
   "year": 2023,
@@ -206,21 +191,6 @@
   "created_at": "2026-10-10 06:06:49.855506+00",
   "updated_at": "2026-10-10 06:06:49.855506+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-4/International/QP/March%202023%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "05e8255a-53ca-4825-8a40-9f0a748a087d",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2019,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/eb84c7b3-8009-421a-9143-faf792707b01.pdf",
-  "mark_scheme_url": "mark-schemes/087f490d-2389-4c8c-9dce-86528d465d6a.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
   "subject_slug": "physics",
   "level": "OL"
  },
@@ -283,21 +253,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "07d8f7c8-9381-496d-8284-e02640091270",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2021,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-3-32--feb-mar-2021-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--feb-mar-2021-v2-ms.pdf",
-  "created_at": "2026-10-10 06:15:00.763751+00",
-  "updated_at": "2026-10-10 06:15:00.763751+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202021%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "082710fa-6347-427a-a3bb-08d806429faa",
@@ -585,36 +540,6 @@
   "level": "A2"
  },
  {
-  "id": "0e056efa-4991-415b-b724-23e66465b0aa",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2020,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-1-12--feb-mar-2020-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--feb-mar-2020-v2-ms.pdf",
-  "created_at": "2026-10-10 06:18:18.151854+00",
-  "updated_at": "2026-10-10 06:18:18.151854+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202020%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "0e2e28b3-0ffe-42c6-bb1b-e95c8e550067",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2024,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-3-32--feb-mar-2024-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--feb-mar-2024-v2-ms.pdf",
-  "created_at": "2026-10-10 06:02:18.224642+00",
-  "updated_at": "2026-10-10 06:02:18.224642+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202024%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "0e614963-c863-46d4-b00d-524bcdc2fcb7",
   "title": "Edexcel IAL Maths — Pure Mathematics P1 (WMA11/01)",
   "year": 2021,
@@ -643,21 +568,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "A2"
- },
- {
-  "id": "0e760150-d9dd-4459-a30b-b79910199bcb",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2024,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-1-12--feb-mar-2024-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--feb-mar-2024-v2-ms.pdf",
-  "created_at": "2026-10-10 06:02:10.622432+00",
-  "updated_at": "2026-10-10 06:02:10.622432+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202024%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "0e7bf2ec-1916-4760-916b-cc55d24b83cf",
@@ -988,21 +898,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-3/QP/March%202024%20(v3)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "171cf65a-126c-4144-a013-93e24b76640f",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2025,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": null,
-  "mark_scheme_url": null,
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-09-30 05:35:33.346797+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "172eea68-e580-4cbe-8792-b755cc4c3e3d",
@@ -1605,21 +1500,6 @@
   "level": "AS"
  },
  {
-  "id": "2236b251-7cce-4ee1-855e-95f38da83bb0",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2025,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/816538cf-b749-40a3-8f72-26afabd75255.pdf",
-  "mark_scheme_url": "mark-schemes/05eca659-edf8-41c7-94db-ac36dfe0bf03.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "2242c59b-0db8-4670-95bd-e00778c57f29",
   "title": "Edexcel IAL Maths — Pure Mathematics P3 (WMA13/01)",
   "year": 2023,
@@ -1633,21 +1513,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
   "subject_slug": "mathematics",
   "level": "A2"
- },
- {
-  "id": "2277c347-a832-4cae-b554-2c63d52d354a",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2021,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-1-12--feb-mar-2021-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--feb-mar-2021-v2-ms.pdf",
-  "created_at": "2026-10-10 06:14:53.500372+00",
-  "updated_at": "2026-10-10 06:14:53.500372+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202021%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "22914b6d-0f6f-433f-acab-4e262a42913c",
@@ -1770,21 +1635,6 @@
   "level": "AS"
  },
  {
-  "id": "25337fff-1c21-47cc-b7be-fcf3c5340438",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2022,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/a7795c05-04b7-45f9-a4e3-9d56ba13694f.pdf",
-  "mark_scheme_url": "mark-schemes/37e7d333-3995-4a8a-b3a2-be24a0f6dc0a.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "25b9dd25-8229-4bfc-9e07-004d7c02b15e",
   "title": "Edexcel IAL Maths — Pure Mathematics P1 (WMA11/01)",
   "year": 2020,
@@ -1890,21 +1740,6 @@
   "level": "AS"
  },
  {
-  "id": "28a940f2-a52d-4b2c-a74e-bf261a7a1f22",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2021,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-3-32--feb-mar-2021-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--feb-mar-2021-v2-ms.pdf",
-  "created_at": "2026-10-10 06:14:47.465974+00",
-  "updated_at": "2026-10-10 06:14:47.465974+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202021%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "29142369-ae53-4c27-9e3d-d07602dc218c",
   "title": "Edexcel IAL Maths — Statistics S1 (WST01/01)",
   "year": 2021,
@@ -1918,21 +1753,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Statistics/S1/QP/October%202021%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
- },
- {
-  "id": "2a217ae5-466c-47da-99d7-950b58a4034c",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2023,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/43c354b6-73b8-41bd-84c3-f541e1caf2b0.pdf",
-  "mark_scheme_url": "mark-schemes/9ac23d96-382e-474a-aea8-a88bcdba0973.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "2a2af0d7-e118-4280-aba7-1054a574f376",
@@ -1962,36 +1782,6 @@
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
   "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "2af97f94-501e-45c1-a763-a8e0b29dc1d9",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2022,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-1-12--feb-mar-2022-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--feb-mar-2022-v2-ms.pdf",
-  "created_at": "2026-10-10 06:10:52.778792+00",
-  "updated_at": "2026-10-10 06:10:52.778792+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202022%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "2b157924-9eeb-4210-90c6-78d3b69bcb40",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2020,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/a62663f6-1928-44e5-b1ea-0446ed9785f0.pdf",
-  "mark_scheme_url": "mark-schemes/fe8ed36c-ec5b-42f2-8c76-aa6d4f2337c7.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
   "level": "OL"
  },
  {
@@ -2085,21 +1875,6 @@
   "level": "A2"
  },
  {
-  "id": "2d522118-e0db-4ab1-8874-5270f2a6372a",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2021,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/0324ac05-d3dc-436e-8376-a7ade75645bf.pdf",
-  "mark_scheme_url": "mark-schemes/0ad09f96-51e0-4626-84ac-8930bda790a4.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "2df853b8-bf49-425d-bedd-4e96f7ea0053",
   "title": "Computer Science 9618 — Paper 4: Practical",
   "year": 2021,
@@ -2145,21 +1920,6 @@
   "level": "AS"
  },
  {
-  "id": "2e893734-ab26-419e-95b9-39b6c144c422",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2025,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/3dc28194-58ee-4766-8fd7-2de4ea747ecc.pdf",
-  "mark_scheme_url": "mark-schemes/0c5045db-bdf9-490d-b7d5-353dc5f223aa.pdf",
-  "created_at": "2026-10-07 15:14:02.839689+00",
-  "updated_at": "2026-10-07 15:14:02.839689+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "2e8caa60-fa62-4c46-9155-2db1398d02c6",
   "title": "Computer Science 9618 — Paper 2: Fundamental Problem-solving and Programming",
   "year": 2023,
@@ -2188,21 +1948,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-2/QP/November%202023%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "3005ee1e-8ca1-49bd-9c6b-5207c310bf3e",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2025,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": null,
-  "mark_scheme_url": null,
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-09-30 05:35:33.346797+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "3064cb9e-26f9-44b0-8004-4ce0d9b3a3e3",
@@ -2263,21 +2008,6 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-computer-science-9618/past-papers/",
   "subject_slug": "computer-science",
   "level": "AS"
- },
- {
-  "id": "3114b738-8722-46f3-a550-8bee7b7123e7",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2022,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-1-12--feb-mar-2022-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--feb-mar-2022-v2-ms.pdf",
-  "created_at": "2026-10-10 06:10:41.581155+00",
-  "updated_at": "2026-10-10 06:10:41.581155+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202022%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "31162911-d474-4618-9df6-54048fe5a847",
@@ -2370,21 +2100,6 @@
   "level": "OL"
  },
  {
-  "id": "32d7d63b-8c80-4777-8638-35c85ac354f7",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2019,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-3-32--feb-mar-2019-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--feb-mar-2019-v2-ms.pdf",
-  "created_at": "2026-10-10 06:28:14.161769+00",
-  "updated_at": "2026-10-10 06:28:14.161769+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202019%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "32ea2df6-74c9-4254-adbf-80781c9591ae",
   "title": "Cambridge IGCSE Maths 0580 — Paper 4: Extended (0580/42)",
   "year": 2020,
@@ -2396,21 +2111,6 @@
   "created_at": "2026-10-10 06:18:40.870008+00",
   "updated_at": "2026-10-10 06:22:21.969281+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-4/9-1/QP/Specimen%202020%20(9-1)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "32f3e4aa-79d8-40db-8b90-abd8a5157f1f",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2021,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-1-12--feb-mar-2021-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--feb-mar-2021-v2-ms.pdf",
-  "created_at": "2026-10-10 06:14:41.346561+00",
-  "updated_at": "2026-10-10 06:14:41.346561+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202021%20(v2)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
  },
@@ -2565,21 +2265,6 @@
   "level": "OL"
  },
  {
-  "id": "3a9993c7-349e-4583-bfa8-b89b3b7f2bfd",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2020,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/33b20830-b102-409f-a66f-8123bdf540d0.pdf",
-  "mark_scheme_url": "mark-schemes/4cc156b8-b46e-49fe-b1de-04545d3e215b.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "3a9d50b6-05b8-44db-9124-5b810babaa8d",
   "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
   "year": 2025,
@@ -2727,21 +2412,6 @@
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/past-papers/",
   "subject_slug": "computer-science",
-  "level": "OL"
- },
- {
-  "id": "3bf0aff1-0d5d-4469-a22b-e4d9be8cf2e7",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2025,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/b2aa1107-0e82-42c2-9712-cf01438e48fb.pdf",
-  "mark_scheme_url": "mark-schemes/1d7b12b0-9687-4a7c-93f9-d0974e33f37f.pdf",
-  "created_at": "2026-10-07 15:14:08.540881+00",
-  "updated_at": "2026-10-07 15:14:08.540881+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
   "level": "OL"
  },
  {
@@ -2910,21 +2580,6 @@
   "level": "A2"
  },
  {
-  "id": "3f2d288a-90cc-42e5-a961-c1a0ee21fc1c",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2020,
-  "session": "Specimen",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/pmt/0580-paper-3-32--specimen-2020-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--specimen-2020-ms.pdf",
-  "created_at": "2026-10-10 06:18:33.806772+00",
-  "updated_at": "2026-10-10 06:22:21.969281+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/9-1/QP/Specimen%202020%20(9-1)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "3f9abd70-e369-40c1-a964-10d73fb7217e",
   "title": "Edexcel IAL Maths — Statistics S2 (WST02/01)",
   "year": 2024,
@@ -3058,21 +2713,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/CAIE/Mechanics-1/QP/March%202023%20(v2)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
- },
- {
-  "id": "430d362d-282c-4c5c-b4db-c48371e6a073",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2022,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-3-32--feb-mar-2022-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--feb-mar-2022-v2-ms.pdf",
-  "created_at": "2026-10-10 06:10:47.592411+00",
-  "updated_at": "2026-10-10 06:10:47.592411+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202022%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "43958b26-ee06-4fd2-bbed-1874816ba778",
@@ -3555,21 +3195,6 @@
   "level": "A2"
  },
  {
-  "id": "4ced005a-59a8-4533-bec6-b3a40650363d",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2023,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/b58686ea-6d8a-4578-9607-8ffcbfde7e46.pdf",
-  "mark_scheme_url": "mark-schemes/ef3ee5ac-26e6-4d6e-bd9e-f81045d37533.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "4cf304ee-113e-43d6-b5ae-d992489b38a2",
   "title": "Edexcel IAL Maths — Statistics S2 (WST02/01)",
   "year": 2023,
@@ -3583,36 +3208,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Statistics/S2/QP/January%202023%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
- },
- {
-  "id": "4d6c1f11-00bf-4d7f-87be-e8a4faf30b5c",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2020,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/47e909fa-da5c-4025-a607-1af7d14320e6.pdf",
-  "mark_scheme_url": "mark-schemes/e2cf0e21-6a56-425a-80d6-c671050f67ba.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "4d771539-10a8-4565-a9b7-1f9f9570525d",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2023,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-1-12--feb-mar-2023-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--feb-mar-2023-v2-ms.pdf",
-  "created_at": "2026-10-10 06:06:28.888752+00",
-  "updated_at": "2026-10-10 06:06:28.888752+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202023%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "4d7cd92e-1d71-4a89-b65e-242c655d867e",
@@ -3900,21 +3495,6 @@
   "level": "A2"
  },
  {
-  "id": "549cb9aa-0039-4eb2-84da-f56ed1e04ebb",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2024,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/0a911769-0836-429a-827f-bc15e9ec01f0.pdf",
-  "mark_scheme_url": "mark-schemes/1aaad83d-b51b-4ae9-9e60-8d2ac3775f4a.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "54d27929-7b0c-4d79-b2fa-5669bc2be634",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 6: Probability & Statistics 2",
   "year": 2022,
@@ -3928,21 +3508,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/CAIE/Statistics-1/QP/March%202022%20(v2)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
- },
- {
-  "id": "54ef297d-9eb0-4a3a-81f4-f2aa02a391ee",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2024,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/62102671-3d70-4da4-b3bc-a935325aec33.pdf",
-  "mark_scheme_url": "mark-schemes/85b72658-997e-433d-9273-696c45da7857.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "554cc1bf-cbb2-42d3-869a-995a65e24afd",
@@ -4016,21 +3581,6 @@
   "created_at": "2026-10-10 06:02:23.362814+00",
   "updated_at": "2026-10-10 06:02:23.362814+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-4/International/QP/March%202024%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "56031d4d-5859-4828-bf93-f420f14e1e9b",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2020,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/64cc9941-6b57-4517-9c7b-ad8637b77374.pdf",
-  "mark_scheme_url": "mark-schemes/ca7a7b2c-00e2-4ce4-8971-1caafd65e775.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
   "subject_slug": "physics",
   "level": "OL"
  },
@@ -4245,21 +3795,6 @@
   "level": "A2"
  },
  {
-  "id": "59a412bc-3ae7-4c1d-bf9c-2a22d2d835f0",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2020,
-  "session": "Specimen",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/pmt/0625-paper-1-12--specimen-2020-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--specimen-2020-ms.pdf",
-  "created_at": "2026-10-10 06:18:45.335051+00",
-  "updated_at": "2026-10-10 06:22:21.969281+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/Specimen%202020%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "59c27304-cc77-4a1c-877f-6d89f6e2ce73",
   "title": "Edexcel IAL Maths — Pure Mathematics P3 (WMA13/01)",
   "year": 2019,
@@ -4362,21 +3897,6 @@
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
   "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "5c7bf08b-4792-4d93-a912-f4fd44ccec90",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2024,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/7148f9a6-ff41-4063-9922-94cf62177a32.pdf",
-  "mark_scheme_url": "mark-schemes/a4e14c76-9cd0-4336-9960-0288d306ffac.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
   "level": "OL"
  },
  {
@@ -4545,21 +4065,6 @@
   "level": "A2"
  },
  {
-  "id": "5fe5a8ff-f50a-495d-99d9-8952b775e47d",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2021,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/2aa9f533-40f9-4898-a98d-87d89f032c03.pdf",
-  "mark_scheme_url": "mark-schemes/66b6c044-0bc6-4c3e-8087-8ba38c004d89.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "60026b91-2c63-46ee-b62d-3cb8cbe9f3ae",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 4: Mechanics",
   "year": 2020,
@@ -4617,21 +4122,6 @@
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
   "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "61232c92-ff96-4941-ba0c-dc730f55f7d5",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2025,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": null,
-  "mark_scheme_url": null,
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-09-30 05:35:33.346797+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
   "level": "OL"
  },
  {
@@ -4815,21 +4305,6 @@
   "level": "OL"
  },
  {
-  "id": "65d24d70-9a7d-4a53-b063-2a005deb92d8",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2019,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/46339692-817f-4e3a-8e9e-244abcd95853.pdf",
-  "mark_scheme_url": "mark-schemes/4fd534b3-cbb0-4c05-8d03-01899f25323a.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "660ffadb-78f3-4d1d-acd9-8ba29f9c5c23",
   "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
   "year": 2020,
@@ -4871,36 +4346,6 @@
   "created_at": "2026-09-24 12:29:51.255566+00",
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "67e49945-5209-46d2-af11-4f0bccd7fa52",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2016,
-  "session": "Specimen",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/77963ae6-1996-4241-b809-7030fa5dd5ae.pdf",
-  "mark_scheme_url": "mark-schemes/3f5b6947-6f34-46d9-9186-4eeb0847fb55.pdf",
-  "created_at": "2026-10-02 18:40:23.446685+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": null,
-  "subject_slug": null,
-  "level": null
- },
- {
-  "id": "67fae66a-ff2c-4af3-8b11-d8b51ac8881f",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2023,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-3-32--feb-mar-2023-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--feb-mar-2023-v2-ms.pdf",
-  "created_at": "2026-10-10 06:06:24.553856+00",
-  "updated_at": "2026-10-10 06:06:24.553856+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202023%20(v2)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
  },
@@ -4965,21 +4410,6 @@
   "level": "A2"
  },
  {
-  "id": "6a90352c-ecea-4114-bca9-45f3dba33021",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2022,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-3-32--feb-mar-2022-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--feb-mar-2022-v2-ms.pdf",
-  "created_at": "2026-10-10 06:10:57.930796+00",
-  "updated_at": "2026-10-10 06:10:57.930796+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202022%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "6b50600e-6979-42cb-8423-af90bfe5581c",
   "title": "Edexcel IAL Physics — Unit 2: Waves and Electricity (WPH12/01)",
   "year": 2024,
@@ -4993,21 +4423,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/Edexcel-IAL/2018-spec/Unit-2/QP/January%202024%20(IAL)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "6b7d0017-3609-4c70-96d0-ddab5582b638",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2020,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/b5ea3a83-fe72-4292-a4ed-9454ed016d62.pdf",
-  "mark_scheme_url": "mark-schemes/6e07bed9-a31a-4a59-a1fc-aecde22a0dd4.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "6bcfa1d5-0f24-4115-9077-f5dcc3c4bf13",
@@ -5490,21 +4905,6 @@
   "level": "AS"
  },
  {
-  "id": "74ee33c2-a47a-41d6-ad1f-4b50dbdc5be3",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2024,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-1-12--feb-mar-2024-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--feb-mar-2024-v2-ms.pdf",
-  "created_at": "2026-10-10 06:01:54.291987+00",
-  "updated_at": "2026-10-10 06:01:54.291987+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202024%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "750026aa-58dc-4263-a39f-0197ab7a154b",
   "title": "Cambridge IGCSE Maths 0580 — Paper 2: Extended (0580/22)",
   "year": 2019,
@@ -5561,21 +4961,6 @@
   "created_at": "2026-09-24 12:29:51.255566+00",
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "75d28ff9-b46a-4e90-a5c5-565745f994f0",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2020,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-3-32--feb-mar-2020-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--feb-mar-2020-v2-ms.pdf",
-  "created_at": "2026-10-10 06:18:53.763988+00",
-  "updated_at": "2026-10-10 06:18:53.763988+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202020%20(v2)%20QP.pdf",
   "subject_slug": "physics",
   "level": "OL"
  },
@@ -5638,21 +5023,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "78718a6e-fcf6-451e-9c44-c5ba3887f404",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2023,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/a03ab411-7de2-4126-a1c0-86cd8912326d.pdf",
-  "mark_scheme_url": "mark-schemes/43d8e9bd-e3b8-480a-b280-e3ee520d3f38.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "787c1da2-87e3-45a5-9828-60e5f116f975",
@@ -5805,21 +5175,6 @@
   "level": "OL"
  },
  {
-  "id": "7c3b4602-9da3-4fa6-be7d-6709c503179c",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2024,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-3-32--feb-mar-2024-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--feb-mar-2024-v2-ms.pdf",
-  "created_at": "2026-10-10 06:02:03.116439+00",
-  "updated_at": "2026-10-10 06:02:03.116439+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202024%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "7c4bb9fd-7982-4faa-8853-de2480b4d369",
   "title": "Edexcel IAL Physics — Unit 2: Waves and Electricity (WPH12/01)",
   "year": 2020,
@@ -5940,21 +5295,6 @@
   "level": "A2"
  },
  {
-  "id": "7d78bff1-1f45-46e2-bbad-c5a397df4298",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2019,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-1-12--feb-mar-2019-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--feb-mar-2019-v2-ms.pdf",
-  "created_at": "2026-10-10 06:27:59.751392+00",
-  "updated_at": "2026-10-10 06:27:59.751392+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202019%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "7e1f86cd-70bb-4efa-8f39-203b0ef53903",
   "title": "Cambridge IGCSE Computer Science 0478 — Paper 1: Computer Systems (0478/12)",
   "year": 2019,
@@ -5983,21 +5323,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/CAIE/Pure-1/QP/June%202023%20(v1)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
- },
- {
-  "id": "7e97a243-b984-4767-a478-eb7674bb577c",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2023,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/d25d70d3-9c53-4c3f-bfdd-2d6b6761db04.pdf",
-  "mark_scheme_url": "mark-schemes/00b832a9-9418-4715-85da-cb5cb8bab389.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "7f46f76e-7551-4021-92a6-0541b44182c3",
@@ -6058,21 +5383,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "A2"
- },
- {
-  "id": "80cca16c-b4d2-4b7c-b1eb-50ac2b886269",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2019,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/21db0fd0-e725-4d14-a3e0-647de41bd075.pdf",
-  "mark_scheme_url": "mark-schemes/ea56cdec-eeaf-4e87-b6ff-a3a192d403fd.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "80f65c2f-924f-4df7-9918-d042981c697b",
@@ -6225,21 +5535,6 @@
   "level": null
  },
  {
-  "id": "839e23ae-aedb-431f-864f-65ee3c050b71",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2021,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/ac59938b-4e1e-43aa-a148-6b2a6c01698a.pdf",
-  "mark_scheme_url": "mark-schemes/cd9dc3b1-29c9-473d-b4e5-e0683ae00697.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "83b65371-de53-41c7-a1a2-b7816106b983",
   "title": "Cambridge IGCSE Computer Science 0478 — Paper 1: Computer Systems (0478/12)",
   "year": 2023,
@@ -6283,21 +5578,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/Edexcel-IAL/2018-spec/Unit-6/QP/June%202023%20(IAL)%20QP.pdf",
   "subject_slug": "physics",
   "level": "A2"
- },
- {
-  "id": "83e30ce5-c143-44a2-b22c-92faf5eb49ba",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2024,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/2529921e-1e19-429c-a38d-bc04f81a49a3.pdf",
-  "mark_scheme_url": "mark-schemes/478c2161-a204-47d2-8c26-a3806c4989bb.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "848fbb3c-bf12-4d71-8965-0e25c5eceafe",
@@ -6477,21 +5757,6 @@
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
   "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "88f37cbc-6206-4c70-9403-58bb9d5a3a43",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2021,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/1c0d6d8d-d980-47c7-b01f-6460d8b7b076.pdf",
-  "mark_scheme_url": "mark-schemes/69accbe6-2911-4f00-ae07-c8555137607a.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
   "level": "OL"
  },
  {
@@ -6765,21 +6030,6 @@
   "level": "A2"
  },
  {
-  "id": "8d391623-95c4-4ff5-af86-d017452f77d1",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2022,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/521d0902-90c2-4e17-aa6f-b15a0e090e4d.pdf",
-  "mark_scheme_url": "mark-schemes/1663ca1b-1611-455d-a380-9f8016692872.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "8de2f439-54a9-4af5-8f5c-0da1c5273caf",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 2: Pure Mathematics 2",
   "year": 2024,
@@ -6913,36 +6163,6 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-computer-science-9618/past-papers/",
   "subject_slug": "computer-science",
   "level": "AS"
- },
- {
-  "id": "902e9d8c-dcce-468c-be8f-62002bcda999",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2022,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/8d4fa5c7-e51c-4567-81a8-64d141e83b82.pdf",
-  "mark_scheme_url": "mark-schemes/603998a1-5a30-40f5-be77-7375d9f08a84.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "9034da6d-7bca-47ed-b660-88ef1657dbe1",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2024,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/e8aa0310-9573-4870-8aed-917511a491b6.pdf",
-  "mark_scheme_url": "mark-schemes/963ffe7d-2894-4c74-8b3e-b663076f813d.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "91395c03-001b-4a2c-ab79-141e517f3879",
@@ -7198,21 +6418,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "975892bf-db8b-4b5d-a032-6777d7f7c490",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2023,
-  "session": "Specimen",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/pmt/0625-paper-3-32--specimen-2023-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--specimen-2023-ms.pdf",
-  "created_at": "2026-10-10 06:06:47.299803+00",
-  "updated_at": "2026-10-10 06:22:21.969281+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/9-1/QP/Specimen%202023%20(9-1)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "97781907-b996-4737-a932-901ca51e74a6",
@@ -7605,36 +6810,6 @@
   "level": "AS"
  },
  {
-  "id": "a057fe7f-d3f0-4bbf-8f78-04579783fb77",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2025,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": null,
-  "mark_scheme_url": null,
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-09-30 05:35:33.346797+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "a05b87fe-a954-4b4b-bf98-bf234f9658de",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2025,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/dbe58ee4-0b8f-4ff1-b6a9-e1e72b2789ab.pdf",
-  "mark_scheme_url": "mark-schemes/ec01b519-7091-43d4-b03c-78234175dcc5.pdf",
-  "created_at": "2026-10-07 15:14:13.283487+00",
-  "updated_at": "2026-10-07 15:14:13.283487+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "a09b43a6-ee2f-4488-90a9-d890e4b7bb3e",
   "title": "Edexcel IAL Maths — Statistics S2 (WST02/01)",
   "year": 2021,
@@ -7740,21 +6915,6 @@
   "level": "AS"
  },
  {
-  "id": "a25b9e21-6dfd-43fd-a373-ce50dd34e9a8",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2020,
-  "session": "Specimen",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/pmt/0580-paper-1-12--specimen-2020-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--specimen-2020-ms.pdf",
-  "created_at": "2026-10-10 06:18:21.90181+00",
-  "updated_at": "2026-10-10 06:22:21.969281+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/9-1/QP/Specimen%202020%20(9-1)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "a2af74d0-c2df-4966-ab7c-5cfb0b9abf4f",
   "title": "Cambridge IGCSE Physics 0625 — Paper 4: Theory Extended (0625/42)",
   "year": 2024,
@@ -7845,21 +7005,6 @@
   "level": "AS"
  },
  {
-  "id": "a60c0a56-e30e-48a9-a39c-3c49dc6cc150",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2023,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/eb37ccce-7487-42a0-b93e-72c39efdfdbf.pdf",
-  "mark_scheme_url": "mark-schemes/f1f8ee37-ceea-45a1-8304-ad1c3d5d38b5.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "a6c6f99f-4a2c-4447-8fca-52f7daef05e1",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 6: Probability & Statistics 2",
   "year": 2022,
@@ -7888,21 +7033,6 @@
   "source_url": null,
   "subject_slug": null,
   "level": null
- },
- {
-  "id": "a7597914-3b18-47f6-8795-47aff3da22de",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2019,
-  "session": "Specimen",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-3-32--specimen-2019-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--specimen-2019-ms.pdf",
-  "created_at": "2026-10-10 06:28:17.145774+00",
-  "updated_at": "2026-10-10 06:28:17.145774+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/9-1/QP/Specimen%202019%20(9-1)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "a775753e-4abe-4c1c-bd92-8ef1a27f5daf",
@@ -8085,21 +7215,6 @@
   "level": "A2"
  },
  {
-  "id": "ab23f9ce-9235-4176-8bf4-7788f10d2934",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2019,
-  "session": "Specimen",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-1-12--specimen-2019-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--specimen-2019-ms.pdf",
-  "created_at": "2026-10-10 06:28:01.896959+00",
-  "updated_at": "2026-10-10 06:28:01.896959+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/9-1/QP/Specimen%202019%20(9-1)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "ab38b092-9b49-42b4-bb8d-7fb6c3a19f24",
   "title": "Cambridge International A Level Computer Science 9618 — Paper 4",
   "year": 2025,
@@ -8158,21 +7273,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "A2"
- },
- {
-  "id": "ac3f132c-e873-4dd6-a1fd-ffb7e21469dc",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2023,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-1-12--feb-mar-2023-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--feb-mar-2023-v2-ms.pdf",
-  "created_at": "2026-10-10 06:06:17.249323+00",
-  "updated_at": "2026-10-10 06:06:17.249323+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202023%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "ad7b5e01-1104-47e3-86ca-eaa8d4bb1d19",
@@ -8235,36 +7335,6 @@
   "level": "AS"
  },
  {
-  "id": "afdfb481-3650-4fc4-88f8-eea872001823",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2021,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/889ef4ef-4d19-4a2a-8174-5b20a01d0b32.pdf",
-  "mark_scheme_url": "mark-schemes/36904621-c3fb-4ddf-9ddb-600e32bfcd0b.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "b020b034-6486-4a0a-83cb-7c99b56efbfb",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2022,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/58fb9c0d-8880-4677-8a04-29973eb894d6.pdf",
-  "mark_scheme_url": "mark-schemes/d459d078-7281-496b-a76a-0c7ca47c0374.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "b03b7fe1-5153-4344-9a45-eda14c727ccb",
   "title": "Cambridge IGCSE Physics 0625 — Paper 2: Multiple Choice Extended (0625/22)",
   "year": 2025,
@@ -8276,21 +7346,6 @@
   "created_at": "2026-09-24 12:29:51.255566+00",
   "updated_at": "2026-09-30 05:35:33.346797+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "b0734285-49ed-4827-baec-99858355512b",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2020,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-1-12--feb-mar-2020-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--feb-mar-2020-v2-ms.pdf",
-  "created_at": "2026-10-10 06:18:43.153231+00",
-  "updated_at": "2026-10-10 06:18:43.153231+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202020%20(v2)%20QP.pdf",
   "subject_slug": "physics",
   "level": "OL"
  },
@@ -8323,21 +7378,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-3/QP/March%202021%20(v3)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "b2613bb4-abea-443c-a526-13bfcc37d2fe",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2019,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/ac2cabd0-69e7-4cff-803c-7d6c9e0a8e75.pdf",
-  "mark_scheme_url": "mark-schemes/acf57a2d-1952-49c7-84db-819ac549bfc9.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "b28df876-996d-4ad5-b8d6-5c39f1d8434f",
@@ -8456,21 +7496,6 @@
   "created_at": "2026-10-10 06:07:00.696767+00",
   "updated_at": "2026-10-10 06:22:21.969281+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-5/9-1/QP/Specimen%202023%20(9-1)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "b5e9738d-75f8-481e-ad39-2f34fa4293fb",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2024,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/6a412d54-5a03-4df1-a8ab-8131d5a7c738.pdf",
-  "mark_scheme_url": "mark-schemes/4ee02cbd-afea-495e-87aa-3f30ea9f0afc.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
   "subject_slug": "physics",
   "level": "OL"
  },
@@ -8790,21 +7815,6 @@
   "level": "AS"
  },
  {
-  "id": "bbf0f482-307d-4470-af64-626621f94064",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2019,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/c98f75b4-49db-476f-a32f-df9f6584d543.pdf",
-  "mark_scheme_url": "mark-schemes/cede95ca-671d-4d59-ab99-967a5a4da863.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "bc174ccc-f7ab-4eaa-8975-bde81b94ebdf",
   "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
   "year": 2022,
@@ -8813,21 +7823,6 @@
   "topic_id": "39682f0d-d101-4e70-8f91-05961d6c2a80",
   "paper_url": "papers/22aba400-bcc6-4e89-b2dd-321d01253a23.pdf",
   "mark_scheme_url": "mark-schemes/884777ca-7231-49ce-bd8a-20d826888e38.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "bc19446b-dfa3-4519-bdba-beef58c59146",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2023,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/b861f07c-0a63-468f-bc67-9c80d5340ace.pdf",
-  "mark_scheme_url": "mark-schemes/96163291-be71-4a5f-b363-039cf689df41.pdf",
   "created_at": "2026-09-24 12:29:51.255566+00",
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
@@ -9030,21 +8025,6 @@
   "level": "OL"
  },
  {
-  "id": "c044b2fe-b04b-4d0a-a23c-e9823a0a4392",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2022,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/e6a60d40-6fde-403d-a26e-ece2f38e9734.pdf",
-  "mark_scheme_url": "mark-schemes/942586cc-fcf9-4254-9ad7-c6f2e9257073.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "c0ca1522-455c-4f6e-83f9-a5536e45e487",
   "title": "Edexcel IAL Maths — Pure Mathematics P2 (WMA12/01)",
   "year": 2021,
@@ -9058,21 +8038,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Pure/P2/QP/January%202021%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
- },
- {
-  "id": "c0eddfd9-8d2e-45e0-87be-e8bcd30c5935",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2020,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/4175e06a-5299-40e1-847b-b7c303379c7e.pdf",
-  "mark_scheme_url": "mark-schemes/3a6a6e11-9f73-4e0a-b21b-0ad42a7ab984.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "c11ee7cd-0d1b-4694-b329-daea3499e2c1",
@@ -9210,21 +8175,6 @@
   "level": "AS"
  },
  {
-  "id": "c4c3dda6-9141-4c9a-adc1-066e4d761141",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2020,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/c61c1cd7-6ac4-40f6-85e1-723dacd5bf95.pdf",
-  "mark_scheme_url": "mark-schemes/5ce03c74-0a90-4cb7-8563-b73ac3b2c815.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "c5e6b2f4-8788-4f5d-9713-a7a0e77b8673",
   "title": "Cambridge IGCSE Computer Science 0478 — Paper 2: Algorithms, Programming and Logic (0478/22)",
   "year": 2021,
@@ -9330,21 +8280,6 @@
   "level": "A2"
  },
  {
-  "id": "c8f1dbea-03d2-4a4f-a3ce-015003c0fec0",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2023,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-3-32--feb-mar-2023-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--feb-mar-2023-v2-ms.pdf",
-  "created_at": "2026-10-10 06:06:42.697756+00",
-  "updated_at": "2026-10-10 06:06:42.697756+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202023%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "c8fad16a-c3e6-44ad-a2bd-86dd0ae5275a",
   "title": "Edexcel IAL Maths — Statistics S1 (WST01/01)",
   "year": 2021,
@@ -9403,21 +8338,6 @@
   "source_url": null,
   "subject_slug": null,
   "level": null
- },
- {
-  "id": "c9c41606-ec1c-42b5-90c4-09a659b7279f",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2019,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/4f62b362-31bb-4657-a61d-2158519dcf98.pdf",
-  "mark_scheme_url": "mark-schemes/f37efcb7-6e2b-4a0d-b421-ecae574e2a0c.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "ca071e0b-b0b6-4948-9131-1720c7310885",
@@ -9583,21 +8503,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-4/QP/March%202025%20(v2)%20QP.pdf",
   "subject_slug": "physics",
   "level": "A2"
- },
- {
-  "id": "cd19e9ec-625b-4d17-ab11-832c1355cad5",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2020,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/82685af3-da11-4d84-b3d3-90627055a55f.pdf",
-  "mark_scheme_url": "mark-schemes/138b9c51-5974-4821-b6e7-b50af2caee86.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "cd3e6f89-46da-4905-9281-794603de1f21",
@@ -9795,21 +8700,6 @@
   "level": "OL"
  },
  {
-  "id": "d0041e8a-e732-427d-a017-f81e79759002",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2023,
-  "session": "Specimen",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/pmt/0625-paper-1-12--specimen-2023-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--specimen-2023-ms.pdf",
-  "created_at": "2026-10-10 06:06:32.472521+00",
-  "updated_at": "2026-10-10 06:22:21.969281+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/9-1/QP/Specimen%202023%20(9-1)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "d006f6e8-f636-4fc0-8a54-3559229faa8e",
   "title": "Cambridge International A Level Computer Science 9618 — Paper 3",
   "year": 2023,
@@ -9975,21 +8865,6 @@
   "level": "AS"
  },
  {
-  "id": "d2445dd8-ed39-4156-bc42-2573a9fead8e",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2025,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/0bb4644a-5e5a-4bb0-ac38-1a0b258d1d18.pdf",
-  "mark_scheme_url": "mark-schemes/6bcebd65-2f1f-4266-9ff4-da0cc4a8aebf.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "d2b8f9b0-6540-4d9e-a97f-5a354364bd7d",
   "title": "Edexcel IAL Physics — Unit 2: Waves and Electricity (WPH12/01)",
   "year": 2019,
@@ -10018,21 +8893,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "d38969b7-c3c0-4d5d-abfc-75d76a560e31",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2025,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/35e642fe-c95a-4ff5-8fb5-ce0723eb7680.pdf",
-  "mark_scheme_url": "mark-schemes/bd3a6a49-ace8-40de-a9ba-303832c7f41f.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "d3946653-076a-4910-8025-ada055f118d0",
@@ -10170,21 +9030,6 @@
   "level": "AS"
  },
  {
-  "id": "d5e0e61b-6ffe-42b5-9555-87f080420b43",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2016,
-  "session": "Specimen",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/059e34c6-1319-411a-8b5a-a25ffb26fcbf.pdf",
-  "mark_scheme_url": "mark-schemes/75d3a42b-214b-48f7-adde-536c682db9f8.pdf",
-  "created_at": "2026-10-02 18:40:23.446685+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": null,
-  "subject_slug": null,
-  "level": null
- },
- {
   "id": "d604141b-e923-4319-9a7e-f63570cc0044",
   "title": "Computer Science 9618 — Paper 3: Advanced Theory",
   "year": 2021,
@@ -10260,21 +9105,6 @@
   "level": "AS"
  },
  {
-  "id": "d917c017-c6fd-413b-8cae-5bcc8310f62d",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2020,
-  "session": "Specimen",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/pmt/0625-paper-3-32--specimen-2020-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--specimen-2020-ms.pdf",
-  "created_at": "2026-10-10 06:18:57.490237+00",
-  "updated_at": "2026-10-10 06:22:21.969281+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/Specimen%202020%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "d943fb6f-7016-4e94-83e1-bbb11495b590",
   "title": "Cambridge International AS Level Mathematics 9709 — Paper 1: Pure Mathematics 1",
   "year": 2020,
@@ -10333,21 +9163,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "A2"
- },
- {
-  "id": "da078879-2e1f-4b01-b51b-b7192b3b8c94",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2025,
-  "session": "May/June",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/bca64334-cb43-41d7-b8db-ee64fa17b6a2.pdf",
-  "mark_scheme_url": "mark-schemes/38aa972a-f1c7-4b62-9569-23cdfb3bbc3b.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "da32f8c6-646e-48e9-8e1a-2b9a0b427fc4",
@@ -10575,21 +9390,6 @@
   "level": "OL"
  },
  {
-  "id": "e0f6bdc7-d72d-4937-bd87-30c288f9eb03",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2023,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/b74b0e8f-854a-4785-948a-ccee4f2118d0.pdf",
-  "mark_scheme_url": "mark-schemes/52ca9752-4562-4e21-beea-7a112e202661.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "e0fcd31b-d505-47c3-8534-2d9eb9131334",
   "title": "Cambridge IGCSE Maths 0580 — Paper 4: Extended (0580/42)",
   "year": 2023,
@@ -10680,36 +9480,6 @@
   "level": "A2"
  },
  {
-  "id": "e3234820-532a-4d06-940d-721006b167a9",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2021,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "paper_url": "papers/5c583589-0c2e-44c8-8d35-ae03ccc90d60.pdf",
-  "mark_scheme_url": "mark-schemes/bc307539-ec21-4b20-af7c-71d660b403a2.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
-  "id": "e33cc39f-8810-4148-9b88-a078383fa714",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2020,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0580-paper-3-32--feb-mar-2020-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--feb-mar-2020-v2-ms.pdf",
-  "created_at": "2026-10-10 06:18:31.154442+00",
-  "updated_at": "2026-10-10 06:18:31.154442+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202020%20(v2)%20QP.pdf",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "e3421ad0-095d-4fe1-8c2a-9bf43bac2558",
   "title": "Cambridge IGCSE Maths 0580 — Paper 4: Extended (0580/42)",
   "year": 2019,
@@ -10718,21 +9488,6 @@
   "topic_id": "4a093751-70de-4b7b-a451-94efe48c280c",
   "paper_url": "papers/d9ddc6e1-bf60-49a1-af68-807a6c51889b.pdf",
   "mark_scheme_url": "mark-schemes/b575985a-79c9-4e7e-bbc5-cf9f0e795852.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
-  "id": "e3487171-561e-4f01-b10a-084cef63256e",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2021,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/529d4e76-a910-497a-a830-81601dc427b5.pdf",
-  "mark_scheme_url": "mark-schemes/b988f977-a921-4419-9a77-b40731722f78.pdf",
   "created_at": "2026-09-24 12:29:51.255566+00",
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
@@ -10980,21 +9735,6 @@
   "level": "OL"
  },
  {
-  "id": "e9db09cd-e42f-411b-b86c-f6dc014186b6",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2021,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/13ed013a-1ebf-49b4-9d32-d5b639990e63.pdf",
-  "mark_scheme_url": "mark-schemes/71494a91-29f9-49f7-8a68-819952c555c6.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "ea5c3a3e-faa1-4bad-bea1-3d215a0020a2",
   "title": "Cambridge International AS Level Physics 9702 — Paper 1",
   "year": 2024,
@@ -11040,21 +9780,6 @@
   "level": "A2"
  },
  {
-  "id": "eac47338-7340-47fd-b049-f34cc2c41070",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2023,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/49367352-3e32-4221-b431-fea7c30e30fd.pdf",
-  "mark_scheme_url": "mark-schemes/8dd625a4-e3d4-4167-b326-8fc8e8cc10ad.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "ead5cb00-330d-4bea-85d4-542c3ff94036",
   "title": "Edexcel IAL Physics — Unit 3: Practical Skills in Physics I (WPH13/01)",
   "year": 2019,
@@ -11098,21 +9823,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
   "subject_slug": "mathematics",
   "level": "AS"
- },
- {
-  "id": "eb0f4556-4afb-4706-80ba-b497d4d18606",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2024,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/c71b88ee-a44c-412d-a005-343fbae08010.pdf",
-  "mark_scheme_url": "mark-schemes/1b59c781-4c1c-487e-9bb3-045e8407c657.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "eb7e363c-1198-4de3-84af-8c01a6fed919",
@@ -11520,21 +10230,6 @@
   "level": "A2"
  },
  {
-  "id": "f53dcb96-1528-4d13-944a-89fa2f04c5cb",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2019,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/2e047199-5af1-41c1-a914-9d58da0ddeb2.pdf",
-  "mark_scheme_url": "mark-schemes/d7583e77-00a2-46a3-a5d5-ccc9dac22b78.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "f54e1351-e405-4270-95a0-c5480e04542c",
   "title": "Edexcel IAL Maths — Pure Mathematics P2 (WMA12/01)",
   "year": 2020,
@@ -11578,21 +10273,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-1/QP/November%202022%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "f6499d77-19f8-4b4c-8794-e3663600a150",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2024,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/e6d23854-2093-4e67-b3a9-2cc3ff8a0630.pdf",
-  "mark_scheme_url": "mark-schemes/8403ae5e-fe3c-4347-9dd2-19bf31a7cc1d.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
  },
  {
   "id": "f64a2948-5901-47b8-93b6-a8bca6d32ddd",
@@ -11760,21 +10440,6 @@
   "level": "A2"
  },
  {
-  "id": "fa2b679f-3685-4485-8f89-eaa8d3bcfed7",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2022,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/efb8a9e9-9882-434a-88f6-619a7b959067.pdf",
-  "mark_scheme_url": "mark-schemes/467c814b-6933-450b-b472-9fc6cb205364.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
- },
- {
   "id": "fa2e3413-3c8b-4a6b-9797-9ef66fb8d1cc",
   "title": "Cambridge IGCSE Maths 0580 — Paper 2: Extended (0580/22)",
   "year": 2023,
@@ -11865,21 +10530,6 @@
   "level": "OL"
  },
  {
-  "id": "fc941e2e-d83c-4bd0-91ae-a5c80cb20637",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 1: Core (0580/12)",
-  "year": 2019,
-  "session": "May/June",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
-  "paper_url": "papers/f46f9352-4d4a-41a5-b56f-56f0593a455e.pdf",
-  "mark_scheme_url": "mark-schemes/56c666e0-2298-42dd-8bbd-efb27fd04576.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "fcd70729-4582-450e-9e51-3c7207e60e05",
   "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
   "year": 2024,
@@ -11908,21 +10558,6 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-2/QP/June%202020%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
- },
- {
-  "id": "fd030b8d-98d4-45e6-9994-3309727b4982",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 1: Multiple Choice Core (0625/12)",
-  "year": 2019,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 1 (12)",
-  "topic_id": null,
-  "paper_url": "papers/pmt/0625-paper-1-12--feb-mar-2019-v2-qp.pdf",
-  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--feb-mar-2019-v2-ms.pdf",
-  "created_at": "2026-10-10 06:28:26.094729+00",
-  "updated_at": "2026-10-10 06:28:26.094729+00",
-  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202019%20(v2)%20QP.pdf",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "fd07e5b0-abbe-44c2-bdc1-061ba3af3251",
@@ -11985,21 +10620,6 @@
   "level": "A2"
  },
  {
-  "id": "fee50bf9-4f7a-43eb-a0a0-2736d3913486",
-  "title": "Cambridge IGCSE Maths 0580 — Paper 3: Core (0580/32)",
-  "year": 2022,
-  "session": "Oct/Nov",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
-  "paper_url": "papers/28fcacbd-d893-4629-aef7-87f0e97ccc65.pdf",
-  "mark_scheme_url": "mark-schemes/9c6388df-a2b0-489c-a687-9e1c6d8e16a0.pdf",
-  "created_at": "2026-09-24 12:29:51.255566+00",
-  "updated_at": "2026-10-03 06:24:35.88017+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
-  "subject_slug": "mathematics",
-  "level": "OL"
- },
- {
   "id": "ff2961f2-2d66-4f06-a6b2-099e182f2281",
   "title": "Edexcel IAL Physics — Unit 5: Thermodynamics, Radiation, Oscillations (WPH15/01)",
   "year": 2023,
@@ -12013,21 +10633,6 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "A2"
- },
- {
-  "id": "ff5ec77e-9cdc-413c-87ed-cb7f9383cd80",
-  "title": "Cambridge IGCSE Physics 0625 — Paper 3: Theory Core (0625/32)",
-  "year": 2025,
-  "session": "Feb/Mar",
-  "paper_number": "Paper 3 (32)",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "paper_url": "papers/813e6c8b-926a-4f9e-94e4-e387e58c1701.pdf",
-  "mark_scheme_url": "mark-schemes/739fe9e0-6d6a-4595-8edd-636c739f329f.pdf",
-  "created_at": "2026-10-07 15:14:23.416798+00",
-  "updated_at": "2026-10-07 15:14:23.416798+00",
-  "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
-  "subject_slug": "physics",
-  "level": "OL"
  },
  {
   "id": "ffb63e78-4ccb-4137-89ad-b47d807e6e1d",
