@@ -107,3 +107,19 @@ export function teachHeadings(markdown: string): string[] {
  * says what the function does rather than where it was first needed.
  */
 export const smallMarkdownToHtml = teachToHtml;
+
+/**
+ * Study materials come in two shapes: notes/summary rows store HTML from the
+ * content pipeline, while exam-technique rows store the small-markdown grammar
+ * above. The converter escapes every line, so HTML rows must bypass it —
+ * otherwise their tags render as literal text on the page (seen live on the
+ * per-topic notes page). The caller still sanitizes the result: this returns
+ * stored HTML as-is, exactly as the lessons/notes pages already do.
+ */
+export function materialContentToHtml(content: string): string {
+  const text = String(content ?? "");
+  if (/^\s*<(h[1-6]|p|ul|ol|div|table|pre|blockquote|hr|img)\b/i.test(text)) {
+    return text;
+  }
+  return teachToHtml(text);
+}

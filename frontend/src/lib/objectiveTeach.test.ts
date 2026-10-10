@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { teachToHtml, teachHeadings } from "./objectiveTeach";
+import { teachToHtml, teachHeadings, materialContentToHtml } from "./objectiveTeach";
 
 /**
  * The shape docs/objectives-authoring.md §3 mandates: five `###` sections, a
@@ -105,6 +105,25 @@ describe("teachToHtml", () => {
   it("is total: empty and missing input produce nothing rather than throwing", () => {
     expect(teachToHtml("")).toBe("");
     expect(teachToHtml(undefined as unknown as string)).toBe("");
+  });
+});
+
+describe("materialContentToHtml", () => {
+  it("passes stored HTML through untouched, so notes render as markup", () => {
+    const html = "<h2>Algebra — Equations</h2>\n<p>3(x − 2) = x + 4.</p>";
+    expect(materialContentToHtml(html)).toBe(html);
+  });
+
+  it("converts markdown rows, so exam-technique notes keep working", () => {
+    const html = materialContentToHtml("### Traps\n- Dividing by x loses a root.");
+    expect(html).toContain("<h3>Traps</h3>");
+    expect(html).toContain("<li>Dividing by x loses a root.</li>");
+  });
+
+  it("does not mistake a leading angle bracket in prose for HTML", () => {
+    const html = materialContentToHtml("Use x < y and solve.");
+    expect(html).toContain("x &lt; y");
+    expect(html).not.toContain("<li>");
   });
 });
 

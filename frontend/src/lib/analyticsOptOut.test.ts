@@ -44,24 +44,46 @@ class MemoryStorage {
 
 /** Give the suite web storage if the environment did not. A no-op under jsdom. */
 function ensureWebStorage(): void {
-  if (typeof window !== "undefined") {
+  const scope = globalThis as unknown as {
+    window?: unknown;
+    Storage?: unknown;
+    localStorage?: Storage | undefined;
+    sessionStorage?: Storage | undefined;
+  };
+  // Node 22+ ships a native global `localStorage` that only warns
+  // ("--localstorage-file was not provided") and behaves as absent, which
+  // shadows jsdom's working copy. If the global is missing or broken but the
+  // window one works, bridge it across instead of falling back to memory.
+  let globalWorks = false;
+  try {
+    if (scope.localStorage) {
+      void scope.localStorage.length;
+      globalWorks = true;
+    }
+  } catch {
+    globalWorks = false;
+  }
+  if (!globalWorks && typeof window !== "undefined") {
     try {
-      void window.localStorage; // reading it can throw on an opaque origin
+      const win = window as unknown as {
+        localStorage: Storage;
+        sessionStorage?: Storage;
+        Storage?: unknown;
+      };
+      void win.localStorage.length; // reading it can throw on an opaque origin
+      scope.localStorage = win.localStorage;
+      if (win.sessionStorage) scope.sessionStorage = win.sessionStorage;
+      if (typeof scope.Storage === "undefined" && win.Storage) scope.Storage = win.Storage;
       return;
     } catch {
       // Opaque origin: fall through and provide storage of our own.
     }
   }
-  const scope = globalThis as unknown as {
-    window?: unknown;
-    Storage?: unknown;
-    localStorage?: unknown;
-    sessionStorage?: unknown;
-  };
+  if (globalWorks) return;
   scope.window = globalThis;
   scope.Storage = MemoryStorage;
-  scope.localStorage = new MemoryStorage();
-  scope.sessionStorage = new MemoryStorage();
+  scope.localStorage = new MemoryStorage() as unknown as Storage;
+  scope.sessionStorage = new MemoryStorage() as unknown as Storage;
 }
 
 ensureWebStorage();
