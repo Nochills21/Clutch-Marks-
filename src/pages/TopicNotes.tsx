@@ -23,6 +23,8 @@ import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
 import { openProtectedFile } from "@/lib/contentFiles";
 import { relatedTopicPapers } from "@/lib/topicPapers";
+import { topicMasterySummary } from "@/lib/topicMastery";
+import { TopicMasteryRing } from "@/components/TopicMasteryRing";
 import { smallMarkdownToHtml } from "@/lib/objectiveTeach";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
@@ -44,11 +46,31 @@ export default function TopicNotes() {
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [papers, setPapers] = useState<any[]>([]);
   const [levelPapers, setLevelPapers] = useState<any[]>([]);
+  const [masteryRows, setMasteryRows] = useState<{ state: string }[] | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const bumpRevision = () => setReloadKey((k) => k + 1);
 
   const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+
+  // This student's objective states for the ring. Objectives exist only for
+  // authored topics and the RPC is authenticated-only, so anything else
+  // leaves the ring hidden rather than guessing.
+  useEffect(() => {
+    if (!topicId || !user) {
+      setMasteryRows(null);
+      return;
+    }
+    let live = true;
+    supabase.rpc("topic_objective_mastery", { _topic_id: topicId }).then(({ data, error }) => {
+      if (live && !error) setMasteryRows((data ?? []) as { state: string }[]);
+    });
+    return () => {
+      live = false;
+    };
+  }, [topicId, user]);
+
+  const mastery = masteryRows && masteryRows.length > 0 ? topicMasterySummary(masteryRows) : null;
 
   // Paper-aware papers: the topic's own papers plus every other paper in this
   // subject-level sitting in the same paper group (Paper 1 lessons list Paper
@@ -269,6 +291,29 @@ export default function TopicNotes() {
           </Button>
         </div>
       </div>
+
+      {mastery && (
+        <Card className={mastery.examReady ? "border-emerald-500/40" : ""}>
+          <CardContent className="flex flex-wrap items-center gap-4 p-4">
+            <TopicMasteryRing percent={mastery.percent} band={mastery.band} label={`${topicTitle} mastery ${mastery.percent}%`} />
+            <div className="min-w-0 flex-1">
+              <p className="font-semibold">
+                {mastery.examReady ? "Exam-ready" : `${mastery.mastered} of ${mastery.total} objectives mastered`}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {mastery.examReady
+                  ? "Every objective in this topic is mastered. Keep it green with refresh checks."
+                  : "Master every objective to turn this topic green — wrong answers come back as Strengthen checks."}
+              </p>
+            </div>
+            <Button asChild variant={mastery.examReady ? "outline" : "default"} size="sm" className="gap-1.5">
+              <Link to="/mastery">
+                {mastery.examReady ? "Refresh checks" : "Strengthen"} <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      )}
 
       <div className="grid gap-3 sm:grid-cols-3">
         {[

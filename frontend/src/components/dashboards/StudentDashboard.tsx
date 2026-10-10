@@ -7,6 +7,7 @@ import { YourWeekCard } from "@/components/YourWeekCard";
 import { BookOpen, Brain, ClipboardList, Megaphone, TrendingUp, Target, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { TodaysTasks } from "@/components/dashboards/TodaysTasks";
+import { MasteryNextCard } from "@/components/MasteryNextCard";
 import { BrandHero } from "@/components/BrandHero";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -245,6 +246,9 @@ export function StudentDashboard() {
 
       {/* The student's own week: days studied, goals, focus session, wins. */}
       <YourWeekCard />
+
+      {/* Weakest objective + overdue refresh count, from the mastery loop. */}
+      <MasteryNextCard />
 
       {/* Per subject & level ledger */}
       <section className="space-y-4">

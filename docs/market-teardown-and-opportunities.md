@@ -121,7 +121,7 @@ what those parents already pay for is tutoring:
 | **AlGooru** | KSA's first *licensed* tutoring marketplace, 4.8★ (249 ratings), in-person + online |
 | PMT (UK) | £20/hr, plus bursary places |
 
-**One month of local tutoring costs 39× our annual plan ($60).** That is the
+**One month of local tutoring costs ~20× our annual plan ($120).** That is the
 comparison a Gulf parent can act on, and it is not one our competitors' pages
 make.
 

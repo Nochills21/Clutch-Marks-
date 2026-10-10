@@ -275,7 +275,9 @@ Spread the set across the statements above and across the three tiers:
 - "check": one idea, one step. It confirms the student can do the thing at all.
 - "drill": two or three steps, or one step with a decision in it.
 - "exam": past-paper style — a full question's worth of work, several steps, the
-  kind that decides a grade. Include at least one.
+  kind that decides a grade. At least a third of the questions you write must be
+  exam tier: this set is what the student's A* depends on, and a set of easy
+  questions teaches nothing.
 Every statement listed above should have at least one question that tests it.
 
 ${HOUSE_RULES}

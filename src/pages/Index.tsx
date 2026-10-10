@@ -17,8 +17,8 @@ import {
 const TRACKS = [
   { label: "Subjects", value: "3", detail: "Maths · Physics · Computer Science" },
   { label: "Levels", value: "IGCSE · AS · A2", detail: "IGCSE to A Level" },
-  { label: "Past papers", value: "378", detail: "Catalogued with mark schemes" },
-  { label: "Exams covered", value: "0580 · 0625 · 0478 · 9618", detail: "Cambridge & Edexcel" },
+  { label: "Past papers", value: "700+", detail: "Catalogued with mark schemes" },
+  { label: "Exams covered", value: "0580 · 0625 · 0478 · 9618 · IAL", detail: "Cambridge & Edexcel" },
 ];
 
 const TOOLS = [
@@ -42,7 +42,7 @@ const TOOLS = [
     index: "03",
     icon: Archive,
     title: "Past papers",
-    desc: "Seven years of papers and mark schemes, sorted by session and component, ready for timed practice.",
+    desc: "Past papers and mark schemes from 2015 to 2025, sorted by session and component, ready for timed practice.",
     accent: "text-[hsl(var(--gold-deep))]",
     tile: "from-[hsl(var(--gold-deep)/0.2)] to-[hsl(var(--gold-deep)/0.04)]",
   },
@@ -98,8 +98,9 @@ export default function Index() {
             </h1>
 
             <p className="lede mx-auto mt-7 text-center">
-              Concise revision notes, exam-style topic questions marked instantly, and a full
-              past-paper archive — everything you need for Maths, Physics and Computer Science,
+              Concise revision notes, exam-style topic questions marked instantly, a full
+              past-paper archive — and AI marking of your solved scripts against the official
+              mark schemes — everything you need for Maths, Physics and Computer Science,
               in one place.
             </p>
 
@@ -127,7 +128,7 @@ export default function Index() {
                 <div className="flex items-center justify-center gap-3 py-4">
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold-soft/20 px-3 py-1.5 text-[11px] font-mono tracking-[0.12em] uppercase text-gold-soft">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                    SM Study Mode
+                    AI marking included
                   </span>
                 </div>
                 <img
@@ -136,6 +137,7 @@ export default function Index() {
                   height={893}
                   alt="Master your clutch moments — achieve your best marks with focused tools"
                   decoding="async"
+                  fetchPriority="high"
                   className="relative w-full rounded-xl"
                 />
               </div>

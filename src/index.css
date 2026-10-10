@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&display=swap');
-
+/* Brand fonts load from a <link> in index.html (parallel with this bundle),
+   not a CSS @import — see the note there. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

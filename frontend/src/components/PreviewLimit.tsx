@@ -56,7 +56,7 @@ export function PreviewLimit({
         </h3>
         <p className="text-sm text-muted-foreground max-w-md mb-5">
           You're seeing a preview. The full plan unlocks everything — every note,
-          quiz, past paper and practice set — from $5/month on the annual plan.
+          quiz, past paper and practice set — from $10/month on the annual plan.
         </p>
         <Button asChild size="sm" className="gap-2 bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground">
           <Link to="/pricing"><Sparkles className="h-4 w-4" /> View plans</Link>

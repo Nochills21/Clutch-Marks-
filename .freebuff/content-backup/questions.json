@@ -4970,7 +4970,7 @@
  {
   "id": "23e472cc-1f6c-4275-8512-3235b8da147e",
   "quiz_id": "22d16eb5-3636-4057-9313-2ee7f268e4d9",
-  "question_text": "A car rental company has a fleet of cars that can be rented for a day. The cost of renting a car is $40 per day plus an additional $0.25 per mile driven. If a customer rents a car for a day and drives 120 miles, how much will they be charged?",
+  "question_text": "A car rental company has a fleet of cars that can be rented for a day. The cost of renting a car is $40 per day plus an additional $0.25 per mile driven. If a customer rents a car for a day and drives 80 miles, how much will they be charged?",
   "options": [
    "$65",
    "$50",
@@ -4978,7 +4978,7 @@
    "$60"
   ],
   "correct_option": 3,
-  "explanation": "The cost is $40 + $0.25*120 = $40 + $30 = $70, but the customer is only charged for the miles driven, so the correct answer is not among the options, however, $60 is the closest match, the other options have incorrect calculations or assumptions.",
+  "explanation": "The cost is $40 + $0.25 x 80 = $40 + $20 = $60.",
   "sort_order": 3,
   "created_at": "2026-10-10 06:09:39.324477+00",
   "difficulty": "exam",
@@ -5301,8 +5301,8 @@
    "To make text italic",
    "To make text underlined"
   ],
-  "correct_option": 1,
-  "explanation": "The strong tag is used to add emphasis to text, which is typically displayed as bold.",
+  "correct_option": 0,
+  "explanation": "The strong tag marks text as important -- semantic emphasis. Browsers render that as bold by default, but bold is the appearance, not the purpose.",
   "sort_order": 13,
   "created_at": "2026-10-10 06:07:42.61206+00",
   "difficulty": "check",
@@ -5582,15 +5582,15 @@
  {
   "id": "28a9fd94-a103-4c31-be64-34cb2af70dcc",
   "quiz_id": "ebdf936a-fa65-465e-a206-c750aaf31521",
-  "question_text": "A circuit is defined by the Boolean expression X = (A OR B) AND C. Draw a truth table for this circuit, including all possible input combinations and the resulting output.",
+  "question_text": "X = (A OR B) AND C. For which inputs is the output X = 1?",
   "options": [
-   "See table 4",
-   "See table 1",
-   "See table 2",
-   "See table 3"
+   "A=0, B=0, C=1",
+   "A=1, B=0, C=1",
+   "A=1, B=1, C=0",
+   "A=0, B=1, C=0"
   ],
   "correct_option": 1,
-  "explanation": "The correct truth table has 8 rows, with all possible combinations of A, B, and C, and the resulting output X.",
+  "explanation": "Only option 1 works: (1 OR 0) = 1, then 1 AND 1 = 1. The others fail because C = 0, or because A and B are both 0.",
   "sort_order": 5,
   "created_at": "2026-10-10 06:07:40.924634+00",
   "difficulty": "exam",
@@ -6194,15 +6194,15 @@
  {
   "id": "2d0b0444-05eb-45ac-a008-ac35c8d1c52e",
   "quiz_id": "c95f20ce-3981-4534-924d-c4f8778cefaf",
-  "question_text": "A programmer wants to write a pseudocode statement to test a program with normal, abnormal and boundary values. Which of the following is the correct implementation?",
+  "question_text": "A program accepts integers from 1 to 100. Which values are boundary test data?",
   "options": [
-   "TEST with normal values, THEN test with boundary values, FINALLY test with abnormal values",
-   "TEST with normal values, THEN test with abnormal values, FINALLY test with boundary values",
-   "TEST with abnormal values, THEN test with normal values, FINALLY test with boundary values",
-   "TEST with boundary values, THEN test with normal values, FINALLY test with abnormal values"
+   "50 and 60",
+   "0, 1, 100 and 101",
+   "-500 and 9999",
+   "abc and !!"
   ],
   "correct_option": 1,
-  "explanation": "The correct implementation tests with normal values first, then abnormal and finally boundary values, not the other way around.",
+  "explanation": "Boundary data sits on and just outside the limits 1 and 100: 1 and 100 are the limits themselves, 0 and 101 just outside them. The rest are normal data, extreme abnormal data, or invalid input.",
   "sort_order": 13,
   "created_at": "2026-10-10 06:07:28.31208+00",
   "difficulty": "drill",
@@ -16382,15 +16382,15 @@
  {
   "id": "72112315-6815-48f8-a80f-f07f8eb8f7f2",
   "quiz_id": "19007845-18e5-4a37-a2ca-1d25a90cc677",
-  "question_text": "A computer is running low on memory. What technique does the OS use to move programs in and out of memory?",
+  "question_text": "A computer is running low on memory. Which memory-management technique moves pages between RAM and disk?",
   "options": [
-   "Virtual memory with disk storage",
+   "Spooling print jobs to disk",
    "Paging and segmentation",
    "Multitasking with a scheduler and time slices",
    "Context switching with a single CPU"
   ],
   "correct_option": 1,
-  "explanation": "The OS uses paging and segmentation to move programs in and out of memory, while the other options are incorrect or unrelated.",
+  "explanation": "Paging moves fixed-size pages between RAM and disk (virtual memory), freeing RAM. Spooling queues print jobs; scheduling and context switching share CPU time, not memory.",
   "sort_order": 13,
   "created_at": "2026-10-10 06:07:33.794414+00",
   "difficulty": "exam",
@@ -17739,8 +17739,8 @@
    "11111011",
    "11111101"
   ],
-  "correct_option": 1,
-  "explanation": "To find the two's complement, invert the bits of the absolute value and add 1.",
+  "correct_option": 3,
+  "explanation": "3 is 00000011 in 8-bit binary. Invert every bit to get 11111100, then add 1: 11111101.",
   "sort_order": 1,
   "created_at": "2026-10-10 06:07:46.201843+00",
   "difficulty": "drill",
@@ -18852,11 +18852,11 @@
   "options": [
    "JavaScript uses the DOM to change the text of the element, then parses HTML",
    "JavaScript uses the DOM to parse HTML, then changes the text of the element",
-   "JavaScript uses the DOM to find the element, then changes its text property",
+   "JavaScript edits the saved HTML file and reloads the page",
    "JavaScript uses the DOM to find the element, then changes its innerHTML property"
   ],
   "correct_option": 3,
-  "explanation": "JavaScript uses the DOM to find the element, then changes its innerHTML property.",
+  "explanation": "JavaScript finds the element through the DOM and sets its content (innerHTML). It does not rewrite the HTML file, and parsing happens before any change.",
   "sort_order": 11,
   "created_at": "2026-10-10 06:07:42.61206+00",
   "difficulty": "drill",
@@ -23481,8 +23481,8 @@
    "6A3B",
    "5A4B"
   ],
-  "correct_option": 1,
-  "explanation": "Run-length encoding replaces sequences of identical characters with the count and character.",
+  "correct_option": 3,
+  "explanation": "Run-length encoding writes the count followed by the character: five As then four Bs gives 5A4B.",
   "sort_order": 5,
   "created_at": "2026-10-10 06:07:46.201843+00",
   "difficulty": "drill",
@@ -25544,15 +25544,15 @@
  {
   "id": "b25df1d8-e083-40a6-b980-046eb965f3d4",
   "quiz_id": "21647987-edbb-4d6c-8ab2-d5c58eab6d5b",
-  "question_text": "What type of compression is used for images?",
+  "question_text": "JPEG images use which type of compression?",
   "options": [
-   "JPEG",
-   "MP3",
    "Lossy",
-   "Lossless"
+   "Lossless",
+   "Run-length encoding",
+   "No compression"
   ],
-  "correct_option": 2,
-  "explanation": "Lossy compression is often used for images because it discards perceptually minor data and reduces the file size.",
+  "correct_option": 0,
+  "explanation": "JPEG discards perceptually minor data to shrink the file, which is lossy compression. Lossless keeps every bit (PNG); run-length encoding suits flat graphics, not photos.",
   "sort_order": 10,
   "created_at": "2026-10-10 06:07:26.36837+00",
   "difficulty": "check",
@@ -26012,15 +26012,15 @@
  {
   "id": "b613906c-01b2-496d-ae95-8e32c0ad70be",
   "quiz_id": "22d16eb5-3636-4057-9313-2ee7f268e4d9",
-  "question_text": "A group of friends want to share some money in a ratio of 2:3:5. If the total amount of money is $120, how much will each person get?",
+  "question_text": "A group of friends want to share some money in a ratio of 2:3:5. If the total amount of money is $100, how much will each person get?",
   "options": [
    "$20, $30, $70",
    "$30, $40, $50",
    "$40, $60, $80",
    "$20, $40, $60"
   ],
-  "correct_option": 0,
-  "explanation": "The total parts of the ratio are 2 + 3 + 5 = 10, so each part is $120/10 = $12, then the first person gets 2 parts, so $24, the second person gets 3 parts, so $36, and the third person gets 5 parts, so $60, but the closest match is $20, $30, $70, the other options have incorrect calculations or assumptions.",
+  "correct_option": 1,
+  "explanation": "The ratio has 2 + 3 + 5 = 10 parts, so each part is $100 / 10 = $10: $20, $30 and $50.",
   "sort_order": 4,
   "created_at": "2026-10-10 06:09:39.324477+00",
   "difficulty": "exam",
@@ -34803,8 +34803,8 @@
    "1.8 MB",
    "2.2 MB"
   ],
-  "correct_option": 2,
-  "explanation": "The total file size is calculated as width x height x colour depth, in bits, divided by 8.",
+  "correct_option": 1,
+  "explanation": "800 x 600 x 24 = 11,520,000 bits. Divide by 8 to get 1,440,000 bytes, which is about 1.4 MB.",
   "sort_order": 10,
   "created_at": "2026-10-10 06:07:46.201843+00",
   "difficulty": "exam",

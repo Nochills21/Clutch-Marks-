@@ -9,7 +9,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/useToast";
-import { Loader2, Sparkles, Save, Trash2, Calendar as CalendarIcon } from "lucide-react";
+import { usePlanAccess } from "@/components/PreviewLimit";
+import { Loader2, Sparkles, Save, Trash2, Calendar as CalendarIcon, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { SEOHead } from "@/components/SEOHead";
 
@@ -25,9 +27,40 @@ interface StudyPlan {
   ai_model: string | null;
 }
 
+// Free users see their saved plans but cannot burn AI generation budget: the
+// generate card is replaced with an upgrade prompt (same pattern as the AI
+// marker's gate). The worker only checks approval, not plan, so this gate is
+// what stops unlimited free generation.
+function PlannerUpgradeCard() {
+  return (
+    <Card className="neon-border border-dashed">
+      <CardContent className="flex flex-col items-center px-6 py-12 text-center">
+        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+          <Lock className="h-7 w-7 text-primary" />
+        </div>
+        <h2 className="text-xl font-semibold">AI study plans are part of the full plan</h2>
+        <p className="mt-2 max-w-md text-sm text-muted-foreground">
+          Tell us your hours, exam date and weak topics, and the planner builds a
+          personal revision schedule from your quiz results and deadlines.
+        </p>
+        <Button
+          asChild
+          size="lg"
+          className="mt-7 gap-2 bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
+        >
+          <Link to="/pricing">
+            <Sparkles className="h-4 w-4" /> View plans
+          </Link>
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function StudyPlanner() {
   const { user } = useAuth();
   const { toast } = useToast();
+  const { loading: planLoading, isPreview } = usePlanAccess();
   const [hoursPerWeek, setHoursPerWeek] = useState("5");
   const [targetExamDate, setTargetExamDate] = useState("");
   const [weakTopics, setWeakTopics] = useState("");
@@ -159,6 +192,15 @@ export default function StudyPlanner() {
         </p>
       </div>
 
+      {planLoading ? (
+        <Card>
+          <CardContent className="flex items-center justify-center py-16">
+            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          </CardContent>
+        </Card>
+      ) : isPreview ? (
+        <PlannerUpgradeCard />
+      ) : (
       <Card>
         <CardHeader>
           <CardTitle>Generate a new plan</CardTitle>
@@ -210,6 +252,7 @@ export default function StudyPlanner() {
           </div>
         </CardContent>
       </Card>
+      )}
 
       {generatedPlan && (
         <Card className="neon-border">
