@@ -137,7 +137,6 @@ export default function Index() {
                   height={893}
                   alt="Master your clutch moments — achieve your best marks with focused tools"
                   decoding="async"
-                  fetchPriority="high"
                   className="relative w-full rounded-xl"
                 />
               </div>

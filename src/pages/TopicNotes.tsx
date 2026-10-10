@@ -25,7 +25,7 @@ import { openProtectedFile } from "@/lib/contentFiles";
 import { relatedTopicPapers } from "@/lib/topicPapers";
 import { topicMasterySummary } from "@/lib/topicMastery";
 import { TopicMasteryRing } from "@/components/TopicMasteryRing";
-import { smallMarkdownToHtml } from "@/lib/objectiveTeach";
+import { materialContentToHtml } from "@/lib/objectiveTeach";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
@@ -469,7 +469,7 @@ export default function TopicNotes() {
                 {!m.file_url && m.content && (
                   <div
                     className="border-t px-3 pb-3 pt-2 text-sm [&_h3]:mt-3 [&_h3]:font-semibold [&_li]:ml-5 [&_li]:list-disc [&_p]:mt-1 [&_p]:text-muted-foreground"
-                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(smallMarkdownToHtml(String(m.content))) }}
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(materialContentToHtml(String(m.content))) }}
                   />
                 )}
               </div>
