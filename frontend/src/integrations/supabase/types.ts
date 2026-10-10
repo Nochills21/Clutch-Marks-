@@ -124,6 +124,36 @@ export type Database = {
           },
         ]
       }
+      // PDPL: proof of which privacy/terms version an account accepted, and when
+      // the server recorded it. Written only by handle_new_user (the auth
+      // trigger) — a client cannot insert its own consent row.
+      consent_records: {
+        Row: {
+          accepted_at: string
+          document_version: string
+          id: string
+          kind: string
+          source: string
+          user_id: string
+        }
+        Insert: {
+          accepted_at?: string
+          document_version: string
+          id?: string
+          kind: string
+          source?: string
+          user_id: string
+        }
+        Update: {
+          accepted_at?: string
+          document_version?: string
+          id?: string
+          kind?: string
+          source?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       content_feedback: {
         Row: {
           id: string
@@ -247,6 +277,44 @@ export type Database = {
           slot?: string
           uploaded_by?: string
           version?: number
+        }
+        Relationships: []
+      }
+      // PDPL: a data-subject request filed from /data-rights. RLS lets a reader
+      // file and read their own; only admins change the outcome.
+      data_requests: {
+        Row: {
+          email: string | null
+          id: string
+          kind: string
+          note: string | null
+          requested_at: string
+          resolved_at: string | null
+          resolved_by: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          email?: string | null
+          id?: string
+          kind?: string
+          note?: string | null
+          requested_at?: string
+          resolved_at?: string | null
+          resolved_by?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          email?: string | null
+          id?: string
+          kind?: string
+          note?: string | null
+          requested_at?: string
+          resolved_at?: string | null
+          resolved_by?: string | null
+          status?: string
+          user_id?: string
         }
         Relationships: []
       }
@@ -541,6 +609,47 @@ export type Database = {
           },
         ]
       }
+      learning_objectives: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          sort_order: number
+          statement: string
+          teach: string | null
+          topic_id: string
+          updated_at: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          sort_order?: number
+          statement: string
+          teach?: string | null
+          topic_id: string
+          updated_at?: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          sort_order?: number
+          statement?: string
+          teach?: string | null
+          topic_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "learning_objectives_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "topics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       login_lookup_throttle: {
         Row: {
           attempts: number
@@ -626,6 +735,53 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      objective_reviews: {
+        Row: {
+          created_at: string
+          due_at: string
+          lapses: number
+          last_correct: boolean | null
+          last_reviewed_at: string
+          objective_id: string
+          reviews: number
+          stage: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          due_at?: string
+          lapses?: number
+          last_correct?: boolean | null
+          last_reviewed_at?: string
+          objective_id: string
+          reviews?: number
+          stage?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          due_at?: string
+          lapses?: number
+          last_correct?: boolean | null
+          last_reviewed_at?: string
+          objective_id?: string
+          reviews?: number
+          stage?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "objective_reviews_objective_id_fkey"
+            columns: ["objective_id"]
+            isOneToOne: false
+            referencedRelation: "learning_objectives"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       parent_student_links: {
         Row: {
@@ -943,10 +1099,14 @@ export type Database = {
           difficulty: string
           explanation: string | null
           id: string
+          objective_id: string | null
           options: Json
           question_text: string
           quiz_id: string
           sort_order: number
+          // The syllabus statement this question tests (migration
+          // 20261009220000). NULL for the legacy bank.
+          statement_id: string | null
         }
         Insert: {
           correct_option?: number
@@ -954,10 +1114,12 @@ export type Database = {
           difficulty?: string
           explanation?: string | null
           id?: string
+          objective_id?: string | null
           options?: Json
           question_text: string
           quiz_id: string
           sort_order?: number
+          statement_id?: string | null
         }
         Update: {
           correct_option?: number
@@ -965,10 +1127,12 @@ export type Database = {
           difficulty?: string
           explanation?: string | null
           id?: string
+          objective_id?: string | null
           options?: Json
           question_text?: string
           quiz_id?: string
           sort_order?: number
+          statement_id?: string | null
         }
         Relationships: [
           {
@@ -1312,6 +1476,75 @@ export type Database = {
         }
         Relationships: []
       }
+      syllabus_statements: {
+        Row: {
+          area: string | null
+          board: string
+          code: string
+          created_at: string
+          id: string
+          level: string
+          sort_order: number
+          source_url: string | null
+          spec_code: string
+          subject_level_id: string | null
+          syllabus_years: string | null
+          tier: string
+          title: string
+          topic_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          area?: string | null
+          board: string
+          code: string
+          created_at?: string
+          id?: string
+          level: string
+          sort_order?: number
+          source_url?: string | null
+          spec_code: string
+          subject_level_id?: string | null
+          syllabus_years?: string | null
+          tier?: string
+          title?: string
+          topic_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          area?: string | null
+          board?: string
+          code?: string
+          created_at?: string
+          id?: string
+          level?: string
+          sort_order?: number
+          source_url?: string | null
+          spec_code?: string
+          subject_level_id?: string | null
+          syllabus_years?: string | null
+          tier?: string
+          title?: string
+          topic_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "syllabus_statements_subject_level_id_fkey"
+            columns: ["subject_level_id"]
+            isOneToOne: false
+            referencedRelation: "subject_levels"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "syllabus_statements_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "topics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       topics: {
         Row: {
           created_at: string
@@ -1474,6 +1707,130 @@ export type Database = {
       approve_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       dismiss_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       resolve_paper_link: { Args: { p_check_id: string }; Returns: Json }
+      // Admin-only content health: damaged rows recomputed live from the tables
+      // (supabase/migrations/20261008150000_content_integrity_report.sql).
+      content_integrity_findings: {
+        Args: Record<string, never>
+        Returns: {
+          category: string
+          detail: string
+          field: string | null
+          label: string | null
+          row_id: string
+          severity: string
+          snippet: string | null
+          table_name: string
+        }[]
+      }
+      // The boards' own subtopic lists against our topics, admin-gated
+      // (supabase/migrations/20261009180000_syllabus_coverage.sql and …190000).
+      syllabus_coverage: {
+        Args: Record<string, never>
+        Returns: {
+          a_star_ready: boolean
+          area: string | null
+          board: string
+          code: string
+          exam_tier_questions: number
+          level: string
+          mapped: boolean
+          spec_code: string
+          subject_slug: string | null
+          technique_materials: number
+          tier: string
+          title: string
+          topic_materials: number
+          topic_name: string | null
+          topic_note_chars: number
+          topic_questions: number
+          topic_ready: boolean
+          topic_slug: string | null
+          // How many questions name THIS statement (migration 20261009220000).
+          // The gap between it and topic_questions is the whole point: a topic
+          // whose questions all sit on one of its four statements used to look
+          // fully covered.
+          statement_questions: number
+        }[]
+      }
+      // Per-objective mastery for the caller (supabase/migrations/20261009170000).
+      // Security invoker over practice_attempts, so it cannot report anybody
+      // else's progress, and no uid parameter — that is the shape that would
+      // turn a progress function into an enumeration oracle.
+      topic_objective_mastery: {
+        Args: { _topic_id: string }
+        Returns: {
+          attempted: number
+          checks: number
+          code: string
+          correct: number
+          objective_id: string
+          sort_order: number
+          state: string
+          statement: string
+        }[]
+      }
+      // The mastery loop (supabase/migrations/20261009200000): what the student
+      // knows per objective, what to do next, and which checks to resurface.
+      // All three report the caller's own state — security invoker, no uid
+      // parameter — and are granted to authenticated only.
+      my_objective_mastery: {
+        Args: Record<string, never>
+        Returns: {
+          attempted: number
+          checks: number
+          code: string
+          correct: number
+          due_at: string | null
+          last_reviewed_at: string | null
+          level: string
+          objective_id: string
+          overdue: boolean
+          sort_order: number
+          stage: number
+          state: string
+          statement: string
+          subject_slug: string
+          topic_id: string
+          topic_name: string
+          topic_slug: string
+        }[]
+      }
+      my_next_objective: {
+        Args: Record<string, never>
+        Returns: {
+          action: string
+          attempted: number
+          checks: number
+          code: string
+          correct: number
+          due_at: string | null
+          level: string
+          objective_id: string
+          overdue: boolean
+          stage: number
+          state: string
+          statement: string
+          subject_slug: string
+          topic_id: string
+          topic_name: string
+          topic_slug: string
+        }[]
+      }
+      objective_review_questions: {
+        Args: { _objective_id: string; _limit?: number }
+        Returns: {
+          attempts_count: number
+          difficulty: string
+          last_attempt_at: string | null
+          last_correct: boolean | null
+          next_due_at: string | null
+          options: Json
+          question_id: string
+          question_text: string
+          sort_order: number
+          stage: number
+        }[]
+      }
       browse_questions: {
         Args: {
           _difficulty?: string
@@ -1601,6 +1958,10 @@ export type Database = {
         Args: { _days?: number }
         Returns: Json
       }
+      // PDPL right of access / portability: one machine-readable copy of
+      // everything the caller's own account holds. No arguments by design — the
+      // function reads auth.uid(), so it cannot be pointed at another account.
+      export_my_data: { Args: Record<string, never>; Returns: Json }
       my_study_prefs: {
         Args: Record<string, never>
         Returns: Json

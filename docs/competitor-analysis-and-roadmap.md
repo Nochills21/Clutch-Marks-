@@ -1,5 +1,10 @@
 # Competitors, and where Clutch Marks can beat them
 
+> **Partly superseded 2026-10-08.** Two claims below were disproved against
+> primary sources and corrected in place (§2 SME row, §4.1, §4.4); the deeper
+> teardown, with live-database numbers and prioritised opportunities, is
+> [market-teardown-and-opportunities.md](./market-teardown-and-opportunities.md).
+
 Written 2026-10-07. Grounded in what the product actually ships today (this repo)
 plus a review of the live competitor landscape. Prices and feature lists for
 third parties move — re-check before quoting them publicly.
@@ -27,7 +32,7 @@ third parties move — re-check before quoting them publicly.
 
 | Platform | What they are | Rough price | Strength to respect | Structural weakness |
 | --- | --- | --- | --- | --- |
-| **Save My Exams** | Examiner-written notes, topic questions, past papers; "Smart Mark" AI marking of long written answers; flashcards | Paid subscription, mid/high (well above us) | Brand trust, academic-authority content, breadth across boards, polished question bank | Card-only billing in USD/GBP, price is a barrier for exactly our students, marking is text-entry only (no photograph of a real handwritten answer), and their growth model leans on free-tier squeeze |
+| **Save My Exams** | Examiner-written notes, topic questions, past papers; "Smart Mark" AI marking of long written answers; flashcards | Paid subscription, mid/high (well above us) | Brand trust, academic-authority content, breadth across boards, polished question bank | Card-only billing in USD/GBP, price is a barrier for exactly our students, and their growth model leans on free-tier squeeze. (Corrected 2026-10-08: Smart Mark's own page says it accepts **typed or handwritten** answers, so "text-entry only" was wrong.) |
 | **Physics & Maths Tutor (PMT)** | Free, volunteer-run notes + a huge past-paper/question archive by topic | Free (ad-supported) | Enormous free archive, strong SEO, maths/physics depth | No accounts, no marking, no tracking, no progress of any kind — no feedback loop |
 | **Exam-Mate** | Topical + yearly past papers, sorted by topic, one-off purchase per subject set | One-off packs (~yearly equivalent in the tens of USD) | Topical sorting is exactly what students search for; harder questions than PMT | Documents, not a learning system; nothing adapts, nothing is marked |
 | **ZNotes** | Free community-written revision notes (PDF) | Free | Fast, cheap to produce, very shareable | Notes only; no practice, no marking, quality varies |
@@ -50,18 +55,25 @@ third parties move — re-check before quoting them publicly.
 
 ## 4. Where we beat them, and should shout about it
 
-1. **We mark real work.** Save My Exams' Smart Mark takes typed answers. We take
-   an uploaded photograph of a handwritten answer and mark it against a mark
-   scheme. **Nothing else in this market does that**, and it is the single
-   feature that maps to how CAIE papers actually work.
+1. **We mark the paper the student actually sat.** Smart Mark marks *SME's own*
+   questions; Ilmino marks *its own* practice canvas; Aimarking marks GCSE Maths.
+   We take a photograph or PDF of the real paper the school handed out, anchor
+   marking to that specific archived paper's mark scheme, and return a per-point
+   breakdown. (Corrected 2026-10-08: handwriting support alone is **not** unique —
+   Smart Mark accepts handwritten answers too, and Ilmino/Aimarking do
+   method-level handwritten marking. The specific-paper anchoring is the edge.)
 2. **Local payment.** Bank transfer + Urpay + receipt verification at $5–20/month
    versus card-only international subscriptions. For our students this is the
    difference between buying and not buying. This is a real moat, not a nice-to-have.
 3. **The whole loop in one place.** Notes → topic questions → past papers with
    mark schemes → mistakes queue → AI marking → parent visibility. Competitors
    own one or two of those steps.
-4. **Parents are first-class.** PMT/Exam-Mate/ZNotes have no parent view at all.
-   Parents are the buyer.
+4. **Parents are first-class, locally.** PMT/Exam-Mate/ZNotes have no parent view
+   at all, but Ilmino ships parent *and* teacher dashboards and SME ships
+   strengths/progress tooling and a Schools product — so this is table stakes,
+   not a moat. What nobody else has is a parent view delivered the way Gulf
+   parents actually read (WhatsApp), priced against local tutoring, with local
+   payment. Parents are the buyer.
 5. **No dark patterns.** Every competitor above uses pressure mechanics — streak
    loss, timers, "don't lose your progress". We now deliberately do not (see §6),
    and can say so in marketing. Independent schools, and many parents, actively

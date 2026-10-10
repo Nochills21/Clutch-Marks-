@@ -25,7 +25,7 @@ entire businesses on this traffic.
 ```
 blog.clutchmarks.study/
 ├── /                            ← homepage: latest posts + free-tool CTA
-├── /category/igcse/             ← IGCSE (O Level) posts
+├── /category/igcse/             ← IGCSE posts
 ├── /category/as-level/          ← AS posts
 ├── /category/a2-level/          ← A2 posts
 ├── /category/study-technique/   ← exam strategy, revision methods

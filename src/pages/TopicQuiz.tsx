@@ -32,9 +32,12 @@ import {
   Bookmark,
   Play,
   RotateCcw,
+  FileDown,
+  ListChecks,
 } from "lucide-react";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
 
 interface TopicQuestion {
   id: string;
@@ -46,6 +49,14 @@ interface TopicQuestion {
   is_ai_generated: boolean;
   bookmarked: boolean;
   last_correct: boolean | null;
+}
+
+interface GradeRow {
+  question_id: string;
+  selected: number;
+  correct_option: number;
+  explanation: string | null;
+  options: string[];
 }
 
 export default function TopicQuiz() {
@@ -69,8 +80,14 @@ export default function TopicQuiz() {
   const [selected, setSelected] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState<{ correct: number; total: number } | null>(null);
-  const [results, setResults] = useState<{ question_id: string; selected: number; correct_option: number; explanation: string | null; options: string[] }[]>([]);
+  const [results, setResults] = useState<GradeRow[]>([]);
   const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>([]);
+  // Real count for the hero tile. It used to be a hardcoded 0, so every topic
+  // claimed to have no past papers.
+  const [pastPapersCount, setPastPapersCount] = useState(0);
+  // After marking: the whole paper, or only the ones to redo.
+  const [reviewOnly, setReviewOnly] = useState(false);
+  const [exporting, setExporting] = useState(false);
   // Bumped by "Try again" to re-run the load effect.
   const [retryKey, setRetryKey] = useState(0);
 
@@ -86,6 +103,7 @@ export default function TopicQuiz() {
     (async () => {
       setLoading(true);
       setError(null);
+      setPastPapersCount(0);
       try {
         const { data: sub, error: subError } = await supabase.from("subjects").select("*").ilike("slug", subject ?? "").limit(1);
         if (subError) throw subError;
@@ -125,6 +143,18 @@ export default function TopicQuiz() {
         setTopicTitle(topicRow.name);
         setTopicId(topicRow.id);
 
+        // Best effort: the hero tile is decoration, so a failed count falls back
+        // to 0 rather than failing the whole page.
+        try {
+          const { count, error: papersError } = await supabase
+            .from("past_papers")
+            .select("id", { count: "exact", head: true })
+            .eq("topic_id", topicRow.id);
+          if (active) setPastPapersCount(papersError ? 0 : count ?? 0);
+        } catch {
+          if (active) setPastPapersCount(0);
+        }
+
         if (active) {
           const { data, error: questionsError } = await supabase.rpc("browse_questions", {
             _topic_id: topicRow.id,
@@ -154,6 +184,32 @@ export default function TopicQuiz() {
     if (!subjectMeta || !subjectLevel) return "#";
     return topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug);
   }, [subjectMeta, subjectLevel, topicSlug]);
+
+  // One row per question, whatever happened to it. The review, the counters and
+  // the exported PDF all read from this derivation, so they cannot disagree.
+  const reviewRows = useMemo(() => {
+    return questions.map((question, ordinal) => {
+      const result = results.find((r) => r.question_id === question.id);
+      const raw = answers[question.id];
+      const picked = typeof raw === "number" ? raw : null;
+      const status: "correct" | "incorrect" | "unanswered" = picked === null
+        ? "unanswered"
+        : result && picked === result.correct_option
+          ? "correct"
+          : "incorrect";
+      return { ordinal, question, result, picked, status };
+    });
+  }, [questions, results, answers]);
+
+  const counts = useMemo(() => {
+    return reviewRows.reduce(
+      (acc, row) => {
+        acc[row.status] += 1;
+        return acc;
+      },
+      { correct: 0, incorrect: 0, unanswered: 0 },
+    );
+  }, [reviewRows]);
 
   const toggleBookmark = async (questionId: string, next: boolean) => {
     setQuestions((prev) => prev.map((q) => (q.id === questionId ? { ...q, bookmarked: next } : q)));
@@ -195,10 +251,11 @@ export default function TopicQuiz() {
         options: (q.options as string[]) ?? [],
       }));
 
-      setResults((resultsData as any[]) ?? []);
+      setResults((resultsData as GradeRow[]) ?? []);
       const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
       setScore({ correct: correctCount, total: questions.length });
       setSubmitted(true);
+      setReviewOnly(false);
       toast({ title: "Answers submitted", description: `You got ${correctCount}/${questions.length} correct.`, variant: "default" });
     } catch (e: any) {
       toast({ title: "Submission failed", description: e.message, variant: "destructive" });
@@ -211,6 +268,7 @@ export default function TopicQuiz() {
     setSubmitted(false);
     setScore(null);
     setResults([]);
+    setReviewOnly(false);
   };
 
   if (!isAdminRole && !prefsLoaded) {
@@ -295,6 +353,38 @@ export default function TopicQuiz() {
   );
 
   const topicQuestions = questions.length;
+  const percent = (score?.correct ?? 0) / Math.max(1, score?.total ?? 1) * 100;
+  const visibleRows = reviewOnly
+    ? reviewRows.filter((row) => row.status !== "correct")
+    : reviewRows;
+
+  const downloadResult = async () => {
+    setExporting(true);
+    try {
+      await exportQuizResultToPdf({
+        quizTitle: `${topicLabel} — topic questions`,
+        topicName: topicLabel,
+        subject: subjectMeta.name,
+        level: LEVEL_LABELS[levelCode],
+        correct: score?.correct ?? 0,
+        total: score?.total ?? questions.length,
+        questions: reviewRows.map((row) => ({
+          question: row.question.question_text,
+          options: Array.isArray(row.question.options) ? row.question.options : [],
+          selected: row.picked,
+          // After a successful grade every question has a result row; -1 is only
+          // a fallback so a missing row cannot be misread as "correct".
+          correct_option: row.result?.correct_option ?? -1,
+          explanation: row.result?.explanation ?? null,
+        })),
+        identity: { owner: user?.email ?? null },
+      });
+    } catch (e: any) {
+      toast({ title: "Couldn't build the PDF", description: e?.message ?? "Please try again.", variant: "destructive" });
+    } finally {
+      setExporting(false);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -346,7 +436,7 @@ export default function TopicQuiz() {
         {[
           { label: "Questions", value: topicQuestions, icon: Play, color: accent.text },
           { label: "Bookmarked", value: bookmarkedQuestions.length, icon: Bookmark, color: accent.text },
-          { label: "Past Papers", value: 0, icon: Archive, color: accent.text },
+          { label: "Past Papers", value: pastPapersCount, icon: Archive, color: accent.text },
         ].map((s) => (
           <Card key={s.label}>
             <CardContent className="flex items-center gap-3 p-4">
@@ -365,7 +455,11 @@ export default function TopicQuiz() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <h2 className="text-lg font-semibold">{topicLabel} questions</h2>
-              <p className="text-sm text-muted-foreground">{questions.length} question{questions.length === 1 ? "" : "s"} · tap each to answer</p>
+              <p className="text-sm text-muted-foreground">
+                {submitted
+                  ? `${counts.correct} correct · ${counts.incorrect} incorrect${counts.unanswered ? ` · ${counts.unanswered} blank` : ""}`
+                  : `${questions.length} question${questions.length === 1 ? "" : "s"} · tap each to answer`}
+              </p>
             </div>
             {/* Marking a quiz records an attempt against an account, so a
                 signed-out reader gets a sign-in prompt instead of a button that
@@ -390,33 +484,55 @@ export default function TopicQuiz() {
               </Button>
             )}
             {submitted && questions.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="text-center">
-                    <p className="text-3xl font-bold neon-text">{score?.correct ?? 0}</p>
-                    <p className="text-sm text-muted-foreground">{score?.total ?? 0} questions</p>
-                  </div>
-                  <Button variant="outline" className="gap-2" onClick={reset}>
-                    <ArrowRight className="h-4 w-4" /> Try again
-                  </Button>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="text-center">
+                  <p className="font-mono text-3xl font-bold neon-text">{score?.correct ?? 0}</p>
+                  <p className="text-sm text-muted-foreground">{score?.total ?? 0} questions</p>
                 </div>
-                <FeedbackNudge tool="quiz" toolLabel={`${topicLabel} quiz`} />
+                <Badge variant="secondary">{percent.toFixed(0)}% · {gradeBand(percent)}</Badge>
+                <Button
+                  variant={reviewOnly ? "default" : "outline"}
+                  className="gap-2"
+                  aria-pressed={reviewOnly}
+                  onClick={() => setReviewOnly((v) => !v)}
+                >
+                  <ListChecks className="h-4 w-4" />
+                  {reviewOnly ? "Showing what to review" : "Only what to review"}
+                </Button>
+                <Button variant="outline" className="gap-2" onClick={downloadResult} disabled={exporting}>
+                  <FileDown className="h-4 w-4" /> {exporting ? "Building PDF…" : "Download result"}
+                </Button>
+                <Button variant="outline" className="gap-2" onClick={reset}>
+                  <ArrowRight className="h-4 w-4" /> Try again
+                </Button>
               </div>
             )}
           </div>
           {submitted && questions.length > 0 && (
-            <Progress
-              value={((score?.correct ?? 0) / (score?.total ?? 1)) * 100}
-              className="mt-4 h-2"
-            />
+            <>
+              <Progress
+                value={percent}
+                className="mt-4 h-2"
+              />
+              <div className="mt-3">
+                <FeedbackNudge tool="quiz" toolLabel={`${topicLabel} quiz`} />
+              </div>
+            </>
           )}
         </CardContent>
       </Card>
 
+      {submitted && reviewOnly && visibleRows.length === 0 && (
+        <Card>
+          <CardContent className="py-8 text-center text-sm text-muted-foreground">
+            Nothing to review — every question was answered correctly.
+          </CardContent>
+        </Card>
+      )}
+
       <div className="space-y-2">
-        {questions.map((question, index) => {
-          const result = results.find((r) => r.question_id === question.id);
-          const selectedOption = answers[question.id] ?? -1;
+        {visibleRows.map(({ ordinal, question, result, picked }) => {
+          const selectedOption = picked ?? -1;
           const isCorrect = result && selectedOption === result.correct_option;
           const isWrong = result && selectedOption !== -1 && selectedOption !== result.correct_option;
 
@@ -425,7 +541,9 @@ export default function TopicQuiz() {
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <div className="min-w-0">
-                    <p className="font-medium truncate">Question {index + 1}</p>
+                    {/* The ordinal is the position on the full paper, so filtering
+                        the list does not renumber the questions. */}
+                    <p className="font-medium truncate">Question {ordinal + 1}</p>
                     <p className="text-sm text-muted-foreground truncate">{question.quiz_title ?? topicLabel}</p>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">

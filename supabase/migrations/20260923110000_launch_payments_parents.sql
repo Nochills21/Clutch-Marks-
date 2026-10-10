@@ -74,7 +74,7 @@ create table if not exists public.plans (
   description text
 );
 insert into public.plans (id, name, price_monthly, months, description) values
-  ('free', 'Free', 0, 1, 'O Level lessons, quizzes and notes only'),
+  ('free', 'Free', 0, 1, 'IGCSE lessons, quizzes and notes only'),
   ('monthly', 'Monthly', 20, 1, 'Full access to every level, billed monthly'),
   ('quarterly', '3 Months', 12, 3, 'Full access, $12/month billed $36 every 3 months'),
   ('annual', 'Annual', 5, 12, 'Full access, $5/month billed $60 yearly')

@@ -14,6 +14,12 @@ import {
 import { TOPIC_MANIFEST } from "../frontend/src/lib/topicManifest.generated";
 import { TOPIC_PAGE_KINDS, topicHead } from "../frontend/src/lib/topicSeo";
 import { LEVEL_MANIFEST, levelHead, levelPath } from "../frontend/src/lib/levelSeo";
+import {
+  SPA_FALLBACK_FILE,
+  SPA_FALLBACK_PATH,
+  SPA_FALLBACK_ROBOTS,
+} from "../frontend/src/lib/spaRoutes";
+import { verifyIndexDirectives } from "./seoIndexDirectives";
 
 /**
  * Emits a static HTML file per public route with route-specific
@@ -23,6 +29,19 @@ import { LEVEL_MANIFEST, levelHead, levelPath } from "../frontend/src/lib/levelS
  * homepage head.
  *
  * The React app still boots normally from the same HTML shell.
+ *
+ * It also writes the fallback document (`SPA_FALLBACK_FILE`) that the host's
+ * catch-all rewrite serves for every URL it wrote no page for — see
+ * frontend/src/lib/spaRoutes.ts. That document is noindex, so a route the build
+ * cannot prerender does not reach a crawler wearing the homepage's indexable
+ * head; before it existed, `dist/index.html` (the indexable homepage) answered
+ * those URLs too.
+ *
+ * Having written every page, it then reads them all back and audits their
+ * crawler directives (see ./seoIndexDirectives.ts): a public page without an
+ * index directive, a private page that is indexable, an indexable fallback, or
+ * an indexable preview deployment fails the build here instead of surfacing in
+ * search results.
  */
 
 /**
@@ -102,13 +121,16 @@ function buildHead(meta: RouteMeta) {
   return tags.join("\n    ");
 }
 
+/** The shell's default robots tag, which every rendering below replaces. */
+const ROBOTS_META_TAG = /\s*<meta\s+name="robots"[^>]*>/gi;
+
 function renderRoute(shell: string, meta: RouteMeta) {
   // Drop the generic homepage tags this route replaces, keeping the shared
   // ones (charset, viewport, verification, og:image, twitter:image).
   const cleaned = stripTags(shell, [
     /\s*<title>[\s\S]*?<\/title>/i,
     // Replaced per route below — the shell's default must not survive next to it.
-    /\s*<meta\s+name="robots"[^>]*>/gi,
+    ROBOTS_META_TAG,
     /\s*<meta\s+name="description"[^>]*>/gi,
     /\s*<link\s+rel="canonical"[^>]*>/gi,
     /\s*<meta\s+property="og:(type|title|description|url|site_name|image|image:width|image:height|image:alt)"[^>]*>/gi,
@@ -117,6 +139,31 @@ function renderRoute(shell: string, meta: RouteMeta) {
   ]);
 
   return cleaned.replace(/<\/head>/i, `  ${buildHead(meta)}\n  </head>`);
+}
+
+/**
+ * The document the host's catch-all rewrite serves every URL that has no page of
+ * its own: an unknown route, `/lessons/<id>/notes`, the admin console, a typo a
+ * crawler followed. One document answers all of them, so it must not be
+ * indexable and must not claim to be some other page.
+ *
+ * Built from the pristine shell read before `/`'s page replaced it: the shell's
+ * head stays (title, description, icons, social tags — the brand is the right
+ * thing to show for a URL we cannot describe), the shell's indexable default is
+ * swapped for the fallback directive, and any canonical or og:url is dropped. A
+ * canonical pointing at `/` is what once told Google that every URL without a
+ * page of its own was a copy of the homepage.
+ */
+function renderFallback(shell: string) {
+  const cleaned = stripTags(shell, [
+    ROBOTS_META_TAG,
+    /\s*<link\s+rel="canonical"[^>]*>/gi,
+    /\s*<meta\s+property="og:url"[^>]*>/gi,
+  ]);
+  return cleaned.replace(
+    /<\/head>/i,
+    `  ${mark(`<meta name="robots" content="${SPA_FALLBACK_ROBOTS}" />`)}\n  </head>`,
+  );
 }
 
 /** Sentinel for the generated topic block, so a re-run cannot duplicate it. */
@@ -152,7 +199,12 @@ export function prerenderSeo(): Plugin {
       try {
         shell = readFileSync(indexPath, "utf8");
       } catch {
-        return;
+        // A prerender that quietly does nothing is how every route came to serve
+        // the homepage shell to crawlers. A missing shell is a broken build, not
+        // a reason to skip the step silently.
+        throw new Error(
+          `prerender-seo: ${indexPath} does not exist, so no route page could be written`,
+        );
       }
 
       // Same list the runtime routes live in, minus the parameterised ones:
@@ -168,6 +220,11 @@ export function prerenderSeo(): Plugin {
         writeRoute(target, shell, meta);
         prerendered += 1;
       }
+
+      // The fallback document. Written from `shell`, which still holds the
+      // pristine build output because the loop above overwrote the file at
+      // indexPath with `/`'s own page.
+      writeFileSync(resolve(outDir, SPA_FALLBACK_FILE), renderFallback(shell));
 
       // Every subject+level hub page (9) and topic page (100 x notes|quiz|papers)
       // as real static HTML. These are the site's content pages, and without this
@@ -228,8 +285,15 @@ export function prerenderSeo(): Plugin {
 
       // eslint-disable-next-line no-console
       console.log(
-        `prerender-seo: wrote ${prerendered} route HTML files + ${contentPages} study pages, sitemap has ${countSitemapEntries(sitemapPath)} URLs`,
+        `prerender-seo: wrote ${prerendered} route HTML files + ${contentPages} study pages, a noindex fallback at ${SPA_FALLBACK_PATH}, sitemap has ${countSitemapEntries(sitemapPath)} URLs`,
       );
+
+      // Read every page back and audit its crawler directives. This throws — and
+      // so fails `npm run build` — if a public page is missing its index
+      // directive, a private page is indexable, a page nobody classified was
+      // emitted, or a preview/development build would be indexable at all.
+      // eslint-disable-next-line no-console
+      console.log(`prerender-seo: ${verifyIndexDirectives({ root: config.root, outDir })}`);
     },
   };
 }

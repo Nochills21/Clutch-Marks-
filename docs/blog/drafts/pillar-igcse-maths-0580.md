@@ -157,7 +157,7 @@ The [Past Papers section on Clutch Marks](https://clutchmarks.study/past-papers)
 
 Everything above is broken into interactive topics on the platform — revision notes aligned to the 2025–2027 syllabus, topic-by-topic quizzes with worked explanations, and a mistake-tracking practice engine:
 
-- [All Mathematics topics (O Level, AS and A2)](https://clutchmarks.study/subjects)
+- [All Mathematics topics (IGCSE, AS and A2)](https://clutchmarks.study/subjects)
 - [Take a free topic quiz](https://clutchmarks.study/quizzes) — no signup needed to try
 - [Generate your personal 90-day study plan](https://clutchmarks.study/study-planner) — free, adapts to your weak topics
 - [Browse past papers by topic](https://clutchmarks.study/past-papers)

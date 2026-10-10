@@ -1,6 +1,7 @@
 // Per-topic notes page (SEO-friendly URL).
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,6 +22,7 @@ import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil, Exter
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
 import { openProtectedFile } from "@/lib/contentFiles";
+import { smallMarkdownToHtml } from "@/lib/objectiveTeach";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
@@ -330,8 +332,9 @@ export default function TopicNotes() {
               // that a downloadable file exists at all.
               <div
                 key={m.id}
-                className="flex items-center justify-between gap-2 rounded-lg border p-3 transition-colors hover:bg-muted/50"
+                className="rounded-lg border transition-colors hover:bg-muted/50"
               >
+                <div className="flex items-center justify-between gap-2 p-3">
                 <MaterialPreview
                   fileUrl={m.file_url}
                   previewUrl={m.preview_url}
@@ -382,7 +385,7 @@ export default function TopicNotes() {
                         <Download className="h-3.5 w-3.5" />
                       </Button>
                     </>
-                  ) : (
+                  ) : m.content ? null : (
                     <Button asChild size="sm" variant="ghost" className="gap-1 h-8">
                       <Link to="/notes">
                         Read <ArrowRight className="h-3.5 w-3.5" />
@@ -390,6 +393,19 @@ export default function TopicNotes() {
                     </Button>
                   )}
                 </div>
+                </div>
+                {/* A material with no file is a note whose text lives in the
+                    row. The exam-technique "extras" are exactly that, and
+                    before this they were a row whose only action was a "Read"
+                    link to the notes library — which does not list their type,
+                    so the link led to a page that did not contain them. The
+                    text is rendered where the student already is. */}
+                {!m.file_url && m.content && (
+                  <div
+                    className="border-t px-3 pb-3 pt-2 text-sm [&_h3]:mt-3 [&_h3]:font-semibold [&_li]:ml-5 [&_li]:list-disc [&_p]:mt-1 [&_p]:text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(smallMarkdownToHtml(String(m.content))) }}
+                  />
+                )}
               </div>
             ))
           )}

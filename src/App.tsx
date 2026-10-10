@@ -61,6 +61,7 @@ const AdminFlashcards = lazy(() => import("./pages/admin/AdminFlashcards"));
 const AdminQuestionBank = lazy(() => import("./pages/admin/AdminQuestionBank"));
 const Flashcards = lazy(() => import("./pages/Flashcards"));
 const PastPapers = lazy(() => import("./pages/PastPapers"));
+const AiMarker = lazy(() => import("./pages/AiMarker"));
 const AdminPastPapers = lazy(() => import("./pages/admin/AdminPastPapers"));
 const AdminAuditLog = lazy(() => import("./pages/admin/AdminAuditLog"));
 const StudyPlanner = lazy(() => import("./pages/StudyPlanner"));
@@ -74,6 +75,17 @@ const TopicNotes = lazy(() => import("./pages/TopicNotes"));
 const TopicQuiz = lazy(() => import("./pages/TopicQuiz"));
 const TopicPapers = lazy(() => import("./pages/TopicPapers"));
 const AdminSubjects = lazy(() => import("./pages/admin/AdminSubjects"));
+const AdminDataRequests = lazy(() => import("./pages/admin/AdminDataRequests"));
+const AdminContentIntegrity = lazy(() => import("./pages/admin/AdminContentIntegrity"));
+// Coverage of the boards' own specifications: the claim "every statement is
+// covered, and here is where" has to be checkable by an admin, not asserted.
+const AdminSyllabusCoverage = lazy(() => import("./pages/admin/AdminSyllabusCoverage"));
+// The mastery loop: per-objective state, the weakest next action, and the checks
+// that are due to resurface. Personal, so it sits inside the approval gate.
+const Mastery = lazy(() => import("./pages/Mastery"));
+// PDPL rights page: public, because a reader must be able to find out how to
+// exercise their rights before they have an account (and after they close one).
+const DataRights = lazy(() => import("./pages/DataRights"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -152,6 +164,8 @@ const App = () => (
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
+                {/* PDPL: where the privacy notice sends a reader to exercise a right. */}
+                <Route path="/data-rights" element={<DataRights />} />
               </Route>
               <Route element={<AppLayout />}>
                 {/* Public content pages -- notes, lessons, quizzes, past papers and
@@ -166,11 +180,15 @@ const App = () => (
                   <Route path="/practice" element={<Practice />} />
                   <Route path="/study-planner" element={<StudyPlanner />} />
                   <Route path="/progress" element={<ProgressPage />} />
+                  <Route path="/mastery" element={<Mastery />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="/feedback" element={<FeedbackPage />} />
                   <Route path="/reset-password" element={<ResetPassword />} />
                   <Route path="/announcements" element={<Announcements />} />
+                  {/* AI marking is a paid feature; the page itself is account-gated
+                      and the worker enforces the plan server-side. */}
+                  <Route path="/ai-marker" element={<AiMarker />} />
                   <Route path="/lessons/:lessonId/notes" element={<LessonNotes />} />
                   <Route path="/heatmap" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/smart-revision" element={<RedirectPreservingQuery to="/practice" />} />
@@ -211,6 +229,9 @@ const App = () => (
                   <Route path="/admin/payments" element={<AdminPayments />} />
                   <Route path="/admin/feedback" element={<AdminFeedback />} />
                   <Route path="/admin/suppressions" element={<AdminSuppressions />} />
+                  <Route path="/admin/data-requests" element={<AdminDataRequests />} />
+                  <Route path="/admin/content-integrity" element={<AdminContentIntegrity />} />
+                  <Route path="/admin/syllabus-coverage" element={<AdminSyllabusCoverage />} />
                 </Route>
               </Route>
               <Route path="*" element={<NotFound />} />

@@ -16,7 +16,7 @@
  * so the static and runtime heads for a topic URL cannot drift apart.
  *
  * The /<topic> URL also carries the level code ("ol", "as", "a2") because that
- * is what the routes use; the readable label ("O Level") is what a student sees
+ * is what the routes use; the readable label ("IGCSE") is what a student sees
  * in the breadcrumb and what goes into the structured data.
  */
 import { SITE_NAME, SITE_URL, breadcrumbJsonLd } from "./seoRoutes";

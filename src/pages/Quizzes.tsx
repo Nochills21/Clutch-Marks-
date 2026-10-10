@@ -1,12 +1,24 @@
 // Quiz hub: published quizzes per topic.
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { useNavigate } from "react-router-dom";
-import { Brain, Clock, CheckCircle2, XCircle, Download, Upload, Sparkles, Loader2 } from "lucide-react";
+import {
+  Brain,
+  Clock,
+  CheckCircle2,
+  XCircle,
+  Download,
+  Upload,
+  Sparkles,
+  Loader2,
+  FileDown,
+  ListChecks,
+} from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { loadFailureMessage } from "@/lib/net";
 import { ToastAction } from "@/components/ui/toast";
@@ -16,6 +28,7 @@ import { FREE_PREVIEW_LIMIT, PreviewLimit, usePlanAccess, usePreviewSliceWithLim
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
 
 function LocalLabel({ children, className }: { children: React.ReactNode; className?: string }) {
   return <label className={`text-sm font-medium ${className ?? ""}`}>{children}</label>;
@@ -37,6 +50,22 @@ interface GradeResult {
   options: string[];
 }
 
+/** mm:ss for the sitting clock. */
+function formatClock(totalSeconds: number) {
+  const s = Math.max(0, totalSeconds);
+  return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+}
+
+type ReviewRow = {
+  /** Position in the full paper, so "Q3" stays Q3 even when the list is filtered. */
+  ordinal: number;
+  question: StudentQuestion;
+  result: GradeResult | undefined;
+  /** What the student picked, or null when they left it blank. */
+  picked: number | null;
+  status: "correct" | "incorrect" | "unanswered";
+};
+
 export default function Quizzes() {
   const { toast } = useToast();
   const [quizzes, setQuizzes] = useState<any[]>([]);
@@ -55,6 +84,16 @@ export default function Quizzes() {
   // AI feedback
   const [aiFeedback, setAiFeedback] = useState<string | null>(null);
   const [loadingFeedback, setLoadingFeedback] = useState(false);
+
+  // Sitting clock. `time_limit_minutes` has always been shown on the hub card
+  // but was never enforced, so a "45 minute paper" was just a label.
+  const [secondsLeft, setSecondsLeft] = useState(0);
+  const [timedOut, setTimedOut] = useState(false);
+  const deadlineRef = useRef<number | null>(null);
+
+  // Post-marking review: the whole paper, or just the ones to redo.
+  const [reviewOnly, setReviewOnly] = useState(false);
+  const [exporting, setExporting] = useState(false);
 
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
 
@@ -108,6 +147,63 @@ export default function Quizzes() {
   const { slice: shownQuizzes, hiddenCount } =
     usePreviewSliceWithLimit(visibleQuizzes, FREE_PREVIEW_LIMIT);
 
+  const timeLimitSeconds = useMemo(() => {
+    const minutes = Number(activeQuiz?.time_limit_minutes ?? 0);
+    return Number.isFinite(minutes) && minutes > 0 ? Math.round(minutes * 60) : 0;
+  }, [activeQuiz]);
+
+  // Countdown from a wall-clock deadline, not a decrementing counter, so a
+  // backgrounded tab does not quietly gain the student extra time. Cleared when
+  // the quiz closes and when the paper is marked.
+  useEffect(() => {
+    if (!activeQuiz || !timeLimitSeconds || submitted) {
+      deadlineRef.current = null;
+      return;
+    }
+    deadlineRef.current = Date.now() + timeLimitSeconds * 1000;
+    setTimedOut(false);
+    const tick = () => {
+      if (deadlineRef.current == null) return;
+      const left = Math.max(0, Math.ceil((deadlineRef.current - Date.now()) / 1000));
+      setSecondsLeft(left);
+      if (left <= 0) setTimedOut(true);
+    };
+    tick();
+    const id = window.setInterval(tick, 500);
+    return () => window.clearInterval(id);
+  }, [activeQuiz, timeLimitSeconds, submitted]);
+
+  const timeUsedPct = timeLimitSeconds > 0
+    ? Math.min(100, Math.round(((timeLimitSeconds - secondsLeft) / timeLimitSeconds) * 100))
+    : 0;
+
+  // One row per question, whatever happened to it, so the review, the counters
+  // and the exported PDF all read from the same derivation.
+  const reviewRows: ReviewRow[] = useMemo(() => {
+    return questions.map((question, ordinal) => {
+      const result = gradeResults.find((r) => r.question_id === question.id);
+      const raw = answers[question.id];
+      const picked = typeof raw === "number" ? raw : null;
+      const status: ReviewRow["status"] = picked === null
+        ? "unanswered"
+        : result && picked === result.correct_option
+          ? "correct"
+          : "incorrect";
+      return { ordinal, question, result, picked, status };
+    });
+  }, [questions, gradeResults, answers]);
+
+  const counts = useMemo(() => {
+    return reviewRows.reduce(
+      (acc, row) => {
+        acc[row.status] += 1;
+        return acc;
+      },
+      { correct: 0, incorrect: 0, unanswered: 0 },
+    );
+  }, [reviewRows]);
+
+  // Hooks are declared; now the early returns are safe.
   if (!isAdminRole && !prefsLoaded) {
     return (
       <div className="flex justify-center py-24">
@@ -156,6 +252,9 @@ export default function Quizzes() {
     setSubmissionFile(null);
     setSubmissionUrl(null);
     setAiFeedback(null);
+    setReviewOnly(false);
+    setTimedOut(false);
+    setSecondsLeft(0);
   };
 
   const uploadSubmission = async () => {
@@ -177,9 +276,14 @@ export default function Quizzes() {
   const submitQuiz = async () => {
     if (!user || !activeQuiz) return;
 
+    // Send -1 for anything left blank. That matters when the clock ran out: the
+    // student could not answer the rest, and an absent key would otherwise be
+    // indistinguishable from "not part of this paper".
+    const payload = Object.fromEntries(questions.map((q) => [q.id, answers[q.id] ?? -1]));
+
     const { data, error } = await supabase.rpc("grade_quiz", {
       _quiz_id: activeQuiz.id,
-      _answers: answers,
+      _answers: payload,
       _submission_file_url: submissionUrl || null,
     });
 
@@ -192,7 +296,35 @@ export default function Quizzes() {
     setScore({ correct: result.correct, total: result.total });
     setGradeResults(result.results);
     setSubmitted(true);
+    setReviewOnly(false);
     toast({ title: "Quiz submitted!", description: `You scored ${result.correct}/${result.total}` });
+  };
+
+  const exportResult = async () => {
+    if (!activeQuiz) return;
+    setExporting(true);
+    try {
+      await exportQuizResultToPdf({
+        quizTitle: activeQuiz.title ?? "Quiz result",
+        topicName: (activeQuiz as any).topics?.name ?? null,
+        correct: score?.correct ?? 0,
+        total: score?.total ?? questions.length,
+        questions: reviewRows.map((row) => ({
+          question: row.question.question_text,
+          options: Array.isArray(row.question.options) ? row.question.options : [],
+          selected: row.picked,
+          // After a successful grade every question has a result row; -1 is only
+          // a fallback so a missing row cannot be misread as "correct".
+          correct_option: row.result?.correct_option ?? -1,
+          explanation: row.result?.explanation ?? null,
+        })),
+        identity: { owner: user?.email ?? null },
+      });
+    } catch (e: any) {
+      toast({ title: "Couldn't build the PDF", description: e?.message ?? "Please try again.", variant: "destructive" });
+    } finally {
+      setExporting(false);
+    }
   };
 
   const getAiFeedback = async () => {
@@ -225,6 +357,10 @@ export default function Quizzes() {
 
   if (activeQuiz) {
     const hasExamFile = !!activeQuiz.exam_file_url;
+    const percent = (score?.correct ?? 0) / Math.max(1, score?.total ?? 1) * 100;
+    const visibleRows = reviewOnly
+      ? reviewRows.filter((row) => row.status !== "correct")
+      : reviewRows;
 
     return (
       <div className="space-y-6 max-w-3xl mx-auto">
@@ -236,6 +372,31 @@ export default function Quizzes() {
           </div>
           <Button variant="ghost" onClick={() => setActiveQuiz(null)}>← Back</Button>
         </div>
+
+        {/* Sitting clock. Only for a timed paper, and only until it is marked. */}
+        {timeLimitSeconds > 0 && !submitted && (secondsLeft > 0 || timedOut) && (
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <Badge
+                variant={timedOut ? "destructive" : "outline"}
+                className="gap-1 font-mono text-sm"
+                aria-live="polite"
+              >
+                <Clock className="h-3.5 w-3.5" /> {formatClock(secondsLeft)}
+              </Badge>
+              <span className="text-xs text-muted-foreground">
+                {Number(activeQuiz.time_limit_minutes)}-minute paper · time used
+              </span>
+            </div>
+            <Progress value={timeUsedPct} className="h-1.5" />
+          </div>
+        )}
+
+        {timedOut && !submitted && (
+          <div className="flex items-center gap-2 rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
+            <Clock className="h-4 w-4 shrink-0" /> Time's up — submit your paper for marking.
+          </div>
+        )}
 
         {hasExamFile && (
           <Card className="neon-border bg-card">
@@ -297,30 +458,96 @@ export default function Quizzes() {
           </Card>
         )}
 
-        {questions.map((q, idx) => {
+        {submitted && reviewRows.length > 0 && (
+          <Card className="neon-border border-primary/30">
+            <CardContent className="flex flex-wrap items-center justify-between gap-4 p-6">
+              <div className="flex items-center gap-5">
+                <div>
+                  <p className="font-mono text-3xl font-bold neon-text">{score?.correct ?? 0}/{score?.total ?? 0}</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {percent.toFixed(0)}% · {gradeBand(percent)}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="gap-1">
+                    <CheckCircle2 className="h-3 w-3" /> {counts.correct} correct
+                  </Badge>
+                  <Badge variant="outline" className="gap-1 text-destructive">
+                    <XCircle className="h-3 w-3" /> {counts.incorrect} incorrect
+                  </Badge>
+                  {counts.unanswered > 0 && (
+                    <Badge variant="outline" className="gap-1">{counts.unanswered} blank</Badge>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  variant={reviewOnly ? "default" : "outline"}
+                  size="sm"
+                  className="gap-2"
+                  aria-pressed={reviewOnly}
+                  onClick={() => setReviewOnly((v) => !v)}
+                >
+                  <ListChecks className="h-4 w-4" />
+                  {reviewOnly ? "Showing what to review" : "Only what to review"}
+                </Button>
+                <Button variant="outline" size="sm" className="gap-2" onClick={exportResult} disabled={exporting}>
+                  {exporting ? <Loader2 className="h-4 w-4 animate-spin" /> : <FileDown className="h-4 w-4" />}
+                  Download result (PDF)
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="gap-2"
+                  onClick={() => {
+                    setAnswers({});
+                    setSubmitted(false);
+                    setScore(null);
+                    setGradeResults([]);
+                    setReviewOnly(false);
+                    setAiFeedback(null);
+                  }}
+                >
+                  Try again
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {submitted && reviewOnly && visibleRows.length === 0 && (
+          <Card className="neon-border bg-card">
+            <CardContent className="py-8 text-center text-sm text-muted-foreground">
+              Nothing to review — every question was answered correctly.
+            </CardContent>
+          </Card>
+        )}
+
+        {visibleRows.map((row) => {
+          const { question: q, result, ordinal } = row;
           const options = Array.isArray(q.options) ? q.options : [];
-          const result = gradeResults.find(r => r.question_id === q.id);
+          const selected = row.picked;
           return (
             <Card key={q.id} className="neon-border bg-card">
               <CardContent className="p-5">
                 <p className="font-medium mb-3">
-                  <span className="text-primary mr-2">Q{idx + 1}.</span>
+                  <span className="text-primary mr-2">Q{ordinal + 1}.</span>
                   {q.question_text}
                 </p>
                 <div className="space-y-2">
                   {options.map((opt: string, i: number) => {
-                    const selected = answers[q.id] === i;
+                    const isSelected = selected === i;
                     const isCorrect = submitted && result && i === result.correct_option;
-                    const isWrong = submitted && selected && result && i !== result.correct_option;
+                    const isWrong = submitted && isSelected && !!result && i !== result.correct_option;
                     return (
                       <button
                         key={i}
-                        disabled={submitted}
+                        disabled={submitted || timedOut}
                         onClick={() => setAnswers((a) => ({ ...a, [q.id]: i }))}
                         className={`w-full text-left rounded-lg border p-3 text-sm transition-colors ${
                           isCorrect ? "border-primary bg-primary/10" :
                           isWrong ? "border-destructive bg-destructive/10" :
-                          selected ? "border-primary/50 bg-primary/5" :
+                          isSelected ? "border-primary/50 bg-primary/5" :
                           "border-border hover:border-primary/30 hover:bg-secondary/50"
                         }`}
                       >
@@ -342,20 +569,18 @@ export default function Quizzes() {
         })}
 
         {!submitted ? (
-          <Button onClick={submitQuiz} size="lg" className="w-full bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground glow-shadow" disabled={Object.keys(answers).length < questions.length}>
-            Submit Quiz
+          <Button
+            onClick={submitQuiz}
+            size="lg"
+            className="w-full bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground glow-shadow"
+            // Normally every question must be answered, but a run-out clock must
+            // not trap the student: once time is up they can submit what they have.
+            disabled={!timedOut && Object.keys(answers).length < questions.length}
+          >
+            {timedOut ? "Submit for marking (time's up)" : "Submit Quiz"}
           </Button>
         ) : (
           <div className="space-y-4">
-            <Card className="neon-border border-primary/30">
-              <CardContent className="p-6 text-center">
-                <p className="text-3xl font-bold neon-text">{score?.correct}/{score?.total}</p>
-                <p className="text-muted-foreground mt-1">
-                  {((score?.correct ?? 0) / (score?.total ?? 1) * 100).toFixed(0)}% correct
-                </p>
-              </CardContent>
-            </Card>
-
             {/* AI Feedback Section */}
             {!aiFeedback && (
               <Button
@@ -432,4 +657,3 @@ export default function Quizzes() {
     </div>
   );
 }
-

@@ -49,8 +49,11 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 supabase functions deploy study-planner quiz-feedback generate-questions \
   manage-accounts promote-admin resolve-login-email serve-material \
   serve-external-paper welcome-email weekly-digest email-events feedback-alert \
-  past-papers-harvest
+  past-papers-harvest ai-correction
 ```
+
+(One slug at a time without the CLI: `node .freebuff/deploy-one.cjs <slug> [verify_jwt]`,
+which always reads from `backend/supabase/functions/`.)
 
 `past-papers-harvest` is invoked by pg_cron, so deploy it with
 `--no-verify-jwt` and set its shared secret: `supabase secrets set
@@ -64,13 +67,18 @@ several slugs — deploying it once shipped `serve-material` without its
 entitlement gate and without the CORS header on the PDF branch, so every
 download silently fell back to an unwatermarked signed URL.
 
-`ai-correction` exists in `backend/supabase/functions/` but is **not deployed**;
-until it is, AI paper marking cannot run — which also blocks the timed
-paper-practice flow (see `docs/past-papers.md`), since it corrects through the
-same worker. Deploy it and set `CLOUDFLARE_API_KEY` + `CLOUDFLARE_ACCOUNT_ID`
-(or `OPENAI_API_KEY`) as function secrets first. `study-planner`'s
-generate action needs `LOVABLE_API_KEY` set as a function secret
-(`supabase secrets set LOVABLE_API_KEY=…`) — without it the function returns 500.
+`ai-correction` **is deployed** (since 2026-10-08) and is the worker behind both
+the AI marker at `/ai-marker` and the timed paper-practice flow
+(see `docs/past-papers.md`). It requires `CLOUDFLARE_API_KEY` +
+`CLOUDFLARE_ACCOUNT_ID` as function secrets (both are set) and refuses any
+caller without an active plan — see `public.has_active_plan()`, added by
+`backend/supabase/migrations/20261008140000_ai_corrector_plan_gate_uploads.sql`.
+That live refusal is testable end to end:
+`node .freebuff/probe-ai-correction-live.cjs` creates throwaway accounts
+(planless / subscribed / admin), asserts the gate, the per-account upload
+isolation, the PDF and photo marking paths and the audit row, then deletes them.
+`study-planner`'s generate action needs `LOVABLE_API_KEY` set as a function
+secret (`supabase secrets set LOVABLE_API_KEY=…`) — without it the function returns 500.
 
 ## 2. Vercel (frontend)
 
@@ -82,9 +90,11 @@ Import the repo; settings come from `vercel.json`:
 | Build command | `npm run build` |
 | Output directory | `dist` |
 
-`vercel.json` also carries the SPA fallback (`/(.*)` → `/index.html`), 301s for
-the legacy alias routes, cache headers for `/assets/*`, and the security headers
-(`nosniff`, `Referrer-Policy`, `X-Frame-Options`).
+`vercel.json` also carries the SPA fallback for every URL the build wrote no page
+for (`/(.*)` → `/spa-fallback.html`, a `noindex` document — see
+`frontend/src/lib/spaRoutes.ts`; it is not `/index.html`, which is the indexable
+homepage), 301s for the legacy alias routes, cache headers for `/assets/*`, and
+the security headers (`nosniff`, `Referrer-Policy`, `X-Frame-Options`).
 
 **Build-time environment variables.** These are public values that ship inside
 the client bundle — the publishable key is protected by Row Level Security, not

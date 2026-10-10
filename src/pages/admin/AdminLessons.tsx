@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/useToast";
 import { Badge } from "@/components/ui/badge";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
+import { contentGuardMessage, contentSaveError } from "@/lib/contentGuards";
 
 /** PostgREST's "no rows for .single()" code — an expected result here, not a failure. */
 const NO_ROWS = "PGRST116";
@@ -64,7 +65,12 @@ export default function AdminLessons() {
     try {
       topicId = await resolveTopicId(topicName);
     } catch (e: any) {
-      toast({ title: "Could not look up that topic", description: e?.message, variant: "destructive" });
+      // A topic name is guarded too, so a damaged one can be refused here.
+      toast({
+        title: "Could not look up that topic",
+        description: contentGuardMessage(e?.message) ?? e?.message,
+        variant: "destructive",
+      });
       return;
     }
     const payload = { title, content, topic_id: topicId!, video_url: videoUrl || null, zoom_url: zoomUrl || null, sort_order: sortOrder };
@@ -72,10 +78,13 @@ export default function AdminLessons() {
       toast({ title: "Error", description: "Please enter a topic name", variant: "destructive" });
       return;
     }
-    if (editing) {
-      await supabase.from("lessons").update(payload).eq("id", editing.id);
-    } else {
-      await supabase.from("lessons").insert(payload);
+    const { error } = editing
+      ? await supabase.from("lessons").update(payload).eq("id", editing.id)
+      : await supabase.from("lessons").insert(payload);
+    // A refused save used to close the dialog and toast "Updated" anyway.
+    if (error) {
+      toast(contentSaveError("Could not save the lesson", error.message));
+      return;
     }
     toast({ title: editing ? "Updated" : "Created" });
     setOpen(false); setEditing(null); setTitle(""); setContent(""); setTopicName(""); setVideoUrl(""); setZoomUrl(""); setSortOrder(0);

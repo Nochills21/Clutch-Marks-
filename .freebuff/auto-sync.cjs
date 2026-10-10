@@ -106,18 +106,31 @@ function sh(cmd, opts = {}) {
 function main() {
   // Stage ONLY the sync's own paths + durable source files — never `git add -A`,
   // which would sweep unrelated work-in-progress into an automated commit.
+  // Every first-party path the app is built from. `frontend/` and `backend/`
+  // were missing from this list, so auto-sync shipped `src/` while the lib,
+  // components, hooks and every edge function it depends on stayed local —
+  // which is how a "successful" sync left half a fix behind (see 477fdfc).
   const SYNC_PATHS = [
     ".freebuff/content-backup/",
     ".freebuff/auto-sync.cjs",
     "src/",
+    "frontend/",
+    "backend/",
     "supabase/",
+    "plugins/",
+    "scripts/",
     "public/",
+    "docs/",
     "index.html",
     "package.json",
     "bun.lock",
     "tsconfig.json",
     "tsconfig.app.json",
     "vite.config.ts",
+    "vite.single.config.ts",
+    "vitest.config.ts",
+    "vercel.json",
+    "render.yaml",
     ".gitignore",
     "README.md",
     "AGENTS.md",
@@ -135,15 +148,20 @@ function main() {
   // meant this sync had never actually pushed anything.
   const staged = sh("git diff --cached --stat") + sh("git diff --cached").slice(0, 2000000);
 
-  // Secret scan: Management token, JWTs, and the gitignored key file must never
-  // enter history. Abort (and unstage) if any appear.
+  // Secret scan: a token or JWT *value* anywhere in the diff, and the key file
+  // itself being staged. The key check reads the staged path list, not the diff
+  // text: prose that merely names `.freebuff/get-keys.cjs` (AGENTS.md does, and
+  // so do the probes) is not a leak, and matching it there blocked every push
+  // from 2026-10-09 onward while nothing was actually exposed.
   const DANGER = [
     /sbp_[0-9a-f]{16,}/,
     /eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{10,}/,
-    /\.freebuff\/get-keys\.cjs/,
+    /(^|\/)(get-keys\.cjs|\.platform-tokens\.json)$/,
   ];
+  const stagedFiles = sh("git diff --cached --name-only");
   for (const rx of DANGER) {
-    if (rx.test(staged)) {
+    const haystack = rx.source.includes("get-keys") ? stagedFiles : staged;
+    if (rx.test(haystack)) {
       log(`ABORT: staged diff matches secret pattern ${rx} — push blocked, changes left staged`);
       sh("git reset");
       return;

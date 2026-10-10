@@ -1,6 +1,7 @@
 // Verification: verify the email configuration changes behave correctly.
 // Headless test that drives the actual source code and asserts expected state.
 import { existsSync, readdirSync, readFileSync } from "fs";
+import path from "path";
 import { describe, it, expect } from "vitest";
 
 // The test runs from the repo root — use process.cwd() as the base.
@@ -30,11 +31,23 @@ describe("Email configuration changes", () => {
     expect(siteContent).toContain("supportEmail: \"support@clutchmarks.study\"");
   });
 
-  it("Legal.tsx has mailto:support@clutchmarks.study links", () => {
+  // This used to count the literal address in Legal.tsx (three times). The PDPL
+  // notice now takes it from @/lib/legal, which takes it from SITE.supportEmail,
+  // because a compliance document that repeats its own contact address is how
+  // one of them ends up wrong. The invariant is therefore the wiring: the page
+  // must use the shared constant, and the shared constant must resolve to the
+  // address asserted at the top of this file.
+  it("the legal pages and the data-rights page use the shared support address", () => {
     const legalContent = read("/src/pages/Legal.tsx");
-    const mailtoMatches = legalContent.match(/mailto:support@clutchmarks\.study/g);
-    expect(mailtoMatches).not.toBeNull();
-    expect(mailtoMatches!.length).toBeGreaterThanOrEqual(3);
+    expect(legalContent).toContain('from "@/lib/legal"');
+    expect(legalContent).toContain("PRIVACY_CONTACT_HREF");
+    expect(legalContent).toContain("PRIVACY_CONTACT_EMAIL");
+
+    const shared = read("/frontend/src/lib/legal.ts");
+    expect(shared).toContain("SITE.supportEmail");
+
+    const rightsContent = read("/src/pages/DataRights.tsx");
+    expect(rightsContent).toMatch(/PRIVACY_CONTACT_(EMAIL|HREF)/);
   });
 
   it("AppSidebar.tsx has mailto:support@clutchmarks.study", () => {
@@ -70,8 +83,28 @@ describe("Email configuration changes", () => {
     );
   });
 
-  it("built JS contains support@clutchmarks.study in Legal component", () => {
-    const legalBuild = readFileSync(legalChunkPath(), "utf8");
-    expect(legalBuild).toContain("support@clutchmarks.study");
+  it("the built Legal chunk can reach support@clutchmarks.study", () => {
+    // The notice no longer carries the address inline: it imports it from
+    // @/lib/legal → SITE.supportEmail, so the literal ships in whichever shared
+    // chunk the entry also pulls in. What matters for a reader is that the page
+    // actually gets an address, so walk the Legal chunk's own imports and assert
+    // it is reachable — this still fails if the address is dropped entirely.
+    const seen = new Set<string>();
+    const queue = [legalChunkPath()];
+    let reachable = false;
+    while (queue.length && !reachable) {
+      const file = queue.pop() as string;
+      if (seen.has(file)) continue;
+      seen.add(file);
+      const code = readFileSync(file, "utf8");
+      if (code.includes("support@clutchmarks.study")) {
+        reachable = true;
+        break;
+      }
+      for (const match of code.matchAll(/from"\.\/([\w.@-]+\.js)"/g)) {
+        queue.push(path.join(path.dirname(file), match[1]));
+      }
+    }
+    expect(reachable, "no support address is reachable from the built Legal chunk").toBe(true);
   });
 });

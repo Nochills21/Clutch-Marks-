@@ -1,5 +1,5 @@
 // Subscription state for the signed-in user. Admins always have full access.
-// Free plan = a small preview of EVERY level (not all of O Level); paid unlocks
+// Free plan = a small preview of EVERY level (not the whole of IGCSE); paid unlocks
 // everything. Free previews are enforced client-side on non-premium content
 // surfaces (Subject page lists) and server-side by RLS on premium tables.
 import { useCallback, useEffect, useState } from "react";

@@ -13,8 +13,9 @@
 // back without failing the suite.
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { describe, it, expect } from "vitest";
-import { ROUTE_META, SITE_URL, getRouteMeta, headFor } from "./seoRoutes";
-import { LEVELS } from "./levels";
+import { ROUTE_META, ROBOTS_INDEX, SITE_URL, getRouteMeta, headFor } from "./seoRoutes";
+import { SPA_FALLBACK_PATH, SPA_FALLBACK_ROBOTS } from "./spaRoutes";
+import { LEVELS, levelLabel } from "./levels";
 import { TOPIC_MANIFEST } from "./topicManifest.generated";
 import { TOPIC_PAGE_KINDS, topicDisplayName, topicHead } from "./topicSeo";
 import { LEVEL_MANIFEST, levelHead, levelPath } from "./levelSeo";
@@ -59,6 +60,42 @@ describe("the SPA shell", () => {
     expect(shell()).toMatch(/rel="icon"/);
     expect(shell()).toMatch(/rel="manifest"/);
     expect(shell()).toMatch(/google-site-verification/);
+  });
+});
+
+// The document the host serves for every URL it has no page for — the admin
+// console, a lesson's notes, a dead topic slug, a typo. Read from dist, because
+// that artifact is what a crawler receives; the shell in index.html is only its
+// source. Until this was separated, that document *was* the homepage: indexable,
+// with the homepage title and a canonical pointing at `/`.
+//
+// These need `npm run build` first, like the other dist-reading suites.
+describe("the SPA fallback document", () => {
+  const fallback = () => read(`/dist${SPA_FALLBACK_PATH}`);
+
+  it("is noindex, so a route with no prerendered file cannot be indexed", () => {
+    // Attributable order is not fixed: the prerenderer tags the tags it writes
+    // (data-seo="prerender") so the app can drop them, so the marker sits before
+    // `name` and a `<meta name="robots"` pattern would miss all of them.
+    const tags = fallback().match(/<meta\s[^>]*name="robots"[^>]*>/gi) ?? [];
+    expect(tags, "the fallback needs exactly one robots meta").toHaveLength(1);
+    expect(tags[0]).toContain(`content="${SPA_FALLBACK_ROBOTS}"`);
+  });
+
+  it("claims no canonical and no og:url across the many URLs it answers", () => {
+    expect(fallback()).not.toMatch(/<link[^>]+rel="canonical"/i);
+    expect(fallback()).not.toMatch(/property="og:url"/i);
+  });
+
+  it("keeps the brand's shared head, so a dead link still previews as the site", () => {
+    expect(fallback()).toMatch(/rel="icon"/);
+    expect(fallback()).toMatch(/name="twitter:card"/);
+  });
+
+  it("leaves the homepage itself indexable", () => {
+    // The other half of the change: only the document for URLs *without* a page
+    // went noindex. If `/` followed it, the whole site would drop out.
+    expect(read("/dist/index.html")).toContain(`content="${ROBOTS_INDEX}"`);
   });
 });
 
@@ -241,7 +278,7 @@ describe("study pages", () => {
     };
     const fill = (template: string) =>
       template
-        .replace(/:levelLabel/g, "O Level")
+        .replace(/:levelLabel/g, levelLabel(sample.level))
         .replace(/:topic/g, sample.topicName)
         .replace(/:subject/g, sample.subjectName)
         .replace(/:level/g, sample.level);

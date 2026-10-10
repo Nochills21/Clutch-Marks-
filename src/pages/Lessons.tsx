@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
+import { useToast } from "@/hooks/useToast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,7 @@ import { SubjectPicker } from "@/components/SubjectPicker";
 
 export default function Lessons() {
   const { user } = useAuth();
+  const { toast } = useToast();
   const navigate = useNavigate();
   const { subject, level, topic } = useParams<{ subject?: string; level?: string; topic?: string }>();
   const [topics, setTopics] = useState<any[]>([]);
@@ -33,6 +35,22 @@ export default function Lessons() {
   const [topicPaths, setTopicPaths] = useState<Record<string, string | undefined>>({});
   const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, topicSlugOf(t)])), [topics]);
   const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
+
+  // Save the open lesson as branded revision paper. The export loads the brand
+  // tile and stamps the account watermark, so it is async and can fail (offline,
+  // a blocked canvas) — awaited in a try/catch rather than fired into the void.
+  const saveLessonPdf = async (lesson: any) => {
+    try {
+      await exportLessonToPdf(lesson, { owner: user?.email ?? user?.id ?? null });
+      toast({ title: "Saved", description: "Your PDF is downloading." });
+    } catch (e: any) {
+      toast({
+        title: "Couldn't build the PDF",
+        description: e?.message ?? "Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
 
   useEffect(() => {
     const load = async () => {
@@ -174,7 +192,7 @@ export default function Lessons() {
               <Button onClick={() => toggleComplete(selectedLesson.id)} variant={progress[selectedLesson.id] ? "outline" : "default"}>
                 {progress[selectedLesson.id] ? "Mark Incomplete" : "Mark Complete ✓"}
               </Button>
-              <Button variant="outline" className="gap-2" onClick={() => exportLessonToPdf(selectedLesson)}>
+              <Button variant="outline" className="gap-2" onClick={() => saveLessonPdf(selectedLesson)}>
                 <Download className="h-4 w-4" /> Save as PDF
               </Button>
             </div>

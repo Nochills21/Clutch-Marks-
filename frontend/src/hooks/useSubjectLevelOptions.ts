@@ -1,4 +1,4 @@
-// The list of selectable subject-levels ("Mathematics — O Level", ...).
+// The list of selectable subject-levels ("Mathematics — IGCSE", ...).
 //
 // Shared by the picker dialog, the first-run gate, the "showing only your
 // subjects" notice and the /subjects catalog. All of them need the same rows,
@@ -11,7 +11,7 @@ import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 export interface SubjectLevelOption {
   /** subject_levels.id — the value stored in a student's picks. */
   id: string;
-  /** "Mathematics — O Level", for checkboxes and messages. */
+  /** "Mathematics — IGCSE", for checkboxes and messages. */
   label: string;
   subjectName: string;
   /** subjects.slug, as used by the /study/:slug/:level route. */

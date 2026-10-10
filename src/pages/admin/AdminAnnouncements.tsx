@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Plus, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { format } from "date-fns";
+import { contentSaveError } from "@/lib/contentGuards";
 
 export default function AdminAnnouncements() {
   const { toast } = useToast();
@@ -34,7 +35,13 @@ export default function AdminAnnouncements() {
   useEffect(() => { load(); }, []);
 
   const save = async () => {
-    await supabase.from("announcements").insert({ title, content });
+    const { error } = await supabase.from("announcements").insert({ title, content });
+    // A refused post used to clear the form and toast "Posted" — the
+    // announcement was simply never there.
+    if (error) {
+      toast(contentSaveError("Could not post the announcement", error.message));
+      return;
+    }
     toast({ title: "Posted" });
     setOpen(false); setTitle(""); setContent(""); load();
   };

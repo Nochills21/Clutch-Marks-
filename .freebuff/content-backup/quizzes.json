@@ -1764,6 +1764,20 @@
   "correction_file_url": null
  },
  {
+  "id": "9a057bc4-6d5e-48ef-9404-09458fad70d4",
+  "topic_id": "0bea2707-6672-4f20-8be1-a847f759f0ca",
+  "title": "Checkpoints — Algebra — Equations",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-09 19:47:32.842916+00",
+  "updated_at": "2026-10-09 19:47:32.842916+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "9ab81c49-f6ee-44a2-b96f-b434d72b64b3",
   "topic_id": "ae90cac1-2832-4627-86f3-9b53192ca288",
   "title": "Practice — Robotics & AI",

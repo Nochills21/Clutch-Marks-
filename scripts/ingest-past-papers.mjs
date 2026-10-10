@@ -45,9 +45,9 @@ const supabase = URL_ && KEY ? createClient(URL_, KEY, { auth: { persistSession:
 
 // ---- manifest ---------------------------------------------------------------
 // [subjectSlug, level, syllabusLabel, paperNumber, QP file, MS file]
-// Levels: OL = IGCSE / O Level; AS / A2 split per the board's unit structure.
+// Levels: OL = IGCSE; AS / A2 split per the board's unit structure.
 const PAPERS = [
-  // IGCSE (O Level) — Cambridge 0580 / 0625 / 0478
+  // IGCSE — Cambridge 0580 / 0625 / 0478
   ["mathematics", "OL", "Cambridge IGCSE Mathematics (0580)", "2", "IGCSE_0580_0625_0478/mathematics_0580_paper_2_question_papers.pdf", "IGCSE_0580_0625_0478/mathematics_0580_paper_2_mark_schemes.pdf"],
   ["mathematics", "OL", "Cambridge IGCSE Mathematics (0580)", "4", "IGCSE_0580_0625_0478/mathematics_0580_paper_4_question_papers.pdf", "IGCSE_0580_0625_0478/mathematics_0580_paper_4_mark_schemes.pdf"],
   ["physics", "OL", "Cambridge IGCSE Physics (0625)", "2", "IGCSE_0580_0625_0478/physics_0625_paper_2_question_papers.pdf", "IGCSE_0580_0625_0478/physics_0625_paper_2_mark_schemes.pdf"],
@@ -55,7 +55,7 @@ const PAPERS = [
   ["computer-science", "OL", "Cambridge IGCSE Computer Science (0478)", "1", "IGCSE_0580_0625_0478/computer_science_0478_paper_1_question_papers.pdf", "IGCSE_0580_0625_0478/computer_science_0478_paper_1_mark_schemes.pdf"],
   ["computer-science", "OL", "Cambridge IGCSE Computer Science (0478)", "2", "IGCSE_0580_0625_0478/computer_science_0478_paper_2_question_papers.pdf", "IGCSE_0580_0625_0478/computer_science_0478_paper_2_mark_schemes.pdf"],
 
-  // Cambridge 9-1 IGCSE (0980 / 0972 / 0984) — also O Level tier
+  // Cambridge 9-1 IGCSE (0980 / 0972 / 0984)
   ["mathematics", "OL", "Cambridge IGCSE (9-1) Mathematics (0980)", "1", "IGCSE_9-1_0980_0972_0984/cambridge_mathematics_0980_paper_1_question_papers.pdf", "IGCSE_9-1_0980_0972_0984/cambridge_mathematics_0980_paper_1_mark_schemes.pdf"],
   ["mathematics", "OL", "Cambridge IGCSE (9-1) Mathematics (0980)", "2", "IGCSE_9-1_0980_0972_0984/cambridge_mathematics_0980_paper_2_question_papers.pdf", "IGCSE_9-1_0980_0972_0984/cambridge_mathematics_0980_paper_2_mark_schemes.pdf"],
   ["physics", "OL", "Cambridge IGCSE (9-1) Physics (0972)", "1", "IGCSE_9-1_0980_0972_0984/cambridge_physics_0972_paper_1_question_papers.pdf", "IGCSE_9-1_0980_0972_0984/cambridge_physics_0972_paper_1_mark_schemes.pdf"],
