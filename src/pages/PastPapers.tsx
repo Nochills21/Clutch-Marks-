@@ -9,7 +9,8 @@ import { SubjectGate } from "@/components/SubjectGate";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { PaperPractice, type PracticePaper } from "@/components/PaperPractice";
 import { SEOHead } from "@/components/SEOHead";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -27,10 +28,9 @@ import {
   filterArchivePapers,
 } from "@/lib/pastPaperFiles";
 import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download } from "lucide-react";
-import { AiCorrectionForm } from "@/components/AiCorrectionForm";
+import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
 import { QueryError } from "@/components/QueryError";
 import { loadFailureMessage } from "@/lib/net";
-type AiCorrectionOutput = any;
 
 interface PastPaper {
   id: string;
@@ -48,7 +48,7 @@ interface PastPaper {
 
 const LEVEL_FILTERS = [
   { id: "all", label: "All levels" },
-  { id: "OL", label: "IGCSE / O Level" },
+  { id: "OL", label: "IGCSE" },
   { id: "AS", label: "AS Level" },
   { id: "A2", label: "A2 Level" },
 ];
@@ -70,7 +70,6 @@ export default function PastPapers() {
   const [boardFilter, setBoardFilter] = useState("all");
   const [paperFilter, setPaperFilter] = useState("all");
   const [sessionFilter, setSessionFilter] = useState("all");
-  const [correction, setCorrection] = useState<AiCorrectionOutput | null>(null);
   const [practicePaper, setPracticePaper] = useState<PracticePaper | null>(null);
 
   const { data: topics, error: topicsError } = useQuery({
@@ -122,14 +121,6 @@ export default function PastPapers() {
   }, [attempts]);
 
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
-
-  const handleCorrect = (result: AiCorrectionOutput) => {
-    setCorrection(result);
-    toast({
-      title: "Corrected",
-      description: `Overall grade: ${result.overall_grade}% (${result.total_earned}/${result.total_possible} marks)`,
-    });
-  };
 
   const handleOpenFile = async (url: string) => {
     try {
@@ -261,7 +252,8 @@ export default function PastPapers() {
           <FileText className="h-7 w-7 text-primary" /> Past Papers
         </h1>
         <p className="text-muted-foreground text-sm">
-          Download past exam papers and mark schemes. Use the <span className="font-semibold text-primary">AI Corrector</span> to auto-mark your answers.
+          Download past exam papers and mark schemes. Solve one on paper and mark it with the{" "}
+          <Link to="/ai-marker" className="font-semibold text-primary underline decoration-primary/30 underline-offset-4">AI Marker</Link>.
         </p>
       </div>
 
@@ -273,13 +265,11 @@ export default function PastPapers() {
         />
       )}
 
-      {/* AI auto-correction form */}
+      {/* AI marking of an uploaded solved paper. The component gates itself:
+          free accounts get an upgrade card, and the worker enforces the plan
+          server-side regardless. */}
       <div className="max-w-4xl mx-auto">
-        <AiCorrectionForm
-          subjectLevelId={null}
-          onCorrected={handleCorrect}
-          onReset={() => setCorrection(null)}
-        />
+        <SolvedPaperMarker title="Mark a solved past paper" />
       </div>
 
       {/* Filters */}
@@ -516,34 +506,6 @@ export default function PastPapers() {
         onSaved={() => qc.invalidateQueries({ queryKey: ["past_paper_attempts"] })}
       />
 
-      {correction && (
-        <Card className="mx-auto max-w-4xl">
-          <CardHeader>
-            <CardTitle>AI correction result</CardTitle>
-            <CardDescription>
-              Overall grade: <span className="font-bold text-2xl text-primary">{correction.overall_grade}%</span> ({correction.total_earned}/{correction.total_possible} marks)
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {correction.corrected_papers.map((r) => (
-                <div key={r.question} className="rounded-md border border-primary/10 p-3">
-                  <div className="flex items-start gap-2">
-                    <span className="mt-1.5 h-2 w-2 rounded-full shrink-0"></span>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium truncate">{r.question}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{r.feedback}</p>
-                      <p className="text-xs text-muted-foreground/70 mt-0.5">
-                        <span className="font-semibold text-primary">{r.marks_earned}/{r.total_marks}</span> · {r.comment}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }

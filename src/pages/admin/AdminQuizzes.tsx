@@ -15,6 +15,8 @@ import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
 import { Badge } from "@/components/ui/badge";
 import { getSafeUploadExtension } from "@/lib/fileValidation";
+import { contentGuardMessage, contentSaveError } from "@/lib/contentGuards";
+import { resolveQuizOptions } from "@/lib/quizAnswers";
 
 export default function AdminQuizzes() {
   const { toast } = useToast();
@@ -103,7 +105,13 @@ export default function AdminQuizzes() {
 
     let quizId = editing?.id;
     if (editing) {
-      await supabase.from("quizzes").update(payload).eq("id", editing.id);
+      const { error } = await supabase.from("quizzes").update(payload).eq("id", editing.id);
+      // A refused update still toasted "Updated", so a title with a damaged
+      // character looked saved while the database kept the old one.
+      if (error) {
+        toast(contentSaveError("Could not update the quiz", error.message));
+        return;
+      }
     } else {
       const { data, error } = await supabase.from("quizzes").insert(payload).select("id").single();
       // A failed insert still toasted "Created", leaving the admin with no quiz.
@@ -115,8 +123,9 @@ export default function AdminQuizzes() {
     }
 
     // If exam file was uploaded and it's a new quiz, auto-create confirmation question
+    let setupWarning: string | null = null;
     if (examFileUrl && !editing && quizId) {
-      await supabase.from("questions").insert({
+      const { error } = await supabase.from("questions").insert({
         quiz_id: quizId,
         question_text: "Have you completed and submitted the exam?",
         options: ["Yes, I have submitted my exam", "No, I have not submitted yet"],
@@ -124,18 +133,44 @@ export default function AdminQuizzes() {
         explanation: "Make sure you upload your solved exam file before confirming.",
         sort_order: 0,
       });
+      // The quiz itself saved, so still report success — but never swallow it:
+      // without this the quiz looked ready with no confirmation step.
+      if (error) setupWarning = contentGuardMessage(error.message) ?? error.message;
     }
 
-    toast({ title: editing ? "Updated" : "Created" });
+    toast(
+      setupWarning
+        ? {
+            title: "Quiz created, but its confirmation question was not",
+            description: `${setupWarning} Add it under Questions.`,
+            variant: "destructive",
+          }
+        : { title: editing ? "Updated" : "Created" },
+    );
     setOpen(false); setEditing(null); resetForm(); load();
   };
 
   const addQuestion = async () => {
     if (!questionsOpen || !qText.trim()) return;
-    await supabase.from("questions").insert({
-      quiz_id: questionsOpen, question_text: qText, options: qOptions.filter(Boolean),
-      correct_option: qCorrect, explanation: qExplanation || null, sort_order: questions.length,
+    // Blank option slots are dropped before saving, which shifts every option
+    // after them, so the index the form reports is not the one that belongs in
+    // the row. Resolve the picked option by its text (see quizAnswers.ts).
+    const resolved = resolveQuizOptions(qOptions, qCorrect);
+    if (resolved.error) {
+      toast({ title: "Could not add the question", description: resolved.error, variant: "destructive" });
+      return;
+    }
+    const { options, correctOption } = resolved;
+    const { error } = await supabase.from("questions").insert({
+      quiz_id: questionsOpen, question_text: qText, options,
+      correct_option: correctOption, explanation: qExplanation || null, sort_order: questions.length,
     });
+    // Ignoring this emptied the form and claimed "Question added" for a question
+    // the database had refused.
+    if (error) {
+      toast(contentSaveError("Could not add the question", error.message));
+      return;
+    }
     setQText(""); setQOptions(["", "", "", ""]); setQCorrect(0); setQExplanation("");
     loadQuestions(questionsOpen);
     toast({ title: "Question added" });

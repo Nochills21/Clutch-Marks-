@@ -356,7 +356,20 @@ export default function Flashcards() {
                         toast({ title: "Nothing to export", description: "This set has no cards yet." });
                         return;
                       }
-                      exportFlashcardsToPdf(s.title, cards);
+                      try {
+                        // Branded, watermarked export: the set title, every card,
+                        // and the signed-in account burned into the frame.
+                        await exportFlashcardsToPdf(s.title, cards, {
+                          owner: user?.email ?? user?.id ?? null,
+                        });
+                        toast({ title: "Saved", description: "Your flashcard PDF is downloading." });
+                      } catch (e: any) {
+                        toast({
+                          title: "Couldn't build the PDF",
+                          description: e?.message ?? "Please try again.",
+                          variant: "destructive",
+                        });
+                      }
                     }}
                   >
                     <Download className="h-3 w-3" /> Export PDF

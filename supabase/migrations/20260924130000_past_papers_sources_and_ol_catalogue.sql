@@ -1,7 +1,7 @@
--- Past-paper bank: official source links + the missing O Level catalogue.
+-- Past-paper bank: official source links + the missing IGCSE catalogue.
 --
--- Why: the AS/A2 catalogue (210 rows) had no paper files and no O Level rows at
--- all, so every archive card was a dead end ("No past papers found" on O Level,
+-- Why: the AS/A2 catalogue (210 rows) had no paper files and no IGCSE rows at
+-- all, so every archive card was a dead end ("No past papers found" on IGCSE,
 -- and file-less cards elsewhere). Redistributing board PDFs is not something we
 -- have a licence for, so each paper row now carries `source_url` — the board's
 -- own past-papers page — giving students a real, legal destination while the
@@ -33,7 +33,7 @@ join (
 where pp.topic_id = t.id
   and pp.source_url is null;
 
--- 2. O Level catalogue: Cambridge 0580 (Maths), 0625 (Physics), 0478 (CS),
+-- 2. IGCSE catalogue: Cambridge 0580 (Maths), 0625 (Physics), 0478 (CS),
 --    each component across the May/June and Oct/Nov series, 2019-2025.
 --    Topic links pick a representative topic per component; papers themselves
 --    are whole-syllabus, so the link exists to surface them from topic pages.

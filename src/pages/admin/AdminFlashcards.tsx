@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
+import { contentSaveError } from "@/lib/contentGuards";
 
 export default function AdminFlashcards() {
   const { toast } = useToast();
@@ -78,10 +79,14 @@ export default function AdminFlashcards() {
       description: description || null,
       topic_id: topicId || null,
     };
-    if (editing) {
-      await supabase.from("flashcard_sets").update(payload).eq("id", editing.id);
-    } else {
-      await supabase.from("flashcard_sets").insert(payload);
+    const { error } = editing
+      ? await supabase.from("flashcard_sets").update(payload).eq("id", editing.id)
+      : await supabase.from("flashcard_sets").insert(payload);
+    // The dialog used to close and toast "Set created" for a refused write,
+    // leaving the admin with an empty list and no idea why.
+    if (error) {
+      toast(contentSaveError("Could not save the set", error.message));
+      return;
     }
     resetForm();
     load();
@@ -114,10 +119,13 @@ export default function AdminFlashcards() {
   const saveCard = async () => {
     if (!expandedSet) return;
     const payload = { set_id: expandedSet, front: cardFront, back: cardBack, sort_order: cards.length };
-    if (editingCard) {
-      await supabase.from("flashcards").update({ front: cardFront, back: cardBack }).eq("id", editingCard.id);
-    } else {
-      await supabase.from("flashcards").insert(payload);
+    const { error } = editingCard
+      ? await supabase.from("flashcards").update({ front: cardFront, back: cardBack }).eq("id", editingCard.id)
+      : await supabase.from("flashcards").insert(payload);
+    // Clearing the form on a refused write threw away what the admin had typed.
+    if (error) {
+      toast(contentSaveError("Could not save the card", error.message));
+      return;
     }
     setCardFront("");
     setCardBack("");

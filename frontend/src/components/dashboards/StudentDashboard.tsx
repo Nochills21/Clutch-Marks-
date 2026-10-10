@@ -69,7 +69,7 @@ export function StudentDashboard() {
 
   // Every instrument on this page follows the same subject filter as the rest
   // of the app. It used to count the whole catalogue, so a student narrowed to
-  // Mathematics — O Level read "0 of 100 lessons" beside "7 hidden".
+  // Mathematics — IGCSE read "0 of 100 lessons" beside "7 hidden".
   // `filtering` comes from useMySubjects — the one place that decides whether a
   // reader's picks are narrowing the catalogue. This page used to restate the
   // condition, which is how it could count the whole platform for a student who

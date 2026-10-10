@@ -2,7 +2,7 @@
 --
 -- The homepage tiles ("Lessons done", "Quizzes available", "Notes studied", and
 -- the new question-bank figure) counted the *whole platform*: a student who had
--- narrowed the app to Mathematics — O Level still saw 100 lessons and 200
+-- narrowed the app to Mathematics — IGCSE still saw 100 lessons and 200
 -- quizzes, which read as a bug beside the "7 hidden" filter notice. This RPC
 -- returns the same figures scoped to a set of subject-levels, so one call feeds
 -- both dashboards (students pass their picks, admins pass the scope they chose

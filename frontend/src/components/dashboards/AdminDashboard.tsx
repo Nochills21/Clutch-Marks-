@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
-import { BookOpen, Users, Brain, FileText, Megaphone, ArrowRight, Zap, CreditCard, HelpCircle, ClipboardList } from "lucide-react";
+import { BookOpen, Users, Brain, FileText, Megaphone, ArrowRight, Zap, CreditCard, HelpCircle, ClipboardList, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -20,15 +20,19 @@ export function AdminDashboard() {
 
   const [counts, setCounts] = useState({ topics: 0, lessons: 0, quizzes: 0, questions: 0, notes: 0, materials: 0 });
   const [platform, setPlatform] = useState({ students: 0, pendingPayments: 0 });
+  // Content health: how many damaged rows the integrity report finds right now.
+  const [integrity, setIntegrity] = useState<number | null>(null);
 
   useEffect(() => {
     const load = async () => {
-      const [countsRes, s, pp] = await Promise.all([
+      const [countsRes, s, pp, integrityRes] = await Promise.all([
         // NULL means "every subject"; the same RPC backs the student dashboard,
         // so both pages count the catalogue the same way.
         supabase.rpc("get_dashboard_counts", { _level_ids: scope === ALL ? null : [scope] }),
         supabase.from("user_roles").select("id", { count: "exact", head: true }).eq("role", "student"),
         supabase.from("subscriptions").select("id", { count: "exact", head: true }).eq("status", "pending_payment"),
+        // Admin-gated on the database side; this dashboard is admin-only.
+        supabase.rpc("content_integrity_findings"),
       ]);
       const c = ((countsRes.data ?? []) as any[])[0];
       if (c) {
@@ -42,6 +46,8 @@ export function AdminDashboard() {
         });
       }
       setPlatform({ students: s.count ?? 0, pendingPayments: pp.count ?? 0 });
+      // A failed check leaves the tile as an em dash rather than claiming zero.
+      if (!integrityRes.error) setIntegrity((integrityRes.data ?? []).length);
     };
     load();
   }, [scope]);
@@ -61,6 +67,9 @@ export function AdminDashboard() {
     { label: "Topics", value: counts.topics, icon: BookOpen, link: "/dashboard" },
     { label: "Students", value: platform.students, icon: Users, link: "/admin/accounts" },
     { label: "Pending payments", value: platform.pendingPayments, icon: CreditCard, link: "/admin/payments" },
+    // Damage the console cannot show: a replacement character, a 1-based answer
+    // index, a material_type students never read. "—" until the check answers.
+    { label: "Content issues", value: integrity === null ? "—" : integrity, icon: AlertTriangle, link: "/admin/content-integrity" },
   ];
 
   const quickActions = [

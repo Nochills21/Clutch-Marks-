@@ -1,6 +1,6 @@
 # Clutch Marks
 
-> Online learning platform for Maths, Physics and Computer Science students (OL, AS, A2) — lessons, quizzes, homework, flashcards, past papers, and AI-powered study tools.
+> Online learning platform for Maths, Physics and Computer Science students (IGCSE, AS Level, A2 Level) — lessons, quizzes, homework, flashcards, past papers, and AI-powered study tools.
 
 A student-and-admin platform focused on Maths, Physics and Computer Science revision. Students work through structured lessons by topic, take auto-graded quizzes with AI feedback, submit homework, drill flashcards with spaced repetition, browse a past papers bank, and generate personalized AI study plans. Admins manage content, grade submissions, and track progress. Parents have read-only visibility into their linked student's progress.
 

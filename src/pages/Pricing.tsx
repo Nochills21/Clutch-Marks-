@@ -25,7 +25,7 @@ const PLANS = [
     price: "$0",
     per: "forever",
     blurb: "A taste of everything — see if Clutch Marks works for you.",
-    features: ["A preview of every level (OL, AS & A2)", "Sample lessons & notes in each subject", "Progress tracking", "Upgrade any time for full access"],
+    features: ["A preview of every level (IGCSE, AS Level & A2 Level)", "Sample lessons & notes in each subject", "Progress tracking", "Upgrade any time for full access"],
     cta: null as string | null,
   },
   {
@@ -34,7 +34,7 @@ const PLANS = [
     price: "$20",
     per: "/month",
     blurb: "Full access, month to month.",
-    features: ["Everything unlocked", "All levels: OL, AS & A2", "Every lesson, note, quiz & past paper", "AI study planner", "Flashcards & smart revision"],
+    features: ["Everything unlocked", "All levels: IGCSE, AS Level & A2 Level", "Every lesson, note, quiz & past paper", "AI study planner", "Flashcards & smart revision"],
     highlight: false,
   },
   {

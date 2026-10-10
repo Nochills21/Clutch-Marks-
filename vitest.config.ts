@@ -6,6 +6,14 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "jsdom",
+    // jsdom hands out web storage only for a real origin: against an opaque one
+    // ("about:blank") merely *reading* localStorage throws a SecurityError, so a
+    // suite that needs storage would find none. Pin the origin instead of
+    // inheriting jsdom's default. The environment is not the only thing that can
+    // change under a suite, either — the shared setup and the storage-dependent
+    // specs tolerate a DOM-less runner (vitest --environment node, `bun test`)
+    // rather than assuming this line was honoured.
+    environmentOptions: { jsdom: { url: "http://localhost/" } },
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
     // The `@` alias resolves to frontend/src everywhere else (vite.config.ts),

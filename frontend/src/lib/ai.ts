@@ -48,6 +48,84 @@ export interface AiCorrectionOutput {
   total_possible: number;
   total_earned: number;
   audit_ref: string;
+  /** How the answers reached the marker. */
+  source?: "paste" | "upload" | "mixed";
+  /** Model that actually marked the paper (the worker picks/falls back). */
+  model?: string;
+}
+
+/** One uploaded answer script, as referenced in the private storage bucket. */
+export interface AnswerFileRef {
+  bucket: string;
+  path: string;
+  name?: string;
+  mimeType?: string;
+}
+
+/** The worker's `code` when it refuses a request for want of a paid plan. */
+export const PLAN_REQUIRED_CODE = "plan_required";
+
+/**
+ * Thrown when the AI marker answers 403 with `code: "plan_required"`.
+ *
+ * Distinguishable from every other failure on purpose: the UI shows an upgrade
+ * card for this and a retry/error message for anything else, and a stale
+ * client that pre-checks the plan locally still needs the server's verdict.
+ */
+export class PlanRequiredError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "PlanRequiredError";
+  }
+}
+
+export function isPlanRequiredError(error: unknown): error is PlanRequiredError {
+  return error instanceof PlanRequiredError;
+}
+
+/**
+ * Read a `plan_required` refusal out of a failed `functions.invoke`.
+ *
+ * get-js throws (and `invoke` returns) a `FunctionsHttpError` whose `context`
+ * is the *unread* Response for a non-2xx reply, so the JSON body is still
+ * available here. The body is consumed once, deliberately — nothing else looks
+ * at it.
+ */
+async function planRequiredFrom(error: any): Promise<string | null> {
+  const response: Response | undefined = error?.context;
+  if (!response || typeof response.status !== "number") return null;
+  if (response.status !== 403) return null;
+  try {
+    const body = await response.clone().json();
+    if (body?.code === PLAN_REQUIRED_CODE) {
+      return typeof body.message === "string" && body.message
+        ? body.message
+        : "AI marking is part of the full plan.";
+    }
+  } catch {
+    // Not JSON, or already consumed — not a plan refusal we can name.
+  }
+  return null;
+}
+
+/**
+ * The worker's own explanation for a failed marking, when it sent one.
+ *
+ * `ai-correction` answers 503 `code: "ai_busy"` when the AI provider is out of
+ * capacity and 502 `code: "ai_failed"` when marking itself broke, each with a
+ * sentence written for the student. get-js turns every non-2xx into the same
+ * "non-2xx status code", which told them nothing about whether to retry.
+ */
+async function workerErrorMessage(error: any): Promise<string | null> {
+  const response: Response | undefined = error?.context;
+  if (!response || typeof response.status !== "number") return null;
+  try {
+    const body = await response.clone().json();
+    if (typeof body?.error === "string" && body.error.trim()) return body.error.trim();
+  } catch {
+    // Not JSON — nothing to quote.
+  }
+  return null;
 }
 
 /**
@@ -123,12 +201,15 @@ export async function callPaperCorrector(
   provider: AiProvider = "cloudflare",
   subjectLevelId?: string,
   paperRef?: PaperRef,
+  /** Uploaded answer scripts (photos or PDFs) already in the private bucket. */
+  answerFiles?: AnswerFileRef[],
 ): Promise<AiCorrectionOutput> {
   const { data, error } = await supabase.functions.invoke("ai-correction", {
     body: {
       paper,
       subjectLevelId,
       paperRef,
+      answerFiles: answerFiles?.length ? answerFiles : undefined,
       // No model is pinned here: the worker resolves a current Workers AI model
       // (the old `llama-3.1-8b-instruct` was retired and made every call fail).
       provider,
@@ -136,10 +217,15 @@ export async function callPaperCorrector(
     ...aiRequest,
   });
   if (error || !data) {
-    // Name the worker in the message: this endpoint is a separate deployment and
-    // an undeployed function otherwise surfaces only as "non-2xx status code".
+    const planMessage = await planRequiredFrom(error);
+    if (planMessage) throw new PlanRequiredError(planMessage);
+    // Prefer the worker's own sentence; fall back to naming the endpoint, since
+    // this is a separate deployment and an undeployed function otherwise
+    // surfaces only as "non-2xx status code".
+    const workerMessage = await workerErrorMessage(error);
     throw new Error(
-      `AI marking is unavailable right now (ai-correction): ${error?.message ?? "no data"}`,
+      workerMessage ??
+        `AI marking is unavailable right now (ai-correction): ${error?.message ?? "no data"}`,
     );
   }
   return {
@@ -148,6 +234,8 @@ export async function callPaperCorrector(
     total_possible: data.total_possible ?? 0,
     total_earned: data.total_earned ?? 0,
     audit_ref: data.audit_ref ?? "",
+    source: data.source,
+    model: data.model,
   };
 }
 

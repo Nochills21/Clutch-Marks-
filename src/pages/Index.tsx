@@ -16,7 +16,7 @@ import {
 /** Counts verified against the live database — keep honest or update together. */
 const TRACKS = [
   { label: "Subjects", value: "3", detail: "Maths · Physics · Computer Science" },
-  { label: "Levels", value: "OL · AS · A2", detail: "Igcse to A Level" },
+  { label: "Levels", value: "IGCSE · AS · A2", detail: "IGCSE to A Level" },
   { label: "Past papers", value: "378", detail: "Catalogued with mark schemes" },
   { label: "Exams covered", value: "0580 · 0625 · 0478 · 9618", detail: "Cambridge & Edexcel" },
 ];

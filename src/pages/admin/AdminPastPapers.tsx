@@ -28,7 +28,7 @@ import { cn } from "@/lib/utils";
 
 const SESSIONS = ["May/June", "Oct/Nov", "Feb/Mar"];
 const LEVELS = [
-  { value: "OL", label: "IGCSE / O Level" },
+  { value: "OL", label: "IGCSE" },
   { value: "AS", label: "AS Level" },
   { value: "A2", label: "A2 Level" },
 ];

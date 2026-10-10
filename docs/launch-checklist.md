@@ -60,7 +60,7 @@ you (or the domain) · 🔧 = I can do it on your word (~time estimate).
 
 ## 4. Content (done, spot-check recommended)
 
-- ✅ All subjects/levels: O Level + AS + A2 for Maths/Physics/CS — topics, notes,
+- ✅ All subjects/levels: IGCSE + AS + A2 for Maths/Physics/CS — topics, notes,
   quizzes, past-paper metadata (2019–2025)
 - ✅ Quiz answer-index bug fixed; AI study planner live
 - ⏳ Paste papers: 210 papers are metadata-only — either attach PDFs or the

@@ -168,7 +168,7 @@ export default function AdminSubjects() {
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <GraduationCap className="h-6 w-6 text-primary" /> Subjects
           </h1>
-          <p className="text-muted-foreground">Manage subjects, their OL / AS / A2 levels, topics and AI question banks.</p>
+          <p className="text-muted-foreground">Manage subjects, their IGCSE, AS Level and A2 Level offerings, topics and AI question banks.</p>
         </div>
         <div className="flex gap-2">
           <Dialog open={aiOpen} onOpenChange={setAiOpen}>

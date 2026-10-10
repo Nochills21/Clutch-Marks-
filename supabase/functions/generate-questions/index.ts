@@ -73,7 +73,7 @@ Deno.serve(async (req) => {
         subjectName = (sl as any).subjects?.name ?? subjectName;
       }
     }
-    const levelLabel = level === "OL" ? "O Level / IGCSE" : level === "AS" ? "AS Level" : "A2 Level";
+    const levelLabel = level === "OL" ? "IGCSE" : level === "AS" ? "AS Level" : "A2 Level";
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) return json({ error: "AI is not configured" }, 500);

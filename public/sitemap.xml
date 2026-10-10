@@ -83,4 +83,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <!-- The PDPL rights page is public and indexable on purpose: a reader has to
+       be able to find out how to exercise a right before they have an account. -->
+  <url>
+    <loc>https://clutchmarks.study/data-rights</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

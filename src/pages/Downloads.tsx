@@ -18,7 +18,7 @@ type Group = { level: string; board: string; sheets: Sheet[] };
 
 const GROUPS: Group[] = [
   {
-    level: "O Level (IGCSE)",
+    level: "IGCSE",
     board: "Cambridge",
     sheets: [
       {
@@ -125,7 +125,7 @@ export default function Downloads() {
         <h1 className="text-3xl font-bold tracking-tight">Formula Sheets 📄</h1>
         <p className="text-muted-foreground mt-2">
           Every formula, equation and must-recall fact on printable pages — matched to
-          the right exam board: <strong>Cambridge</strong> for O Level and Computer
+          the right exam board: <strong>Cambridge</strong> for IGCSE and Computer
           Science, <strong>Edexcel</strong> for AS/A2 Maths and Physics.
         </p>
       </div>

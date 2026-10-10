@@ -15,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { History, Pencil, RotateCcw, AlertCircle } from "lucide-react";
 import DOMPurify from "dompurify";
+import { contentGuardMessage, contentSaveError } from "@/lib/contentGuards";
 
 export type EditableEntity = "lesson" | "material";
 
@@ -73,7 +74,7 @@ export function ContentEditor({ entityType, entityId, initialTitle, initialConte
     const { error } = await supabase.from(table).update(payload).eq("id", entityId);
     setSaving(false);
     if (error) {
-      toast({ title: "Save failed", description: error.message, variant: "destructive" });
+      toast(contentSaveError("Save failed", error.message));
       return;
     }
     toast({ title: "Saved", description: "Previous version stored in history." });
@@ -84,7 +85,17 @@ export function ContentEditor({ entityType, entityId, initialTitle, initialConte
   const restore = async (revisionId: string) => {
     const { error } = await supabase.rpc("restore_content_revision", { p_revision_id: revisionId });
     if (error) {
-      toast({ title: "Restore failed", description: error.message, variant: "destructive" });
+      // Restoring a version taken before the encoding repair re-writes the very
+      // characters the content guards refuse, so say what to do instead of
+      // echoing the constraint name.
+      const guard = contentGuardMessage(error.message);
+      toast({
+        title: guard ? "That version cannot be restored" : "Restore failed",
+        description: guard
+          ? `${guard} This version predates the repair, so restore is refused — fix the character on the current text instead.`
+          : error.message,
+        variant: "destructive",
+      });
       return;
     }
     toast({ title: "Version restored" });

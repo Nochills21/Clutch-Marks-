@@ -4,6 +4,7 @@ import { BookOpen, LayoutDashboard, FileText, ClipboardList, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, Shield, FileCheck,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
   Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
+  ShieldCheck, Wand2, ShieldAlert, ListChecks,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -32,10 +33,14 @@ const studentLinks = [
   { title: "Study Planner", url: "/study-planner", icon: Sparkles },
   { title: "Practice", url: "/practice", icon: Target },
   { title: "Topic Questions", url: "/question-bank", icon: Database },
+  // Mastery: the objective-level loop — what you are getting wrong, and what is
+  // due to come back — which the topic-level Progress page cannot show.
+  { title: "Mastery", url: "/mastery", icon: GraduationCap },
   { title: "Progress", url: "/progress", icon: BarChart3 },
   { title: "Leaderboard", url: "/leaderboard", icon: Trophy },
 
   { title: "Past Papers", url: "/past-papers", icon: Archive },
+  { title: "AI Marker", url: "/ai-marker", icon: Wand2 },
   { title: "Announcements", url: "/announcements", icon: Megaphone },
   { title: "Feedback", url: "/feedback", icon: MessageSquareHeart },
   { title: "Upgrade", url: "/pricing", icon: CreditCard },
@@ -55,9 +60,19 @@ const adminLinks = [
   { title: "Grade Book", url: "/admin/gradebook", icon: BookMarked },
   { title: "Past Papers", url: "/admin/past-papers", icon: Archive },
   { title: "Audit Log", url: "/admin/audit-log", icon: History },
+  // Content health: damage that is invisible in the console (a replacement
+  // character, a 1-based answer index, a material_type students never read)
+  // surfaces here without waiting for an audit.
+  { title: "Content Integrity", url: "/admin/content-integrity", icon: ShieldAlert },
+  // Coverage: the boards' own subtopic lists against our topics, so "the whole
+  // specification is covered" is a number an admin can read, per spec.
+  { title: "Syllabus Coverage", url: "/admin/syllabus-coverage", icon: ListChecks },
   { title: "Payments", url: "/admin/payments", icon: CreditCard },
   { title: "Feedback", url: "/admin/feedback", icon: MessageSquareHeart },
   { title: "Email Health", url: "/admin/suppressions", icon: MailX },
+  // PDPL: the queue behind the notification admins get when a reader files a
+  // request from /data-rights.
+  { title: "Data Requests", url: "/admin/data-requests", icon: ShieldCheck },
 ];
 
 const parentLinks = [

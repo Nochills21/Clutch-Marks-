@@ -36,6 +36,14 @@ stopping a recurrence and asking Google to replace the stale title.
 - **Public pages carry explicit directives**:
   `index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1`.
   Previously there was no `robots` meta at all, so Google picked its own limits.
+- **A URL with no page of its own gets a `noindex` document, not the
+  homepage.** Every route the build cannot prerender — the admin console, a
+  lesson's notes, `/ai-marker`, a dead topic slug, a typo — used to be answered by
+  `dist/index.html`, which is also the indexable homepage, so all of them reached
+  Google as `index, follow` copies of `/`. The build now writes a separate
+  `dist/spa-fallback.html` (declared in `frontend/src/lib/spaRoutes.ts`) carrying
+  `noindex, follow` and claiming no canonical, and `vercel.json`'s catch-all
+  rewrite serves that instead.
 - **A non-canonical host can never represent the site.** `SEOHead` emits
   `noindex, nofollow` when the runtime host isn’t `SITE_URL`, and the prerender
   plugin emits the same for any build where `VERCEL_ENV` is `preview` or
@@ -46,7 +54,13 @@ stopping a recurrence and asking Google to replace the stale title.
   `clutchmarks.study`) so Google’s Site Names feature has a strong signal for the
   brand.
 
-Guarded by `frontend/src/lib/seoRobots.test.ts`.
+Guarded by `frontend/src/lib/seoRobots.test.ts` and
+`frontend/src/lib/seoConsistency.test.ts`, and at build time by
+`plugins/seoIndexDirectives.ts` — which reads the emitted HTML back and fails the
+build if a page is indexable without a public rule, a private page is indexable,
+the fallback document is indexable or claims a canonical, the catch-all rewrite
+points somewhere else, or a declared SPA-only route turns up indexable in
+`ROUTE_META`.
 
 ## What only you can do
 
@@ -87,6 +101,10 @@ curl -sI https://clutchmarks.study/ | head -20        # expect 200, no _vercel_j
 curl -s  https://clutchmarks.study/robots.txt          # /auth must NOT be Disallowed
 curl -s  https://clutchmarks.study/sitemap.xml         # every <url> needs a <lastmod>
 curl -s  https://clutchmarks.study/auth | grep robots  # expect noindex
+# A URL with no page of its own must not come back indexable,
+# and must not claim a canonical pointing at the homepage.
+curl -s  https://clutchmarks.study/spa-fallback.html | grep -E 'robots|canonical'
+curl -s  https://clutchmarks.study/no-such-page | grep -E 'robots|canonical'
 ```
 
 Also re-check the runtime tags in a browser (View Source on `/` should show

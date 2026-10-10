@@ -54,7 +54,7 @@ const organization = {
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   description:
-    "Online revision platform for Maths, Physics and Computer Science at O Level (IGCSE), AS and A2 — notes, exam-style topic questions with instant marking, and a past-paper archive.",
+    "Online revision platform for Maths, Physics and Computer Science at IGCSE, AS and A2 — notes, exam-style topic questions with instant marking, and a past-paper archive.",
   logo: {
     "@type": "ImageObject",
     url: `${SITE_URL}/icon-512.png`,
@@ -75,7 +75,7 @@ export function ogImageUrl(meta: Pick<RouteMeta, "ogImage">): string {
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "What subjects and levels does Clutch Marks cover?",
-    a: "Maths, Physics and Computer Science at O Level (IGCSE), AS and A2. Every subject has topic notes, exam-style questions with instant marking, and a past-paper archive with mark schemes.",
+    a: "Maths, Physics and Computer Science at IGCSE, AS and A2. Every subject has topic notes, exam-style questions with instant marking, and a past-paper archive with mark schemes.",
   },
   {
     q: "How much does Clutch Marks cost?",
@@ -112,10 +112,10 @@ const course = {
   "@type": "Course",
   name: "Clutch Marks — Maths, Physics & Computer Science Revision",
   description:
-    "Self-paced Maths, Physics and Computer Science revision for O Level (IGCSE), AS and A2: topic notes, exam-style questions with instant AI marking, flashcards and past papers with mark schemes.",
+    "Self-paced Maths, Physics and Computer Science revision for IGCSE, AS and A2: topic notes, exam-style questions with instant AI marking, flashcards and past papers with mark schemes.",
   url: `${SITE_URL}/pricing`,
   inLanguage: "en",
-  educationalLevel: ["O Level (IGCSE)", "AS Level", "A2 Level"],
+  educationalLevel: ["IGCSE", "AS Level", "A2 Level"],
   provider: organization,
   offers: [
     { "@type": "Offer", name: "Monthly", price: "20", priceCurrency: "USD" },
@@ -186,7 +186,7 @@ export const ROUTE_META: RouteMeta[] = [
     // kind of inconsistency that leaves a stale title in the index for weeks.
     title: "Clutch Marks — Revision Notes, Topic Questions & Past Papers",
     description:
-      "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at OL, AS and A2.",
+      "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at IGCSE, AS and A2.",
     jsonLd: [
       {
         "@context": "https://schema.org",
@@ -197,7 +197,7 @@ export const ROUTE_META: RouteMeta[] = [
         alternateName: ["ClutchMarks", "clutchmarks.study"],
         url: `${SITE_URL}/`,
         description:
-          "Study Maths, Physics and Computer Science at OL, AS and A2 with interactive lessons, practice quizzes and revision tools.",
+          "Study Maths, Physics and Computer Science at IGCSE, AS and A2 with interactive lessons, practice quizzes and revision tools.",
       },
       { "@context": "https://schema.org", ...organization },
     ],
@@ -223,7 +223,7 @@ export const ROUTE_META: RouteMeta[] = [
     ogImage: "/og/subjects.png",
     title: "Subjects & Levels — Clutch Marks",
     description:
-      "Choose Maths, Physics or Computer Science at OL, AS or A2 and jump straight into lessons, materials, exams and the AI question bank.",
+      "Choose Maths, Physics or Computer Science at IGCSE, AS or A2 and jump straight into lessons, materials, exams and the AI question bank.",
   },
   {
     path: "/lessons",
@@ -254,7 +254,7 @@ export const ROUTE_META: RouteMeta[] = [
       name: "Topic Notes",
       url: `${SITE_URL}/notes`,
       description:
-        "Downloadable topic notes for Maths, Physics and Computer Science at OL, AS and A2.",
+        "Downloadable topic notes for Maths, Physics and Computer Science at IGCSE, AS and A2.",
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       publisher: organization,
     },
@@ -386,6 +386,12 @@ export const ROUTE_META: RouteMeta[] = [
     description:
       "The rules for using Clutch Marks — fair use, content ownership, and account policies in plain language."
   },
+  {
+    path: "/data-rights",
+    title: "Your data rights — Clutch Marks",
+    description:
+      "Download everything Clutch Marks holds about your account, or ask us to correct, export or delete it. How we answer data requests, and how to complain to SDAIA."
+  },
 
   // ---- Utility and account routes ----------------------------------------
   // Crawlable but never indexable. Deliberately NOT disallowed in
@@ -398,6 +404,13 @@ export const ROUTE_META: RouteMeta[] = [
     title: "Dashboard — Clutch Marks",
     description:
       "Your Clutch Marks console: today's tasks, this week's progress and the subjects you study.",
+    noindex: true,
+  },
+  {
+    path: "/mastery",
+    title: "Mastery — Clutch Marks",
+    description:
+      "Your objective-level mastery: what you can already do, what you are getting wrong, and what is due to come back.",
     noindex: true,
   },
   {

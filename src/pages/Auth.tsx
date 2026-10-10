@@ -10,6 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -18,6 +19,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
 import { captureAttribution, getAttribution, trackSignup } from "@/lib/analytics";
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
+import { buildSignupConsent } from "@/lib/legal";
 import { fetchEnabledProviders, signInWithGoogle, NO_PROVIDERS } from "@/lib/oauthProviders";
 import { GraduationCap, ArrowLeft, Sparkles, Mail } from "lucide-react";
 import { ForgotPasswordDialog } from "@/components/ForgotPasswordDialog";
@@ -75,6 +77,10 @@ export default function Auth() {
   // the form has to hand over to a state that says what to do next.
   const [awaitingConfirmation, setAwaitingConfirmation] = useState<string | null>(null);
   const [signupEmail, setSignupEmail] = useState("");
+  // PDPL: account creation is the moment consent is given, so the tick is part
+  // of the form and its version is stored with the account (see
+  // supabase/migrations/20261008120000_pdpl_consent_export_and_requests.sql).
+  const [consentAccepted, setConsentAccepted] = useState(false);
   const [signupPassword, setSignupPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [parentEmail, setParentEmail] = useState("");
@@ -150,6 +156,16 @@ export default function Auth() {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Checked here rather than only disabling the button, so the reason is
+    // stated instead of the submit silently doing nothing.
+    if (!consentAccepted) {
+      toast({
+        title: "Please accept the Privacy Policy",
+        description: "Tick the box above to agree to how we handle your data — you can read both documents first.",
+        variant: "destructive",
+      });
+      return;
+    }
     // Password policy: minimum length is enforced by the auth server (6);
     // complexity and breach-screening are enforced here with clear feedback.
     const pwError = validatePassword(signupPassword, "student");
@@ -193,6 +209,9 @@ export default function Auth() {
           parent_email: role === "student" && parent ? parent : undefined,
           // Blog/ad attribution (first-touch UTM), stored in user metadata.
           attribution: getAttribution() ?? undefined,
+          // PDPL: which document versions were accepted, and when. Recorded
+          // server-side by the auth trigger, so the account carries the evidence.
+          consent: buildSignupConsent(),
         },
       },
     });
@@ -361,6 +380,24 @@ export default function Auth() {
                       <p className="text-xs text-muted-foreground">If your parent already has an account they'll see your progress; otherwise they'll be linked automatically when they sign up.</p>
                     </div>
                   )}
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="signup-consent"
+                      checked={consentAccepted}
+                      onCheckedChange={(value) => setConsentAccepted(value === true)}
+                      className="mt-0.5"
+                    />
+                    <Label
+                      htmlFor="signup-consent"
+                      className="cursor-pointer text-xs font-normal leading-relaxed text-muted-foreground"
+                    >
+                      I have read and agree to the{" "}
+                      <Link to="/privacy" className="text-primary underline">Privacy Policy</Link> and the{" "}
+                      <Link to="/terms" className="text-primary underline">Terms of Service</Link>, including
+                      how my answers and study activity are used to mark my work. I can withdraw this at any
+                      time by deleting my account.
+                    </Label>
+                  </div>
                   <Button type="submit" className="w-full h-11 bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] hover:opacity-90 transition-opacity shadow-md glow-shadow font-semibold text-sm text-primary-foreground" disabled={loading}>
                     {loading ? "Creating account…" : "Create Account"}
                   </Button>

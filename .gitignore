@@ -61,6 +61,10 @@ dist-ssr
 # the U+FFFD replacement character.
 !.freebuff/sql.cjs
 !.freebuff/audit-fffd.cjs
+# The objectives review gate is content pipeline, not a one-off debug script: it
+# is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
+# author to run it before a topic's objectives are published.
+!.freebuff/gate-objectives.cjs
 !.freebuff/content-backup/
 !.freebuff/pdftool/
 # Generated PDF artifacts (booklets, per-topic notes/questions) live in Supabase

@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Plus, Pencil, Trash2, Upload, FileText, ExternalLink, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { validateUploadFile } from "@/lib/fileValidation";
+import { contentSaveError } from "@/lib/contentGuards";
 import { openSignedFile } from "@/lib/contentFiles";
 
 type Note = { id: string; title: string; file_url: string | null; topic_id: string | null };
@@ -39,10 +40,14 @@ export default function AdminTopics() {
 
   const save = async () => {
     const payload = { name, description, sort_order: sortOrder };
-    if (editing) {
-      await supabase.from("topics").update(payload).eq("id", editing.id);
-    } else {
-      await supabase.from("topics").insert(payload);
+    const { error } = editing
+      ? await supabase.from("topics").update(payload).eq("id", editing.id)
+      : await supabase.from("topics").insert(payload);
+    // Topics are linked from every topic page and are guarded, so a refused
+    // write has to be visible rather than toasted as "Created".
+    if (error) {
+      toast(contentSaveError("Could not save the topic", error.message));
+      return;
     }
     toast({ title: editing ? "Updated" : "Created" });
     setOpen(false); setEditing(null); setName(""); setDescription(""); setSortOrder(0);
