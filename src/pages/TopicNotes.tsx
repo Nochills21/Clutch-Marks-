@@ -1,5 +1,5 @@
 // Per-topic notes page (SEO-friendly URL).
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
@@ -22,6 +22,7 @@ import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil, Exter
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
 import { openProtectedFile } from "@/lib/contentFiles";
+import { relatedTopicPapers } from "@/lib/topicPapers";
 import { smallMarkdownToHtml } from "@/lib/objectiveTeach";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
@@ -42,11 +43,22 @@ export default function TopicNotes() {
   const [materials, setMaterials] = useState<any[]>([]);
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [papers, setPapers] = useState<any[]>([]);
+  const [levelPapers, setLevelPapers] = useState<any[]>([]);
   const [reloadKey, setReloadKey] = useState(0);
   const bumpRevision = () => setReloadKey((k) => k + 1);
 
   const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+
+  // Paper-aware papers: the topic's own papers plus every other paper in this
+  // subject-level sitting in the same paper group (Paper 1 lessons list Paper
+  // 1 papers with their mark schemes, mechanics lessons list mechanics
+  // papers, …). Falls back to the whole level when the topic has no tagged
+  // papers of its own.
+  const relatedPapers = useMemo(
+    () => relatedTopicPapers(topicId ?? "", papers, levelPapers.length > 0 ? levelPapers : papers),
+    [topicId, papers, levelPapers],
+  );
 
   useEffect(() => {
     let active = true;
@@ -108,17 +120,20 @@ export default function TopicNotes() {
         setTopicTitle(topicRow?.name ?? normalizedTopic);
         setTopicId(topicId);
 
-        const [ls, ms, qz, pp] = await Promise.all([
+        const levelTopicIds = topicList.map((t) => t.id);
+        const [ls, ms, qz, pp, lp] = await Promise.all([
           topicId && supabase.from("lessons").select("*, topics(name)").eq("topic_id", topicId).order("sort_order"),
           supabase.from("study_materials").select("*, topics(name)").eq("topic_id", topicId).order("created_at", { ascending: false }),
           supabase.from("quizzes").select("*, topics(name)").eq("topic_id", topicId).order("created_at", { ascending: false }),
           supabase.from("past_papers").select("*, topics(name)").eq("topic_id", topicId).order("year", { ascending: false }),
+          supabase.from("past_papers").select("*, topics(name)").in("topic_id", levelTopicIds).order("year", { ascending: false }),
         ]);
 
         setLessons((ls.data ?? []).filter(Boolean));
         setMaterials((ms.data ?? []).filter(Boolean));
         setQuizzes((qz.data ?? []).filter((q) => q.is_published));
         setPapers((pp.data ?? []).filter(Boolean));
+        setLevelPapers((lp.data ?? []).filter(Boolean));
       } catch (e: any) {
         setError(e.message ?? "Failed to load topic content");
       } finally {
@@ -371,7 +386,13 @@ export default function TopicNotes() {
                   {m.file_url ? (
                     <>
                       <Button size="sm" variant="ghost" className="gap-1 h-8"
-                        onClick={() => openProtectedFile("study-materials", m.file_url)}>
+                        onClick={async () => {
+                          try {
+                            await openProtectedFile("study-materials", m.file_url);
+                          } catch (e: any) {
+                            toast.error(e?.message ?? "Could not open this file");
+                          }
+                        }}>
                         <ExternalLink className="h-3.5 w-3.5" /> Open
                       </Button>
                       <Button size="sm" variant="ghost" className="gap-1 h-8"
@@ -451,14 +472,18 @@ export default function TopicNotes() {
 
         <Card className="min-w-0">
           <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2"><Archive className="h-5 w-5 text-primary" /> Past Papers & Mark Schemes</CardTitle>
-            <CardDescription>Papers linked to {topicTitle}</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {papers.length === 0 ? (
+            <CardTitle className="text-lg flex items-center gap-2"><Archive className="h-5 w-5 text-primary" /> Past Papers & Mark Schemes</CardTitle>          <CardDescription>
+            Papers linked to {topicTitle}
+            {relatedPapers.filtered && relatedPapers.groups.length > 0 && (
+              <> — showing {relatedPapers.groups.join(", ")} papers</>
+            )}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+            {relatedPapers.papers.length === 0 ? (
               <p className="text-sm text-muted-foreground py-4 text-center">No past papers are linked to this topic yet.</p>
             ) : (
-              papers.map((p) => (
+              relatedPapers.papers.slice(0, 5).map((p) => (
                 <Link
                   key={p.id}
                   to={topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}

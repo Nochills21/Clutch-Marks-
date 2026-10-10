@@ -50,6 +50,57 @@ export type Database = {
         }
         Relationships: []
       }
+      ai_correction: {
+        Row: {
+          id: string
+          user_id: string
+          subject_level_id: string | null
+          paper_text: string | null
+          corrected_papers: Json | null
+          overall_grade: number | null
+          total_possible: number | null
+          total_earned: number | null
+          audit_ref: string | null
+          model: string
+          created_at: string
+          source: string
+          answer_files: Json | null
+          paper_ref: Json | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          subject_level_id?: string | null
+          paper_text?: string | null
+          corrected_papers?: Json | null
+          overall_grade?: number | null
+          total_possible?: number | null
+          total_earned?: number | null
+          audit_ref?: string | null
+          model?: string
+          created_at?: string
+          source?: string
+          answer_files?: Json | null
+          paper_ref?: Json | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          subject_level_id?: string | null
+          paper_text?: string | null
+          corrected_papers?: Json | null
+          overall_grade?: number | null
+          total_possible?: number | null
+          total_earned?: number | null
+          audit_ref?: string | null
+          model?: string
+          created_at?: string
+          source?: string
+          answer_files?: Json | null
+          paper_ref?: Json | null
+        }
+        Relationships: []
+      }
 
       announcement_reads: {
         Row: {

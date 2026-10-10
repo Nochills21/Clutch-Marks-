@@ -1,5 +1,5 @@
 // Per-topic past-paper list.
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -20,7 +20,8 @@ import { topicHead } from "@/lib/topicSeo";
 import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw, Download } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
-import { paperFileName } from "@/lib/pastPaperFiles";
+import { paperFileName, archivePaperGroup } from "@/lib/pastPaperFiles";
+import { relatedTopicPapers } from "@/lib/topicPapers";
 import { usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
@@ -36,6 +37,7 @@ interface TopicPaper {
   paper_url: string | null;
   mark_scheme_url: string | null;
   source_url: string | null;
+  topic_id: string | null;
 }
 
 export default function TopicPapers() {
@@ -52,6 +54,8 @@ export default function TopicPapers() {
   const topicSlug = slugifyTopicName(topic ?? "");
   const [topicId, setTopicId] = useState<string | null>(null);
   const [papers, setPapers] = useState<TopicPaper[]>([]);
+  const [levelPapers, setLevelPapers] = useState<TopicPaper[]>([]);
+  const [groupFilter, setGroupFilter] = useState("all");
   // Bumped by "Try again" to re-run the load effect.
   const [retryKey, setRetryKey] = useState(0);
   const { toast } = useToast();
@@ -59,13 +63,26 @@ export default function TopicPapers() {
   const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
+  // Paper-aware set: the topic's own tagged papers plus every other paper in
+  // this subject-level sitting in the same paper group — so a Paper 1 lesson
+  // lists Paper 1 papers (with their mark schemes), a mechanics lesson lists
+  // mechanics papers, and so on for every paper of every subject and level.
+  // Topics with no tagged papers of their own fall back to the whole level.
+  const related = useMemo(
+    () => relatedTopicPapers(topicId ?? "", papers, levelPapers.length > 0 ? levelPapers : papers),
+    [topicId, papers, levelPapers],
+  );
+  const groupFiltered = groupFilter === "all"
+    ? related.papers
+    : related.papers.filter((p) => archivePaperGroup(p) === groupFilter);
+
   // Free-plan limit for this topic's past papers: show the first 2 records
   // (follows the global FREE_PREVIEW_LIMIT policy); paid accounts see all.
   const visiblePapers = hasPaid
-    ? papers
+    ? groupFiltered
     : isPreview
-      ? papers.slice(0, FREE_PREVIEW_LIMIT)
-      : papers;
+      ? groupFiltered.slice(0, FREE_PREVIEW_LIMIT)
+      : groupFiltered;
 
   const openPaper = async (url: string) => {
     try {
@@ -142,11 +159,20 @@ export default function TopicPapers() {
         }
         setTopicTitle(topicRow.name);
         setTopicId(topicRow.id);
+        setGroupFilter("all");
 
         if (active && topicRow) {
-          const { data, error: papersError } = await supabase.from("past_papers").select("*").eq("topic_id", topicRow.id).order("year", { ascending: false });
-          if (papersError) throw papersError;
-          if (active) setPapers((data ?? []) as unknown as TopicPaper[]);
+          const levelTopicIds = topicList.map((t) => t.id);
+          const [ownRes, levelRes] = await Promise.all([
+            supabase.from("past_papers").select("*").eq("topic_id", topicRow.id).order("year", { ascending: false }),
+            supabase.from("past_papers").select("*").in("topic_id", levelTopicIds).order("year", { ascending: false }),
+          ]);
+          if (ownRes.error) throw ownRes.error;
+          if (levelRes.error) throw levelRes.error;
+          if (active) {
+            setPapers((ownRes.data ?? []) as unknown as TopicPaper[]);
+            setLevelPapers((levelRes.data ?? []) as unknown as TopicPaper[]);
+          }
         }
       } catch (e: any) {
         setError(e.message ?? "Failed to load topic past papers");
@@ -267,9 +293,12 @@ export default function TopicPapers() {
             <Badge variant="outline">{LEVEL_LABELS[levelCode]}</Badge>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
-            {papers.length} past paper{papers.length === 1 ? "" : "s"} linked to {topicTitle} in {subjectMeta.name} {LEVEL_LABELS[levelCode]}.
+            {groupFiltered.length} past paper{groupFiltered.length === 1 ? "" : "s"} linked to {topicTitle} in {subjectMeta.name} {LEVEL_LABELS[levelCode]}.
+            {related.filtered && related.groups.length > 0 && (
+              <span> Showing {related.groups.join(", ")} papers for this topic.</span>
+            )}
             {isPreview && !hasPaid && (
-              <span className="text-xs text-primary"> ({visiblePapers.length} of {papers.length} shown — full archive on the full plan)</span>
+              <span className="text-xs text-primary"> ({visiblePapers.length} of {groupFiltered.length} shown — full archive on the full plan)</span>
             )}
             Use these to practise under real exam conditions and check your answers against the mark schemes.
           </p>
@@ -283,7 +312,7 @@ export default function TopicPapers() {
 
       <div className="grid gap-3 sm:grid-cols-3">
         {[
-          { label: "Past Papers", value: papers.length, icon: Archive, color: accent.text },
+          { label: "Past Papers", value: groupFiltered.length, icon: Archive, color: accent.text },
           { label: "Notes", value: 0, icon: BookOpen, color: accent.text },
           { label: "Topic Questions", value: 0, icon: Play, color: accent.text },
         ].map((s) => (
@@ -303,6 +332,27 @@ export default function TopicPapers() {
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2"><Archive className="h-5 w-5 text-primary" /> Past Papers & Mark Schemes for {topicTitle}</CardTitle>
           <CardDescription>Organised by year, session and paper number</CardDescription>
+          {related.groups.length > 1 && (
+            <div className="flex flex-wrap gap-2 px-6">
+              <Button
+                size="sm"
+                variant={groupFilter === "all" ? "default" : "outline"}
+                onClick={() => setGroupFilter("all")}
+              >
+                All ({related.papers.length})
+              </Button>
+              {related.groups.map((g) => (
+                <Button
+                  key={g}
+                  size="sm"
+                  variant={groupFilter === g ? "default" : "outline"}
+                  onClick={() => setGroupFilter(groupFilter === g ? "all" : g)}
+                >
+                  {g} ({related.papers.filter((p) => archivePaperGroup(p) === g).length})
+                </Button>
+              ))}
+            </div>
+          )}
         </CardHeader>
         <CardContent className="space-y-2">
           {visiblePapers.length === 0 ? (
@@ -375,9 +425,9 @@ export default function TopicPapers() {
               </div>
             ))
           )}
-          {!hasPaid && isPreview && papers.length > visiblePapers.length && (
+          {!hasPaid && isPreview && groupFiltered.length > visiblePapers.length && (
             <div className="mt-4 flex justify-between items-center border-t pt-4">
-              <p className="text-sm text-muted-foreground">{papers.length - visiblePapers.length} more paper{papers.length - visiblePapers.length === 1 ? "" : "s"} available on the full plan.</p>
+              <p className="text-sm text-muted-foreground">{groupFiltered.length - visiblePapers.length} more paper{groupFiltered.length - visiblePapers.length === 1 ? "" : "s"} available on the full plan.</p>
               <Button asChild variant="outline" size="sm">
                 <Link to="/pricing"><Sparkles className="h-3.5 w-3.5 mr-2" /> View plans</Link>
               </Button>

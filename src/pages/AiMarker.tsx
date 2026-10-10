@@ -1,9 +1,16 @@
 // AI Marker page: upload a solved past paper and have it marked.
+import { useState } from "react";
 import { SEOHead } from "@/components/SEOHead";
 import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
-import { Wand2 } from "lucide-react";
+import { MarkedPapersHistory } from "@/components/MarkedPapersHistory";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PenLine, History, Wand2 } from "lucide-react";
 
 export default function AiMarker() {
+  // Bumped every time a marking completes, so the history tab already lists
+  // the paper the student has just had corrected.
+  const [historyKey, setHistoryKey] = useState(0);
+
   return (
     <div className="space-y-8">
       {/* No title/description props: the shared head table owns the copy for a
@@ -20,7 +27,25 @@ export default function AiMarker() {
         </p>
       </div>
 
-      <SolvedPaperMarker title="Mark a solved past paper" />
+      <Tabs defaultValue="mark" className="space-y-6">
+        <TabsList>
+          <TabsTrigger value="mark" className="gap-1.5">
+            <PenLine className="h-3.5 w-3.5" /> Mark a paper
+          </TabsTrigger>
+          <TabsTrigger value="history" className="gap-1.5">
+            <History className="h-3.5 w-3.5" /> My marked papers
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="mark">
+          <SolvedPaperMarker
+            title="Mark a solved past paper"
+            onMarked={() => setHistoryKey((k) => k + 1)}
+          />
+        </TabsContent>
+        <TabsContent value="history">
+          <MarkedPapersHistory refreshKey={historyKey} />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-09T21:02:46.331Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-10T08:21:49.893Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -3693,7 +3693,7 @@ create policy "Admins can manage materials" on public."study_materials" for all 
 drop policy if exists "Anyone can view study materials" on public."study_materials";
 create policy "Anyone can view study materials" on public."study_materials" for select to "anon" using (((file_url IS NULL) OR has_role(auth.uid(), 'admin'::app_role)));
 drop policy if exists "Authenticated can view text materials" on public."study_materials";
-create policy "Authenticated can view text materials" on public."study_materials" for select to "authenticated" using (((file_url IS NULL) OR has_role(auth.uid(), 'admin'::app_role)));
+create policy "Authenticated can view text materials" on public."study_materials" for select to "authenticated" using (((file_url IS NULL) OR has_role(auth.uid(), 'admin'::app_role) OR is_user_approved(auth.uid())));
 drop policy if exists "Admins can manage all study plans" on public."study_plans";
 create policy "Admins can manage all study plans" on public."study_plans" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Admins can view all study plans" on public."study_plans";

@@ -56,6 +56,8 @@ export interface SolvedPaperMarkerProps {
   title?: string;
   subject?: string | null;
   level?: string | null;
+  /** Fired when a marking completes, so the host can refresh its history tab. */
+  onMarked?: () => void;
 }
 
 type Stage = "idle" | "uploading" | "marking" | "done";
@@ -131,6 +133,7 @@ export function SolvedPaperMarker({
   title = "AI Marker",
   subject,
   level,
+  onMarked,
 }: SolvedPaperMarkerProps) {
   const { user } = useAuth();
   const { loading: planLoading, isPreview } = usePlanAccess();
@@ -225,6 +228,12 @@ export function SolvedPaperMarker({
     }
     setError(null);
     setResult(null);
+    // Immediate acknowledgement: marking takes a while, so the student knows
+    // the paper is in the queue rather than staring at a spinner wondering.
+    toast({
+      title: "Paper submitted",
+      description: "Your paper will be corrected soon — marking usually takes under a minute.",
+    });
     let uploadPhase = true;
     const uploadedNow: UploadedScript[] = [];
 
@@ -254,9 +263,10 @@ export function SolvedPaperMarker({
       setMarkedFileNames(queued.map((q) => q.file.name));
       setStage("done");
       toast({
-        title: "Marked",
-        description: `Overall grade: ${out.overall_grade}% (${out.total_earned}/${out.total_possible} marks)`,
+        title: "Your corrected paper is ready",
+        description: `Overall grade: ${out.overall_grade}% (${out.total_earned}/${out.total_possible} marks). Find it anytime under “My marked papers”.`,
       });
+      onMarked?.();
     } catch (e: unknown) {
       if (isPlanRequiredError(e)) {
         // The plan lapsed while this page was open — the server is the truth.
@@ -507,6 +517,13 @@ export function SolvedPaperMarker({
             placeholder="e.g. I only attempted questions 1–6. Or paste typed answers here instead of uploading."
           />
         </div>
+
+        {stage === "marking" && (
+          <div className="flex items-start gap-2 rounded-md bg-primary/10 px-3 py-2 text-sm text-primary">
+            <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin" />
+            <span>Your paper has been submitted and is being corrected against the mark scheme — hang tight.</span>
+          </div>
+        )}
 
         <Button className="w-full gap-2" onClick={markPaper} disabled={!canMark}>
           {stage === "uploading" && (
