@@ -17,7 +17,8 @@ import {
   topicSlugOf,
 } from "@/lib/topicUrls";
 import { topicHead } from "@/lib/topicSeo";
-import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw, Download } from "lucide-react";
+import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw, Download, Wand2 } from "lucide-react";
+import { MarkPaperDialog } from "@/components/MarkPaperDialog";
 import { useToast } from "@/hooks/useToast";
 import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
 import { paperFileName, archivePaperGroup } from "@/lib/pastPaperFiles";
@@ -58,6 +59,9 @@ export default function TopicPapers() {
   const [groupFilter, setGroupFilter] = useState("all");
   // Bumped by "Try again" to re-run the load effect.
   const [retryKey, setRetryKey] = useState(0);
+  // The row the student tapped “Submit for marking” on — marking is scoped
+  // to that paper's own mark scheme.
+  const [markPaper, setMarkPaper] = useState<TopicPaper | null>(null);
   const { toast } = useToast();
   const { isPreview, hasPaid } = usePlanAccess();
   const { user } = useAuth();
@@ -411,6 +415,15 @@ export default function TopicPapers() {
                       <Clock className="h-3 w-3" /> Files coming soon
                     </Badge>
                   )}
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="gap-1.5 text-xs"
+                    title="Submit your solved script — marked against this paper's mark scheme"
+                    onClick={() => setMarkPaper(p)}
+                  >
+                    <Wand2 className="h-3.5 w-3.5" /> Submit for marking
+                  </Button>
                   {p.source_url && (
                     <Button
                       size="sm"
@@ -467,6 +480,13 @@ export default function TopicPapers() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Submit-for-marking scoped to the tapped paper's own mark scheme. */}
+      <MarkPaperDialog
+        paper={markPaper}
+        open={markPaper !== null}
+        onOpenChange={(o) => { if (!o) setMarkPaper(null); }}
+      />
     </div>
   );
 }

@@ -18,7 +18,8 @@ import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { useNoteProgress, downloadNote, type NoteRow } from "./Notes";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVEL_LABELS } from "@/lib/subjects";
-import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
+import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil, Wand2 } from "lucide-react";
+import { MarkPaperDialog } from "@/components/MarkPaperDialog";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -36,6 +37,7 @@ export default function LessonNotes() {
   const [notes, setNotes] = useState<NoteRow[]>([]);
   const [papers, setPapers] = useState<any[]>([]);
   const [levelPapers, setLevelPapers] = useState<any[]>([]);
+  const [markPaper, setMarkPaper] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [lessonDone, setLessonDone] = useState(false);
   const { done, toggle } = useNoteProgress();
@@ -389,6 +391,11 @@ export default function LessonNotes() {
                     </Button>
                   </>
                 )}
+                <Button size="sm" variant="outline" className="gap-1"
+                  title="Submit your solved script — marked against this paper's mark scheme"
+                  onClick={() => setMarkPaper(p)}>
+                  <Wand2 className="h-3.5 w-3.5" /> Submit for marking
+                </Button>
                 {!p.paper_url && !p.mark_scheme_url && (
                   <span className="text-xs text-muted-foreground">Files coming soon</span>
                 )}
@@ -397,6 +404,13 @@ export default function LessonNotes() {
           ))}
         </CardContent>
       </Card>
+
+      {/* Submit-for-marking scoped to the tapped paper's own mark scheme. */}
+      <MarkPaperDialog
+        paper={markPaper}
+        open={markPaper !== null}
+        onOpenChange={(o) => { if (!o) setMarkPaper(null); }}
+      />
     </div>
   );
 }

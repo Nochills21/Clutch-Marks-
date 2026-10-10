@@ -27,8 +27,9 @@ import {
   SESSION_ORDER,
   filterArchivePapers,
 } from "@/lib/pastPaperFiles";
-import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download } from "lucide-react";
+import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download, Wand2 } from "lucide-react";
 import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
+import { MarkPaperDialog } from "@/components/MarkPaperDialog";
 import { QueryError } from "@/components/QueryError";
 import { loadFailureMessage } from "@/lib/net";
 
@@ -71,6 +72,9 @@ export default function PastPapers() {
   const [paperFilter, setPaperFilter] = useState("all");
   const [sessionFilter, setSessionFilter] = useState("all");
   const [practicePaper, setPracticePaper] = useState<PracticePaper | null>(null);
+  // The paper whose row the student tapped “Submit for marking” on — the
+  // marking is scoped to that paper's own mark scheme.
+  const [markPaper, setMarkPaper] = useState<any | null>(null);
 
   const { data: topics, error: topicsError } = useQuery({
     queryKey: ["topics"],
@@ -454,6 +458,15 @@ export default function PastPapers() {
                       >
                         <Clock className="h-3.5 w-3.5" /> Practise
                       </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="gap-1.5"
+                        title="Submit your solved script — marked against this paper's mark scheme"
+                        onClick={() => setMarkPaper(p)}
+                      >
+                        <Wand2 className="h-3.5 w-3.5" /> Submit for marking
+                      </Button>
                       {p.paper_url && (
                         <Button
                           size="sm"
@@ -504,6 +517,13 @@ export default function PastPapers() {
         open={practicePaper !== null}
         onOpenChange={(o) => { if (!o) setPracticePaper(null); }}
         onSaved={() => qc.invalidateQueries({ queryKey: ["past_paper_attempts"] })}
+      />
+
+      {/* Submit-for-marking scoped to the tapped paper's own mark scheme. */}
+      <MarkPaperDialog
+        paper={markPaper}
+        open={markPaper !== null}
+        onOpenChange={(o) => { if (!o) setMarkPaper(null); }}
       />
 
     </div>
