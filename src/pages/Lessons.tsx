@@ -8,12 +8,12 @@ import { useToast } from "@/hooks/useToast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Circle, BookOpen, ChevronRight, Download, FileText, Loader2 } from "lucide-react";
+import { CheckCircle2, Circle, BookOpen, ChevronRight, Download, FileText, Loader2, ClipboardList, Archive, Layers } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { exportLessonToPdf } from "@/lib/pdfExport";
 import { SEOHead } from "@/components/SEOHead";
 import { openSignedFile } from "@/lib/contentFiles";
-import { topicNotesPath, topicSlugOf } from "@/lib/topicUrls";
+import { topicNotesPath, topicQuizPath, topicPapersPath, topicSlugOf } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { usePreviewSlice, PreviewLimit, usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
@@ -32,7 +32,11 @@ export default function Lessons() {
   const [progress, setProgress] = useState<Record<string, boolean>>({});
   const [selectedLesson, setSelectedLesson] = useState<any>(null);
   const [notes, setNotes] = useState<any[]>([]);
-  const [topicPaths, setTopicPaths] = useState<Record<string, string | undefined>>({});
+  // Per-topic hub links (notes / questions / past papers) plus the badge label
+  // (subject + level), so same-named topics on different levels — Nuclear
+  // Physics (OL vs A2), Thermal Physics — are distinguishable in the list.
+  const [topicLinks, setTopicLinks] = useState<Record<string, { notes: string; quiz: string; papers: string } | undefined>>({});
+  const [topicMeta, setTopicMeta] = useState<Record<string, { subject: string; level: string }>>({});
   const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, topicSlugOf(t)])), [topics]);
   const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
 
@@ -60,7 +64,7 @@ export default function Lessons() {
         supabase.from("study_materials").select("id, title, file_url, topic_id").eq("material_type", "notes"),
         user ? supabase.from("lesson_progress").select("lesson_id, completed").eq("user_id", user.id) : Promise.resolve({ data: [] }),
         supabase.from("subject_levels").select("id, level, subject_id"),
-        supabase.from("subjects").select("id, slug"),
+        supabase.from("subjects").select("id, name, slug"),
       ]);
       const topicsList = topicsRes.data ?? [];
       setTopics(topicsList);
@@ -69,16 +73,31 @@ export default function Lessons() {
       const prog: Record<string, boolean> = {};
       (progressRes.data ?? []).forEach((p: any) => { prog[p.lesson_id] = p.completed; });
       setProgress(prog);
-      // Resolve each topic's SEO-friendly notes path via its subject level + subject slug.
+      // Resolve each topic's hub links (notes / questions / papers) and badge
+      // label via its subject level + subject slug.
       const slMap = new Map(((slRes.data ?? []) as any[]).map((s) => [s.id, s]));
-      const subMap = new Map(((subRes.data ?? []) as any[]).map((s) => [s.id, s.slug]));
-      const paths: Record<string, string | undefined> = {};
+      const subMap = new Map(((subRes.data ?? []) as any[]).map((s) => [s.id, s]));
+      const links: Record<string, { notes: string; quiz: string; papers: string } | undefined> = {};
+      const meta: Record<string, { subject: string; level: string }> = {};
       for (const t of topicsList) {
         const sl = slMap.get((t as any).subject_level_id);
-        const slug = sl ? subMap.get(sl.subject_id) : undefined;
-        paths[t.id] = slug && sl ? topicNotesPath(slug, sl.level.toLowerCase(), topicSlugOf(t)) : undefined;
+        const sub = sl ? subMap.get(sl.subject_id) : undefined;
+        const slug = sub?.slug;
+        if (slug && sl) {
+          const lvl = sl.level.toLowerCase();
+          const tslug = topicSlugOf(t);
+          links[t.id] = {
+            notes: topicNotesPath(slug, lvl, tslug),
+            quiz: topicQuizPath(slug, lvl, tslug),
+            papers: topicPapersPath(slug, lvl, tslug),
+          };
+          meta[t.id] = { subject: sub.name, level: sl.level };
+        } else {
+          links[t.id] = undefined;
+        }
       }
-      setTopicPaths(paths);
+      setTopicLinks(links);
+      setTopicMeta(meta);
     };
     load();
   }, [user]);
@@ -232,7 +251,10 @@ export default function Lessons() {
         <Accordion type="multiple" className="space-y-3">
           {visibleTopics.map((topic) => {
             const topicLessons = lessons.filter((l) => l.topic_id === topic.id);
+            const topicNotes = notes.filter((n) => n.topic_id === topic.id);
             const completedCount = topicLessons.filter((l) => progress[l.id]).length;
+            const links = topicLinks[topic.id];
+            const meta = topicMeta[topic.id];
             return (
               <AccordionItem key={topic.id} value={topic.id} className="border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline">
@@ -244,12 +266,37 @@ export default function Lessons() {
                       <p className="font-semibold">{topic.name}</p>
                       <p className="text-xs text-muted-foreground">{completedCount}/{topicLessons.length} lessons</p>
                     </div>
+                    {meta && (
+                      <div className="ml-1 flex flex-wrap gap-1">
+                        <Badge variant="secondary" className="text-[10px]">{meta.subject}</Badge>
+                        <Badge variant="outline" className="text-[10px]">{LEVEL_LABELS[meta.level as "OL"] ?? meta.level}</Badge>
+                      </div>
+                    )}
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-1 pb-2">
+                    {/* Topic menu: one tap to the topic's notes, questions,
+                        past papers or flashcards — no hunting through rows. */}
+                    <div className="grid grid-cols-2 gap-2 px-1 pb-3 sm:grid-cols-4">
+                      <Button size="sm" variant="outline" className="gap-1.5" disabled={!links} onClick={() => links && navigate(links.notes)}>
+                        <FileText className="h-3.5 w-3.5" /> Notes
+                      </Button>
+                      <Button size="sm" variant="outline" className="gap-1.5" disabled={!links} onClick={() => links && navigate(links.quiz)}>
+                        <ClipboardList className="h-3.5 w-3.5" /> Questions
+                      </Button>
+                      <Button size="sm" variant="outline" className="gap-1.5" disabled={!links} onClick={() => links && navigate(links.papers)}>
+                        <Archive className="h-3.5 w-3.5" /> Past papers
+                      </Button>
+                      <Button size="sm" variant="outline" className="gap-1.5" onClick={() => navigate("/flashcards")}>
+                        <Layers className="h-3.5 w-3.5" /> Flashcards
+                      </Button>
+                    </div>
+                    {topicLessons.length > 0 && (
+                      <p className="px-3 pt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Lessons</p>
+                    )}
                     {topicLessons.map((lesson) => {
-                      const dest = topicPaths[lesson.topic_id];
+                      const dest = topicLinks[lesson.topic_id]?.notes;
                       return (
                         <button
                           key={lesson.id}
@@ -277,13 +324,19 @@ export default function Lessons() {
                         </button>
                       );
                     })}
-                    {notes.filter((n) => n.topic_id === topic.id).map((n) => {
-                      const dest = topicPaths[n.topic_id];
+                    {topicNotes.length > 0 && (
+                      <p className="px-3 pt-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Files & notes</p>
+                    )}
+                    {topicNotes.map((n) => {
+                      const dest = topicLinks[n.topic_id]?.notes;
                       if (!n.file_url && !dest) return null;
                       return (
                         <button
                           key={n.id}
-                          onClick={() => (n.file_url ? openSignedFile("study-materials", n.file_url) : dest && navigate(dest))}
+                          onClick={() => {
+                            if (n.file_url) openSignedFile("study-materials", n.file_url).catch((e: any) => toast({ title: "Couldn't open this file", description: e?.message ?? "Please try again.", variant: "destructive" }));
+                            else if (dest) navigate(dest);
+                          }}
                           className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm hover:bg-muted transition-colors text-left"
                         >
                           <FileText className="h-4 w-4 text-primary shrink-0" />

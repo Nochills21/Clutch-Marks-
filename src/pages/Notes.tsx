@@ -371,13 +371,19 @@ export default function Notes() {
                       {n.file_url && (
                         <>
                           <Button size="sm" variant="ghost" className="gap-1"
-                            onClick={() => openProtectedFile("study-materials", n.file_url!)}>
+                            onClick={async () => {
+                              try {
+                                await openProtectedFile("study-materials", n.file_url!);
+                              } catch (e: any) {
+                                toast.error(e?.message ?? "Could not open this file");
+                              }
+                            }}>
                             <ExternalLink className="h-3.5 w-3.5" /> Open
                           </Button>
                           <Button size="sm" variant="ghost"
                             aria-label={`Download ${n.title}`}
                             title={`Download ${n.title}`}
-                            onClick={() => downloadNote(n)}>
+                            onClick={() => downloadNote(n).catch((e: any) => toast.error(e?.message ?? "Could not download this file"))}>
                             <Download className="h-3.5 w-3.5" />
                           </Button>
                         </>
