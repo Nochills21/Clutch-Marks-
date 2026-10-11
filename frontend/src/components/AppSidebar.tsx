@@ -75,6 +75,10 @@ const adminLinks = [
   { title: "Data Requests", url: "/admin/data-requests", icon: ShieldCheck },
 ];
 
+// App version shown in small writing at the bottom of the sidebar.
+// Keep in sync with package.json "version".
+const APP_VERSION = "1.0.0";
+
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Child Progress", url: "/progress", icon: BarChart3 },
@@ -233,6 +237,9 @@ export function AppSidebar() {
             <LogOut className="h-4 w-4" /> Sign Out
           </Button>
         </div>
+        <p className="pt-1 text-center text-[10px] tabular-nums text-sidebar-foreground/30">
+          v{APP_VERSION}
+        </p>
       </SidebarFooter>
     </Sidebar>
   );
