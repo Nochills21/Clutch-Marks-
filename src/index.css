@@ -555,6 +555,87 @@
   }
 }
 
+/* Clutch Marks study surfaces: a white, ivory and champagne-gold palette with
+   serif headings. Scoped to .cm-study so the rest of the app keeps its warm
+   paper theme. Re-pointing the shadcn variables here re-themes every primitive
+   inside (Card, Button, Badge, Tabs) without editing those components. */
+@layer components {
+  .cm-study {
+    --background: 40 25% 99%;
+    --foreground: 225 18% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 225 18% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 18% 12%;
+    --primary: 40 52% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 22% 96%;
+    --secondary-foreground: 225 14% 22%;
+    --muted: 40 18% 96%;
+    --muted-foreground: 225 8% 42%;
+    --accent: 40 45% 94%;
+    --accent-foreground: 40 52% 30%;
+    --border: 40 12% 90%;
+    --input: 40 12% 88%;
+    --ring: 40 52% 36%;
+    --radius: 0.5rem;
+    --gold: 40 52% 36%;
+    --gold-soft: 40 45% 70%;
+    --gold-deep: 36 55% 26%;
+    --shadow-card: 0 1px 2px hsla(225, 20%, 12%, 0.04), 0 1px 3px hsla(225, 20%, 12%, 0.03);
+    --shadow-card-hover: 0 4px 12px hsla(225, 20%, 12%, 0.06);
+    --hairline: hsla(225, 20%, 12%, 0.08);
+    --hairline-strong: hsla(225, 20%, 12%, 0.14);
+    color: hsl(var(--foreground));
+  }
+
+  .cm-study h1,
+  .cm-study h2,
+  .cm-study h3 {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .cm-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: hsl(var(--gold));
+  }
+
+  .cm-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsla(var(--gold), 0.55), transparent);
+  }
+
+  .cm-panel {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Notes reading column: a measure of about 68 characters, generous leading. */
+  .cm-reader {
+    max-width: 68ch;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: hsl(var(--foreground));
+  }
+
+  .cm-reader h2,
+  .cm-reader h3 {
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+  }
+
+  .cm-reader p {
+    margin: 0.9em 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

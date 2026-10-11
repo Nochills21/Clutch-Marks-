@@ -254,7 +254,7 @@ export default function TopicNotes() {
   const topicNotesCount = materials.length;
 
   return (
-    <div className="space-y-6">
+    <div className="cm-study space-y-6">
       {/* Title, description, canonical and JSON-LD all come from topicSeo, which
           is also what the build-time prerenderer writes into this URL's static
           HTML — the head a crawler reads without running JavaScript and the head
@@ -271,7 +271,7 @@ export default function TopicNotes() {
         topicSlug={topicSlug}
       />
 
-      <div className={`glass-card p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
+      <div className={`cm-panel p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
         <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>
           <Icon className="h-7 w-7" />
         </div>
