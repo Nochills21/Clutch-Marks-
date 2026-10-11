@@ -206,7 +206,7 @@ export default function Notes() {
   }
   if (needsSubjectPick) {
     return (
-      <div className="mx-auto max-w-4xl space-y-8">
+      <div className="cm-study mx-auto max-w-4xl space-y-8">
         <SEOHead path="/notes" />
         <SubjectGate />
       </div>
@@ -214,7 +214,7 @@ export default function Notes() {
   }
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8">
+    <div className="cm-study mx-auto max-w-4xl space-y-8">
       {/* Only while a note is actually open. On the library list the watermark
           covered the whole viewport — sidebar, filters and every card — without
           protecting anything: the list shows titles and types, not content. */}

@@ -289,7 +289,7 @@ export default function Flashcards() {
 
   // Browse mode
   return (
-    <div className="space-y-6">
+    <div className="cm-study space-y-6">
       <SEOHead path="/flashcards" />
       <div>
         <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>
