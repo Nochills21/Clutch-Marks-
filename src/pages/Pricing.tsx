@@ -377,7 +377,7 @@ export default function Pricing() {
           </p>
           <ol className="space-y-2 list-decimal list-inside">
             <li>Reach <span className="font-medium text-foreground">Exam-ready on every topic</span> of the subject — see your mastery report turn green.</li>
-            <li>Submit <span className="font-medium text-foreground">at least 3 past papers for AI marking</span> in that subject before the exam.</li>
+            <li>Submit <span className="font-medium text-foreground">at least 20 past papers for AI marking</span> in that subject before the exam.</li>
             <li>Sit the official CAIE or Edexcel paper for that subject and level.</li>
           </ol>
           <p className="text-xs">
