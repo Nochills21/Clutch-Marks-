@@ -95,7 +95,7 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "What is the A* guarantee?",
-    a: "Finish the program in your subject — every topic Exam-ready on your mastery report plus at least 3 AI-marked past papers before the exam — and if your official CAIE or Edexcel result is below an A*, we refund your plan in full. Claim within 30 days of results day with your result slip; one claim per account.",
+    a: "Finish the program in your subject — every topic Exam-ready on your mastery report plus at least 20 AI-marked past papers before the exam — and if your official CAIE or Edexcel result is below an A*, we refund your plan in full. Claim within 30 days of results day with your result slip; one claim per account.",
   },
 ];
 

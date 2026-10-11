@@ -22,6 +22,7 @@
 // 20261008140000), and a failed audit write must never lose a student's marks.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.4";
+import { normaliseMarks } from "./marks.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -736,18 +737,17 @@ Mark scheme style:
     const auditRef = crypto.randomUUID();
 
     const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
-      const marksEarned = Number(raw?.marks_earned ?? 0) || 0;
-      const totalMarks = Number(raw?.total_marks ?? 0) || 0;
+      // Bounded to 0..total_marks: a stray model value must never give a
+      // negative mark or a grade above 100% (see marks.ts).
+      const marks = normaliseMarks(raw);
       return {
         question: String(raw?.question ?? `Question ${idx + 1}`),
         original_answer: String(raw?.original_answer ?? ""),
         correct_answer: String(raw?.correct_answer ?? ""),
-        marks_earned: marksEarned,
-        total_marks: totalMarks,
+        marks_earned: marks.marks_earned,
+        total_marks: marks.total_marks,
         feedback: String(raw?.feedback ?? ""),
-        // Recompute the grade from the marks so a stray model value can never
-        // report more than 100%.
-        grade: totalMarks > 0 ? Math.round((marksEarned / totalMarks) * 100) : 0,
+        grade: marks.grade,
         comment: String(raw?.comment ?? ""),
         watermark: `Clutch Marks · AI-marked · ${auditRef.slice(0, 8)}`,
         audit_ref: auditRef,
