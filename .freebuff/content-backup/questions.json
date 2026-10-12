@@ -2170,7 +2170,7 @@
    "one-way to CPU"
   ],
   "correct_option": 1,
-  "explanation": "CPU drives addresses.",
+  "explanation": "The CPU places a memory or I/O address on the address bus to identify the location being accessed. The data bus carries values and may be bidirectional.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:47.951927+00",
   "difficulty": "medium",
@@ -3988,7 +3988,7 @@
    "1/tan θ"
   ],
   "correct_option": 2,
-  "explanation": "Secant is the reciprocal of cosine.",
+  "explanation": "Secant is the reciprocal of cosine: secθ=1/cosθ, provided cosθ is not zero.",
   "sort_order": 6,
   "created_at": "2026-09-20 17:50:51.51593+00",
   "difficulty": "medium",
@@ -4474,7 +4474,7 @@
    "queue"
   ],
   "correct_option": 2,
-  "explanation": "Most recent first.",
+  "explanation": "Undo reverses the most recent action first, so actions are last-in, first-out (LIFO). A stack lets the latest action be popped first.",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:51.327588+00",
   "difficulty": "medium",
@@ -4600,7 +4600,7 @@
    "v = fλ"
   ],
   "correct_option": 3,
-  "explanation": "Standard relation.",
+  "explanation": "In one period T, a wave travels one wavelength λ. Since f=1/T, its speed is v=λ/T=fλ; the units are Hz × m = m s⁻¹.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:02.780225+00",
   "difficulty": "medium",
@@ -7264,7 +7264,7 @@
    "×2"
   ],
   "correct_option": 2,
-  "explanation": "I ∝ amplitude².",
+  "explanation": "Wave intensity is proportional to amplitude squared. Doubling amplitude multiplies intensity by 2²=4, not by 2.",
   "sort_order": 4,
   "created_at": "2026-09-20 18:42:02.780225+00",
   "difficulty": "medium",
@@ -7282,7 +7282,7 @@
    "no headers"
   ],
   "correct_option": 0,
-  "explanation": "Secure sockets layer.",
+  "explanation": "HTTPS is HTTP carried over TLS, providing encryption and server authentication. It is not merely a different application protocol.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:45.20946+00",
   "difficulty": "medium",
@@ -9712,7 +9712,7 @@
    "network speed"
   ],
   "correct_option": 0,
-  "explanation": "Privacy regulation.",
+  "explanation": "Data-protection laws regulate how personal data is collected, processed, stored and shared, giving individuals rights over information that identifies them.",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:57.167755+00",
   "difficulty": "medium",
@@ -10648,7 +10648,7 @@
    "always zero"
   ],
   "correct_option": 3,
-  "explanation": "Destructive superposition at all times.",
+  "explanation": "At a node, opposing waves cancel at every instant, so displacement is always zero. Adjacent antinodes oscillate with maximum amplitude.",
   "sort_order": 10,
   "created_at": "2026-09-20 18:42:05.134118+00",
   "difficulty": "medium",
@@ -10720,7 +10720,7 @@
    "a loop"
   ],
   "correct_option": 2,
-  "explanation": "Otherwise infinite calls.",
+  "explanation": "A base case stops further recursive calls. Without one, calls continue until resources are exhausted instead of returning a result.",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:52.773577+00",
   "difficulty": "medium",
@@ -11439,8 +11439,8 @@
    "x = 4",
    "x = 6"
   ],
-  "correct_option": 3,
-  "explanation": "3x + 6 = 2x + 10 → x = 4.",
+  "correct_option": 2,
+  "explanation": "Expand both sides: 3x+6=2x+10. Subtract 2x to get x+6=10, then subtract 6 to obtain x=4. Substitution confirms 3(4+2)=18=2(4+5); x=6 does not satisfy the equation.",
   "sort_order": 2,
   "created_at": "2026-08-22 14:07:01.846645+00",
   "difficulty": "medium",
@@ -12556,7 +12556,7 @@
    "π radians"
   ],
   "correct_option": 1,
-  "explanation": "That is the definition of one radian.",
+  "explanation": "Radian measure is arc length divided by radius: θ=s/r. If s=r, then θ=1 radian.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:40.480254+00",
   "difficulty": "medium",
@@ -17254,7 +17254,7 @@
    "composite keys"
   ],
   "correct_option": 2,
-  "explanation": "No repeating groups.",
+  "explanation": "First normal form requires each field to contain a single, indivisible value. Repeating groups or lists stored in one field violate this rule.",
   "sort_order": 4,
   "created_at": "2026-09-20 18:42:55.523875+00",
   "difficulty": "medium",
@@ -19684,7 +19684,7 @@
    "translates to bytecode only"
   ],
   "correct_option": 1,
-  "explanation": "Stops at the first error.",
+  "explanation": "An interpreter translates and executes source code during runtime, typically one statement at a time. It can report an error when execution reaches the faulty line.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:49.849266+00",
   "difficulty": "medium",
@@ -21538,7 +21538,7 @@
    "primary keys"
   ],
   "correct_option": 1,
-  "explanation": "Non-key → non-key chains.",
+  "explanation": "Third normal form removes dependencies where a non-key attribute depends on another non-key attribute, rather than directly on the key.",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:55.523875+00",
   "difficulty": "medium",
@@ -22888,7 +22888,7 @@
    "any column"
   ],
   "correct_option": 2,
-  "explanation": "Creates the relationship.",
+  "explanation": "A foreign key stores a value matching a key in a related table, enforcing referential integrity. In this item, the keyed answer names the common primary-key reference.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:55.523875+00",
   "difficulty": "medium",
@@ -23662,7 +23662,7 @@
    "maximise profit"
   ],
   "correct_option": 2,
-  "explanation": "Public interest first.",
+  "explanation": "The ACM Code places the public good first and requires computing professionals to avoid harm, including foreseeable harm from systems they build or operate.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:57.167755+00",
   "difficulty": "medium",
@@ -26110,7 +26110,7 @@
    "H₀: p > 0.5, H₁: p = 0.5"
   ],
   "correct_option": 2,
-  "explanation": "The null always carries the equality.",
+  "explanation": "The null hypothesis contains equality at the claimed value, H₀:p=0.5. The alternative p>0.5 sets a one-tailed test asking whether the proportion is greater.",
   "sort_order": 9,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
@@ -26452,7 +26452,7 @@
    "unique and non-null"
   ],
   "correct_option": 3,
-  "explanation": "Uniquely identifies rows.",
+  "explanation": "A primary key identifies each row, so its values must be unique and cannot be NULL. It may contain one attribute or several.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:55.523875+00",
   "difficulty": "medium",
@@ -26578,7 +26578,7 @@
    "save context and run an ISR"
   ],
   "correct_option": 3,
-  "explanation": "Interrupt service routine.",
+  "explanation": "The CPU saves its current state, branches to the interrupt service routine (ISR), handles the event, then restores the state to resume the interrupted program.",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:47.951927+00",
   "difficulty": "medium",
@@ -31276,7 +31276,7 @@
    "the upper tail only"
   ],
   "correct_option": 1,
-  "explanation": "The direction in H₁ picks the tail.",
+  "explanation": "The alternative hypothesis specifies the direction of evidence. Since H₁ says p<p₀, unusually small values of the test statistic lie in the rejection region.",
   "sort_order": 4,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
@@ -31978,7 +31978,7 @@
    "an interpreter"
   ],
   "correct_option": 1,
-  "explanation": "One-to-one translation.",
+  "explanation": "An assembler converts assembly mnemonics and labels into machine-code instructions and addresses that the processor can execute.",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:49.849266+00",
   "difficulty": "medium",
@@ -33328,7 +33328,7 @@
    "distance per second"
   ],
   "correct_option": 1,
-  "explanation": "v × t has units of displacement.",
+  "explanation": "Area is velocity multiplied by time, so the units are m s⁻¹ × s = m. Signed area gives displacement; total area gives distance if direction changes.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:41:53.373069+00",
   "difficulty": "medium",
@@ -33814,7 +33814,7 @@
    "print jobs"
   ],
   "correct_option": 3,
-  "explanation": "Queueing slow output.",
+  "explanation": "Spooling queues print jobs on storage so applications can continue while the slower printer processes each job in order.",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:49.849266+00",
   "difficulty": "medium",
@@ -34750,7 +34750,7 @@
    "screen brightness"
   ],
   "correct_option": 1,
-  "explanation": "Packet filtering.",
+  "explanation": "A packet-filtering firewall applies rules to information such as source/destination IP addresses and port numbers to allow or block traffic.",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:49.849266+00",
   "difficulty": "medium",
@@ -34840,7 +34840,7 @@
    "metres"
   ],
   "correct_option": 1,
-  "explanation": "N m⁻² = Pa.",
+  "explanation": "Stress = force/area, giving N m⁻². One N m⁻² is one pascal (Pa), not a joule or a newton.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:01.101226+00",
   "difficulty": "medium",
@@ -36712,7 +36712,7 @@
    "the result"
   ],
   "correct_option": 2,
-  "explanation": "Program counter.",
+  "explanation": "The program counter stores the address of the next instruction to fetch. It is updated after fetch unless a branch changes control flow.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:47.951927+00",
   "difficulty": "medium",
@@ -38584,7 +38584,7 @@
    "delete variables"
   ],
   "correct_option": 0,
-  "explanation": "Core debugging tool.",
+  "explanation": "A breakpoint marks where execution pauses, allowing the programmer to inspect variables and step through the program.",
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:49.849266+00",
   "difficulty": "medium",
@@ -38602,7 +38602,7 @@
    "load before OS boot"
   ],
   "correct_option": 0,
-  "explanation": "Shared at runtime.",
+  "explanation": "With dynamic linking, a program connects to shared library code when it runs rather than copying all library code into the executable at compile time.",
   "sort_order": 4,
   "created_at": "2026-09-20 18:42:49.849266+00",
   "difficulty": "medium",
@@ -40294,7 +40294,7 @@
    "one direction only"
   ],
   "correct_option": 2,
-  "explanation": "Like a phone call.",
+  "explanation": "A full-duplex channel transmits and receives at the same time. Half-duplex allows both directions, but only one at a time.",
   "sort_order": 10,
   "created_at": "2026-09-20 18:42:45.20946+00",
   "difficulty": "medium",
@@ -42220,7 +42220,7 @@
    "k/2"
   ],
   "correct_option": 2,
-  "explanation": "Parallel springs add stiffness.",
+  "explanation": "Both springs undergo the same extension x, while their restoring forces add: F=kx+kx=2kx. Thus the equivalent stiffness is 2k.",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:01.101226+00",
   "difficulty": "medium",
@@ -42256,7 +42256,7 @@
    "downward"
   ],
   "correct_option": 2,
-  "explanation": "Normal means perpendicular.",
+  "explanation": "The normal reaction is the contact force exerted by a surface and acts at right angles to it. It is not necessarily opposite to weight.",
   "sort_order": 8,
   "created_at": "2026-09-20 18:41:57.629989+00",
   "difficulty": "medium",
@@ -42760,7 +42760,7 @@
    "zero weight"
   ],
   "correct_option": 2,
-  "explanation": "Forces balance at terminal velocity.",
+  "explanation": "At terminal velocity the speed is constant, so acceleration and resultant force are zero. Upward drag therefore balances the downward weight.",
   "sort_order": 10,
   "created_at": "2026-09-20 18:41:55.778375+00",
   "difficulty": "medium",
@@ -43462,7 +43462,7 @@
    "all forces are vertical"
   ],
   "correct_option": 2,
-  "explanation": "Principle of moments.",
+  "explanation": "For zero resultant moment about a pivot, the sum of clockwise moments equals the sum of anticlockwise moments. Each moment is force × perpendicular distance.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:41:57.629989+00",
   "difficulty": "medium",
@@ -43768,7 +43768,7 @@
    "lower frequency"
   ],
   "correct_option": 2,
-  "explanation": "Wavefronts bunch up.",
+  "explanation": "As a source approaches, successive wavefronts are closer together, so wavelength decreases. Wave speed in the medium is unchanged, hence f=v/λ increases.",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:02.780225+00",
   "difficulty": "medium",
@@ -44722,7 +44722,7 @@
    "MAC addresses"
   ],
   "correct_option": 2,
-  "explanation": "Layer-3 device.",
+  "explanation": "A router operates at the network layer and examines destination IP addresses to choose the next hop. A switch normally forwards frames using MAC addresses.",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:45.20946+00",
   "difficulty": "medium",
@@ -45352,7 +45352,7 @@
    "mr²v"
   ],
   "correct_option": 0,
-  "explanation": "Standard formula.",
+  "explanation": "For circular motion, a=v²/r toward the centre. Newton’s second law gives F=ma=mv²/r; this is the resultant force, not an extra force type.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:12.397653+00",
   "difficulty": "medium",
@@ -47638,7 +47638,7 @@
    "unique data"
   ],
   "correct_option": 2,
-  "explanation": "Halving depends on order.",
+  "explanation": "Binary search compares with the middle item and discards half the range, which is valid only when the data is sorted in the search order.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:52.773577+00",
   "difficulty": "medium",
