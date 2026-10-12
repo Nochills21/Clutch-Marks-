@@ -864,6 +864,24 @@
   "statement_id": null
  },
  {
+  "id": "04d4a183-68a7-445e-a7a1-e3320c2eb57f",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "Which pair correctly matches each bus to its job?",
+  "options": [
+   "Address bus carries data; data bus carries addresses",
+   "All three buses carry control signals only",
+   "Control bus carries addresses; address bus carries commands",
+   "Address bus carries addresses; data bus carries data both ways"
+  ],
+  "correct_option": 3,
+  "explanation": "Addresses go out on the address bus; data travels both ways on the data bus; the control bus carries signals. The other pairings swap every job.",
+  "sort_order": 102,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "f3abef30-a103-4554-b017-43dacae86b7e",
+  "statement_id": null
+ },
+ {
   "id": "04f8e1fc-6e74-4125-878d-51d90ff91a89",
   "quiz_id": "6fd24449-abb2-40ab-bcb9-182f8deb5a3e",
   "question_text": "ACID isolation means:",
@@ -1242,6 +1260,24 @@
   "statement_id": null
  },
  {
+  "id": "0738df1d-f535-4063-bfa1-4b9a833c975f",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "What does a larger CPU cache directly reduce?",
+  "options": [
+   "The price of the processor",
+   "The number of slow fetches from RAM",
+   "The clock speed needed",
+   "The size of installed programs"
+  ],
+  "correct_option": 1,
+  "explanation": "Cache holds recently used data beside the CPU, so fewer requests travel to slow RAM. It neither cuts price nor shrinks programs, and the clock runs as set.",
+  "sort_order": 202,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "44dea1d3-7a88-47d2-be25-a976efd03d5c",
+  "statement_id": null
+ },
+ {
   "id": "074de1b5-b287-4e52-8bab-2e4326392349",
   "quiz_id": "fe27304a-0c36-4600-867f-1217e1f128e7",
   "question_text": "Which statement is missing from the \"Magnetic Fields and Electromagnetism\" notes?",
@@ -1455,6 +1491,24 @@
   "created_at": "2026-09-26 09:37:54.483902+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "0888e544-c8b1-44f8-a7d3-97bfdf61e799",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A company distributes a 4 GB training video to 200 branches by post. Which medium?",
+  "options": [
+   "Hard disk drives",
+   "Blu-ray or DVD discs",
+   "RAM upgrades",
+   "CPU cache"
+  ],
+  "correct_option": 1,
+  "explanation": "Cheap removable optical discs fit a 4 GB video and post easily. HDDs cost far too much per copy; RAM and cache are not storage media at all.",
+  "sort_order": 702,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "79e47454-c273-4cc2-9397-9655c4b8590a",
   "statement_id": null
  },
  {
@@ -2034,6 +2088,24 @@
   "statement_id": "68dee38f-9551-4a27-a4a9-e2d76eedeaff"
  },
  {
+  "id": "0adfc134-dc38-4f0e-a617-0a8009e60ca5",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Run-length encoding compresses AAAAABBBCCDAA to what?",
+  "options": [
+   "5A3B2C1D2A",
+   "ABCDA",
+   "5A3B2CDA",
+   "AAAABBBCCDA"
+  ],
+  "correct_option": 0,
+  "explanation": "Each run becomes count + value: five As, three Bs, two Cs, one D, two As. ABCDA drops the counts; 5A3B2CDA misses the final run's count; the last option barely compresses at all.",
+  "sort_order": 802,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "00647358-2335-4405-b341-1a906901cc8e",
+  "statement_id": null
+ },
+ {
   "id": "0af2b724-49d1-4162-a1b9-d706cb88c276",
   "quiz_id": "032754ba-c243-4c7e-b57f-966729613a00",
   "question_text": "dA/dx = 2x + 1 and A(0) = 3. A(x) =",
@@ -2178,6 +2250,24 @@
   "statement_id": null
  },
  {
+  "id": "0bf7c79f-e6f7-4984-9ab3-612eb325780a",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Why do programmers write memory addresses in hexadecimal instead of binary?",
+  "options": [
+   "Hexadecimal numbers calculate faster than binary",
+   "Hexadecimal is encrypted so addresses stay secret",
+   "CPUs store all data in base 16",
+   "One hex digit replaces four binary digits"
+  ],
+  "correct_option": 3,
+  "explanation": "Each hex digit maps to exactly one nibble, so addresses are shorter and less error-prone to copy. Hex gives no speed, no encryption, and the CPU still stores binary.",
+  "sort_order": 102,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "9e21bf07-5505-49cc-99df-831c5a49775f",
+  "statement_id": null
+ },
+ {
   "id": "0c06abeb-c1e2-4b18-aea8-9dcd927360fc",
   "quiz_id": "79267351-722b-4622-b1a7-4a8437a4ff2f",
   "question_text": "sin x = 0.6 with x acute. cos x =",
@@ -2265,6 +2355,24 @@
   "created_at": "2026-09-20 18:43:09.66845+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "0cc41b81-929b-4f81-8df5-833901f4b76c",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "How many bits are in 3 bytes?",
+  "options": [
+   "12",
+   "30",
+   "24",
+   "300"
+  ],
+  "correct_option": 2,
+  "explanation": "One byte holds 8 bits, so 3 bytes hold 24 bits. 12 halves the rate; 30 and 300 confuse bits with tens.",
+  "sort_order": 301,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "bcc8e07e-0914-4813-9e7d-a0f1fae13fef",
   "statement_id": null
  },
  {
@@ -2806,6 +2914,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "7ea343c6-b4d4-4655-8d28-b760a9fcd8bb"
+ },
+ {
+  "id": "103c0c6f-2e36-4643-b94e-961170649e24",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "A 100 × 100 pixel image uses 24-bit colour. What is its uncompressed bitmap size?",
+  "options": [
+   "2400 bytes",
+   "240 KB",
+   "30 000 bits",
+   "30 000 bytes"
+  ],
+  "correct_option": 3,
+  "explanation": "10,000 pixels × 24 bits = 240,000 bits, ÷ 8 = 30,000 bytes. 2400 drops a zero; 240 KB confuses bits with bytes; 30,000 bits forgets the ÷8.",
+  "sort_order": 602,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "8bfb50b3-2a9d-4b5c-bbea-6ee42763f74e",
+  "statement_id": null
  },
  {
   "id": "103ea75a-f111-4393-a1ec-b0d1e2685189",
@@ -5562,6 +5688,24 @@
   "statement_id": null
  },
  {
+  "id": "2161ad4f-da80-49f5-92db-3ae4d9c29295",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "A school keeps every student, class and teacher fact in one big spreadsheet. What problem follows?",
+  "options": [
+   "The file opens too slowly to use",
+   "Repeated facts that disagree when only some copies are updated",
+   "Spreadsheets cannot store text",
+   "Only one teacher can open the file"
+  ],
+  "correct_option": 1,
+  "explanation": "One shared table repeats facts (a flat file), so editing some copies leaves the rest stale — inconsistency. Speed, text storage and sharing are tool issues, not structure issues.",
+  "sort_order": 101,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "beae4363-3323-4b30-ac48-4bef56acf5ae",
+  "statement_id": null
+ },
+ {
   "id": "216d23f3-cd02-485b-81a2-ab3e514c4cf4",
   "quiz_id": "4f844ba3-c2c9-4c9a-9a86-b8b786a7fb58",
   "question_text": "What is the volume of a cylinder with radius 3 cm and height 10 cm?",
@@ -6570,6 +6714,24 @@
   "statement_id": null
  },
  {
+  "id": "27d9c389-3087-4968-95bb-d461e0dc3e3e",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "X = 1, WHILE X < 5 DO OUTPUT X, ENDWHILE. The loop never ends. Which change fixes it?",
+  "options": [
+   "Change OUTPUT X to OUTPUT X + 1",
+   "Change X = 1 to X = 0",
+   "Add X = X + 1 before ENDWHILE",
+   "Change < to > in the condition"
+  ],
+  "correct_option": 2,
+  "explanation": "X never changes, so X < 5 stays true forever; incrementing X inside the loop lets it reach 5 and exit. Changing the OUTPUT line leaves X untouched; starting at 0 is still infinite; flipping the test to 1 > 5 ends the loop by producing nothing at all.",
+  "sort_order": 202,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "d7d07c04-034d-40de-a401-0c192da0ce7a",
+  "statement_id": null
+ },
+ {
   "id": "27fe308b-c13d-4454-a98c-5e69bc6367d4",
   "quiz_id": "69b41076-f271-4769-bd29-a1f3a0ac25fa",
   "question_text": "Which statement is from the \"Work, Energy and Power\" study notes?",
@@ -6820,6 +6982,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "d77a1698-b69d-4c48-a463-1ff15070d0fb"
+ },
+ {
+  "id": "2943432c-e68a-435a-bf36-950e2a21075a",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "Why is unsaved work lost when the power fails?",
+  "options": [
+   "It was held in volatile RAM",
+   "It was held in ROM",
+   "The hard disk spins down",
+   "The CPU cache is too small"
+  ],
+  "correct_option": 0,
+  "explanation": "RAM needs power to hold data, so unsaved work dies with it. ROM survives (firmware); the disk was never involved until saving; cache size is irrelevant.",
+  "sort_order": 601,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "42155f59-b0ce-4273-a56f-9bf46241adba",
+  "statement_id": null
  },
  {
   "id": "295c0433-7e44-457f-88a4-8b9953943ea2",
@@ -8118,6 +8298,24 @@
   "statement_id": "d721dc88-719c-46d5-9769-4b3f19481d97"
  },
  {
+  "id": "3085c03f-84ed-451b-9269-37ca43305ad6",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "An alarm sounds when armed (S = 1) AND movement is detected (M = 1). Which circuit?",
+  "options": [
+   "S OR M driving the alarm",
+   "S AND M driving the alarm",
+   "NOT S AND NOT M driving the alarm",
+   "S XOR M driving the alarm"
+  ],
+  "correct_option": 1,
+  "explanation": "Both conditions together is AND. OR would sound when disarmed; double NOT sounds only when calm and unarmed; XOR fails exactly when both hold.",
+  "sort_order": 301,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "check",
+  "objective_id": "e8cd8ef0-7068-4987-b5c5-f803ccac97c1",
+  "statement_id": null
+ },
+ {
   "id": "3092dd4f-e84e-4d00-ae6b-184bf4230561",
   "quiz_id": "ebdf936a-fa65-465e-a206-c750aaf31521",
   "question_text": "A circuit has two inputs, A and B, and one output, X. The output X is 1 only when A is 1 and B is 0, or when A is 0 and B is 1. Write a Boolean expression for X in terms of A and B.",
@@ -8838,6 +9036,24 @@
   "statement_id": "7fe7d055-d0c1-4a7c-abf3-0c52d0769593"
  },
  {
+  "id": "34feef71-eba0-46cc-97da-b82a9777303d",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "Which backup strategy best protects against ransomware?",
+  "options": [
+   "A single copy on the same disk",
+   "Backups on a permanently connected drive",
+   "No backups — antivirus is enough",
+   "Regular automatic backups stored offline or off-site"
+  ],
+  "correct_option": 3,
+  "explanation": "Offline or off-site copies survive because ransomware cannot reach them. Same-disk and connected copies get encrypted too; antivirus prevents some attacks but cannot restore files.",
+  "sort_order": 301,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "check",
+  "objective_id": "1352f222-500d-4bed-a47f-04efd7a27c5e",
+  "statement_id": null
+ },
+ {
   "id": "350784cc-e3bd-4655-9fc1-0195c97e1405",
   "quiz_id": "22d16eb5-3636-4057-9313-2ee7f268e4d9",
   "question_text": "Solve the simultaneous equations x + y = 7 and 2x - 2y = 2",
@@ -9321,6 +9537,24 @@
   "created_at": "2026-09-20 18:42:05.134118+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "376ff7d3-cb37-4a82-88f5-58233f83a3f0",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "Which of these is system software?",
+  "options": [
+   "A web browser",
+   "A printer driver",
+   "A backup tool",
+   "A spreadsheet"
+  ],
+  "correct_option": 1,
+  "explanation": "The driver lets the OS operate hardware — the machine needs it. Browsers and spreadsheets do user tasks (application); backup is narrow maintenance (utility).",
+  "sort_order": 301,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "check",
+  "objective_id": "c24681c9-1e62-4022-be17-3b888abe882d",
   "statement_id": null
  },
  {
@@ -9972,6 +10206,24 @@
   "statement_id": null
  },
  {
+  "id": "3a9b6f6d-d0b3-4b26-94f8-a24c56625d7b",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "Which of these describes double entry verification?",
+  "options": [
+   "Reading data back from disk after saving",
+   "Checking the data type as it is entered",
+   "Entering the data once, very carefully",
+   "Typing the data twice and comparing the copies"
+  ],
+  "correct_option": 3,
+  "explanation": "Double entry means two independent entries that the computer compares, catching slips by either typist. Reading back from disk checks storage, a type check is validation, and careful single entry is just hope.",
+  "sort_order": 401,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "b2c0e02d-506b-489d-88df-629b2590a0f2",
+  "statement_id": null
+ },
+ {
   "id": "3a9baeaa-77b0-4069-9b62-742505c4e49a",
   "quiz_id": "c95f20ce-3981-4534-924d-c4f8778cefaf",
   "question_text": "A programmer wants to write a pseudocode statement to calculate the maximum value in a list. Which of the following is the correct implementation?",
@@ -10059,6 +10311,24 @@
   "created_at": "2026-09-20 17:50:42.560292+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "3b07041b-eac9-497a-b155-dea7ee9b0150",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "What does the bootstrap loader in ROM do at switch-on?",
+  "options": [
+   "Loads the operating system from disk into RAM",
+   "Opens the user's documents",
+   "Connects to the internet",
+   "Tests the printer queue"
+  ],
+  "correct_option": 1,
+  "explanation": "The ROM loader's one job is finding the OS on secondary storage and copying it to RAM for execution. Documents, networks and printers all come later, under the OS.",
+  "sort_order": 602,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "42155f59-b0ce-4273-a56f-9bf46241adba",
   "statement_id": null
  },
  {
@@ -10422,6 +10692,24 @@
   "statement_id": null
  },
  {
+  "id": "3c82dfcd-08d3-4ead-bf5b-7ad1cf312445",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "Which query returns all fields of Borrowers who joined in 2024?",
+  "options": [
+   "SELECT Name FROM Borrowers WHERE JoinYear = 2024",
+   "SELECT * FROM Borrowers WHERE JoinYear = 2024",
+   "SELECT * FROM Books WHERE JoinYear = 2024",
+   "SELECT * FROM Borrowers WHERE Name = 2024"
+  ],
+  "correct_option": 1,
+  "explanation": "All fields needs *, the table is Borrowers, and the filter is JoinYear = 2024 (a bare number). The others select one column, query the wrong table, or filter text against a number.",
+  "sort_order": 302,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "4756d52d-6018-4150-9817-5d8f524f7611",
+  "statement_id": null
+ },
+ {
   "id": "3c873e7f-e6cb-4651-9b36-81b5bdfd13f1",
   "quiz_id": "a1af827c-dcdd-45af-a919-3f21ac573019",
   "question_text": "Which of these is covered by the \"Permutations and Combinations\" study notes?",
@@ -10527,6 +10815,24 @@
   "created_at": "2026-09-18 14:12:56.177001+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "3d04aabe-ee77-4ae5-b154-44c14d965379",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "A light comes on when it is dark (D = 1) OR motion is sensed (M = 1), but never during a power cut (P = 1). Which output expression?",
+  "options": [
+   "(D OR M) AND (NOT P)",
+   "(D AND M) OR P",
+   "D OR M OR P",
+   "(NOT D) AND (NOT M)"
+  ],
+  "correct_option": 0,
+  "explanation": "Dark-or-motion enables the light, and NOT P vetoes everything during a cut. The others sound the light during cuts, demand both triggers, or invert the whole behaviour.",
+  "sort_order": 302,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "check",
+  "objective_id": "e8cd8ef0-7068-4987-b5c5-f803ccac97c1",
   "statement_id": null
  },
  {
@@ -11556,6 +11862,24 @@
   "statement_id": null
  },
  {
+  "id": "429f065a-90ff-4473-876d-707d13bf0f01",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A backup tape is kept in a fire safe across town. What kind of storage is it?",
+  "options": [
+   "Primary storage",
+   "Cache memory",
+   "Secondary storage",
+   "Off-line storage"
+  ],
+  "correct_option": 3,
+  "explanation": "Shelved, disconnected media is off-line storage — unreachable by attackers and local disasters. Primary is CPU-direct RAM/ROM; cache is a speed layer; secondary stays connected.",
+  "sort_order": 801,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "22e0d2cc-d6c6-4417-b954-0bd48935ac6c",
+  "statement_id": null
+ },
+ {
   "id": "42bc7a25-4fd9-4d44-a927-aa2fb2f29f7e",
   "quiz_id": "540f0bef-c227-48ae-be5d-a0c028390eb4",
   "question_text": "In SHM, KE is maximum:",
@@ -11826,6 +12150,24 @@
   "statement_id": null
  },
  {
+  "id": "43fa8c63-ad88-44fc-abf5-e387bc7a5290",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "Which validation check rejects the value 12A entered as an age?",
+  "options": [
+   "Type check",
+   "Range check",
+   "Presence check",
+   "Length check"
+  ],
+  "correct_option": 0,
+  "explanation": "Age must be numeric and 12A is not, so the type check rejects it. A range check tests value bounds, a presence check tests for empty input, and a length check counts characters.",
+  "sort_order": 302,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "f478b9c1-8669-4f8f-8d96-e415f50e5fd2",
+  "statement_id": null
+ },
+ {
   "id": "43fbea5d-3fb5-4e35-a73a-44dca6aa18a8",
   "quiz_id": "a7b929b8-1c3c-4581-b843-e11079542e89",
   "question_text": "An employee guesses a colleague's password and reads their email. Which offence is committed?",
@@ -11859,6 +12201,24 @@
   "created_at": "2026-09-18 14:12:53.889057+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "441d973c-60d0-4a4d-9d8e-be3c617f7d7c",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "A student copies numbers from paper to computer, then reads the screen back against the paper. This is an example of what?",
+  "options": [
+   "Validation",
+   "Visual check",
+   "Range check",
+   "Boundary test"
+  ],
+  "correct_option": 1,
+  "explanation": "Comparing entered data against its source is verification by visual check. Validation would judge whether the numbers are sensible; range and boundary belong to validation, not verification.",
+  "sort_order": 402,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "b2c0e02d-506b-489d-88df-629b2590a0f2",
   "statement_id": null
  },
  {
@@ -12183,6 +12543,24 @@
   "created_at": "2026-09-26 09:37:51.905615+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "45bf4b07-7869-4758-a330-aff94c7e279c",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "A NAND gate has inputs A = 1 and B = 0. What is the output?",
+  "options": [
+   "0",
+   "1",
+   "2",
+   "It depends on the circuit"
+  ],
+  "correct_option": 1,
+  "explanation": "NAND is 0 only when both inputs are 1; here AND gives 0, inverted to 1. 0 is the AND answer (inversion forgotten); a gate output is always 0 or 1, never 2.",
+  "sort_order": 101,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "check",
+  "objective_id": "a5326028-dada-47b0-a5f8-0544b02f49ce",
   "statement_id": null
  },
  {
@@ -13050,6 +13428,24 @@
   "statement_id": null
  },
  {
+  "id": "4a2af1a2-644a-42a9-82bd-252767c4a699",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "A 640 × 480 bitmap image uses 16-bit colour. Estimate its uncompressed file size in bytes.",
+  "options": [
+   "307 200 bytes",
+   "4 915 200 bytes",
+   "614 400 bytes",
+   "614 400 KB"
+  ],
+  "correct_option": 2,
+  "explanation": "Marks as awarded: 640 × 480 = 307,200 pixels [1]; × 16 = 4,915,200 bits ÷ 8 = 614,400 bytes [1]. Answer 614,400 bytes. The first option counts pixels only; the second forgets ÷8; the last confuses bytes with kilobytes.",
+  "sort_order": 901,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "exam",
+  "objective_id": "520e8408-e7d0-411c-8428-755a96710a10",
+  "statement_id": "fcd97731-400b-43cf-a31f-a33f6dd21472"
+ },
+ {
   "id": "4a50ee79-511f-4ad1-a7dd-d9267ad66722",
   "quiz_id": "e974ff36-e049-45de-8a8f-125889e376dd",
   "question_text": "Which statement belongs to the \"Motion in a Circle and Gravity\" notes?",
@@ -13212,6 +13608,24 @@
   "statement_id": null
  },
  {
+  "id": "4b35eeea-57c3-4997-b92c-9d1ba8e0978d",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "A text file holds 500 characters stored as 8-bit ASCII. What is its size?",
+  "options": [
+   "500 bits",
+   "4000 bits",
+   "4000 bytes",
+   "500 bytes"
+  ],
+  "correct_option": 3,
+  "explanation": "500 × 8 = 4000 bits, ÷ 8 = 500 bytes (one byte per character). 4000 bits stops before converting; 4000 bytes skips the ÷8; 500 bits divides instead of multiplying.",
+  "sort_order": 701,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "520e8408-e7d0-411c-8428-755a96710a10",
+  "statement_id": null
+ },
+ {
   "id": "4b4a798d-6d28-40dd-a44f-24999146835c",
   "quiz_id": "36a126a3-b8e5-48a2-8e20-87165a50e4b0",
   "question_text": "A 0.5 m wire carrying 3 A at 90° to a 0.2 T field feels:",
@@ -13245,6 +13659,42 @@
   "created_at": "2026-09-26 09:38:11.971219+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "4b7e6d38-1f1d-4758-b537-533a6f0158b2",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "Trace this algorithm with A = 4: INPUT A, B = 0, FOR I = 1 TO A, B = B + I, NEXT I, OUTPUT B. What is output?",
+  "options": [
+   "7",
+   "10",
+   "14",
+   "4"
+  ],
+  "correct_option": 1,
+  "explanation": "Marks as awarded: I running 1 to 4 with B accumulating 1, 3, 6, 10 [1]; B = 10 [1]. Answer 10. Stopping at I = 3 gives 6 and loses the method mark; adding I itself instead of accumulating gives 4.",
+  "sort_order": 900,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "exam",
+  "objective_id": "d7d07c04-034d-40de-a401-0c192da0ce7a",
+  "statement_id": "e7ccd480-7016-45b8-b780-861f237f7e5e"
+ },
+ {
+  "id": "4b7f6ce0-6958-4b50-9181-1a0fe408ac43",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "Which input pair makes an XOR gate output 1?",
+  "options": [
+   "A = 0, B = 0",
+   "A = 1, B = 1",
+   "A = 1, B = 0",
+   "XOR never outputs 1"
+  ],
+  "correct_option": 2,
+  "explanation": "XOR is 1 exactly when inputs differ, so (1, 0) — and (0, 1) — give 1. Equal inputs give 0; the last option denies the gate's whole purpose.",
+  "sort_order": 102,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "check",
+  "objective_id": "a5326028-dada-47b0-a5f8-0544b02f49ce",
   "statement_id": null
  },
  {
@@ -13443,6 +13893,24 @@
   "created_at": "2026-09-14 18:41:42.940065+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "4d216e57-16f9-4369-a4c6-f0764e2b41c9",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "In a flowchart, which shape represents a decision?",
+  "options": [
+   "Parallelogram",
+   "Rectangle",
+   "Rounded rectangle",
+   "Diamond"
+  ],
+  "correct_option": 3,
+  "explanation": "The diamond tests a condition and has two exits (yes/no). The parallelogram is input/output, the rectangle is a process, and the rounded rectangle starts or stops the chart.",
+  "sort_order": 102,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "aa741bbc-3345-4a61-9df3-2d548f45328a",
   "statement_id": null
  },
  {
@@ -13986,6 +14454,24 @@
   "statement_id": null
  },
  {
+  "id": "503ba350-37aa-4f6a-b0f6-b01d431c92d0",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "How many different characters can 8-bit ASCII represent?",
+  "options": [
+   "128",
+   "65536",
+   "255",
+   "256"
+  ],
+  "correct_option": 3,
+  "explanation": "8 bits give 2^8 = 256 codes (0-255). 128 is 7-bit ASCII; 65536 is 16-bit Unicode; 255 is the highest code, not the count of codes.",
+  "sort_order": 401,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "26affd2f-a941-4cee-9436-b48405a3eb25",
+  "statement_id": null
+ },
+ {
   "id": "5050c773-e70e-4f46-b605-679ced9a22d0",
   "quiz_id": "05d79961-07f6-4835-a1d9-c6f198f1b8f3",
   "question_text": "A trapezium has parallel sides 8 cm and 12 cm with height 5 cm. A semicircle of diameter 8 cm is cut out of it. Find the remaining area, taking pi as 3.14. Give your answer to 1 decimal place.",
@@ -14109,6 +14595,24 @@
   "created_at": "2026-09-26 09:37:37.85516+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "50b4b46e-ea92-490c-846e-ce05a3c50999",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "How does a worm differ from a virus?",
+  "options": [
+   "Viruses spread faster than worms",
+   "Worms only attack mobile phones",
+   "A worm spreads by itself; a virus needs a host file or user action",
+   "There is no difference between them"
+  ],
+  "correct_option": 2,
+  "explanation": "Self-propagation without a host is the worm's definition; a virus must hitch a ride on a file and usually a click. Speed, target device and equivalence claims are all wrong.",
+  "sort_order": 102,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "check",
+  "objective_id": "e28c23ee-c183-4641-ad30-c8c458761aac",
   "statement_id": null
  },
  {
@@ -14505,6 +15009,24 @@
   "created_at": "2026-09-26 09:38:01.821379+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "52f87ca2-7dcf-4b18-ba97-f385315b1520",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "A disk defragmenter reorganises files for speed. How is it classified?",
+  "options": [
+   "Application software",
+   "System software",
+   "Firmware",
+   "Utility software"
+  ],
+  "correct_option": 3,
+  "explanation": "Single-purpose maintenance of storage is the utility definition. It does no user task (not application), the machine runs without it (not system), and it is not burned into hardware (not firmware).",
+  "sort_order": 302,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "check",
+  "objective_id": "c24681c9-1e62-4022-be17-3b888abe882d",
   "statement_id": null
  },
  {
@@ -14994,6 +15516,24 @@
   "statement_id": null
  },
  {
+  "id": "56ae6df0-c05e-4033-a5ca-b16dc167abcd",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "What does colour depth control in a bitmap image?",
+  "options": [
+   "The number of colours each pixel can show",
+   "The number of pixels in each row",
+   "The physical size of the printed image",
+   "The file format the image is saved in"
+  ],
+  "correct_option": 0,
+  "explanation": "Colour depth is bits per pixel, fixing the palette size (24-bit gives about 16.7 million colours). Pixels per row is resolution; print size depends on dimensions and DPI; the format is the container, not a setting.",
+  "sort_order": 601,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "8bfb50b3-2a9d-4b5c-bbea-6ee42763f74e",
+  "statement_id": null
+ },
+ {
   "id": "56af7063-ecdd-4390-94e0-afb7b21302ef",
   "quiz_id": "ff5df118-08b6-4cc7-a709-0e4e6aaf5935",
   "question_text": "1NF requires:",
@@ -15480,6 +16020,24 @@
   "statement_id": null
  },
  {
+  "id": "58ab0928-6b12-4b7f-acfd-8fb5ac29514c",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A podcast studio needs to capture voices for editing. Which input device?",
+  "options": [
+   "A flatbed scanner",
+   "A laser printer",
+   "A microphone",
+   "A barcode reader"
+  ],
+  "correct_option": 2,
+  "explanation": "Voices are sound, and the microphone is the sound-capture device. A scanner takes images, a printer outputs, and barcodes carry no audio.",
+  "sort_order": 301,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "0ce73d78-c822-43de-a36b-1676c439b816",
+  "statement_id": null
+ },
+ {
   "id": "58aea867-a5c4-4e76-9076-0af309d3bd19",
   "quiz_id": "ac4bad4d-4d5c-4787-9415-73fa9feb3a41",
   "question_text": "Which statement is from the \"Number — Ratio, Rate and Proportion\" study notes?",
@@ -15585,6 +16143,24 @@
   "created_at": "2026-09-18 14:13:15.118559+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "58e2f1dd-9bf4-4072-ad43-a97a13bec12e",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Which file should be compressed with a lossless method?",
+  "options": [
+   "A streaming video preview",
+   "A phone photo for social media",
+   "A scanned legal contract",
+   "Background music for a game"
+  ],
+  "correct_option": 2,
+  "explanation": "A contract must reproduce exactly — one altered figure changes its meaning. Photos, previews and game music all tolerate discarded detail, which is what lossy is for.",
+  "sort_order": 801,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "00647358-2335-4405-b341-1a906901cc8e",
   "statement_id": null
  },
  {
@@ -16866,6 +17442,24 @@
   "statement_id": null
  },
  {
+  "id": "5ff3c8b3-cd4c-4806-8399-f9bb7a107006",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "What does the CPU do first when an interrupt signal arrives?",
+  "options": [
+   "Abandons the current program immediately",
+   "Finishes the current instruction, then saves its state",
+   "Restarts the whole computer",
+   "Ignores it until the program ends"
+  ],
+  "correct_option": 1,
+  "explanation": "The current instruction completes, then registers and PC are saved before the handler runs. Abandoning corrupts work; restarting and ignoring defeat the mechanism's purpose.",
+  "sort_order": 201,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "check",
+  "objective_id": "20d62314-69f9-497a-8bf4-b5b5fa52e6d6",
+  "statement_id": null
+ },
+ {
   "id": "6006213c-2513-4051-9b64-5bc9cbbb18bd",
   "quiz_id": "1a85fb00-ccb4-41be-8f4b-2a2a266a141d",
   "question_text": "d/dx (tan x) =",
@@ -17172,6 +17766,24 @@
   "statement_id": "2433737a-745c-4bf8-9603-d1a94a7602e4"
  },
  {
+  "id": "6142ab89-7930-4904-a92c-9d78543daa6a",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "What is denary 45 in 8-bit binary?",
+  "options": [
+   "00101100",
+   "00101101",
+   "10110100",
+   "00011101"
+  ],
+  "correct_option": 1,
+  "explanation": "45 = 32 + 8 + 4 + 1, giving bits at 32, 8, 4 and 1: 00101101. 00101100 is 44 (the 1-bit missing); 10110100 is 180 (read backwards); 00011101 is 29.",
+  "sort_order": 101,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "9e21bf07-5505-49cc-99df-831c5a49775f",
+  "statement_id": null
+ },
+ {
   "id": "61464385-0584-4f9f-90f4-d62fe586f7ba",
   "quiz_id": "c8ccc00a-8ec6-4e9e-9685-f5b16639d814",
   "question_text": "What is the difference between a magnetic hard disk drive (HDD) and a solid-state drive (SSD)?",
@@ -17422,6 +18034,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "2f431699-b1be-480f-a202-4f4233393bcc"
+ },
+ {
+  "id": "629e69fa-8a8c-4252-af1e-1c92be2e5c97",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "Which malware locks files and demands payment for their release?",
+  "options": [
+   "Ransomware",
+   "Virus",
+   "Worm",
+   "Spyware"
+  ],
+  "correct_option": 0,
+  "explanation": "Ransomware encrypts files and ransoms the key. A virus needs a host and damages data; a worm self-spreads; spyware watches quietly instead of locking anything.",
+  "sort_order": 101,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "check",
+  "objective_id": "e28c23ee-c183-4641-ad30-c8c458761aac",
+  "statement_id": null
  },
  {
   "id": "62ada179-1106-4009-83f2-d07a76cd4fdb",
@@ -17874,6 +18504,24 @@
   "statement_id": null
  },
  {
+  "id": "650febad-f2d0-4ade-bf11-089a2168ab2f",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "During fetch, the PC holds address 40. What happens first?",
+  "options": [
+   "The ALU adds 1 to the contents of address 40",
+   "Address 40 is copied to the MAR and sent on the address bus",
+   "The instruction in the CIR is decoded",
+   "The MDR sends data to the printer"
+  ],
+  "correct_option": 1,
+  "explanation": "Fetch starts by moving the address PC to MAR and out on the address bus. The ALU does not add to memory contents; decode comes after fetch; the MDR talks to memory, not printers.",
+  "sort_order": 101,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "f3abef30-a103-4554-b017-43dacae86b7e",
+  "statement_id": null
+ },
+ {
   "id": "651ddeac-a8eb-4f92-b4e8-2f388bf11daa",
   "quiz_id": "f3d6de43-e464-43d2-95fb-7c15a4050daa",
   "question_text": "Vectors a and b are perpendicular when:",
@@ -17982,6 +18630,24 @@
   "statement_id": null
  },
  {
+  "id": "65ce6dc4-a2d1-487e-bd2d-a0566faec74a",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "Why must programs be copied from SSD to RAM before running?",
+  "options": [
+   "The SSD is too slow to hold programs",
+   "The CPU can only execute instructions held in primary storage",
+   "RAM is cheaper per gigabyte",
+   "Programs are too big for any SSD"
+  ],
+  "correct_option": 1,
+  "explanation": "Execution happens from CPU-direct primary storage; the SSD is secondary and must stage code through RAM. SSDs are fast and capacious; RAM costs more per gigabyte, not less.",
+  "sort_order": 802,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "22e0d2cc-d6c6-4417-b954-0bd48935ac6c",
+  "statement_id": null
+ },
+ {
   "id": "65e5d222-d950-4040-8a65-d815ea3002c2",
   "quiz_id": "36a126a3-b8e5-48a2-8e20-87165a50e4b0",
   "question_text": "A velocity selector has E = 1000 V/m and B = 0.5 T at right angles. Which speed passes undeflected?",
@@ -18016,6 +18682,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "66012e7f-8e20-4c26-8461-261d51547188",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Convert denary 200 into hexadecimal. Show your working.",
+  "options": [
+   "B8",
+   "C8",
+   "128",
+   "C6"
+  ],
+  "correct_option": 1,
+  "explanation": "Marks as awarded: 200 ÷ 16 = 12 remainder 8 [1]; digits C and 8 [1]. Answer C8. B8 is 184 (11 × 16 + 8); 128 confuses the denary value with digits; C6 is 198.",
+  "sort_order": 900,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "exam",
+  "objective_id": "9e21bf07-5505-49cc-99df-831c5a49775f",
+  "statement_id": "2f141338-3b71-457e-8edb-764bb0038775"
  },
  {
   "id": "66793c9b-c426-4b01-b85b-5d7ca44d21c1",
@@ -18324,6 +19008,24 @@
   "statement_id": null
  },
  {
+  "id": "682bcfb5-a4de-406d-b203-d6c6659d75a7",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "BOOKS holds (Title, Author, Price). Write the SQL to show the title and price of every book costing more than 20.",
+  "options": [
+   "SELECT * FROM BOOKS WHERE Title > 20",
+   "SELECT Title, Price FROM BOOKS WHERE Price > 20",
+   "SELECT Title + Price FROM BOOKS WHERE Price > 20",
+   "SELECT Title, Price FROM BOOKS WHERE Price < 20"
+  ],
+  "correct_option": 1,
+  "explanation": "Marks as awarded: correct columns Title, Price [1]; correct table and filter Price > 20 [1]. Answer as shown. Star returns unasked columns; Title > 20 filters text as a number; + is not a column separator; < reverses the range.",
+  "sort_order": 900,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "exam",
+  "objective_id": "4756d52d-6018-4150-9817-5d8f524f7611",
+  "statement_id": "6ce916a8-1105-4534-8542-13b1edfba4b0"
+ },
+ {
   "id": "688fd50e-6716-47a9-bf54-7b9b2d54d610",
   "quiz_id": "aaee8b30-affd-4508-a0f9-02eca942fe95",
   "question_text": "Which statement is from the \"Probability\" study notes?",
@@ -18357,6 +19059,24 @@
   "created_at": "2026-09-26 09:37:37.85516+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "68cdfdd6-fbb8-4694-a8e6-7a8a085852cd",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "How does a relational design remove this redundancy?",
+  "options": [
+   "By deleting old orders regularly",
+   "By storing the address once in CUSTOMERS and linking orders with CustomerID",
+   "By locking the address field against edits",
+   "By keeping the spreadsheet but sorting it"
+  ],
+  "correct_option": 1,
+  "explanation": "One copy plus a foreign-key link means one edit fixes every order. Deleting orders loses business data; locking blocks legitimate moves; sorting rearranges the same thirty copies.",
+  "sort_order": 402,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "d2c4ff31-87c4-422d-968b-aa62c2a1164d",
   "statement_id": null
  },
  {
@@ -18483,6 +19203,24 @@
   "created_at": "2026-09-21 17:56:51.180879+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "69627614-e9c4-4b08-abbc-33cc8aeb5fa8",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Which statement correctly compares Unicode and ASCII?",
+  "options": [
+   "Unicode uses fewer bits so text files are smaller",
+   "Unicode extends ASCII: the first 128 codes match",
+   "ASCII can represent every world language",
+   "Unicode and ASCII share no character codes"
+  ],
+  "correct_option": 1,
+  "explanation": "Unicode keeps ASCII's first 128 code points by design, then adds the world's scripts. ASCII is English-only; Unicode costs more bits per character, not fewer.",
+  "sort_order": 402,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "26affd2f-a941-4cee-9436-b48405a3eb25",
   "statement_id": null
  },
  {
@@ -19098,6 +19836,24 @@
   "statement_id": null
  },
  {
+  "id": "6d8c5390-0d6a-466f-87c1-74d8c4aa9108",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "INPUT N, TOTAL = 0, FOR I = 1 TO 3, TOTAL = TOTAL + I, NEXT I, OUTPUT TOTAL. What is output?",
+  "options": [
+   "3",
+   "6",
+   "5",
+   "0"
+  ],
+  "correct_option": 1,
+  "explanation": "Trace the loop: I = 1 gives TOTAL = 1, I = 2 gives TOTAL = 3, I = 3 gives TOTAL = 6. Output is 6. Stopping the loop early gives 3; adding the counter instead of accumulating gives 5.",
+  "sort_order": 101,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "aa741bbc-3345-4a61-9df3-2d548f45328a",
+  "statement_id": null
+ },
+ {
   "id": "6d98e429-e1e4-41eb-bb0e-901c124a5fa3",
   "quiz_id": "e3fca5ce-954e-452a-8dd7-5b5272fcaa33",
   "question_text": "Which is a vector?",
@@ -19422,6 +20178,24 @@
   "statement_id": null
  },
  {
+  "id": "6f0d7ce3-3871-4ae5-a0e8-516e7ffc307e",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "A song compresses to about 1 MB per minute. Which estimate is closest for a 3-minute song?",
+  "options": [
+   "300 KB",
+   "3 MB",
+   "30 MB",
+   "3 GB"
+  ],
+  "correct_option": 1,
+  "explanation": "3 minutes × 1 MB gives about 3 MB. 300 KB is seconds of audio; 30 MB is uncompressed CD quality; 3 GB is video-scale storage.",
+  "sort_order": 702,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "520e8408-e7d0-411c-8428-755a96710a10",
+  "statement_id": null
+ },
+ {
   "id": "6f21742e-5160-4c01-b481-aca00ea23c3a",
   "quiz_id": "eda04ffe-d5d0-481b-8709-af6b1c56dd84",
   "question_text": "The point (4; -3) is reflected in the y-axis. Find its image.",
@@ -19491,6 +20265,24 @@
   "created_at": "2026-09-26 09:37:41.53604+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "6f5d2f46-68f8-48d9-ab9d-d428dbb5ad77",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "In a burglar alarm, what does the PIR sensor actually detect?",
+  "options": [
+   "Broken glass vibrations",
+   "Movement of warm bodies across its zones",
+   "The sound of a door opening",
+   "Cuts in the window foil"
+  ],
+  "correct_option": 1,
+  "explanation": "PIR senses infrared (body heat) moving across zones. Glass, sound and foil are different sensors' jobs — vibration, microphone and continuity respectively.",
+  "sort_order": 402,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "0b494d51-f2d1-4758-8931-cf9c0755d912",
   "statement_id": null
  },
  {
@@ -19762,6 +20554,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "70c9d5ef-f17f-4311-9019-0ff16c49726c",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "A printer signals it has finished while a program runs. Describe exactly how the CPU handles this interrupt.",
+  "options": [
+   "Stops instantly, runs the printer routine, then restarts the program from the beginning",
+   "Finishes the current instruction, saves registers and PC, runs the handler, restores state and resumes",
+   "Pauses the program permanently and waits for the user",
+   "Ignores the printer until the program finishes"
+  ],
+  "correct_option": 1,
+  "explanation": "Marks as awarded: current instruction finished and state saved [1]; handler served then state restored with exact resume [1]. Restarting loses work; permanent pausing and ignoring both break the device contract.",
+  "sort_order": 900,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "exam",
+  "objective_id": "20d62314-69f9-497a-8bf4-b5b5fa52e6d6",
+  "statement_id": "cd58bf2e-9914-4d4c-968b-ba658cb348bc"
  },
  {
   "id": "70d876ed-ea6e-418d-8bbf-e9ee8ffa8b44",
@@ -20466,6 +21276,24 @@
   "statement_id": null
  },
  {
+  "id": "74ee928f-8fef-40e4-81cc-2a02f1167b1d",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "An office prints 5000 invoices a month in black and white. Which printer?",
+  "options": [
+   "A 3D printer",
+   "A laser printer",
+   "An inkjet printer",
+   "A plotter"
+  ],
+  "correct_option": 1,
+  "explanation": "High-volume mono text is the laser printer's exact job: fast with low cost per page. Inkjet costs more per page; 3D printers and plotters make objects and drawings, not invoices.",
+  "sort_order": 501,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "83b0b95e-46bd-429a-9586-f1b4ada7a186",
+  "statement_id": null
+ },
+ {
   "id": "74f8e93f-9b0a-49ce-b256-d323d4791ea9",
   "quiz_id": "32eb93d5-c77d-4822-889b-efefa7e8cd93",
   "question_text": "A core principle of the ACM code is:",
@@ -20878,6 +21706,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "77684faa-afc1-48ca-80d4-0d9818042067",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A video editor works with 2 TB of footage on a desktop that never moves. Which backing storage, and why?",
+  "options": [
+   "A 2 TB SSD because flash never wears out",
+   "Blu-ray discs because optical is fastest",
+   "A high-capacity HDD because cheap bulk capacity dominates a fixed desk",
+   "Extra RAM because memory is non-volatile"
+  ],
+  "correct_option": 2,
+  "explanation": "Marks as awarded: HDD chosen [1]; justification matches the scenario — bulk capacity per cost on a machine that never moves [1]. Flash cells wear; optical is small and slow per disc; RAM is volatile working memory, not bulk storage.",
+  "sort_order": 901,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "exam",
+  "objective_id": "79e47454-c273-4cc2-9397-9655c4b8590a",
+  "statement_id": "3c5f76f2-e20a-4f81-a364-4d0770b7ab3b"
  },
  {
   "id": "7777a4af-d544-4aac-97c2-82f482c18dd4",
@@ -21402,6 +22248,24 @@
   "statement_id": null
  },
  {
+  "id": "7a915ec9-b160-404f-b80d-118d78f967a9",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "A power-failure warning and a mouse click arrive together. Which is served first, and why?",
+  "options": [
+   "The mouse click, because it arrived in the same cycle",
+   "Whichever the programmer prefers",
+   "The power warning, because interrupts carry priorities",
+   "Neither — simultaneous interrupts cancel out"
+  ],
+  "correct_option": 2,
+  "explanation": "Priority decides, not arrival order: losing power threatens everything, so its interrupt pre-empts routine input. Simultaneous interrupts queue by priority; they never cancel.",
+  "sort_order": 202,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "check",
+  "objective_id": "20d62314-69f9-497a-8bf4-b5b5fa52e6d6",
+  "statement_id": null
+ },
+ {
   "id": "7a9f56d7-5e8e-49fd-8eca-2cf6be8213b5",
   "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
   "question_text": "Light below the threshold frequency shines brightly on a metal. What happens?",
@@ -21471,6 +22335,24 @@
   "created_at": "2026-09-26 09:37:33.521713+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "7b631ba6-7e94-4e96-975f-ba1164528e13",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "BOOKS holds AuthorID values matching AUTHORS.AuthorID. What is AuthorID in BOOKS?",
+  "options": [
+   "A flat-file marker",
+   "A query",
+   "A foreign key",
+   "A second primary key"
+  ],
+  "correct_option": 2,
+  "explanation": "It is a copy of AUTHORS' primary key used to link the tables — a foreign key. It identifies nothing in BOOKS itself, it is not a query, and flat file is a structure, not a field role.",
+  "sort_order": 202,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "86d0e220-4e7e-4a87-9e2a-64d4897100b6",
   "statement_id": null
  },
  {
@@ -22410,6 +23292,24 @@
   "statement_id": "7ea343c6-b4d4-4655-8d28-b760a9fcd8bb"
  },
  {
+  "id": "7f4606ba-600a-4945-83b7-84190e899b77",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "Which storage suits a laptop carried daily on rough buses?",
+  "options": [
+   "An internal hard disk drive",
+   "A solid-state drive",
+   "A DVD-RW left in the drive",
+   "Magnetic tape cartridges"
+  ],
+  "correct_option": 1,
+  "explanation": "SSDs have no moving parts to crash on bumpy rides and are fast. HDD heads hate shocks; a DVD in the drive is slow and tiny; tape is archival, not daily working storage.",
+  "sort_order": 701,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "79e47454-c273-4cc2-9397-9655c4b8590a",
+  "statement_id": null
+ },
+ {
   "id": "7f5a9b49-4eba-4793-b9ac-239d91cb3304",
   "quiz_id": "c95f20ce-3981-4534-924d-c4f8778cefaf",
   "question_text": "What is the purpose of the MOD operator in pseudocode?",
@@ -23022,6 +23922,24 @@
   "statement_id": "6ce916a8-1105-4534-8542-13b1edfba4b0"
  },
  {
+  "id": "822c00b3-1edf-4b3f-ae82-f97b5d079b5f",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Add 1011 + 0110 in 4-bit binary. What is stored, and did overflow occur?",
+  "options": [
+   "0001 is stored and overflow occurred",
+   "10001 is stored with no overflow",
+   "0001 is stored with no overflow",
+   "1111 is stored and overflow occurred"
+  ],
+  "correct_option": 0,
+  "explanation": "11 + 6 = 17, which is 10001 in binary — five bits, so in 4 bits only 0001 is stored and overflow occurred. 10001 cannot fit; 0001 without the flag hides the lost bit; 1111 is 15, the wrong sum.",
+  "sort_order": 201,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "bd9dd168-e182-4236-a5cb-42ea19dd4600",
+  "statement_id": null
+ },
+ {
   "id": "8257d79a-c882-44b2-bf93-74341768afec",
   "quiz_id": "8a7d8f2b-94e8-4aca-8421-3351c5cad8b8",
   "question_text": "How does JavaScript interact with the DOM to change the text of an HTML element?",
@@ -23451,6 +24369,24 @@
   "created_at": "2026-09-26 09:38:02.167444+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "848422b4-736b-4108-ad76-c9cef6c44632",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "In a PATIENTS table, what is one patient's whole row called?",
+  "options": [
+   "A field",
+   "A key",
+   "A query",
+   "A record"
+  ],
+  "correct_option": 3,
+  "explanation": "A row is a record — all the facts about one entity. A field is one column; a key identifies records; a query asks questions of the table.",
+  "sort_order": 102,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "beae4363-3323-4b30-ac48-4bef56acf5ae",
   "statement_id": null
  },
  {
@@ -24660,6 +25596,24 @@
   "statement_id": "3d85c27c-fbbb-4e83-a5bd-b9cecbf10d73"
  },
  {
+  "id": "8d6aaf87-2b38-4197-9005-011bfdb78d6f",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "A circuit outputs (A NOR B) OR (A AND B). Give the output column for input rows 00, 01, 10, 11.",
+  "options": [
+   "1, 0, 0, 1",
+   "0, 1, 1, 0",
+   "1, 1, 1, 1",
+   "0, 0, 0, 0"
+  ],
+  "correct_option": 0,
+  "explanation": "Marks as awarded: NOR column 1,0,0,0 and AND column 0,0,0,1 [1]; OR of the two gives 1,0,0,1 [1]. The second option inverts every row; the third is stuck at 1; the last copies neither gate.",
+  "sort_order": 900,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "exam",
+  "objective_id": "efe6ba21-5cac-4640-a470-98034327f2f1",
+  "statement_id": "f519bb32-44f6-44c4-8051-bff7db31e88c"
+ },
+ {
   "id": "8d7b7977-f1ce-4914-9e53-1c18637dd36c",
   "quiz_id": "bfdc2405-2093-4c51-be0b-a6bfc9e6bb1d",
   "question_text": "Relative addressing enables:",
@@ -24711,6 +25665,24 @@
   "created_at": "2026-09-18 14:13:04.47368+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "8d996fb1-df06-42f2-b3b5-41af4c159253",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "How does pharming differ from phishing?",
+  "options": [
+   "Phishing uses malware but pharming does not",
+   "Pharming needs the victim to click a link",
+   "Both attacks need the victim to reply",
+   "Pharming redirects a correctly typed address through tampered DNS"
+  ],
+  "correct_option": 3,
+  "explanation": "Pharming poisons name resolution, so the right address still reaches the wrong site. Phishing needs the victim to follow the bait; neither needs a reply, and malware is optional in both.",
+  "sort_order": 202,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "check",
+  "objective_id": "dd8eeb3b-f1fd-4282-b64b-104e19ae9f10",
   "statement_id": null
  },
  {
@@ -24766,6 +25738,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "7ea343c6-b4d4-4655-8d28-b760a9fcd8bb"
+ },
+ {
+  "id": "8dce0dba-4043-42cc-a30b-8af09113092a",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A single-threaded program runs faster on which upgrade?",
+  "options": [
+   "Doubling the cores at the same clock speed",
+   "Higher clock speed with a larger cache",
+   "A bigger hard disk",
+   "A higher-resolution monitor"
+  ],
+  "correct_option": 1,
+  "explanation": "One thread uses one core, so clock speed (plus cache to feed it) decides. Extra cores sit idle; disk and monitor do not execute instructions.",
+  "sort_order": 201,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "44dea1d3-7a88-47d2-be25-a976efd03d5c",
+  "statement_id": null
  },
  {
   "id": "8dece15a-3cee-4ba8-ba20-ad65c3f3227a",
@@ -25090,6 +26080,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "1aadb3b5-41d8-4e3c-a38b-20bba713ebcd"
+ },
+ {
+  "id": "8fba5ecb-1691-4aae-ae11-2650a7aad425",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "A motor runs when the guard is closed (G = 1) AND the operator presses start (S = 1), unless the overheat sensor trips (H = 1). Which circuit runs it correctly?",
+  "options": [
+   "(G AND S) OR H",
+   "G AND S AND H",
+   "(G AND S) AND (NOT H)",
+   "(G OR S) AND H"
+  ],
+  "correct_option": 2,
+  "explanation": "Marks as awarded: guard-and-start combined with AND [1]; overheat vetoed with NOT H ANDed in [1]. OR H runs the motor during overheating; AND H demands overheating; the last option miswires every condition.",
+  "sort_order": 901,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "exam",
+  "objective_id": "e8cd8ef0-7068-4987-b5c5-f803ccac97c1",
+  "statement_id": "f519bb32-44f6-44c4-8051-bff7db31e88c"
  },
  {
   "id": "8fd23e2e-bb81-476a-a179-b9a5e196ddcd",
@@ -27270,6 +28278,24 @@
   "statement_id": null
  },
  {
+  "id": "9c3130f6-0ee8-4589-b482-eb9238ad650e",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "Which message is almost certainly phishing?",
+  "options": [
+   "An email from a colleague about a meeting",
+   "A message demanding urgent action via a lookalike login link",
+   "A software update notice on the vendor's own site",
+   "A receipt for something you actually bought"
+  ],
+  "correct_option": 1,
+  "explanation": "Urgency plus a lookalike link is the classic hook. Genuine colleagues, vendor sites and real receipts lack both the pressure and the fake destination.",
+  "sort_order": 201,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "check",
+  "objective_id": "dd8eeb3b-f1fd-4282-b64b-104e19ae9f10",
+  "statement_id": null
+ },
+ {
   "id": "9c352a14-e993-4e6a-afac-f3c4aefc2fd1",
   "quiz_id": "1f241d08-18f8-4f37-be14-16cfbe462aad",
   "question_text": "A shape is rotated 90° clockwise about the origin. The point (1, 0) maps to:",
@@ -27774,6 +28800,24 @@
   "statement_id": null
  },
  {
+  "id": "9efdcbdc-be03-4024-873a-91efa1cc8ad6",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A fire alarm must alert a noisy factory floor. Which output?",
+  "options": [
+   "An on-screen warning message",
+   "A printed evacuation notice",
+   "A high-volume siren and flashing beacons",
+   "Headphones at each workstation"
+  ],
+  "correct_option": 2,
+  "explanation": "Alerts must override the environment: loud sirens plus beacons. Screens go unseen, paper goes unread in a fire, and headphones isolate workers from each other.",
+  "sort_order": 502,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "83b0b95e-46bd-429a-9586-f1b4ada7a186",
+  "statement_id": null
+ },
+ {
   "id": "9f06a94b-d711-47e5-82dc-a0d8ba7767d5",
   "quiz_id": "a993d761-1d53-4903-8072-8f99ad33aa26",
   "question_text": "Which loop runs at least once?",
@@ -28059,6 +29103,24 @@
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "a06903fb-9b07-4752-9597-513d35b5a215",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "A program accepts marks from 0 to 100. Which value is boundary test data?",
+  "options": [
+   "56",
+   "-3",
+   "100",
+   "eighty"
+  ],
+  "correct_option": 2,
+  "explanation": "100 sits exactly on the allowed edge, so it tests where the limit lies. 56 is normal, -3 is extreme (valid kind, far outside), and eighty is abnormal (wrong data type).",
+  "sort_order": 301,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "f478b9c1-8669-4f8f-8d96-e415f50e5fd2",
   "statement_id": null
  },
  {
@@ -29430,6 +30492,24 @@
   "statement_id": null
  },
  {
+  "id": "a751a30a-9bc3-4bd9-aef5-1bf9ffee8ea5",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "A club keeps member details on one shared PC with a single password everyone knows. Which pair of changes improves security most cheaply?",
+  "options": [
+   "Buy new computers and a faster connection",
+   "Remove the antivirus to speed the PC up",
+   "Set individual passwords with 2FA and keep offline backups",
+   "Share the password more widely so nobody forgets it"
+  ],
+  "correct_option": 2,
+  "explanation": "Marks as awarded: individual accounts with 2FA restore access control and accountability [1]; offline backups survive ransomware and disk failure [1]. New hardware keeps the same flaws; removing protection and sharing passwords both worsen the stated risks.",
+  "sort_order": 901,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "exam",
+  "objective_id": "1352f222-500d-4bed-a47f-04efd7a27c5e",
+  "statement_id": "d94933d2-01ed-4b5d-b885-f3408fc34748"
+ },
+ {
   "id": "a7532726-0970-48f6-b172-45e1a05cfd2b",
   "quiz_id": "0fe7f77f-cdeb-4d7e-9777-2f39cba58ecf",
   "question_text": "Which statement belongs to the \"Pressure & Density\" notes?",
@@ -30330,6 +31410,24 @@
   "statement_id": null
  },
  {
+  "id": "acfcdf3f-1d48-4e64-8271-858dd3dbcfb1",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "One customer address appears on 30 order rows. The customer moves; 10 rows are updated. What is the result?",
+  "options": [
+   "A virus in the orders table",
+   "Redundant storage that is now inconsistent",
+   "A broken primary key",
+   "Faster queries from cached addresses"
+  ],
+  "correct_option": 3,
+  "explanation": "Thirty copies is redundancy; two surviving versions is inconsistency. No malware is involved, keys are untouched, and duplicated text slows nothing — it corrupts.",
+  "sort_order": 401,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "d2c4ff31-87c4-422d-968b-aa62c2a1164d",
+  "statement_id": null
+ },
+ {
   "id": "acfec9a2-693c-4439-b761-d2c9cff68e56",
   "quiz_id": "a7b929b8-1c3c-4581-b843-e11079542e89",
   "question_text": "Which of these is covered by the \"Ethics and AI\" study notes?",
@@ -30363,6 +31461,24 @@
   "created_at": "2026-09-26 09:37:41.226072+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "ada21703-1b7e-4941-816b-aa2feecf72ba",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Which addition definitely causes overflow in 8-bit unsigned binary?",
+  "options": [
+   "01010101 + 00110011",
+   "01111111 + 00000001",
+   "10000000 + 10000000",
+   "00001111 + 00001111"
+  ],
+  "correct_option": 2,
+  "explanation": "128 + 128 = 256 needs a 9th bit, so it overflows. The others total 136, 128 and 30 — all fit in 8 bits (maximum 255).",
+  "sort_order": 202,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "bd9dd168-e182-4236-a5cb-42ea19dd4600",
   "statement_id": null
  },
  {
@@ -30760,6 +31876,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "afdc7caf-aee9-486d-a627-79a76c8028ad",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "A text claims your bank locked your account and links to verify now. What should you do, and why?",
+  "options": [
+   "Ignore the text and log in through the bank's own app or a typed address",
+   "Click the link and log in quickly before the account closes",
+   "Reply asking the sender to prove who they are",
+   "Forward your password so they can unlock it"
+  ],
+  "correct_option": 0,
+  "explanation": "Marks as awarded: do not follow the link; verify through the official app or typed address [1]; urgency plus a link is the phishing pattern [1]. Clicking hands credentials over; replying confirms an active victim; no bank unlocks accounts with emailed passwords.",
+  "sort_order": 900,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "exam",
+  "objective_id": "dd8eeb3b-f1fd-4282-b64b-104e19ae9f10",
+  "statement_id": "d94933d2-01ed-4b5d-b885-f3408fc34748"
  },
  {
   "id": "b00adfc3-9845-4e97-846f-343b70ee5224",
@@ -31626,6 +32760,24 @@
   "statement_id": null
  },
  {
+  "id": "b4b6480a-eeff-4a68-951a-aebb2706c6af",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "X = 0, WHILE X < 3 DO X = X + 1, OUTPUT X, ENDWHILE. What is the full output?",
+  "options": [
+   "1 2 3",
+   "0 1 2 3",
+   "1 2",
+   "3 2 1"
+  ],
+  "correct_option": 0,
+  "explanation": "Three passes give outputs 1, 2, then 3, and the fourth test (3 < 3) is false so the loop stops. Including the starting 0 confuses the initial value with an output; stopping a pass early drops the 3.",
+  "sort_order": 201,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "check",
+  "objective_id": "d7d07c04-034d-40de-a401-0c192da0ce7a",
+  "statement_id": null
+ },
+ {
   "id": "b4ba1539-d6d4-44ec-8fc2-81ee9f8f0220",
   "quiz_id": "d02804f3-29cb-420c-a765-b2e60e24ae74",
   "question_text": "From the \"Hypothesis Testing\" notes, which statement appears?",
@@ -31641,6 +32793,24 @@
   "created_at": "2026-09-26 09:38:03.010773+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "b4d1b4e2-1232-42bc-99d6-c480d8a06d65",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A warehouse tracks parcels by their printed labels. Which input device?",
+  "options": [
+   "A microphone",
+   "A barcode reader",
+   "A speaker",
+   "A plotter"
+  ],
+  "correct_option": 1,
+  "explanation": "Labels carry barcodes, read fastest by a barcode reader. A microphone hears nothing useful; speakers and plotters are output devices.",
+  "sort_order": 302,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "0ce73d78-c822-43de-a36b-1676c439b816",
   "statement_id": null
  },
  {
@@ -31804,6 +32974,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "884eec33-f615-411d-b184-6e07885e7973"
+ },
+ {
+  "id": "b67a1cf0-ffbd-4ea8-96d9-037bee452369",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Which is the largest: 1 MB, 2 KB, 8000 bits or 900 bytes?",
+  "options": [
+   "1 MB",
+   "2 KB",
+   "8000 bits",
+   "900 bytes"
+  ],
+  "correct_option": 0,
+  "explanation": "1 MB is about a million bytes — far above 2 KB (about 2000 bytes), 8000 bits (1000 bytes) and 900 bytes. Convert the bits to bytes before comparing.",
+  "sort_order": 302,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "bcc8e07e-0914-4813-9e7d-a0f1fae13fef",
+  "statement_id": null
  },
  {
   "id": "b6886285-8f07-43f5-abaa-b60c641c96d3",
@@ -32415,6 +33603,24 @@
   "created_at": "2026-09-20 18:42:46.581915+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "b9e5294d-eccb-4e1d-ba43-480d42d84dbe",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "A student can open the class folder but cannot delete from it. Which OS mechanism applies?",
+  "options": [
+   "Memory paging",
+   "Device drivers",
+   "File access rights",
+   "CPU scheduling"
+  ],
+  "correct_option": 2,
+  "explanation": "Read-but-not-delete is a permission on the file — access rights. Paging manages RAM; drivers talk to hardware; scheduling shares CPU time.",
+  "sort_order": 102,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "check",
+  "objective_id": "606c1acb-2457-4134-b322-18fc35afad6b",
   "statement_id": null
  },
  {
@@ -33262,6 +34468,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "ef5896e9-cae4-4a30-b429-e453b87cb83d"
+ },
+ {
+  "id": "c078c572-d6bd-46bb-a32e-3c4cd0527f72",
+  "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "question_text": "INPUT N, IF N MOD 2 = 0 THEN OUTPUT N / 2 ELSE OUTPUT N * 3 + 1, ENDIF, with N = 6. What is output?",
+  "options": [
+   "13",
+   "9",
+   "3",
+   "19"
+  ],
+  "correct_option": 2,
+  "explanation": "Marks as awarded: 6 MOD 2 = 0, so the IF branch runs [1]; 6 / 2 = 3 [1]. Answer 3. Taking the ELSE branch gives 19 and scores 0; halving without testing gives 3 for the wrong reason and loses the method mark.",
+  "sort_order": 901,
+  "created_at": "2026-10-12 10:11:16.891961+00",
+  "difficulty": "exam",
+  "objective_id": "aa741bbc-3345-4a61-9df3-2d548f45328a",
+  "statement_id": "e7ccd480-7016-45b8-b780-861f237f7e5e"
  },
  {
   "id": "c0b5f184-da43-44d3-a0ef-22f2458d39c6",
@@ -34380,6 +35604,24 @@
   "statement_id": "09c0a06b-e28c-474b-8134-075c5b21debc"
  },
  {
+  "id": "c6b74a0b-512c-4e39-bc91-c94c6c795c65",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "LOANS(MemberID, BookID, DateOut) records one row per loan. How do MemberID and BookID link each loan correctly?",
+  "options": [
+   "MemberID and BookID are both primary keys of LOANS",
+   "DateOut is the foreign key to a calendar table",
+   "MemberID references MEMBERS and BookID references BOOKS",
+   "LOANS needs no keys because every row differs"
+  ],
+  "correct_option": 2,
+  "explanation": "Marks as awarded: each ID copies its home table's primary key [1]; the pair therefore points at exactly one member and one book [1]. A table cannot have two primary keys; DateOut is data, not a link; differing rows still need keys to join on.",
+  "sort_order": 901,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "exam",
+  "objective_id": "86d0e220-4e7e-4a87-9e2a-64d4897100b6",
+  "statement_id": "6ce916a8-1105-4534-8542-13b1edfba4b0"
+ },
+ {
   "id": "c6d09864-9fea-44e3-95d9-1e1537a70eab",
   "quiz_id": "2f3296fe-9ab2-4457-aa2b-3c1bdd0946cd",
   "question_text": "Which statement belongs to the \"Kinematics\" notes?",
@@ -35025,6 +36267,24 @@
   "created_at": "2026-08-22 14:11:36.32038+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "ca425135-7a1e-4403-ac1a-6844f6efffc9",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "Increasing the sample rate of a sound recording does what?",
+  "options": [
+   "Reduces the file size",
+   "Takes more samples each second, so the file grows and quality improves",
+   "Adds more bits to each sample",
+   "Removes background noise from the recording"
+  ],
+  "correct_option": 1,
+  "explanation": "Sample rate is samples per second: more of them follows the wave better and stores more data. Bits per sample is the separate resolution setting; noise removal is filtering, not sampling.",
+  "sort_order": 501,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "182c5a6d-1abe-4712-bfda-717a76d40111",
   "statement_id": null
  },
  {
@@ -35802,6 +37062,24 @@
   "statement_id": null
  },
  {
+  "id": "ce760f73-1152-4358-a8ae-cd5f9ffbb87e",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "Which field makes the best primary key for a MEMBERS table?",
+  "options": [
+   "MemberID",
+   "Surname",
+   "Town",
+   "Age"
+  ],
+  "correct_option": 0,
+  "explanation": "MemberID is unique by design. Surnames, towns and ages all repeat across real members, so each fails the duplicate test.",
+  "sort_order": 201,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "86d0e220-4e7e-4a87-9e2a-64d4897100b6",
+  "statement_id": null
+ },
+ {
   "id": "cea72c52-9ef7-4009-9b87-71335751dbab",
   "quiz_id": "53b8eec7-1dae-4806-b47c-733f87ee2151",
   "question_text": "Which of these is NOT part of the \"Processor Fundamentals\" notes?",
@@ -35961,6 +37239,24 @@
   "created_at": "2026-09-14 18:41:34.736169+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "d00afd92-9c5c-49d1-be0e-6dfc52896a0a",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "A circuit outputs (A NOR B) AND (A XOR B). What is the full output column for rows 00, 01, 10, 11?",
+  "options": [
+   "0, 0, 0, 0",
+   "1, 0, 0, 1",
+   "0, 1, 1, 0",
+   "1, 1, 1, 1"
+  ],
+  "correct_option": 0,
+  "explanation": "NOR gives 1,0,0,0 and XOR gives 0,1,1,0; ANDing them gives 0,0,0,0 — the two can never be 1 together. The middle options each copy one gate's column instead of combining.",
+  "sort_order": 202,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "check",
+  "objective_id": "efe6ba21-5cac-4640-a470-98034327f2f1",
   "statement_id": null
  },
  {
@@ -37062,6 +38358,24 @@
   "statement_id": null
  },
  {
+  "id": "d7ce43c3-6676-4999-9ebc-e5fcb294301a",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "A street light switches on at dusk. Which sensor and pattern?",
+  "options": [
+   "Motion sensor triggering on movement",
+   "Light sensor whose reading falls below a threshold",
+   "Temperature sensor detecting the cold night",
+   "A timer with no sensor at all"
+  ],
+  "correct_option": 3,
+  "explanation": "Dusk is falling light: a light sensor reading below the threshold switches the lamp on. Motion, temperature and timers react to the wrong quantity or none.",
+  "sort_order": 401,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "check",
+  "objective_id": "0b494d51-f2d1-4758-8931-cf9c0755d912",
+  "statement_id": null
+ },
+ {
   "id": "d7ed1483-0f4b-44de-a6e3-d70f56216581",
   "quiz_id": "05d79961-07f6-4835-a1d9-c6f198f1b8f3",
   "question_text": "From the \"Mensuration — Area and Volume\" notes, which statement appears?",
@@ -37384,6 +38698,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "da175c10-e663-47b5-a623-c4b13cce484f",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "A school PC is used by 200 students. Which two OS features keep work private and the machine stable?",
+  "options": [
+   "Larger icons and brighter wallpaper",
+   "Faster internet and more games",
+   "User accounts with passwords plus memory protection between programs",
+   "A bigger monitor and louder speakers"
+  ],
+  "correct_option": 2,
+  "explanation": "Marks as awarded: accounts with authentication give each student private storage [1]; protected memory stops one student's program crashing another's [1]. Decoration, entertainment and peripherals solve neither privacy nor stability.",
+  "sort_order": 901,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "exam",
+  "objective_id": "606c1acb-2457-4134-b322-18fc35afad6b",
+  "statement_id": "cd58bf2e-9914-4d4c-968b-ba658cb348bc"
  },
  {
   "id": "da2eaff6-5d7a-4335-8831-f32324c751d4",
@@ -38988,6 +40320,24 @@
   "statement_id": null
  },
  {
+  "id": "e341ed0a-e208-4edd-9c58-fee0fcc11101",
+  "quiz_id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "question_text": "A 10-second mono clip uses 44,100 samples/sec and 16 bits/sample. What is its size?",
+  "options": [
+   "8820 KB",
+   "441 KB",
+   "882 KB",
+   "88 KB"
+  ],
+  "correct_option": 2,
+  "explanation": "44,100 × 16 × 10 = 7,056,000 bits, ÷ 8 = 882,000 bytes (about 882 KB). 8820 KB skips the ÷8; 441 KB halves the time; 88 KB drops a zero.",
+  "sort_order": 502,
+  "created_at": "2026-10-12 10:20:28.179415+00",
+  "difficulty": "check",
+  "objective_id": "182c5a6d-1abe-4712-bfda-717a76d40111",
+  "statement_id": null
+ },
+ {
   "id": "e36c980e-3fc7-4872-94cc-3cef8c7852bc",
   "quiz_id": "d9e19d5f-7ffb-458c-adb2-afa934c356ee",
   "question_text": "Two parallel lines are cut by a transversal. If one angle is 120°, what is the co-interior angle on the same side?",
@@ -39204,6 +40554,24 @@
   "statement_id": null
  },
  {
+  "id": "e3f10418-897e-41e0-9294-1c0a45c51226",
+  "quiz_id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "question_text": "A circuit outputs (A AND B) OR (NOT A). What is the output when A = 0, B = 1?",
+  "options": [
+   "0",
+   "1",
+   "Cannot be determined",
+   "It oscillates"
+  ],
+  "correct_option": 1,
+  "explanation": "A AND B = 0 AND 1 = 0; NOT A = 1; 0 OR 1 = 1. Combinational circuits always determine (no oscillation); 0 ignores the NOT branch.",
+  "sort_order": 201,
+  "created_at": "2026-10-12 10:26:33.847339+00",
+  "difficulty": "check",
+  "objective_id": "efe6ba21-5cac-4640-a470-98034327f2f1",
+  "statement_id": null
+ },
+ {
   "id": "e425fa01-5256-4796-b9df-9c6eb4256ed9",
   "quiz_id": "268cb56f-aa7c-47d5-83c8-87439082183f",
   "question_text": "2 sin x cos x in one trig function is:",
@@ -39363,6 +40731,24 @@
   "created_at": "2026-09-20 18:42:27.41632+00",
   "difficulty": "medium",
   "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "e5292780-7763-4fb3-84b5-a822b3c989f8",
+  "quiz_id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "question_text": "Two programs run together without corrupting each other's data. Which OS job is demonstrated?",
+  "options": [
+   "File compression",
+   "Memory management and protection",
+   "Virus scanning",
+   "Screen resolution control"
+  ],
+  "correct_option": 1,
+  "explanation": "Separate protected memory areas stop programs overwriting each other. Compression shrinks files; scanning hunts malware; resolution is display hardware — none isolate programs.",
+  "sort_order": 101,
+  "created_at": "2026-10-12 10:26:36.124337+00",
+  "difficulty": "check",
+  "objective_id": "606c1acb-2457-4134-b322-18fc35afad6b",
   "statement_id": null
  },
  {
@@ -42372,6 +43758,24 @@
   "statement_id": null
  },
  {
+  "id": "f5ea9247-8c39-4afa-bf4c-ad3b7adb9b1c",
+  "quiz_id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "question_text": "What does SELECT Name FROM Pupils WHERE Age > 11 return?",
+  "options": [
+   "The ages of all pupils",
+   "Every field of pupils older than 11",
+   "The names of pupils older than 11",
+   "The names of pupils aged exactly 11"
+  ],
+  "correct_option": 2,
+  "explanation": "SELECT Name outputs names only; WHERE Age > 11 keeps strictly older pupils. Ages would need SELECT Age; every field would need *; exactly 11 would need =.",
+  "sort_order": 301,
+  "created_at": "2026-10-12 10:20:30.349135+00",
+  "difficulty": "check",
+  "objective_id": "4756d52d-6018-4150-9817-5d8f524f7611",
+  "statement_id": null
+ },
+ {
   "id": "f5f441cf-cde0-40ae-85eb-c3fe70e01928",
   "quiz_id": "36a126a3-b8e5-48a2-8e20-87165a50e4b0",
   "question_text": "Faraday's law: induced EMF equals:",
@@ -43596,6 +45000,24 @@
   "statement_id": null
  },
  {
+  "id": "fd0310ca-a522-4a1a-985a-b386bfdb5c8d",
+  "quiz_id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "question_text": "Why is two-factor authentication stronger than a password alone?",
+  "options": [
+   "It makes the password impossible to guess",
+   "It adds a second, independent check such as a phone code",
+   "It encrypts the password automatically",
+   "It works without any password at all"
+  ],
+  "correct_option": 1,
+  "explanation": "A stolen password alone is useless when a separate factor (phone, token) is also required. 2FA neither strengthens the password itself, nor encrypts it, nor removes it.",
+  "sort_order": 302,
+  "created_at": "2026-10-12 10:20:32.91557+00",
+  "difficulty": "check",
+  "objective_id": "1352f222-500d-4bed-a47f-04efd7a27c5e",
+  "statement_id": null
+ },
+ {
   "id": "fd104d45-2d3e-429e-a3e3-72022aea7249",
   "quiz_id": "9a057bc4-6d5e-48ef-9404-09458fad70d4",
   "question_text": "Solve 3(x - 2)/4 = 6.",
@@ -44026,6 +45448,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "2433737a-745c-4bf8-9603-d1a94a7602e4"
+ },
+ {
+  "id": "ff09c488-6d9b-4668-abbf-506ccf3ae7d8",
+  "quiz_id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "question_text": "Describe the fetch stage of the fetch-decode-execute cycle, naming the registers and buses used.",
+  "options": [
+   "The ALU decodes the CIR and sends the result to the printer",
+   "PC to MAR, address bus to memory, instruction back on the data bus to MDR then CIR, PC increments",
+   "MDR writes directly to the hard disk while the PC resets to zero",
+   "The control bus carries the instruction into the accumulator"
+  ],
+  "correct_option": 1,
+  "explanation": "Marks as awarded: address moved PC to MAR and out on the address bus [1]; instruction returned via MDR to CIR with PC incremented [1]. The ALU never decodes; nothing is written to disk during fetch; the control bus carries signals, not instructions.",
+  "sort_order": 900,
+  "created_at": "2026-10-12 10:26:31.4346+00",
+  "difficulty": "exam",
+  "objective_id": "f3abef30-a103-4554-b017-43dacae86b7e",
+  "statement_id": "fd48be4e-e3a8-41d0-85e5-3dc205856c7a"
  },
  {
   "id": "ff179eb6-3e5c-4b28-988c-a49efa8179a7",

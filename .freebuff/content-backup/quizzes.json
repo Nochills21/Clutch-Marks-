@@ -224,6 +224,20 @@
   "correction_file_url": null
  },
  {
+  "id": "0b4b6134-1872-4438-be88-fe2b4ab19d08",
+  "topic_id": "a7777cab-478a-471d-8bd8-475dca83ab0e",
+  "title": "Checkpoints — Data Representation",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-12 10:20:27.63472+00",
+  "updated_at": "2026-10-12 10:20:27.63472+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "0eabfc11-afe2-4cac-ae48-4eee6c719e59",
   "topic_id": "4fbcf844-f1cc-41c3-a81d-e4dba7ad964b",
   "title": "Practice — Energy, Work & Power",
@@ -373,6 +387,20 @@
   "created_at": "2026-09-26 09:37:40.338429+00",
   "updated_at": "2026-09-30 17:12:15.353442+00",
   "exam_type": "ai_bank",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "1c97a549-ba40-455b-9b81-95139e87178b",
+  "topic_id": "f349b89f-57b4-461a-b10f-66ca9fbab4ae",
+  "title": "Checkpoints — Operating Systems",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-12 10:26:35.789172+00",
+  "updated_at": "2026-10-12 10:26:35.789172+00",
+  "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
@@ -638,6 +666,20 @@
   "is_published": true,
   "created_at": "2026-09-20 17:51:00.295981+00",
   "updated_at": "2026-09-21 17:56:47.080116+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
+  "topic_id": "35378b08-5638-4278-84b4-def6b1041f0a",
+  "title": "Checkpoints — Algorithms & Programming",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-12 10:11:16.148959+00",
+  "updated_at": "2026-10-12 10:11:16.148959+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -1330,6 +1372,20 @@
   "correction_file_url": null
  },
  {
+  "id": "7322646d-9bb9-4b0b-8599-dc0c8692ef72",
+  "topic_id": "02bd056b-1248-42ac-afec-ed66f164f6bd",
+  "title": "Checkpoints — Logic Gates & Boolean Logic",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-12 10:26:33.454+00",
+  "updated_at": "2026-10-12 10:26:33.454+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "765f26c6-a5b4-488f-a520-168863daeb8f",
   "topic_id": "cd7deaf4-1e3a-42af-9f1d-19aa44a2bb36",
   "title": "Differentiation Quiz",
@@ -1436,6 +1492,20 @@
   "is_published": true,
   "created_at": "2026-09-20 18:43:09.336991+00",
   "updated_at": "2026-09-20 18:43:09.336991+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
+  "topic_id": "3aef5c79-5146-499d-b4ce-b7118005ffe7",
+  "title": "Checkpoints — Hardware Architecture",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-12 10:26:31.053011+00",
+  "updated_at": "2026-10-12 10:26:31.053011+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2128,6 +2198,20 @@
   "correction_file_url": null
  },
  {
+  "id": "ba805538-94b3-47a2-9265-29309ae6669d",
+  "topic_id": "786d1694-9f44-4f8f-98d9-5ec1ce06f2ba",
+  "title": "Checkpoints — Ethics, Security & Impact",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-12 10:20:32.532641+00",
+  "updated_at": "2026-10-12 10:20:32.532641+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
   "topic_id": "532f32af-de30-4ad5-a9be-33e0d552a831",
   "title": "Practice — Hardware and Logic Gates",
@@ -2459,6 +2543,20 @@
   "created_at": "2026-09-26 09:37:38.290669+00",
   "updated_at": "2026-09-30 17:12:15.353442+00",
   "exam_type": "ai_bank",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "dfdda856-ceda-4ff0-af6a-1e4924ce1775",
+  "topic_id": "59f8ecd0-7203-4de2-bd02-01f15a70529b",
+  "title": "Checkpoints — Database Systems",
+  "description": "Short checks, one set per objective in this topic. Answer one wrongly and the objective it belongs to is the thing to revisit — not the whole topic.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-12 10:20:29.923735+00",
+  "updated_at": "2026-10-12 10:20:29.923735+00",
+  "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
