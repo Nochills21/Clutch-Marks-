@@ -555,37 +555,42 @@
   }
 }
 
-/* Clutch Marks study surfaces: a white, ivory and champagne-gold palette with
-   serif headings. Scoped to .cm-study so the rest of the app keeps its warm
-   paper theme. Re-pointing the shadcn variables here re-themes every primitive
-   inside (Card, Button, Badge, Tabs) without editing those components. */
+/* Clutch Marks study surfaces: the shell's own warm-paper tokens plus serif
+   headings and a reading measure. Scoped to .cm-study so study pages keep
+   their editorial voice (display serif, reader column, gold rules) while
+   every color, radius, shadow and hairline matches the app shell exactly in
+   both themes. Re-pointing the shadcn variables here re-themes every
+   primitive inside (Card, Button, Badge, Tabs) without editing components. */
 @layer components {
   .cm-study {
-    --background: 40 25% 99%;
-    --foreground: 225 18% 12%;
+    --background: 40 33% 99%;
+    --foreground: 240 10% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 225 18% 12%;
+    --card-foreground: 240 10% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 225 18% 12%;
-    --primary: 40 52% 36%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 22% 96%;
-    --secondary-foreground: 225 14% 22%;
-    --muted: 40 18% 96%;
-    --muted-foreground: 225 8% 42%;
-    --accent: 40 45% 94%;
-    --accent-foreground: 40 52% 30%;
-    --border: 40 12% 90%;
-    --input: 40 12% 88%;
-    --ring: 40 52% 36%;
-    --radius: 0.5rem;
-    --gold: 40 52% 36%;
-    --gold-soft: 40 45% 70%;
-    --gold-deep: 36 55% 26%;
-    --shadow-card: 0 1px 2px hsla(225, 20%, 12%, 0.04), 0 1px 3px hsla(225, 20%, 12%, 0.03);
-    --shadow-card-hover: 0 4px 12px hsla(225, 20%, 12%, 0.06);
-    --hairline: hsla(225, 20%, 12%, 0.08);
-    --hairline-strong: hsla(225, 20%, 12%, 0.14);
+    --popover-foreground: 240 10% 9%;
+    --primary: 40 92% 38%;
+    --primary-foreground: 40 33% 99%;
+    --secondary: 40 20% 95%;
+    --secondary-foreground: 240 10% 20%;
+    --muted: 40 18% 95%;
+    --muted-foreground: 240 6% 42%;
+    --accent: 40 92% 38%;
+    --accent-foreground: 40 33% 99%;
+    --border: 40 14% 88%;
+    --input: 40 14% 86%;
+    --ring: 40 92% 42%;
+    --radius: 0.875rem;
+    --gold: 40 92% 38%;
+    --gold-soft: 42 70% 60%;
+    --gold-deep: 32 80% 30%;
+    --shadow-card: var(--shadow-sm);
+    --shadow-card-hover: var(--shadow-md);
+    --hairline: hsla(240, 10%, 10%, 0.09);
+    --hairline-strong: hsla(240, 10%, 10%, 0.16);
+    /* The ivory surface the dark ink is written for. Without it, a study page
+       in dark mode puts this dark text on the app's dark background. */
+    background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
 
@@ -633,6 +638,38 @@
 
   .cm-reader p {
     margin: 0.9em 0;
+  }
+
+  /* Dark companion: the study scope re-points at the app shell's own dark
+     tokens, so study pages are indistinguishable from the rest of the app in
+     dark mode. This block must list every variable `.cm-study` sets above —
+     without it, the ivory values win (components layer beats base layer) and
+     study pages flash white inside a dark shell. */
+  .dark .cm-study {
+    --background: 240 8% 4.5%;
+    --foreground: 40 18% 95%;
+    --card: 240 7% 7%;
+    --card-foreground: 40 18% 95%;
+    --popover: 240 8% 6%;
+    --popover-foreground: 40 18% 95%;
+    --primary: 43 92% 55%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 240 6% 13%;
+    --secondary-foreground: 40 15% 88%;
+    --muted: 240 6% 13%;
+    --muted-foreground: 40 8% 62%;
+    --accent: 43 92% 55%;
+    --accent-foreground: 240 10% 6%;
+    --border: 40 10% 17%;
+    --input: 40 10% 20%;
+    --ring: 43 92% 55%;
+    --gold: 43 92% 55%;
+    --gold-soft: 42 60% 70%;
+    --gold-deep: 34 70% 42%;
+    --shadow-card: 0 1px 0 0 hsla(0, 0%, 100%, 0.03) inset, var(--shadow-sm);
+    --shadow-card-hover: 0 1px 0 0 hsla(0, 0%, 100%, 0.05) inset, var(--shadow-md);
+    --hairline: hsla(0, 0%, 100%, 0.07);
+    --hairline-strong: hsla(0, 0%, 100%, 0.13);
   }
 }
 

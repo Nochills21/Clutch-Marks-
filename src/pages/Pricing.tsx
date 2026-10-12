@@ -1,4 +1,4 @@
-// Pricing: preview tier + three paid plans ($40/mo, $24/mo billed quarterly, $10/mo billed annually).
+// Pricing: preview tier + three paid plans ($40/mo, $24/mo billed quarterly, $6.67/mo billed annually).
 // Exactly two payment methods: Bank Transfer or E-Wallet (Urpay). Requesting a
 // plan captures the payer's full name and a transaction receipt; an admin then
 // activates the subscription from Admin Payments.
@@ -49,10 +49,10 @@ const PLANS = [
   {
     id: "annual",
     name: "Annual",
-    price: "$10",
-    per: "/month · billed $120",
+    price: "$6.67",
+    per: "/month · billed $80",
     blurb: "Best value — a full year of A* prep.",
-    features: ["Everything in Monthly", "Save $30/month vs monthly plan", "Priority support"],
+    features: ["Everything in Monthly", "Save $33.33/month vs monthly plan", "Priority support"],
     highlight: false,
   },
 ];
@@ -363,30 +363,6 @@ export default function Pricing() {
           );
         })}
       </div>
-
-      <Card className="neon-border">
-        <CardHeader>
-          <CardTitle className="text-lg flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-primary" /> The A* guarantee</CardTitle>
-          <CardDescription>Do the work, secure the A* — or your money back.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-3 text-sm text-muted-foreground">
-          <p>
-            Finish the program in your subject and your official result is below an A*, and we refund
-            your plan in full. No forms-to-nowhere, no fine-print maze — the app already tracks
-            everything, so eligibility is automatic.
-          </p>
-          <ol className="space-y-2 list-decimal list-inside">
-            <li>Reach <span className="font-medium text-foreground">Exam-ready on every topic</span> of the subject — see your mastery report turn green.</li>
-            <li>Submit <span className="font-medium text-foreground">at least 20 past papers for AI marking</span> in that subject before the exam.</li>
-            <li>Sit the official CAIE or Edexcel paper for that subject and level.</li>
-          </ol>
-          <p className="text-xs">
-            Claim within 30 days of results day with your result slip (contact us from your account
-            email). One claim per account. The guarantee covers the plan you studied on; the free
-            preview is not eligible.
-          </p>
-        </CardContent>
-      </Card>
 
       <Card>
         <CardHeader>

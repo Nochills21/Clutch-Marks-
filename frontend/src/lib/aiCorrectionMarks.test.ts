@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { normaliseMarks } from "../../../supabase/functions/ai-correction/marks";
+import { normaliseMarks, questionList } from "../../../supabase/functions/ai-correction/marks";
 
 describe("normaliseMarks (ai-correction)", () => {
   it("keeps in-range marks and computes the percentage", () => {
@@ -57,5 +57,56 @@ describe("normaliseMarks (ai-correction)", () => {
     expect(earned).toBeLessThanOrEqual(possible);
     expect(earned).toBe(6);
     expect(possible).toBe(10);
+  });
+
+  it("reads a fraction in marks_earned as earned out of total", () => {
+    expect(normaliseMarks({ marks_earned: "3/4" })).toMatchObject({
+      marks_earned: 3,
+      total_marks: 4,
+      grade: 75,
+    });
+    expect(normaliseMarks({ marks_earned: "3 out of 4", total_marks: null })).toMatchObject({
+      marks_earned: 3,
+      total_marks: 4,
+      grade: 75,
+    });
+  });
+
+  it("reads a number with a unit word, so \"3 marks\" is not a zero", () => {
+    expect(normaliseMarks({ marks_earned: "3 marks", total_marks: 4 })).toMatchObject({
+      marks_earned: 3,
+      total_marks: 4,
+      grade: 75,
+    });
+  });
+
+  it("still bounds a fraction that overscores", () => {
+    const r = normaliseMarks({ marks_earned: "9/4" });
+    expect(r).toMatchObject({ marks_earned: 4, total_marks: 4, grade: 100 });
+    expect(r.clamped).toBe(true);
+  });
+});
+
+describe("questionList (ai-correction)", () => {
+  it("passes a bare array through", () => {
+    const rows = [{ question: "1", marks_earned: 2, total_marks: 2 }];
+    expect(questionList(rows)).toEqual(rows);
+  });
+
+  it("unwraps a list nested under a key", () => {
+    const rows = [{ question: "1", marks_earned: 1, total_marks: 2 }];
+    expect(questionList({ questions: rows })).toEqual(rows);
+  });
+
+  it("wraps a single question object", () => {
+    const row = { question: "1", marks_earned: 1, total_marks: 2 };
+    expect(questionList(row)).toEqual([row]);
+  });
+
+  it("returns null when there is nothing to mark", () => {
+    expect(questionList("not json")).toBeNull();
+    expect(questionList({ questions: [] })).toBeNull();
+    expect(questionList({ note: "sorry" })).toBeNull();
+    expect(questionList(null)).toBeNull();
   });
 });

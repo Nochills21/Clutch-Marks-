@@ -413,7 +413,7 @@ export default function Notes() {
           <div className="prose-elegant pt-1">
             <div
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize((viewing?.content ?? "").replace(/\n/g, "<br/>")),
+                __html: DOMPurify.sanitize(/<\/?(p|h[1-6]|ul|ol|li|table|div)\b/i.test(viewing?.content ?? "") ? (viewing?.content ?? "") : (viewing?.content ?? "").replace(/\n/g, "<br/>")),
               }}
             />
           </div>

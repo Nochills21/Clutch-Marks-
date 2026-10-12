@@ -225,7 +225,7 @@ export default function Flashcards() {
 
     if (studyComplete) {
       return (
-        <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6">
+        <div className="cm-study flex flex-col items-center justify-center min-h-[60vh] gap-6">
           <SEOHead path="/flashcards" />
           <CheckCircle2 className="h-16 w-16 text-success" />
           <h2 className="text-2xl font-bold text-foreground">Session Complete!</h2>
@@ -238,7 +238,7 @@ export default function Flashcards() {
     }
 
     return (
-      <div className="max-w-xl mx-auto space-y-6">
+      <div className="cm-study max-w-xl mx-auto space-y-6">
         <SEOHead path="/flashcards" />
         <div className="flex items-center justify-between">
           <Button variant="ghost" onClick={() => { setStudySetId(null); setStudyCards([]); }}>

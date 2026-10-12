@@ -95,7 +95,7 @@ export default function AdminGradeBook() {
   useEffect(() => { loadGrades(); }, [loadGrades]);
 
   const filtered = useMemo(() => {
-    let list = students.filter((s) =>
+    const list = students.filter((s) =>
       s.fullName.toLowerCase().includes(search.toLowerCase()) ||
       (s.email ?? "").toLowerCase().includes(search.toLowerCase())
     );

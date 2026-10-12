@@ -2,7 +2,7 @@
 // and the admin-only student-preview mode. Every gated component consumes this.
 import { createContext, useCallback, useContext, useEffect, useRef, useState, ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { retrySupabase, withRetry } from "@/lib/net";
+import { retrySupabase } from "@/lib/net";
 import type { User, Session } from "@supabase/supabase-js";
 import { useSyncExternalStore } from "react";
 
@@ -145,10 +145,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // treat a signed-in student as signed out. The promise ALWAYS settles, so
     // `sessionLoading` can no longer stay true and pin the whole app behind a
     // spinner forever.
-    withRetry(() => supabase.auth.getSession(), { attempts: 3 })
-      .then(({ data }) => {
+    // `retrySupabase` retries a transient failure (which resolves with `error`)
+    // and passes a definitive one through, so only a rejected token reaches the
+    // branch below.
+    retrySupabase(() => supabase.auth.getSession(), { attempts: 3 })
+      .then(async ({ data, error }) => {
         if (!active) return;
-        const session = data?.session ?? null;
+        // A refresh token the server rejects (revoked, expired, or left over from
+        // an old project) comes back as `error`. Keeping it means every visit
+        // replays the same failing refresh, so clear the local copy.
+        if (error) {
+          await supabase.auth.signOut({ scope: "local" }).catch(() => {});
+          if (!active) return;
+        }
+        const session = error ? null : data?.session ?? null;
         setSession(session);
         setUser(session?.user ?? null);
         if (session?.user) fetchRole(session.user.id);

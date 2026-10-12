@@ -15,6 +15,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "1cd956ee-9474-47b8-94f3-04b0c40af8b7",
+  "entity_type": "material",
+  "entity_id": "929796bd-05c8-46af-85a3-af6815541b09",
+  "title": "Circular Measure — Study Notes",
+  "content": "<h2>Circular Measure</h2>\n<h3>Radians</h3>\n<p>One radian is the angle subtending an arc equal in length to the radius. π radians = 180°.</p>\n<ul>\n<li>Degrees → radians: multiply by π/180.</li>\n<li>Radians → degrees: multiply by 180/π.</li>\n</ul>\n<p>Common angles: 30° = π/6, 45° = π/4, 60° = π/3, 90° = π/2, 180° = π, 360° = 2π.</p>\n<h3>Arc Length</h3>\n<p>s = rθ (θ in radians).</p>\n<p><strong>Example:</strong> r = 6, θ = π/3 gives s = 2π.</p>\n<h3>Sector Area</h3>\n<p>A = ½r²θ.</p>\n<p><strong>Example:</strong> r = 5, θ = 1.2 gives A = ½ × 25 × 1.2 = 15.</p>\n<h3>Segment Area</h3>\n<p>A = ½r²(θ − sin θ). For r = 2, θ = π/2: A = 2(π/2 − 1) = π − 2.</p>\n<h3>Rearranging</h3>\n<ul>\n<li>θ = s/r (must be radians)</li>\n<li>θ = 2A/r²</li>\n</ul>\n<p><strong>Exam tips:</strong> never mix degrees into s = rθ; convert first. Sketch the sector and mark r and θ before computing, and check whether a question asks for the major or minor sector.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 06:15:14.901839+00"
+ },
+ {
   "id": "24950def-0ad6-43c8-a3be-6b228383927d",
   "entity_type": "lesson",
   "entity_id": "bf53adf9-5763-47d1-8896-32310e726c79",
