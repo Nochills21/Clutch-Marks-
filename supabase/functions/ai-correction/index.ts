@@ -22,7 +22,7 @@
 // 20261008140000), and a failed audit write must never lose a student's marks.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.4";
-import { normaliseMarks } from "./marks.ts";
+import { normaliseMarks, questionList } from "./marks.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -729,8 +729,8 @@ Mark scheme style:
       modelName = textModel;
     }
 
-    const parsed = parseModelJson(llmOutput);
-    if (!Array.isArray(parsed) || parsed.length === 0) {
+    const parsed = questionList(parseModelJson(llmOutput));
+    if (!parsed || parsed.length === 0) {
       throw new Error("The marking model returned no usable results. Please try again.");
     }
 

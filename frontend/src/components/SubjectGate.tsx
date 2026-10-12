@@ -60,7 +60,7 @@ export function SubjectGate() {
               <label key={o.id} className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer hover:bg-accent/50 text-left">
                 <Checkbox
                   checked={picked.has(o.id)}
-                  onCheckedChange={() => setPicked(p => { const next = new Set(p); next.has(o.id) ? next.delete(o.id) : next.add(o.id); return next; })}
+                  onCheckedChange={() => setPicked(p => { const next = new Set(p); if (next.has(o.id)) next.delete(o.id); else next.add(o.id); return next; })}
                   id={`anon-gate-${o.id}`}
                 />
                 <Label htmlFor={`anon-gate-${o.id}`} className="text-sm font-normal cursor-pointer flex-1">{o.label}</Label>
@@ -87,7 +87,8 @@ export function SubjectGate() {
   const toggle = (id: string) =>
     setPicked(p => {
       const next = new Set(p);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
       return next;
     });
 

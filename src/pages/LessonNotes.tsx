@@ -192,7 +192,7 @@ export default function LessonNotes() {
   const level = lesson.topics?.subject_levels?.level;
 
   return (
-    <div className="space-y-5">
+    <div className="cm-study space-y-5">
       <PreviewBanner />
       <WatermarkOverlay />
       <SEOHead
