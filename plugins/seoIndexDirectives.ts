@@ -352,6 +352,10 @@ export function verifyIndexDirectives(options: IndexAuditOptions): string {
       continue;
     }
 
+    // Google Search Console verification files are not pages: Google fetches
+    // them as raw text, so they carry no robots meta and match no route.
+    if (/^\/google[0-9a-f]{16}\.html$/.test(path)) continue;
+
     seen.add(path);
     const page = byPath.get(path);
 
