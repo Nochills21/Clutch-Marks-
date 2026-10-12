@@ -364,6 +364,19 @@
   "source_range": null
  },
  {
+  "id": "1c4249ab-d224-4279-a85d-e9a9f32c78f8",
+  "topic_id": "0f4bcc9a-e4a0-4c6a-ae8d-2354b6190d2e",
+  "title": "Exam technique: Transformations and Vectors",
+  "content": "### What earns the marks\nFor translations and vector arithmetic, each component computed separately earns credit: show x and y lines. For magnitude, the root-of-sum-of-squares line earns the method mark before evaluation. For reflections and rotations, the coordinate rule stated ((y; -x) for 90 degrees clockwise) earns the method mark. For describing transformations, all three of type, centre or line, and size or angle are needed for full marks.\n### Traps\nError: writing column vectors as bracket rows that lose a row. Correction: use (x; y) form and keep both components. Error: (100) or 14 for the magnitude of (6; 8). Correction: square, add, then root. Error: (-y; x) for a clockwise rotation. Correction: clockwise is (y; -x). Error: negating both coordinates for a single-axis reflection. Correction: one axis changes, the other stays.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:48.887779+00",
+  "updated_at": "2026-10-12 07:32:48.887779+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "1cbe3f90-97ce-4f84-8928-e7f861cadf0e",
   "topic_id": "786d1694-9f44-4f8f-98d9-5ec1ce06f2ba",
   "title": "Ethics, Security & Impact — Quick Revision Summary",
@@ -371,6 +384,19 @@
   "material_type": "summary",
   "created_at": "2026-09-18 14:13:20.494765+00",
   "updated_at": "2026-09-30 16:51:28.718217+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "1d0497b8-8986-4180-acec-1a485740b0e6",
+  "topic_id": "8f5f82ea-a53d-45ad-afb8-87e365ba6342",
+  "title": "Exam technique: Sine and Cosine Rules",
+  "content": "### What earns the marks\nFor the sine rule, the matched pairs written (b / sin 65 = 7 / sin 40) earn the method mark. For the cosine rule, the full substitution with cos evaluated earns the mark: write a squared = 25 + 64 - 2 x 5 x 8 x 0.5. For the largest angle, identifying the longest side first earns credit. For area, half a b sin C quoted earns the mark on its own.\n### Traps\nError: sides paired with wrong angles in the sine rule. Correction: each side faces its angle. Error: 49 given as side a. Correction: root the cosine-rule result. Error: calculator-only acute angle for an obtuse ambiguous case. Correction: subtract from 180 by hand. Error: half a b without sine for a non-right triangle. Correction: area needs the sine factor unless the angle is 90 degrees.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:48.887779+00",
+  "updated_at": "2026-10-12 07:32:48.887779+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -403,6 +429,19 @@
   "source_range": null
  },
  {
+  "id": "1e855b3f-d19a-4989-a855-0c2693bea29a",
+  "topic_id": "df5b0bf8-9064-466a-ae6f-9afe1aafea09",
+  "title": "Exam technique: Data Handling",
+  "content": "### What earns the marks\nFor averages, the total shown earns a mark before any division. For even-count medians, the two middle values identified earn the method mark. For grouped data, the modal class stated as an interval earns full credit; single numbers score nothing. For cumulative frequency, the position formula (n + 1) / 2 quoted earns the method mark before reading off.\n### Traps\nError: total given as the mean. Correction: divide by the count last. Error: 3rd value picked as median of six values. Correction: average the 3rd and 4th. Error: 40th value read for the median of 80. Correction: position 40.5. Error: quartiles read for median and vice versa. Correction: 20th/60th are quartiles at n = 80.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:18.745763+00",
+  "updated_at": "2026-10-12 07:32:18.745763+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "1eb9529e-c138-45df-bf2b-3b19ae7f78e9",
   "topic_id": "4c782793-d5fc-4e1f-8696-69c53dedb9ed",
   "title": "Programming Concepts — Quick Revision Summary",
@@ -410,6 +449,32 @@
   "material_type": "summary",
   "created_at": "2026-09-18 14:13:20.494765+00",
   "updated_at": "2026-09-19 06:22:40.72342+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "2188824e-7cf4-4b08-bdbb-a02b5e20cb71",
+  "topic_id": "9d69ae0a-cb99-4780-88a1-42025848a024",
+  "title": "Exam technique: Probability",
+  "content": "### What earns the marks\nFor combined events, each branch probability with the changed denominator earns a mark: write 3/5 then 2/4 for no-replacement draws. For expectation, probability times trials stated earns the mark even with arithmetic slips. For conditional probability, restricting the denominator to the given condition earns the method mark: write 12/20 before simplifying. For P(A or B), the overlap subtracted earns the final mark.\n### Traps\nError: unchanged denominator after a no-replacement draw. Correction: both numerator and denominator drop. Error: dividing by 50 for a given-glasses probability. Correction: condition first, population second. Error: adding P(A) + P(B) without subtracting the overlap. Correction: both-occurring counted twice. Error: adding single-coin probabilities for two coins. Correction: multiply along branches.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:48.887779+00",
+  "updated_at": "2026-10-12 07:32:48.887779+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "21fa2662-2a95-4923-a3f7-41c478ef2284",
+  "topic_id": "5adbea4d-ca06-48c6-808b-ebf4588c2bed",
+  "title": "Exam technique: Simplifying and Expanding",
+  "content": "### What earns the marks\nFor expansion, calculate earns a mark for every correct pair of products shown before collecting terms. For factorisation, the HCF stated earns the first mark and the fully divided bracket earns the second: partial factorisation scores at most half. For algebraic fractions, factorise first earns the method mark even when cancellation follows.\n### Traps\nError: (x + 5)(x - 2) = x squared + 10. Correction: four products, then collect. Error: 3(2x squared - 3x) called fully factorised. Correction: extract x as well. Error: cancelling terms instead of factors in a fraction. Correction: factorise numerator and denominator first.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:30:30.787012+00",
+  "updated_at": "2026-10-12 07:30:30.787012+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -592,6 +657,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 17:51:02.437232+00",
   "updated_at": "2026-09-20 17:51:02.437232+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "317310ce-3bf6-4dd4-87a8-951948ac4d36",
+  "topic_id": "4a093751-70de-4b7b-a451-94efe48c280c",
+  "title": "Exam technique: Angles and Polygons",
+  "content": "### What earns the marks\nFor angle-chasing, justify earns marks for each reason stated alongside the value: angles on a straight line, vertically opposite, alternate, corresponding, and the circle theorems by name. For cyclic quadrilaterals, quote earns the theorem (opposite angles sum to 180) before the equation. For polygons, the formula (n - 2) x 180 stated earns the method mark.\n### Traps\nError: using adjacent instead of opposite angles in a cyclic quadrilateral. Correction: mark the diagram first. Error: answering each interior angle when the sum is asked. Correction: only divide at the very end. Error: treating any triangle in a circle as right-angled. Correction: the right angle needs the diameter as hypotenuse.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:30:30.787012+00",
+  "updated_at": "2026-10-12 07:30:30.787012+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1027,6 +1105,19 @@
   "source_range": null
  },
  {
+  "id": "55709e1c-ba44-4fde-9419-d3406d0fa5c0",
+  "topic_id": "10de5ecf-fb90-45c3-a301-0562eb466a1c",
+  "title": "Exam technique: Mensuration",
+  "content": "### What earns the marks\nFor circles, sectors and arcs, the fraction of 360 stated earns the method mark: write 60/360 before multiplying. For cylinders, cones and spheres, the formula quoted earns a mark on its own, so write Volume = (1/3) pi r squared h even when confident. For compound shapes, split earns marks: compute each part separately, then add or subtract with a clear statement.\n### Traps\nError: 2 pi r used for area. Correction: circumference versus area check first. Error: omitting 1/3 for cones and pyramids. Correction: quote the formula every time. Error: using diameter as radius in a semicircle cut-out. Correction: halve the diameter before any pi work. Error: forgetting the square root in a Pythagoras step. Correction: label squared lines as squared.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:31:03.173113+00",
+  "updated_at": "2026-10-12 07:31:03.173113+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "56ee9aa1-f335-4a7a-9af1-1b32e9b1d4d5",
   "topic_id": "372710b0-fcac-4f55-af62-67b9bec5940c",
   "title": "Data Structures — Quick Revision Summary",
@@ -1077,6 +1168,32 @@
   "preview_url": "previews/as-circular-measure-notes.png",
   "page_count": 19,
   "source_range": "P1 notes p82–100"
+ },
+ {
+  "id": "599553b0-0b15-435d-b095-f1ce99a0164d",
+  "topic_id": "0745f8f9-88a6-4f86-8476-dcaf63ce9d12",
+  "title": "Exam technique: Ratio, Rate and Proportion",
+  "content": "### What earns the marks\nFor sharing in a ratio, total parts and value of one part each earn a mark: write 5 parts = 600 before splitting. For scales and maps, the real-distance multiplication shown earns the method mark, with each unit conversion (cm to m to km) credited. For proportion with powers, the constant k found first earns the mark: write y = k x squared and solve for k.\n### Traps\nError: dividing by 2 and 3 directly for a 2:3 split. Correction: parts first, always. Error: 1.40 hours for 1 h 40 min in speed questions. Correction: 40 min = 2/3 h. Error: linear scaling for an x-squared relation. Correction: square the ratio. Error: inverted map scale (dividing by 50000). Correction: real is bigger than map.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:18.745763+00",
+  "updated_at": "2026-10-12 07:32:18.745763+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "5afb2c94-9e0a-499c-8ed0-a677c5df2cc4",
+  "topic_id": "173c5405-6729-40ad-9f97-7bc228e9b856",
+  "title": "Exam technique: Sets",
+  "content": "### What earns the marks\nFor Venn problems, the union formula n(A union B) = n(A) + n(B) - n(A intersect B) quoted earns the method mark; subtracting the intersection corrects the double count explicitly. For neither, the subtraction from the universal set shown earns the final mark. For notation, the complement symbol with the correct parent set earns precision marks.\n### Traps\nError: adding all three Venn counts including the intersection. Correction: the overlap was counted twice, subtract once. Error: element confused with subset (2 vs {2}). Correction: only a set can be a subset. Error: empty set equated with {0}. Correction: {0} has one element; the empty set has none. Error: modal-style single numbers for grouped answers. Correction: classes are intervals.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:18.745763+00",
+  "updated_at": "2026-10-12 07:32:18.745763+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
  },
  {
   "id": "5dccc945-8f7d-40c0-90d6-ecc2d2cf7b5d",
@@ -1794,6 +1911,19 @@
   "source_range": null
  },
  {
+  "id": "95823bfe-53a0-41fc-b53f-e2719296ac1e",
+  "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
+  "title": "Exam technique: Fractions, Decimals and Percentages",
+  "content": "### What earns the marks\nFor percentages of amounts, the 10-percent building blocks shown earn method marks without a calculator. For reverse percentages, state what the given amount represents (64 dollars = 80 percent) before dividing: that line earns the mark. For compound interest, each year on its own line earns credit. For Steel-type growth and decay, the multiplier (1/2 cubed) stated earns the method mark.\n### Traps\nError: adding 20 percent to the sale price for the original. Correction: the sale price is the base of nothing; divide by 0.8. Error: simple interest applied twice for compound growth. Correction: grow each year from the new total. Error: decimal-point slips in 3/8 to percent. Correction: decimal first (0.375), then times 100.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:31:03.173113+00",
+  "updated_at": "2026-10-12 07:31:03.173113+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "979f42e1-d3ff-4dd4-8993-d6a7ada44e76",
   "topic_id": "f52cc259-2b6e-4aca-818b-56556bf68950",
   "title": "Databases — Quick Revision Summary",
@@ -2028,6 +2158,19 @@
   "source_range": null
  },
  {
+  "id": "a89dd115-df65-4681-82fc-24343202afc1",
+  "topic_id": "295188ea-695e-4f5b-b9d1-4eec5a9a3655",
+  "title": "Exam technique: Indices and Standard Form",
+  "content": "### What earns the marks\nFor index laws, each law applied on its own line earns credit: subtract for division, multiply for powers of powers. For fractional powers, the root-first order (cube root, then square) stated earns the method mark. For standard form, the coefficient between 1 and 10 with the power justified by the point shift earns both marks. For surds, the split into square factor times prime remainder earns the method mark, and rationalising must finish simplified.\n### Traps\nError: (x to the 5th / x squared) cubed answered x to the 6th. Correction: inner subtraction first, then multiply powers. Error: 27 x 2/3 for 27 to the 2/3. Correction: root, then power. Error: unsimplified 6 root 3 / 3 accepted as final. Correction: always cancel to 2 root 3. Error: non-standard-form coefficients (45 x 10 to the -5). Correction: one non-zero digit, then fix the power.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:18.745763+00",
+  "updated_at": "2026-10-12 07:32:18.745763+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "a8ebc823-3b62-4380-be53-b636ae87d6b4",
   "topic_id": "51150c0c-c3dd-4edd-b870-5eba0ce9ffd0",
   "title": "Permutations and Combinations — Study Notes",
@@ -2197,6 +2340,19 @@
   "source_range": null
  },
  {
+  "id": "bbb2b05b-65de-4a24-9ffc-9fb2a7911597",
+  "topic_id": "6111cf0b-63cc-4804-a218-1b16e82da4f3",
+  "title": "Exam technique: Right-Angled Trigonometry",
+  "content": "### What earns the marks\nFor finding sides or angles, the correct ratio chosen (sin, cos, tan) with sides labelled earns the method mark: write sin(angle) = opposite / hypotenuse before substituting. For Pythagoras, the squared equation earns the mark before the root. For exact values, the surd form (root 3 / 2) earns the exactness mark; decimals lose it. For angles of elevation and depression, the diagram with the equality stated earns credit.\n### Traps\nError: sine used where cosine belongs (adjacent involved). Correction: label O, A, H on the diagram first. Error: 225 given as the hypotenuse. Correction: root last. Error: 0.866 accepted for sin 60. Correction: exact means surd. Error: sin used for a tan situation in height problems. Correction: opposite over adjacent when the hypotenuse is absent.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:48.887779+00",
+  "updated_at": "2026-10-12 07:32:48.887779+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "bf28a182-8b42-4329-94cf-eedae01c6639",
   "topic_id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
   "title": "Factor & Remainder Theorem — Exam Questions (P2 Classified)",
@@ -2353,6 +2509,19 @@
   "source_range": null
  },
  {
+  "id": "c6566b28-d871-4546-b6d3-7a4453dba5c7",
+  "topic_id": "ce670b3a-a111-4f36-bf7e-7dc86ce1ff0b",
+  "title": "Exam technique: Scatter Diagrams",
+  "content": "### What earns the marks\nFor correlation, direction (rising or falling) and strength (tight or spread) each earn a mark: comment on both. For lines of best fit, the mean point plotted first earns the method mark. For estimation questions, naming interpolation versus extrapolation earns a mark before any value, with the reliability comment credited separately.\n### Traps\nError: claiming correlation proves causation. Correction: name the confounder (hot weather drives both). Error: trusting extrapolation like interpolation. Correction: outside the range is always less reliable. Error: forcing the line through the origin. Correction: anchor at (mean x, mean y). Error: calling curved association zero correlation. Correction: zero means no pattern at all.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:32:18.745763+00",
+  "updated_at": "2026-10-12 07:32:18.745763+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "c6799c2c-a5ca-4a0d-b962-7bf95e65b17d",
   "topic_id": "15a26a2d-cb1f-4059-810f-1698500fe548",
   "title": "Kinematics — Study Notes",
@@ -2431,6 +2600,19 @@
   "source_range": null
  },
  {
+  "id": "cc401163-e6c4-4f63-9a98-69fe4e7c53a8",
+  "topic_id": "8f594323-a3fc-48d1-9d85-9a623aaeb0dc",
+  "title": "Exam technique: Algebra Graphs",
+  "content": "### What earns the marks\nFor gradient and equation questions, calculate earns marks for a correct (y2 - y1) / (x2 - x1) computation with substitution shown, then the rearrangement to y = mx + c. For perpendicular lines, state earns the negative-reciprocal gradient explicitly before substituting. For curve questions, describe earns marks for roots, intercept and turning point each stated, and the axis of symmetry as an equation (x = 2, not just 2).\n### Traps\nError: answering the midpoint when length is asked. Correction: re-read the final demand before computing. Error: giving the minimum value instead of its x-coordinate. Correction: label every coordinate pair fully. Error: keeping gradient 2 for a perpendicular to y = 2x + 1. Correction: flip and negate first, then substitute.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:30:30.787012+00",
+  "updated_at": "2026-10-12 07:30:30.787012+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "cdc68215-f8b4-494a-94c1-af933151fd8b",
   "topic_id": "b7daf14f-974d-4ad7-a848-07dd64176630",
   "title": "Differentiation II — Exam Questions (P2 Classified)",
@@ -2490,6 +2672,32 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:25.435383+00",
   "updated_at": "2026-09-30 16:51:29.172364+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "d3861842-85bc-46a9-9b8f-c33c61f75777",
+  "topic_id": "8300c19d-75f8-4cf3-9ee2-53a0b0cbe5da",
+  "title": "Exam technique: Algebra Inequalities",
+  "content": "### What earns the marks\nFor solving, calculate earns marks for each correct rearrangement step with the inequality sign carried through, and the final solution as an inequality or integer list as demanded. For integer-solution questions, list earns marks only for the complete correct set: show the solved inequality first, then enumerate. For combined inequalities, handle each side separately and intersect at the end.\n### Traps\nError: forgetting to reverse the sign when dividing by a negative. Correction: circle every division by a negative and flip immediately. Error: answering x < 9 with 9 for the largest integer. Correction: step down one for strict inequalities. Error: including -1 in -1 < n <= 3. Correction: strict ends exclude, slack ends include.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:30:30.787012+00",
+  "updated_at": "2026-10-12 07:30:30.787012+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "d3c988e8-6c65-4656-ba9f-f14c4a514b1d",
+  "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
+  "title": "Exam technique: Arithmetic and Place Value",
+  "content": "### What earns the marks\nFor HCF and LCM, the prime factorisation of each number earns the method mark; state highest powers for LCM and lowest for HCF. For bounds, half-the-precision stated (0.05 for 1 d.p.) earns the method mark before the bound. For estimation, the rounded line (50 x 20 / 10) must be shown: a bare calculator value scores nothing. For time and money, each conversion step shown earns its mark.\n### Traps\nError: 16:80 as a time. Correction: 60 minutes carry. Error: largest rounded value confused with the upper bound (6.34 vs 6.35). Correction: the bound is the first value that rounds away. Error: HCF powers used for LCM. Correction: LCM takes the highest of each prime.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:31:03.173113+00",
+  "updated_at": "2026-10-12 07:31:03.173113+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2672,6 +2880,19 @@
   "material_type": "summary",
   "created_at": "2026-09-18 14:13:21.034559+00",
   "updated_at": "2026-09-19 06:22:45.96441+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "df3d12de-fd68-41e6-8dc6-91fe9b1b8e6f",
+  "topic_id": "0a0f911e-7056-47a9-ac2b-6882707c60cf",
+  "title": "Exam technique: Bearings and Loci",
+  "content": "### What earns the marks\nFor bearings, measure earns marks for the angle taken clockwise from north with three figures in the final answer: add leading zeros (075, 008). For back bearings, the 180-degree adjustment stated earns the method mark. For scale drawings, the scale multiplication shown earns a mark independent of arithmetic. For loci, construct earns marks for the correct locus type (circle, bisector, parallel pair) drawn and labelled.\n### Traps\nError: measuring anticlockwise or from the wrong datum. Correction: north line up, clockwise. Error: dropping leading zeros. Correction: three figures always. Error: one angle bisector instead of the pair for intersecting lines. Correction: two lines cross, so two bisectors. Error: dividing by the scale instead of multiplying. Correction: real distances exceed map distances.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:31:03.173113+00",
+  "updated_at": "2026-10-12 07:31:03.173113+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2893,6 +3114,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:14.200328+00",
   "updated_at": "2026-09-20 18:43:14.200328+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "eab5c7ac-6f20-4ee0-8a42-42fdaf43f1e7",
+  "topic_id": "d97eed92-d609-4e1a-92c1-ac8c5dbc0e1a",
+  "title": "Exam technique: Sequences and Functions",
+  "content": "### What earns the marks\nFor nth-term questions, derive earns marks for the difference identified, the form an + c stated, and the constant found from n = 1. For function questions, order earns marks: evaluate the inner function first and write the intermediate value down. For inverse functions, show the swap (x = ... then solve) rather than jumping to the formula.\n### Traps\nError: computing fg(x) when gf(x) is asked. Correction: start from the rightmost letter. Error: answering 5 + 3 x 20 for the 20th term of a 5, 8, 11 pattern. Correction: the multiplier is (n - 1), not n. Error: multiplying by the ratio once for geometric terms. Correction: the power is (n - 1).",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:30:30.787012+00",
+  "updated_at": "2026-10-12 07:30:30.787012+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3170,6 +3404,19 @@
   "preview_url": "previews/a2-trigonometry-questions.png",
   "page_count": 39,
   "source_range": "P2 Classified p72–110"
+ },
+ {
+  "id": "f9c51321-9fd3-4836-9af7-1dc6760cc3f0",
+  "topic_id": "35f68612-7b75-4b25-be1a-76da65c19f92",
+  "title": "Exam technique: Congruence and Similarity",
+  "content": "### What earns the marks\nFor similarity lengths, calculate earns marks for the scale factor stated (larger over smaller, matched pairs) and then applied. For area and volume, the squared and cubed factors stated earn the method mark before any multiplication: write k squared or k cubed explicitly. For symmetry, count earns marks per correct count with the reasoning (vertices, rotation step 360 / n). For congruence, name earns the test (SSS, SAS, ASA, RHS) with the matching parts listed.\n### Traps\nError: adding the length difference instead of scaling. Correction: similarity always multiplies. Error: using k instead of k squared for area or k cubed for volume. Correction: write the power first. Error: equal angles claimed as congruence. Correction: angles alone prove similarity; a matching side upgrades it.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:31:03.173113+00",
+  "updated_at": "2026-10-12 07:31:03.173113+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
  },
  {
   "id": "fa0fd6bb-1dda-4f3c-af76-0db40924f2a3",
