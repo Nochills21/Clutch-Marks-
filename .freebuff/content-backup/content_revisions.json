@@ -1,5 +1,35 @@
 [
  {
+  "id": "0aaa2262-aa48-4853-b570-985088a6b47e",
+  "entity_type": "material",
+  "entity_id": "5dccc945-8f7d-40c0-90d6-ecc2d2cf7b5d",
+  "title": "Exam technique: Algebra — Equations",
+  "content": "### What earns the marks\nTo earn full marks on this topic, students need to demonstrate the ability to calculate, show that, explain, describe, justify, and state their answers clearly. For 2.5 Equations, students should be able to calculate solutions to linear and quadratic equations, show that their solutions are correct, and explain their methods. When solving simultaneous equations, students should be able to justify their choice of method and state their answers clearly. Working should be shown for all calculations, especially when using the quadratic formula or completing the square.\n### Traps\nCommon mistakes include forgetting to multiply through by the LCD when working with fractions, adding instead of subtracting when eliminating variables in simultaneous equations, and not verifying answers by substituting them back into the original equation. Another trap is not defining the unknown clearly in word problems, leading to incorrect equations.\n### Memory hooks\nTo make this topic easier to remember, students can use the mnemonic 'LCD' to recall the steps for solving linear equations with fractions. They can also use the pattern of 'add, subtract, multiply, divide' to remember the order of operations when solving simultaneous equations. A shortcut for completing the square is to remember that the constant term is always -(b/2)^2 + c. Students can also sanity-check their answers by graphing the related functions or using a calculator to verify their solutions.\n### Timing\nThis topic typically accounts for 10-15% of the total exam time. Students should budget around 20-30 minutes to answer questions on this topic, depending on the difficulty and complexity of the questions. It is essential to read the questions carefully and allocate time accordingly to ensure that all parts of the question are answered.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:49.99748+00"
+ },
+ {
+  "id": "0cd0c520-8bcf-479a-81d7-54226801d9e7",
+  "entity_type": "material",
+  "entity_id": "1413c321-6dd7-40e3-a9b0-9a4970ca365d",
+  "title": "Exam technique: Algorithms & Programming",
+  "content": "### What earns the marks\nTo earn full marks on this topic, students need to demonstrate their ability to design and problem-solve using algorithms, as stated in statement 7. For calculate questions, show working and justify answers. For explain and describe questions, provide clear and concise pseudocode or flowcharts. For justify and state questions, provide a reason or explanation for the answer. \n### Traps\nCommon mistakes include not using ENDIF/NEXT/ENDWHILE terminators in pseudocode, not recording condition results in trace tables, and not testing boundary values. Correction: always use terminators, record condition results, and test boundary values. \n### Memory hooks\nTo remember the difference between validation and verification, use the mnemonic 'valid' for checking data format and 'verify' for checking data accuracy. To remember the linear search algorithm, think of 'looking for a book on a shelf'. To sanity-check an answer, test it with a simple example. \n### Timing\nThis topic typically accounts for 20-30% of the paper, and students should budget around 30-40 minutes to answer the questions. Make sure to read the questions carefully and manage time effectively to earn the maximum marks.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:11.443742+00"
+ },
+ {
   "id": "0e100ce9-da0c-4b7e-8551-40d1fe894d68",
   "entity_type": "material",
   "entity_id": "77c32ddd-d720-4973-9b42-3e1600709841",
@@ -15,6 +45,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "11b3837c-54cb-49e2-9c26-d839c1f897bf",
+  "entity_type": "material",
+  "entity_id": "f5acbebb-b0b2-4070-9f23-249d8e606ec2",
+  "title": "Exam technique: Data Representation",
+  "content": "### What earns the marks\nFor full marks on number systems (1.1), show full working in conversions, e.g. binary to decimal to hex. For text, sound and images (1.2), explain how character sets and colour depth affect file size. For data storage and compression (1.3), justify the use of lossless or lossy compression. Command words like calculate, show that, explain, describe, justify, and state are used, with working and reasons required for full marks.\n### Traps\nError: incorrect conversion between number systems. Correction: double-check place values and use the correct conversion method. Error: forgetting to include metadata in file size calculations. Correction: remember to include width, height, and depth in bitmap image calculations. Error: using lossy compression for text files. Correction: use lossless compression for text files to preserve exact data.\n### Memory hooks\nUse the mnemonic BIC (Binary, Integer, Character) to remember the different number systems. For binary to decimal conversion, use the pattern of doubling the previous place value. To sanity-check file size calculations, use the formula: file size (bits) = W x H x depth. Write down the conversion method before starting a question to ensure accuracy.\n### Timing\nThis topic typically accounts for 20-30% of the paper, with 2-3 questions. Budget around 30-40 minutes to answer these questions, depending on the complexity and your familiarity with the topic.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:11.443742+00"
+ },
+ {
   "id": "1cd956ee-9474-47b8-94f3-04b0c40af8b7",
   "entity_type": "material",
   "entity_id": "929796bd-05c8-46af-85a3-af6815541b09",
@@ -28,6 +73,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-12 06:15:14.901839+00"
+ },
+ {
+  "id": "21680a51-88fe-4aea-91fe-0778200f8b50",
+  "entity_type": "material",
+  "entity_id": "e23c2293-09a7-4e85-8e0f-9788f5dcb85a",
+  "title": "Exam technique: Networking & Communication",
+  "content": "### What earns the marks\nFor full marks on 2.1, explain why serial transmission is reliable over distance and describe the benefits of packet switching, including robustness and shared lines. For 2.2, state the purpose of checksums and explain how they detect errors. For 2.3, describe the process of encryption and justify its importance in secure data transmission. For 3.4, describe the functions of network hardware components, including routers, switches, and gateways.\n### Traps\nError: confusing MAC and IP addresses. Correction: MAC addresses are burned-in and used for layer 2 communication, while IP addresses are assigned and used for layer 3 communication. Error: assuming parallel transmission is always faster. Correction: parallel transmission is faster over short distances, but serial transmission is more reliable over long distances. Error: thinking that HTTPS is a protocol. Correction: HTTPS is HTTP over TLS, a secure protocol for data transmission.\n### Memory hooks\nUse the mnemonic 'Please Do Not Throw Sausage Pizza Away' to remember the layers of the TCP/IP stack: Physical, Data Link, Network, Transport, Application. To compare MAC and IP addresses, use a table to highlight their differences. To remember the functions of network hardware components, associate each component with its function, such as routers 'routing' traffic between networks.\n### Timing\nThis topic typically accounts for 20-30% of the paper, and students should budget around 30-40 minutes to answer questions on networking and communication. Make sure to allocate time to read the questions carefully and plan your answers before starting to write.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:29.588223+00"
  },
  {
   "id": "24950def-0ad6-43c8-a3be-6b228383927d",
@@ -90,6 +150,66 @@
   "created_at": "2026-09-30 16:51:29.172364+00"
  },
  {
+  "id": "330bd0c7-0d3a-42f5-b4b9-c4984b93edb9",
+  "entity_type": "material",
+  "entity_id": "d298ec66-90da-4074-973d-12cb5f24cd46",
+  "title": "Exam technique: Ethics, Security & Impact",
+  "content": "### What earns the marks\nTo earn full marks on this topic, students need to precisely name the threat and provide the matched defence. For example, when asked to explain a security threat, students should state the threat, such as pharming, and then describe the defence, such as keeping DNS servers and hosts files secure and checking HTTPS certificates. Command words like explain, describe, and justify are commonly used in this topic's questions. Students should also be able to apply ethical principles to scenarios, as outlined in the ACM/IEEE-CS/BCS codes, and show how they affect stakeholders and consequences.\n### Traps\nA common mistake is confusing phishing and pharming. Another error is not providing a matched defence for a given threat. Students should also avoid giving opinions instead of principle-based answers in ethics questions.\n### Memory hooks\nTo remember the types of malware, students can use the mnemonic VIRUS: V for virus, I for intercept, R for ransomware, U for unsecured, and S for spyware. Another hook is to associate each type of threat with its corresponding defence. For example, malware is defended against with anti-malware software. Students can also use a diagram to illustrate the blockchain concept and its components.\n### Timing\nThis topic typically accounts for 10-15% of the paper, and students should budget around 10-12 minutes to answer the questions. Students should allocate their time according to the marks available for each question and make sure to read the questions carefully to avoid common traps.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:11.443742+00"
+ },
+ {
+  "id": "3be7b4c4-2d9d-4e20-8818-ffa4e5e758f1",
+  "entity_type": "material",
+  "entity_id": "07ec21fe-84aa-4a8f-a87d-e5c9abaedc5e",
+  "title": "Exam technique: Hardware & Architecture",
+  "content": "### What earns the marks\nTo earn full marks on this topic, students need to demonstrate a clear understanding of the concepts. For 3.1, explain the von Neumann model and the FDE cycle, showing how instructions are stored as data. For 3.2, describe input and output devices, and for 3.3, compare different storage types, justifying their use cases. Command words like explain, describe, and justify require working and a reason to be shown.\n### Traps\nCommon mistakes include confusing the roles of the PC and MAR registers, and not understanding the difference between RAM and ROM. Another error is not considering the effects of performance factors like clock speed and cache size. Correction: review the FDE cycle and the characteristics of each storage type.\n### Memory hooks\nTo remember the FDE cycle, use the mnemonic Fetch-Decode-Execute. For the types of buses, think address-data-control. To compare storage types, consider the acronym CAPD: capacity, access time, portability, and durability. Finally, to sanity-check an answer, ask whether it aligns with the stored program concept.\n### Timing\nThis topic typically accounts for 20-30% of the paper, so budget around 30-40 minutes for it. Make sure to leave time to review and check your work.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:11.443742+00"
+ },
+ {
+  "id": "3e6da859-6102-4be9-beff-f39140b707e6",
+  "entity_type": "material",
+  "entity_id": "17a3d398-2ace-4af5-9718-9b5c062bb91e",
+  "title": "Exam technique: Information Representation",
+  "content": "### What earns the marks\nFor 1.1 Data Representation, calculate earns marks for correct binary arithmetic and two's complement conversions, showing working. Explain earns marks for describing number systems and their ranges. For 1.2 Multimedia Graphics, describe earns marks for outlining bitmap and sound representation. For 1.3 Compression, justify earns marks for stating why a compression type suits the data, with reasons.\n### Traps\nError: incorrect two's complement conversion, Correction: remember the MSB has value -2^(n-1). Error: confusing lossless and lossy compression, Correction: lossless is required for text and code. Error: incorrect calculation of file size, Correction: check the formula, e.g. width x height x depth for bitmap images.\n### Memory hooks\nTo remember binary arithmetic rules, use the mnemonic '0+0=0, 0+1=1, 1+1=0 carry 1'. For two's complement, recall 'invert and add 1'. To check the number of bits required for a number, use the formula 2^n - 1. For compression, associate lossless with text and lossy with images and sound.\n### Timing\nInformation Representation is around 20-25% of the paper, budget 30-40 minutes for these questions.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:49.99748+00"
+ },
+ {
+  "id": "4e8ce4fe-8061-45f7-849b-94898356e310",
+  "entity_type": "material",
+  "entity_id": "8537cd37-f33e-4d3d-8db2-ad7b7baa754e",
+  "title": "Exam technique: Web Technologies",
+  "content": "### What earns the marks\nFor full marks on 5.1 and 5.2 questions, explain and describe the structure and function of web technologies, including HTML, CSS, and JavaScript. Use command words like explain, describe, and state to earn marks. For example, explaining how the DOM is used to add interactivity to a web page can earn full marks. Justify and show that commands may require working or a reason to be shown.\n### Traps\nError: writing HTML tags without correct closing pairs. Correction: always write tags with correct closing pairs. Error: not separating structure, presentation, and behaviour in answers. Correction: separate HTML, CSS, and JavaScript in answers. Error: not explaining DOM operations correctly. Correction: explain DOM operations as 'find element by id ... then change property'.\n### Memory hooks\nUse the mnemonic 'HTML is the structure, CSS is the style, and JavaScript is the action' to remember the separation of web technologies. To sanity-check an answer, ask yourself 'is this a structure, presentation, or behaviour question?'. Write down the layers of a web page (structure, presentation, behaviour) before starting an answer.\n### Timing\nBudget around 30-40 minutes for this topic's share of the paper. This topic usually accounts for 2-3 questions, each worth around 10-15 marks.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:49.99748+00"
+ },
+ {
   "id": "561a12bb-1c63-4068-9624-dd4b6812d4af",
   "entity_type": "material",
   "entity_id": "944a7eb4-3cc4-4439-bc06-3250049bf117",
@@ -148,6 +268,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "6cdde299-21c7-4ef8-a184-c5c86c7e10f9",
+  "entity_type": "material",
+  "entity_id": "c41cf635-5f86-4dc4-877d-d83e3c7bd438",
+  "title": "Exam technique: Robotics & AI",
+  "content": "### What earns the marks\nFor full marks on 6.1, 6.2 and 6.3, the examiner needs to see explanations, descriptions and justifications. For example, to answer a question on automated systems, a student must explain how sensors, processors and actuators work together, and describe how this relates to real-world applications. For AI characteristics, a student must justify how a particular characteristic, such as learning or problem-solving, is used in a given scenario.\n### Traps\nA common mistake is to confuse supervised and unsupervised machine learning. Correction: supervised learning uses labelled data, while unsupervised learning uses unlabelled data. Another mistake is to overlook the importance of ethics in AI development. Correction: students must consider the potential biases and consequences of AI systems. A third mistake is to fail to provide concrete examples when describing AI applications. Correction: students must tie each AI characteristic to a specific step in the scenario.\n### Memory hooks\nTo remember the components of a robotic system, use the mnemonic SPAP: Sensors, Processors, Actuators and Power. To recall the types of machine learning, use the phrase SUR: Supervised, Unsupervised and Reinforcement. When evaluating the benefits and concerns of robotics, consider the acronym PJD: Precision, Job displacement and Danger.\n### Timing\nThis topic typically accounts for 20-30% of the paper, and students should budget around 30-40 minutes to answer the relevant questions. Students should allocate their time based on the mark allocation for each question, and make sure to leave time for review and revision.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:29.588223+00"
  },
  {
   "id": "6f6f24c1-fc4a-4029-8a2a-912011f3f8b0",
@@ -270,6 +405,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "9df6eb8d-51ed-4f7d-a499-19a9fddfe57b",
+  "entity_type": "material",
+  "entity_id": "73413ed6-d9b9-47bb-a307-f1fcd75fe787",
+  "title": "Exam technique: Operating Systems",
+  "content": "### What earns the marks\nTo earn full marks on this topic, students need to demonstrate their understanding of the operating system's roles and functions, as stated in 4.1. For example, when asked to explain how an OS manages memory, students should describe the process of paging and segmentation, and explain how virtual memory extends RAM to disk when RAM is full. The command words that appear in questions are explain, describe, and state. Explain earns the most marks, as it requires students to provide a detailed description of a concept, such as interrupts and buffers.\n### Traps\nOne common mistake is to confuse the terms paging and segmentation. Paging refers to the process of dividing memory into fixed-size blocks, while segmentation refers to the process of dividing memory into variable-size blocks. Another mistake is to think that multitasking is the same as multithreading. Multitasking refers to the ability of an OS to run multiple processes simultaneously, while multithreading refers to the ability of a process to run multiple threads simultaneously.\n### Memory hooks\nA useful mnemonic to remember the functions of an OS is MANPS: Memory management, Application management, Network management, Process management, and Security. Another memory hook is to think of the OS as a manager that allocates resources, such as memory and I/O devices, to applications. A shortcut to understanding virtual memory is to think of it as a way to extend RAM to disk when RAM is full.\n### Timing\nThis topic typically accounts for 10-15% of the total marks on the paper. Students should budget around 10-15 minutes to answer questions on this topic, depending on the length and complexity of the questions.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:29.588223+00"
+ },
+ {
   "id": "a1b09a22-1324-4b39-8072-91349a18a678",
   "entity_type": "material",
   "entity_id": "d7f2e9e8-ff4a-4fba-9960-48d8ca800dd6",
@@ -375,6 +525,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "b221ba4c-5521-4418-bbd6-002a491d971d",
+  "entity_type": "material",
+  "entity_id": "6883e43f-e218-4402-a853-449d01d97825",
+  "title": "Exam technique: Database Systems",
+  "content": "### What earns the marks\nFor full marks on Database Systems questions, the examiner needs to see explanations of relational concepts, correct SQL syntax, and descriptions of DBMS features. The command words calculate, show that, explain, describe, justify, and state are used. For example, to justify why a relational database is used, cite reduced redundancy and flexible queries, relating to statement 9. Working and reasons must be shown for explain and justify questions.\n### Traps\nCommon mistakes include not aliasing joined tables, incorrect use of SQL keywords, and not considering data integrity. Corrections include using aliases like s, l, f, writing SQL keywords in uppercase, and considering validation rules and access rights.\n### Memory hooks\nTo remember the benefits of a relational database, use the mnemonic REDUCE: Reduced redundancy, Easy queries, Data integrity, Unique identifiers, Concurrent access, and Efficient storage. Another hook is to always write SQL keywords in uppercase and alias joined tables. A sanity check for SQL queries is to ensure the correct use of SELECT, FROM, WHERE, and JOIN.\n### Timing\nDatabase Systems questions typically account for 9 marks and should be budgeted around 15-20 minutes. This allows time to read the question, plan the answer, and write a clear and concise response.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:11.443742+00"
+ },
+ {
   "id": "b25ea473-c615-423c-8902-327b578ba2ce",
   "entity_type": "material",
   "entity_id": "f4ec1c0b-4462-46b9-98fe-457d9fbd7e90",
@@ -388,6 +553,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "b481e9d0-aeb4-41b6-8570-2223ea29feec",
+  "entity_type": "material",
+  "entity_id": "7432eee1-8ea1-4365-9d06-612feef848da",
+  "title": "Exam technique: Programming Concepts",
+  "content": "### What earns the marks\nTo earn full marks on this topic, students need to demonstrate a clear understanding of programming concepts, including variables, data types, selection, iteration, arrays, file handling, and subroutines, as outlined in statements 4.2, 8.1, 8.2, and 8.3. Command words such as calculate, show that, explain, describe, justify, and state are used to assess this understanding. For example, a question may ask students to explain the difference between a WHILE loop and a REPEAT loop, or to describe how to declare and use a 2D array. Working and reasons must be shown to support answers.\n### Traps\nCommon mistakes include using the wrong loop type, such as using a WHILE loop when a REPEAT loop is needed, or vice versa. Another error is failing to declare variables before use, or using the wrong data type. Additionally, students may forget to close files after use, or use the wrong file mode.\n### Memory hooks\nTo remember the different data types, students can use the mnemonic INTEGER, REAL, CHAR, STRING, BOOLEAN, DATE. To recall the difference between a procedure and a function, students can think of a procedure as a recipe that performs a task, while a function is a recipe that returns a value. When working with 2D arrays, students can use the pattern of looping over rows first, then columns.\n### Timing\nThis topic typically accounts for 20-30% of the paper, and students should budget around 30-40 minutes to answer questions on programming concepts. Students should aim to spend around 10-15 minutes on each question, depending on the mark value and complexity.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:29.588223+00"
  },
  {
   "id": "b6eeafb9-22d8-478e-ab13-5a2b332d74d6",
@@ -493,6 +673,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 17:11:43.051229+00"
+ },
+ {
+  "id": "f3f5171c-5b12-4116-972e-29b8e32349da",
+  "entity_type": "material",
+  "entity_id": "7e37e2f6-be9c-4324-8485-942a90f4da83",
+  "title": "Exam technique: Logic Gates & Boolean Logic",
+  "content": "### What earns the marks\nFor full marks, ensure you understand the command words: calculate for truth tables, show that for circuit construction, explain and describe for logic expressions. Justify and state are used for problem-to-logic mapping, where defining inputs and outputs earns marks. See statement 10.\n### Traps\nError: incorrect truth table row count. Correction: check the number of inputs to determine the row count. Error: writing NOT before a gate. Correction: NOT inverts the output, not the input. Error: incorrect order of operations in logic expressions. Correction: brackets first, then AND, then OR.\n### Memory hooks\nTo remember the six gates, use the mnemonic AND, OR, and NOT to create the others. For truth tables, use the pattern 2 inputs = 4 rows, 3 inputs = 8 rows. To sanity-check a logic expression, plug in values from the truth table.\n### Timing\nThis topic accounts for approximately 10% of the paper. Budget 10-15 minutes to answer questions on logic gates and Boolean logic.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 09:51:29.588223+00"
  },
  {
   "id": "fc6713f3-c975-4583-8039-744d00660abb",

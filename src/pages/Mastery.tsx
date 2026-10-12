@@ -36,11 +36,17 @@ import {
   type ObjectiveMasteryRow,
 } from "@/lib/objectiveMastery";
 import { teachToHtml } from "@/lib/objectiveTeach";
+import { levelLabel } from "@/lib/levels";
 import { topicMasterySummary } from "@/lib/topicMastery";
 import { TopicMasteryRing } from "@/components/TopicMasteryRing";
 import {
   ArrowRight, BookOpen, CheckCircle2, Clock, GraduationCap, ListChecks, Play, RefreshCw, RotateCcw, X,
 } from "lucide-react";
+
+/** "Mathematics · IGCSE" from a subject slug + level code. Mastery rows only
+ *  carry the slug ("mathematics") and code ("OL"), which read jammed raw. */
+const subjectLevelLabel = (slug: string, level: string) =>
+  `${slug.split("-").map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w)).join(" ")} · ${levelLabel(level)}`;
 
 /** The identity the review panel needs, from either the next action or the list. */
 interface ObjectiveRef {
@@ -239,7 +245,7 @@ export default function Mastery() {
                       {copy.cta} <ArrowRight className="h-3.5 w-3.5" />
                     </Button>
                     <span className="text-xs text-muted-foreground">
-                      {next.topic_name} · {next.subject_slug} {next.level}
+                      {next.topic_name} · {subjectLevelLabel(next.subject_slug, next.level)}
                     </span>
                   </div>
                 </CardContent>
@@ -300,7 +306,7 @@ export default function Mastery() {
                       <CardTitle className="text-sm">
                         {group.topic_name}
                         <span className="ml-2 text-xs font-normal text-muted-foreground">
-                          {group.subject_slug} {group.level}
+                          {subjectLevelLabel(group.subject_slug, group.level)}
                         </span>
                       </CardTitle>
                     </div>
