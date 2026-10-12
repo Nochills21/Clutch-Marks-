@@ -352,7 +352,7 @@
    "1/6"
   ],
   "correct_option": 2,
-  "explanation": "Even numbers: 2, 4, 6. P = 3/6 = 1/2.",
+  "explanation": "The even outcomes are 2, 4 and 6: three favourable outcomes out of six equally likely outcomes. Thus P(even)=3/6=1/2.",
   "sort_order": 1,
   "created_at": "2026-08-22 14:16:09.725854+00",
   "difficulty": "medium",
@@ -3682,7 +3682,7 @@
    "12 J"
   ],
   "correct_option": 0,
-  "explanation": "KE = ½mv² = ½ × 2 × 3² = 9 J.",
+  "explanation": "Kinetic energy is ½mv²: ½×2×3²=9 J. The speed is squared, and joules are the energy unit.",
   "sort_order": 1,
   "created_at": "2026-09-14 18:41:37.613921+00",
   "difficulty": "medium",
@@ -3934,7 +3934,7 @@
    "OK / success"
   ],
   "correct_option": 3,
-  "explanation": "200 = the request was successful.",
+  "explanation": "HTTP 200 is the standard OK success response: the server successfully handled the request. It is not a redirect (3xx), client error (4xx), or server error (5xx) status.",
   "sort_order": 9,
   "created_at": "2026-09-18 14:13:15.118559+00",
   "difficulty": "medium",
@@ -6544,7 +6544,7 @@
    "10"
   ],
   "correct_option": 2,
-  "explanation": "A' = {1, 4, 6, 8, 9, 10}. n(A') = 6.",
+  "explanation": "A' contains the universal-set elements not in A: {1, 4, 6, 8, 9, 10}. Counting these six elements gives n(A') = 6.",
   "sort_order": 9,
   "created_at": "2026-08-22 13:58:48.741036+00",
   "difficulty": "medium",
@@ -10468,7 +10468,7 @@
    "1000 comparisons"
   ],
   "correct_option": 2,
-  "explanation": "log₂(10⁶) ≈ 20.",
+  "explanation": "Each comparison halves the remaining search interval. Since 2^19<1,000,000<2^20, about 20 halvings (comparisons) are needed, unlike a linear search through up to a million items.",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:52.773577+00",
   "difficulty": "medium",
@@ -12106,7 +12106,7 @@
    "medians"
   ],
   "correct_option": 1,
-  "explanation": "That is the standard 1.5×IQR fence.",
+  "explanation": "The lower outlier fence is Q₁−1.5×IQR; values below it are unusually low. The upper fence is Q₃+1.5×IQR, so these values are outliers.",
   "sort_order": 7,
   "created_at": "2026-09-21 17:57:00.02858+00",
   "difficulty": "medium",
@@ -13618,7 +13618,7 @@
    "70 N"
   ],
   "correct_option": 2,
-  "explanation": "W = mg = 70 × 9.81.",
+  "explanation": "Weight is a force, so use W=mg: 70×9.81=686.7 N, which rounds to 687 N. The mass remains 70 kg; it is not the weight.",
   "sort_order": 2,
   "created_at": "2026-09-20 18:41:55.778375+00",
   "difficulty": "medium",
@@ -13996,7 +13996,7 @@
    "000°"
   ],
   "correct_option": 0,
-  "explanation": "West = 270° in three-figure bearing.",
+  "explanation": "Bearings are measured clockwise from North and written with three digits. West is three quarter-turns clockwise from North, so its bearing is 270°.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:11:31.65113+00",
   "difficulty": "medium",
@@ -14338,7 +14338,7 @@
    "0.9772"
   ],
   "correct_option": 0,
-  "explanation": "Z = (60 − 50)/5 = 2: P(Z > 2) = 0.0228.",
+  "explanation": "The variance is 25, so σ = 5. Standardise: z = (60−50)/5 = 2; the upper-tail probability 1−Φ(2) is 0.0228.",
   "sort_order": 1,
   "created_at": "2026-09-21 17:56:51.180879+00",
   "difficulty": "medium",
@@ -15904,7 +15904,7 @@
    "4"
   ],
   "correct_option": 2,
-  "explanation": "Mean 5, Σx² = 120: 120/4 − 25 = 5.",
+  "explanation": "The mean is 5 and the mean of the squares is 120/4=30. Population variance = 30−5²=5; do not divide by n−1 here.",
   "sort_order": 1,
   "created_at": "2026-09-21 17:57:00.02858+00",
   "difficulty": "medium",
@@ -20098,7 +20098,7 @@
    "1/2"
   ],
   "correct_option": 0,
-  "explanation": "tan 45° = 1.",
+  "explanation": "For a 45° angle in a right-angled isosceles triangle, opposite and adjacent sides are equal. Thus tan45°=opposite/adjacent=1.",
   "sort_order": 3,
   "created_at": "2026-09-20 17:50:42.560292+00",
   "difficulty": "medium",
@@ -20404,7 +20404,7 @@
    "a · b = 0"
   ],
   "correct_option": 3,
-  "explanation": "Dot product zero means cos θ = 0.",
+  "explanation": "a·b=|a||b|cosθ. Perpendicular vectors have θ=90°, so cosθ=0 and their dot product is zero; equal magnitudes do not imply a right angle.",
   "sort_order": 3,
   "created_at": "2026-09-20 17:50:57.30488+00",
   "difficulty": "medium",
@@ -22744,7 +22744,7 @@
    "2"
   ],
   "correct_option": 0,
-  "explanation": "m = (10 − 4)/(3 − 1) = 6/2 = 3.",
+  "explanation": "Gradient is change in y divided by change in x: (10−4)/(3−1)=6/2=3. Reversing only one subtraction would give an incorrect sign.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:07:23.223128+00",
   "difficulty": "medium",
@@ -24796,7 +24796,7 @@
    "20"
   ],
   "correct_option": 1,
-  "explanation": "Set x = 0: −5y = 20, y = −4.",
+  "explanation": "At the y-intercept x=0. Then −5y=20, so y=−4; the intercept is the point (0,−4), not the x-intercept.",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:38.836972+00",
   "difficulty": "medium",
@@ -27784,7 +27784,7 @@
    "FF"
   ],
   "correct_option": 3,
-  "explanation": "255 = 15×16 + 15 = FF in hex.",
+  "explanation": "255=15×16+15. Each remainder 15 is digit F in hexadecimal, so the two base-16 digits are FF.",
   "sort_order": 2,
   "created_at": "2026-09-18 14:12:53.889057+00",
   "difficulty": "medium",
@@ -31510,7 +31510,7 @@
    "1 × 10⁸ Pa"
   ],
   "correct_option": 3,
-  "explanation": "F/A = 100/10⁻⁶.",
+  "explanation": "Stress is force per unit area: 100/(1×10⁻⁶)=1×10⁸ N m⁻². Since 1 Pa=1 N m⁻², the stress is 1×10⁸ Pa.",
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:01.101226+00",
   "difficulty": "medium",
@@ -32374,7 +32374,7 @@
    "1.67 μm"
   ],
   "correct_option": 3,
-  "explanation": "d = 1/600 mm.",
+  "explanation": "For 600 lines per millimetre, the spacing is 1/600 mm = 0.00167 mm. Since 1 mm = 1000 μm, this is about 1.67 μm; use the reciprocal because the given value is a line density.",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:05.134118+00",
   "difficulty": "medium",
@@ -32518,7 +32518,7 @@
    "2"
   ],
   "correct_option": 1,
-  "explanation": "NOT inverts: 1 → 0.",
+  "explanation": "A NOT gate outputs the complement of its single input: 1 becomes 0 and 0 becomes 1. It does not preserve the input or combine multiple inputs.",
   "sort_order": 3,
   "created_at": "2026-09-18 14:13:11.951498+00",
   "difficulty": "medium",
@@ -33454,7 +33454,7 @@
    "25 Pa"
   ],
   "correct_option": 2,
-  "explanation": "p = F ÷ A = 50 ÷ 0.5 = 100 Pa.",
+  "explanation": "Pressure is force divided by area: p=50/0.5=100 N m⁻². Since 1 Pa=1 N m⁻², p=100 Pa.",
   "sort_order": 1,
   "created_at": "2026-09-14 18:41:38.825599+00",
   "difficulty": "medium",
@@ -36766,7 +36766,7 @@
    "√5"
   ],
   "correct_option": 0,
-  "explanation": "√(1 + 4 + 4) = 3.",
+  "explanation": "Use the 3D length formula: √((−1)²+2²+2²)=√9=3. Squaring first means the negative component contributes positively.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:57.30488+00",
   "difficulty": "medium",
@@ -37918,7 +37918,7 @@
    "x > 1"
   ],
   "correct_option": 2,
-  "explanation": "4x − 4 > 3x + 5 → x > 9.",
+  "explanation": "Expand to get 4x−4>3x+5. Subtract 3x, then add 4: x>9. No multiplication by a negative occurs, so the inequality sign stays the same.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:07:09.950789+00",
   "difficulty": "medium",
@@ -39322,7 +39322,7 @@
    "25"
   ],
   "correct_option": 1,
-  "explanation": "√(9 + 16) = 5.",
+  "explanation": "The modulus is the distance from the origin: √(3² + 4²) = √25 = 5. It is neither the product 12 nor the squared magnitude 25.",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:55.967696+00",
   "difficulty": "medium",
@@ -41644,7 +41644,7 @@
    "10 J"
   ],
   "correct_option": 2,
-  "explanation": "ΔGPE = mgh = 5 × 10 × 2 = 100 J.",
+  "explanation": "The gain in gravitational potential energy is mgh=5×10×2=100 J. The height change is 2 m and the result is energy, measured in joules.",
   "sort_order": 2,
   "created_at": "2026-09-14 18:41:37.613921+00",
   "difficulty": "medium",
@@ -42742,7 +42742,7 @@
    "4"
   ],
   "correct_option": 1,
-  "explanation": "2³ = 8 rows for 3 inputs.",
+  "explanation": "Each of the 3 binary inputs has 2 possible values, giving 2×2×2=2³=8 input combinations and therefore 8 truth-table rows.",
   "sort_order": 7,
   "created_at": "2026-09-18 14:13:11.951498+00",
   "difficulty": "medium",
@@ -43552,7 +43552,7 @@
    "48 cm²"
   ],
   "correct_option": 3,
-  "explanation": "A = ½ × 12 × 8 = 48 cm².",
+  "explanation": "Triangle area is half the base-height product: ½×12×8=48 cm². Using 12×8 without the factor ½ gives the area of a rectangle instead.",
   "sort_order": 1,
   "created_at": "2026-08-22 14:11:23.638051+00",
   "difficulty": "medium",
@@ -43948,7 +43948,7 @@
    "(3/5, 4/5)"
   ],
   "correct_option": 3,
-  "explanation": "Divide by the magnitude 5.",
+  "explanation": "The vector has magnitude √(3²+4²)=5. Dividing each component by 5 gives (3/5, 4/5), whose magnitude is 1.",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:57.30488+00",
   "difficulty": "medium",
@@ -44074,7 +44074,7 @@
    "9"
   ],
   "correct_option": 1,
-  "explanation": "r = 9/27 = 1/3.",
+  "explanation": "Divide a term by the preceding term: 9/27=1/3, and 3/9=1/3 as a check. A geometric progression has the same multiplier between consecutive terms.",
   "sort_order": 9,
   "created_at": "2026-09-20 17:50:44.645728+00",
   "difficulty": "medium",
@@ -44902,7 +44902,7 @@
    "2x − 1"
   ],
   "correct_option": 0,
-  "explanation": "fg(x) = 2(x − 1) + 3 = 2x + 1.",
+  "explanation": "Here fg(x) means f(g(x)): substitute x−1 into f to get 2(x−1)+3=2x+1. Substituting into g instead would give gf(x), a different composition.",
   "sort_order": 1,
   "created_at": "2026-09-20 17:50:37.251728+00",
   "difficulty": "medium",
@@ -44938,7 +44938,7 @@
    "0.1353"
   ],
   "correct_option": 2,
-  "explanation": "e⁻² × 2 = 0.2707.",
+  "explanation": "Use P(X=k)=e^(−λ)λ^k/k!. With λ=2 and k=1, P(X=1)=e^(−2)×2/1!≈0.2707.",
   "sort_order": 6,
   "created_at": "2026-09-21 17:57:06.555815+00",
   "difficulty": "medium",
