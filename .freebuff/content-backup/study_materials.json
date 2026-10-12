@@ -26,6 +26,19 @@
   "source_range": "Booklet p22"
  },
  {
+  "id": "01a21fc8-ac4d-4fb8-9be3-5d81a10dc8a5",
+  "topic_id": "5fa07820-06cf-4f42-85a4-74f5a3da9bde",
+  "title": "Exam technique: Integration",
+  "content": "### What earns the marks\nFor indefinite integrals, each term raised correctly plus the constant earns full marks. For definite integrals, the antiderivative quoted earns one mark and the correct upper-minus-lower evaluation earns the next. For area and curve-finding, the limits or the given point used earns the final mark.\n### Traps\nError: constant of integration omitted. Correction: +c always for indefinite. Error: limits subtracted backwards. Correction: upper minus lower. Error: power rule inverted on roots. Correction: root x is x to the half, integral goes up.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:26.366145+00",
+  "updated_at": "2026-10-12 08:09:26.366145+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "01c2ff35-5ae0-49bd-b5d4-0a22ae5215be",
   "topic_id": "4149e92f-7b66-43ee-af8a-cab08f65524a",
   "title": "Trigonometry — Revision Notes (P1)",
@@ -46,6 +59,19 @@
   "material_type": "notes",
   "created_at": "2026-09-20 18:43:14.200328+00",
   "updated_at": "2026-09-20 18:43:14.200328+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "0678b212-2e61-447f-8a64-01b7a7d12763",
+  "topic_id": "0d304099-312f-4f88-8a91-09ff16f5c605",
+  "title": "Exam technique: Continuous Random Variables",
+  "content": "### What earns the marks\nFor pdf constants, total area equals 1 stated earns the method mark. For probabilities, the integral with correct limits earns each mark. For mean and variance, E(X) and E(X squared) - E(X) squared each earn credit stepwise.\n### Traps\nError: point probabilities given positive values. Correction: points have zero area. Error: mean mistaken for median. Correction: solve the half-area equation for medians. Error: variance sign reversed. Correction: E(X squared) minus mean squared.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:22:54.178419+00",
+  "updated_at": "2026-10-12 08:22:54.178419+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -130,6 +156,19 @@
   "source_range": null
  },
  {
+  "id": "0a29078b-272e-4bc4-a24a-bd6bebd731cc",
+  "topic_id": "9cc8a08c-1858-49b0-a80b-745a8dd4535b",
+  "title": "Exam technique: Magnetism and Electromagnetism",
+  "content": "### What earns the marks\nFor electromagnets, turns plus current plus soft iron core earns each mark. For transformers, the turns ratio equation quoted earns the method mark. For induction, rate of change of flux linked to emf size earns the explanation mark.\n### Traps\nError: steel chosen for electromagnet cores. Correction: soft iron; steel suits permanent magnets. Error: Fleming hands swapped. Correction: left for motor, right for generator. Error: step-up confused with step-down. Correction: more secondary turns means step-up.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:30:55.163485+00",
+  "updated_at": "2026-10-12 08:30:55.163485+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "0a6dd708-d477-4b7b-a734-f1178b3a3f67",
   "topic_id": "333739b9-8c29-4b03-b1c0-ec9767823dfd",
   "title": "Waves — Quick Revision Summary",
@@ -163,6 +202,45 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:15.071129+00",
   "updated_at": "2026-09-20 18:43:15.071129+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "0cbbd441-9668-420f-9aa8-be8713c2ae54",
+  "topic_id": "f08508a7-5ca2-4527-97d4-cd63ac22309e",
+  "title": "Exam technique: Probability (A2)",
+  "content": "### What earns the marks\nFor conditional probability, the restricted sample space stated earns the method mark. For independence checks, P(A)P(B) compared with P(A and B) earns both marks. For Bayes-style updates, the tree fractions multiplied along branches earn stepwise credit.\n### Traps\nError: mutually exclusive assumed independent. Correction: test, never assume. Error: given-condition ignored. Correction: shrink the denominator first. Error: branches added instead of multiplied. Correction: multiply along, add across.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:36.948553+00",
+  "updated_at": "2026-10-12 08:23:36.948553+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "0ceab5ac-2814-41a6-8bf4-36e546a553cd",
+  "topic_id": "9b5eb0a4-aa5e-48cb-9dda-3af34851da61",
+  "title": "Exam technique: Poisson Distribution",
+  "content": "### What earns the marks\nFor lambda scaling, the rate times the interval stated earns the first mark. For probabilities, e^-lambda lambda^x / x! with values earns the method mark. For approximations, the condition named (n large, p small, lambda = np) earns credit.\n### Traps\nError: unscaled lambda over a new interval. Correction: scale first. Error: binomial coefficients inside Poisson work. Correction: Poisson formula only. Error: mean and variance treated as different. Correction: both equal lambda.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:36.948553+00",
+  "updated_at": "2026-10-12 08:23:36.948553+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "0db49f61-4a22-4620-a8b6-272d4018d686",
+  "topic_id": "ebe3caea-37e6-47ae-ba8e-1a5cb713196b",
+  "title": "Exam technique: Sequences and Series",
+  "content": "### What earns the marks\nFor AP terms, a + (n-1)d with the brackets evaluated earns the mark; sums use n/2(2a + (n-1)d) quoted. For GP work, the ratio found by division earns one mark and the formula applied earns the next. For sum to infinity, the |r| < 1 check stated earns the method mark.\n### Traps\nError: n used instead of (n-1) in terms. Correction: first term needs zero gaps. Error: infinity sums with |r| >= 1. Correction: check convergence first. Error: differentiating S_n for the nth term. Correction: subtract S_{n-1}.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:51.859479+00",
+  "updated_at": "2026-10-12 08:09:51.859479+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -260,6 +338,19 @@
   "source_range": null
  },
  {
+  "id": "142411fd-623b-4b22-bb2d-343a91a1ded3",
+  "topic_id": "d731e71c-1bcb-47b4-8837-644b3fd97e29",
+  "title": "Exam technique: Abstract Data Types",
+  "content": "### What earns the marks\nFor ADT choice, the access pattern stated earns the mark: LIFO for stacks, FIFO for queues, keyed jumps for BSTs. For traversals, the visit order written (root-left-right for preorder) earns each mark. For linked structures, pointer relinking described earns the insertion mark without any shifting claim.\n### Traps\nError: queues for undo. Correction: undo is LIFO, so stack. Error: inorder claimed as root-first. Correction: preorder is root-first. Error: arrays claimed best for mid-list churn. Correction: shifting costs every insert.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:01.04815+00",
+  "updated_at": "2026-10-12 08:02:01.04815+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "153c8051-6b06-48ca-b39a-24d41b791d2c",
   "topic_id": "0a0f911e-7056-47a9-ac2b-6882707c60cf",
   "title": "Mensuration — Bearings and Loci — Study Notes",
@@ -267,6 +358,19 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:23.894397+00",
   "updated_at": "2026-09-19 06:23:03.032305+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "1542988c-107c-4361-b0df-32d9b77cbeea",
+  "topic_id": "9c985dc8-bbb0-4506-9dfc-2f49b774fc24",
+  "title": "Exam technique: Nuclear Physics (A2)",
+  "content": "### What earns the marks\nFor energy, mass defect times c squared with units earns both marks. For decay, ln2 over half-life quoted earns the method mark; activity as lambda N earns the second. For radii, the cube-root rule applied to ratios earns the mark.\n### Traps\nError: half-life used as the decay constant. Correction: divide ln2 by it. Error: fission named for the Sun. Correction: fusion powers stars. Error: radius scaled linearly with A. Correction: cube root of nucleon number.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:37:04.774783+00",
+  "updated_at": "2026-10-12 08:37:04.774783+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -338,6 +442,19 @@
   "source_range": null
  },
  {
+  "id": "1905a82f-d430-49dc-b49f-844dcd24fa3d",
+  "topic_id": "3688b9a5-187f-429d-b812-7b76fc6010ad",
+  "title": "Exam technique: Dynamics",
+  "content": "### What earns the marks\nFor resultant force, subtract opposition before applying F = ma to earn both marks. For collisions, total momentum before equated to total after earns the method mark. For rebounds, the sign change included earns the second mark.\n### Traps\nError: friction ignored in acceleration. Correction: use the resultant, not the push alone. Error: rebound treated as stopping. Correction: add the speeds with the sign flip. Error: kinetic energy claimed conserved generally. Correction: momentum always, kinetic only when elastic.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:33:58.980408+00",
+  "updated_at": "2026-10-12 08:33:58.980408+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "1931c053-d2df-4d17-b5e7-979b7c7d750d",
   "topic_id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
   "title": "Binomial Expansion — Revision Notes (P2)",
@@ -364,6 +481,19 @@
   "source_range": null
  },
  {
+  "id": "1b126571-19a9-4237-9727-d00138858bd2",
+  "topic_id": "b777d569-655f-4776-95fd-ef3be62361e9",
+  "title": "Exam technique: Measures of Variation",
+  "content": "### What earns the marks\nFor standard deviation, mean first then the squared-deviation sum earns each mark. For coded data, the y-bar and s_y transformation earns the method mark. For comparisons, mean and spread commented together earns both marks.\n### Traps\nError: variance reported as sd. Correction: root last. Error: comparing means only. Correction: comment on spread too. Error: coding applied once then forgotten. Correction: transform consistently.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:23.570207+00",
+  "updated_at": "2026-10-12 08:23:23.570207+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "1c4249ab-d224-4279-a85d-e9a9f32c78f8",
   "topic_id": "0f4bcc9a-e4a0-4c6a-ae8d-2354b6190d2e",
   "title": "Exam technique: Transformations and Vectors",
@@ -371,6 +501,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 07:32:48.887779+00",
   "updated_at": "2026-10-12 07:32:48.887779+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "1ca1987e-6f24-4b6a-91c0-a39f3f92e220",
+  "topic_id": "bebaa1ac-0640-4b08-8f4e-425b352daaa7",
+  "title": "Exam technique: Sampling",
+  "content": "### What earns the marks\nFor method choice, random vs stratified vs systematic justified earns the mark. For stratified allocation, the proportion of each stratum applied earns the method mark. For bias discussion, the named source of bias with its effect earns both marks.\n### Traps\nError: sample claimed unbiased with no method. Correction: name and justify the method. Error: equal numbers per stratum. Correction: allocate proportionally. Error: population confused with frame. Correction: frame is the list used.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:45.851374+00",
+  "updated_at": "2026-10-12 08:23:45.851374+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -481,6 +624,19 @@
   "source_range": null
  },
  {
+  "id": "2300a338-fae9-4dda-80fe-7b6f100c1755",
+  "topic_id": "52d5c1d0-d6ba-4ae6-9dbd-ece542b7f34c",
+  "title": "Exam technique: Representation via Numerical Measures",
+  "content": "### What earns the marks\nFor skewness direction, mean vs median comparison stated earns the mark. For box plots, all five values labelled earn one mark and the skew comment earns the second. For outlier checks, the fence calculation shown earns the method mark.\n### Traps\nError: skew direction flipped. Correction: tail side names the skew. Error: quartiles mislabeled on plots. Correction: order min, Q1, median, Q3, max. Error: max value called an outlier by eye. Correction: test against the fence.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:23.570207+00",
+  "updated_at": "2026-10-12 08:23:23.570207+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "230d770c-b169-4153-b7a0-41297244195b",
   "topic_id": "35378b08-5638-4278-84b4-def6b1041f0a",
   "title": "Algorithms & Programming — Study Notes",
@@ -546,6 +702,19 @@
   "source_range": null
  },
  {
+  "id": "2596d1e1-1ffd-4da0-b96a-432a321df2f6",
+  "topic_id": "d6c1020a-24ea-4820-b974-1126d494e3ab",
+  "title": "Exam technique: Materials and Deformation",
+  "content": "### What earns the marks\nFor stress and strain, each definition quoted with units or unitless noted earns a mark. For Young modulus, stress over strain earns the method mark with a steel-scale answer. For graphs, area read as stored energy earns the mark.\n### Traps\nError: strain given units. Correction: strain is a pure ratio. Error: force-extension gradient called energy. Correction: gradient is stiffness; area is energy. Error: plastic region called elastic. Correction: only the straight line obeys Hooke.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:33:58.980408+00",
+  "updated_at": "2026-10-12 08:33:58.980408+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "25c811e0-13a3-4375-91d3-0d2c8110fc77",
   "topic_id": "1bdc4fd6-0627-40d3-a8e4-bbe5827c51e0",
   "title": "Ethics and AI — Quick Revision Summary",
@@ -553,6 +722,32 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:12.52304+00",
   "updated_at": "2026-09-20 18:43:12.52304+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "26724ce0-a257-45ce-a531-f3f7ae3c6948",
+  "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+  "title": "Exam technique: Programming and Algorithms",
+  "content": "### What earns the marks\nFor validation, the rejected range stated plus the rejection loop earns both marks. For structure, single entry and exit modules using only sequence, selection and iteration earn the design marks. For traces, each variable tracked per line earns method credit. For testing, the stage named with its setting (isolated module vs live users) earns each mark.\n### Traps\nError: fixed FOR loops for unknown-attempt validation. Correction: WHILE-until-valid loops. Error: binary search on unsorted data. Correction: sort first or use linear search. Error: unit and acceptance settings swapped. Correction: unit is isolated with test data; acceptance is live with real users.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:54:25.524105+00",
+  "updated_at": "2026-10-12 07:54:25.524105+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "27239e96-9544-4c48-af02-c0a221714cc6",
+  "topic_id": "5883f323-f4cd-4741-a6bc-a9c051b11ebf",
+  "title": "Exam technique: Quadratics",
+  "content": "### What earns the marks\nFor solving, the factorised form shown earns the first mark and each root earns credit after. For discriminants, the substitution with signs tracked earns the method mark and the root-count conclusion earns the second. For completing the square, the subtracted square earns the method mark and the turning point stated as a pair earns the final one.\n### Traps\nError: negated root pairs from sign slips. Correction: expand-check each bracket. Error: one-sided k ranges. Correction: negative branch included. Error: negative length roots kept. Correction: reject with a reason stated.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:51.859479+00",
+  "updated_at": "2026-10-12 08:09:51.859479+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -583,6 +778,19 @@
   "preview_url": "previews/as-algebra-questions.png",
   "page_count": 60,
   "source_range": "P1 Classified p3–62"
+ },
+ {
+  "id": "293b654a-86a9-450b-b6c0-7543ef6c8fc7",
+  "topic_id": "1323a228-279d-4364-a21f-b07cff9db871",
+  "title": "Exam technique: Web Technologies and Security",
+  "content": "### What earns the marks\nFor trust, the CA signature chain described earns both marks: CA binds key to identity, browsers check against roots. For bulk data, symmetric speed plus asymmetric key exchange earns the hybrid pair. For verification, re-hash and compare stated earns the integrity mark with mismatch meaning change.\n### Traps\nError: encryption claimed to stop phishing. Correction: valid TLS carries fake sites too; check identity. Error: hashes claimed to prove authorship. Correction: hashes prove integrity, signatures prove authorship. Error: self-claims accepted as trust. Correction: only CA signatures establish it.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:32.808291+00",
+  "updated_at": "2026-10-12 08:02:32.808291+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
  },
  {
   "id": "2b44173a-bcfa-4283-b7e5-0b7f4481d594",
@@ -624,6 +832,32 @@
   "source_range": null
  },
  {
+  "id": "2cae4518-b7f2-47f6-ad73-acfc2977da58",
+  "topic_id": "1bdc4fd6-0627-40d3-a8e4-bbe5827c51e0",
+  "title": "Exam technique: Ethics and AI",
+  "content": "### What earns the marks\nFor bias scenarios, the mechanism stated (training data encodes past discrimination) earns the first mark and a concrete mitigation (balanced data plus outcome audits) earns the second. For legislation, the act named plus the offence matched earns both marks: access offences belong to Computer Misuse, copying to Copyright, personal data to Data Protection.\n### Traps\nError: data called neutral. Correction: models inherit their training distribution. Error: every offence labelled hacking. Correction: match offence to act. Error: benefits claimed to excuse rights violations. Correction: consent and licensing still required.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:52:19.330145+00",
+  "updated_at": "2026-10-12 07:52:19.330145+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "2d7de2f9-4792-43c4-88cd-548b3283b6f7",
+  "topic_id": "3e08bf8f-4227-40a9-b6af-783b81e8b31f",
+  "title": "Exam technique: Normal Distribution",
+  "content": "### What earns the marks\nFor standardising, Z = (X-mu)/sigma written earns the method mark. For areas, the symmetry or complement step shown earns the second mark. For inverse problems, the z-value from tables stated earns the first mark before unstandardising.\n### Traps\nError: variance used as sd in Z. Correction: root the variance first. Error: P(X>a) read directly as the lower tail. Correction: subtract from 1. Error: two unknowns solved from one statement. Correction: need two area statements.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:45.851374+00",
+  "updated_at": "2026-10-12 08:23:45.851374+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "2e10ac10-f110-4a0e-a462-9d0eec4f6a62",
   "topic_id": "1b6d51a7-a379-4b4a-9d3b-b461c1cf291a",
   "title": "Oscillations and Waves II — Quick Revision Summary",
@@ -644,6 +878,71 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:18.813353+00",
   "updated_at": "2026-09-20 18:43:18.813353+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "2f43ecab-f552-4ef6-b6c2-7e7dd4c7fcb5",
+  "topic_id": "76639184-3968-4dca-92f4-c5b52f558d8e",
+  "title": "Exam technique: Databases and Data Definition",
+  "content": "### What earns the marks\nFor DDL vs DML, purpose decides: structure changes are DDL, row changes are DML. For transactions, atomicity (all-or-nothing rollback) and durability (surviving crashes) each earn a mark when tied to the failure. For concurrency, the lost-update mechanism described earns the mark before locking is prescribed.\n### Traps\nError: SELECT classed as DDL. Correction: queries read rows, so DML. Error: half-applied transfers accepted. Correction: atomicity rolls them back. Error: views claimed as backups. Correction: views are access windows, not copies.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:01.04815+00",
+  "updated_at": "2026-10-12 08:02:01.04815+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "2f552a8f-c1e4-49bf-aacc-48ea8a4e7854",
+  "topic_id": "33144da3-195d-4c11-b5f8-a1c05eec5286",
+  "title": "Exam technique: Electric Fields and Capacitance",
+  "content": "### What earns the marks\nFor fields, F/Q and V/d chosen by situation earn one mark each. For capacitors, Q = CV quoted earns the method mark; parallel summed directly. For stored energy, half C V squared earns both marks.\n### Traps\nError: series and parallel capacitor rules swapped. Correction: parallel adds, series reciprocates. Error: micro prefixes dropped. Correction: carry 10^-6 through. Error: field direction confused. Correction: force on a positive test charge.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:36:49.781059+00",
+  "updated_at": "2026-10-12 08:36:49.781059+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "2f604a99-7dd0-42df-aad9-e7e3e97dbe53",
+  "topic_id": "372710b0-fcac-4f55-af62-67b9bec5940c",
+  "title": "Exam technique: Data Structures",
+  "content": "### What earns the marks\nFor structure choice, justify earns marks for matching the type mix to the structure: mixed fields need records, many same-type values need arrays. For stacks and queues, the operation order stated (LIFO vs FIFO) earns the method mark before any trace. For 2D arrays, the inclusive bounds multiplied earn the count mark.\n### Traps\nError: plain arrays for name-plus-score records. Correction: one data type per array; mix needs composite type. Error: dequeuing from the rear. Correction: queues leave from the front. Error: counting Array[1:8] as nine per dimension. Correction: inclusive bounds give eight.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:52:19.330145+00",
+  "updated_at": "2026-10-12 07:52:19.330145+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "2f812c65-56f6-4426-a4c3-105396b8ea9c",
+  "topic_id": "68a0c8be-5eba-4a82-a948-a4baef78c57d",
+  "title": "Exam technique: Astronomy and Cosmology",
+  "content": "### What earns the marks\nFor parallax, 1 over p in arcseconds earns the method mark with parsecs stated. For Hubble, v = H0 d quoted earns both marks. For evidence, CMB and redshift each linked to the model earn the explanation marks.\n### Traps\nError: parallax inverted. Correction: distance is 1 over angle. Error: standard candle reasoning skipped. Correction: period gives luminosity, brightness gives distance. Error: fusion claimed for white dwarfs. Correction: degeneracy pressure supports them.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:36:49.781059+00",
+  "updated_at": "2026-10-12 08:36:49.781059+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "3067b437-97ec-443e-b52b-5eeead5a38e2",
+  "topic_id": "1fb446d5-10eb-407d-9d60-e5ca030eeb1c",
+  "title": "Exam technique: Circular Measure",
+  "content": "### What earns the marks\nFor arc and sector work, the formula quoted with radians stated earns the method mark: s = r theta and A = half r squared theta. For conversions, the factor (pi/180 or 180/pi) shown earns the mark with exact multiples of pi simplified. For sector perimeter, the two radii added explicitly earn the final mark.\n### Traps\nError: degrees used directly in arc formulas. Correction: convert to radians first. Error: arc-only answer for perimeter. Correction: add both radii. Error: decimal approximations for exact-multiple answers. Correction: simplify the pi fraction.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:26.366145+00",
+  "updated_at": "2026-10-12 08:09:26.366145+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -676,6 +975,19 @@
   "source_range": null
  },
  {
+  "id": "3176742d-bd54-4b51-bb7a-9f3b9c76938b",
+  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
+  "title": "Exam technique: Forces and Motion",
+  "content": "### What earns the marks\nFor resultant force, F = ma with substitution earns both marks. For moments, clockwise set equal to anticlockwise earns the method mark. For terminal velocity, balanced forces stated earns the explanation mark.\n### Traps\nError: zero velocity taken as zero acceleration at the top of flight. Correction: g acts throughout. Error: one-sided moments only. Correction: equate both sides of the pivot. Error: weight and mass interchanged. Correction: weight is a force in newtons.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:30:55.163485+00",
+  "updated_at": "2026-10-12 08:30:55.163485+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "3232dace-5b8d-4bde-8511-79a0bceb36fb",
   "topic_id": "346acb48-363d-495f-bf45-5170082e4abb",
   "title": "Networks and the Internet — Quick Revision Summary",
@@ -702,6 +1014,19 @@
   "source_range": null
  },
  {
+  "id": "336edb89-a343-4aa8-a1dc-ffdb6186f1b8",
+  "topic_id": "34c0d0f1-9536-4a5e-b120-fb820be09963",
+  "title": "Exam technique: Earth and Space",
+  "content": "### What earns the marks\nFor orbital periods, geostationary matched to 24 h earns the mark; low orbits are shorter with greater speed. For distances, light-year working shown in km earns the method mark. For cosmology, redshift linked to expansion earns the conclusion mark.\n### Traps\nError: mass and weight confused on the Moon. Correction: mass unchanged, weight scaled by local g. Error: seasons blamed on distance. Correction: axial tilt drives seasons. Error: redshift read as galaxies approaching. Correction: red shift means receding.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:30:55.163485+00",
+  "updated_at": "2026-10-12 08:30:55.163485+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "34e6b43c-48b2-408f-81c4-7699c8a95a7d",
   "topic_id": "d2429c9a-82ec-4a86-8bdc-a119666cecef",
   "title": "Functions — Quick Revision Summary",
@@ -709,6 +1034,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 17:51:01.768615+00",
   "updated_at": "2026-09-20 17:51:01.768615+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "371bec01-3817-4ebc-bd2d-a29701bb4fe4",
+  "topic_id": "39682f0d-d101-4e70-8f91-05961d6c2a80",
+  "title": "Exam technique: Waves and Sound",
+  "content": "### What earns the marks\nFor speed, v = f lambda with substitution earns both marks. For sound, longitudinal with compressions stated earns the mark. For echoes, halving for the round trip earns the method mark; angles to the normal earn the optics marks.\n### Traps\nError: echo time used without halving. Correction: divide by two for one way. Error: sound called transverse. Correction: longitudinal in air. Error: refraction direction flipped. Correction: slower medium bends toward the normal.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:31:24.257493+00",
+  "updated_at": "2026-10-12 08:31:24.257493+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -884,6 +1222,19 @@
   "source_range": null
  },
  {
+  "id": "40f35105-5474-4a27-843e-d8283ed1d43f",
+  "topic_id": "b7daf14f-974d-4ad7-a848-07dd64176630",
+  "title": "Exam technique: Differentiation II",
+  "content": "### What earns the marks\nFor chain rule, outer derivative times inner derivative stated earns both marks. For products and quotients, the full rule quoted earns the method mark before substitution. For parametric and implicit work, dy/dt over dx/dt (or -Fx/Fy structure) earns the method mark.\n### Traps\nError: inner derivative forgotten. Correction: multiply by it always. Error: product rule halved. Correction: both halves required. Error: dy/dx inverted for parametrics. Correction: y-derivative over x-derivative.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:22:54.178419+00",
+  "updated_at": "2026-10-12 08:22:54.178419+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "410f9140-4fa3-467e-8cac-852bafc28653",
   "topic_id": "02bd056b-1248-42ac-afec-ed66f164f6bd",
   "title": "Logic Gates & Boolean Logic — Study Notes",
@@ -936,6 +1287,19 @@
   "source_range": "P1 notes p3–33"
  },
  {
+  "id": "456b2691-80c2-4104-b393-6735285d8ee4",
+  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
+  "title": "Exam technique: Measurement and Units",
+  "content": "### What earns the marks\nFor instrument choice, the micrometer for small diameters earns the mark with its 0.01 mm precision. For density, mass over volume with correct units earns both marks. For readings, meniscus bottom at eye level earns the method mark.\n### Traps\nError: parallax ignored in cylinders. Correction: eye level with the meniscus. Error: newton expanded wrongly. Correction: kg m/s squared from F = ma. Error: volume of a box miscalculated. Correction: multiply all three sides.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:31:24.257493+00",
+  "updated_at": "2026-10-12 08:31:24.257493+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "45b10674-ff18-4672-8046-5a67a308f50a",
   "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
   "title": "Programming and Algorithms — Study Notes",
@@ -975,6 +1339,45 @@
   "source_range": null
  },
  {
+  "id": "47022d56-76b8-4c53-9436-6a39bacadc96",
+  "topic_id": "e8237701-4e22-468e-a25f-6bd96b5f22e1",
+  "title": "Exam technique: Circular Motion and SHM",
+  "content": "### What earns the marks\nFor SHM acceleration, minus omega squared x with direction stated earns both marks. For periods, the correct root form quoted earns the method mark. For energy, equilibrium named for max KE earns the mark; resonance at natural frequency earns the explanation.\n### Traps\nError: sign dropped in a = -omega squared x. Correction: acceleration points to equilibrium. Error: pendulum and spring formulae swapped. Correction: root(L/g) versus root(m/k). Error: resonance blamed on damping alone. Correction: matching frequencies drive it.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:36:49.781059+00",
+  "updated_at": "2026-10-12 08:36:49.781059+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "470c3ed2-3e5c-4d12-b764-b839aede863f",
+  "topic_id": "52889198-3121-4be7-8cd7-e3bd37e97430",
+  "title": "Exam technique: Thermal Physics (A2)",
+  "content": "### What earns the marks\nFor gases, pV = nRT quoted earns the method mark with kelvin used. For theory, KE proportional to T stated earns the explanation mark. For heating, mcT and mL chosen by phase versus temperature change earn one mark each; first-law signs tracked earn the final mark.\n### Traps\nError: Celsius used in gas laws. Correction: convert to kelvin. Error: latent heat applied to temperature change. Correction: latent is isothermal; mcT is for change. Error: work signs flipped in delta U. Correction: work done by the gas subtracts.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:37:04.774783+00",
+  "updated_at": "2026-10-12 08:37:04.774783+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "47974d1c-03b0-44f4-bd37-1d6e929bad32",
+  "topic_id": "2232b534-eded-4d6f-8ca5-54ad3a4a7ba4",
+  "title": "Exam technique: Simulation, Sensors and Real Data",
+  "content": "### What earns the marks\nFor control systems, sensor plus actuator plus loop type each earn a mark: feedback reads back every cycle. For conversions, the direction named (ADC into the controller) earns the mark with resolution tied to bit depth. For regimes, the hazard speed matched to sampling earns the design mark.\n### Traps\nError: DAC into the controller. Correction: sensors are analog, controllers digital: ADC. Error: batch uploads for flood alerts. Correction: fast hazards need real-time sensing. Error: tripling identical sensors for redundancy. Correction: diversify physics so failures stay independent.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:32.808291+00",
+  "updated_at": "2026-10-12 08:02:32.808291+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "48a22dad-ac6e-4a2c-b616-faca351645d9",
   "topic_id": "26473ecc-28e3-439a-9b19-a50032d1eef7",
   "title": "Coordinate Geometry — Exam Questions (P1 Classified)",
@@ -1001,6 +1404,19 @@
   "source_range": "P2 Classified p306–363"
  },
  {
+  "id": "49323092-c7bc-4240-a791-08d77a041354",
+  "topic_id": "9a277064-37cf-40c5-a484-34372e2f058b",
+  "title": "Exam technique: Probability Distributions",
+  "content": "### What earns the marks\nFor distribution tables, probabilities summing to 1 checked earns the first mark. For expectation, each x times p(x) summed earns the method mark. For variance, E(X squared) computed separately then subtracted earns the second mark.\n### Traps\nError: sigma used as variance. Correction: sigma is sd; square it. Error: E(X squared) computed as E(X) squared. Correction: square the x values first. Error: function-of-X expectation via E(X) substituted. Correction: sum g(x)p(x) directly.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:36.948553+00",
+  "updated_at": "2026-10-12 08:23:36.948553+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "4c3feece-d824-42a8-88ae-a9f3c5c313f7",
   "topic_id": "39682f0d-d101-4e70-8f91-05961d6c2a80",
   "title": "Waves & Sound — Study Notes",
@@ -1021,6 +1437,19 @@
   "material_type": "notes",
   "created_at": "2026-09-20 17:51:02.092385+00",
   "updated_at": "2026-09-20 17:51:02.092385+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "4e273d1e-3981-46d9-a315-9836ab425ba4",
+  "topic_id": "965f1ced-091e-4f23-8f27-57fdb3db0b24",
+  "title": "Exam technique: Computational Thinking",
+  "content": "### What earns the marks\nFor recursion, the base case quoted plus the shrinking argument earns both marks. For dry runs, each call tracked with its print earns method credit. For strategy choice, the signature named (splitting for divide-and-conquer, retreating for backtracking) earns the mark with a fitting example.\n### Traps\nError: base case omitted. Correction: every recursion needs a reachable stop. Error: greedy claimed to backtrack. Correction: greedy never retreats. Error: linear search called divide-and-conquer. Correction: it never divides.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:01.04815+00",
+  "updated_at": "2026-10-12 08:02:01.04815+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1209,6 +1638,19 @@
   "source_range": null
  },
  {
+  "id": "5ecbd4c5-9989-4795-937d-97fb6929de01",
+  "topic_id": "7ea1e393-fa84-4b4d-8673-86465d48e9c4",
+  "title": "Exam technique: Further Trigonometry",
+  "content": "### What earns the marks\nFor multiple solutions, the full period family (180-2x style use of all quadrants) earns both marks. For R-formulae, completing Rcos(x-a) earns the method mark and R and alpha earn one each. For trig proofs, each identity substitution earns stepwise credit.\n### Traps\nError: one solution pair only. Correction: list all in the range. Error: degrees with radian-range answers. Correction: match the stated range. Error: sin(x+y) expanded as sin x + sin y. Correction: use the formula.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:23.570207+00",
+  "updated_at": "2026-10-12 08:23:23.570207+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "5f4ea511-14f7-47b6-b864-7c036cdcaaaf",
   "topic_id": "51150c0c-c3dd-4edd-b870-5eba0ce9ffd0",
   "title": "Permutations and Combinations — Quick Revision Summary",
@@ -1216,6 +1658,19 @@
   "material_type": "summary",
   "created_at": "2026-09-21 17:56:49.123486+00",
   "updated_at": "2026-09-21 17:56:49.123486+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "5f63f2ce-32c1-4651-a82e-8c0b1e4f2e56",
+  "topic_id": "46485f71-55f2-4888-9462-d12d7a3833a2",
+  "title": "Exam technique: Work Energy and Power",
+  "content": "### What earns the marks\nFor work, force times distance along the force earns both marks. For energy, mgh and half m v squared quoted earn one mark each. For efficiency, useful over total earns the method mark with waste named.\n### Traps\nError: g taken as 10 without comment at AS. Correction: use 9.81 for energy work. Error: efficiency above 100 percent. Correction: impossible; check the ratio. Error: power and energy units swapped. Correction: watts are joules per second.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:34:10.35242+00",
+  "updated_at": "2026-10-12 08:34:10.35242+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1313,6 +1768,19 @@
   "source_range": "Booklet p10–11"
  },
  {
+  "id": "6564910e-6835-4b23-b8e6-58861510b0ad",
+  "topic_id": "91eac2dd-1acc-4ec2-8800-90ce2d4cc43e",
+  "title": "Exam technique: Forces and Equilibrium",
+  "content": "### What earns the marks\nFor resultants, the vector triangle or Pythagoras with angle earns both marks. For moments, force times perpendicular distance earns each mark. For equilibrium, both zero force and zero moment stated earns the full explanation.\n### Traps\nError: one equilibrium condition given alone. Correction: both are required. Error: couple torque taken as force only. Correction: multiply by the separation. Error: upthrust equated to object weight. Correction: it equals displaced fluid weight.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:33:58.980408+00",
+  "updated_at": "2026-10-12 08:33:58.980408+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "65b69ba8-a597-453b-9400-fff8b8582b14",
   "topic_id": "e1e9eead-fb8c-402e-9894-ec34fa6a8e79",
   "title": "Web Technologies — Quick Revision Summary",
@@ -1404,6 +1872,19 @@
   "source_range": null
  },
  {
+  "id": "6c52e58a-72f7-4a38-9780-ceeb9990a94d",
+  "topic_id": "346acb48-363d-495f-bf45-5170082e4abb",
+  "title": "Exam technique: Networks and the Internet",
+  "content": "### What earns the marks\nFor protocol choice, the requirement matched earns each mark: delay-sensitive goes UDP, accuracy-critical goes TCP. For devices, the layer and key stated (MAC for bridges, IP for routers) earn the pair. For topologies, the failure scope described earns the resilience mark.\n### Traps\nError: one protocol for both voice and files. Correction: optimise per requirement. Error: hubs credited with MAC forwarding. Correction: hubs broadcast; switches target. Error: star failure claimed total. Correction: only the spoke drops.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:01.04815+00",
+  "updated_at": "2026-10-12 08:02:01.04815+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "6cec9be3-8863-48ae-b426-084f33567d9b",
   "topic_id": "35378b08-5638-4278-84b4-def6b1041f0a",
   "title": "Algorithms & Programming — Quick Revision Summary",
@@ -1482,6 +1963,19 @@
   "source_range": null
  },
  {
+  "id": "6fd73d3d-8eee-4b57-bbb2-35373e946b58",
+  "topic_id": "333739b9-8c29-4b03-b1c0-ec9767823dfd",
+  "title": "Exam technique: Waves (AS)",
+  "content": "### What earns the marks\nFor phase, one lambda equated to 360 degrees earns the mark. For refraction, n = c/v quoted earns the method mark. For TIR, both conditions stated earn one mark each with sin c = 1/n earning the calculation mark.\n### Traps\nError: TIR claimed with one condition only. Correction: denser medium plus beyond critical angle. Error: spectrum order flipped. Correction: radio longest, gamma shortest. Error: phase from amplitude guessed. Correction: phase comes from path or time difference.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:34:10.35242+00",
+  "updated_at": "2026-10-12 08:34:10.35242+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "7034932b-635a-4949-a7c1-e9df1bd9c136",
   "topic_id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
   "title": "Further Algebra — Study Notes",
@@ -1541,6 +2035,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 17:51:02.779531+00",
   "updated_at": "2026-09-20 17:51:02.779531+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "76afad46-f2f7-448b-b204-2ec62caf38bf",
+  "topic_id": "16bdef5e-f234-4bc1-a036-52816e2bfe44",
+  "title": "Exam technique: Nuclear Physics",
+  "content": "### What earns the marks\nFor radiations, alpha-beta-gamma ordered by penetration earns one mark with absorbers earns the second. For half-life, each halving step shown earns stepwise credit. For deflection, mass difference used to explain earns the explanation mark.\n### Traps\nError: paper claimed to stop beta. Correction: paper stops alpha only. Error: half-life mass subtracted linearly. Correction: halve each period. Error: closer source assumed lower rate. Correction: closer means higher count rate.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:31:24.257493+00",
+  "updated_at": "2026-10-12 08:31:24.257493+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1638,6 +2145,19 @@
   "source_range": null
  },
  {
+  "id": "7be02033-0cda-497a-b138-bc43342c95a1",
+  "topic_id": "15a26a2d-cb1f-4059-810f-1698500fe548",
+  "title": "Exam technique: Kinematics",
+  "content": "### What earns the marks\nFor graphs, gradient read as acceleration and area as displacement earns one mark each. For SUVAT, the correct equation chosen with substitution earns both marks. For projectiles, horizontal constancy stated earns the explanation mark.\n### Traps\nError: area and gradient roles swapped. Correction: area is displacement, gradient is acceleration. Error: wrong SUVAT picked. Correction: list knowns first, then choose. Error: horizontal motion given gravity. Correction: no horizontal force means constant velocity.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:33:58.980408+00",
+  "updated_at": "2026-10-12 08:33:58.980408+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "7ca83ddb-a38f-4f06-b83c-8381e8e73560",
   "topic_id": "580136d1-5758-460e-8f79-7a04e39b9899",
   "title": "Programming Paradigms and Low-Level — Study Notes",
@@ -1658,6 +2178,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:12.85699+00",
   "updated_at": "2026-09-20 18:43:12.85699+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "7e0dda31-f7a7-40cd-a465-55f837602f46",
+  "topic_id": "35b1da75-be47-4c45-8751-9a70ae75875a",
+  "title": "Exam technique: Thermal Physics",
+  "content": "### What earns the marks\nFor conduction, free electrons named earn the explanation mark. For convection, rise of hot less-dense fluid earns the mark. For radiation, matt black as best emitter and absorber earns the mark; Q = mcT quoted earns the calculation marks.\n### Traps\nError: convection claimed in solids. Correction: conduction only in solids. Error: shiny surfaces called best emitters. Correction: matt black emits and absorbs best. Error: evaporation cooling unexplained. Correction: fastest molecules escape.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:31:24.257493+00",
+  "updated_at": "2026-10-12 08:31:24.257493+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1755,6 +2288,19 @@
   "source_range": null
  },
  {
+  "id": "80d6f50f-57d1-4b21-bced-3609f9432cd4",
+  "topic_id": "d2429c9a-82ec-4a86-8bdc-a119666cecef",
+  "title": "Exam technique: Functions",
+  "content": "### What earns the marks\nFor range, the domain endpoints evaluated earn the first mark with monotonicity justifying the interval. For composites, the inner value written down earns a mark before the outer application. For inverses, the swap-and-solve shown earns the method mark; domain restriction discussed earns the reasoning mark.\n### Traps\nError: gf computed as fg. Correction: start from the rightmost letter. Error: inverse claimed on many-one functions. Correction: restrict the domain first. Error: full reals claimed despite a bounded domain. Correction: map the endpoints.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:26.366145+00",
+  "updated_at": "2026-10-12 08:09:26.366145+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "80ee71f3-e4c7-4f07-8a7d-10356850f4cb",
   "topic_id": "5fa07820-06cf-4f42-85a4-74f5a3da9bde",
   "title": "Integration — Exam Questions (P1 Classified)",
@@ -1766,6 +2312,19 @@
   "preview_url": "previews/as-integration-questions.png",
   "page_count": 32,
   "source_range": "P1 Classified p308–339"
+ },
+ {
+  "id": "820b4e89-1dc2-40a1-a513-1c0c4bc1dc7e",
+  "topic_id": "4a4ae03f-b502-41f7-8136-209e2a811174",
+  "title": "Exam technique: Complex Numbers",
+  "content": "### What earns the marks\nFor modulus and argument, root(x squared + y squared) and tan inverse (y/x) each earn a mark with the quadrant checked. For quadratics, the negative discriminant shown earns the method mark and the a+bi pair earns the second. For loci, the geometric name (circle, line, half-line) earns the final mark.\n### Traps\nError: modulus squared reported as modulus. Correction: root last. Error: stopping at no real roots. Correction: continue into complex pair. Error: i squared treated as 1 in products. Correction: it equals -1.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:22:54.178419+00",
+  "updated_at": "2026-10-12 08:22:54.178419+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
  },
  {
   "id": "844f4bee-1575-40a3-a553-5acf50a41168",
@@ -1833,6 +2392,19 @@
   "source_range": null
  },
  {
+  "id": "8ec354e8-7d32-4f73-94b9-382d8d4fefba",
+  "topic_id": "4149e92f-7b66-43ee-af8a-cab08f65524a",
+  "title": "Exam technique: Trigonometry (AS)",
+  "content": "### What earns the marks\nFor equations, the principal value earns one mark and each symmetry-derived solution earns the rest: sine mirrors at 180, tangent repeats every 180, squared roots split sign first. For identities, the Pythagorean substitution shown earns the method mark. For graphs, amplitude and period changes each earn a mark with the direction correct.\n### Traps\nError: single solutions for full-range equations. Correction: map all quadrants. Error: negative cosine roots dropped. Correction: split plus-or-minus first. Error: 2x read as doubling the period. Correction: it halves it.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:51.859479+00",
+  "updated_at": "2026-10-12 08:09:51.859479+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "9078e0a1-ee3d-4cec-bb01-092369018e88",
   "topic_id": "8eef118f-639b-44a5-b503-80241e2bb58e",
   "title": "Quantum Physics — Study Notes",
@@ -1853,6 +2425,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:13.884515+00",
   "updated_at": "2026-09-20 18:43:13.884515+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "92183967-18ff-4f89-90fb-10fd52eb9e0a",
+  "topic_id": "f5ce9e1c-9c8f-46d2-95bd-ac9687b6ea07",
+  "title": "Exam technique: Communication and Networking",
+  "content": "### What earns the marks\nFor switching and protocols, describe earns marks for the mechanism plus its consequence: packets carry addresses and sequence numbers so routers forward independently and the receiver reassembles. For TCP vs UDP, justify earns marks for matching reliability to the use case, not for declaring one better. For security, name earns the control plus what it inspects: packet-filtering checks headers against rules.\n### Traps\nError: circuit-switching features credited to packet switching. Correction: dedicated path and guaranteed bandwidth are circuit properties. Error: TCP recommended for live video. Correction: delay hurts more than loss there, so UDP. Error: claiming wireless uses collision detection. Correction: senders cannot listen while sending, so avoidance (RTS/CTS).",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:52:19.330145+00",
+  "updated_at": "2026-10-12 07:52:19.330145+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1957,6 +2542,32 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:24.884281+00",
   "updated_at": "2026-09-19 06:23:12.313189+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "991eb3fc-7caf-422d-9635-7f336adad73c",
+  "topic_id": "f52cc259-2b6e-4aca-818b-56556bf68950",
+  "title": "Exam technique: Databases",
+  "content": "### What earns the marks\nFor DBMS benefits, justify earns marks per benefit tied to the scenario: integrity plus concurrency for multi-user systems. For keys, the composite identified earns one mark and the foreign-key link earns the second. For SQL, the clause order SELECT-FROM-WHERE-ORDER BY correct earns marks stepwise; text literals in quotes earn precision.\n### Traps\nError: single repeating field claimed as primary key. Correction: test uniqueness across all rows. Error: SELECT * accepted for named fields. Correction: list only asked fields. Error: ASC/DESC swapped. Correction: DESC runs high to low.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:52:19.330145+00",
+  "updated_at": "2026-10-12 07:52:19.330145+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "99b7565e-54fd-4473-8ea2-50edc443b885",
+  "topic_id": "51150c0c-c3dd-4edd-b870-5eba0ce9ffd0",
+  "title": "Exam technique: Permutations and Combinations",
+  "content": "### What earns the marks\nFor counting, the permutation vs combination choice justified earns the method mark. For restricted arrangements, fixing the block first then permuting earns both marks. For probability of selections, the hypergeometric fraction built stepwise earns each mark.\n### Traps\nError: P used where order is irrelevant. Correction: C for choose. Error: double counting symmetric selections. Correction: divide by the internal permutations. Error: identical items permuted fully. Correction: divide by repeats factorial.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:36.948553+00",
+  "updated_at": "2026-10-12 08:23:36.948553+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2223,6 +2834,19 @@
   "source_range": null
  },
  {
+  "id": "ac29f5e6-ff26-481b-877c-b2c6503579f6",
+  "topic_id": "8eef118f-639b-44a5-b503-80241e2bb58e",
+  "title": "Exam technique: Quantum Physics",
+  "content": "### What earns the marks\nFor photons, hf quoted with substitution earns both marks. For photoelectricity, threshold frequency reasoning earns the explanation mark regardless of intensity. For matter waves, h/p quoted earns the method mark; diffraction named as wave proof earns the conclusion.\n### Traps\nError: brighter light assumed to beat threshold. Correction: frequency decides, intensity only sets rate. Error: line spectra blamed on heat alone. Correction: discrete levels give lines. Error: electron mass used in photon formula. Correction: photons use hf, electrons use h/p.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:37:04.774783+00",
+  "updated_at": "2026-10-12 08:37:04.774783+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "ad1b115f-bf78-4238-8fc7-94833b10d60c",
   "topic_id": "d5e94211-9e09-4ccf-8086-47c044ed468a",
   "title": "Electricity: D.C. Circuits — Quick Revision Summary",
@@ -2288,6 +2912,19 @@
   "source_range": null
  },
  {
+  "id": "b4503833-2d39-4d1c-b7eb-a11294c16648",
+  "topic_id": "bb600e06-32eb-473e-ac3e-6e1bd64cb01e",
+  "title": "Exam technique: Pressure and Density",
+  "content": "### What earns the marks\nFor solids, p = F/A with substitution earns both marks. For liquids, proportionality with depth stated earns the explanation mark. For hydraulics, pressure equated across pistons earns the method mark.\n### Traps\nError: force and pressure interchanged. Correction: pressure divides by area. Error: depth effect inverted. Correction: deeper means greater pressure. Error: atmospheric pressure guessed at 10 Pa. Correction: about 100 kPa at sea level.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:31:24.257493+00",
+  "updated_at": "2026-10-12 08:31:24.257493+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "b57a4eed-8ce6-4f40-ae64-3e3a1e30ce2f",
   "topic_id": "ebe3caea-37e6-47ae-ba8e-1a5cb713196b",
   "title": "Sequences and Series — Revision Notes (P2)",
@@ -2308,6 +2945,19 @@
   "material_type": "summary",
   "created_at": "2026-09-18 14:13:20.494765+00",
   "updated_at": "2026-09-30 16:51:28.718217+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "b79bfbd4-27bd-45c2-805b-c46830e4b756",
+  "topic_id": "628446d9-f59a-4542-a298-a0cd8234fc25",
+  "title": "Exam technique: Hypothesis Testing",
+  "content": "### What earns the marks\nFor hypotheses, H0 and H1 in words or symbols earn the first mark. For the test statistic, its value compared against the critical value earns the method mark. For conclusions, contextual wording (evidence of change, not proof) earns the final mark.\n### Traps\nError: significant claimed equals proven. Correction: evidence only. Error: wrong tail direction. Correction: H1 fixes the tail. Error: H0 restated in the conclusion without context. Correction: answer about the situation.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:23.570207+00",
+  "updated_at": "2026-10-12 08:23:23.570207+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2340,6 +2990,19 @@
   "source_range": null
  },
  {
+  "id": "b916a786-ed4f-4c3e-8463-de4112f08691",
+  "topic_id": "532f32af-de30-4ad5-a9be-33e0d552a831",
+  "title": "Exam technique: Hardware and Logic Gates",
+  "content": "### What earns the marks\nFor device choice, sense-process-store-output each matched earns credit: sensors for capture, processor for decisions, storage for logs, transmitter for remote output. For logic, the gate-by-gate evaluation shown earns method marks; the law named (absorption, De Morgan) earns the final mark. For architecture, each register with its single role earns precision.\n### Traps\nError: office peripherals for sensing tasks. Correction: sensing needs sensors. Error: MAR/MDR roles swapped. Correction: address out via MAR, instruction back via MDR. Error: B claimed for A AND (A OR B). Correction: absorption gives A.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:52:19.330145+00",
+  "updated_at": "2026-10-12 07:52:19.330145+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "bbb2b05b-65de-4a24-9ffc-9fb2a7911597",
   "topic_id": "6111cf0b-63cc-4804-a218-1b16e82da4f3",
   "title": "Exam technique: Right-Angled Trigonometry",
@@ -2347,6 +3010,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 07:32:48.887779+00",
   "updated_at": "2026-10-12 07:32:48.887779+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "bd0911bf-f9f4-4428-ac05-85b5e7873082",
+  "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
+  "title": "Exam technique: System Software and Security",
+  "content": "### What earns the marks\nFor OS roles, each role tied to the scenario earns a mark: paging for oversized workloads, scheduling for shared CPUs. For malware, the propagation method contrasted (self-spreading worms vs host-bound viruses) earns both marks. For hashing, one-way verification plus salt against rainbow tables earns the pair.\n### Traps\nError: single-driver answers for whole-OS management. Correction: name memory, processor, devices, security. Error: worms and viruses reversed. Correction: worms roam alone; viruses ride hosts. Error: encryption claimed where hashing belongs. Correction: password checks verify hashes, never decrypt.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:54:25.524105+00",
+  "updated_at": "2026-10-12 07:54:25.524105+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2418,6 +3094,19 @@
   "source_range": null
  },
  {
+  "id": "c07df8e1-7162-4642-bc3c-bea36bce3fcf",
+  "topic_id": "ec102c32-7550-40e8-91ec-985ec72ff83c",
+  "title": "Exam technique: Data Types and File Organisation",
+  "content": "### What earns the marks\nFor records, the mixed-type justification earns the mark: arrays hold one type only. For file access, the task matched to the method earns each mark: full runs suit sequential scans, single lookups suit indexed jumps. For floating point, the bias arithmetic shown earns the exponent mark.\n### Traps\nError: plain arrays for heterogeneous records. Correction: composite types exist for exactly this. Error: sequential scan for one lookup. Correction: jump via the index. Error: bias forgotten in exponent. Correction: add the bias every time.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:01.04815+00",
+  "updated_at": "2026-10-12 08:02:01.04815+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "c127f256-2232-4e26-9d74-eb179a073e49",
   "topic_id": "5883f323-f4cd-4741-a6bc-a9c051b11ebf",
   "title": "Discriminant — Exam Questions (P1 Classified)",
@@ -2438,6 +3127,19 @@
   "material_type": "notes",
   "created_at": "2026-09-20 18:43:11.281056+00",
   "updated_at": "2026-09-20 18:43:11.281056+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "c35949d9-f01b-4fff-aafd-d25c08e2bc61",
+  "topic_id": "d5e94211-9e09-4ccf-8086-47c044ed468a",
+  "title": "Exam technique: DC Circuits",
+  "content": "### What earns the marks\nFor junctions, Kirchhoff current sums stated earn the mark. For combinations, the parallel reciprocal form quoted earns the method mark. For terminal p.d., E minus Ir earns both marks with the lost volts identified.\n### Traps\nError: series rules applied to parallel branches. Correction: voltage is the shared quantity in parallel. Error: emf quoted as terminal voltage. Correction: subtract the Ir drop. Error: resistivity factors muddled. Correction: R scales with L over A.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:33:58.980408+00",
+  "updated_at": "2026-10-12 08:33:58.980408+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2503,6 +3205,19 @@
   "material_type": "notes",
   "created_at": "2026-09-20 18:43:13.884515+00",
   "updated_at": "2026-09-20 18:43:13.884515+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "c5db8780-4259-4225-a81e-77c39f6c243f",
+  "topic_id": "98dfbd94-3f76-4fa5-8e2e-c72c0c9a154a",
+  "title": "Exam technique: Magnetic Fields and Electromagnetism",
+  "content": "### What earns the marks\nFor wires, BIL with right-angle condition earns both marks. For selectors, E/B equating the forces earns the method mark. For induction, Lenz opposition stated earns the explanation mark; power conserved in transformers earns the calculation marks.\n### Traps\nError: parallel motion assumed to feel force. Correction: only the perpendicular component counts. Error: induced current aiding the change. Correction: it opposes the change. Error: particle path guessed straight. Correction: perpendicular entry gives circular arcs.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:36:49.781059+00",
+  "updated_at": "2026-10-12 08:36:49.781059+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2659,6 +3374,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-10 06:07:39.386986+00",
   "updated_at": "2026-10-10 06:07:39.386986+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "d316b11f-6045-41df-b9d5-5231af1ba0ce",
+  "topic_id": "3cbd0390-fca7-434d-aa02-241ce0947848",
+  "title": "Exam technique: Electricity and Circuits",
+  "content": "### What earns the marks\nFor series and parallel, current-same versus voltage-same stated earns the first mark. For power and resistance, P = VI and R = V/I quoted with substitution earn each mark. For fuses, the next rating above normal current chosen earns the mark.\n### Traps\nError: voltage claimed same in series. Correction: current is the shared quantity. Error: exact-current fuse chosen. Correction: next standard rating above. Error: lamps in parallel assumed dimmer. Correction: each sees full voltage.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:30:55.163485+00",
+  "updated_at": "2026-10-12 08:30:55.163485+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2860,6 +3588,32 @@
   "source_range": null
  },
  {
+  "id": "de1e6368-247f-4b96-bbfe-e1872b798c94",
+  "topic_id": "26473ecc-28e3-439a-9b19-a50032d1eef7",
+  "title": "Exam technique: Coordinate Geometry",
+  "content": "### What earns the marks\nFor lines, the gradient computation shown earns the first mark and the substitution of one point earns the second. For perpendicular bisectors, the midpoint plus the negative-reciprocal gradient each earn a mark. For circles, completing the square to centre-radius form earns the method mark; the root taken last earns the final one.\n### Traps\nError: segment equation given for the bisector. Correction: midpoint plus perpendicular gradient. Error: r squared reported as the radius. Correction: root last. Error: intersection x-values presented as points. Correction: substitute back for y.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:26.366145+00",
+  "updated_at": "2026-10-12 08:09:26.366145+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "de4968a1-2c65-4c88-98da-bdc9ecf79992",
+  "topic_id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
+  "title": "Exam technique: Circular Motion and Gravity",
+  "content": "### What earns the marks\nFor circular motion, m v squared over r equated to the providing force earns both marks. For angular speed, 2 pi f quoted earns the mark. For gravity, the inverse square applied to ratios earns the method mark.\n### Traps\nError: centrifugal force invoked in inertial frames. Correction: name the real provider (tension, gravity). Error: geostationary period guessed. Correction: 24 h over the equator. Error: lower orbit assumed slower. Correction: lower means faster with shorter period.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:34:10.35242+00",
+  "updated_at": "2026-10-12 08:34:10.35242+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "dec61a69-ea89-4236-9ae4-64f25d54c51d",
   "topic_id": "bebaa1ac-0640-4b08-8f4e-425b352daaa7",
   "title": "Sampling and Estimation — Study Notes",
@@ -2951,6 +3705,19 @@
   "source_range": null
  },
  {
+  "id": "e137b038-4c36-4e1a-b3fd-a5ff12996a64",
+  "topic_id": "33c4669d-3ed3-4432-9bb5-8e96aa3beb01",
+  "title": "Exam technique: Vectors (A2)",
+  "content": "### What earns the marks\nFor line equations, r = a + t b with direction from two points earns the method mark. For intersections, equating components and solving earns one mark and the consistency check earns the second. For angles and distances, the dot-product or cross-product magnitude formula quoted earns the method mark.\n### Traps\nError: position vectors used as directions. Correction: subtract to get direction. Error: parameters equated across lines. Correction: different letters per line. Error: inconsistent third component ignored. Correction: verify all three or declare skew.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:45.851374+00",
+  "updated_at": "2026-10-12 08:23:45.851374+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "e17a624b-2af7-4814-9f39-c302535c75f8",
   "topic_id": "9d69ae0a-cb99-4780-88a1-42025848a024",
   "title": "Statistics — Probability — Quick Revision Summary",
@@ -2984,6 +3751,32 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:21.725066+00",
   "updated_at": "2026-09-30 16:51:28.718217+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "e1dddb68-c274-4665-92b5-f12149c93862",
+  "topic_id": "ef569055-35ca-414b-b7bc-e7211c868d3d",
+  "title": "Exam technique: Superposition",
+  "content": "### What earns the marks\nFor phase, path difference converted to degrees earns the method mark. For patterns, constructive versus destructive located earns each mark. For stationary waves, nodes and antinodes described earn the explanation marks.\n### Traps\nError: half lambda called in phase. Correction: half lambda is antiphase. Error: nodes credited with motion. Correction: nodes stay at zero. Error: diffraction condition forgotten. Correction: gap near lambda spreads most.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:34:10.35242+00",
+  "updated_at": "2026-10-12 08:34:10.35242+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "e22f96bb-66c0-4356-b96d-b48c193c635c",
+  "topic_id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
+  "title": "Exam technique: Further Algebra",
+  "content": "### What earns the marks\nFor modulus equations, both branches solved earn a mark each. For inequalities, the two-sided split earns the method mark with the and/or structure correct. For equal-roots problems, discriminant zero stated earns the first mark and -b/2a earns the second.\n### Traps\nError: one modulus branch only. Correction: split both signs. Error: between-answers for outside-or inequalities. Correction: >= splits outward. Error: non-zero discriminants with equal roots claimed. Correction: equal roots force zero.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:22:54.178419+00",
+  "updated_at": "2026-10-12 08:22:54.178419+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3036,6 +3829,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:15.071129+00",
   "updated_at": "2026-09-20 18:43:15.071129+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "e6f86137-4a51-4833-b66b-d85a5f7000dd",
+  "topic_id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
+  "title": "Exam technique: Processor Fundamentals",
+  "content": "### What earns the marks\nFor the fetch stage, the register chain PC to MAR to MDR to CIR stated in order earns full marks. For assembly traces, the arithmetic shown earns one mark and the addressing mode named (direct for memory addresses, immediate for hash values) earns the second. For shifts, the bit pattern written out earns the method mark before any multiply-or-divide claim.\n### Traps\nError: MAR and MDR roles swapped. Correction: address travels out, instruction travels back. Error: overflow ignored after a left shift past 8 bits. Correction: state the overflow explicitly. Error: cores credited with adding RAM. Correction: cores add parallelism; pipelining overlaps stages.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 07:54:25.524105+00",
+  "updated_at": "2026-10-12 07:54:25.524105+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3127,6 +3933,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 07:30:30.787012+00",
   "updated_at": "2026-10-12 07:30:30.787012+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "eabb35b7-c260-42ea-a7fb-2f92f2e3b205",
+  "topic_id": "4fbcf844-f1cc-41c3-a81d-e4dba7ad964b",
+  "title": "Exam technique: Energy Work and Power",
+  "content": "### What earns the marks\nFor stores, mgh and half m v squared quoted earn one mark each. For efficiency, useful over total stated earns the method mark. For power, work over time with units earns the final mark.\n### Traps\nError: efficiency above 100 percent claimed. Correction: impossible; check the ratio direction. Error: mass in grams mixed with kg units. Correction: convert to kg first. Error: power and energy units swapped. Correction: watts are joules per second.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:30:55.163485+00",
+  "updated_at": "2026-10-12 08:30:55.163485+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3354,6 +4173,32 @@
   "source_range": null
  },
  {
+  "id": "f6344974-aaa3-45fb-83c9-a422ec898d44",
+  "topic_id": "580136d1-5758-460e-8f79-7a04e39b9899",
+  "title": "Exam technique: Programming Paradigms",
+  "content": "### What earns the marks\nFor classification, how the computation is expressed decides: machine-mapped is low-level, commanded steps are imperative, wanted results are declarative, data-with-methods is OOP. For OOP benefits, reuse (inheritance) and flexible interfaces (polymorphism) each earn a mark with a mechanism. For errors, TRY plus named EXCEPT earns the handling pair.\n### Traps\nError: every language forced into one paradigm. Correction: classify by expression style per snippet. Error: readability sacrificed unknowingly. Correction: assembly trades it for timing control deliberately. Error: unhandled file errors. Correction: wrap risky opens in TRY.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:02:32.808291+00",
+  "updated_at": "2026-10-12 08:02:32.808291+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "f65db194-1f70-49d1-b46c-d32eb81f58b3",
+  "topic_id": "4be1bf79-d264-44d6-84e3-4a5db1319923",
+  "title": "Exam technique: Binomial Distribution",
+  "content": "### What earns the marks\nFor probabilities, the term C(n,k) p^k q^(n-k) written with values earns the method mark before evaluation. For mean and variance, np and npq quoted earn a mark each. For tail probabilities, the complement route stated earns the method mark over direct summation.\n### Traps\nError: p and q swapped. Correction: track which outcome counts as success. Error: variance quoted as np. Correction: multiply by q as well. Error: continuity correction applied to exact binomial work. Correction: corrections belong to approximations only.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:22:54.178419+00",
+  "updated_at": "2026-10-12 08:22:54.178419+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "f7323111-ee30-4cfd-8723-bc9f02828808",
   "topic_id": "46485f71-55f2-4888-9462-d12d7a3833a2",
   "title": "Work, Energy and Power — Quick Revision Summary",
@@ -3361,6 +4206,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:13.884515+00",
   "updated_at": "2026-09-20 18:43:13.884515+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "f8052df5-1cbc-40fe-a4ce-bb9d3579f17b",
+  "topic_id": "cd7deaf4-1e3a-42af-9f1d-19aa44a2bb36",
+  "title": "Exam technique: Differentiation",
+  "content": "### What earns the marks\nFor differentiation, every term handled earns credit: show each power lowered. For stationary points, setting dy/dx = 0 earns one mark and the second-derivative (or sign) test earns the next. For always-increasing proofs, the discriminant shown negative with positive leading coefficient earns both marks.\n### Traps\nError: constants surviving differentiation. Correction: constants vanish. Error: tangent gradient used for normals. Correction: negative reciprocal first. Error: claiming increase without the discriminant. Correction: no roots plus positive shape proves it.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:09:26.366145+00",
+  "updated_at": "2026-10-12 08:09:26.366145+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3404,6 +4262,19 @@
   "preview_url": "previews/a2-trigonometry-questions.png",
   "page_count": 39,
   "source_range": "P2 Classified p72–110"
+ },
+ {
+  "id": "f91aa289-fdeb-4685-ab99-b4b02b06d288",
+  "topic_id": "1b6d51a7-a379-4b4a-9d3b-b461c1cf291a",
+  "title": "Exam technique: Oscillations and Waves II",
+  "content": "### What earns the marks\nFor Doppler, approach raising pitch stated earns the mark; v/c quoted earns the calculation marks. For standing waves, half lambda in L for the fundamental earns the method mark. For coherence, constant phase difference stated earns the definition mark.\n### Traps\nError: receding claimed to raise frequency. Correction: approach raises, recession lowers. Error: fundamental taken as lambda = L. Correction: L holds half a wave. Error: EM waves given a medium. Correction: they travel through vacuum.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:37:04.774783+00",
+  "updated_at": "2026-10-12 08:37:04.774783+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
  },
  {
   "id": "f9c51321-9fd3-4836-9af7-1dc6760cc3f0",
@@ -3517,6 +4388,19 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:21.034559+00",
   "updated_at": "2026-09-19 06:22:46.859485+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "fea60dee-521c-479a-b764-4f60515716cb",
+  "topic_id": "f1b2a357-bf31-42e4-bd85-5d0dc790bb69",
+  "title": "Exam technique: Integration II",
+  "content": "### What earns the marks\nFor parts, the u/v assignment plus the uv minus integral form earns the method mark. For substitution, du stated and limits changed earn one mark each. For differential equations, separating then +c before the condition earns both marks.\n### Traps\nError: +c added after using the condition. Correction: constant first, then solve. Error: old limits kept after substitution. Correction: change limits with the variable. Error: division before separating. Correction: rearrange to g(y)dy = f(x)dx form.",
+  "material_type": "exam-technique",
+  "created_at": "2026-10-12 08:23:23.570207+00",
+  "updated_at": "2026-10-12 08:23:23.570207+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
