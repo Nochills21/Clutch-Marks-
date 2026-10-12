@@ -131,14 +131,24 @@ export default function Index() {
                     AI marking included
                   </span>
                 </div>
-                <img
-                  src="/brand/cover.jpg"
-                  width={1600}
-                  height={893}
-                  alt="Master your clutch moments — achieve your best marks with focused tools"
-                  decoding="async"
-                  className="relative w-full rounded-xl"
-                />
+                <picture>
+                  <source
+                    srcSet="/brand/cover-960.webp 960w, /brand/cover.webp 1600w"
+                    sizes="(max-width: 1024px) 100vw, 896px"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/brand/cover-960.jpg"
+                    srcSet="/brand/cover-960.jpg 960w, /brand/cover.jpg 1600w"
+                    sizes="(max-width: 1024px) 100vw, 896px"
+                    width={1600}
+                    height={893}
+                    alt="Master your clutch moments — achieve your best marks with focused tools"
+                    decoding="async"
+                    fetchPriority="high"
+                    className="relative w-full rounded-xl"
+                  />
+                </picture>
               </div>
             </div>
           </div>
@@ -179,7 +189,9 @@ export default function Index() {
                   <div className={`flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-gradient-to-br ${t.tile}`}>
                     <t.icon className={`h-[22px] w-[22px] ${t.accent}`} />
                   </div>
-                  <span className="num font-mono text-[11px] tracking-widest text-muted-foreground/50">
+                  {/* Full-strength muted: the /50 variant failed the WCAG
+                      contrast audit (PageSpeed Accessibility). */}
+                  <span className="num font-mono text-[11px] tracking-widest text-muted-foreground">
                     {t.index}
                   </span>
                 </div>
@@ -304,7 +316,8 @@ export default function Index() {
         </div>
 
         <div className="container px-4 pb-8">
-          <p className="text-center text-xs text-muted-foreground/70 sm:text-left">
+          {/* Full-strength muted: the /70 variant failed the WCAG contrast audit. */}
+          <p className="text-center text-xs text-muted-foreground sm:text-left">
             &copy; {new Date().getFullYear()} {SITE.name}. Past paper links point to the official
             exam board sites.
           </p>

@@ -17,6 +17,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { exportMarkedPaperToPdf } from "@/lib/pdfExport";
 import { gradeForPercent } from "@/lib/gradeBoundaries";
 import type { AiCorrectionOutput, CorrectedPaper } from "@/lib/ai";
+import DOMPurify from "dompurify";
+import { inlineMarkdownToHtml } from "@/lib/objectiveTeach";
 import { loadFailureMessage } from "@/lib/net";
 import {
   CheckCircle2,
@@ -257,13 +259,19 @@ export function MarkedPapersHistory({ refreshKey = 0 }: { refreshKey?: number })
                           {paper.correct_answer && (
                             <p className="mt-1 text-xs text-muted-foreground">
                               <span className="font-semibold text-foreground/70">Mark scheme: </span>
-                              {paper.correct_answer}
+                              <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(inlineMarkdownToHtml(paper.correct_answer)) }} />
                             </p>
                           )}
                           {(paper.feedback || paper.comment) && (
                             <p className="mt-1 flex items-start gap-1.5 text-xs italic text-muted-foreground">
                               <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-                              {[paper.feedback, paper.comment].filter(Boolean).join(" ")}
+                              <span
+                                dangerouslySetInnerHTML={{
+                                  __html: DOMPurify.sanitize(
+                                    inlineMarkdownToHtml([paper.feedback, paper.comment].filter(Boolean).join(" ")),
+                                  ),
+                                }}
+                              />
                             </p>
                           )}
                         </div>

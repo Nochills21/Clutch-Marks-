@@ -192,7 +192,6 @@ const App = () => (
                   <Route path="/lessons/:lessonId/notes" element={<LessonNotes />} />
                   <Route path="/heatmap" element={<RedirectPreservingQuery to="/progress" />} />
                   <Route path="/smart-revision" element={<RedirectPreservingQuery to="/practice" />} />
-                  <Route path="/question-bank" element={<RedirectPreservingQuery to="/practice" />} />
                   <Route path="/homework" element={<Navigate to="/quizzes" replace />} />
                   <Route path="/review" element={<RedirectPreservingQuery to="/practice" />} />
                   <Route path="/subject-progress" element={<RedirectPreservingQuery to="/progress" />} />

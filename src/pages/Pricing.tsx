@@ -134,7 +134,10 @@ function PaymentDetailsRows({
 }
 
 export default function Pricing() {
-  const { user, role } = useAuth();
+  // `loading` matters here: /pricing is reached from inside the app (Upgrade
+  // links), and the session can still be restoring when the page mounts. Acting
+  // on a not-yet-loaded `user` told signed-in students to "Sign in first".
+  const { user, role, loading: authLoading } = useAuth();
   const { planId, refresh } = useSubscription();
   const { toast } = useToast();
 
@@ -353,7 +356,8 @@ export default function Pricing() {
                 ) : (
                   <Button
                     className="w-full bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
-                    onClick={() => { if (user) setSelected(p.id); else toast({ title: "Sign in first", description: "Create an account, then subscribe." }); }}
+                    disabled={authLoading}
+                    onClick={() => { if (authLoading) return; if (user) setSelected(p.id); else toast({ title: "Sign in first", description: "Create an account, then subscribe." }); }}
                   >
                     Request plan
                   </Button>

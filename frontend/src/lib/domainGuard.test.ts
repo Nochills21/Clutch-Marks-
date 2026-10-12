@@ -40,11 +40,10 @@ const EXEMPTIONS: Exemption[] = [
     reason:
       "Negative assertions: this file exists to prove the retired address is NOT used, so it has to name it.",
   },
-  {
-    match: (file) => file === "production/clutchmarks-frontend.html",
-    reason:
-      "Checked-in single-file production bundle (build output snapshot). Regenerate it from source instead of hand-editing it.",
-  },
+  // NOTE: production/clutchmarks-frontend.html used to be exempt here, but the
+  // 2026-10-12 rebuild from current source eliminated its last retired-domain
+  // occurrence (a stale baked-in support address). If it ever reappears, add
+  // the exemption back with a reason instead of hand-editing the bundle.
   {
     match: (file) => file.startsWith("public/downloads/") && file.endsWith(".pdf"),
     reason:

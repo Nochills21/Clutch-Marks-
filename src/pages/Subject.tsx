@@ -63,6 +63,10 @@ export default function Subject() {
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [papers, setPapers] = useState<any[]>([]);
   const [questions, setQuestions] = useState<BankQuestion[]>([]);
+  // AI-bank questions get their own query: browse_questions caps pages at 200
+  // rows ordered by quiz title, so a client-side filter on the first page can
+  // never reach the AI rows on large subjects. _ai_only filters server-side.
+  const [aiQuestions, setAiQuestions] = useState<BankQuestion[]>([]);
   // The real reason a load failed. Without it a dropped request fell through to
   // the "isn't available yet" card and the student was told the subject does not
   // exist.
@@ -148,6 +152,18 @@ export default function Subject() {
       if (!active) return;
       if (rpcError) { setLoadError(loadFailureMessage("the question bank", rpcError)); return; }
       setQuestions(((data ?? []) as unknown as BankQuestion[]));
+      const { data: aiData, error: aiError } = await supabase.rpc("browse_questions", {
+        _topic_id: topicFilter === ALL ? null : topicFilter,
+        _subject_level_id: subjectLevel.id,
+        _difficulty: difficulty === ALL ? null : difficulty,
+        _exam_type: examType === ALL ? null : examType,
+        _search: search.trim() || null,
+        _ai_only: true,
+        _limit: 200,
+        _offset: 0,
+      });
+      if (!active) return;
+      if (!aiError) setAiQuestions(((aiData ?? []) as unknown as BankQuestion[]));
     })();
     return () => { active = false; };
   }, [subjectLevel, topicFilter, difficulty, examType, search]);
@@ -179,8 +195,8 @@ export default function Subject() {
   const previewQuizzes = usePreviewSlice(visibleQuizzes);
   const previewPapers = usePreviewSlice(visiblePapers);
   const previewQuestions = usePreviewSlice(questions);
-  const aiQuestions = questions.filter((q) => q.is_ai_generated);
-  const previewAiQuestions = usePreviewSlice(aiQuestions);
+  const visibleAiQuestions = aiQuestions.filter((q) => q.is_ai_generated);
+  const previewAiQuestions = usePreviewSlice(visibleAiQuestions);
 
   if (!isAdminRole && !prefsLoaded) {
     return (
@@ -368,7 +384,7 @@ export default function Subject() {
           <TabsTrigger value="materials">Material ({visibleLessons.length + visibleMaterials.length})</TabsTrigger>
           <TabsTrigger value="questions">Questions ({questions.length})</TabsTrigger>
           <TabsTrigger value="exams">Exams ({visibleQuizzes.length + visiblePapers.length})</TabsTrigger>
-          <TabsTrigger value="bank">Question Bank ({aiQuestions.length})</TabsTrigger>
+          <TabsTrigger value="bank">Question Bank ({visibleAiQuestions.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="materials" id="materials" className="space-y-3 pt-4">
@@ -499,7 +515,7 @@ export default function Subject() {
           {previewAiQuestions.length === 0 ? empty("AI questions") : (
             <>
               {previewAiQuestions.map(questionCard)}
-              <PreviewLimit hiddenCount={aiQuestions.length - previewAiQuestions.length} what="AI questions" />
+              <PreviewLimit hiddenCount={visibleAiQuestions.length - previewAiQuestions.length} what="AI questions" />
             </>
           )}
         </TabsContent>

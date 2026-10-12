@@ -17,6 +17,8 @@ import { useToast } from "@/hooks/useToast";
 import { Link } from "react-router-dom";
 import { Loader2, Sparkles, Wand2, AlertCircle, CheckCircle, XCircle, Lock } from "lucide-react";
 import { callPaperCorrector, CorrectedPaper, CorrectedPaperInput, AiCorrectionOutput, isPlanRequiredError } from "@/lib/ai";
+import DOMPurify from "dompurify";
+import { inlineMarkdownToHtml } from "@/lib/objectiveTeach";
 
 interface AiCorrectionFormProps {
   subjectLevelId?: string;
@@ -112,9 +114,15 @@ export function AiCorrectionForm({
                   <span className={`mt-1.5 h-2 w-2 rounded-full shrink-0 ${r.marks_earned >= r.total_marks ? "bg-green-500" : "bg-yellow-500"}`} />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium truncate">{r.question}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{r.feedback}</p>
+                    {/* Model-written: may carry **bold**, so render it rather
+                        than printing the markers (same class as the planner). */}
+                    <p
+                      className="text-xs text-muted-foreground mt-0.5"
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(inlineMarkdownToHtml(r.feedback)) }}
+                    />
                     <p className="text-xs text-muted-foreground/70 mt-0.5">
-                      <span className="font-semibold text-primary">{r.marks_earned}/{r.total_marks}</span> · {r.comment}
+                      <span className="font-semibold text-primary">{r.marks_earned}/{r.total_marks}</span> ·{" "}
+                      <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(inlineMarkdownToHtml(r.comment)) }} />
                     </p>
                   </div>
                 </div>

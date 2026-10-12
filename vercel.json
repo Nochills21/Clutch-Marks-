@@ -10,7 +10,6 @@
     { "source": "/heatmap", "destination": "/progress", "permanent": true },
     { "source": "/review", "destination": "/practice", "permanent": true },
     { "source": "/smart-revision", "destination": "/practice", "permanent": true },
-    { "source": "/question-bank", "destination": "/practice", "permanent": true },
     { "source": "/subject-progress", "destination": "/progress", "permanent": true },
     { "source": "/admin/users", "destination": "/admin/accounts", "permanent": true },
     { "source": "/admin/students", "destination": "/admin/accounts", "permanent": true },

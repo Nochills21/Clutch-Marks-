@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { teachToHtml, teachHeadings, materialContentToHtml } from "./objectiveTeach";
+import { teachToHtml, teachHeadings, materialContentToHtml, studyPlanToHtml, inlineMarkdownToHtml } from "./objectiveTeach";
 
 /**
  * The shape docs/objectives-authoring.md §3 mandates: five `###` sections, a
@@ -124,6 +124,114 @@ describe("materialContentToHtml", () => {
     const html = materialContentToHtml("Use x < y and solve.");
     expect(html).toContain("x &lt; y");
     expect(html).not.toContain("<li>");
+  });
+});
+
+describe("studyPlanToHtml", () => {
+  // The shape the planner actually emits (seen live): a `#` title, `##`
+  // weeks, a model-doubled `### ##` heading, setext underlines, `*`/`+`
+  // bullets with space-indented nesting, and `**bold**`.
+  const PLAN = [
+    "**Overall Study Plan Overview**",
+    "=============================================",
+    "",
+    "A balanced review schedule covering the syllabus.",
+    "",
+    "**Week-by-Week Breakdown**",
+    "-----------------------",
+    "",
+    "### ## Week 1: Mathematics Review",
+    "",
+    "* **Mathematics (0580/9709)**",
+    "  + Topics:",
+    "    - Quadratic equations (1.1, 1.2)",
+    "    - Functions (2.1, 2.2)",
+    "  + Recommended activities:",
+    "* **Physics (0625)**",
+    "",
+    "## Tips",
+    "1. Do quizzes before reading notes.",
+    "2. Review last week's misses every Monday.",
+  ].join("\n");
+
+  it("renders headings without printing any marker", () => {
+    const html = studyPlanToHtml(PLAN);
+    expect(html).toContain("<h3>Week 1: Mathematics Review</h3>");
+    expect(html).toContain("<h3>Tips</h3>");
+    expect(html).not.toMatch(/#|===|---/);
+  });
+
+  it("renders bold overview lines as paragraphs, not headings", () => {
+    const html = studyPlanToHtml(PLAN);
+    expect(html).toContain("<p><strong>Overall Study Plan Overview</strong></p>");
+    expect(html).toContain("<p>A balanced review schedule covering the syllabus.</p>");
+  });
+
+  it("nests space-indented bullets inside their parent", () => {
+    const html = studyPlanToHtml(PLAN);
+    const maths = html.slice(html.indexOf("Mathematics (0580/9709)"), html.indexOf("Physics (0625)"));
+    expect(maths).toContain("<li>Topics:</li>");
+    expect(maths).toContain("<li>Quadratic equations (1.1, 1.2)</li>");
+    expect(maths).toContain("<li>Recommended activities:</li>");
+    // Nested lists open inside the parent item's list, not after it.
+    expect((maths.match(/<ul>/g) ?? []).length).toBeGreaterThan(1);
+    expect((maths.match(/<ul>/g) ?? []).length).toBe((maths.match(/<\/ul>/g) ?? []).length);
+  });
+
+  it("keeps numbered steps ordered", () => {
+    const html = studyPlanToHtml(PLAN);
+    const tips = html.slice(html.indexOf("<h3>Tips</h3>"));
+    expect(tips).toContain("<ol>");
+    expect(tips).toContain("<li>Do quizzes before reading notes.</li>");
+    expect(tips).toContain("<li>Review last week's misses every Monday.</li>");
+  });
+
+  it("escapes content, so a plan can never inject markup", () => {
+    const html = studyPlanToHtml("## Week 1\n- **Note:** use x < y\nsecond <script>line</script>.");
+    expect(html).not.toContain("<script>");
+    expect(html).toContain("x &lt; y");
+    expect(new Set([...html.matchAll(/<\/?([a-z0-9]+)/g)].map((m) => m[1]))).toEqual(
+      new Set(["h3", "ul", "li", "strong", "p"]),
+    );
+  });
+
+  it("drops Model: leak lines — model ids live in ai_model, never in the page", () => {
+    const html = studyPlanToHtml("Model: @cf/meta/llama-3.1-8b-instruct-fp8\n\n## Week 1\n- Focus on quadratics");
+    expect(html).not.toContain("@cf/");
+    expect(html).not.toContain("Model:");
+    expect(html).toContain("<h3>Week 1</h3>");
+    expect(studyPlanToHtml("**Model:** @cf/meta/llama-3.1-8b-instruct-fp8\n\n## Week 1")).not.toContain("@cf/");
+  });
+
+  it("is total: empty and missing input produce nothing rather than throwing", () => {
+    expect(studyPlanToHtml("")).toBe("");
+    expect(studyPlanToHtml(undefined as unknown as string)).toBe("");
+  });
+});
+
+describe("inlineMarkdownToHtml", () => {
+  it("renders bold in short model-written strings", () => {
+    expect(inlineMarkdownToHtml("Good **method** but wrong final answer.")).toBe(
+      "Good <strong>method</strong> but wrong final answer.",
+    );
+  });
+
+  it("folds newlines so multi-line feedback keeps its breaks", () => {
+    expect(inlineMarkdownToHtml("First line.\nSecond line.")).toBe("First line.<br/>Second line.");
+  });
+
+  it("escapes content, so feedback can never inject markup", () => {
+    const html = inlineMarkdownToHtml("**Note:** use x < y\nsecond <script>line</script>.");
+    expect(html).not.toContain("<script>");
+    expect(html).toContain("x &lt; y");
+    expect(new Set([...html.matchAll(/<\/?([a-z0-9]+)/g)].map((m) => m[1]))).toEqual(
+      new Set(["strong", "br"]),
+    );
+  });
+
+  it("is total: empty and missing input produce nothing rather than throwing", () => {
+    expect(inlineMarkdownToHtml("")).toBe("");
+    expect(inlineMarkdownToHtml(undefined as unknown as string)).toBe("");
   });
 });
 
