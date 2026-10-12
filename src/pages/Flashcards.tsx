@@ -17,6 +17,7 @@ import { QueryError } from "@/components/QueryError";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { useToast } from "@/hooks/useToast";
 import { loadFailureMessage } from "@/lib/net";
+import { levelLabel } from "@/lib/levels";
 
 // SM-2 Algorithm
 function sm2(quality: number, prev: { ease_factor: number; interval_days: number; repetitions: number }) {
@@ -48,6 +49,7 @@ export default function Flashcards() {
   const { failure, report } = useLoadFailure("your flashcard sets");
   const [sets, setSets] = useState<any[]>([]);
   const [topics, setTopics] = useState<any[]>([]);
+  const [levelById, setLevelById] = useState<Record<string, string>>({});
   const [filter, setFilter] = useState("all");
   const [studySetId, setStudySetId] = useState<string | null>(null);
   const [studyCards, setStudyCards] = useState<any[]>([]);
@@ -58,16 +60,20 @@ export default function Flashcards() {
   const [studyComplete, setStudyComplete] = useState(false);
 
   const loadSets = useCallback(async () => {
-    const [setsRes, topicsRes] = await Promise.all([
+    const [setsRes, topicsRes, levelsRes] = await Promise.all([
       supabase.from("flashcard_sets").select("*, topics(name), flashcards(id)").order("created_at", { ascending: false }),
       supabase.from("topics").select("*").order("sort_order"),
+      supabase.from("subject_levels").select("id, level"),
     ]);
-    if (setsRes.error || topicsRes.error) {
-      report(setsRes.error ?? topicsRes.error);
+    if (setsRes.error || topicsRes.error || levelsRes.error) {
+      report(setsRes.error ?? topicsRes.error ?? levelsRes.error);
       return;
     }
     setSets(setsRes.data ?? []);
     setTopics(topicsRes.data ?? []);
+    const lv: Record<string, string> = {};
+    (levelsRes.data ?? []).forEach((l: any) => { lv[l.id] = l.level; });
+    setLevelById(lv);
   }, [report]);
 
   // Load due counts per set
@@ -159,6 +165,30 @@ export default function Flashcards() {
     if (isAdminRole || !prefsLoaded) return new Set<string>();
     return new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id));
   }, [topics, pickedIds, isAdminRole, prefsLoaded]);
+
+  // Topics sharing a name across levels ("Thermal Physics" exists at OL and
+  // AS) get the level appended so duplicate tabs and badges stay distinct.
+  const topicLevelOf = (topicId: string) => {
+    const lv = levelById[topics.find((x: any) => x.id === topicId)?.subject_level_id];
+    return lv ? levelLabel(lv) : "";
+  };
+  const dupTopicNames = useMemo(() => {
+    const counts: Record<string, number> = {};
+    topics.forEach((t: any) => { counts[t.name] = (counts[t.name] ?? 0) + 1; });
+    return new Set(Object.keys(counts).filter((n) => counts[n] > 1));
+  }, [topics]);
+  const topicTabLabel = (t: any) => {
+    const lv = topicLevelOf(t.id);
+    return dupTopicNames.has(t.name) && lv ? `${t.name} · ${lv}` : t.name;
+  };
+  const setTopicBadge = (s: any) => {
+    const t = topics.find((x: any) => x.id === s.topic_id);
+    const name = s.topics?.name ?? t?.name;
+    if (!name) return null;
+    const lv = t ? topicLevelOf(t.id) : "";
+    const label = t && dupTopicNames.has(name) && lv ? `${name} · ${lv}` : name;
+    return <Badge variant="secondary" className="text-[10px] shrink-0 max-w-full">{label}</Badge>;
+  };
 
   //_visibleTopicIds picks the topic ids used for the per-topic tab triggers.
   const visibleTopicIds = useMemo(() => {
@@ -310,7 +340,7 @@ export default function Flashcards() {
           </TabsTrigger>
           {visibleTopicIds.map((tid) => {
             const t = topics.find((x) => x.id === tid);
-            return t ? <TabsTrigger key={t.id} value={t.id}>{t.name}</TabsTrigger> : null;
+            return t ? <TabsTrigger key={t.id} value={t.id}>{topicTabLabel(t)}</TabsTrigger> : null;
           })}
         </TabsList>
       </Tabs>
@@ -324,7 +354,7 @@ export default function Flashcards() {
                 <CardHeader className="pb-2 cursor-pointer" onClick={() => startStudy(s.id)}>
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <CardTitle className="text-base group-hover:text-primary transition-colors">{s.title}</CardTitle>
-                    {s.topics?.name && <Badge variant="secondary" className="text-[10px] shrink-0 max-w-full">{s.topics.name}</Badge>}
+                    {setTopicBadge(s)}
                   </div>
                   {s.description && <p className="text-xs text-muted-foreground">{s.description}</p>}
                 </CardHeader>

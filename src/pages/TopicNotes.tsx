@@ -497,7 +497,7 @@ export default function TopicNotes() {
                   <div className="min-w-0 flex-1">
                     <p className="font-medium truncate">{q.title}</p>
                     <p className="text-xs text-muted-foreground mt-0.5 capitalize">
-                      {q.exam_type ? String(q.exam_type).replace("_", " ") : "Quiz"} · {topicTitle}
+                      {(q.exam_type === "ai_bank" ? "AI Bank" : "Quiz")} · {topicTitle}
                     </p>
                   </div>
                   <div className="flex items-center gap-2 shrink-0 ml-4">
