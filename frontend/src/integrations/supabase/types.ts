@@ -1884,6 +1884,7 @@ export type Database = {
       }
       browse_questions: {
         Args: {
+          _ai_only?: boolean
           _difficulty?: string
           _exam_type?: string
           _limit?: number

@@ -14,6 +14,8 @@ import { Loader2, Sparkles, Save, Trash2, Calendar as CalendarIcon, Lock } from 
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { SEOHead } from "@/components/SEOHead";
+import DOMPurify from "dompurify";
+import { studyPlanToHtml } from "@/lib/objectiveTeach";
 
 interface StudyPlan {
   id: string;
@@ -259,13 +261,23 @@ export default function StudyPlanner() {
           <CardHeader>
             <CardTitle>Your generated plan</CardTitle>
             <CardDescription>
-              {planModel && <span className="text-xs text-muted-foreground">Model: {planModel}</span>}
+              Review it below, then save it to your library.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="prose prose-sm max-w-none dark:prose-invert whitespace-pre-wrap text-sm leading-relaxed">
-              {generatedPlan}
-            </div>
+            {/* The worker answers in markdown; render it as designed HTML
+                rather than printing the raw markers (the old code showed
+                literal `**`, `##` and `===`). The model id stays in the
+                database row (ai_model) but is never shown to students —
+                keep it that way; studyPlanToHtml also drops any `Model:`
+                line the model emits. */}
+            <div
+              className="prose-elegant"
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(studyPlanToHtml(generatedPlan)) }}
+            />
+            <p className="mt-3 text-xs text-muted-foreground">
+              AI-generated — can make mistakes. Check topics and dates against your Cambridge syllabus.
+            </p>
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
               <Input
                 value={planTitle}
@@ -315,9 +327,10 @@ export default function StudyPlanner() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="prose prose-sm max-w-none dark:prose-invert whitespace-pre-wrap text-sm leading-relaxed">
-                    {p.content}
-                  </div>
+                  <div
+                    className="prose-elegant"
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(studyPlanToHtml(p.content)) }}
+                  />
                 </CardContent>
               </Card>
             ))}

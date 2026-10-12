@@ -73,6 +73,12 @@ Format your response in clean markdown with:
 - For each week: bullet points with specific topics, recommended activities (lessons, quizzes, flashcards, past papers), and estimated time
 - A final "## Tips" section with 3-5 study strategies tailored to their weak areas
 
+Markdown hygiene (the renderer takes these literally, so get them right):
+- One marker run per heading line: write "## Week 1", never "### ## Week 1"
+- Never use === or --- underlines beneath headings
+- Bullets use a hyphen only (never * or +); nest with two spaces per level
+- Bold for emphasis with double asterisks; never reveal model names or ids
+
 Be specific, actionable, and motivating. Reference real Cambridge syllabus topics for the student's subjects (e.g. quadratics, circular measure, data representation, thermal physics).`;
 
     const userPrompt = `Create a study plan with these inputs:
@@ -217,3 +223,8 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
     );
   }
 }
+
+// Without this the function deploys ACTIVE but is never dispatched: only
+// `handler` is exported, so invocations hang until the platform kills them.
+// (Same pattern as ai-correction.)
+Deno.serve(handler);

@@ -32,7 +32,6 @@ const studentLinks = [
   { title: "Flashcards", url: "/flashcards", icon: Layers },
   { title: "Study Planner", url: "/study-planner", icon: Sparkles },
   { title: "Practice", url: "/practice", icon: Target },
-  { title: "Topic Questions", url: "/question-bank", icon: Database },
   // Mastery: the objective-level loop — what you are getting wrong, and what is
   // due to come back — which the topic-level Progress page cannot show.
   { title: "Mastery", url: "/mastery", icon: GraduationCap },

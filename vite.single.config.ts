@@ -19,7 +19,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      // Must match vite.config.ts: pages live in src/, shared code in
+      // frontend/src/. Pointing "@" at ./src broke the single-file build —
+      // src/ has no lib/ or components/, so every @/ import failed to resolve.
+      "@": path.resolve(__dirname, "./frontend/src"),
       "@backend": path.resolve(__dirname, "./backend"),
     },
   },

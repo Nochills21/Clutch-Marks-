@@ -90,6 +90,98 @@ export function teachToHtml(markdown: string): string {
  * The section headings, in order, for a table of contents or a "read the method"
  * summary. Returns the heading text without the `### ` marker.
  */
+/**
+ * Study-plan markdown to HTML.
+ *
+ * The study planner's output is model-written, so its grammar is messier than
+ * the authored blocks above: `#`/`##`/`###` headings (sometimes doubled by
+ * the model, e.g. `### ## Week 1`), setext underlines (`===`, `---`), `-`/`*`/`+`
+ * bullets with space-indented nesting, numbered steps, and `**bold**`.
+ *
+ * Same safety contract as teachToHtml: every line is escaped before any tag is
+ * emitted, so the only tags in the output are the ones written below and the
+ * result is safe for dangerouslySetInnerHTML (callers still sanitize).
+ *
+ * Heading levels sit under the page's own h1: `#` becomes h2, `##` h3, deeper
+ * runs h4. When markers are stacked, the last run wins, so `### ## Week 1`
+ * reads as a week heading rather than printing literal hashes.
+ */
+/**
+ * Short model-written strings (marker feedback, mark-scheme lines) to inline
+ * HTML: escaped, `**bold**` rendered, newlines folded to <br/>. For values
+ * inside text elements, via dangerouslySetInnerHTML (callers still sanitize).
+ * Not a block renderer — multi-line markdown goes through studyPlanToHtml.
+ */
+export function inlineMarkdownToHtml(text: string): string {
+  return inline(String(text ?? "").replace(/\r\n?/g, "\n")).replace(/\n/g, "<br/>");
+}
+
+export function studyPlanToHtml(markdown: string): string {
+  const html: string[] = [];
+  const stack: { kind: ListKind; indent: number }[] = [];
+
+  const closeAll = () => {
+    while (stack.length > 0) html.push(`</${stack.pop()!.kind}>`);
+  };
+
+  const listItem = (kind: ListKind, indent: number, text: string) => {
+    while (stack.length > 0) {
+      const top = stack[stack.length - 1];
+      if (top.indent > indent || (top.indent === indent && top.kind !== kind)) {
+        html.push(`</${stack.pop()!.kind}>`);
+      } else break;
+    }
+    const top = stack[stack.length - 1];
+    if (!top || top.indent < indent) {
+      html.push(`<${kind}>`);
+      stack.push({ kind, indent });
+    }
+    html.push(`<li>${inline(text)}</li>`);
+  };
+
+  for (const raw of String(markdown ?? "").split("\n")) {
+    const line = raw.replace(/\t/g, "    ");
+    const trimmed = line.trim();
+    if (trimmed === "") continue;
+
+    const hashes = trimmed.match(/^(?:#+\s*)+/);
+    if (hashes) {
+      const runs = hashes[0].match(/#+/g)!;
+      const depth = runs[runs.length - 1].length;
+      const text = trimmed.slice(hashes[0].length).trim();
+      if (!text) continue;
+      closeAll();
+      const tag = depth <= 1 ? "h2" : depth === 2 ? "h3" : "h4";
+      html.push(`<${tag}>${inline(text)}</${tag}>`);
+      continue;
+    }
+    // Setext underlines (===, ---) add nothing once the heading above renders.
+    if (/^(=+|-{3,})$/.test(trimmed)) continue;
+    // The model is told never to reveal model names, but a `Model: ...` line
+    // still slipped into one live plan (seen in a screenshot as
+    // `Model: @cf/meta/...`). Model ids live in the study_plans.ai_model
+    // column only — never render them, so drop such lines here as well.
+    if (/^(\*\*)?model(\*\*)?\s*:/i.test(trimmed)) continue;
+
+    const indent = Math.floor((line.length - line.trimStart().length) / 2);
+    const bullet = trimmed.match(/^([-*+])\s+(.*)$/);
+    if (bullet) {
+      listItem("ul", indent, bullet[2]);
+      continue;
+    }
+    const numbered = trimmed.match(/^\d+[.)]\s+(.*)$/);
+    if (numbered) {
+      listItem("ol", indent, numbered[1]);
+      continue;
+    }
+    closeAll();
+    html.push(`<p>${inline(trimmed)}</p>`);
+  }
+  closeAll();
+
+  return html.join("\n");
+}
+
 export function teachHeadings(markdown: string): string[] {
   return String(markdown ?? "")
     .split("\n")

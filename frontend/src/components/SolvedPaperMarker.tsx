@@ -37,6 +37,8 @@ import {
   type PaperRef,
 } from "@/lib/ai";
 import { exportMarkedPaperToPdf } from "@/lib/pdfExport";
+import DOMPurify from "dompurify";
+import { inlineMarkdownToHtml } from "@/lib/objectiveTeach";
 import { indicativeGradeLabel } from "@/lib/gradeBoundaries";
 import {
   AlertCircle,
@@ -323,8 +325,10 @@ export function SolvedPaperMarker({
             <Wand2 className="h-5 w-5 text-primary" /> {title} result
           </CardTitle>
           <CardDescription>
+            {/* The worker's model id stays in the persisted row for debugging
+                but is never shown: students saw raw ids like
+                `@cf/meta/…-fp8` here. */}
             {SOURCE_LABEL[result.source ?? "upload"] ?? "Uploaded script"}
-            {result.model ? ` · marked by ${result.model}` : ""}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-5">
@@ -388,13 +392,18 @@ export function SolvedPaperMarker({
                     {paper.correct_answer && (
                       <p className="text-xs text-muted-foreground">
                         <span className="font-semibold text-foreground/70">Mark scheme: </span>
-                        {paper.correct_answer}
+                        <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(inlineMarkdownToHtml(paper.correct_answer)) }} />
                       </p>
                     )}
                     {(paper.feedback || paper.comment) && (
-                      <p className="text-xs italic text-muted-foreground">
-                        {[paper.feedback, paper.comment].filter(Boolean).join(" ")}
-                      </p>
+                      <p
+                        className="text-xs italic text-muted-foreground"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(
+                            inlineMarkdownToHtml([paper.feedback, paper.comment].filter(Boolean).join(" ")),
+                          ),
+                        }}
+                      />
                     )}
                   </div>
                 </div>

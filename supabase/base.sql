@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-10T10:29:12.000Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-12T11:49:18.110Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -1036,7 +1036,7 @@ begin
 end;
 $function$;
 
-CREATE OR REPLACE FUNCTION public.browse_questions(_topic_id uuid DEFAULT NULL::uuid, _subject_level_id uuid DEFAULT NULL::uuid, _difficulty text DEFAULT NULL::text, _exam_type text DEFAULT NULL::text, _search text DEFAULT NULL::text, _limit integer DEFAULT 50, _offset integer DEFAULT 0)
+CREATE OR REPLACE FUNCTION public.browse_questions(_topic_id uuid DEFAULT NULL::uuid, _subject_level_id uuid DEFAULT NULL::uuid, _difficulty text DEFAULT NULL::text, _exam_type text DEFAULT NULL::text, _search text DEFAULT NULL::text, _limit integer DEFAULT 50, _offset integer DEFAULT 0, _ai_only boolean DEFAULT NULL::boolean)
  RETURNS TABLE(id uuid, quiz_id uuid, quiz_title text, question_text text, options jsonb, difficulty text, exam_type text, is_ai_generated boolean, topic_id uuid, topic_name text, bookmarked boolean, last_correct boolean, attempts_count integer)
  LANGUAGE sql
  STABLE SECURITY DEFINER
@@ -1056,6 +1056,7 @@ AS $function$
     AND (_subject_level_id IS NULL OR t.subject_level_id = _subject_level_id)
     AND (_difficulty IS NULL OR q.difficulty = _difficulty)
     AND (_exam_type IS NULL OR z.exam_type = _exam_type)
+    AND (_ai_only IS NULL OR z.is_ai_generated = _ai_only)
     AND (_search IS NULL OR _search = '' OR q.question_text ILIKE '%' || _search || '%' OR z.title ILIKE '%' || _search || '%')
     -- Signed-in callers still need an approved account; an anonymous caller
     -- (auth.uid() is null) gets published questions only, which is the same

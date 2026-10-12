@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Canonical, publicly reachable routes only. The previous sitemap listed
-       client-side redirects (/homework, /revision, /heatmap, /smart-revision,
-       /question-bank), a path with no route at all (/calendar -> 404), and the
+       client-side redirects (/homework, /revision, /heatmap, /smart-revision),
+       a path with no route at all (/calendar -> 404), and the
        sign-in page (/auth), which is now noindex. Those are handled by 301
        redirects in vercel.json instead, so crawlers never index a redirect.
 
