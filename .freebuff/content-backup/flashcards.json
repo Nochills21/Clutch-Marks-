@@ -32,12 +32,36 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "01c03837-51f7-4e12-a4dc-71b652b5e3f9",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Strict vs inclusive ends",
+  "back": "< and > exclude the endpoint (open circle). <= and >= include it (filled circle).",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "01de10f6-d479-47e9-9060-4b91d94a0828",
   "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
   "front": "Boolean Algebra Laws",
   "back": "De Morgan: (A·B)′ = A′ + B′; (A + B)′ = A′ · B′",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "0265f549-9030-4f5c-b3b7-302e2d6a56dd",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Locus at fixed distance from a point",
+  "back": "A circle: centre the fixed point, radius the distance.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
+  "id": "0318be38-9f4f-4fdd-850e-fdbda817a274",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Translating (2; 5) by (-3; 4)",
+  "back": "Add components: (-1; 9). Use (x; y) column form so no row is lost.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
   "id": "032a273a-be07-4fd5-82c5-6968f9d1f518",
@@ -112,6 +136,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "0666f6a3-358d-484e-9911-53a080c5528f",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Rejecting spurious roots",
+  "back": "A negative root for a length, or a value breaking the original equation (division by zero), is rejected with a reason stated.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "066accbf-ed8b-4215-9404-53c17a0d0cc3",
   "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
   "front": "Gravitational Field",
@@ -152,12 +184,36 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "090d2275-7f96-4212-a129-990dcdbe374f",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Average speed with mixed time",
+  "back": "Convert to hours first: 1 h 40 min = 5/3 h. 120 km gives 72 km/h.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
+  "id": "0998d998-1f3b-4a7f-a43a-a311ece5bbf1",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Pictogram with a key",
+  "back": "Convert the key first: 7.5 symbols at 4 cars each = 30 cars. Half symbols count.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
   "id": "09d8b5e9-fb5c-472f-bfcc-366a5cef5e44",
   "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
   "front": "Algebra with angles",
   "back": "Set up equations from the theorem: cyclic quad (2x + 10) + (3x − 5) = 180 ⇒ x = 35.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "09ffca46-c234-413d-8e3c-a4a1d75fce55",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Interior angle sum of an n-sided polygon",
+  "back": "(n - 2) x 180. Hexagon: 720 total, 120 each.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "0a26004e-c4a3-42b4-9033-146d0ce13633",
@@ -232,6 +288,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "0caf6fe5-d9ca-4026-88b5-06370cbd4f73",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Back (return) bearing",
+  "back": "Add or subtract 180 to stay within 000-360. Bearing 074 back is 254.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "0d010b9b-e02e-4e6a-980b-dc3f78d8ab79",
   "set_id": "e8b72d9a-9879-43c2-897b-42e2576de483",
   "front": "AI characteristics",
@@ -262,6 +326,14 @@
   "back": "Operation Array Linked List Hash",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "0e81ae6e-4bac-4420-8d81-fdd73069e666",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Reading correlation strength",
+  "back": "Direction (rising/falling) gives the sign; tightness gives strength. Tight rising = strong positive.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "0efb0e3c-4e63-4a13-9a29-c579bcca189f",
@@ -302,6 +374,14 @@
   "back": "Gravitational PE: Ep = mgh",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "1173c563-d63a-4fa5-a7c1-1fcf787b266a",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Sharing in a ratio",
+  "back": "Total the parts, divide to get one part, then multiply out. 600 in 2:3 gives 240 and 360.",
+  "sort_order": 4,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "11dce240-2c69-4366-b4c4-3593e1c1cd38",
@@ -408,6 +488,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "17780a7f-00af-4b30-80b3-249ab91506ec",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "When to use sine vs cosine rule",
+  "back": "Sine: opposite pairs (ASA/AAS). Cosine: two sides plus included angle, or three sides.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "1779cb01-39c5-4070-af6b-c65aadb8d20c",
   "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
   "front": "The ratios",
@@ -456,6 +544,22 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "1ac93844-cc9d-4148-9bb6-a0d0815d1f15",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Map scale conversion",
+  "back": "Real = map x scale; 7 cm at 1:50000 = 350000 cm = 3.5 km. Convert stepwise.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
+  "id": "1b3216c9-cf33-4d77-a5df-423fe16ecec2",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Simultaneous equations: elimination first step",
+  "back": "Multiply to match one coefficient, then add or subtract to kill that variable. Same signs: subtract. Different signs: add.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "1b34e261-8191-460f-ac55-8d2a9e41b8ae",
   "set_id": "9098acae-a3f2-4054-8d98-91edace9d7c6",
   "front": "Relational concepts",
@@ -478,6 +582,22 @@
   "back": "A = ½ab sin C (C = included angle between sides a and b).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "1c1b10ff-6a6e-4b95-a664-7a8edee5b6ca",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Building percentages from 10 percent",
+  "back": "10% = divide by 10; combine (30% + 5%) for 35%. 35% of 240 = 72 + 12 = 84.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
+  "id": "1c298345-6888-4857-9d6b-e510b1f2d74b",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Linear, area, volume scale factors",
+  "back": "Lengths k; areas k squared; volumes k cubed. State the power before multiplying.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "1c2baaae-0857-4925-a411-8ca7fcee8462",
@@ -552,6 +672,30 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "20a2a342-2665-43f6-8c0c-bf7b7a7fecca",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Choosing sin, cos or tan",
+  "back": "Label opposite, adjacent, hypotenuse on a diagram; write the ratio before substituting.",
+  "sort_order": 4,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
+  "id": "21ac92b9-12d1-48ea-9a14-a488d92f7ed3",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Largest integer below x < 9",
+  "back": "x = 8. For strict <, step down one from the bound.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
+  "id": "21b3a8b8-dc38-4cdf-bcad-636cd4f4cfc9",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Repeated halving (decay)",
+  "back": "Track each step: 320 to 160 to 80 to 40 over 3 hours; multiplier (1/2) cubed.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "21f035b5-2be0-4427-b86c-7d0b282058d1",
   "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
   "front": "Using the line",
@@ -600,6 +744,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "24d57465-187f-4d4b-b9ff-aab7c916f576",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Sketching y = mx + c: the two marks",
+  "back": "Intercept c plotted first, then slope m (rise over run) for the second point. Label both axes intercepts.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "258f0c04-1e07-4ad2-9fa8-1ca47f03a1ca",
   "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
   "front": "Compound change",
@@ -640,6 +792,14 @@
   "created_at": "2026-09-30 05:35:34.636501+00"
  },
  {
+  "id": "26c66e77-d88a-481e-86dc-560dccdf527a",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Inverse function method",
+  "back": "Let y = f(x), swap to x = ... in y, solve for y. E.g. f(x) = 4x + 1 gives f inverse (x) = (x - 1)/4.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "27e9d662-8b98-4ca8-b9cb-243984d0ea1b",
   "set_id": "6274a521-9e18-434e-9783-481490c41737",
   "front": "Assembly and Addressing",
@@ -662,6 +822,14 @@
   "back": "Multiply along branches; add between outcome paths. Label end products like 4/10 × 6/9 = 4/15.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "28d83256-bc76-44b7-aaa3-b785fb8965c3",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Angles on a straight line and round a point",
+  "back": "Straight line sums to 180; round a point sums to 360.",
+  "sort_order": 4,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "296c8137-d55c-49f8-95c1-0a9882437252",
@@ -704,6 +872,14 @@
   "created_at": "2026-09-30 17:17:36.353219+00"
  },
  {
+  "id": "2c1bcef0-296f-4ac1-873d-137ec30c549f",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Factorise 6x squared - 9x fully",
+  "back": "HCF 3x gives 3x(2x - 3). Partial factorisation loses the second mark.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "2c31e229-d9e5-462e-bbe5-1c423ec8c77f",
   "set_id": "b1b233a0-7284-4174-9c6d-2f2954f74428",
   "front": "Circular Motion Recap",
@@ -742,6 +918,14 @@
   "back": "∈ belongs to; ∉ not in; ∅ empty set; ξ (or U) universal set; n(A) = number of elements.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "2e62ed42-14b1-4be4-b8f1-bbdcbb24b5af",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Magnitude of (6; 8)",
+  "back": "Root(36 + 64) = 10. Square, add, then root.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
   "id": "2ed513eb-1600-4d13-a5a0-69ce78744566",
@@ -816,12 +1000,28 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "33aad626-f361-461d-b721-38a38887408b",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Circle area and circumference",
+  "back": "Area = pi r squared. Circumference = 2 pi r. Radius 7 with pi 22/7 gives area 154.",
+  "sort_order": 4,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "3457a5b4-d3a5-4e09-9b24-24cf77435b16",
   "set_id": "497ae389-85dc-4f75-96e7-df7758a38994",
   "front": "Ripple tank behaviours",
   "back": "Reflection : angle in = angle out; speed/frequency unchanged, direction changes.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "35230f1c-2aa8-4c36-b139-1ca934d83c44",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Integer solutions of -1 < n <= 3",
+  "back": "n = 0, 1, 2, 3. The strict end excludes -1; the slack end includes 3.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
   "id": "3529b237-d2f5-40cf-a653-765cb0d3805f",
@@ -902,6 +1102,14 @@
   "back": "In 47 382 the digit 7 has value 7000. Rounding to significant figures: keep n digits, round using the next digit (≥5 up).",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "380832a9-f482-48b5-8aea-55475008e2d8",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Median from cumulative frequency",
+  "back": "Position (n+1)/2: for n = 80 read the 40.5th value (mean of 40th and 41st).",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "384d43a2-5286-4a82-ac3a-45390c8e2a31",
@@ -1104,6 +1312,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "4193e0b3-73fc-4580-8374-b346a476bd5d",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Quartiles on cumulative frequency",
+  "back": "20th value (lower) and 60th value (upper) at n = 80. Median is the 40.5th.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
   "id": "4270bfe6-87ea-4a5f-a8cf-7a2e33a6e268",
   "set_id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
   "front": "Diffraction Grating",
@@ -1142,6 +1358,14 @@
   "back": "dy/dx is a rate: if V = 4/3 πr³, then dV/dr = 4πr² links volume change to radius change.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "44762073-4497-486b-b77f-89d55148c81f",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Parallel vs perpendicular gradients",
+  "back": "Parallel: same m. Perpendicular: m1 x m2 = -1 (negative reciprocal).",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
   "id": "44f0b070-21ef-488a-a718-2137bd089ab8",
@@ -1214,6 +1438,14 @@
   "back": "Draw the boundary line: dashed for </>, solid for ≤/≥.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "475ed2c7-aa9d-400d-bf5c-f818991078a8",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Compound shapes method",
+  "back": "Split, compute each part with its formula quoted, then add or subtract with a statement.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "479ba2fd-9ca9-49b5-b358-242a1782fbf5",
@@ -1304,6 +1536,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "4d29fc17-0cad-4d15-bf4b-797e98008388",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Angle in a semicircle",
+  "back": "Always 90 degrees. Needs the diameter as one side of the triangle.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "4f23aa92-50a7-4779-9846-fe08866842d0",
   "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
   "front": "HTML",
@@ -1318,6 +1558,14 @@
   "back": "P(X = r) = e^(−λ) λʳ / r! for r = 0, 1, 2, ...",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "501bff54-877b-47ef-9749-868723c25eb0",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Standard form rules",
+  "back": "One non-zero digit before the point; small numbers take negative powers. 0.00045 = 4.5 x 10 to the -4.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
   "id": "503f9773-394e-4908-8d1c-1dbe900c299f",
@@ -1336,12 +1584,28 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "516dbcdb-5ce1-4208-a429-6461d4e6e6cc",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Gradient from two points",
+  "back": "m = (y2 - y1) / (x2 - x1). Positive slopes rise left to right.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "51f455bb-0482-419e-972e-9218f5525ee1",
   "set_id": "e9b98d96-8bf8-4eb1-983c-f70911c3b90a",
   "front": "Gradients and Equations of Lines",
   "back": "Gradient m = (y₂ − y₁)/(x₂ − x₁). From ax + by + c = 0, the gradient is −a/b.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "53a745bb-dcd3-461f-b78b-785f3e7fba61",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Estimation protocol",
+  "back": "Round each number to 1 s.f. first, show the rounded line, then compute. Bare calculator values score nothing.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
   "id": "53f75dfe-65f2-4d2e-9ea9-5deaa4abb3e2",
@@ -1448,6 +1712,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "58baaeff-0000-4a99-b674-8602d701e61d",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Conditional probability",
+  "back": "Restrict the denominator to the condition: 12 females of 20 glasses-wearers gives 3/5.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "59707f33-2500-4962-b35a-1b47106b9f00",
   "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
   "front": "Inverse proportion",
@@ -1504,6 +1776,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "5d087a27-c2b0-4a8a-b517-f99502ce9df2",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Two fair coins: P(two heads)",
+  "back": "Four equally likely outcomes (HH, HT, TH, TT): 1/4. Never add single-coin probabilities.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "5d50b66e-c94e-4a29-a9b9-ed3671686262",
   "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
   "front": "Voltage and Power",
@@ -1536,6 +1816,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "5e727eff-12c1-455b-8240-c2f0ee932f06",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "24-hour time arithmetic",
+  "back": "Carry 60 minutes to the hour: 14:45 + 2:35 = 17:20, never 16:80.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "5ed4ff34-a205-48f3-9584-a09e3ae89ce4",
   "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
   "front": "Constructions",
@@ -1558,6 +1846,14 @@
   "back": "Swap x and y, rearrange. f(x) = 2x − 5 ⇒ f⁻¹(x) = (x + 5)/2. Domain of inverse = range of original. Verify: f⁻¹(f(x)) = x.",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "602ecd52-d940-4e94-8f29-f972043c4828",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Element vs subset",
+  "back": "2 is an element; {2} is a subset. Only sets can be subsets of sets.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "6099f6cc-458e-4094-843c-fc788ebf020a",
@@ -1592,6 +1888,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "6261329f-5a1b-470e-bc7b-88a2d77084aa",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Largest angle from three sides",
+  "back": "Opposite the longest side: sides 7, 8, 9 give 73.4 degrees.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "62bcdf22-b474-480d-8e9a-e97c130ad30d",
   "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
   "front": "Conditional Probability",
@@ -1614,6 +1918,14 @@
   "back": "both increase (revision time vs score).",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "639e4860-3a27-4e53-a17d-eb1c601e94cb",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Single power: (x to the 5th / x squared) cubed",
+  "back": "Inner: x cubed. Outer: x to the 9th. Divide first (subtract), then multiply powers.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "63db1bd8-45cd-4e97-8bdf-43ea3d8d0d98",
@@ -1656,12 +1968,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "66746d75-7940-4288-bb8b-5c79e3fd2855",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Fraction to percentage",
+  "back": "Decimal first, then x100: 3/8 = 0.375 = 37.5%.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "66abfc14-027c-4e65-a9db-52e689ba11a0",
   "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
   "front": "Core angle facts",
   "back": "Line 180°; point 360°; vertically opposite equal.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "66fa2206-d9eb-4698-954c-3002903c9546",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Locus equidistant from two fixed points",
+  "back": "The perpendicular bisector of the segment joining them.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
   "id": "672582b8-2f83-4e76-a18b-d744dbbef34e",
@@ -1800,6 +2128,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "6b315744-e64c-4c43-aaa7-b65f6e40aa06",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Cylinder volume",
+  "back": "pi r squared h. r = 3, h = 10 gives 90 pi.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "6b33ae80-5952-4e22-acbe-94d6196a9ed8",
   "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
   "front": "Validation vs verification",
@@ -1848,6 +2184,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "6ce35e00-ec4c-47f5-89f8-7a310bbd2dbd",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Laws used in (3x squared y)(4x y cubed)",
+  "back": "Multiply coefficients; add powers of like bases: 12x cubed y to the 4th.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "6d4c0639-641c-4665-8811-1a81ab4c2aa3",
   "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
   "front": "Binomial Expansion",
@@ -1878,6 +2222,14 @@
   "back": "1NF : atomic values, no repeating groups.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "6f65b1db-3630-40d8-83b1-95b38b8d9815",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Alternate vs corresponding angles",
+  "back": "Alternate: Z-shape, equal. Corresponding: F-shape, equal. Co-interior (C-shape) sums to 180.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "70443af7-cd96-44fc-bbb7-f2b552ace1f5",
@@ -1928,6 +2280,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "72e2c62a-bfb4-40b8-94e0-c1357531d59e",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Completing the square: x squared + 6x + 5",
+  "back": "(x + 3) squared - 9 + 5 = (x + 3) squared - 4. Minimum at (-3, -4).",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "732c81a9-113d-4eb8-a8ee-91d8a9094569",
   "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
   "front": "Components",
@@ -1942,6 +2302,14 @@
   "back": "Iron/steel/cobalt/nickel; like poles repel. Field lines exit N, enter S; compass plotting; plotting compass aligns with field. Induced magnetism: iron (temporary) vs steel (permanent).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "73dbb69c-224d-40e6-8287-332986229fce",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Midpoint and length of AB",
+  "back": "Midpoint = ((x1+x2)/2; (y1+y2)/2). Length = root((dx) squared + (dy) squared).",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
   "id": "7439c354-c9f5-4008-8d36-dbc96656e7c2",
@@ -1966,6 +2334,22 @@
   "back": "A Boolean expression describes a circuit in logic: X = A AND NOT B, or X = (A OR B) AND C. Brackets fix the order — work out bracketed parts first, then AND, then OR.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "75b9f9b6-4994-4b6f-9f5d-6e41cdc7bc72",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "Bounds from rounding (1 d.p.)",
+  "back": "Half the precision each way: 6.3 to 1 d.p. spans 6.25 to 6.35 (upper bound).",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
+  "id": "75f7496f-4333-41d9-abad-48e76e78aafb",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Cone and pyramid volumes",
+  "back": "(1/3) x base area x height. Cone r = 4, h = 9 gives 48 pi. Never omit the third.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "77276539-475b-4219-af14-e69f14219246",
@@ -2040,12 +2424,28 @@
   "created_at": "2026-09-30 05:35:34.636501+00"
  },
  {
+  "id": "7991bcb3-6738-4591-aaf9-a0564f802925",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "gf(x) vs fg(x)",
+  "back": "gf(x) = g(f(x)): inner first, starting from the rightmost letter. Order matters.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "799aee38-055b-4d21-92c8-75d2315e1589",
   "set_id": "b1b233a0-7284-4174-9c6d-2f2954f74428",
   "front": "Damping and Resonance",
   "back": "Damping removes energy: light damping → slow decay; critical → fastest return without oscillation. Resonance: driving at the natural frequency gives maximum amplitude (microwave ovens, swing pushing, bridge disasters).",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "7a03fa70-4218-4177-8395-5c26b43adb40",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Regular pentagon symmetry",
+  "back": "5 lines of symmetry; rotational order 5 (72-degree steps).",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "7a40bf51-a18c-4c72-b828-88c3c73baeb2",
@@ -2078,6 +2478,14 @@
   "back": "F = q₁q₂/(4πε₀r²). Field strength E = F/q (N C⁻¹); for a point charge E = q/(4πε₀r²).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "7c80d5be-08da-4714-a17d-6b8771f909e8",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "Reflection in the y-axis",
+  "back": "Negate x only: (4; -3) to (-4; -3). Both negated is a half-turn instead.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
   "id": "7d8b9a6e-0285-4e45-8aa5-dcae21c7709e",
@@ -2142,6 +2550,14 @@
   "back": "A third factor may drive both variables (ice-cream sales and drownings both rise with temperature). Describe relationships, don't over-claim.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "814d2d00-1564-4361-89a5-ace2d03ac2c9",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Simplify (x squared - 9)/(x + 3)",
+  "back": "Difference of two squares: (x-3)(x+3)/(x+3) = x - 3, x not -3.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "81e1547c-d92a-44b1-8c90-aa2d91bc8e39",
@@ -2248,6 +2664,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "89e84cb6-21c4-4e35-97dd-18aa3b24277c",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Direct vs inverse proportion",
+  "back": "Direct: ratio constant (more-more). Inverse: product constant (more-less). Test with doubled input.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
   "id": "8a493810-6f1a-4bb3-a4b7-547b9e9175fd",
   "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
   "front": "Object-oriented",
@@ -2296,6 +2720,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "8b8a3a9f-7b6a-464c-912c-b3b0b47ce6a6",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Congruence tests",
+  "back": "SSS, SAS, ASA, RHS. Name the test and list the matching parts.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "8b8f2dc2-d77b-46e0-a978-5bd92eb13aec",
   "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
   "front": "Images and Sound",
@@ -2342,6 +2774,14 @@
   "back": "de Broglie: λ = h/p = h/(mv). Electrons diffract like waves — electron microscopes exploit short electron wavelengths.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "91370329-736c-4f6b-a14b-043fb10cd02d",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Exact trig values to memorise",
+  "back": "sin 30 = 1/2, sin 60 = root 3 / 2, tan 45 = 1, sin 45 = root 2 / 2.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
   "id": "924a475e-a91f-47f3-b837-05d16e00ab7a",
@@ -2416,6 +2856,22 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "95e0161a-b449-4f1f-b317-eb17ca6866d2",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "nth term of a linear sequence",
+  "back": "Difference d: nth term = dn + c, find c with n = 1. E.g. 5, 9, 13... gives 4n + 1.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
+  "id": "9636b401-212c-4995-a43f-fecd32fbdbd2",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Discriminant and roots",
+  "back": "b squared - 4ac > 0: two real roots. = 0: one repeated root. < 0: no real roots.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "97d728d4-fc48-4f5d-a3a2-48f9fe07e0fc",
   "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
   "front": "Models and Protection",
@@ -2440,6 +2896,22 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "99275623-fc46-4096-b8b3-5f4fe73e31c0",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Compound interest per year",
+  "back": "Grow from the new total each year: 2000 at 3% gives 2060 then 2121.80.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
+  "id": "994daab9-52e3-453e-8423-7d117aee15c5",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Locus equidistant from two crossing roads",
+  "back": "Both angle bisectors: a perpendicular pair through the crossing.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "996f7bc0-ee2f-4a94-a4f0-74b96563114a",
   "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
   "front": "Reciprocal Functions",
@@ -2456,6 +2928,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "9a263a27-aff2-490e-9907-a8dedb64d91e",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "No-replacement draws",
+  "back": "Denominators drop each draw: 3/5 then 2/4 gives 3/10 for both red.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "9ac2ce40-bb2a-4640-a99d-c42178cd41ef",
   "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
   "front": "Images and sound",
@@ -2470,6 +2950,14 @@
   "back": "Distance = (v × t)/2 (there and back).",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "9b3345bb-128b-44ee-b59b-e0c427722184",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "P(A or B) for independent events",
+  "back": "Add then subtract the overlap: 0.5 + 0.3 - 0.15 = 0.65.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
   "id": "9b4a2a82-aa77-4253-9f91-098108265408",
@@ -2512,6 +3000,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "9cdbc040-9c89-467e-a09f-023c8c636865",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Ladder problems: which side is which",
+  "back": "Foot-to-wall is adjacent, ladder is hypotenuse: cos gives the angle with the ground.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "9d0813f8-20a2-47d7-b5a3-ec5391ce082d",
   "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
   "front": "Solving",
@@ -2544,12 +3040,44 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "9e7bdbe6-d87d-4704-a03a-a443172165ec",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Trapezium area",
+  "back": "Half x (a + b) x h. Halve the diameter before any semicircle cut-out work.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
+  "id": "9e974256-7f49-4439-a3fc-2e1cd5967829",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Triangle area with sine",
+  "back": "Half a b sin C: 6, 8 with 50 degrees gives 18.4 cm squared.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "9f10e479-3308-4d07-92c2-0517708e2080",
   "set_id": "75e23a9f-6953-4d9b-a2c6-6db249ef6d40",
   "front": "Protocols",
   "back": "TCP/IP stack layers (application, transport, network, link). HTTP/HTTPS (TLS encryption), FTP (with login + commands), email: SMTP send, POP3/IMAP retrieve. Bluetooth/Wi-Fi for WPAN/WLAN.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a0e0f9e1-fc11-4231-a098-416701fdda09",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Interpolation vs extrapolation",
+  "back": "Inside the range: interpolation, reliable. Outside: extrapolation, less reliable.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
+  "id": "a0f16056-9563-4f2f-9329-8a1e75567f09",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Flip rule for inequalities",
+  "back": "Multiplying or dividing by a negative reverses the sign. Adding or subtracting never flips.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
   "id": "a1095359-cad3-4074-ae39-e630a5690bb8",
@@ -2582,6 +3110,14 @@
   "back": "z̄ = a − bi. zz̄ = a² + b² (real). Dividing: multiply numerator and denominator by the conjugate.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "a2924756-8367-45e7-b222-0957e9877dda",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Mean vs median (even count)",
+  "back": "Mean = total / n. Median of six values = mean of 3rd and 4th.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "a337e30e-bad6-4f20-842b-de850be24695",
@@ -2720,6 +3256,22 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "ad7beeeb-2443-4ca3-bf67-50e386723b54",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "Unitary method for direct proportion",
+  "back": "Find one unit first: 9.60 / 4 = 2.40 per kg, then 7 x 2.40 = 16.80.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
+  "id": "ad93946b-ca51-4664-923e-1eb931400188",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Cyclic quadrilateral rule",
+  "back": "Opposite angles sum to 180. Check the angles are opposite before using it.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "adcd967e-df66-45d0-ade1-5fc6f66427d8",
   "set_id": "e9b98d96-8bf8-4eb1-983c-f70911c3b90a",
   "front": "Intersections and Bisectors",
@@ -2776,12 +3328,36 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "b04fca7a-bf1e-4168-b7c0-34e3979e3fab",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Ambiguous case (obtuse from sine)",
+  "back": "Calculators return the acute angle: obtuse B = 180 - 64.2 = 115.8 degrees.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
+  "id": "b05d7ee2-f8bd-4c11-a69f-23ed48f95603",
+  "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
+  "front": "Exterior angle shortcut",
+  "back": "Exterior = 360 / n for regular polygons. Interior + exterior = 180 always.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "b06eb525-4e11-40ad-bc7b-4e175f410ebd",
   "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
   "front": "Transactions and Concurrency",
   "back": "A transaction is a unit of work obeying ACID: Atomicity (all or nothing), Consistency (rules preserved), Isolation (concurrent transactions do not interfere), Durability (committed data survives crashes). Record locking blocks conflicting simultaneous edits;",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "b0cda346-0f1d-4f84-884b-1b2415f03ee1",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "front": "Solving x squared < 16",
+  "back": "-4 < x < 4. Square-rooting gives two branches; sketch the parabola to see between the roots.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
   "id": "b0dc792e-2616-4623-8e47-0cc42dfb050a",
@@ -2816,12 +3392,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "b2f0412f-65b1-40ca-9424-03aa6a2d9e28",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Negative and fractional indices",
+  "back": "Negative: reciprocal (2 to the -3 = 1/8). Fractional: root then power (27 to the 2/3 = 9).",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "b303423d-b874-444b-9d1d-9a7701b21f20",
   "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
   "front": "The Mean",
   "back": "For data x₁, ..., xₙ the mean is",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "b3e3cbc9-489c-411d-b34a-b0b8b1c8883f",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Pythagoras: the last step",
+  "back": "Square, add or subtract, then root. 81 + 144 = 225 gives hypotenuse 15.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
   "id": "b4cf1eb2-9392-4c09-ac75-fda3bbb43f6b",
@@ -2912,6 +3504,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "b9b79a45-47f7-4f36-a8f1-07d682397fe8",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Simplifying surds",
+  "back": "Split off the largest square factor: root 50 = 5 root 2.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "b9f8a1cd-0498-434f-a4d7-5105efb9d3ac",
   "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
   "front": "User-Defined Types",
@@ -2974,6 +3574,14 @@
   "back": "Heating: Q = mcΔθ (c = specific heat capacity)",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "bd06a891-a68e-488a-a075-7c6b38a7b002",
+  "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
+  "front": "Geometric nth term",
+  "back": "Multiply by ratio r each step: nth = a x r to the (n-1). E.g. 3, 6, 12... gives 3 x 2 to the (n-1).",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
   "id": "be6704ff-9fcd-4e55-9a13-54eb854918bd",
@@ -3048,6 +3656,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "c0f8c1b9-491b-4e5d-8b84-f603832fc006",
+  "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
+  "front": "Turning point of y = x squared - 4x + 3",
+  "back": "Factorise to (x-1)(x-3): roots 1, 3. Axis x = 2. Minimum R(2, -1).",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
   "id": "c12a4bb0-240a-49be-ab95-27040efd51fa",
   "set_id": "831cdc0c-4b12-4f8e-a7b9-93f1201c0fa9",
   "front": "Solar system",
@@ -3070,6 +3686,14 @@
   "back": "Use the symmetry of the graphs. For sin x = 1/2 in 0 ≤ x ≤ 2π: the acute answer is π/6, and the second solution is π − π/6 = 5π/6.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "c17d3461-4185-4edc-a0c4-04201305fd3c",
+  "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
+  "front": "HCF vs LCM from prime factors",
+  "back": "HCF: lowest powers of common primes. LCM: highest powers of all primes. 60 and 84 give 12 and 420.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
   "id": "c22415d1-03c6-4db3-86a4-361d26a8ab2d",
@@ -3224,6 +3848,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "c8eacad6-c5f1-4f50-b5a1-b375b1d4926f",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Finding a missing similar side",
+  "back": "Scale factor = new / old on matched pairs, then multiply. Never add differences.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
   "id": "ca414d01-2fe0-4a36-bfba-155b00480bfc",
   "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
   "front": "Drawing curves",
@@ -3256,12 +3888,28 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "caf1f790-f6d9-46ae-8d35-aa8a56ef27e0",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Scale drawing method",
+  "back": "Multiply map length by the scale; convert units stepwise (cm to m to km).",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "cb4c0294-7a90-45cc-9894-c3993cba85f8",
   "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
   "front": "Using x̄ to Estimate",
   "back": "Given sample data, estimate μ by x̄ and σ² by the unbiased s². When the population is normal, x̄ is exactly normal for any n — the CLT is only needed for non-normal populations.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "cb8584dc-adf9-4540-a4dd-ec7b165ba190",
+  "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
+  "front": "Similarity vs congruence",
+  "back": "Equal angles prove similarity only. One matching side upgrades to congruence.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "cb899e30-1134-49d7-b8bb-7137106334a6",
@@ -3312,6 +3960,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "cf7ca197-ef6e-4c99-92b9-f49f9891f9bc",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Counting subsets",
+  "back": "2 to the n including empty set and itself: {a,b,c} has 8 subsets.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
   "id": "cf881955-f8b7-4d5a-ba82-5c60900c0283",
   "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
   "front": "Definite Integrals",
@@ -3342,6 +3998,14 @@
   "back": "Multiplying every value by b multiplies s by |b| and the variance by b². Adding a constant changes nothing in the spread. Two merged datasets: compute combined Σx and Σx² from each part, then apply the computational formula.",
   "sort_order": 3,
   "created_at": "2026-09-30 17:17:36.353219+00"
+ },
+ {
+  "id": "d0be1633-7036-4a78-a4be-10d132430b62",
+  "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
+  "front": "Expand (x + 5)(x - 2)",
+  "back": "Four products: x squared - 2x + 5x - 10 = x squared + 3x - 10.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "d0c0573c-83a8-4dcc-9716-5485e3d51030",
@@ -3408,6 +4072,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "d3aeda9b-506e-4a07-995a-fea4d945a905",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Hypotenuse from legs 9 and 12",
+  "back": "Root(81 + 144) = 15. The 6-8-10 and 9-12-15 triples recur; spot them.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "d4d5af49-a3eb-42d5-806b-46e3cef49b69",
   "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
   "front": "Basic Rules",
@@ -3438,6 +4110,14 @@
   "back": "Use inverse keys: θ = sin⁻¹(opp/hyp). tan θ = 3/4 ⇒ θ = 36.9° (1 d.p.).",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "d72ba147-c931-45b1-a422-1f4d3fcd0707",
+  "set_id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
+  "front": "Modal class (grouped)",
+  "back": "Highest-frequency interval as an interval: 20 <= h < 30, never a single number.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "d747d949-eb2a-46ad-912f-fbe16ec5b96f",
@@ -3502,6 +4182,14 @@
   "back": "light-year = distance light travels in a year (9.5 × 10¹⁵ m); astronomical unit = Earth–Sun distance (1.5 × 10¹¹ m).",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "da66b8ec-ec5e-488b-9c88-2f8dba566ff5",
+  "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
+  "front": "Sector area and arc length",
+  "back": "Fraction angle/360 of the full circle. 60 degrees, r = 6: area 6 pi.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
   "id": "da6c2ef9-76e6-4bdf-a3c7-3e0d7888738b",
@@ -3600,6 +4288,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "dd5f7418-45f3-4196-9351-de4d0fe6a41d",
+  "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
+  "front": "90-degree rotations about the origin",
+  "back": "Clockwise: (x; y) to (y; -x). Anticlockwise: (x; y) to (-y; x).",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "ddc5705d-f57c-4dbb-adb2-231719295acb",
   "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
   "front": "Partial Fractions",
@@ -3622,6 +4318,22 @@
   "back": "periods (Kepler's third law: T² ∝ r³).",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "de327349-f1db-43d5-b48b-b156a5986d2c",
+  "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
+  "front": "Expected frequency",
+  "back": "Probability x trials: 0.2 x 150 = 30. An estimate, not a guarantee.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
+  "id": "dea88a22-74d2-4e65-b3f0-80c4023c4eeb",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Venn union formula",
+  "back": "n(A union B) = n(A) + n(B) - n(A intersect B). Subtract the double-counted overlap.",
+  "sort_order": 5,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "df9b7fd9-9fe3-468b-89d5-48cc0e7fb141",
@@ -3670,6 +4382,14 @@
   "back": "Integers : … −2, −1, 0, 1, 2 … Primes : exactly two factors; 2 is the only even prime; 1 is not prime.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "e2401dc5-7c5f-43f8-beec-4609111b64f0",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Mean point on a scatter diagram",
+  "back": "Best-fit lines pass through (mean x, mean y). Plot it before drawing the line.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "e26ab51f-5502-4590-9b15-494294862701",
@@ -3824,6 +4544,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "ec13014c-5f59-4d3f-a934-85d278b9f93a",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "Neither from a Venn diagram",
+  "back": "Universal minus union: 30 - 25 = 5 study neither in the French/Spanish class.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
   "id": "ed065d9c-570a-451a-82a9-32b5132ff3f5",
   "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
   "front": "Conditional probability",
@@ -3854,6 +4582,14 @@
   "back": "If X ~ Po(λ) per hour, then 3 hours gives Y ~ Po(3λ). Rates must be adjusted to the same interval before computing anything. Halving an interval halves λ.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ee0e029e-61e7-4781-a7a5-22feb245fd00",
+  "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
+  "front": "Three-figure bearings",
+  "back": "Always three digits clockwise from north: 075, 008, 254. Never drop leading zeros.",
+  "sort_order": 4,
+  "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
   "id": "ee9fa176-5a33-411c-b832-85844da402b2",
@@ -3960,12 +4696,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "f586a771-8b4a-4d87-a639-766dea20d8e1",
+  "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
+  "front": "Rationalising 6 / root 3",
+  "back": "Multiply by root 3 / root 3 and simplify fully: 2 root 3.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
   "id": "f6d709f5-c493-47d4-9aab-15e5650ea22c",
   "set_id": "d4f947db-3e96-4f3e-a58f-03f3030285c3",
   "front": "Pressure basics",
   "back": "p = F/A (Pa = N/m²). Increase F or decrease A to raise pressure; explain applications (snowshoes, knives, hydraulic press).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "f6e74872-0049-4a94-a92e-4fccad8282c6",
+  "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
+  "front": "Quadratic formula",
+  "back": "x = (-b plus or minus root(b squared - 4ac)) / 2a. Use when factorising fails; keep surd form unless asked for decimals.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
   "id": "f6e7ba42-45ed-4ce1-97d2-27e22d0ef46d",
@@ -3976,12 +4728,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "f76d6751-5264-4bfd-be3c-19230f7aa875",
+  "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
+  "front": "y proportional to x squared",
+  "back": "Write y = k x squared, solve k from known values (k = 4 here), then evaluate.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
   "id": "f7fe4a84-f5b8-4f0d-95a7-23fdadf01d4a",
   "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
   "front": "Motion graphs",
   "back": "Distance–time: gradient = speed.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "f8e4666b-7d7b-40f1-8b53-7b41756eff2c",
+  "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
+  "front": "Angle of depression = angle of elevation",
+  "back": "Draw both: tan 30 = 20 / d gives d = 34.6 m for the 20 m cliff.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
   "id": "f8f5352a-a45b-49ff-86b1-341a1d99348a",
@@ -4032,6 +4800,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "faae48c8-a032-4be2-9287-10a8d164874c",
+  "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
+  "front": "Cosine rule for sides (60-degree shortcut)",
+  "back": "a squared = b squared + c squared - 2bc cos A. At 60 degrees the last term halves: 5, 8 gives a = 7.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
   "id": "fad04c24-906b-4b1b-9ccc-bafeb46d811b",
   "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
   "front": "The Three Layers",
@@ -4056,6 +4832,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "fc3eb11f-7c97-4356-8c38-c519d60cfa61",
+  "set_id": "6dbd1e8d-91b2-4ebf-ad57-ad1479050ad6",
+  "front": "In B but not in A",
+  "back": "B intersect A complement. Shade all of B except the overlap.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
   "id": "fc88db35-d377-4663-8a99-824cab4fe572",
   "set_id": "6274a521-9e18-434e-9783-481490c41737",
   "front": "Buses",
@@ -4078,6 +4862,14 @@
   "back": "SR latch : set/reset, invalid state S=R=1",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "fdfc5873-d002-4b6b-b3dd-90c3a8c54ace",
+  "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
+  "front": "Reverse percentage method",
+  "back": "State what the given value represents first: 64 = 80%, so original = 64 / 0.8 = 80.",
+  "sort_order": 6,
+  "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
   "id": "fe442ed0-7662-43e9-8f9f-f5598a45033e",
@@ -4110,6 +4902,14 @@
   "back": "ACM/IEEE-CS/BCS codes: public interest, competence, integrity, privacy. Applying: identify the principle → apply to scenario → stakeholders affected → consequences.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ff9e3014-9e95-44c5-81f0-d803c8deab83",
+  "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
+  "front": "Correlation and causation",
+  "back": "Correlation never proves cause. Name the confounder: heat drives both ice cream and sunburn.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
   "id": "ffcf18b9-332c-4933-83b5-c64a1e63b788",

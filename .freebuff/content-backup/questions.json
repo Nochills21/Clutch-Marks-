@@ -846,6 +846,24 @@
   "statement_id": null
  },
  {
+  "id": "05a24f92-db77-4e8d-a4cc-1a6b5ff2603d",
+  "quiz_id": "087a5b6e-7c15-463a-b714-f75cb9a74d98",
+  "question_text": "How many subsets does the set {a, b, c} have, including the empty set and itself?",
+  "options": [
+   "8",
+   "6",
+   "3",
+   "7"
+  ],
+  "correct_option": 0,
+  "explanation": "Number of subsets = 2 to the power n with n = 3 [1] = 8 [1]. Forgetting the empty set gives 7; counting only proper non-empty subsets gives 6.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "191900a3-e010-4e24-a94f-3529ca35d03f"
+ },
+ {
   "id": "05dc0e2c-60e9-413c-ada2-7e52c8851ad7",
   "quiz_id": "9d24ba18-6f58-42dd-9cee-00b7fb14db87",
   "question_text": "Capacitors in parallel:",
@@ -1188,6 +1206,24 @@
   "statement_id": null
  },
  {
+  "id": "07d2756a-931d-4f8c-a7a0-c5268a172aef",
+  "quiz_id": "bf1126e1-36b9-41f3-b371-5f2b7b5a17d2",
+  "question_text": "Two similar shapes have corresponding lengths in the ratio 1 : 3. The smaller has area 5 cm squared. Find the area of the larger.",
+  "options": [
+   "45 cm squared",
+   "15 cm squared",
+   "9 cm squared",
+   "30 cm squared"
+  ],
+  "correct_option": 0,
+  "explanation": "Area scale factor is the square of the linear factor: 3 squared = 9 [1]. Larger area = 5 x 9 = 45 cm squared [1]. Multiplying by 3 (not 9) is the standard error.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ed3cc4db-bf36-4289-b4fc-7d02227f9ec7"
+ },
+ {
   "id": "080cacde-08f4-4c5b-9f79-0fc88422be61",
   "quiz_id": "ccb42b62-7562-4f90-8dc3-b6b5db3bf553",
   "question_text": "What is the main difference between simplex, half-duplex, and full-duplex communication?",
@@ -1384,6 +1420,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "0905c910-9ac5-40a1-9944-6c7dfd7cabd1",
+  "quiz_id": "24b0fe23-cb55-4531-9f3a-2ae27362f3e0",
+  "question_text": "A triangle is drawn inside a circle with its longest side as the diameter (length 10 cm). One of the other sides is 6 cm. Find the exact area of the triangle.",
+  "options": [
+   "24 cm squared",
+   "30 cm squared",
+   "20 cm squared",
+   "15 cm squared"
+  ],
+  "correct_option": 0,
+  "explanation": "The angle in a semicircle is a right angle, so the triangle is right-angled [1]. Third side = root(100 - 36) = 8 by Pythagoras [1]. Area = half x 6 x 8 = 24 cm squared. Forgetting the semicircle theorem and treating it as non-right-angled loses both marks.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "eb2d68a1-e33a-4154-a99a-bdfd986408ad"
  },
  {
   "id": "090b1132-007c-456c-b1f6-d9949056c359",
@@ -1746,6 +1800,24 @@
   "statement_id": null
  },
  {
+  "id": "0acb3879-fd46-4698-9849-a5b3dcd46061",
+  "quiz_id": "0620ce1d-6e3f-4e8a-be34-d1f6071933a0",
+  "question_text": "Find the gradient of the line joining (1, -2) to (7, 16), and write down the gradient of any line parallel to it.",
+  "options": [
+   "1/3 and 1/3",
+   "3 and -1/3",
+   "3 and 3",
+   "-3 and -3"
+  ],
+  "correct_option": 2,
+  "explanation": "Gradient = (16 - (-2)) / (7 - 1) = 18 / 6 = 3 [1]. Parallel lines share the same gradient, so any parallel line also has gradient 3 [1]. Subtracting the coordinates in the wrong order changes only the sign pattern, so check (y2 - y1) sits over (x2 - x1).",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "68dee38f-9551-4a27-a4a9-e2d76eedeaff"
+ },
+ {
   "id": "0af2b724-49d1-4162-a1b9-d706cb88c276",
   "quiz_id": "032754ba-c243-4c7e-b57f-966729613a00",
   "question_text": "dA/dx = 2x + 1 and A(0) = 3. A(x) =",
@@ -1762,6 +1834,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "0b421da4-5909-42b6-84ee-f8602e292b36",
+  "quiz_id": "ac4bad4d-4d5c-4787-9415-73fa9feb3a41",
+  "question_text": "4 kg of rice cost 9.60 dollars. Find the cost of 7 kg at the same rate.",
+  "options": [
+   "13.60 dollars",
+   "12.00 dollars",
+   "15.20 dollars",
+   "16.80 dollars"
+  ],
+  "correct_option": 3,
+  "explanation": "Unit price = 9.60 / 4 = 2.40 dollars per kg [1]. 7 kg costs 7 x 2.40 = 16.80 dollars [1]. Adding the extra 3 kg at a guessed rate breaks direct proportion.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "4b80852f-6bbd-4e94-9688-1096f5767a2f"
  },
  {
   "id": "0b44231e-410d-4f5e-a969-9ceb79316961",
@@ -1996,6 +2086,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "0d4a5f4b-2f7b-42c8-8e63-dba0607a1248",
+  "quiz_id": "eabebc13-93cb-435e-a55b-2839f9cf26fd",
+  "question_text": "Solve x squared < 16, giving the solution as an inequality in x.",
+  "options": [
+   "x < 4",
+   "0 < x < 4",
+   "-4 < x < 4",
+   "x < -4 or x > 4"
+  ],
+  "correct_option": 2,
+  "explanation": "Taking square roots gives -4 < x < 4 [2: one mark for each bound]. Answering only x < 4 misses the negative branch; sketching y = x squared - 16 shows the curve below the axis between the roots.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2d03602e-a489-4cf9-8c06-6f992d3c4747"
  },
  {
   "id": "0d639813-67eb-4b41-9ba1-28de481ebd15",
@@ -2554,6 +2662,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "120e2cdb-baee-4529-8259-c39a5100447d",
+  "quiz_id": "4e359d5d-e0c9-4fce-ba3f-ba32526423e6",
+  "question_text": "Which description indicates zero (no) correlation between two variables?",
+  "options": [
+   "Points rising tightly left to right",
+   "A shapeless cloud of points with no trend",
+   "Points falling tightly left to right",
+   "Points lying exactly on a curve"
+  ],
+  "correct_option": 1,
+  "explanation": "No trend in either direction means zero correlation [1]. A random cloud has no usable line of best fit [1]. A perfect curve is strong non-linear association, not zero correlation.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ebb31131-aef7-4992-8bc5-a48c987aa2b6"
  },
  {
   "id": "121a96d0-cff6-457a-a070-d41ede67b411",
@@ -3816,6 +3942,24 @@
   "statement_id": null
  },
  {
+  "id": "1b05268f-582c-4180-b382-323f598d7d8e",
+  "quiz_id": "685fcdc2-ffde-4265-b4e4-568746aa375e",
+  "question_text": "Factorise fully 6x squared - 9x.",
+  "options": [
+   "3(2x squared - 3x)",
+   "x(6x - 9)",
+   "3x(x - 3)",
+   "3x(2x - 3)"
+  ],
+  "correct_option": 3,
+  "explanation": "The highest common factor of the terms is 3x [1]. Dividing each term: 3x(2x - 3) [1]. Partial factorisation such as x(6x - 9) is not full marks.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "857ed8f1-5004-4794-8e95-0ba0010de541"
+ },
+ {
   "id": "1b458c9c-4edd-4a6d-860a-f99d1b2cce9c",
   "quiz_id": "b204f634-6497-4d4f-9857-671e0d03ff26",
   "question_text": "Constructive interference occurs at path difference:",
@@ -4968,6 +5112,24 @@
   "statement_id": null
  },
  {
+  "id": "23c46c59-d8f4-4337-b29b-45ad9e82db47",
+  "quiz_id": "24fe5c39-d228-4932-8bae-4b038f051ba4",
+  "question_text": "A geometric sequence begins 3, 6, 12, ... Find the 8th term.",
+  "options": [
+   "192",
+   "24",
+   "96",
+   "384"
+  ],
+  "correct_option": 3,
+  "explanation": "The common ratio is 6 / 3 = 2 [1]. The 8th term is 3 x 2 to the power 7 = 3 x 128 = 384 [1]. Multiplying by 8 instead of raising to the 7th power gives 192, the common trap.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "07c3b287-aa69-45df-a2f2-dfb968f72da7"
+ },
+ {
   "id": "23e472cc-1f6c-4275-8512-3235b8da147e",
   "quiz_id": "22d16eb5-3636-4057-9313-2ee7f268e4d9",
   "question_text": "A car rental company has a fleet of cars that can be rented for a day. The cost of renting a car is $40 per day plus an additional $0.25 per mile driven. If a customer rents a car for a day and drives 80 miles, how much will they be charged?",
@@ -5074,6 +5236,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "24925d9f-e6dc-40dc-a5a0-61e2ea81b79a",
+  "quiz_id": "22a72e79-6ccc-4a29-91f9-33cbb369020a",
+  "question_text": "A triangle has sides 7 cm, 8 cm and 9 cm. Find its largest angle to 1 decimal place.",
+  "options": [
+   "90.0 degrees",
+   "73.4 degrees",
+   "60.0 degrees",
+   "106.6 degrees"
+  ],
+  "correct_option": 1,
+  "explanation": "Largest angle is opposite the 9 cm side [1]. cos = (49 + 64 - 81) / (2 x 7 x 8) = 32/112, angle = 73.4 degrees [1]. Putting the wrong side as the numerator finds a smaller angle.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:29:22.096507+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "48aacf94-b819-4a50-a520-431b5e6d4568"
  },
  {
   "id": "24b83216-6c2e-495f-87d5-f7c54e42690f",
@@ -5544,6 +5724,24 @@
   "statement_id": null
  },
  {
+  "id": "283cec61-830f-4281-a215-af4175110691",
+  "quiz_id": "24fe5c39-d228-4932-8bae-4b038f051ba4",
+  "question_text": "The sequence begins 5, 9, 13, 17, ... Find an expression for the nth term and hence the 40th term.",
+  "options": [
+   "4n - 1, giving 159",
+   "4n + 3, giving 163",
+   "4n + 1, giving 161",
+   "n + 4, giving 44"
+  ],
+  "correct_option": 2,
+  "explanation": "The common difference is 4, so the nth term has form 4n + c [1]. With n = 1 giving 5, c = 1, so nth term 4n + 1 [1]. The 40th term is 4(40) + 1 = 161 [1]. Guessing n + 4 only fits the first term.",
+  "sort_order": 7,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "07c3b287-aa69-45df-a2f2-dfb968f72da7"
+ },
+ {
   "id": "283e9f88-d6d8-4d9e-9291-b3e93132d8e2",
   "quiz_id": "47f55265-f0b4-4dcd-bfb8-0c126397550f",
   "question_text": "P2P networks differ from client-server by:",
@@ -5958,6 +6156,24 @@
   "statement_id": null
  },
  {
+  "id": "2aa69b91-4518-419b-af99-87d95d4684e8",
+  "quiz_id": "bf22a392-2246-41df-852d-6705fb5cc43f",
+  "question_text": "Evaluate 2 to the power -3, giving your answer as a fraction.",
+  "options": [
+   "1/8",
+   "-8",
+   "8",
+   "-1/8"
+  ],
+  "correct_option": 0,
+  "explanation": "A negative index means the reciprocal: 2 to the power -3 = 1 / 2 cubed [1] = 1/8 [1]. Writing -8 multiplies instead of reciprocating.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "6ce70b86-00e1-471f-8c83-53458dd2671a"
+ },
+ {
   "id": "2ab7eb9b-9245-4bdb-9f24-77063e2993d4",
   "quiz_id": "afd18bba-8c7a-47a4-8a05-d2f23b6f0463",
   "question_text": "Which statement is from the \"Sequences and Series\" study notes?",
@@ -6136,6 +6352,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "2c8cc466-23bc-49b5-bcea-3d430a6c0e98",
+  "quiz_id": "0016e84e-952c-418f-b51a-df0d76bd54a0",
+  "question_text": "Of 50 people, 20 wear glasses and 12 of those are female. Given a person wears glasses, find the probability they are female.",
+  "options": [
+   "12/50",
+   "1/2",
+   "20/50",
+   "3/5"
+  ],
+  "correct_option": 3,
+  "explanation": "Restrict to the 20 glasses-wearers: P = 12/20 [1] = 3/5 [1]. Dividing by 50 answers a different question (female glasses-wearer from everyone).",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "52f512a9-d2c5-423c-abfd-44c9e9f9746c"
  },
  {
   "id": "2ca54a5f-a595-4fae-b061-ee64d2f9790a",
@@ -6696,6 +6930,24 @@
   "statement_id": null
  },
  {
+  "id": "307d7c4e-71db-4539-9882-a555e3729438",
+  "quiz_id": "0016e84e-952c-418f-b51a-df0d76bd54a0",
+  "question_text": "Events A and B are independent with P(A) = 0.5 and P(B) = 0.3. Find P(A or B).",
+  "options": [
+   "0.8",
+   "0.15",
+   "0.65",
+   "0.35"
+  ],
+  "correct_option": 2,
+  "explanation": "For independent events P(both) = 0.5 x 0.3 = 0.15 [1]. P(A or B) = 0.5 + 0.3 - 0.15 = 0.65 [1]. Adding without subtracting the overlap double-counts both occurring.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "d721dc88-719c-46d5-9769-4b3f19481d97"
+ },
+ {
   "id": "3092dd4f-e84e-4d00-ae6b-184bf4230561",
   "quiz_id": "ebdf936a-fa65-465e-a206-c750aaf31521",
   "question_text": "A circuit has two inputs, A and B, and one output, X. The output X is 1 only when A is 1 and B is 0, or when A is 0 and B is 1. Write a Boolean expression for X in terms of A and B.",
@@ -6804,6 +7056,24 @@
   "statement_id": null
  },
  {
+  "id": "30e0fb58-e6f3-49ba-8ba7-4dba2fde9fc7",
+  "quiz_id": "0016e84e-952c-418f-b51a-df0d76bd54a0",
+  "question_text": "Two fair coins are tossed. Find the probability of two heads.",
+  "options": [
+   "1/2",
+   "1/3",
+   "1/4",
+   "2/3"
+  ],
+  "correct_option": 2,
+  "explanation": "Outcomes HH, HT, TH, TT are equally likely [1]. Only one of four is HH: probability 1/4 [1]. Adding the single-coin probabilities (1/2 + 1/2) is the classic error.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "3c5bb82e-08cd-418c-8d22-b16f07a7d02a"
+ },
+ {
   "id": "30e1de13-8321-4897-a4a9-a487c05c8bbf",
   "quiz_id": "03b79dc6-852d-433c-a7da-37f02b5bb665",
   "question_text": "Which statement is NOT in the \"Further Algebra\" study notes?",
@@ -6874,6 +7144,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "31cd2323-4f30-4eea-9f59-cc6ca04a3057",
+  "quiz_id": "4e359d5d-e0c9-4fce-ba3f-ba32526423e6",
+  "question_text": "A scatter diagram of revision hours against test scores shows points rising from left to right in a tight band. Describe the correlation.",
+  "options": [
+   "Strong positive",
+   "Strong negative",
+   "Zero / no correlation",
+   "Perfect negative"
+  ],
+  "correct_option": 0,
+  "explanation": "Rising left to right means positive correlation [1]. The tight band makes it strong [1]. Direction gives the sign, tightness gives the strength.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ebb31131-aef7-4992-8bc5-a48c987aa2b6"
  },
  {
   "id": "3206b1bb-849d-479b-9345-081a442bba71",
@@ -7162,6 +7450,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "34176449-6719-411b-9188-81fad9d5a2cf",
+  "quiz_id": "5d895a1e-40b7-468f-82c2-58373c9edc7e",
+  "question_text": "From the top of a 20 m vertical cliff the angle of depression to a boat is 30 degrees. Find the horizontal distance from the cliff base to the boat, to 1 decimal place.",
+  "options": [
+   "10.0 m",
+   "17.3 m",
+   "40.0 m",
+   "34.6 m"
+  ],
+  "correct_option": 3,
+  "explanation": "Angle of depression equals angle of elevation from the boat: tan 30 = 20 / d [1]. So d = 20 / tan 30 = 20 root 3 = 34.6 m [1]. Using sin instead of tan mixes opposite with hypotenuse.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "d63c4b89-8c7d-46ff-a9d0-5bdb3c1b68a3"
  },
  {
   "id": "3436bc75-d0c2-461b-aff8-84f719c8cc0e",
@@ -7830,6 +8136,24 @@
   "statement_id": null
  },
  {
+  "id": "3864ab3c-f142-49d4-8905-63cb02fa0302",
+  "quiz_id": "d4ced3a2-ff11-4958-97bd-574e765328b1",
+  "question_text": "Estimate the value of (49.8 x 20.3) / 9.9 by rounding each number to 1 significant figure first.",
+  "options": [
+   "10",
+   "100",
+   "1000",
+   "1020"
+  ],
+  "correct_option": 1,
+  "explanation": "Round: 49.8 to 50, 20.3 to 20, 9.9 to 10 [1]. Estimate = (50 x 20) / 10 = 100 [1]. Full marks need the rounded working shown; a bare 102 (calculator value) scores nothing here.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "63257b09-e733-4e03-b61c-598c9a90d285"
+ },
+ {
   "id": "3867c540-6cab-43dc-9d66-dd29c0ad22ef",
   "quiz_id": "1a85fb00-ccb4-41be-8f4b-2a2a266a141d",
   "question_text": "d/dx (e^(3x)) =",
@@ -8100,6 +8424,24 @@
   "statement_id": null
  },
  {
+  "id": "39b42615-e629-4843-914e-a18e7bb6ee8b",
+  "quiz_id": "d4ced3a2-ff11-4958-97bd-574e765328b1",
+  "question_text": "A train departs at 14:45 and the journey takes 2 hours 35 minutes. At what time does it arrive? Give your answer in 24-hour format.",
+  "options": [
+   "16:20",
+   "17:10",
+   "16:80",
+   "17:20"
+  ],
+  "correct_option": 3,
+  "explanation": "Add the hours: 14:45 + 2 hours = 16:45 [1]. Add 35 minutes: 16:45 + 35 min = 17:20 [1]. Writing 16:80 forgets that 60 minutes make an hour.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "597f9014-9e07-4fb3-8a01-e659f2a0bd56"
+ },
+ {
   "id": "39eb56c2-6660-4e2f-8710-cbe21b065864",
   "quiz_id": "92a9a8b8-1b42-4bde-9709-7d4e368bc8e0",
   "question_text": "X ~ B(6, 0.25). P(X = 0) =",
@@ -8134,6 +8476,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "3a1cd668-33ae-433e-97ac-77d0fd464814",
+  "quiz_id": "eabebc13-93cb-435e-a55b-2839f9cf26fd",
+  "question_text": "p is a prime number less than 10 satisfying 5 - 2p >= -3. List all possible values of p.",
+  "options": [
+   "5, 7",
+   "2, 3",
+   "2, 3, 5",
+   "3, 5"
+  ],
+  "correct_option": 1,
+  "explanation": "Rearranging: -2p >= -8, so p <= 4 [1]. The primes below 10 that satisfy this are 2 and 3 [1]. The error to avoid is forgetting to reverse the sign, which wrongly admits 5 and 7.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2d03602e-a489-4cf9-8c06-6f992d3c4747"
  },
  {
   "id": "3a2a5d95-67bb-410d-b00b-75e0e5f58dd5",
@@ -8458,6 +8818,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "3bc7fd0f-7fd9-4a17-9caa-39a97d70c6f9",
+  "quiz_id": "24fe5c39-d228-4932-8bae-4b038f051ba4",
+  "question_text": "f(x) = 4x + 1. Find the inverse function f inverse (x) and hence evaluate f inverse (9).",
+  "options": [
+   "(x + 1)/4, giving 2.5",
+   "(x - 1)/4, giving 2",
+   "4/x - 1, giving -0.56",
+   "x/4 + 1, giving 3.25"
+  ],
+  "correct_option": 1,
+  "explanation": "Let y = 4x + 1, swap to x = 4y + 1 and solve: y = (x - 1)/4 [1]. Then f inverse (9) = (9 - 1)/4 = 2 [1]. Adding 1 instead of subtracting reverses the inverse.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "c13b8f97-672b-4bf5-b6e9-0b7df400bce7"
  },
  {
   "id": "3c013f1c-2bd7-432a-bc66-60c46505928e",
@@ -9324,6 +9702,24 @@
   "statement_id": null
  },
  {
+  "id": "4088451e-b309-4d71-996e-1dff045ad11a",
+  "quiz_id": "087a5b6e-7c15-463a-b714-f75cb9a74d98",
+  "question_text": "n(A) = 20, n(B) = 15 and n(A intersect B) = 7. Find n(A union B).",
+  "options": [
+   "35",
+   "27",
+   "42",
+   "28"
+  ],
+  "correct_option": 3,
+  "explanation": "Apply n(A union B) = n(A) + n(B) - n(A intersect B) [1] = 20 + 15 - 7 = 28 [1]. Adding all three counts (42) double-counts the intersection instead of correcting for it.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "191900a3-e010-4e24-a94f-3529ca35d03f"
+ },
+ {
   "id": "40910d93-297b-485c-8141-ab735eef6f2c",
   "quiz_id": "bfdc2405-2093-4c51-be0b-a6bfc9e6bb1d",
   "question_text": "Which paradigm encapsulates state and behaviour in classes?",
@@ -9340,6 +9736,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "40aca1ac-0fb5-489c-acba-6138a0d718f4",
+  "quiz_id": "ac4bad4d-4d5c-4787-9415-73fa9feb3a41",
+  "question_text": "y is directly proportional to x squared. When x = 3, y = 36. Find y when x = 5.",
+  "options": [
+   "64",
+   "100",
+   "60",
+   "180"
+  ],
+  "correct_option": 1,
+  "explanation": "Write y = k x squared; 36 = 9k gives k = 4 [1]. When x = 5, y = 4 x 25 = 100 [1]. Scaling y by 5/3 assumes linear proportion and gives 60.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "4b80852f-6bbd-4e94-9688-1096f5767a2f"
  },
  {
   "id": "40c87fa5-6804-4c5a-bdfa-26742fe3d03e",
@@ -9952,6 +10366,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "44a9c8cc-d86f-44a0-a9c6-77e7489a853f",
+  "quiz_id": "b9627073-3fe4-4e0e-bade-43f145cff7c9",
+  "question_text": "Two straight roads cross at O. Describe the locus of points equidistant from both roads.",
+  "options": [
+   "A circle centred at O",
+   "The midpoint of O",
+   "The pair of angle bisectors at O",
+   "Lines parallel to each road"
+  ],
+  "correct_option": 2,
+  "explanation": "Points equidistant from two lines lie on their angle bisectors [1]. Two intersecting lines give two perpendicular bisectors [1]. A single bisector is only half the locus.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "dbd03bf0-93a1-4cd1-aab8-50f10abb5e63"
  },
  {
   "id": "44b4bd91-31aa-4b06-8576-64e2ce3ff1fb",
@@ -10836,6 +11268,24 @@
   "statement_id": null
  },
  {
+  "id": "497ec5d0-358c-4ef0-b847-3d44a8ff128d",
+  "quiz_id": "22a72e79-6ccc-4a29-91f9-33cbb369020a",
+  "question_text": "Two sides of a triangle are 6 cm and 8 cm with included angle 50 degrees. Find its area to 1 decimal place.",
+  "options": [
+   "24.0 cm squared",
+   "12.0 cm squared",
+   "48.0 cm squared",
+   "18.4 cm squared"
+  ],
+  "correct_option": 3,
+  "explanation": "Area = half x 6 x 8 x sin 50 [1] = 24 x 0.766 = 18.4 cm squared [1]. Using half x 6 x 8 without the sine gives 24, the right-angle only case.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:29:22.096507+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "af5fc25f-e4de-4a3d-ae60-24b90f96966c"
+ },
+ {
   "id": "498b0ada-c713-4ea4-b3cf-9651868040b1",
   "quiz_id": "83e739db-17ee-445a-b10d-25d4246a1a4c",
   "question_text": "A one-to-many relationship means:",
@@ -10852,6 +11302,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "49c3a925-7c6a-43b5-8c55-447187cf3890",
+  "quiz_id": "087a5b6e-7c15-463a-b714-f75cb9a74d98",
+  "question_text": "In a class of 30 students, 14 study French (set A), 16 study Spanish (set B), and 5 study both. How many study neither?",
+  "options": [
+   "10",
+   "0",
+   "5",
+   "25"
+  ],
+  "correct_option": 2,
+  "explanation": "n(A union B) = 14 + 16 - 5 = 25 [1]. Neither = 30 - 25 = 5 [1]. Adding without subtracting the intersection double-counts the 5 doing both.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "191900a3-e010-4e24-a94f-3529ca35d03f"
  },
  {
   "id": "49c5cbc4-6c12-47be-b8f1-508eccf56458",
@@ -11646,6 +12114,24 @@
   "statement_id": null
  },
  {
+  "id": "5050c773-e70e-4f46-b605-679ced9a22d0",
+  "quiz_id": "05d79961-07f6-4835-a1d9-c6f198f1b8f3",
+  "question_text": "A trapezium has parallel sides 8 cm and 12 cm with height 5 cm. A semicircle of diameter 8 cm is cut out of it. Find the remaining area, taking pi as 3.14. Give your answer to 1 decimal place.",
+  "options": [
+   "24.9 cm squared",
+   "74.9 cm squared",
+   "50.0 cm squared",
+   "25.1 cm squared"
+  ],
+  "correct_option": 3,
+  "explanation": "Trapezium = half x (8 + 12) x 5 = 50 [1]. Semicircle radius 4: half x 3.14 x 16 = 25.12 [1]. Remaining = 50 - 25.12 = 24.88 = 24.9 cm squared to 1 d.p. [1]. The diameter traps: halving it to get r = 4 first.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ce2ce20f-601d-4597-af2a-ad1f0cdd0686"
+ },
+ {
   "id": "505f853e-b5aa-42e7-944f-4f4f8891b473",
   "quiz_id": "24e6140f-9819-41ba-8b34-1fab26849c75",
   "question_text": "Parallel: two 10Ω. Total R?",
@@ -11986,6 +12472,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "52b4c007-8d3e-49ce-b0e7-70eac3a4f739",
+  "quiz_id": "bf1126e1-36b9-41f3-b371-5f2b7b5a17d2",
+  "question_text": "How many lines of symmetry does a regular pentagon have, and what is its order of rotational symmetry?",
+  "options": [
+   "5 lines, order 4",
+   "6 lines, order 5",
+   "5 lines, order 5",
+   "10 lines, order 5"
+  ],
+  "correct_option": 2,
+  "explanation": "A regular pentagon has 5 lines of symmetry, one through each vertex and the opposite midpoint [1]. Its rotational symmetry order is 5, rotating by 72 degrees each time [1]. Confusing vertices with sides miscounts both.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "c43d5fe9-2d11-443e-94a4-07e87e13c443"
  },
  {
   "id": "52c24d2f-651b-4fe0-bbe5-361e815006cf",
@@ -12708,6 +13212,24 @@
   "statement_id": null
  },
  {
+  "id": "581870fb-3877-490c-ab0f-413ee37e29ec",
+  "quiz_id": "1c93b6a3-fd8c-4761-8374-735d468650a7",
+  "question_text": "A radioactive sample of mass 320 g halves every hour. Find its mass after 3 hours.",
+  "options": [
+   "40 g",
+   "160 g",
+   "80 g",
+   "20 g"
+  ],
+  "correct_option": 0,
+  "explanation": "After 1 h: 160 g; after 2 h: 80 g; after 3 h: 40 g [2: one for repeated halving, one for 40 g]. Equivalently 320 x (1/2) cubed = 40 [1]. Dividing once only gives 160.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fbc326d5-29aa-47b3-ad26-9875688a77b7"
+ },
+ {
   "id": "583060c3-f371-48d6-a70b-12e316733bbd",
   "quiz_id": "e3fca5ce-954e-452a-8dd7-5b5272fcaa33",
   "question_text": "SI unit of force?",
@@ -12760,6 +13282,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "58709da8-2b89-48b0-8de6-92e93478a403",
+  "quiz_id": "bf1126e1-36b9-41f3-b371-5f2b7b5a17d2",
+  "question_text": "Two triangles are similar. The smaller has sides 4 cm and 6 cm; the corresponding sides of the larger are 10 cm and x cm. Find x.",
+  "options": [
+   "12",
+   "15",
+   "24",
+   "10"
+  ],
+  "correct_option": 1,
+  "explanation": "Scale factor = 10 / 4 = 2.5 [1]. So x = 6 x 2.5 = 15 [1]. Adding the difference (10 - 4 = 6) instead of scaling gives 12, which is wrong for similarity.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ed3cc4db-bf36-4289-b4fc-7d02227f9ec7"
  },
  {
   "id": "587199ba-8e30-47c7-b477-efd9a6b763ab",
@@ -13264,6 +13804,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "5bbbe9dd-3b2e-4b73-94c7-108a4ade3bac",
+  "quiz_id": "b9627073-3fe4-4e0e-bade-43f145cff7c9",
+  "question_text": "A bearing is recorded as 75 degrees. Write it as a three-figure bearing, and write 8 degrees as a three-figure bearing.",
+  "options": [
+   "75 and 8",
+   "075 and 008",
+   "0075 and 0008",
+   "750 and 080"
+  ],
+  "correct_option": 1,
+  "explanation": "Bearings always use three figures: 75 becomes 075 [1]; 8 becomes 008 [1]. Dropping leading zeros is the mark lost most often on this topic.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "b8c1670b-811d-49dd-9299-80514158abab"
  },
  {
   "id": "5bd7e707-e1b6-4d7c-aebc-7b0bb944f985",
@@ -14004,6 +14562,24 @@
   "statement_id": null
  },
  {
+  "id": "603cd3ba-616a-4e02-ba46-fd7c94182871",
+  "quiz_id": "460df1a8-bb6c-4344-b607-c2d150a0b104",
+  "question_text": "A cumulative frequency diagram is drawn for 80 runners. Which value on the diagram is used to estimate the median time?",
+  "options": [
+   "The 20th value",
+   "The 40th value",
+   "The 40.5th value (mean of 40th and 41st)",
+   "The 60th value"
+  ],
+  "correct_option": 2,
+  "explanation": "For n = 80 the median position is (80 + 1) / 2 = 40.5 [1]. Read the times for the 40th and 41st values and take their mean [1]. The 20th and 60th positions give the quartiles, not the median.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "91f7d7f3-ebbf-4006-b34f-e5b33a4f601a"
+ },
+ {
   "id": "603e7b12-b9a8-48c8-8e63-c802a346b6ab",
   "quiz_id": "e9ff2c0d-16d0-4fab-a6ba-7ee6d7471ee9",
   "question_text": "Which statement is missing from the \"Vectors\" notes?",
@@ -14112,6 +14688,24 @@
   "statement_id": null
  },
  {
+  "id": "60c77cd7-154c-4705-a4a2-da25f191f007",
+  "quiz_id": "5d895a1e-40b7-468f-82c2-58373c9edc7e",
+  "question_text": "Write down the exact value of sin 60 degrees.",
+  "options": [
+   "1/2",
+   "root 3 / 2",
+   "root 2 / 2",
+   "1"
+  ],
+  "correct_option": 1,
+  "explanation": "From the equilateral-triangle derivation, sin 60 = root 3 / 2 [1]. This is exact; 0.866 is a rounded decimal and loses the exactness mark [1]. Confusing with cos 60 (= 1/2) is the usual slip.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "7407716d-1fa6-4d10-ab75-00cc3f2b06b7"
+ },
+ {
   "id": "60ea186f-f48e-40cd-81d1-bdbf591be64c",
   "quiz_id": "24fe5c39-d228-4932-8bae-4b038f051ba4",
   "question_text": "From the \"Algebra — Sequences and Functions\" notes, which statement appears?",
@@ -14200,6 +14794,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "61a3520c-13c0-463b-901b-b107b84f03d3",
+  "quiz_id": "685fcdc2-ffde-4265-b4e4-568746aa375e",
+  "question_text": "Express (x to the power 5 / x squared) cubed as a single power of x.",
+  "options": [
+   "x to the power 10",
+   "x cubed",
+   "x to the power 9",
+   "x to the power 13"
+  ],
+  "correct_option": 2,
+  "explanation": "Inside the brackets: x to the power (5 - 2) = x cubed [1]. Raising to the third power: x to the power (3 x 3) = x to the power 9 [1]. Adding the outer power (x to the power 6) instead of multiplying is the trap.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "857ed8f1-5004-4794-8e95-0ba0010de541"
  },
  {
   "id": "61c6df20-ce68-42f4-880e-511088458a9e",
@@ -15138,6 +15750,24 @@
   "statement_id": null
  },
  {
+  "id": "6930166b-455f-48cc-b496-393fc03e3532",
+  "quiz_id": "eabebc13-93cb-435e-a55b-2839f9cf26fd",
+  "question_text": "Find all integer values of n satisfying -2 < 3n + 1 <= 10.",
+  "options": [
+   "-1, 0, 1, 2",
+   "0, 1, 2",
+   "-1, 0, 1, 2, 3",
+   "0, 1, 2, 3"
+  ],
+  "correct_option": 3,
+  "explanation": "Subtract 1 throughout: -3 < 3n <= 9 [1]. Divide by 3: -1 < n <= 3, so n = 0, 1, 2, 3 [1]. Note n = -1 is excluded because the left inequality is strict.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2d03602e-a489-4cf9-8c06-6f992d3c4747"
+ },
+ {
   "id": "6948ea98-0dd7-4f11-9f3d-7e58ab7462f2",
   "quiz_id": "0f21d9d5-a99f-4286-9094-e442a5d4a4ee",
   "question_text": "X ~ N(μ, σ²) with P(X < 40) = 0.05 and z = −1.645. Then μ =",
@@ -15226,6 +15856,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "6a49b1b9-9f2f-4c34-b96f-d0f113929eb6",
+  "quiz_id": "24b0fe23-cb55-4531-9f3a-2ae27362f3e0",
+  "question_text": "A triangle has interior angles 40 degrees and 65 degrees. A straight line extends one side of the triangle. Find the exterior angle formed.",
+  "options": [
+   "75 degrees",
+   "105 degrees",
+   "115 degrees",
+   "140 degrees"
+  ],
+  "correct_option": 1,
+  "explanation": "The third interior angle is 180 - 40 - 65 = 75 [1]. The exterior angle is 180 - 75 = 105, equivalently the sum of the two opposite interiors 40 + 65 [1]. Answering 75 confuses interior with exterior.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "1fb8071f-c77c-4a07-a79a-907036c51840"
  },
  {
   "id": "6a98181b-cf83-4d5c-9825-f34970bc11e8",
@@ -15624,6 +16272,24 @@
   "statement_id": null
  },
  {
+  "id": "6ce14954-6194-4443-bf92-9d72e36be7fe",
+  "quiz_id": "685fcdc2-ffde-4265-b4e4-568746aa375e",
+  "question_text": "Simplify (x squared - 9) / (x + 3), stating any value x cannot take.",
+  "options": [
+   "x + 3, x cannot be 3",
+   "x - 3, x cannot be -3",
+   "x - 3, x cannot be 3",
+   "x + 3, x cannot be -3"
+  ],
+  "correct_option": 1,
+  "explanation": "Factorise the numerator as a difference of two squares: (x - 3)(x + 3) [1]. Cancel (x + 3) to get x - 3, valid since x cannot be -3 (division by zero) [1]. Cancelling without factorising first is invalid.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "b77c6130-049b-4e05-aecb-ce375313c254"
+ },
+ {
   "id": "6cee43dc-239c-43c8-8869-d4526ec0d713",
   "quiz_id": "e867590a-e5c1-4190-8a63-3e9463a63abd",
   "question_text": "Which of these is covered by the \"Electricity: D.C. Circuits\" study notes?",
@@ -15730,6 +16396,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "6dbb8b83-a3d1-4c94-84fd-3f659f7c37bf",
+  "quiz_id": "bf1126e1-36b9-41f3-b371-5f2b7b5a17d2",
+  "question_text": "Two triangles have two matching angles and the side between them equal. Which statement follows, and why?",
+  "options": [
+   "Similar only, equal angles are enough",
+   "Congruent by ASA",
+   "Congruent by RHS",
+   "Similar only, sides unproven"
+  ],
+  "correct_option": 1,
+  "explanation": "Two angles fix the third, so the triangles are at least similar [1]. With the included side equal they satisfy angle-side-angle, so they are congruent [1]. Equal angles alone prove similarity only; the equal side upgrades it to congruence.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ed3cc4db-bf36-4289-b4fc-7d02227f9ec7"
  },
  {
   "id": "6dbc8dff-c877-444e-bb0c-e9e956316dcc",
@@ -15894,6 +16578,24 @@
   "statement_id": null
  },
  {
+  "id": "6e8f89d6-7882-4801-80a8-7251931c841c",
+  "quiz_id": "4e359d5d-e0c9-4fce-ba3f-ba32526423e6",
+  "question_text": "Through which special point should a line of best fit for a scatter diagram ideally pass?",
+  "options": [
+   "The origin",
+   "(0, mean of y)",
+   "(mean of x, mean of y)",
+   "(max of x, max of y)"
+  ],
+  "correct_option": 2,
+  "explanation": "A balanced line of best fit passes through the mean point (x-bar, y-bar) [1]. Plotting the means first anchors the line before judging the balance of points above and below [1]. Forcing it through the origin biases the slope.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ebb31131-aef7-4992-8bc5-a48c987aa2b6"
+ },
+ {
   "id": "6ede8fd5-e6d0-4847-bf4f-a44c6fbea622",
   "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
   "question_text": "Which of these does the \"Quantum Physics\" notes NOT cover?",
@@ -15964,6 +16666,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "6f21742e-5160-4c01-b481-aca00ea23c3a",
+  "quiz_id": "eda04ffe-d5d0-481b-8709-af6b1c56dd84",
+  "question_text": "The point (4; -3) is reflected in the y-axis. Find its image.",
+  "options": [
+   "(4; 3)",
+   "(-4; 3)",
+   "(-4; -3)",
+   "(4; -3)"
+  ],
+  "correct_option": 2,
+  "explanation": "Reflection in the y-axis negates the x-coordinate only [1]. Image (-4; -3) [1]. Negating both coordinates is a rotation of 180 degrees, not this reflection.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2dc19ed6-207f-46b1-bdaf-de86317140a7"
  },
  {
   "id": "6f437ff6-8cda-4ac1-9322-fce178b0b861",
@@ -16486,6 +17206,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "727099ee-cd2d-48f1-a6e2-3153ff28b49e",
+  "quiz_id": "05d79961-07f6-4835-a1d9-c6f198f1b8f3",
+  "question_text": "A right cone has base radius 4 cm and vertical height 9 cm. Find its volume in terms of pi.",
+  "options": [
+   "36 pi cm cubed",
+   "12 pi cm cubed",
+   "24 pi cm cubed",
+   "48 pi cm cubed"
+  ],
+  "correct_option": 3,
+  "explanation": "Volume = (1/3) pi r squared h = (1/3) x pi x 16 x 9 [1] = 48 pi cm cubed [1]. Omitting the 1/3 factor (cylinder volume) gives 144 pi; halving instead of thirding gives 72 pi.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "d0a7aaf8-ccad-4409-88e6-d00882b2f08b"
  },
  {
   "id": "72c4798a-b4e3-49c6-82f7-600565843374",
@@ -17118,6 +17856,24 @@
   "statement_id": null
  },
  {
+  "id": "774ddd67-8b75-494e-94f4-34260a12caf9",
+  "quiz_id": "05d79961-07f6-4835-a1d9-c6f198f1b8f3",
+  "question_text": "A circle has radius 7 cm. Taking pi as 22/7, find its area.",
+  "options": [
+   "154 cm squared",
+   "44 cm squared",
+   "1540 cm squared",
+   "1078 cm squared"
+  ],
+  "correct_option": 0,
+  "explanation": "Area = pi r squared = (22/7) x 49 [1] = 154 cm squared [1]. Using 2 pi r (the circumference, 44 cm) instead is the classic confusion.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "c9e1f170-416b-46d5-aa9a-a2dc50d5a62d"
+ },
+ {
   "id": "775b047c-fb14-41d6-9172-8d2d7c7494ed",
   "quiz_id": "24e6140f-9819-41ba-8b34-1fab26849c75",
   "question_text": "V=6V, I=0.5A. R?",
@@ -17568,6 +18324,24 @@
   "statement_id": null
  },
  {
+  "id": "7b710c90-5e36-4292-8b72-a83241caf736",
+  "quiz_id": "5d895a1e-40b7-468f-82c2-58373c9edc7e",
+  "question_text": "A 5 m ladder leans against a smooth wall with its foot 1.4 m from the wall. Find the angle between the ladder and the ground, to 1 decimal place.",
+  "options": [
+   "16.3 degrees",
+   "45.0 degrees",
+   "73.7 degrees",
+   "60.0 degrees"
+  ],
+  "correct_option": 2,
+  "explanation": "Adjacent = 1.4, hypotenuse = 5, so cos(angle) = 0.28 [1]. Angle = cos inverse (0.28) = 73.7 degrees [1]. Using sin inverse finds the angle with the wall instead.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "d63c4b89-8c7d-46ff-a9d0-5bdb3c1b68a3"
+ },
+ {
   "id": "7b79d978-ca7c-475e-aa95-716769ca451f",
   "quiz_id": "44f0b5c3-c164-4b2e-bac3-9e8cb661ef7f",
   "question_text": "Linked list insert at a known node is:",
@@ -17692,6 +18466,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "7c5ad4f9-0f3a-4c17-a885-197c40059910",
+  "quiz_id": "460df1a8-bb6c-4344-b607-c2d150a0b104",
+  "question_text": "Find the median of 3, 5, 7, 9, 11 and 15.",
+  "options": [
+   "7",
+   "8",
+   "9",
+   "10"
+  ],
+  "correct_option": 1,
+  "explanation": "With 6 values the median is the mean of the 3rd and 4th [1]: (7 + 9) / 2 = 8 [1]. Picking the 3rd value alone (7) treats an even set like an odd one.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "f82259e7-b9b1-4895-b8a2-a791edb44e2d"
  },
  {
   "id": "7c77a929-0ab0-4ab0-84c8-5b0b3ba0d88d",
@@ -18090,6 +18882,24 @@
   "statement_id": null
  },
  {
+  "id": "7e6499af-38c7-4838-882a-b07a415f400a",
+  "quiz_id": "0016e84e-952c-418f-b51a-df0d76bd54a0",
+  "question_text": "The probability a bulb is faulty is 0.2. In a batch of 150 bulbs, how many are expected to be faulty?",
+  "options": [
+   "20",
+   "30",
+   "75",
+   "300"
+  ],
+  "correct_option": 1,
+  "explanation": "Expected frequency = probability x trials [1] = 0.2 x 150 = 30 [1]. This estimates the count; it does not guarantee exactly 30.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fa64b828-d544-4119-9d89-14e2b95367e1"
+ },
+ {
   "id": "7e72045d-18cf-4bb1-949e-87a78d837d17",
   "quiz_id": "53b8eec7-1dae-4806-b47c-733f87ee2151",
   "question_text": "Which of these is covered by the \"Processor Fundamentals\" study notes?",
@@ -18412,6 +19222,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "7fc20811-8204-483e-86fb-e19d9d981259",
+  "quiz_id": "0620ce1d-6e3f-4e8a-be34-d1f6071933a0",
+  "question_text": "The line L has equation y = 2x + 1. A second line, perpendicular to L, passes through the point (4, 2). Find its equation.",
+  "options": [
+   "y = -0.5x + 4",
+   "y = 0.5x",
+   "y = -2x + 10",
+   "y = 2x - 6"
+  ],
+  "correct_option": 0,
+  "explanation": "A perpendicular line has gradient -1/2, the negative reciprocal of 2 [1]. Substituting (4, 2): 2 = -0.5(4) + c gives c = 4 [1], so y = -0.5x + 4. The common error is to keep gradient 2 or use +1/2.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "43490b99-9ea6-43f3-850a-7c828d29dc30"
  },
  {
   "id": "7fc33fb8-0a51-4e66-8e83-28655bffc5c8",
@@ -19674,6 +20502,24 @@
   "statement_id": null
  },
  {
+  "id": "8808f19e-1cc7-4521-8fd4-29993ef2f3ab",
+  "quiz_id": "087a5b6e-7c15-463a-b714-f75cb9a74d98",
+  "question_text": "On a Venn diagram the shaded region contains elements that are in B but not in A. Which set notation describes it?",
+  "options": [
+   "A union B",
+   "B intersect A complement",
+   "A intersect B",
+   "A complement union B"
+  ],
+  "correct_option": 1,
+  "explanation": "In B but not in A means B intersect (not A) [1]. In symbols B intersect A complement [1]. A intersect B is only the overlap, missing the rest of B.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "191900a3-e010-4e24-a94f-3529ca35d03f"
+ },
+ {
   "id": "88154fe4-c022-46f0-9f91-7042c5440c3d",
   "quiz_id": "83b2b18b-c8c4-498f-88c7-ec5cca0a27f7",
   "question_text": "A ship sails on a bearing of 060° for 10 km, then due south for 8 km. What bearing has it covered overall from its starting point?",
@@ -19816,6 +20662,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "89672719-57d1-47aa-8c67-8ba3ff970f92",
+  "quiz_id": "087a5b6e-7c15-463a-b714-f75cb9a74d98",
+  "question_text": "Which of these statements is mathematically true?",
+  "options": [
+   "2 is a subset of {1, 2, 3}",
+   "{2} is a subset of {1, 2, 3}",
+   "{1, 2, 3} is a subset of {2}",
+   "The empty set equals {0}"
+  ],
+  "correct_option": 1,
+  "explanation": "{2} is a set containing 2, and every element of it lies in {1, 2, 3}, so it is a subset [1]. A bare element (2) cannot be a subset, and the empty set has no elements while {0} has one [1]. Element versus subset confusion is the whole test.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "191900a3-e010-4e24-a94f-3529ca35d03f"
  },
  {
   "id": "89b8b2b7-03f0-4090-9d04-a8e68327c6fe",
@@ -20394,6 +21258,24 @@
   "statement_id": null
  },
  {
+  "id": "8e63bedc-08f0-4e3b-baa4-9fc491e0ed59",
+  "quiz_id": "bf22a392-2246-41df-852d-6705fb5cc43f",
+  "question_text": "Evaluate 27 to the power 2/3.",
+  "options": [
+   "18",
+   "6",
+   "9",
+   "3"
+  ],
+  "correct_option": 2,
+  "explanation": "Cube root first: cube root 27 = 3 [1]. Then square: 3 squared = 9 [1]. Multiplying 27 by 2/3 gives 18, which ignores what a fractional index means.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "99fdebbd-43a3-4205-a2d0-31472b1559d7"
+ },
+ {
   "id": "8eaec99a-5065-4895-96d0-fbbe901bea32",
   "quiz_id": "1ef19d27-142b-481a-94d0-d1210407cbdf",
   "question_text": "An SSD is a type of:",
@@ -20934,6 +21816,24 @@
   "statement_id": null
  },
  {
+  "id": "921a56c7-61b7-4d66-a601-36d43044ed1e",
+  "quiz_id": "4e359d5d-e0c9-4fce-ba3f-ba32526423e6",
+  "question_text": "A line of best fit is used to estimate a value far outside the plotted data range. What is this called, and how reliable is it?",
+  "options": [
+   "Interpolation, reliable",
+   "Extrapolation, less reliable",
+   "Correlation, causal",
+   "Averaging, exact"
+  ],
+  "correct_option": 1,
+  "explanation": "Estimating beyond the data is extrapolation [1]. Trends may not continue, so it is less reliable than interpolation within the range [1]. Strong correlation does not make extrapolation safe.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ebb31131-aef7-4992-8bc5-a48c987aa2b6"
+ },
+ {
   "id": "924b7d34-5020-43d2-9312-b4abae42cd8f",
   "quiz_id": "0883e010-0b8c-4638-ac5c-805345bcf5d5",
   "question_text": "Pseudocode \"REPEAT UNTIL done = TRUE\" will:",
@@ -21438,6 +22338,24 @@
   "statement_id": null
  },
  {
+  "id": "9613a7a3-e600-4082-8162-758ba32e00bf",
+  "quiz_id": "1c93b6a3-fd8c-4761-8374-735d468650a7",
+  "question_text": "After a 20% discount a jacket costs 64 dollars. Find its original price.",
+  "options": [
+   "51.20 dollars",
+   "80 dollars",
+   "76.80 dollars",
+   "84 dollars"
+  ],
+  "correct_option": 1,
+  "explanation": "64 dollars represents 80% of the original [1]. Original = 64 / 0.8 = 80 dollars [1]. Adding 20% to 64 (giving 76.80) treats the sale price as the base and is wrong.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "04ee8e5b-9651-4308-8159-e62c8869e2eb"
+ },
+ {
   "id": "968730a3-c4a6-421d-b09b-882c46a5a090",
   "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
   "question_text": "Which of these does the \"Quantum Physics\" notes NOT cover?",
@@ -21472,6 +22390,24 @@
   "difficulty": "check",
   "objective_id": "846a1579-8802-400e-ba0e-824b6defb714",
   "statement_id": null
+ },
+ {
+  "id": "9695afc0-fbaf-4bcd-bf8b-98b016eae0d1",
+  "quiz_id": "1c93b6a3-fd8c-4761-8374-735d468650a7",
+  "question_text": "Find 35% of 240 without a calculator.",
+  "options": [
+   "84",
+   "70",
+   "35",
+   "120"
+  ],
+  "correct_option": 0,
+  "explanation": "10% of 240 = 24, so 30% = 72 and 5% = 12 [1]. Total 72 + 12 = 84 [1]. Method marks reward a correct build from 10% even if the arithmetic slips.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "04ee8e5b-9651-4308-8159-e62c8869e2eb"
  },
  {
   "id": "96cd4261-472c-40dd-83bf-27969b7b5685",
@@ -21580,6 +22516,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "97a7eb5b-5601-4ca4-b866-bda53bf9cc66",
+  "quiz_id": "4e359d5d-e0c9-4fce-ba3f-ba32526423e6",
+  "question_text": "Ice-cream sales and sunburn cases show strong positive correlation. What can be concluded?",
+  "options": [
+   "Ice cream causes sunburn",
+   "Sunburn causes ice-cream sales",
+   "Banning ice cream reduces sunburn",
+   "Correlation does not prove causation"
+  ],
+  "correct_option": 3,
+  "explanation": "Both rise with a third variable (hot sunny weather) [1]. Correlation alone never establishes cause, however strong [1]. The exam rewards naming the confounder, not picking a direction.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:27:25.074406+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ebb31131-aef7-4992-8bc5-a48c987aa2b6"
  },
  {
   "id": "97ac3702-504c-4b7e-a28b-9feb833028aa",
@@ -22338,6 +23292,24 @@
   "statement_id": null
  },
  {
+  "id": "9ca05708-7b77-4982-a9ee-a0099759741e",
+  "quiz_id": "0620ce1d-6e3f-4e8a-be34-d1f6071933a0",
+  "question_text": "A straight line passes through the points A(2, 5) and B(6, 17). Find the equation of the line in the form y = mx + c.",
+  "options": [
+   "y = 4x - 3",
+   "y = 2x + 1",
+   "y = 3x - 1",
+   "y = 3x + 11"
+  ],
+  "correct_option": 2,
+  "explanation": "Gradient m = (17 - 5) / (6 - 2) = 12 / 4 = 3 [1]. Substituting A(2, 5): 5 = 3(2) + c, so c = -1 [1]. The equation is y = 3x - 1. Using only the x-coordinates or adding the intercept instead of subtracting it loses the second mark.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "9324c6bb-8d1e-4537-a509-507f03ccd65e"
+ },
+ {
   "id": "9caabd0c-364e-4e32-a485-6833d54de303",
   "quiz_id": "83a5aaae-6c28-469d-80a3-6d091e75c905",
   "question_text": "From the \"Databases\" notes, which statement appears?",
@@ -22498,6 +23470,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "9da1be8b-fbda-457b-acc0-7e3dd4dbc837",
+  "quiz_id": "24b0fe23-cb55-4531-9f3a-2ae27362f3e0",
+  "question_text": "ABCD is a cyclic quadrilateral. Angle A = (2x + 30) degrees and opposite angle C = (x + 15) degrees. Find x.",
+  "options": [
+   "x = 50",
+   "x = 30",
+   "x = 45",
+   "x = 60"
+  ],
+  "correct_option": 2,
+  "explanation": "Opposite angles of a cyclic quadrilateral sum to 180 [1]. So 3x + 45 = 180, giving 3x = 135 and x = 45 [1]. The trap is treating adjacent angles as supplementary without checking they are opposite.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ada3deb8-7725-4dbe-bdc5-1180c5d5a7f9"
  },
  {
   "id": "9ddfc844-3f01-467a-bc41-2c7a89eba130",
@@ -22912,6 +23902,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "a08dd4a6-2145-478a-9ced-bb5aeef98f4f",
+  "quiz_id": "d4ced3a2-ff11-4958-97bd-574e765328b1",
+  "question_text": "Find the lowest common multiple (LCM) of 60 and 84.",
+  "options": [
+   "12",
+   "60",
+   "420",
+   "84"
+  ],
+  "correct_option": 2,
+  "explanation": "Prime factorise: 60 = 2 squared x 3 x 5, 84 = 2 squared x 3 x 7 [1]. LCM takes the highest powers: 2 squared x 3 x 5 x 7 = 420 [1]. Taking the lowest powers gives the HCF (12), not the LCM.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fde0b8bb-1c9d-455c-87a6-9bfe99d37e51"
  },
  {
   "id": "a0d6b2ae-019f-4039-be03-c951e8e9963d",
@@ -23472,6 +24480,24 @@
   "statement_id": null
  },
  {
+  "id": "a3a3c3f3-9258-4b49-ad48-ac0bced64b0a",
+  "quiz_id": "1c93b6a3-fd8c-4761-8374-735d468650a7",
+  "question_text": "2000 dollars is invested at 3% compound interest per year. Find the amount after 2 years.",
+  "options": [
+   "2060 dollars",
+   "2120 dollars",
+   "2180 dollars",
+   "2121.80 dollars"
+  ],
+  "correct_option": 3,
+  "explanation": "After 1 year: 2000 x 1.03 = 2060 [1]. After 2 years: 2060 x 1.03 = 2121.80 dollars [1]. Adding 3% twice to the original (2120) ignores compounding on the first year interest.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fbc326d5-29aa-47b3-ad26-9875688a77b7"
+ },
+ {
   "id": "a3a6aa64-e408-43d6-ad3f-4cfb87fd07de",
   "quiz_id": "6fe16e28-8c7c-4d51-9bf2-997b5a56b51a",
   "question_text": "A text file contains the string 'AAAAABBBB'. What is the result of applying run-length encoding to this string?",
@@ -23758,6 +24784,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "a54f6d8f-e3e1-4126-a0c3-02ba89376a56",
+  "quiz_id": "0620ce1d-6e3f-4e8a-be34-d1f6071933a0",
+  "question_text": "The curve y = x squared - 4x + 3 crosses the x-axis at P and Q and has a minimum at R. Write down the x-coordinate of R and hence the equation of the line of symmetry.",
+  "options": [
+   "x = 4",
+   "x = 2",
+   "x = 1",
+   "x = 3"
+  ],
+  "correct_option": 1,
+  "explanation": "Factorising: (x - 1)(x - 3) = 0 so P = (1, 0), Q = (3, 0) [1]. The axis of symmetry is midway at x = (1 + 3) / 2 = 2, which is also the x-coordinate of the minimum R(2, -1) [1]. Do not confuse the minimum value -1 with its x-coordinate.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "12bf65ff-6799-415c-b652-53602b130d71"
  },
  {
   "id": "a55f1b06-6818-4c4c-baa9-1060c1ec3444",
@@ -25452,6 +26496,24 @@
   "statement_id": null
  },
  {
+  "id": "b18f5fcd-c3ec-4c19-8a67-073479ddc0c0",
+  "quiz_id": "22a72e79-6ccc-4a29-91f9-33cbb369020a",
+  "question_text": "In triangle ABC, b = 5 cm, c = 8 cm and angle A = 60 degrees. Find a.",
+  "options": [
+   "7 cm",
+   "9 cm",
+   "12.7 cm",
+   "49 cm"
+  ],
+  "correct_option": 0,
+  "explanation": "Cosine rule: a squared = 25 + 64 - 2 x 5 x 8 x cos 60 [1]. cos 60 = 0.5, so a squared = 49 and a = 7 cm [1]. Answering 49 forgets the square root.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:29:22.096507+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "48aacf94-b819-4a50-a520-431b5e6d4568"
+ },
+ {
   "id": "b18fc184-cf44-4f86-8ac7-3f0225582f1a",
   "quiz_id": "c9c5b2b2-b378-47cd-80ec-21d3dc4fe2b9",
   "question_text": "The ideal gas equation is:",
@@ -26406,6 +27468,24 @@
   "statement_id": null
  },
  {
+  "id": "b8bdd9b2-0e80-44ba-b4f8-9738cfbe27ac",
+  "quiz_id": "ac4bad4d-4d5c-4787-9415-73fa9feb3a41",
+  "question_text": "A car travels 120 km in 1 hour 40 minutes. Find its average speed in km/h.",
+  "options": [
+   "60 km/h",
+   "80 km/h",
+   "72 km/h",
+   "48 km/h"
+  ],
+  "correct_option": 2,
+  "explanation": "Convert the time: 1 h 40 min = 5/3 hours [1]. Speed = 120 / (5/3) = 72 km/h [1]. Dividing by 1.40 treats minutes as decimals of an hour.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "a958d335-3cb6-44c9-bb71-59b19579eeaa"
+ },
+ {
   "id": "b8be47ac-3ff9-429a-b172-9305f5e8ffb4",
   "quiz_id": "e3fca5ce-954e-452a-8dd7-5b5272fcaa33",
   "question_text": "Average speed of 150km/2h + 90km/1h?",
@@ -26530,6 +27610,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "babbc899-1f9c-4a1f-94d1-ebcd74e48cc4",
+  "quiz_id": "b9627073-3fe4-4e0e-bade-43f145cff7c9",
+  "question_text": "The bearing of B from A is 074 degrees. Find the bearing of A from B.",
+  "options": [
+   "106 degrees",
+   "254 degrees",
+   "286 degrees",
+   "074 degrees"
+  ],
+  "correct_option": 1,
+  "explanation": "The back bearing differs by 180: 074 + 180 = 254 [1]. Since 254 < 360 no further adjustment is needed [1]. Subtracting 180 wrongly (giving a negative) or adding 74 instead are the usual slips.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "b8c1670b-811d-49dd-9299-80514158abab"
  },
  {
   "id": "bac9ef6a-7b66-4a36-bd76-914ed2dcf330",
@@ -26998,6 +28096,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "bd7945a9-304d-418b-b68c-41bd8f52956e",
+  "quiz_id": "b9627073-3fe4-4e0e-bade-43f145cff7c9",
+  "question_text": "Describe the locus of points that are exactly 3 cm from a fixed point P.",
+  "options": [
+   "A square of side 3 cm",
+   "A line segment of length 3 cm",
+   "A triangle around P",
+   "A circle centre P radius 3 cm"
+  ],
+  "correct_option": 3,
+  "explanation": "By definition the locus of constant distance from a point is a circle [1]. Centre P, radius 3 cm [1]. Any polygon answer confuses locus with construction lines.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "dbd03bf0-93a1-4cd1-aab8-50f10abb5e63"
  },
  {
   "id": "bdbdba1a-604e-4bab-934b-5bf85483fb97",
@@ -27774,6 +28890,24 @@
   "statement_id": null
  },
  {
+  "id": "c40e1664-5921-4a47-9437-ac5b32632e24",
+  "quiz_id": "685fcdc2-ffde-4265-b4e4-568746aa375e",
+  "question_text": "Expand and simplify (x + 5)(x - 2).",
+  "options": [
+   "x squared + 3x - 10",
+   "x squared + 7x - 10",
+   "x squared - 3x - 10",
+   "x squared + 3x + 10"
+  ],
+  "correct_option": 0,
+  "explanation": "Multiply: x squared - 2x + 5x - 10 [1]. Combine like terms: x squared + 3x - 10 [1]. The sign error (+10) comes from multiplying +5 by -2 incorrectly.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "9051ed2a-b60c-4ee9-bf44-78e11977672a"
+ },
+ {
   "id": "c40fb60a-a117-4cd1-bf89-77096022e659",
   "quiz_id": "57b56d3d-585a-4b3e-98ae-d94223035c27",
   "question_text": "|x + 3| < 2 gives:",
@@ -27972,6 +29106,24 @@
   "statement_id": null
  },
  {
+  "id": "c5a45f93-4225-4fb3-b1d3-e7661f10f8db",
+  "quiz_id": "22a72e79-6ccc-4a29-91f9-33cbb369020a",
+  "question_text": "In triangle ABC, angle A = 40 degrees, side a = 7 cm, and angle B = 65 degrees. Find side b to 1 decimal place.",
+  "options": [
+   "7.0 cm",
+   "8.4 cm",
+   "9.9 cm",
+   "11.2 cm"
+  ],
+  "correct_option": 2,
+  "explanation": "Sine rule: b / sin 65 = 7 / sin 40 [1]. b = 7 x sin 65 / sin 40 = 9.9 cm to 1 d.p. [1]. Pairing a side with the wrong angle is the mark lost here.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:29:22.096507+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "48aacf94-b819-4a50-a520-431b5e6d4568"
+ },
+ {
   "id": "c5a6fe18-3553-4b88-a574-f714ed577ee3",
   "quiz_id": "3107b57a-6a97-4148-8cb7-7e0763470928",
   "question_text": "Which statement is NOT in the \"Functions\" study notes?",
@@ -28042,6 +29194,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "c60e169c-0415-4d47-ad16-9e404702038d",
+  "quiz_id": "eda04ffe-d5d0-481b-8709-af6b1c56dd84",
+  "question_text": "Find the magnitude of the vector (6; 8).",
+  "options": [
+   "14",
+   "10",
+   "48",
+   "7"
+  ],
+  "correct_option": 1,
+  "explanation": "Magnitude = root(36 + 64) = root 100 [1] = 10 [1]. Adding without the square root (100) or adding components (14) both fail.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "43af0726-dd70-41c6-846c-e2df8eeab7bb"
  },
  {
   "id": "c65630df-125d-4247-9405-d8ba687e7a4c",
@@ -28132,6 +29302,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "c7189273-4d47-4bf6-a8ac-4e632b76d741",
+  "quiz_id": "24fe5c39-d228-4932-8bae-4b038f051ba4",
+  "question_text": "Each new figure in a pattern adds 3 matchsticks to the previous one. The first figure uses 5 matchsticks. How many matchsticks does the 20th figure use?",
+  "options": [
+   "65",
+   "59",
+   "62",
+   "60"
+  ],
+  "correct_option": 2,
+  "explanation": "This is a linear sequence with first term 5 and difference 3: nth figure uses 5 + 3(n - 1) [1]. The 20th uses 5 + 3(19) = 5 + 57 = 62 [1]. Using 5 + 3 x 20 = 65 counts one extra difference.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "07c3b287-aa69-45df-a2f2-dfb968f72da7"
  },
  {
   "id": "c7229e23-bf69-481f-b1aa-6cf7aa570fba",
@@ -28240,6 +29428,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "c7e98782-e1f7-4c63-a94e-4c142e4da408",
+  "quiz_id": "05d79961-07f6-4835-a1d9-c6f198f1b8f3",
+  "question_text": "A sector of a circle of radius 6 cm has angle 60 degrees at the centre. Find its area in terms of pi.",
+  "options": [
+   "12 pi",
+   "3 pi",
+   "6 pi",
+   "36 pi"
+  ],
+  "correct_option": 2,
+  "explanation": "Fraction of circle = 60/360 = 1/6 [1]. Area = (1/6) x pi x 36 = 6 pi cm squared [1]. Forgetting to divide by 360 gives the whole circle 36 pi.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "8907f67e-9b77-48fd-8d21-659d080d7500"
  },
  {
   "id": "c804e592-73f9-43ad-a726-07edc10ae751",
@@ -28998,6 +30204,24 @@
   "statement_id": null
  },
  {
+  "id": "cd1dcb1b-ba43-453e-bbd9-6a271ad6033b",
+  "quiz_id": "bf22a392-2246-41df-852d-6705fb5cc43f",
+  "question_text": "Simplify root 50, giving your answer in the form a root b with b prime.",
+  "options": [
+   "25 root 2",
+   "5 root 2",
+   "10 root 5",
+   "2 root 5"
+  ],
+  "correct_option": 1,
+  "explanation": "Split: root 50 = root(25 x 2) = 5 root 2 [1]. Since 2 is prime the surd is fully simplified [1]. 25 root 2 fails to take the square root of 25.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "bfe5c373-2ab3-4887-a7b8-93025ef9f14f"
+ },
+ {
   "id": "cd3d583a-d0e5-4e05-b579-ac3cd5c085e4",
   "quiz_id": "0eabfc11-afe2-4cac-ae48-4eee6c719e59",
   "question_text": "Which statement belongs to the \"Energy, Work & Power\" notes?",
@@ -29086,6 +30310,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "cd98f9df-c0f3-403a-9e8b-22449dd688f6",
+  "quiz_id": "eda04ffe-d5d0-481b-8709-af6b1c56dd84",
+  "question_text": "Evaluate (3; -2) + (-5; 7) as a single column vector.",
+  "options": [
+   "(8; 5)",
+   "(-2; 9)",
+   "(2; -9)",
+   "(-2; 5)"
+  ],
+  "correct_option": 3,
+  "explanation": "Add x-components: 3 + (-5) = -2 [1]. Add y-components: -2 + 7 = 5 [1]. Result (-2; 5). Mixing signs in the y-component gives 9.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "72a12ab0-14d1-4a48-a248-f143bd40fb0e"
  },
  {
   "id": "cdc6fd2b-ddef-45c6-a097-70cb873094f2",
@@ -29376,6 +30618,24 @@
   "statement_id": null
  },
  {
+  "id": "d0251000-85b5-4eb3-9894-0a7067c694d3",
+  "quiz_id": "eabebc13-93cb-435e-a55b-2839f9cf26fd",
+  "question_text": "Find the largest integer satisfying 4(x - 2) < 3x + 1.",
+  "options": [
+   "8",
+   "9",
+   "7",
+   "10"
+  ],
+  "correct_option": 0,
+  "explanation": "Expand: 4x - 8 < 3x + 1 [1]. Rearrange: x < 9, so the largest integer is 8 [1]. Writing x <= 9 or answering 9 confuses the strict inequality with the integer below it.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2d03602e-a489-4cf9-8c06-6f992d3c4747"
+ },
+ {
   "id": "d0556755-706b-45c0-b553-bf5cb486c3c7",
   "quiz_id": "ff5df118-08b6-4cc7-a709-0e4e6aaf5935",
   "question_text": "JOIN is used to:",
@@ -29518,6 +30778,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "d1e19c54-ad5b-485b-aca9-c85cf0d81501",
+  "quiz_id": "24b0fe23-cb55-4531-9f3a-2ae27362f3e0",
+  "question_text": "Three angles on a straight line are (2x + 10) degrees, (x + 20) degrees and 90 degrees. Find x and hence the largest of the three angles.",
+  "options": [
+   "x = 30, largest 90",
+   "x = 40, largest 100",
+   "x = 20, largest 90",
+   "x = 50, largest 110"
+  ],
+  "correct_option": 2,
+  "explanation": "Angles on a straight line sum to 180: (2x + 10) + (x + 20) + 90 = 180 [1]. So 3x + 120 = 180 and x = 20; the angles are 50, 40 and 90, so the largest is 90 [1]. Collecting the constants wrongly is where the mark is lost.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "1fb8071f-c77c-4a07-a79a-907036c51840"
  },
  {
   "id": "d24722c1-ad8a-44ec-8b02-c39db6e9f595",
@@ -29754,6 +31032,24 @@
   "statement_id": null
  },
  {
+  "id": "d3f89065-6aee-4ef6-a225-4de3dcc2ea2d",
+  "quiz_id": "d4ced3a2-ff11-4958-97bd-574e765328b1",
+  "question_text": "Evaluate (72 - 8 x 5) + 4 squared, showing the correct order of operations.",
+  "options": [
+   "40",
+   "128",
+   "48",
+   "144"
+  ],
+  "correct_option": 2,
+  "explanation": "Brackets and multiplication first: 8 x 5 = 40, so 72 - 40 = 32; 4 squared = 16 [1]. Then 32 + 16 = 48 [1]. Working left to right ((72 - 8) x 5) breaks BIDMAS and gives 320-scale answers.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "48e8ca0d-acd8-4f77-aa86-07fedb533734"
+ },
+ {
   "id": "d409741d-e1ef-4c29-9141-c5ed5ee27e92",
   "quiz_id": "8e13e3c0-dd4b-4882-b2ee-3e94d1b819ab",
   "question_text": "Which statement is missing from the \"Networks and the Internet\" notes?",
@@ -29790,6 +31086,24 @@
   "statement_id": null
  },
  {
+  "id": "d43fa42b-8caf-4717-8e59-6a89623f1bdd",
+  "quiz_id": "bf22a392-2246-41df-852d-6705fb5cc43f",
+  "question_text": "Rationalise the denominator of 6 / root 3, simplifying fully.",
+  "options": [
+   "6 root 3",
+   "3 root 6",
+   "root 3 / 2",
+   "2 root 3"
+  ],
+  "correct_option": 3,
+  "explanation": "Multiply top and bottom by root 3: 6 root 3 / 3 [1]. Simplify: 2 root 3 [1]. Stopping at 6 root 3 / 3 is not fully simplified.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "bfe5c373-2ab3-4887-a7b8-93025ef9f14f"
+ },
+ {
   "id": "d464b61c-306b-4413-b70e-733193c4d51f",
   "quiz_id": "0fe7f77f-cdeb-4d7e-9777-2f39cba58ecf",
   "question_text": "Which statement belongs to the \"Pressure & Density\" notes?",
@@ -29824,6 +31138,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "d4dac052-634a-49c7-b606-6910d744b238",
+  "quiz_id": "24fe5c39-d228-4932-8bae-4b038f051ba4",
+  "question_text": "f(x) = 2x + 1 and g(x) = x squared - 2. Find gf(3).",
+  "options": [
+   "47",
+   "34",
+   "23",
+   "11"
+  ],
+  "correct_option": 0,
+  "explanation": "First apply f: f(3) = 2(3) + 1 = 7 [1]. Then apply g: g(7) = 49 - 2 = 47 [1]. Computing fg(3) = 2(7) + 1 = 15 instead reverses the order and scores nothing.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "c13b8f97-672b-4bf5-b6e9-0b7df400bce7"
  },
  {
   "id": "d4f82168-924b-4649-af35-e3b3bcb1fc3c",
@@ -30148,6 +31480,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "d729281a-6fa1-4541-9beb-43b732532326",
+  "quiz_id": "5d895a1e-40b7-468f-82c2-58373c9edc7e",
+  "question_text": "A right-angled triangle has hypotenuse 13 cm and one shorter side 5 cm. Find the smallest angle, to 1 decimal place.",
+  "options": [
+   "67.4 degrees",
+   "45.0 degrees",
+   "22.6 degrees",
+   "30.0 degrees"
+  ],
+  "correct_option": 2,
+  "explanation": "sin(angle) = opposite / hypotenuse = 5/13 [1]. Angle = sin inverse (5/13) = 22.6 degrees to 1 d.p. [1]. Using 5 as the adjacent side (cosine) finds the other acute angle instead.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "76dcb39d-bbc9-40b4-9f9d-0988bb24aa6e"
  },
  {
   "id": "d7728878-4020-473a-94e5-2dbbb9a3a992",
@@ -30546,6 +31896,24 @@
   "statement_id": null
  },
  {
+  "id": "daeed57d-9e83-4628-900c-287fdf9508d6",
+  "quiz_id": "460df1a8-bb6c-4344-b607-c2d150a0b104",
+  "question_text": "Find the mean of 4, 7, 9, 12 and 13.",
+  "options": [
+   "9",
+   "8",
+   "7",
+   "45"
+  ],
+  "correct_option": 0,
+  "explanation": "Total = 4 + 7 + 9 + 12 + 13 = 45 [1]. Mean = 45 / 5 = 9 [1]. Answering 45 forgets the final division.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "f82259e7-b9b1-4895-b8a2-a791edb44e2d"
+ },
+ {
   "id": "daf25d45-8f46-43a3-8212-439dea375ec3",
   "quiz_id": "a993d761-1d53-4903-8072-8f99ad33aa26",
   "question_text": "A function that returns a value uses the keyword:",
@@ -30850,6 +32218,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "dca54edc-8c74-41a3-af82-2fd7fafda7d0",
+  "quiz_id": "ac4bad4d-4d5c-4787-9415-73fa9feb3a41",
+  "question_text": "Divide 600 dollars between Ama and Ben in the ratio 2 : 3. How much does each receive?",
+  "options": [
+   "200 and 400 dollars",
+   "240 and 360 dollars",
+   "150 and 450 dollars",
+   "300 and 300 dollars"
+  ],
+  "correct_option": 1,
+  "explanation": "Total parts = 5, so one part = 600 / 5 = 120 [1]. Ama gets 2 x 120 = 240 and Ben 3 x 120 = 360 dollars [1]. Dividing by 2 and 3 directly (300/200 splits) ignores part values.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "9d2cde29-bf9a-4eb0-a2be-4203cdfd2ba7"
  },
  {
   "id": "dcab4fdf-727e-4397-bd97-583f770dbdb9",
@@ -31500,6 +32886,24 @@
   "statement_id": null
  },
  {
+  "id": "e0b48b93-3d18-44b3-9d7f-e0c8c8a15cef",
+  "quiz_id": "0016e84e-952c-418f-b51a-df0d76bd54a0",
+  "question_text": "A bag holds 3 red and 2 blue counters. Two are drawn without replacement. Find P(both red).",
+  "options": [
+   "3/10",
+   "6/25",
+   "9/25",
+   "1/2"
+  ],
+  "correct_option": 0,
+  "explanation": "First draw 3/5, second 2/4 [1]. Multiply: (3/5) x (2/4) = 6/20 = 3/10 [1]. Keeping the denominator at 5 (with replacement) gives 9/25.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "d721dc88-719c-46d5-9769-4b3f19481d97"
+ },
+ {
   "id": "e0c43750-809a-4698-ab2d-8aca574948e6",
   "quiz_id": "3637c640-0eb1-4fc1-adce-91b2684e23a8",
   "question_text": "SMTP is used for:",
@@ -31680,6 +33084,24 @@
   "statement_id": null
  },
  {
+  "id": "e27ab80b-792e-4da7-bb1d-8ab7dfde034a",
+  "quiz_id": "685fcdc2-ffde-4265-b4e4-568746aa375e",
+  "question_text": "Simplify (3x squared y)(4x y cubed).",
+  "options": [
+   "12x cubed y cubed",
+   "12x cubed y to the power 4",
+   "7x cubed y to the power 4",
+   "12x squared y cubed"
+  ],
+  "correct_option": 1,
+  "explanation": "Multiply coefficients: 3 x 4 = 12 [1]. Add powers of like bases: x squared times x = x cubed, y times y cubed = y to the power 4 [1]. Adding coefficients instead of multiplying is the usual error.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:20:26.927979+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "857ed8f1-5004-4794-8e95-0ba0010de541"
+ },
+ {
   "id": "e29c020a-1aa4-4534-bd0c-2079316f025f",
   "quiz_id": "a832a613-ca04-4ac1-9aac-1636ba9a591f",
   "question_text": "Below the threshold frequency, electrons:",
@@ -31714,6 +33136,24 @@
   "difficulty": "check",
   "objective_id": null,
   "statement_id": "6ce916a8-1105-4534-8542-13b1edfba4b0"
+ },
+ {
+  "id": "e2a2da7c-cf6a-49d1-a12e-45ae1300ee79",
+  "quiz_id": "460df1a8-bb6c-4344-b607-c2d150a0b104",
+  "question_text": "Heights are grouped: 10 <= h < 20 (freq 7), 20 <= h < 30 (freq 12), 30 <= h < 40 (freq 5). Write down the modal class.",
+  "options": [
+   "10 <= h < 20",
+   "0 <= h < 10",
+   "30 <= h < 40",
+   "20 <= h < 30"
+  ],
+  "correct_option": 3,
+  "explanation": "The modal class is the group with the highest frequency [1]: 20 <= h < 30 with frequency 12 [1]. The mode of grouped data is a class interval, never a single number.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fb85c9b1-a44d-4ba5-a23d-0ec70f79a4fc"
  },
  {
   "id": "e2a38899-e429-4966-9478-631bb2e1219d",
@@ -31912,6 +33352,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "e3ac9542-2416-486d-a35d-6c02607e7c9a",
+  "quiz_id": "d4ced3a2-ff11-4958-97bd-574e765328b1",
+  "question_text": "A length is measured as 6.3 cm to 1 decimal place. Write down its upper bound.",
+  "options": [
+   "6.35 cm",
+   "6.34 cm",
+   "6.4 cm",
+   "6.30 cm"
+  ],
+  "correct_option": 0,
+  "explanation": "Half the precision is 0.05, so values from 6.25 up to but excluding 6.35 round to 6.3 [1]. The upper bound is 6.35 cm [1]. Writing 6.34 confuses the largest rounded value with the bound itself.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "a5ee6859-b901-43af-a68f-c28557d4135b"
  },
  {
   "id": "e3bceefa-9167-4196-93fb-87d89154a752",
@@ -32454,6 +33912,24 @@
   "statement_id": null
  },
  {
+  "id": "e6b05e7f-d63f-4659-98d3-87c7c6c95a19",
+  "quiz_id": "0620ce1d-6e3f-4e8a-be34-d1f6071933a0",
+  "question_text": "A is the point (-3, 7) and B is the point (5, -1). Calculate the exact length AB, simplifying any surd.",
+  "options": [
+   "8",
+   "4 root 2",
+   "16",
+   "8 root 2"
+  ],
+  "correct_option": 3,
+  "explanation": "AB squared = (5 - (-3)) squared + (-1 - 7) squared = 64 + 64 = 128 [1]. Root 128 = root(64 x 2) = 8 root 2 [1]. The midpoint (1, 3) earns no credit here; check the question asks for length, not midpoint.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "02a67d31-e8a3-4668-940b-55bc0aa20b70"
+ },
+ {
   "id": "e6e6f187-fafa-4ba7-a2a9-a21db1b11e08",
   "quiz_id": "92a9a8b8-1b42-4bde-9709-7d4e368bc8e0",
   "question_text": "P(X = 3) for X ~ B(4, 0.5) is:",
@@ -32506,6 +33982,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "e72a30d1-543e-4aa2-b37c-0fb35262ae04",
+  "quiz_id": "bf1126e1-36b9-41f3-b371-5f2b7b5a17d2",
+  "question_text": "Two similar solids have corresponding edges in the ratio 2 : 5. The smaller has volume 64 cm cubed. Find the volume of the larger.",
+  "options": [
+   "160 cm cubed",
+   "400 cm cubed",
+   "1000 cm cubed",
+   "800 cm cubed"
+  ],
+  "correct_option": 3,
+  "explanation": "Volume scale factor is the cube of the linear factor: (5/2) cubed = 125/8 [1]. Larger volume = 64 x 125/8 = 1000 cm cubed [1]. Using the squared factor gives 400, which is an area scale, not volume.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "ed3cc4db-bf36-4289-b4fc-7d02227f9ec7"
  },
  {
   "id": "e762d00b-cd72-4676-8f43-76c1dd1d5a3f",
@@ -32848,6 +34342,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "e9c3c371-34fc-4d4c-9d52-ac7a2fa6b02d",
+  "quiz_id": "bf22a392-2246-41df-852d-6705fb5cc43f",
+  "question_text": "Write 0.00045 in standard form.",
+  "options": [
+   "4.5 x 10 to the power 4",
+   "45 x 10 to the power -5",
+   "4.5 x 10 to the power -4",
+   "0.45 x 10 to the power -3"
+  ],
+  "correct_option": 2,
+  "explanation": "Standard form is one non-zero digit before the point: 4.5 x 10 to the power n [1]. Moving the point 4 places right means n = -4 [1]. Answers B and D are not standard form even where numerically close.",
+  "sort_order": 8,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "d3a10912-2eba-4d74-a662-551c53d79097"
  },
  {
   "id": "e9d68beb-d0e3-44e5-85d3-5fa5094280f5",
@@ -33588,6 +35100,24 @@
   "statement_id": null
  },
  {
+  "id": "ef3f2920-e926-4c15-a390-cd5df9bcef18",
+  "quiz_id": "05d79961-07f6-4835-a1d9-c6f198f1b8f3",
+  "question_text": "A solid cylinder has radius 3 cm and height 10 cm. Find its volume in terms of pi.",
+  "options": [
+   "30 pi cm cubed",
+   "90 pi cm cubed",
+   "60 pi cm cubed",
+   "900 pi cm cubed"
+  ],
+  "correct_option": 1,
+  "explanation": "Volume = pi r squared h = pi x 9 x 10 [1] = 90 pi cm cubed [1]. Squaring the height instead of the radius gives 900 pi.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "d0a7aaf8-ccad-4409-88e6-d00882b2f08b"
+ },
+ {
   "id": "ef4432ed-572c-4739-9f0c-58ba3ce8b036",
   "quiz_id": "fcb7f0a6-502f-46a5-9a8c-e8257fbf703a",
   "question_text": "Which term in the sequence 2, 5, 8, 11, ... is 50?",
@@ -33856,6 +35386,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "f1b044a1-1254-46e0-ac66-b33a396162bd",
+  "quiz_id": "1c93b6a3-fd8c-4761-8374-735d468650a7",
+  "question_text": "Express 3/8 as a percentage.",
+  "options": [
+   "3.75%",
+   "0.375%",
+   "37.5%",
+   "375%"
+  ],
+  "correct_option": 2,
+  "explanation": "3/8 = 0.375 as a decimal [1]. Multiply by 100: 37.5% [1]. Misplacing the decimal by one step gives 3.75% or 375%.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 07:25:29.654884+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "a5e53b20-b28c-4188-8cc9-3efebb15241c"
  },
  {
   "id": "f1bcec21-9b75-4222-88be-e79e28ef4107",
@@ -34902,6 +36450,24 @@
   "statement_id": null
  },
  {
+  "id": "f7e2fb39-8b61-48f9-ae9d-d57d09081071",
+  "quiz_id": "ac4bad4d-4d5c-4787-9415-73fa9feb3a41",
+  "question_text": "A map has scale 1 : 50000. Two towns are 7 cm apart on the map. Find the real distance in kilometres.",
+  "options": [
+   "3.5 km",
+   "350 km",
+   "35 km",
+   "0.35 km"
+  ],
+  "correct_option": 0,
+  "explanation": "Real distance = 7 x 50000 = 350000 cm [1]. Convert: 350000 cm = 3500 m = 3.5 km [1]. Each missed unit conversion costs a mark.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:26:08.246815+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "a958d335-3cb6-44c9-bb71-59b19579eeaa"
+ },
+ {
   "id": "f8051d3d-ab64-45eb-adc1-a657fc85a164",
   "quiz_id": "9a057bc4-6d5e-48ef-9404-09458fad70d4",
   "question_text": "Solve 2x + 3y = 12 and 3x - y = 7.",
@@ -35044,6 +36610,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "f93ab7d5-3841-489b-b0da-01b4e7bceb6b",
+  "quiz_id": "eda04ffe-d5d0-481b-8709-af6b1c56dd84",
+  "question_text": "The point (2; 5) is rotated 90 degrees clockwise about the origin. Find its image.",
+  "options": [
+   "(-5; -2)",
+   "(5; -2)",
+   "(-5; 2)",
+   "(2; 5)"
+  ],
+  "correct_option": 1,
+  "explanation": "A 90-degree clockwise rotation maps (x; y) to (y; -x) [1]. So (2; 5) maps to (5; -2) [1]. Using (-y; x) rotates anticlockwise instead.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2dc19ed6-207f-46b1-bdaf-de86317140a7"
  },
  {
   "id": "f99faf28-e002-4279-84ea-acb081dc0630",
@@ -35208,6 +36792,24 @@
   "statement_id": null
  },
  {
+  "id": "fa576472-1b48-4c4d-87f9-dc9477d1a29f",
+  "quiz_id": "5d895a1e-40b7-468f-82c2-58373c9edc7e",
+  "question_text": "A right-angled triangle has legs 9 cm and 12 cm. Find the hypotenuse.",
+  "options": [
+   "15 cm",
+   "21 cm",
+   "12.5 cm",
+   "225 cm"
+  ],
+  "correct_option": 0,
+  "explanation": "Hypotenuse squared = 81 + 144 = 225 [1]. Hypotenuse = 15 cm [1]. Answering 225 forgets the final square root.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "33584833-368d-47fe-9688-e4e1913896c1"
+ },
+ {
   "id": "fae5aca6-a244-4d28-b6e5-411684855622",
   "quiz_id": "4e359d5d-e0c9-4fce-ba3f-ba32526423e6",
   "question_text": "From the \"Scatter Diagrams and Correlation\" notes, which statement appears?",
@@ -35224,6 +36826,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "faf659c0-869b-40d5-b79d-b56eb70abac2",
+  "quiz_id": "b9627073-3fe4-4e0e-bade-43f145cff7c9",
+  "question_text": "A map uses a scale of 1 cm to 2 km. Two villages are 6.5 cm apart on the map. Find the actual distance.",
+  "options": [
+   "13 km",
+   "3.25 km",
+   "8.5 km",
+   "32.5 km"
+  ],
+  "correct_option": 0,
+  "explanation": "Multiply by the scale factor: 6.5 x 2 = 13 km [1]. The method mark is for a correct scale multiplication even with arithmetic slips [1]. Dividing by 2 inverts the scale.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 07:24:54.116123+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "b8c1670b-811d-49dd-9299-80514158abab"
  },
  {
   "id": "fb07c6cb-bdbe-4fc9-8840-534e55da2232",
@@ -35316,6 +36936,24 @@
   "statement_id": null
  },
  {
+  "id": "fb4a51af-aec3-4235-84a5-4e390234b290",
+  "quiz_id": "22a72e79-6ccc-4a29-91f9-33cbb369020a",
+  "question_text": "The sine rule gives sin B = 0.9 for an angle B of a triangle, with B obtuse. Find B to 1 decimal place.",
+  "options": [
+   "64.2 degrees only",
+   "25.8 degrees",
+   "115.8 degrees",
+   "180.0 degrees"
+  ],
+  "correct_option": 2,
+  "explanation": "sin inverse (0.9) = 64.2 degrees is the acute solution [1]. The obtuse solution is 180 - 64.2 = 115.8 degrees [1]. Calculators return only the acute angle, so the ambiguous case must be handled by hand.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:29:22.096507+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "48aacf94-b819-4a50-a520-431b5e6d4568"
+ },
+ {
   "id": "fb5f4b3c-e09f-495f-b565-cd9adc5f4bf4",
   "quiz_id": "edc1cfad-2ce7-441d-a35f-f213a9ac5bfd",
   "question_text": "NAT exists to:",
@@ -35388,6 +37026,24 @@
   "statement_id": null
  },
  {
+  "id": "fbebd84d-f7ad-4501-b363-8fcdc87c3c8e",
+  "quiz_id": "eabebc13-93cb-435e-a55b-2839f9cf26fd",
+  "question_text": "Solve the inequality 5 - 2x > 11.",
+  "options": [
+   "x > -3",
+   "x < -3",
+   "x > 3",
+   "x < 3"
+  ],
+  "correct_option": 1,
+  "explanation": "Subtract 5: -2x > 6 [1]. Divide by -2 and reverse the inequality sign: x < -3 [1]. Forgetting to reverse the sign when dividing by a negative is the classic lost mark.",
+  "sort_order": 9,
+  "created_at": "2026-10-12 07:18:41.415786+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2d03602e-a489-4cf9-8c06-6f992d3c4747"
+ },
+ {
   "id": "fbf629ca-0ac7-4489-9db3-fb22fa93fa19",
   "quiz_id": "83a5aaae-6c28-469d-80a3-6d091e75c905",
   "question_text": "Which statement belongs to the \"Databases\" notes?",
@@ -35424,6 +37080,24 @@
   "statement_id": null
  },
  {
+  "id": "fc723812-6495-47f9-a688-8af62e127f3e",
+  "quiz_id": "460df1a8-bb6c-4344-b607-c2d150a0b104",
+  "question_text": "A pictogram uses one car symbol to represent 4 cars. A row shows 7 and a half symbols. How many cars is that?",
+  "options": [
+   "34",
+   "30",
+   "28",
+   "7.5"
+  ],
+  "correct_option": 1,
+  "explanation": "Multiply: 7.5 x 4 = 30 cars [1]. The half symbol contributes 2 cars; dropping it gives 28 [1]. Always convert the key before counting.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:28:13.04097+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2748700d-757a-4b3f-953f-97298ebe69a4"
+ },
+ {
   "id": "fca32f11-fd22-47a0-920a-df39e3cd00b4",
   "quiz_id": "83b2b18b-c8c4-498f-88c7-ec5cca0a27f7",
   "question_text": "What is the locus of points 3 cm from a fixed point?",
@@ -35440,6 +37114,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "fca6f140-0af5-4ee5-a004-b84c571eeafd",
+  "quiz_id": "eda04ffe-d5d0-481b-8709-af6b1c56dd84",
+  "question_text": "The point (2; 5) is translated by the vector (-3; 4). Find the image.",
+  "options": [
+   "(-1; 9)",
+   "(5; 1)",
+   "(-1; 1)",
+   "(5; 9)"
+  ],
+  "correct_option": 0,
+  "explanation": "Add components: 2 + (-3) = -1 and 5 + 4 = 9 [1]. Image (-1; 9) [1]. Subtracting the vector instead reverses the translation.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 07:28:52.112168+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "2dc19ed6-207f-46b1-bdaf-de86317140a7"
  },
  {
   "id": "fcb8900f-353d-48e1-b24e-84007a0da437",
@@ -35656,6 +37348,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "fdb483c7-34cb-4dd9-85fa-c962bf0cb1ae",
+  "quiz_id": "24b0fe23-cb55-4531-9f3a-2ae27362f3e0",
+  "question_text": "A regular hexagon has side length 4 cm. Find the sum of its interior angles.",
+  "options": [
+   "1080 degrees",
+   "360 degrees",
+   "720 degrees",
+   "540 degrees"
+  ],
+  "correct_option": 2,
+  "explanation": "Sum of interior angles = (n - 2) x 180 with n = 6 [1]. (6 - 2) x 180 = 720 degrees [1]. Each interior angle is 120 degrees but the question asks for the sum; dividing by 6 too soon is the common slip.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 07:24:08.048542+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "f205a906-2a53-49fc-8dca-710669f8007a"
  },
  {
   "id": "fdba5089-68ba-48b1-8d14-ad0eb5dba219",
