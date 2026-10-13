@@ -151,8 +151,8 @@ Flux Φ = BA (B ⊥ A). Generators rotate coils in fields; transformers link two
     questions: [
       { q: "F = BIL sin θ applies to:", opts: ["a capacitor","a current-carrying wire in a field","a static charge","two charges"], correct: 1, explain: "Force on a current." },
       { q: "A 0.5 m wire carrying 3 A at 90° to a 0.2 T field feels:", opts: ["0.3 N","0.6 N","0.033 N","3 N"], correct: 0, explain: "F = 0.2 × 3 × 0.5." },
-      { q: "The force on a moving charge is:", opts: ["BQ/v","BQv²","Qv/B","BQv"], correct: 3, explain: "F = BQv sin θ." },
-      { q: "A charge in a uniform B field moves in:", opts: ["a parabola","a spiral always","a circle","a straight line"], correct: 2, explain: "Force stays perpendicular to velocity." },
+      { q: "The force on a moving charge perpendicular to a magnetic field is:", opts: ["BQ/v","BQv²","Qv/B","BQv"], correct: 3, explain: "The magnetic force is F = BQv sin θ. At 90° to the field, sin θ = 1, so F = BQv." },
+      { q: "A charged particle enters a uniform magnetic field at 90° to the field. Its path is:", opts: ["a parabola","a spiral always","a circle","a straight line"], correct: 2, explain: "The magnetic force is always perpendicular to the velocity and has constant magnitude BQv, so it supplies centripetal force and the particle follows a circle." },
       { q: "Faraday's law: induced EMF equals:", opts: ["resistance × current","rate of flux cutting","total flux","flux × time"], correct: 1, explain: "EMF = −N dΦ/dt." },
       { q: "Lenz's law says the induced current:", opts: ["opposes the change causing it","aids the change","is always clockwise","produces no field"], correct: 0, explain: "Energy conservation in induction." },
       { q: "A 100-turn coil with flux changing 2 mWb in 50 ms induces:", opts: ["0.04 V","40 V","0.4 V","4 V"], correct: 3, explain: "N × ΔΦ/Δt." },

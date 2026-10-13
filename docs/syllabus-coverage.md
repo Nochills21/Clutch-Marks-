@@ -16,7 +16,7 @@ an opinion.
 | Piece | Path | What it does |
 | --- | --- | --- |
 | Outline extractor | [.freebuff/syllabus-outline.cjs](../.freebuff/syllabus-outline.cjs) | Downloads the board's PDF, extracts the subtopic outline, records the source URL + date |
-| Outline data | [.freebuff/syllabus/](../.freebuff/syllabus) | The boards' PDFs and their extracted outlines: 0580 (72 subtopics, 20 Extended-only), 0625 (24), 9618 (44 = 29 AS + 15 A2) |
+| Outline data | [.freebuff/syllabus/](../.freebuff/syllabus) | The boards' PDFs and their extracted outlines: 0478 (24), 0580 (72 subtopics, 20 Extended-only), 0625 (24), 9618 (44 = 29 AS + 15 A2) |
 | Seeder + mapping | [.freebuff/content-syllabus-statements.cjs](../.freebuff/content-syllabus-statements.cjs) | One mapping table per spec: board code → our topic slug, and the statement's own level (`@A2`) where the board splits a spec across halves. Refuses to run if a mapped slug does not exist; names the extractor artifacts it drops instead of seeding them |
 | Table | `public.syllabus_statements` | One row per official subtopic, with `topic_id` (NULL = an open gap) |
 | Report | `public.syllabus_coverage()` | Live, admin-gated: every subtopic, its topic, and whether that topic is ready |
@@ -24,18 +24,18 @@ an opinion.
 | Labelling + ordering | [frontend/src/lib/syllabusCoverage.ts](../frontend/src/lib/syllabusCoverage.ts) | The panel's decisions (what "needs attention" means, what ranks first, where a row links) as pure functions with [tests](../frontend/src/lib/syllabusCoverage.test.ts) |
 | Live probe | [.freebuff/probe-syllabus-coverage-live.cjs](../.freebuff/probe-syllabus-coverage-live.cjs) | Asserts the report works for an admin and is refused for a student |
 
-Verified live today (`node .freebuff/probe-syllabus-coverage-live.cjs`):
+Last run of `node .freebuff/probe-syllabus-coverage-live.cjs`, 13 October 2026 (see §8 for why one check fails):
 
 ```
 PASS  admin can call syllabus_coverage() — HTTP 200
-PASS  the report has rows — 140 rows
-      specs loaded: CAIE 0580 OL, CAIE 0625 OL, CAIE 9618 AS, CAIE 9618 A2
-      (nine spec-levels and 278 rows as of §7)
-PASS  every statement maps to a topic
+PASS  the report has rows — 164 rows
+      specs loaded: CAIE 0478 OL, CAIE 0580 OL, CAIE 0625 OL, CAIE 9618 AS, CAIE 9618 A2
+PASS  no statement is unmapped that is not a known gap
+FAIL  the known-gap list still matches the database — 19 named 9709/9702 gaps are absent
 PASS  every row reports the A*-readiness gate
 PASS  a_star_ready agrees with its own inputs — 0 inconsistent rows
 PASS  unmapped statements are never reported as ready
-      140 statements: 140 mapped, 140 on a covered topic (100%), 0 A*-ready (0%)
+      164 statements: 164 mapped, 164 on a covered topic (100%), 164 A*-ready (100%)
 PASS  a student cannot read the coverage report — HTTP 200 with 0 rows
 ```
 
@@ -43,13 +43,13 @@ Statement counts, read from the table:
 
 | Spec | Level | Statements | Mapped | Our topics used |
 | --- | --- | --- | --- | --- |
+| 0478 Computer Science | IGCSE | 24 | 24 | not counted in this pass |
 | 0580 Mathematics (2025-2027) | IGCSE | 72 (52 core-and-extended, 20 Extended-only) | 72 | 20 of 20 |
 | 0625 Physics (2026-2028) | IGCSE | 24 | 24 | 10 of 10 |
 | 9618 Computer Science (2026) | AS | 29 | 29 | 9 AS + 3 A2 |
 | 9618 Computer Science (2026) | A2 | 15 | 15 | 5 A2 + 4 AS |
 
-**All three loaded specs are fully mapped: 140/140 statements point at a topic that
-teaches them.** Two things in that table are findings rather than bookkeeping:
+**As first written, the three specs loaded then were fully mapped: 140/140. The live figures are in §8.** Two things in that table are findings rather than bookkeeping:
 
 - **0580's tier is the board's own** — `C2.5` is Core, `E1.18` is Extended — so
   "Extended content only" is a fact, not our guess. 20 of 72 rows are
@@ -83,7 +83,7 @@ Measured across all 100 topics today:
 | Question difficulties in use | `medium` only (1,940 rows) |
 | Material types in use | `notes`, `summary` only |
 
-**These figures are as measured this morning and are superseded by §7, which was
+**These figures are as measured this morning and are superseded by §7 and §8, which were
 written later the same day after two more specs were loaded and the A* layer
 started shipping. The table is kept as written because §7's argument is a
 difference from it.**
@@ -143,7 +143,7 @@ The six specs our students sit, and where each stands:
 | --- | --- | --- | --- |
 | 0580 Mathematics | CAIE | IGCSE | **Loaded and mapped (72/72)** |
 | 0625 Physics | CAIE | IGCSE | **Loaded and mapped (24/24)** — two extractor artifacts (`1.0`, the `2.5 …V) and holders` table-cell spill) are dropped by name |
-| 0478 Computer Science | CAIE | IGCSE | **Not seeded — extractor incomplete**: areas 7, 9 and 10 are missing from the parse entirely and area 6's titles arrive truncated, so the outline is not the specification |
+| 0478 Computer Science | CAIE | IGCSE | **Loaded and mapped (24/24)**. Areas 7, 9 and 10 have no subtopic code, so the extractor's `bareAreas` option takes the area number as the statement (§7.2) |
 | 9618 Computer Science | CAIE | AS + A2 | **Loaded and mapped (44/44)** |
 | YMA01 Mathematics | Edexcel | AS + A2 (IAL) | PDF downloaded; parser currently unit-level only (P1-P4, S1-S2, M1-M2, FP1-FP3) |
 | YPH01 Physics | Edexcel | AS + A2 (IAL) | PDF downloaded; parser unit-level (Units 1-6) |
@@ -177,10 +177,8 @@ Edexcel at unit level would claim coverage we cannot point at.
 
 ## 5. What to build next, in order
 
-1. **Fix 0478's extractor, then map it** — the last CAIE spec, and the only
-   blocker is the parse: its subject-content tables need a second layout pass
-   before seeding them is honest. Then re-check 0625's two dropped codes against
-   a refreshed PDF.
+1. **Re-check 0625's two dropped codes against a refreshed PDF.** 0478 is now
+   loaded and mapped (§8).
 2. **Write the Edexcel unit → topic split down**, then map YMA01 and YPH01. Their
    outlines are unit-level (P1-P4, S1-S2, M1-M2, FP1-FP3; Units 1-6) and our
    AS/A2 topics are finer than a unit but not aligned to its boundaries, so this
@@ -201,9 +199,8 @@ Edexcel at unit level would claim coverage we cannot point at.
 
 ## 6. Known limitations of what is committed
 
-- 0580, 0625 and 9618 are loaded and mapped (140 statements). 0478 has a PDF and
-  an outline but no rows, because its parse is incomplete; the two Edexcel specs
-  are unit-level only.
+- 0478, 0580, 0625 and 9618 are loaded and mapped (164 statements). 9709 and 9702
+  are no longer in the database (§8). The two Edexcel specs are unit-level only.
 - The extractor is heuristic. Titles should be spot-checked against the PDF
   before a spec is published as covered; rows it cannot title are left blank and
   surface in the report rather than passing silently.
@@ -357,3 +354,40 @@ that only the reviewer catches the self-consistent kind.
 - The Edexcel-papers-vs-CAIE-courses question in §7.1 is unanswered.
 - The Edexcel IAL outline files (`YMA01`/`YPH01`) are still on disk, now unused.
   They are the evidence for §7.1, so they are kept rather than deleted.
+
+---
+
+## 8. Current state, 13 October 2026: 9709 and 9702 removed
+
+Read from the live database with a read-only query over `public.syllabus_statements`:
+
+| Spec | Level | Statements | Mapped |
+| --- | --- | --- | --- |
+| 0478 Computer Science | OL | 24 | 24 |
+| 0580 Mathematics | OL | 72 | 72 |
+| 0625 Physics | OL | 24 | 24 |
+| 9618 Computer Science | AS | 29 | 29 |
+| 9618 Computer Science | A2 | 15 | 15 |
+| **Total** | | **164** | **164** |
+
+What changed since §7:
+
+- **No 9709 or 9702 rows remain.** The 19 gaps listed in §7.3 are gone with them,
+  so they are no longer gaps: they are not in the report at all. The reason is not
+  recorded in the repo; treat it as the owner's decision, in the same way §7.1's
+  Edexcel-versus-CAIE question is.
+- **0478 is loaded** at 24/24, which §4, §5 and §6 said was not yet the case.
+
+What still disagrees with the database:
+
+- **The seeder still has 9709 and 9702 mapping tables** in
+  `.freebuff/content-syllabus-statements.cjs`. Re-running the seeder for those
+  specs would put the rows back. Do not re-run it for them until the decision is
+  made.
+- **The live probe's known-gap list still names the 19 9709/9702 gaps**, so its
+  "known-gap list still matches the database" check fails. The list needs
+  updating to the database, or the removal reversed.
+- **The A* figure needs checking before it is quoted.** The probe reports
+  `164 A*-ready (100%)`, while §2 and §7.4 measured 13 of 100 topics. The two
+  numbers measure different things, or one of them is stale. Neither is verified
+  yet, so §7.4's 13/100 is not superseded here.

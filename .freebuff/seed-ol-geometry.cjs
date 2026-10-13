@@ -358,14 +358,20 @@ const geometryTopics = [
       questions: [
         { question_text: 'A shape is reflected in the x-axis. The point (3, 5) maps to:', options: ['(3, −5)', '(−3, 5)', '(5, 3)', '(−3, −5)'], correct_option: 0, explanation: 'Reflection in x-axis: (x, y) → (x, −y). So (3, 5) → (3, −5).' },
         { question_text: 'A shape is rotated 90° clockwise about the origin. The point (1, 0) maps to:', options: ['(0, 1)', '(0, −1)', '(−1, 0)', '(1, 0)'], correct_option: 1, explanation: '90° clockwise: (x, y) → (y, −x). (1, 0) → (0, −1).' },
-        { question_text: 'What is ⎛⎝2⎞⎠ + ⎛⎝−1⎞⎠ ?', options: ['⎛⎝3⎞⎠', '⎛⎝1⎞⎠', '⎛⎝3⎞⎠', '⎛⎝1⎞⎠'], correct_option: 2, explanation: 'Add components: (2 + (−1), 5 + 3) = (1, 8).', },
-        { question_text: 'Calculate the magnitude of vector ⎛⎝6⎞⎠.', options: ['10', '13', '15', '8'], correct_option: 0, explanation: '|⃗a| = √(6² + 8²) = √(36 + 64) = √100 = 10.' },
-        { question_text: 'A translation is given by the vector ⎛⎝−3⎞⎠. What does this mean?', options: ['3 units right, 2 units up', '3 units left, 2 units down', '3 units left, 2 units up', '3 units right, 2 units down'], correct_option: 1, explanation: 'Vector ⎛⎝−3⎞⎠ means −3 (left) and −2 (down).' },
+        // Written as (x; y), the form the topic's own lesson teaches ("Column
+        // vector (x; y)") — these four vectors used to be drawn as two stacked
+        // lines of bracket-piece glyphs, and every second row was lost the moment
+        // the text was copied into a single-line string, which left the addition
+        // row with two identical options. Repaired in the live database by
+        // supabase/migrations/20261009120000_repair_transformations_vector_questions.sql.
+        { question_text: 'What is (2; 5) + (−1; 3)?', options: ['(1; 8)', '(3; 8)', '(1; 2)', '(3; 2)'], correct_option: 0, explanation: 'Add components: (2 + (−1), 5 + 3) = (1, 8).', },
+        { question_text: 'Calculate the magnitude of the vector (6; 8).', options: ['10', '13', '15', '8'], correct_option: 0, explanation: '|⃗a| = √(6² + 8²) = √(36 + 64) = √100 = 10.' },
+        { question_text: 'A translation is given by the vector (−3; −2). What does this mean?', options: ['3 units right, 2 units up', '3 units left, 2 units down', '3 units left, 2 units up', '3 units right, 2 units down'], correct_option: 1, explanation: 'Vector (−3; −2) means −3 (left) and −2 (down).' },
         { question_text: 'An enlargement has scale factor 3 and centre the origin. Where does (2, 1) go?', options: ['(5, 4)', '(6, 3)', '(8, 4)', '(6, 2)'], correct_option: 1, explanation: 'Multiply each coordinate by 3: (2 × 3, 1 × 3) = (6, 3).' },
         { question_text: 'Which transformation is a rotation of 180° about the origin?', options: ['(x, y) → (y, x)', '(x, y) → (−x, −y)', '(x, y) → (x, −y)', '(x, y) → (−y, x)'], correct_option: 1, explanation: '180° rotation about origin: (x, y) → (−x, −y).' },
         { question_text: 'Two vectors are parallel if:', options: ['Their magnitudes are equal', 'One is a scalar multiple of the other', 'Their dot product is zero', 'They point in the same direction'], correct_option: 1, explanation: '⃗a ∥ ⃗b if ⃗a = k⃗b for some scalar k (k ≠ 0).' },
         { question_text: 'A reflection in the line x = 0 maps (4, 7) to:', options: ['(−4, 7)', '(4, −7)', '(7, 4)', '(−4, −7)'], correct_option: 0, explanation: 'x = 0 is the y-axis. Reflection in y-axis: (x, y) → (−x, y). So (4, 7) → (−4, 7).' },
-        { question_text: 'If OA = ⎛⎝2⎞⎠ and OB = ⎛⎝4⎞⎠, what is ⎛⎝−2⎞⎠ ?', options: ['AB', 'BA', 'OA + OB', '2OA'], correct_option: 0, explanation: '⃗AB = ⃗OB − ⃗OA = (4−2, 1−3) = (2, −2).' }
+        { question_text: 'If OA = (2; 3) and OB = (4; 1), which of these vectors is OB − OA?', options: ['AB', 'BA', 'OA + OB', '2OA'], correct_option: 0, explanation: '⃗AB = ⃗OB − ⃗OA = (4−2, 1−3) = (2, −2).' }
       ]
     }
   }

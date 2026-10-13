@@ -244,10 +244,13 @@ for (const p of policies) {
   const permissive = p.permissive === "PERMISSIVE" ? "" : " as restrictive";
   let stmt = `create policy ${qid(p.policyname)} on ${schemaExpr(p.schemaname, p.tablename)}${permissive} for ${cmd}`;
   if (roles && roles !== "public") stmt += ` to ${roles}`;
-  if (p.qual && p.cmd !== "ALL") stmt += ` using (${p.qual});`;
-  else if (p.qual && p.cmd === "ALL") stmt += ` using (${p.qual})`;
-  if (p.with_check) stmt += p.qual && p.cmd === "ALL" ? ` with check (${p.with_check});` : ` with check (${p.with_check});`;
-  else if (p.qual && p.cmd === "ALL") stmt += `;`;
+  // Terminate once, at the end. Emitting `;` after the USING clause produced
+  // `using (…); with check (…)` for any policy that has both — invalid SQL that
+  // made base.sql fail its own BEGIN…ROLLBACK smoke test (the storage policies
+  // below get this right; this loop used to get it wrong).
+  if (p.qual) stmt += ` using (${p.qual})`;
+  if (p.with_check) stmt += ` with check (${p.with_check})`;
+  stmt += `;`;
   out.push(`drop policy if exists ${qid(p.policyname)} on ${schemaExpr(p.schemaname, p.tablename)};`);
   out.push(stmt);
 }
