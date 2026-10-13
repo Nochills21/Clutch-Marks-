@@ -300,6 +300,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "7e19e178-4e51-4c32-8277-8b3651f248ab",
+  "entity_type": "material",
+  "entity_id": "a5a4ad94-c42a-4993-87dc-62e555d836b9",
+  "title": "Hardware and Logic Gates — Study Notes",
+  "content": "<p>`# Hardware and Logic Gates</p>\n<h3>Logic Gates</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>\n</table>\n<p>NOT inverts; NAND is 'AND then NOT'; XOR outputs 1 when inputs differ.</p>\n<h3>Boolean Algebra Laws</h3>\n<ul>\n<li>De Morgan: (A·B)′ = A′ + B′; (A + B)′ = A′ · B′</li>\n<li>Distribution: A·(B + C) = A·B + A·C</li>\n<li>Absorption: A + A·B = A</li>\n</ul>\n<p><strong>Example:</strong> simplify A + A′B = (A + A′)(A + B) = A + B.</p>\n<h3>Constructing Circuits</h3>\n<p>Truth table → Boolean expression → gates. A half adder: S = A XOR B, C = A AND B.</p>\n<h3>Flip-Flops (Bistables)</h3>\n<ul>\n<li><strong>SR latch</strong>: set/reset, invalid state S=R=1</li>\n<li><strong>JK</strong>: like SR but J=K=1 toggles</li>\n<li>Clock signals synchronise state changes</li>\n</ul>\n<h3>Von Neumann Model</h3>\n<p>CPU (ALU, control unit, registers: PC, MAR, MDR, ACC) + memory + I/O, sharing one bus system; instructions fetched–decoded–executed in cycles.</p>\n<p><strong>Exam tips:</strong> write truth tables fully; simplify before drawing circuits to save gates, and name the law you use.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-12 20:03:59.658342+00"
+ },
+ {
   "id": "82f4c7dc-0d04-4996-80b5-c724477cd122",
   "entity_type": "material",
   "entity_id": "c015774f-319c-423f-94e2-c1b6a3505c70",
