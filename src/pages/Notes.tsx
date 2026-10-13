@@ -322,7 +322,7 @@ export default function Notes() {
                       <button
                         onClick={() => toggle(n.id)}
                         aria-label={studied ? "Mark as not studied" : "Mark as studied"}
-                        className="shrink-0 transition-transform hover:scale-110"
+                        className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition-transform hover:bg-muted"
                       >
                         {studied
                           ? <CheckCircle2 className="h-5 w-5 text-primary" />
@@ -399,7 +399,7 @@ export default function Notes() {
 
       {/* ---------- reader ---------- */}
       <Dialog open={!!viewing} onOpenChange={(o) => !o && setViewing(null)}>
-        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
+        <DialogContent className="cm-study max-w-3xl max-h-[85vh] overflow-y-auto grid-rows-[auto_1fr]">
           <DialogHeader className="text-left">
             <p className="eyebrow mb-1">
               {viewing ? `${viewing.subject_name}${viewing.level ? ` · ${LEVEL_LABELS[viewing.level as "OL"] ?? viewing.level}` : ""}` : ""}
@@ -410,7 +410,7 @@ export default function Notes() {
             <DialogDescription>{viewing?.topic_name}</DialogDescription>
             <hr className="rule-gold mt-3" />
           </DialogHeader>
-          <div className="prose-elegant pt-1">
+          <div className="prose-elegant pt-1 [&>div>h1:first-child]:!mt-0 [&>div>h2:first-child]:!mt-0 [&>div>h3:first-child]:!mt-0 [&>div>h1:first-child]:!border-0 [&>div>h1:first-child]:!p-0 [&>div>h2:first-child]:!border-0 [&>div>h2:first-child]:!p-0 [&>div>h3:first-child]:!border-0 [&>div>h3:first-child]:!p-0">
             <div
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(/<\/?(p|h[1-6]|ul|ol|li|table|div)\b/i.test(viewing?.content ?? "") ? (viewing?.content ?? "") : (viewing?.content ?? "").replace(/\n/g, "<br/>")),

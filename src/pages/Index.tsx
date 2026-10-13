@@ -122,35 +122,6 @@ export default function Index() {
               No card required &middot; Start with a free preview of every level
             </p>
 
-            <div className="mx-auto mt-14 max-w-4xl">
-              <div className="surface-raised relative overflow-hidden p-4 sm:p-6">
-                <div className="bloom pointer-events-none absolute inset-0" aria-hidden="true" />
-                <div className="flex items-center justify-center gap-3 py-4">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold-soft/20 px-3 py-1.5 text-[11px] font-mono tracking-[0.12em] uppercase text-gold-soft">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                    AI marking included
-                  </span>
-                </div>
-                <picture>
-                  <source
-                    srcSet="/brand/cover-960.webp 960w, /brand/cover.webp 1600w"
-                    sizes="(max-width: 1024px) 100vw, 896px"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/brand/cover-960.jpg"
-                    srcSet="/brand/cover-960.jpg 960w, /brand/cover.jpg 1600w"
-                    sizes="(max-width: 1024px) 100vw, 896px"
-                    width={1600}
-                    height={893}
-                    alt="Master your clutch moments — achieve your best marks with focused tools"
-                    decoding="async"
-                    fetchPriority="high"
-                    className="relative w-full rounded-xl"
-                  />
-                </picture>
-              </div>
-            </div>
           </div>
         </section>
 

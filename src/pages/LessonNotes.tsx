@@ -247,7 +247,7 @@ export default function LessonNotes() {
             <p className="text-sm text-muted-foreground">No notes have been uploaded for this topic yet.</p>
           ) : notes.map((n) => (
             <div key={n.id} className="flex flex-wrap items-center gap-3 rounded-lg border p-3">
-              <button onClick={() => toggle(n.id)} aria-label={done[n.id] ? "Mark as not studied" : "Mark as studied"} className="shrink-0">
+              <button onClick={() => toggle(n.id)} aria-label={done[n.id] ? "Mark as not studied" : "Mark as studied"} className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md hover:bg-muted">
                 {done[n.id] ? <CheckCircle2 className="h-5 w-5 text-emerald-500" /> : <Circle className="h-5 w-5 text-muted-foreground" />}
               </button>
               <p className="min-w-0 flex-1 truncate text-sm font-medium">{n.title}</p>

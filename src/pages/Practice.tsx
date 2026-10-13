@@ -74,8 +74,9 @@ export default function Practice() {
   const { toast } = useToast();
   const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick, filtering } = useMySubjects();
   const [params, setParams] = useSearchParams();
-  const tab = params.get("tab") ?? "topics";
-  const mode = params.get("mode") ?? "incorrect";
+  const requestedMode = params.get("mode") ?? "incorrect";
+  const mode = requestedMode === "bookmarked" ? "bookmarked" : requestedMode === "all" ? "all" : "incorrect";
+  const tab = params.get("tab") ?? (mode === "bookmarked" ? "review" : "topics");
   const levelId = params.get("level") ?? "all";
   // Default the review-level filter to the first subject-level the student
   // picked, so a student who chooses "Ol Math" immediately sees only Ol Math
@@ -600,7 +601,24 @@ export default function Practice() {
           </h1>
           <p className="text-muted-foreground">Every question in one place: browse by topic, revisit the ones you're less sure of, and fix mistakes.</p>
         </div>
-        <SubjectPicker />
+        <div className="flex items-center gap-2">
+          <Button
+            variant={mode === "bookmarked" ? "secondary" : "outline"}
+            size="sm"
+            className="gap-1.5"
+            aria-pressed={mode === "bookmarked"}
+            onClick={() => {
+              const next = new URLSearchParams(params);
+              next.set("tab", "review");
+              if (mode === "bookmarked") next.delete("mode");
+              else next.set("mode", "bookmarked");
+              setParams(next, { replace: true });
+            }}
+          >
+            <Bookmark className="h-3.5 w-3.5" /> Bookmarked
+          </Button>
+          <SubjectPicker />
+        </div>
       </div>
 
       <Tabs value={tab} onValueChange={(v) => setParam("tab", v)}>
@@ -663,13 +681,18 @@ export default function Practice() {
         <TabsContent value="review" className="mt-4 space-y-4">
           <Card>
             <CardContent className="flex flex-wrap items-center gap-3 p-4">
-              <Tabs value={mode} onValueChange={(v) => setParam("mode", v)}>
-                <TabsList>
-                  <TabsTrigger value="incorrect">Incorrect</TabsTrigger>
-                  <TabsTrigger value="bookmarked">Bookmarked</TabsTrigger>
-                  <TabsTrigger value="all">Both</TabsTrigger>
-                </TabsList>
-              </Tabs>
+              {mode === "bookmarked" ? (
+                <Badge variant="secondary" className="gap-1.5">
+                  <Bookmark className="h-3.5 w-3.5" /> Bookmarked questions
+                </Badge>
+              ) : (
+                <Tabs value={mode} onValueChange={(v) => setParam("mode", v)}>
+                  <TabsList>
+                    <TabsTrigger value="incorrect">Incorrect</TabsTrigger>
+                    <TabsTrigger value="all">Both</TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              )}
               <Select value={defaultedLevelId} onValueChange={(v) => setParam("level", v)}>
                 <SelectTrigger className="w-[230px]"><SelectValue placeholder="Subject & level" /></SelectTrigger>
                 <SelectContent>

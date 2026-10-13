@@ -5,6 +5,7 @@ import {
   archivePaperKeys,
   boardLabel,
   filterArchivePapers,
+  filterPapersForSubjects,
   matchPaperFiles,
   parsePaperFileName,
   paperFileName,
@@ -169,6 +170,53 @@ describe("paperSortKey / sortSessions", () => {
   it("orders sessions by the board calendar with specimens last", () => {
     const sessions = ["Specimen", "Oct/Nov", "May/June", "Feb/Mar", "Other"];
     expect([...sessions].sort(sortSessions)).toEqual(["Feb/Mar", "May/June", "Oct/Nov", "Specimen", "Other"]);
+  });
+});
+
+describe("filterPapersForSubjects", () => {
+  const topicSubjects = new Map([["topic-maths", "maths-as"]]);
+  const codeSubjects = new Map([
+    ["mathematics/AS", "maths-as"],
+    ["physics/A2", "physics-a2"],
+  ]);
+  const scope = {
+    isAdmin: false,
+    loaded: true,
+    signedIn: true,
+    pickedSubjectLevels: new Set(["maths-as"]),
+    topicSubjectLevels: topicSubjects,
+    subjectLevelByCode: codeSubjects,
+  };
+
+  it("keeps metadata-only papers visible for a selected subject and level", () => {
+    const papers = [
+      { id: "linked", title: "Maths topic paper", topic_id: "topic-maths", subject_slug: "other", level: "OL" },
+      { id: "metadata", title: "Cambridge AS Maths paper", topic_id: null, subject_slug: "mathematics", level: "AS" },
+      { id: "foreign", title: "Physics A2 paper", topic_id: null, subject_slug: "physics", level: "A2" },
+      { id: "unclassified", title: "No subject classification", topic_id: null, subject_slug: null, level: null },
+    ];
+
+    expect(filterPapersForSubjects(papers, scope).map((paper) => paper.id)).toEqual(["linked", "metadata"]);
+  });
+
+  it("shows all rows to admins and before preferences finish loading", () => {
+    const papers = [
+      { id: "tagged", title: "Maths paper", topic_id: "topic-maths", subject_slug: "mathematics", level: "AS" },
+      { id: "unclassified", title: "Unclassified", topic_id: null, subject_slug: null, level: null },
+    ];
+
+    expect(filterPapersForSubjects(papers, { ...scope, isAdmin: true })).toEqual(papers);
+    expect(filterPapersForSubjects(papers, { ...scope, loaded: false })).toEqual(papers);
+  });
+
+  it("shows every classified subject to signed-out readers", () => {
+    const papers = [
+      { id: "maths", title: "Maths paper", subject_slug: "mathematics", level: "AS" },
+      { id: "physics", title: "Physics paper", subject_slug: "physics", level: "A2" },
+    ];
+
+    expect(filterPapersForSubjects(papers, { ...scope, signedIn: false }).map((paper) => paper.id))
+      .toEqual(["maths", "physics"]);
   });
 });
 

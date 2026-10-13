@@ -134,7 +134,7 @@ export default function AdminContentIntegrity() {
               type="button"
               onClick={() => setFilter(f.key)}
               aria-pressed={active}
-              className={`rounded-xl border p-4 text-left transition-colors ${
+              className={`flex w-full flex-col items-start rounded-xl border p-4 text-left transition-colors ${
                 active ? "border-primary/50 bg-primary/5" : "hover:border-primary/30"
               }`}
             >

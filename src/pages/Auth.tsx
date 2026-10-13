@@ -21,7 +21,8 @@ import { captureAttribution, getAttribution, trackSignup } from "@/lib/analytics
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
 import { buildSignupConsent } from "@/lib/legal";
 import { fetchEnabledProviders, signInWithGoogle, NO_PROVIDERS } from "@/lib/oauthProviders";
-import { GraduationCap, ArrowLeft, Sparkles, Mail } from "lucide-react";
+import { ArrowLeft, Sparkles, Mail } from "lucide-react";
+import { BrandMark } from "@/components/BrandMark";
 import { ForgotPasswordDialog } from "@/components/ForgotPasswordDialog";
 
 /** Google's mark, inline: the brand guidelines forbid recolouring it, so it is
@@ -264,9 +265,7 @@ export default function Auth() {
 
       <div className="w-full max-w-[420px]">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[hsl(var(--neon-purple))] text-primary-foreground shadow-lg glow-shadow">
-            <GraduationCap className="h-7 w-7" />
-          </div>
+          <BrandMark size={56} className="mx-auto mb-5" />
           <h1 className="text-3xl font-bold tracking-tight">Welcome back</h1>
           <p className="mt-2 text-muted-foreground">Sign in to continue your studies</p>
         </div>

@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap } from "lucide-react";
+import { BrandMark } from "@/components/BrandMark";
 
 export default function AuthCallback() {
   const navigate = useNavigate();
@@ -66,9 +66,7 @@ export default function AuthCallback() {
       </div>
       <Card className="neon-border w-full max-w-[420px] bg-card/80 backdrop-blur-xl">
         <CardContent className="space-y-5 p-7 text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[hsl(var(--neon-purple))] text-primary-foreground shadow-lg glow-shadow">
-            <GraduationCap className="h-7 w-7" />
-          </div>
+          <BrandMark size={56} className="mx-auto" />
           {failed ? (
             <>
               <div className="space-y-2">

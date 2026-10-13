@@ -480,7 +480,6 @@ export default function Subject() {
             </CardHeader>
             <CardContent className="flex flex-wrap gap-3">
               <Button asChild className="gap-2"><Link to="/practice?tab=topics">Open topic questions <ArrowRight className="h-4 w-4" /></Link></Button>
-              <Button asChild variant="outline" className="gap-2"><Link to={`/practice?level=${subjectLevel.id}&mode=bookmarked`}>Bookmarked questions</Link></Button>
             </CardContent>
           </Card>
           {previewAiQuestions.length === 0 ? empty("AI questions") : (

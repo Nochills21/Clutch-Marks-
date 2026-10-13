@@ -224,7 +224,7 @@ export function StudentDashboard() {
       {/* Instrument strip — every figure here is scoped to the same subjects as
           the rest of the app, and the caption says so. */}
       <section className="space-y-3">
-        <p className="num text-[11px] uppercase tracking-[0.14em] text-muted-foreground">{scopeLabel}</p>
+        
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {statCards.map((s) => (
           <button
@@ -351,33 +351,35 @@ export function StudentDashboard() {
         )}
       </section>
 
-      <TodaysTasks />
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <p className="eyebrow">Jump to</p>
+          <h2 className="font-display text-2xl font-normal tracking-tight">Quick actions</h2>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {quickActions.map((a, i) => (
+            <Link key={a.label} to={a.to} className="group">
+              <div className="glass-card h-full p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <span className="num text-[11px] text-muted-foreground/70">{String(i + 1).padStart(2, "0")}</span>
+                  <a.icon className="h-4 w-4 shrink-0 text-primary/70 transition-colors group-hover:text-primary" />
+                </div>
+                <p className="font-display mt-4 flex items-center gap-2 text-base tracking-tight">
+                  {a.label}
+                  <ArrowRight className="h-3.5 w-3.5 -translate-x-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">{a.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
 
       <div className="grid gap-8 lg:grid-cols-5">
-        <div className="space-y-4 lg:col-span-3">
-          <div className="space-y-2">
-            <p className="eyebrow">Jump to</p>
-            <h2 className="font-display text-2xl font-normal tracking-tight">Quick actions</h2>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {quickActions.map((a, i) => (
-              <Link key={a.label} to={a.to} className="group">
-                <div className="glass-card h-full p-5">
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="num text-[11px] text-muted-foreground/70">{String(i + 1).padStart(2, "0")}</span>
-                    <a.icon className="h-4 w-4 shrink-0 text-primary/70 transition-colors group-hover:text-primary" />
-                  </div>
-                  <p className="font-display mt-4 flex items-center gap-2 text-base tracking-tight">
-                    {a.label}
-                    <ArrowRight className="h-3.5 w-3.5 -translate-x-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">{a.desc}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+        <div className="lg:col-span-3">
+          <TodaysTasks />
         </div>
-
         <div className="space-y-4 lg:col-span-2">
           <div className="space-y-2">
             <p className="eyebrow flex items-center gap-2">
