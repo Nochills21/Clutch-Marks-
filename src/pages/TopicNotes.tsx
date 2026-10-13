@@ -449,7 +449,7 @@ export default function TopicNotes() {
                     text is rendered where the student already is. */}
                 {!m.file_url && m.content && (
                   <div
-                    className="cm-notes border-t px-4 pb-4 pt-3"
+                    className="cm-notes cm-m-inline"
                     dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(materialContentToHtml(String(m.content))) }}
                   />
                 )}

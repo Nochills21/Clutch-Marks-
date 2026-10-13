@@ -10,6 +10,7 @@ import { Layers, RotateCcw, ArrowLeft, CheckCircle2, Clock, Download, Loader2 } 
 import { cn } from "@/lib/utils";
 import { exportFlashcardsToPdf } from "@/lib/pdfExport";
 import { SEOHead } from "@/components/SEOHead";
+import { ManuscriptFlashcard, ManuscriptHead } from "@/components/StudyManuscript";
 import { usePlanAccess, FREE_PREVIEW_LIMIT, PreviewLimit } from "@/components/PreviewLimit";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -279,25 +280,13 @@ export default function Flashcards() {
 
         <h2 className="text-lg font-semibold text-foreground">{setInfo?.title}</h2>
 
-        <div
-          className={cn(
-            "relative min-h-[280px] rounded-2xl border-2 cursor-pointer transition-all duration-300 flex items-center justify-center p-8 text-center",
-            flipped
-              ? "bg-primary/5 border-primary/30 shadow-[0_0_20px_hsl(var(--primary)/0.1)]"
-              : "bg-card border-border hover:border-primary/20 hover:shadow-lg"
-          )}
-          onClick={() => setFlipped(!flipped)}
-        >
-          <div className="space-y-3">
-            <Badge variant="outline" className="text-[10px]">{flipped ? "ANSWER" : "QUESTION"}</Badge>
-            <p className="text-xl font-medium text-foreground leading-relaxed">
-              {flipped ? card.back : card.front}
-            </p>
-            {!flipped && (
-              <p className="text-xs text-muted-foreground mt-4">Tap to reveal answer</p>
-            )}
-          </div>
-        </div>
+        <ManuscriptFlashcard
+          eyebrow={flipped ? `Answer · card ${currentIdx + 1} of ${studyCards.length}` : `Question · card ${currentIdx + 1} of ${studyCards.length}`}
+          face={flipped ? card.back : card.front}
+          hint="Tap to reveal answer"
+          flipped={flipped}
+          onFlip={() => setFlipped(!flipped)}
+        />
 
         {flipped && (
           <div className="grid grid-cols-4 gap-2">
@@ -310,8 +299,8 @@ export default function Flashcards() {
         )}
 
         {/* Progress bar */}
-        <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-          <div className="h-full bg-primary transition-all duration-300 rounded-full" style={{ width: `${((currentIdx + 1) / studyCards.length) * 100}%` }} />
+        <div className="cm-m-progress">
+          <div style={{ width: `${((currentIdx + 1) / studyCards.length) * 100}%` }} />
         </div>
       </div>
     );
@@ -321,14 +310,15 @@ export default function Flashcards() {
   return (
     <div className="cm-study space-y-6">
       <SEOHead path="/flashcards" />
-      <div>
-        <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>
-        <p className="text-muted-foreground text-sm">
-          {isPreview && !hasPaid
+      <ManuscriptHead
+        eyebrow="Spaced repetition"
+        title="Flashcards"
+        lede={
+          isPreview && !hasPaid
             ? `Preview: ${filteredSets.length} of ${scopedSets.length} sets — full access unlocks everything.`
-            : "Study with spaced repetition to remember key concepts"}
-        </p>
-      </div>
+            : "Study with spaced repetition to remember key concepts."
+        }
+      />
 
       {failure && <QueryError message={failure} onRetry={() => { window.location.reload(); }} />}
 

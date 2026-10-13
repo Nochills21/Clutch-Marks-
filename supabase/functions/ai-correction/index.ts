@@ -132,7 +132,7 @@ type ChatMessage = { role: string; content: string | unknown[] };
 async function callCloudflareAI(
   model: string,
   messages: ChatMessage[],
-  maxTokens = 4096,
+  maxTokens = 6144,
 ): Promise<unknown> {
   const apiKey = Deno.env.get("CLOUDFLARE_API_KEY");
   const accountId = Deno.env.get("CLOUDFLARE_ACCOUNT_ID");
@@ -146,7 +146,9 @@ async function callCloudflareAI(
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
-      body: JSON.stringify({ messages, max_tokens: maxTokens }),
+      // Low temperature: marking must be deterministic — the same script
+      // marked twice should get the same marks. Creativity here is a bug.
+      body: JSON.stringify({ messages, max_tokens: maxTokens, temperature: 0.2 }),
     },
   );
   if (!res.ok) {
@@ -185,24 +187,31 @@ async function callOpenAiCompat(
 /** What the marker was given, so the prompt can say so. */
 type SubmissionSource = "paste" | "upload" | "mixed";
 
-const SYSTEM_PROMPT = `You are an expert Cambridge IGCSE / AS / A-Level examiner for Mathematics (0580/9709), Physics (0625/9702) and Computer Science (0478/9618).
+const SYSTEM_PROMPT = `You are an expert examiner for Edexcel IAL and Cambridge IGCSE / AS / A-Level Mathematics (0580/9709), Physics (0625/9702) and Computer Science (0478/9618). Mark strictly, like a real examiner: every mark is evidence-based, never impression-based.
 
 Read the student's answer, compare it against the mark scheme, and return a structured JSON array with one object per question.
 
 Each object MUST have exactly these keys:
 - question: the question text
-- original_answer: what the student actually wrote
-- correct_answer: the examiner's model answer
+- original_answer: what the student actually wrote (transcribe faithfully, do not tidy it up)
+- correct_answer: the examiner's model answer from the mark scheme
 - marks_earned: integer marks awarded
-- total_marks: total marks for the question
-- feedback: 1-2 sentences on what was right / what to fix
+- total_marks: the question's total from its bracket (e.g. "(3)") or the mark scheme — never invent or rescale a total
+- feedback: 1-2 sentences on what was right / what to fix, in a tutor's voice, kind but precise
 - grade: percentage for this question (0-100)
 - comment: 1-2 sentences on the grade
 
-Rules:
-- Do NOT invent marks; only award what the mark scheme clearly supports.
-- Award method and follow-through marks: correct working with a wrong final answer still earns credit.
-- Be kind but precise; the tone should be a tutor giving feedback, not a robot.
+How marks work (Edexcel M/A/B; Cambridge method/accuracy equivalents):
+- M (method): the correct method applied to the question — award it even when an arithmetic slip ruins the final answer.
+- A (accuracy): the correct final answer from correct working, to the stated accuracy (significant figures, nearest integer, exact form). A wrong final answer loses the A mark, never the M marks already earned.
+- B (independent): accuracy marks independent of method — award whenever the required result appears.
+- Follow-through: an early error is penalised ONCE. Working that correctly follows through from the student's own (wrong) value still earns its method marks.
+- A correct answer with no working earns full marks only if the scheme allows it; otherwise award the answer marks, withhold the method marks, and say so.
+
+Anti-hallucination rules (hard requirements):
+- QUOTE TO DEDUCT: every mark you withhold must be tied to a specific defect you QUOTE from the student's answer in feedback (their numbers, symbols or words), or to a blank/unattempted question you name as such. If you cannot point at the defect, award the mark.
+- Do not invent requirements the question and scheme never set (working format, layout, extra steps, restating the question). Mark what is written.
+- Do not downgrade correct mathematics: an equivalent form (unsimplified fraction, exact surd, a correct alternative method) earns full credit unless the question forbids it.
 - Fill in correct_answer from the mark scheme even if the student got nothing.
 - Never output anything except the JSON array.`;
 
@@ -317,33 +326,65 @@ function textFromTextBlock(block: string): string[] {
   return out;
 }
 
-/** Walk every FlateDecode stream that carries a text block. */
+/** Walk every FlateDecode stream that carries a text block.
+ *
+ * Byte-level throughout, deliberately: `TextDecoder("latin1")` is NOT
+ * byte-exact — WHATWG maps the label to windows-1252, so every byte in
+ * 0x80–0x9F decodes to a C1 control's lookalike (0x93 becomes U+201C) and
+ * `charCodeAt` can never rebuild the original bytes. Slicing the string and
+ * inflating the rebuild corrupted every compressed stream that happened to
+ * contain such a byte — i.e. essentially every real mark scheme — so scheme
+ * grounding silently never loaded and the marker fell back to its own memory.
+ * Only the inflated (or raw) *text* is ever decoded as a string.
+ */
 async function eachTextStream(
   bytes: Uint8Array,
   visit: (decoded: string) => void,
 ): Promise<void> {
-  // latin1 decoding is byte-exact, so charCodeAt round-trips the raw bytes.
-  const raw = new TextDecoder("latin1").decode(bytes);
+  const STREAM = [0x73, 0x74, 0x72, 0x65, 0x61, 0x6d]; // "stream"
+  const ENDSTREAM = [0x65, 0x6e, 0x64, 0x73, 0x74, 0x72, 0x65, 0x61, 0x6d]; // "endstream"
+  const indexOf = (from: number, needle: number[]): number => {
+    for (let i = from; i + needle.length <= bytes.length; i += 1) {
+      let hit = true;
+      for (let j = 0; j < needle.length; j += 1) {
+        if (bytes[i + j] !== needle[j]) {
+          hit = false;
+          break;
+        }
+      }
+      if (hit) return i;
+    }
+    return -1;
+  };
+
   let searchFrom = 0;
 
   for (;;) {
-    const start = raw.indexOf("stream", searchFrom);
+    let start = indexOf(searchFrom, STREAM);
+    // The spec requires an EOL right after `stream`: without it this is the
+    // tail of an `endstream` (or binary data), not a stream boundary.
+    while (
+      start !== -1 &&
+      bytes[start + STREAM.length] !== 0x0d &&
+      bytes[start + STREAM.length] !== 0x0a
+    ) {
+      start = indexOf(start + 1, STREAM);
+    }
     if (start === -1) break;
-    const end = raw.indexOf("endstream", start);
+    const end = indexOf(start, ENDSTREAM);
     if (end === -1) break;
-    searchFrom = end + 9;
+    searchFrom = end + ENDSTREAM.length;
 
     // Skip the EOL that must follow the `stream` keyword.
-    let dataStart = start + 6;
-    if (raw[dataStart] === "\r") dataStart += 1;
-    if (raw[dataStart] === "\n") dataStart += 1;
+    let dataStart = start + STREAM.length;
+    if (bytes[dataStart] === 0x0d) dataStart += 1;
+    if (bytes[dataStart] === 0x0a) dataStart += 1;
     let dataEnd = end;
-    if (raw[dataEnd - 1] === "\n") dataEnd -= 1;
-    if (raw[dataEnd - 1] === "\r") dataEnd -= 1;
+    if (bytes[dataEnd - 1] === 0x0a) dataEnd -= 1;
+    if (bytes[dataEnd - 1] === 0x0d) dataEnd -= 1;
     if (dataEnd <= dataStart) continue;
 
-    const chunk = new Uint8Array(dataEnd - dataStart);
-    for (let i = dataStart; i < dataEnd; i += 1) chunk[i - dataStart] = raw.charCodeAt(i);
+    const chunk = bytes.subarray(dataStart, dataEnd);
 
     // Streams are usually Flate-compressed, but some are stored raw.
     const decoded = (await inflate(chunk)) ?? new TextDecoder("latin1").decode(chunk);

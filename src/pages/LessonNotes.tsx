@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { openProtectedFile } from "@/lib/contentFiles";
@@ -16,8 +15,9 @@ import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { useNoteProgress, downloadNote, type NoteRow } from "./Notes";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVEL_LABELS } from "@/lib/subjects";
-import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
+import { Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
+import { ManuscriptHead, ManuscriptSection } from "@/components/StudyManuscript";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { QueryError } from "@/components/QueryError";
@@ -183,66 +183,61 @@ export default function LessonNotes() {
 
       <Button variant="ghost" asChild className="gap-2"><Link to="/lessons"><ArrowLeft className="h-4 w-4" /> Back to Lessons</Link></Button>
 
-      {role === "admin" && lesson.content && (
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base flex items-center justify-between gap-2">
-              <span className="flex items-center gap-2"><FileText className="h-4 w-4 text-primary" /> Lesson notes</span>
+      <ManuscriptHead
+        eyebrow={
+          lesson.topics?.subject_levels?.subjects?.name
+            ? `${lesson.topics.subject_levels.subjects.name}${level ? ` · ${LEVEL_LABELS[level as "OL"] ?? level}` : ""}`
+            : "Lesson notes"
+        }
+        title={lesson.title}
+        lede={lesson.topics?.name ? `Lesson · ${lesson.topics.name}` : null}
+        actions={
+          <>
+            {role === "admin" && (
               <ContentEditor
                 entityType="lesson"
                 entityId={lesson.id}
                 initialTitle={lesson.title}
-                initialContent={lesson.content}
+                initialContent={lesson.content ?? null}
                 onSaved={bump}
+                trigger={
+                  <Button variant="outline" className="gap-2">
+                    <Pencil className="h-4 w-4" /> Edit lesson
+                  </Button>
+                }
               />
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div
-              className="text-sm leading-relaxed [&_h2]:mt-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h3]:mt-3 [&_h3]:font-semibold [&_code]:rounded [&_code]:bg-muted [&_code]:px-1 [&_pre]:overflow-x-auto [&_pre]:rounded [&_pre]:bg-muted [&_pre]:p-3 [&_table]:w-full [&_table]:border"
-              dangerouslySetInnerHTML={{ __html: lesson.content }}
-            />
-          </CardContent>
-        </Card>
-      )}
-
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">{lesson.title}</h1>
-          <div className="mt-1 flex flex-wrap items-center gap-1.5">
-            {lesson.topics?.subject_levels?.subjects?.name && (
-              <Badge variant="secondary" className="text-[10px]">{lesson.topics.subject_levels.subjects.name}</Badge>
             )}
-            {level && <Badge variant="outline" className="text-[10px]">{LEVEL_LABELS[level as "OL"] ?? level}</Badge>}
-            <span className="text-xs text-muted-foreground">{lesson.topics?.name}</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-2">
-          {role === "admin" && (
+            <Button onClick={toggleLesson} variant={lessonDone ? "outline" : "default"} className="gap-2">
+              {lessonDone ? <><CheckCircle2 className="h-4 w-4" /> Completed</> : "Mark lesson complete"}
+            </Button>
+          </>
+        }
+      />
+
+      {role === "admin" && lesson.content && (
+        <ManuscriptSection
+          eyebrow="Lesson notes"
+          actions={
             <ContentEditor
               entityType="lesson"
               entityId={lesson.id}
               initialTitle={lesson.title}
-              initialContent={lesson.content ?? null}
+              initialContent={lesson.content}
               onSaved={bump}
-              trigger={
-                <Button variant="outline" className="gap-2">
-                  <Pencil className="h-4 w-4" /> Edit lesson
-                </Button>
-              }
             />
-          )}
-          <Button onClick={toggleLesson} variant={lessonDone ? "outline" : "default"} className="gap-2">
-            {lessonDone ? <><CheckCircle2 className="h-4 w-4" /> Completed</> : "Mark lesson complete"}
-          </Button>
-        </div>
-      </div>
+          }
+        >
+          <div
+            className="cm-notes"
+            dangerouslySetInnerHTML={{ __html: lesson.content }}
+          />
+        </ManuscriptSection>
+      )}
 
       {lessonDone && <FeedbackNudge tool="notes" toolLabel={lesson.title} />}
 
-      <Card>
-        <CardHeader><CardTitle className="text-base flex items-center gap-2"><FileText className="h-4 w-4 text-primary" /> Uploaded notes</CardTitle></CardHeader>
-        <CardContent className="space-y-3">
+      <ManuscriptSection eyebrow="Study materials" title="Uploaded notes">
+        <div className="space-y-3">
           {notes.length === 0 ? (
             <p className="text-sm text-muted-foreground">No notes have been uploaded for this topic yet.</p>
           ) : notes.map((n) => (
@@ -279,8 +274,8 @@ export default function LessonNotes() {
               </div>
             </div>
           ))}
-        </CardContent>
-      </Card>
+        </div>
+      </ManuscriptSection>
 
     </div>
   );
