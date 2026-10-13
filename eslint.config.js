@@ -5,7 +5,8 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  // Generated output and local tooling/scratch copies are not site code.
+  { ignores: ["dist", "production", ".freebuff", ".freebuff-tmp"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

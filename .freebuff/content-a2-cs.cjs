@@ -25,8 +25,8 @@ module.exports = [
           'a file position only',
           'a memory address'
         ],
-        correct: 0,
-        explain: 'A pointer holds an address that references another location; dereferencing reads the value there.'
+        correct: 3,
+        explain: 'A pointer stores a memory address. Dereferencing follows that address to access the referenced value.'
       },
       {
         q: 'Which operation is NOT defined on sets?',
@@ -36,8 +36,8 @@ module.exports = [
           'reordering by key',
           'union'
         ],
-        correct: 1,
-        explain: 'Sets are unordered, so sorting by key is meaningless; union, intersection and difference are standard.'
+        correct: 2,
+        explain: 'A set is unordered, so reordering by key is not a set operation. Union, intersection and difference are standard operations.'
       },
       {
         q: 'The fastest average-case lookup of a record by key is achieved with:',
@@ -47,8 +47,8 @@ module.exports = [
           'serial search',
           'sequential search from the start'
         ],
-        correct: 2,
-        explain: 'Hashing maps a key directly to an address; serial and sequential need comparative searching.'
+        correct: 1,
+        explain: 'Random (direct) organisation uses a hash to calculate a record address, giving average constant-time lookup when collisions are controlled. Serial and sequential searches compare records.'
       },
       {
         q: 'Address = Key MOD 100 is an example of:',
@@ -91,7 +91,7 @@ module.exports = [
           'a list of identical elements',
           'an unordered set of keys'
         ],
-        correct: 2,
+        correct: 1,
         explain: 'Records group fields of mixed types under one identifier.'
       },
       {
@@ -102,8 +102,8 @@ module.exports = [
           'automatic table doubling in all languages',
           'loss of sequential order'
         ],
-        correct: 3,
-        explain: 'As occupancy rises, collisions become frequent and chains lengthen.'
+        correct: 0,
+        explain: 'A higher load factor leaves fewer empty slots, increasing collisions and the work needed to resolve them; it does not automatically corrupt data or resize every table.'
       },
       {
         q: 'Binary search is possible on a file organised:',
@@ -230,8 +230,8 @@ module.exports = [
           '1,000,000 comparisons',
           '3 comparisons'
         ],
-        correct: 1,
-        explain: 'log2(1,000,000) is about 20 — halving each step.'
+        correct: 0,
+        explain: 'A balanced binary search tree halves the remaining search range at each level. log₂(1,000,000) is about 20, so the search needs roughly 20 comparisons.'
       }
     ]
   },

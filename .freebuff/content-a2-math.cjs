@@ -1,5 +1,5 @@
 // A2 Mathematics (CAIE 9709) — 8 topics. Questions use 0-based `correct`.
-module.exports = [
+const topics = [
   {
     name: 'Further Algebra',
     description: 'Polynomial division, the factor and remainder theorems, modulus and partial fractions.',
@@ -29,8 +29,8 @@ Reverse of combining fractions — needed before binomial expansion of rational 
 
 **Exam tips:** for |ax + b| > c, remember two separate regions; check factor-theorem roots by substitution before long division.`,
     questions: [
-      { q: 'The remainder when x³ − 2x² + 5 is divided by (x − 2) is:', opts: ['5', '1', '0', '−3'], correct: 0, explain: 'p(2) = 8 − 8 + 5 = 5.' },
-      { q: 'x = 1 is a root of x³ − 3x² + x + 1. After factorising fully, the roots are:', opts: ['1 and −1', '−1 and −1', '2 and 3', '−1 and 2'], correct: 0, explain: 'Divide by (x − 1): x² − 2x − 1... but (x+1) is also a factor of the cubic: (x − 1)(x + 1)² so the roots are 1, −1, −1.' },
+      { q: 'The remainder when x³ − 2x² + 5 is divided by (x − 2) is:', opts: ['5', '1', '0', '−3'], correct: 0, explain: 'By the remainder theorem, the remainder is p(2) = 2³ − 2(2²) + 5 = 8 − 8 + 5 = 5.' },
+      { q: 'x = 1 is a root of x³ − x² − x + 1. After factorising fully, the roots are:', opts: ['1, 1 and −1', '−1, −1 and 1', '1, 2 and 3', '−1, 2 and 2'], correct: 0, explain: 'Group terms: x²(x − 1) − 1(x − 1) = (x − 1)(x² − 1) = (x − 1)²(x + 1). The roots are 1 (a repeated root) and −1.' },
       { q: '|2x − 1| = 5 has solutions:', opts: ['x = 3 or −2', 'x = 2 or −3', 'x = 3 only', 'x = −2 only'], correct: 0, explain: 'Split into 2x − 1 = ±5: x = 3 or −2.' },
       { q: '|x + 3| < 2 gives:', opts: ['−5 < x < −1', 'x < −1', 'x > −5', '−1 < x < 5'], correct: 0, explain: '−2 < x + 3 < 2 gives −5 < x < −1.' },
       { q: '(7x + 4)/((x + 1)(x + 2)) = A/(x + 1) + B/(x + 2). B =', opts: ['10', '3', '4', '7'], correct: 0, explain: 'Set x = −2: 7(−2) + 4 = B(−2 + 1), so −10 = −B, B = 10.' },
@@ -38,7 +38,7 @@ Reverse of combining fractions — needed before binomial expansion of rational 
       { q: 'A root of x³ − 6x² + 11x − 6 is x = 1. The other roots are:', opts: ['2 and 3', '−2 and −3', '1 and 2', '5 and 6'], correct: 0, explain: 'Factor out (x − 1): (x − 1)(x − 2)(x − 3).' },
       { q: '|3x − 2| ≥ 4 gives:', opts: ['x ≤ −2/3 or x ≥ 2', '−2/3 ≤ x ≤ 2', 'x ≥ 2', 'x ≤ 2/3'], correct: 0, explain: '3x − 2 ≥ 4 or ≤ −4: x ≥ 2 or x ≤ −2/3.' },
       { q: 'If p(x) = (x + 1)q(x) + 3, then p(−1) =', opts: ['3', '0', '−1', 'q(−1)'], correct: 0, explain: 'Substituting x = −1 kills q(x), leaving 3.' },
-      { q: '4x/(x² − 1) in partial fractions is:', opts: ['2/(x − 1) + 2/(x + 1)', '4/(x − 1)', '2/(x − 1) − 2/(x + 1)', '1/(x − 1) + 3/(x + 1)'], correct: 0, explain: 'A(x + 1) + B(x − 1) = 4x gives A = B = 2.' },
+      { q: '4x/(x² − 1) in partial fractions is:', opts: ['2/(x − 1) + 2/(x + 1)', '4/(x − 1)', '2/(x − 1) − 2/(x + 1)', '1/(x − 1) + 3/(x + 1)'], correct: 0, explain: 'Set 4x/[ (x − 1)(x + 1) ] = A/(x − 1) + B/(x + 1). Equating coefficients gives A + B = 4 and A − B = 0, so A = B = 2.' },
     ],
   },
   {
@@ -327,3 +327,20 @@ E(X) = Σ x P(X = x); Var(X) = E(X²) − [E(X)]².
     ],
   },
 ];
+
+// Keep the right answer from being guessable by position while preserving each
+// item's option set and answer meaning. The seeder consumes this rotated export.
+for (const topic of topics) {
+  topic.questions = topic.questions.map((question, index) => {
+    const target = index % 4;
+    const shift = (target - question.correct + 4) % 4;
+    if (shift === 0) return question;
+    return {
+      ...question,
+      opts: question.opts.map((_, optionIndex) => question.opts[(optionIndex - shift + 4) % 4]),
+      correct: target,
+    };
+  });
+}
+
+module.exports = topics;
