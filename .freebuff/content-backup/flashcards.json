@@ -24,6 +24,14 @@
   "created_at": "2026-10-12 07:54:54.445133+00"
  },
  {
+  "id": "0121d173-11c3-425e-84da-f09784c9fd93",
+  "set_id": "66d7428f-ea79-4fd8-b4d0-1b9431b04809",
+  "front": "Energy of a photon",
+  "back": "E = hf = hc/λ",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:51:17.069737+00"
+ },
+ {
   "id": "014ab0f5-24cc-4d95-ba55-3b34e3d51263",
   "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
   "front": "Reflection",
@@ -80,6 +88,14 @@
   "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
+  "id": "0315d5c2-27bf-4337-be81-b65df2c555d0",
+  "set_id": "f2e12ba5-d2ba-4e7e-9fac-c1c1d79c6b9a",
+  "front": "Activity",
+  "back": "A = λN, measured in becquerel (Bq)",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:54:31.315752+00"
+ },
+ {
   "id": "0318be38-9f4f-4fdd-850e-fdbda817a274",
   "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
   "front": "Translating (2; 5) by (-3; 4)",
@@ -118,6 +134,14 @@
   "back": "CPU (ALU, control unit, registers: PC, MAR, MDR, ACC) + memory + I/O, sharing one bus system; instructions fetched–decoded–executed in cycles.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "041db820-b1b3-41a3-add8-0316251eb7cf",
+  "set_id": "7e0f6250-7bb4-4623-9b84-d8751a983f45",
+  "front": "Stellar radius from L and T",
+  "back": "L = 4πR²σT⁴, so R = √(L / 4πσT⁴)",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:54:32.710733+00"
  },
  {
   "id": "0473dce3-a098-4268-8915-80fc9c45db33",
@@ -216,6 +240,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "06af1337-37be-4ca5-8aa1-f3ccee058627",
+  "set_id": "bab93e39-6cd9-4b12-9f01-ff4dbf41e7fb",
+  "front": "Newton's second law",
+  "back": "F = ma for the resultant force; acceleration is in the same direction as the resultant force",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:40:26.838311+00"
+ },
+ {
   "id": "06d353f3-c9b5-4e36-b0d7-4342076da27d",
   "set_id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
   "front": "Coherence and Path Difference",
@@ -312,6 +344,14 @@
   "created_at": "2026-10-12 08:11:35.056105+00"
  },
  {
+  "id": "0a6ee9c8-c169-4b13-a75c-4e56c0839e32",
+  "set_id": "9b303f9e-f8b0-4cbc-9da6-6ffba93f21ea",
+  "front": "Coherent sources",
+  "back": "Same frequency and a constant phase difference",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:42:55.141957+00"
+ },
+ {
   "id": "0ab86167-7e57-46e3-9de2-e49ebf191e11",
   "set_id": "885776d4-313d-4b22-9d4a-ff3ba4192fac",
   "front": "Transformers (Extended)",
@@ -374,6 +414,14 @@
   "back": "Long straight wire: B = μ₀I/(2πr), circling by the right-hand grip rule",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "0bc77aa6-a68f-43de-a815-7de5a92e5d1f",
+  "set_id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
+  "front": "Angular speed",
+  "back": "ω = 2π/T = 2πf, in rad s⁻¹",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:47:24.513655+00"
  },
  {
   "id": "0c4a1a99-d62f-4f38-a25b-98f663dfff95",
@@ -448,12 +496,36 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "0dff88a6-4ce8-4608-a97c-2c68abf15d8a",
+  "set_id": "6383f2b6-41d9-4c2f-8251-ec812a3dbc2c",
+  "front": "Convection",
+  "back": "less dense hot fluid rises",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
+  "id": "0e4a061b-40b0-4328-8194-f028d7165988",
+  "set_id": "191efa2e-c7f3-48b7-bb51-fc633efa4431",
+  "front": "Alpha particle",
+  "back": "two protons and two neutrons",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "0e81ae6e-4bac-4420-8d81-fdd73069e666",
   "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
   "front": "Reading correlation strength",
   "back": "Direction (rising/falling) gives the sign; tightness gives strength. Tight rising = strong positive.",
   "sort_order": 6,
   "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
+  "id": "0ed8d584-29b0-499d-a2b5-10093b3605ed",
+  "set_id": "201c389b-db44-4298-81ab-e113ff586232",
+  "front": "Uniform field between plates",
+  "back": "E = V/d",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:49:10.355822+00"
  },
  {
   "id": "0efb0e3c-4e63-4a13-9a29-c579bcca189f",
@@ -486,6 +558,14 @@
   "back": "Example: y = (3x − 1)⁵: dy/dx = 5(3x − 1)⁴ × 3 = 15(3x − 1)⁴.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "10fe5d37-a00d-441d-b4f4-356399d0dc2d",
+  "set_id": "66d7428f-ea79-4fd8-b4d0-1b9431b04809",
+  "front": "Threshold frequency",
+  "back": "f₀ = φ/h, where φ is the work function",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:51:17.069737+00"
  },
  {
   "id": "110f5ee0-cd4e-48ec-9557-f6ab7eaea2b5",
@@ -592,6 +672,14 @@
   "created_at": "2026-09-30 05:35:34.636501+00"
  },
  {
+  "id": "14de9bb4-6702-4a4e-9f07-84b0682f74a8",
+  "set_id": "60fc4ffd-a179-4306-86c5-7b7fca0ce2de",
+  "front": "Reducing random error",
+  "back": "repeat and take a mean",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "151a5ed0-8ecf-4e0a-8adc-f26e347abbfa",
   "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
   "front": "Unbiased Variance",
@@ -614,6 +702,14 @@
   "back": "Algorithm Best Average Idea",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "155c1ec1-93e7-453d-a9cd-da0ebbbce71d",
+  "set_id": "48227452-961b-4e02-a789-3a77d6131865",
+  "front": "Kinetic energy",
+  "back": "Ek = ½mv²",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "162a55c5-ccf1-4a01-82ee-85207ff6be61",
@@ -648,6 +744,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "176af950-0afa-4edf-9591-dd3d58dd7ddf",
+  "set_id": "0f459219-a637-4fcf-a10b-f74c659c2ed5",
+  "front": "Cause of the Moon phases",
+  "back": "the changing position of the Moon relative to the Sun and Earth",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "17780a7f-00af-4b30-80b3-249ab91506ec",
   "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
   "front": "When to use sine vs cosine rule",
@@ -662,6 +766,22 @@
   "back": "Label sides first (opposite, adjacent, hypotenuse) with respect to the marked angle, then choose:",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "17a28f1c-9795-49e8-a0ef-2b592d296767",
+  "set_id": "32a196b1-1330-4f0e-ae9d-2827a1579e78",
+  "front": "Gravitational potential",
+  "back": "V = −GM/r; zero at infinity, negative at finite distances",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:42:56.462624+00"
+ },
+ {
+  "id": "18506d7d-f83c-445b-9fdd-fa70c547d2a0",
+  "set_id": "a87c607b-1168-47c6-88ad-4f0dbcf34fc9",
+  "front": "Force on a moving charge",
+  "back": "F = BQv sin θ, perpendicular to the velocity",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:51:16.271712+00"
  },
  {
   "id": "18de4563-0acd-44d7-abc1-e221da374caf",
@@ -686,6 +806,14 @@
   "back": "Bar charts, pie charts (angle = fraction × 360°), time series, pictograms. Compare data sets with like-for-like totals; comment on trends.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "19e0b19f-39e5-4445-9ed7-f43989ee0f42",
+  "set_id": "201c389b-db44-4298-81ab-e113ff586232",
+  "front": "Capacitance",
+  "back": "C = Q/V, in farads",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:49:10.355822+00"
  },
  {
   "id": "19f47914-4588-4ad7-863e-6446c963c291",
@@ -736,6 +864,14 @@
   "created_at": "2026-10-12 08:24:35.196196+00"
  },
  {
+  "id": "1b0fa369-1ad0-4b79-a111-18b2ea07387d",
+  "set_id": "10f2b7d3-5228-4d2a-9aea-7f282cff2c6b",
+  "front": "Momentum",
+  "back": "p = mv",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "1b3216c9-cf33-4d77-a5df-423fe16ecec2",
   "set_id": "b75f4c20-5d35-4994-9cf1-f432eec7fb25",
   "front": "Simultaneous equations: elimination first step",
@@ -766,6 +902,14 @@
   "back": "A = ½ab sin C (C = included angle between sides a and b).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "1bb509af-e603-475c-b1f1-1842c79e2ed4",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "How is P(a ≤ X ≤ b) found for a continuous variable?",
+  "back": "Integrate f(x) from a to b. The endpoints carry no probability.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "1bdbda64-3830-463b-bdf2-0adb2e25c0b7",
@@ -840,6 +984,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "1cf3a7b4-e087-4d20-9ba6-2a2f7c703b65",
+  "set_id": "201c389b-db44-4298-81ab-e113ff586232",
+  "front": "Field strength and potential",
+  "back": "E = −dV/dr: the field is the negative potential gradient",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:49:10.355822+00"
+ },
+ {
   "id": "1d3be281-12b8-4690-bcbe-6c1023ebdb66",
   "set_id": "6e18e59e-0542-4a31-82db-836b83c7fbdc",
   "front": "Two's complement of -45 (8-bit)",
@@ -856,6 +1008,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "1e0f4782-68a9-4aff-a74c-96624759eca9",
+  "set_id": "dd733c0d-2a41-42be-98cf-fb0813f56194",
+  "front": "Moment of a force",
+  "back": "Force × perpendicular distance from the pivot to the line of action (N m)",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:42:52.459554+00"
+ },
+ {
   "id": "1e985c3b-721e-4333-a742-2fbc2942dc6c",
   "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
   "front": "Trapezium Rule",
@@ -864,12 +1024,36 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "1ec81f56-190a-4899-b17a-9adccaedd532",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "Partial fraction form of (ax + b)/((x − p)(x − q)) with p ≠ q?",
+  "back": "A/(x − p) + B/(x − q).",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "1f142671-6024-40dc-a219-2c70549ce0ea",
+  "set_id": "e551bfc9-96bf-48fa-8002-4ce1e4309572",
+  "front": "Mean and variance of Po(λ)?",
+  "back": "Both equal λ.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "1f56edec-6901-48a8-873d-1440604c2126",
   "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
   "front": "Probability Distributions",
   "back": "A discrete random variable X takes values xᵢ with probabilities pᵢ where each pᵢ ≥ 0 and Σpᵢ = 1. A probability distribution can be given as a table, a formula, or a function. Any missing probability is found by subtraction.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "1f66801e-ea4b-4702-b543-02788922bba5",
+  "set_id": "bab93e39-6cd9-4b12-9f01-ff4dbf41e7fb",
+  "front": "Principle of conservation of linear momentum",
+  "back": "Total momentum before = total momentum after, when there is no resultant external force",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:40:26.838311+00"
  },
  {
   "id": "201fb0ad-f32b-43bb-8654-703ff8994317",
@@ -904,6 +1088,30 @@
   "created_at": "2026-10-12 08:24:49.349492+00"
  },
  {
+  "id": "20f049f8-7dcc-4bb3-88e9-23e468bcaa8f",
+  "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
+  "front": "Mean of grouped data?",
+  "back": "Σfx/Σf, using the class midpoints as x.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "21223838-5be8-414b-b1e5-512ec03826c3",
+  "set_id": "0f459219-a637-4fcf-a10b-f74c659c2ed5",
+  "front": "Satellite",
+  "back": "an object that orbits a larger body",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
+  "id": "2175d29b-59e2-4788-976b-1e4a23f7fd15",
+  "set_id": "dd1abc8e-2777-49af-987a-f25cc7bb69b6",
+  "front": "Work done",
+  "back": "Force × displacement in the direction of the force; unit J (1 J = 1 N m)",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:42:52.98217+00"
+ },
+ {
   "id": "21ac92b9-12d1-48ea-9a14-a488d92f7ed3",
   "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
   "front": "Largest integer below x < 9",
@@ -920,6 +1128,14 @@
   "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
+  "id": "21be3a1e-c0d3-4a22-8b39-042faca4009a",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "cot x in terms of tan x?",
+  "back": "cot x = 1/tan x.",
+  "sort_order": 102,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "21f035b5-2be0-4427-b86c-7d0b282058d1",
   "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
   "front": "Using the line",
@@ -934,6 +1150,14 @@
   "back": "Last-in-first-out matches reversing the most recent action. Queues would undo oldest first.",
   "sort_order": 8,
   "created_at": "2026-10-12 07:54:54.445133+00"
+ },
+ {
+  "id": "2278052a-b62c-4ba6-a330-e62e62d9e95b",
+  "set_id": "672f0d91-07bb-4cbc-99b6-73f34cd9e6be",
+  "front": "SHM condition",
+  "back": "Acceleration proportional to displacement and directed towards equilibrium: a = −ω²x",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:54:32.087537+00"
  },
  {
   "id": "22a179be-9856-44e3-aa2b-58c87382345c",
@@ -966,6 +1190,22 @@
   "back": "Protons + neutrons (nucleons). Nuclide notation: ᴬZX — Z protons, A nucleons. Isotopes share Z, differ in N.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "23045e8a-4a3a-40a7-abaf-89e9c8bd69f7",
+  "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
+  "front": "Expected value of a discrete X?",
+  "back": "E(X) = Σ x P(X = x).",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "2311ab3d-2770-472c-8193-15b5d3c0a6d0",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "sec x in terms of cos x?",
+  "back": "sec x = 1/cos x.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "231d3e03-420a-4459-be55-a7180d47517d",
@@ -1024,6 +1264,14 @@
   "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
+  "id": "2560a9aa-2faf-4e99-8362-819de198603f",
+  "set_id": "8b915678-fcf7-4fb0-8915-0f9b5daf331f",
+  "front": "Mean kinetic energy of a gas molecule",
+  "back": "(3/2)kT, depends only on absolute temperature",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:49:09.570913+00"
+ },
+ {
   "id": "258f0c04-1e07-4ad2-9fa8-1ca47f03a1ca",
   "set_id": "527cf11d-72e9-4b03-a567-7d4823e9d333",
   "front": "Compound change",
@@ -1072,6 +1320,14 @@
   "created_at": "2026-09-30 05:35:34.636501+00"
  },
  {
+  "id": "26b2b9c0-f830-4352-9edb-30292d7c97a5",
+  "set_id": "48227452-961b-4e02-a789-3a77d6131865",
+  "front": "Work done",
+  "back": "W = Fd, in joules",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "26c66e77-d88a-481e-86dc-560dccdf527a",
   "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
   "front": "Inverse function method",
@@ -1088,6 +1344,14 @@
   "created_at": "2026-10-12 08:03:08.398276+00"
  },
  {
+  "id": "272f504e-e5f1-4e8c-830b-5f4f6f0d86d1",
+  "set_id": "037665e5-b521-4f97-ab78-5863a577f8a4",
+  "front": "Sound wave type",
+  "back": "longitudinal",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "275ec85e-fdd2-476a-815c-3b69cc194b75",
   "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
   "front": "How are arrangements with a fixed block handled?",
@@ -1096,12 +1360,28 @@
   "created_at": "2026-10-12 08:24:42.490112+00"
  },
  {
+  "id": "2794c0bf-62a2-4e2e-938c-d1dec4985ea8",
+  "set_id": "7e0f6250-7bb4-4623-9b84-d8751a983f45",
+  "front": "Standard candle",
+  "back": "An object of known luminosity, such as a Cepheid or a Type Ia supernova",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:54:32.710733+00"
+ },
+ {
   "id": "27e9d662-8b98-4ca8-b9cb-243984d0ea1b",
   "set_id": "6274a521-9e18-434e-9783-481490c41737",
   "front": "Assembly and Addressing",
   "back": "Immediate (#5), direct (address holds value), indirect (address points to address), indexed (base + offset — arrays), relative (PC + offset — jumps).",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "280a41cf-12df-44c0-ace6-7a3ba64823ed",
+  "set_id": "0f459219-a637-4fcf-a10b-f74c659c2ed5",
+  "front": "Force keeping planets in orbit",
+  "back": "gravity",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "281d07f0-aff0-4dfa-8064-dd860ef4c95e",
@@ -1126,6 +1406,14 @@
   "back": "Multiply along branches; add between outcome paths. Label end products like 4/10 × 6/9 = 4/15.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "28d5ce37-cef5-4d22-8ce7-0cca03aaf514",
+  "set_id": "8b915678-fcf7-4fb0-8915-0f9b5daf331f",
+  "front": "Kelvin to Celsius",
+  "back": "T/K = θ/°C + 273",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:49:09.570913+00"
  },
  {
   "id": "28d83256-bc76-44b7-aaa3-b785fb8965c3",
@@ -1216,6 +1504,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "2c38d712-f9d7-407e-8d6c-df10d38dc296",
+  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
+  "front": "Test for independent events A and B?",
+  "back": "P(A ∩ B) = P(A) × P(B).",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "2c5eb63d-0f22-415f-a835-9df394aa7584",
   "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
   "front": "Recursion",
@@ -1288,6 +1584,14 @@
   "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
+  "id": "2ec76ba8-1297-4365-bc95-a925d69bdfaa",
+  "set_id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",
+  "front": "Limit of proportionality",
+  "back": "The point up to which stress and strain are proportional (Hooke's law holds)",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:42:53.681236+00"
+ },
+ {
   "id": "2ed513eb-1600-4d13-a5a0-69ce78744566",
   "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
   "front": "2NF",
@@ -1336,6 +1640,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "30de9159-3be0-477d-8175-4d07704822f1",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "Effect of adding a constant to every value on the standard deviation?",
+  "back": "No change. Adding a constant shifts the data but does not change the spread.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "314139e7-9445-45be-bec0-9664eac0ef87",
   "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
   "front": "Potential",
@@ -1360,12 +1672,36 @@
   "created_at": "2026-10-12 08:12:17.224583+00"
  },
  {
+  "id": "31e95de6-fc22-491b-a7f4-8c8b9e3d1664",
+  "set_id": "8b915678-fcf7-4fb0-8915-0f9b5daf331f",
+  "front": "Ideal gas equation",
+  "back": "pV = nRT, with T in kelvin and R = 8.31 J mol⁻¹ K⁻¹",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:49:09.570913+00"
+ },
+ {
+  "id": "3241b79c-0e9f-459e-9412-3992466ca8ce",
+  "set_id": "4b3cea6e-13e8-4a60-982b-242be0969af9",
+  "front": "Time of flight of a projectile landing at its launch height",
+  "back": "t = 2u_y / g",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:39:55.455544+00"
+ },
+ {
   "id": "327487c7-547c-4e0b-9c61-52187db14f7c",
   "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
   "front": "Sine rule",
   "back": "a/sin A = b/sin B = c/sin C. Use when a matching angle–side pair is known.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "3294ca6c-451d-45a9-a476-b1592c65bbb1",
+  "set_id": "66de0f22-b8ad-497e-a720-f1e8138dd018",
+  "front": "Purpose of a fuse",
+  "back": "breaks the circuit if the current is too large",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "32a222fa-8036-4126-8525-b964cdd04d50",
@@ -1432,6 +1768,14 @@
   "created_at": "2026-10-12 07:47:24.107802+00"
  },
  {
+  "id": "357b64af-7c68-44c2-8f22-cb770e5472dc",
+  "set_id": "48227452-961b-4e02-a789-3a77d6131865",
+  "front": "Gravitational potential energy",
+  "back": "Ep = mgh",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "35b0a29a-46c2-4030-9c1c-336c08a64584",
   "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
   "front": "Distribution of the Sample Mean",
@@ -1480,6 +1824,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "3699ecbc-c9e9-424b-b217-fa5df8fa3d81",
+  "set_id": "dd1abc8e-2777-49af-987a-f25cc7bb69b6",
+  "front": "Principle of conservation of energy",
+  "back": "Energy cannot be created or destroyed, only transferred or dissipated",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:42:52.98217+00"
+ },
+ {
   "id": "36ac2107-f5ed-4531-b206-4f3b6ab6440b",
   "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
   "front": "Elevation and depression",
@@ -1494,6 +1846,14 @@
   "back": "Constants vs variables; types: INTEGER, REAL, CHAR, STRING, BOOLEAN, DATE; casting between them. Declaration with meaningful names.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "36c45822-33d9-44f0-95f9-4d261927ccdb",
+  "set_id": "bab93e39-6cd9-4b12-9f01-ff4dbf41e7fb",
+  "front": "Momentum",
+  "back": "p = mv (vector, kg m s⁻¹)",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:40:26.838311+00"
  },
  {
   "id": "36ee0f09-9c6f-4b14-b179-07c0bb347937",
@@ -1536,6 +1896,14 @@
   "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
+  "id": "3821cc54-b662-4714-ad45-afa0e4135018",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "Mean and variance of X ~ B(n, p)?",
+  "back": "Mean = np and variance = np(1 − p).",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "384d43a2-5286-4a82-ac3a-45390c8e2a31",
   "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
   "front": "Bearings",
@@ -1550,6 +1918,14 @@
   "back": "where E(X²) = Σxᵢ²pᵢ — square the values before multiplying by probabilities. The standard deviation is √Var(X).",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "385dec00-8f50-4b48-9caa-43bca1678e05",
+  "set_id": "66d7428f-ea79-4fd8-b4d0-1b9431b04809",
+  "front": "Einstein's photoelectric equation",
+  "back": "hf = φ + E_k(max)",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:51:17.069737+00"
  },
  {
   "id": "38635b97-7d33-44fa-8dcc-673d163bdb80",
@@ -1654,6 +2030,14 @@
   "back": "Sum the shorter tail: use 1 - P(X <= k-1) rather than summing k to n directly.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:24:03.974912+00"
+ },
+ {
+  "id": "3ca8490c-5192-4fbe-ae53-de28da2508bd",
+  "set_id": "f2e12ba5-d2ba-4e7e-9fac-c1c1d79c6b9a",
+  "front": "Decay constant and half-life",
+  "back": "λ = ln 2 / t½",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:54:31.315752+00"
  },
  {
   "id": "3cc08366-e37d-4b77-ba53-a1864efd20ac",
@@ -1840,6 +2224,14 @@
   "created_at": "2026-10-12 07:48:00.880768+00"
  },
  {
+  "id": "42ea8410-e353-4ad1-99e9-b47e7aa30140",
+  "set_id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
+  "front": "Centripetal acceleration",
+  "back": "a = v²/r = ω²r, directed towards the centre",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:47:24.513655+00"
+ },
+ {
   "id": "435e1bfe-32c1-48ea-8809-73bcef3ecb92",
   "set_id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
   "front": "Direct proportion",
@@ -1934,6 +2326,14 @@
   "back": "Immediate : operand is the constant itself, ADD #5.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "45314586-7f44-408d-8322-5be9ba679793",
+  "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
+  "front": "Two conditions for a discrete probability distribution?",
+  "back": "Each probability lies between 0 and 1, and the probabilities sum to 1.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "4562ed23-44e4-488f-95ad-2651bd2cb431",
@@ -2144,6 +2544,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "4b9cce10-9cdb-45dd-af35-23f81a066ff2",
+  "set_id": "66d7428f-ea79-4fd8-b4d0-1b9431b04809",
+  "front": "de Broglie wavelength",
+  "back": "λ = h/p",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:51:17.069737+00"
+ },
+ {
   "id": "4ba0de47-5d07-4946-9182-67bb9d835e97",
   "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
   "front": "Combined events",
@@ -2160,12 +2568,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "4c982563-aadd-4d6b-829e-902b6714a1b7",
+  "set_id": "bab93e39-6cd9-4b12-9f01-ff4dbf41e7fb",
+  "front": "Newton's third law",
+  "back": "Equal and opposite forces of the same type, acting on different bodies",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:40:26.838311+00"
+ },
+ {
   "id": "4d29fc17-0cad-4d15-bf4b-797e98008388",
   "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
   "front": "Angle in a semicircle",
   "back": "Always 90 degrees. Needs the diameter as one side of the triangle.",
   "sort_order": 6,
   "created_at": "2026-10-12 07:34:28.341167+00"
+ },
+ {
+  "id": "4d44a4d4-fe16-4f43-886e-c6ec0a3d7794",
+  "set_id": "672f0d91-07bb-4cbc-99b6-73f34cd9e6be",
+  "front": "Maximum acceleration in SHM",
+  "back": "a₀ = ω²x₀",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:54:32.087537+00"
  },
  {
   "id": "4e1f98fc-11bf-4c34-9eb6-b8448877172f",
@@ -2272,6 +2696,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "55aea345-1a43-46e6-9568-ba95415bafa6",
+  "set_id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
+  "front": "Resonance",
+  "back": "Maximum amplitude when the driving frequency equals the natural frequency",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:47:24.513655+00"
+ },
+ {
   "id": "55b113d8-3eba-437b-907d-8ad6279b7532",
   "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
   "front": "Sector Area",
@@ -2318,6 +2750,14 @@
   "back": "Routers join networks by IP; switches forward frames by MAC within a LAN; gateways translate protocols.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "565beeba-c32d-41a3-a006-1acb9bfc8229",
+  "set_id": "60fc4ffd-a179-4306-86c5-7b7fca0ce2de",
+  "front": "Parallax error",
+  "back": "reading a scale from an angle",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "5663b09b-a1df-411a-a15c-1765a23eec27",
@@ -2368,6 +2808,22 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "58149b71-a628-4dbf-a9a0-097e426a67b2",
+  "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
+  "front": "Magnitude of (x; y; z)?",
+  "back": "√(x² + y² + z²).",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "587648ff-b19e-4c0d-820e-ee0fe9c2fefa",
+  "set_id": "6383f2b6-41d9-4c2f-8251-ec812a3dbc2c",
+  "front": "Specific heat capacity",
+  "back": "Q = mc&Delta;T",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "58baaeff-0000-4a99-b674-8602d701e61d",
   "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
   "front": "Conditional probability",
@@ -2414,6 +2870,30 @@
   "back": "Sum = A XOR B XOR Cin. Cout = AB + A·Cin + B·Cin; carry is produced when at least two inputs are 1.",
   "sort_order": 20,
   "created_at": "2026-10-12 20:03:59.658342+00"
+ },
+ {
+  "id": "5ac13b62-0b5d-4047-9565-397dc53be8d1",
+  "set_id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
+  "front": "Where is kinetic energy maximum in SHM?",
+  "back": "At the centre (equilibrium position), where displacement is zero",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:47:24.513655+00"
+ },
+ {
+  "id": "5ba33e82-6453-4ce9-8a1b-f51ac3bdf393",
+  "set_id": "f2e12ba5-d2ba-4e7e-9fac-c1c1d79c6b9a",
+  "front": "Binding energy",
+  "back": "E = Δmc², the energy released when the nucleus is assembled from nucleons",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:54:31.315752+00"
+ },
+ {
+  "id": "5bb68aef-90b0-4e1d-8732-9a6395e8b6f0",
+  "set_id": "7e0f6250-7bb4-4623-9b84-d8751a983f45",
+  "front": "Hubble's law",
+  "back": "v = H₀d",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:54:32.710733+00"
  },
  {
   "id": "5bc4879b-4fb0-4130-8d2e-835d051c00d2",
@@ -2496,6 +2976,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "5d750a8d-a6bf-482e-8904-3c4ed0dfda6f",
+  "set_id": "66de0f22-b8ad-497e-a720-f1e8138dd018",
+  "front": "Series resistance",
+  "back": "resistances add",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "5ddba5cd-69d2-444d-baf1-b1a403a140db",
   "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
   "front": "SQL Injection",
@@ -2576,6 +3064,22 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "619e3a42-5e77-49c5-820e-148898fb7b32",
+  "set_id": "1be83c89-e448-48fc-a899-a46b825e27ed",
+  "front": "Longitudinal wave",
+  "back": "Oscillations parallel to the direction of energy transfer, e.g. sound in air",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:42:54.410489+00"
+ },
+ {
+  "id": "61b14cdf-3367-48a4-8b55-b362a130a8d5",
+  "set_id": "48227452-961b-4e02-a789-3a77d6131865",
+  "front": "Efficiency",
+  "back": "useful output / total input × 100",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "62097445-4344-45e3-b920-143017350244",
   "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
   "front": "Relational Concepts",
@@ -2590,6 +3094,14 @@
   "back": "temperature kelvin (°C used) K",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "6226edb4-9272-4714-a8a1-2ae57bb53c40",
+  "set_id": "4b3cea6e-13e8-4a60-982b-242be0969af9",
+  "front": "Gradient of a displacement–time graph",
+  "back": "Velocity",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:39:55.455544+00"
  },
  {
   "id": "6261329f-5a1b-470e-bc7b-88a2d77084aa",
@@ -2648,6 +3160,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "641a96a4-edd6-4850-94e3-a30fb12b690e",
+  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
+  "front": "Unbiased estimate of the population mean?",
+  "back": "The sample mean x̄.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "64517367-22e7-4839-a78d-d009d2698c3f",
   "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
   "front": "Radian essentials",
@@ -2662,6 +3182,14 @@
   "back": "Unsigned binary with n bits stores 0 to 2ⁿ − 1. Two's complement represents negatives: the MSB has value −2ⁿ⁻¹.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "64a24653-73ee-4d96-b092-ca7619c7cd1d",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "What does the null hypothesis H₀ state?",
+  "back": "That there is no change or no difference. It is the statement assumed true until the test rejects it.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "64aa53bb-bf45-4e32-8aa4-ad6ebed59ff0",
@@ -2688,6 +3216,22 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "6541c151-721a-4e61-a1ba-d2df06e432a4",
+  "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
+  "front": "z-score formula?",
+  "back": "z = (x − μ)/σ.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "65e67b25-8cd9-447d-9039-42d39344aa99",
+  "set_id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",
+  "front": "Plastic deformation",
+  "back": "Permanent deformation; the material does not return to its original length",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:42:53.681236+00"
+ },
+ {
   "id": "666e5daa-5fd5-4aaa-b0f5-5e0520158aac",
   "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
   "front": "Which side names the skew?",
@@ -2710,6 +3254,14 @@
   "back": "Line 180°; point 360°; vertically opposite equal.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "66f4d24e-c7e6-4a75-8312-8d822c9870e0",
+  "set_id": "201c389b-db44-4298-81ab-e113ff586232",
+  "front": "Field strength of a point charge",
+  "back": "E = kQ/r², radial",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:49:10.355822+00"
  },
  {
   "id": "66fa2206-d9eb-4698-954c-3002903c9546",
@@ -2806,6 +3358,14 @@
   "back": "The point where the weight appears to act. For stable equilibrium the line of action must pass through the base.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "69cb434c-d6a7-4604-9637-8e2f894f0af3",
+  "set_id": "a87c607b-1168-47c6-88ad-4f0dbcf34fc9",
+  "front": "rms value of a sinusoidal voltage",
+  "back": "V_rms = V₀/√2",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:51:16.271712+00"
  },
  {
   "id": "69e5541b-c127-4f80-a9f4-1ce34079898a",
@@ -2952,6 +3512,14 @@
   "created_at": "2026-10-12 07:55:22.610535+00"
  },
  {
+  "id": "6d423fa0-e1dd-4351-a248-31d8a6c6086d",
+  "set_id": "8b915678-fcf7-4fb0-8915-0f9b5daf331f",
+  "front": "Avogadro constant",
+  "back": "N_A = 6.02 × 10²³ particles per mole",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:49:09.570913+00"
+ },
+ {
   "id": "6d4c0639-641c-4665-8811-1a81ab4c2aa3",
   "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
   "front": "Binomial Expansion",
@@ -3024,6 +3592,14 @@
   "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
+  "id": "6f81ef78-f165-4835-817e-1ea2c5ff85ef",
+  "set_id": "f9ace2c3-59f3-4e16-a6a5-638be0fdcfb0",
+  "front": "Potential divider",
+  "back": "V2 = V × R2 ÷ (R1 + R2) for two resistors in series",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:42:55.802533+00"
+ },
+ {
   "id": "70443af7-cd96-44fc-bbb7-f2b552ace1f5",
   "set_id": "cd385889-515c-4680-b051-d794d6c084b0",
   "front": "The nuclear model",
@@ -3072,6 +3648,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "70c6b62b-573f-4766-97c3-c8c845d22926",
+  "set_id": "037665e5-b521-4f97-ab78-5863a577f8a4",
+  "front": "Speed of electromagnetic waves in vacuum",
+  "back": "3 × 10⁸ m/s",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "70e23496-daaf-46f1-bcbd-35cb635ddcf3",
   "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
   "front": "Linear sequences",
@@ -3102,6 +3686,14 @@
   "back": "Serial: one bit at a time — reliable over distance, cheaper cable.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "71f7035f-186e-40b2-9bbf-cace80d0b0f3",
+  "set_id": "66d7428f-ea79-4fd8-b4d0-1b9431b04809",
+  "front": "Line spectrum",
+  "back": "Emitted or absorbed only at energies equal to differences between discrete energy levels",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:51:17.069737+00"
  },
  {
   "id": "72e2c62a-bfb4-40b8-94e0-c1357531d59e",
@@ -3144,6 +3736,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "73a44bf5-19ac-42d9-8ca8-59fd711fe857",
+  "set_id": "1be83c89-e448-48fc-a899-a46b825e27ed",
+  "front": "Polarisation",
+  "back": "Restricting oscillations to one plane; possible only for transverse waves",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:42:54.410489+00"
+ },
+ {
   "id": "73c7c7fb-7af6-4f52-9906-56115ee1ee70",
   "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
   "front": "Stationary point protocol",
@@ -3176,12 +3776,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "746ad14e-2a80-42b4-9523-cf5550263898",
+  "set_id": "f9ace2c3-59f3-4e16-a6a5-638be0fdcfb0",
+  "front": "Charge in terms of current",
+  "back": "Q = It",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:42:55.802533+00"
+ },
+ {
   "id": "74917a52-5fc1-4139-8238-9716f4a07faa",
   "set_id": "3cd7c9dc-e3da-4733-b5aa-d29f2d73f79b",
   "front": "Examples",
   "back": "∫ x³ dx = x⁴/4 + c; ∫ 1/x dx = ln|x| + c; ∫ sin x dx = −cos x + c; ∫ e^x dx = e^x + c.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "74f8bf6e-171a-4fc8-a7e7-ef8f44f01788",
+  "set_id": "60fc4ffd-a179-4306-86c5-7b7fca0ce2de",
+  "front": "Zero error",
+  "back": "a reading that is not zero when it should be",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "75304ce9-4ffa-4213-a619-d6416bd1c051",
@@ -3264,6 +3880,14 @@
   "created_at": "2026-10-12 08:24:56.07673+00"
  },
  {
+  "id": "7800cb01-a9ba-4ab9-9bbe-acba8ec6e0e4",
+  "set_id": "32a196b1-1330-4f0e-ae9d-2827a1579e78",
+  "front": "Centripetal force",
+  "back": "F = mv²/r = mω²r, directed towards the centre of the circle",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:42:56.462624+00"
+ },
+ {
   "id": "7827ff21-cc0a-4df3-945d-16675d2e3e7c",
   "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
   "front": "Double Angles",
@@ -3336,6 +3960,14 @@
   "created_at": "2026-10-12 07:55:22.610535+00"
  },
  {
+  "id": "799a0f41-1e5a-46ad-8a0f-e01b2671437b",
+  "set_id": "f2e12ba5-d2ba-4e7e-9fac-c1c1d79c6b9a",
+  "front": "Isotopes",
+  "back": "Same proton number Z, different nucleon number A",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:54:31.315752+00"
+ },
+ {
   "id": "799aee38-055b-4d21-92c8-75d2315e1589",
   "set_id": "b1b233a0-7284-4174-9c6d-2f2954f74428",
   "front": "Damping and Resonance",
@@ -3406,6 +4038,14 @@
   "back": "HTTPS adds TLS encryption: padlock, certificate, safe credentials.",
   "sort_order": 6,
   "created_at": "2026-10-12 07:48:00.880768+00"
+ },
+ {
+  "id": "7bf7d57f-47dc-46de-a2da-8a457400d2a2",
+  "set_id": "10f2b7d3-5228-4d2a-9aea-7f282cff2c6b",
+  "front": "Newton second law",
+  "back": "F = ma",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "7c80d5be-08da-4714-a17d-6b8771f909e8",
@@ -3504,6 +4144,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "800cc37b-361b-4328-a6ff-4e0c5b079455",
+  "set_id": "937c09bd-6bf4-4511-a7be-0ccd53eb29a4",
+  "front": "Motor effect",
+  "back": "force on a current-carrying conductor in a magnetic field",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "80203723-6453-433f-a806-e6618a09436b",
   "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
   "front": "Correlation ≠ causation",
@@ -3512,12 +4160,44 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "8056ea3d-1f4d-4676-9877-2571472d9e5b",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "Derivative of e^(kx)?",
+  "back": "k e^(kx).",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "80c9b4c8-adaa-4aa4-8468-1266e7319f62",
   "set_id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
   "front": "What must a discrete distribution table satisfy?",
   "back": "Probabilities sum to 1. Check this first.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:24:49.349492+00"
+ },
+ {
+  "id": "811415a1-54fc-4b3e-90d6-03938b4c3881",
+  "set_id": "dd1abc8e-2777-49af-987a-f25cc7bb69b6",
+  "front": "Kinetic energy",
+  "back": "Ek = ½mv²",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:42:52.98217+00"
+ },
+ {
+  "id": "8126cc14-8115-490e-a5a2-78de7d9cf5ef",
+  "set_id": "4b3cea6e-13e8-4a60-982b-242be0969af9",
+  "front": "Area under a velocity–time graph",
+  "back": "Displacement (area below the time axis is negative)",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:39:55.455544+00"
+ },
+ {
+  "id": "8148c318-6a5c-4c94-9b2e-3cb41fa45d0d",
+  "set_id": "dd1abc8e-2777-49af-987a-f25cc7bb69b6",
+  "front": "Change in gravitational potential energy",
+  "back": "ΔEp = mgΔh near the Earth's surface",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:42:52.98217+00"
  },
  {
   "id": "814d2d00-1564-4361-89a5-ace2d03ac2c9",
@@ -3550,6 +4230,14 @@
   "back": "Conventional current: + → − (electron flow opposite). I = Q/t. Ammeter in series; voltmeter in parallel.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "82c8169c-88ce-4c0e-b595-f424187bed2e",
+  "set_id": "937c09bd-6bf4-4511-a7be-0ccd53eb29a4",
+  "front": "Solenoid strength",
+  "back": "more turns, larger current, iron core",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "8368f6d7-ea74-4e15-90f1-a1d7c992b095",
@@ -3672,12 +4360,36 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "8871e7f1-8f9a-46ba-830d-fe7df552d75e",
+  "set_id": "9b303f9e-f8b0-4cbc-9da6-6ffba93f21ea",
+  "front": "Principle of superposition",
+  "back": "The resultant displacement is the vector sum of the individual displacements",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:42:55.141957+00"
+ },
+ {
+  "id": "88fa9a43-7458-4e05-98ae-a8e265fe7977",
+  "set_id": "037665e5-b521-4f97-ab78-5863a577f8a4",
+  "front": "Law of reflection",
+  "back": "angle of incidence equals angle of reflection",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "89252f11-9d13-4441-b85f-9106fd85f8b7",
   "set_id": "a879a465-9acf-4470-b36f-b0ffec1b0cdf",
   "front": "Kinetic model",
   "back": "Solid: fixed positions, vibrate — fixed shape/volume. Liquid: move around, touching — fixed volume, flows. Gas: far apart, fast random motion — fills container. Brownian motion evidences random molecular motion.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "892b37af-6353-4845-8569-8e1d963dba58",
+  "set_id": "037665e5-b521-4f97-ab78-5863a577f8a4",
+  "front": "Sound and vacuum",
+  "back": "sound cannot travel through a vacuum",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "89966ab3-652b-49c6-8ae3-5077030a4a78",
@@ -3688,12 +4400,28 @@
   "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
+  "id": "89afda38-18ec-423e-b191-1e0af3bd5c1e",
+  "set_id": "201c389b-db44-4298-81ab-e113ff586232",
+  "front": "Coulomb's law",
+  "back": "F = kQ₁Q₂/r², with k = 8.99 × 10⁹ N m² C⁻²",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:49:10.355822+00"
+ },
+ {
   "id": "89b39de3-a11e-4195-86c8-50e80e67445d",
   "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
   "front": "What discriminant condition gives equal roots?",
   "back": "Discriminant equal to zero; the root is -b over 2a.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:24:27.107626+00"
+ },
+ {
+  "id": "89bed396-8442-4708-bd7b-51392bdf23ea",
+  "set_id": "10f2b7d3-5228-4d2a-9aea-7f282cff2c6b",
+  "front": "Speed",
+  "back": "distance / time",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "89e84cb6-21c4-4e35-97dd-18aa3b24277c",
@@ -3710,6 +4438,14 @@
   "back": "classes encapsulate state (attributes) and behaviour (methods); supports",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "8a5f8b20-c988-41ba-a236-1724a1e766f7",
+  "set_id": "672f0d91-07bb-4cbc-99b6-73f34cd9e6be",
+  "front": "Critical damping",
+  "back": "Returns to equilibrium in the shortest time without oscillating",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:54:32.087537+00"
  },
  {
   "id": "8a8d23da-1a23-489e-a924-ec12a9626f10",
@@ -3832,12 +4568,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "8faf5d33-460e-47ee-9c47-f9657b627f9c",
+  "set_id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",
+  "front": "Young modulus",
+  "back": "Stress ÷ strain, in the region where Hooke's law applies; unit Pa",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:42:53.681236+00"
+ },
+ {
   "id": "901aa9e1-da4e-486c-ad79-2ec666295024",
   "set_id": "c477df2e-d7ac-46bd-852e-5af9a0a6be07",
   "front": "Wave–Particle Duality",
   "back": "de Broglie: λ = h/p = h/(mv). Electrons diffract like waves — electron microscopes exploit short electron wavelengths.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "90585adc-22a2-4cd8-a646-a4524faf5fb9",
+  "set_id": "937c09bd-6bf4-4511-a7be-0ccd53eb29a4",
+  "front": "Like poles",
+  "back": "repel",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "90792346-6b10-489f-b111-5f2860072f07",
@@ -3928,6 +4680,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "9485b946-260c-459e-b97e-507620ba2956",
+  "set_id": "4b3cea6e-13e8-4a60-982b-242be0969af9",
+  "front": "Area under an acceleration–time graph",
+  "back": "Change in velocity",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:39:55.455544+00"
+ },
+ {
   "id": "94c4bd17-05b3-49ac-8dd4-522840f16523",
   "set_id": "c477df2e-d7ac-46bd-852e-5af9a0a6be07",
   "front": "Energy Levels and Line Spectra",
@@ -3968,6 +4728,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "94f8edfe-9366-4232-ba7e-8a9f8c167d80",
+  "set_id": "66d7428f-ea79-4fd8-b4d0-1b9431b04809",
+  "front": "Effect of increasing intensity in the photoelectric effect",
+  "back": "More photoelectrons per second, same maximum kinetic energy",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:51:17.069737+00"
+ },
+ {
   "id": "95d33263-df78-488e-b979-efd03b41da33",
   "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
   "front": "TLS plus certificates",
@@ -3990,6 +4758,14 @@
   "back": "b squared - 4ac > 0: two real roots. = 0: one repeated root. < 0: no real roots.",
   "sort_order": 7,
   "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
+  "id": "96f95e83-5dca-465d-884c-4ee9f80d29f1",
+  "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
+  "front": "Scalar product a · b in components?",
+  "back": "a₁b₁ + a₂b₂ + a₃b₃.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "97d728d4-fc48-4f5d-a3a2-48f9fe07e0fc",
@@ -4064,12 +4840,36 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "99e6601a-019b-45b8-9d2d-fc547e6a2ef3",
+  "set_id": "d07f3437-4abc-43a2-aa64-5fb7c1ebaa84",
+  "front": "When an object floats",
+  "back": "its density is less than the fluid density",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
+  "id": "99f8987a-1f9f-40c4-9d6e-526257a06d9b",
+  "set_id": "a87c607b-1168-47c6-88ad-4f0dbcf34fc9",
+  "front": "Force on a current-carrying conductor",
+  "back": "F = BIL sin θ",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:51:16.271712+00"
+ },
+ {
   "id": "9a263a27-aff2-490e-9907-a8dedb64d91e",
   "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
   "front": "No-replacement draws",
   "back": "Denominators drop each draw: 3/5 then 2/4 gives 3/10 for both red.",
   "sort_order": 6,
   "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
+  "id": "9a8ded75-7d97-47be-8005-4d7c795c3458",
+  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
+  "front": "Addition rule for P(A ∪ B)?",
+  "back": "P(A) + P(B) − P(A ∩ B).",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "9ac2ce40-bb2a-4640-a99d-c42178cd41ef",
@@ -4184,6 +4984,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "9e34a84f-74ce-4bfe-b1b4-7af91168719c",
+  "set_id": "dd1abc8e-2777-49af-987a-f25cc7bb69b6",
+  "front": "Efficiency",
+  "back": "Useful energy output ÷ total energy input × 100%",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:42:52.98217+00"
+ },
+ {
   "id": "9e7bdbe6-d87d-4704-a03a-a443172165ec",
   "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
   "front": "Trapezium area",
@@ -4200,12 +5008,36 @@
   "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
+  "id": "9e9e417c-046a-4fd3-abaa-e57ff5ade3eb",
+  "set_id": "191efa2e-c7f3-48b7-bb51-fc633efa4431",
+  "front": "Gamma radiation",
+  "back": "no mass and no charge",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
+  "id": "9eafadd1-9cda-4b0a-bd75-b48470ea74ef",
+  "set_id": "191efa2e-c7f3-48b7-bb51-fc633efa4431",
+  "front": "Half-life",
+  "back": "time for half the nuclei in a sample to decay",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "9f10e479-3308-4d07-92c2-0517708e2080",
   "set_id": "75e23a9f-6953-4d9b-a2c6-6db249ef6d40",
   "front": "Protocols",
   "back": "TCP/IP stack layers (application, transport, network, link). HTTP/HTTPS (TLS encryption), FTP (with login + commands), email: SMTP send, POP3/IMAP retrieve. Bluetooth/Wi-Fi for WPAN/WLAN.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "9fa79589-8e22-4e1c-be67-8406bda9ee6e",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "P(X = r) for X ~ B(n, p)?",
+  "back": "nCr p^r (1 − p)^(n − r).",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "9fb0e486-ee2e-4b63-b200-0dd06c5bba74",
@@ -4230,6 +5062,14 @@
   "back": "Multiplying or dividing by a negative reverses the sign. Adding or subtracting never flips.",
   "sort_order": 5,
   "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
+  "id": "a1062ceb-0502-4e3e-93a1-d9e7fa2c9bdc",
+  "set_id": "6383f2b6-41d9-4c2f-8251-ec812a3dbc2c",
+  "front": "Conduction",
+  "back": "energy passed along by vibrating particles",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "a1095359-cad3-4074-ae39-e630a5690bb8",
@@ -4262,6 +5102,14 @@
   "back": "z̄ = a − bi. zz̄ = a² + b² (real). Dividing: multiply numerator and denominator by the conjugate.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "a27c0b21-ab04-4075-9617-3ea7c66d0223",
+  "set_id": "0f459219-a637-4fcf-a10b-f74c659c2ed5",
+  "front": "Orbital period of the Earth",
+  "back": "one year",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "a2924756-8367-45e7-b222-0957e9877dda",
@@ -4304,12 +5152,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "a3f6e205-36af-407a-99a6-3a8797c90bac",
+  "set_id": "10f2b7d3-5228-4d2a-9aea-7f282cff2c6b",
+  "front": "Weight",
+  "back": "W = mg, in newtons",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "a44c8adc-3328-4dda-af91-e627911d51dd",
   "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
   "front": "Surds",
   "back": "A surd is a root that cannot be written as a rational number: √2, √3, 3√5.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a4a0af40-65ba-499d-a7a7-9d30cb52eeba",
+  "set_id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",
+  "front": "Strain",
+  "back": "Extension ÷ original length; no unit",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:42:53.681236+00"
  },
  {
   "id": "a537e410-3a20-452e-995c-71b0489b40a3",
@@ -4326,6 +5190,14 @@
   "back": "For an event A with P(A) = p: 0 ≤ p ≤ 1, and P(A′) = 1 − P(A). For mutually exclusive events, probabilities add: P(A ∪ B) = P(A) + P(B). For events that can occur together, subtract the overlap:",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "a5de7469-7a29-4a19-ab44-4f9bd50d61f2",
+  "set_id": "f9ace2c3-59f3-4e16-a6a5-638be0fdcfb0",
+  "front": "Electrical power (three forms)",
+  "back": "P = VI = I²R = V²/R",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:42:55.802533+00"
  },
  {
   "id": "a5fdd5b2-4691-4225-aaea-eb74064ac809",
@@ -4360,6 +5232,14 @@
   "created_at": "2026-09-30 05:35:34.636501+00"
  },
  {
+  "id": "a70b9ec3-2903-48f9-b7d3-358bc3a82251",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "Integral of e^(kx)?",
+  "back": "(1/k) e^(kx) + c.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "a752d047-07f1-4114-bb99-396fc50d1df9",
   "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
   "front": "How are stratified sample sizes allocated?",
@@ -4384,12 +5264,28 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "a80f1c72-127f-4aee-a9fe-d1738150742f",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "Upper-tail critical z for a one-tailed test at 5%?",
+  "back": "z = 1.645.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "a844b914-a351-4af1-b8ac-3e47e60ccd4c",
   "set_id": "e85d28e7-3221-4bbc-93af-117924df4e8a",
   "front": "Factorising",
   "back": "Common factor: 6x²y − 9xy² = 3xy(2x − 3y).",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "a85eb18a-3960-4e88-ac84-2058a6eca7fb",
+  "set_id": "f2e12ba5-d2ba-4e7e-9fac-c1c1d79c6b9a",
+  "front": "Beta-minus decay",
+  "back": "Z increases by 1, A unchanged; a neutron becomes a proton and an electron is emitted",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:54:31.315752+00"
  },
  {
   "id": "a9360e03-1eb8-4a87-a566-ac6e42858295",
@@ -4416,12 +5312,28 @@
   "created_at": "2026-09-30 17:18:59.82718+00"
  },
  {
+  "id": "aa63cc29-60b8-430a-b5eb-bc441d643522",
+  "set_id": "672f0d91-07bb-4cbc-99b6-73f34cd9e6be",
+  "front": "Resonance",
+  "back": "Amplitude is maximum when the driving frequency equals the natural frequency",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:54:32.087537+00"
+ },
+ {
   "id": "aa81cc7d-cc59-4e08-a886-00a4584496be",
   "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
   "front": "Critical Regions",
   "back": "The critical region is the set of values of the test statistic that would lead to rejection. Its boundary is the critical value. For B(20, 0.3) at the 5% level with H₁: p > 0.3, find the smallest k with P(X ≥ k) < 0.05 — that k opens the critical region.",
   "sort_order": 3,
   "created_at": "2026-09-30 17:17:36.353219+00"
+ },
+ {
+  "id": "aab8cd57-cfe9-4a81-972a-f1ec91b7ea21",
+  "set_id": "9b303f9e-f8b0-4cbc-9da6-6ffba93f21ea",
+  "front": "Spacing of adjacent nodes",
+  "back": "λ/2",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:42:55.141957+00"
  },
  {
   "id": "aac829dc-0291-43bb-bc20-2596c1d12ca9",
@@ -4456,12 +5368,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "ac2e656b-2733-4541-8232-6bf7c9ce8314",
+  "set_id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
+  "front": "Centripetal force does work?",
+  "back": "No: it is always perpendicular to the velocity, so the kinetic energy is constant",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:47:24.513655+00"
+ },
+ {
   "id": "ac87e5e5-911c-45f5-bc27-90a0c25957e7",
   "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
   "front": "Transformations — full descriptions",
   "back": "Reflection : mirror line (x = 0, y = x, y = −x…).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "ac8f4eb3-c2ba-4333-acdc-5461acafebce",
+  "set_id": "f9ace2c3-59f3-4e16-a6a5-638be0fdcfb0",
+  "front": "Resistance of a wire",
+  "back": "R = ρL/A; ρ is the resistivity (Ω m)",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:42:55.802533+00"
  },
  {
   "id": "ac967208-cb5e-4ce0-b465-7c379ad78a16",
@@ -4512,12 +5440,36 @@
   "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
+  "id": "ad98e4ad-3fb7-4190-bc47-900f34eb83d5",
+  "set_id": "7e0f6250-7bb4-4623-9b84-d8751a983f45",
+  "front": "Intensity at distance d",
+  "back": "I = L / (4πd²)",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:54:32.710733+00"
+ },
+ {
+  "id": "adbfbdb2-f4d8-4cc8-9b94-bafe5ea14f0e",
+  "set_id": "8b915678-fcf7-4fb0-8915-0f9b5daf331f",
+  "front": "First law of thermodynamics",
+  "back": "ΔU = Q + W, with Q heat into the system and W work done on it",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:49:09.570913+00"
+ },
+ {
   "id": "adcd967e-df66-45d0-ade1-5fc6f66427d8",
   "set_id": "e9b98d96-8bf8-4eb1-983c-f70911c3b90a",
   "front": "Intersections and Bisectors",
   "back": "Intersections: solve the equations simultaneously. The perpendicular bisector of AB passes through the midpoint of AB with gradient −1/m(AB) — equate distances PA = PB for the locus method.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "add10e5a-43a2-4b36-a996-5563ad1b6e50",
+  "set_id": "f9ace2c3-59f3-4e16-a6a5-638be0fdcfb0",
+  "front": "Kirchhoff's second law",
+  "back": "Around a closed loop, the sum of emfs equals the sum of potential differences",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:42:55.802533+00"
  },
  {
   "id": "add19a13-7331-4576-b6d8-b1b7c5a20ffd",
@@ -4616,6 +5568,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "b08aad7d-525f-4e3e-a919-dff7b77d288f",
+  "set_id": "10f2b7d3-5228-4d2a-9aea-7f282cff2c6b",
+  "front": "Newton third law",
+  "back": "equal and opposite forces acting on different bodies",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "b0cda346-0f1d-4f84-884b-1b2415f03ee1",
   "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
   "front": "Solving x squared < 16",
@@ -4662,6 +5622,14 @@
   "back": "Avoid parallax (eye level with reading), zero errors (subtract the zero reading), measure multiple laps for small times. Suggest improvements by naming the error and the fix.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "b19d6f90-8ff9-4517-88d0-3a2816d4daf7",
+  "set_id": "a87c607b-1168-47c6-88ad-4f0dbcf34fc9",
+  "front": "Flux density of a long straight wire",
+  "back": "B = μ₀I/(2πd)",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:51:16.271712+00"
  },
  {
   "id": "b1bcbf1c-0398-48b6-aa7e-8b15ee697681",
@@ -4712,6 +5680,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "b303f4c0-2da1-414c-94ac-f20ace53ddf7",
+  "set_id": "037665e5-b521-4f97-ab78-5863a577f8a4",
+  "front": "Wave equation",
+  "back": "v = f&lambda;",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "b35820fa-b956-4c81-a826-4685decc6876",
   "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
   "front": "Counted loop FOR I = 1 TO 4",
@@ -4744,6 +5720,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "b4efebcc-2e91-4969-bacb-a4673b055c11",
+  "set_id": "a87c607b-1168-47c6-88ad-4f0dbcf34fc9",
+  "front": "Lenz's law",
+  "back": "The induced e.m.f. opposes the change producing it",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:51:16.271712+00"
+ },
+ {
   "id": "b535a6b2-c485-475f-9aaf-2b25fc035072",
   "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
   "front": "Outliers",
@@ -4774,6 +5758,14 @@
   "back": "Fill the intersection first, then work outwards. Two sets: only A, both, only B, neither.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "b5b618d3-504f-4617-9a08-913287fa5fd5",
+  "set_id": "937c09bd-6bf4-4511-a7be-0ccd53eb29a4",
+  "front": "Field direction outside a magnet",
+  "back": "north to south",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "b5edefbf-aa59-4aa2-8a96-0d05f6ece3b9",
@@ -4848,6 +5840,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "b9a09812-a987-4976-bb4c-1711459a65ba",
+  "set_id": "201c389b-db44-4298-81ab-e113ff586232",
+  "front": "Energy stored in a capacitor",
+  "back": "W = ½QV = ½CV² = Q²/2C",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:49:10.355822+00"
+ },
+ {
   "id": "b9ab377a-4aad-445e-94e6-42d5ebbea0d7",
   "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
   "front": "Hashing",
@@ -4902,6 +5902,14 @@
   "back": "Piecewise densities carry an unknown k: impose that the total area is 1 (and continuity at joins where required). One equation, one unknown.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "bab3fb5f-4001-4db5-a7ad-4ed81ece37f8",
+  "set_id": "6383f2b6-41d9-4c2f-8251-ec812a3dbc2c",
+  "front": "Latent heat",
+  "back": "energy for a change of state at constant temperature",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "bad61355-a580-4f38-b34b-97b0c9cbb304",
@@ -4960,6 +5968,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "bc9b617e-9e58-46f2-90b2-81f3a0590be4",
+  "set_id": "dd733c0d-2a41-42be-98cf-fb0813f56194",
+  "front": "Centre of gravity",
+  "back": "The point through which the weight of a body appears to act",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:42:52.459554+00"
+ },
+ {
   "id": "bcca585d-3660-40b7-8c62-12ac5abb5d16",
   "set_id": "54511eff-803f-49a4-b183-77b3c2fdbb45",
   "front": "Specific Heat and Latent Heat",
@@ -4968,12 +5984,28 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "bcfd1fbf-c1b1-4a6c-b6e2-719bda5f6151",
+  "set_id": "8b915678-fcf7-4fb0-8915-0f9b5daf331f",
+  "front": "Specific heat capacity",
+  "back": "Energy per kg per kelvin: Q = mcΔθ",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:49:09.570913+00"
+ },
+ {
   "id": "bd06a891-a68e-488a-a075-7c6b38a7b002",
   "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
   "front": "Geometric nth term",
   "back": "Multiply by ratio r each step: nth = a x r to the (n-1). E.g. 3, 6, 12... gives 3 x 2 to the (n-1).",
   "sort_order": 9,
   "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
+  "id": "bd946b6f-2eb5-4502-92b3-bd1c25a8335a",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "What is the cover-up method?",
+  "back": "Substitute the root of each linear factor into the rest of the expression to find its constant directly.",
+  "sort_order": 102,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "bddb850c-2480-4a88-a29a-c85d9e2ee1e1",
@@ -5024,6 +6056,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "beaf2a28-cbba-483e-9ba8-211c7b0e16bb",
+  "set_id": "937c09bd-6bf4-4511-a7be-0ccd53eb29a4",
+  "front": "Electromagnet advantage",
+  "back": "switched on and off by the current",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "bece778c-f296-48f3-9056-13287d0bb508",
   "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
   "front": "Scalars and vectors",
@@ -5056,6 +6096,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "bf29f652-1a21-4baf-83be-2ba8cf826f91",
+  "set_id": "32a196b1-1330-4f0e-ae9d-2827a1579e78",
+  "front": "Gravitational potential energy",
+  "back": "Ep = mV",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:42:56.462624+00"
+ },
+ {
   "id": "bf499382-bba9-4c3d-9e3e-2708b602e83b",
   "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
   "front": "Binary search costs",
@@ -5070,6 +6118,14 @@
   "back": "Symmetric : one shared key (AES). Fast, but key distribution is the weak point.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "bf9c6457-d6b4-4bc5-ab13-df8840af42a0",
+  "set_id": "672f0d91-07bb-4cbc-99b6-73f34cd9e6be",
+  "front": "Total energy in SHM",
+  "back": "E = ½mω²x₀²",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:54:32.087537+00"
  },
  {
   "id": "c0546a35-faaf-44fe-90f6-e73b947f5bde",
@@ -5216,6 +6272,14 @@
   "created_at": "2026-10-12 08:24:27.107626+00"
  },
  {
+  "id": "c4f6a017-3ad7-4f66-83f2-c11da269875d",
+  "set_id": "60fc4ffd-a179-4306-86c5-7b7fca0ce2de",
+  "front": "SI unit of length",
+  "back": "metre",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "c559558a-4dbe-43b4-9ebe-1780b4b51700",
   "set_id": "79119282-c5be-42e0-8b0f-43ad890e4099",
   "front": "Procedural",
@@ -5238,6 +6302,22 @@
   "back": "If X and Y are independent: E(X + Y) = E(X) + E(Y) and Var(X + Y) = Var(X) + Var(Y). The addition rule for expectation always holds; the variance addition needs independence. The same applies to differences: Var(X − Y) = Var(X) + Var(Y)",
   "sort_order": 4,
   "created_at": "2026-09-30 17:18:58.398694+00"
+ },
+ {
+  "id": "c5a4a78e-fd53-4e7f-af6c-f0556357f73d",
+  "set_id": "7e0f6250-7bb4-4623-9b84-d8751a983f45",
+  "front": "Redshift",
+  "back": "z = Δλ/λ ≈ v/c for small z",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:54:32.710733+00"
+ },
+ {
+  "id": "c5c33f27-fede-4efd-9fdc-02e17aed88db",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "Shortcut formula for variance?",
+  "back": "Var(x) = Σx²/n − x̄².",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "c5c4d4c0-ed57-49d3-8dad-b553312cf7be",
@@ -5264,6 +6344,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "c6a12ba5-1b96-497a-8c34-6bb221284852",
+  "set_id": "f2e12ba5-d2ba-4e7e-9fac-c1c1d79c6b9a",
+  "front": "Mass defect",
+  "back": "The difference between the mass of a nucleus and the sum of its separate nucleons",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:54:31.315752+00"
+ },
+ {
   "id": "c6a93e1a-3382-42fa-9f3e-f78373d4b795",
   "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
   "front": "Buses and performance",
@@ -5286,6 +6374,14 @@
   "back": "First element is index 0. Declared size fixes the upper bound in most pseudocode.",
   "sort_order": 6,
   "created_at": "2026-10-12 07:48:00.880768+00"
+ },
+ {
+  "id": "c71e630c-5de6-45a7-8e50-07b1ee78cc84",
+  "set_id": "dd733c0d-2a41-42be-98cf-fb0813f56194",
+  "front": "Conditions for equilibrium",
+  "back": "Zero resultant force in every direction and zero resultant moment about any point",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:42:52.459554+00"
  },
  {
   "id": "c725134d-bf36-4561-90c3-500fb1ac0993",
@@ -5368,6 +6464,22 @@
   "created_at": "2026-10-12 07:34:28.341167+00"
  },
  {
+  "id": "c970e3b6-1d2d-49cd-b280-7f691fdbe151",
+  "set_id": "d07f3437-4abc-43a2-aa64-5fb7c1ebaa84",
+  "front": "Pressure in a liquid",
+  "back": "p = h&rho;g",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
+  "id": "c9f71762-17cc-49c4-94b0-2a1710cd5758",
+  "set_id": "66de0f22-b8ad-497e-a720-f1e8138dd018",
+  "front": "Parallel resistance",
+  "back": "1/R = 1/R1 + 1/R2",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "ca414d01-2fe0-4a36-bfba-155b00480bfc",
   "set_id": "0770e11f-8477-4a3f-969b-cd734e372cd3",
   "front": "Drawing curves",
@@ -5408,6 +6520,14 @@
   "created_at": "2026-10-12 07:54:54.445133+00"
  },
  {
+  "id": "cae26c09-13f9-4b0d-a732-c39e33ca8936",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "front": "nCr formula?",
+  "back": "n!/(r!(n − r)!).",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "caf1f790-f6d9-46ae-8d35-aa8a56ef27e0",
   "set_id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
   "front": "Scale drawing method",
@@ -5422,6 +6542,14 @@
   "back": "Given sample data, estimate μ by x̄ and σ² by the unbiased s². When the population is normal, x̄ is exactly normal for any n — the CLT is only needed for non-normal populations.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "cb6a19dd-9dc1-4fa7-a1c0-b145d23e5dc3",
+  "set_id": "4b3cea6e-13e8-4a60-982b-242be0969af9",
+  "front": "SUVAT equation that does not contain s",
+  "back": "v = u + at",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:39:55.455544+00"
  },
  {
   "id": "cb8584dc-adf9-4540-a4dd-ec7b165ba190",
@@ -5464,6 +6592,22 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "ccf670f6-b311-4e94-98a4-67d5688456d8",
+  "set_id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
+  "front": "SHM defining condition",
+  "back": "Acceleration is proportional to displacement and opposite in direction: a = −ω²x",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:47:24.513655+00"
+ },
+ {
+  "id": "cd268fff-e00f-440d-a2bc-bc5474f93bda",
+  "set_id": "6383f2b6-41d9-4c2f-8251-ec812a3dbc2c",
+  "front": "Best infrared absorber",
+  "back": "matt black surface",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "cd386f7a-55ee-4885-a1d8-036d8662383f",
   "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
   "front": "Symmetry Shortcuts",
@@ -5478,6 +6622,14 @@
   "back": "It is a weighted average — the long-run average value over many repetitions. E(X) need not equal any value X can actually take.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "cde3e944-4708-4002-8dfa-e0e814fcacad",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "Modulus of z = a + bi?",
+  "back": "|z| = √(a² + b²).",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "ce570127-28c3-4037-ab51-39b431f19df2",
@@ -5502,6 +6654,14 @@
   "back": "2 to the n including empty set and itself: {a,b,c} has 8 subsets.",
   "sort_order": 7,
   "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
+  "id": "cf86ebeb-d14a-46f7-9bda-83cbb3b73bed",
+  "set_id": "66de0f22-b8ad-497e-a720-f1e8138dd018",
+  "front": "Earth wire",
+  "back": "carries current away if a live wire touches the casing",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "cf881955-f8b7-4d5a-ba82-5c60900c0283",
@@ -5624,6 +6784,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "d37b0881-3ee4-45ee-830d-924a9da7e0c5",
+  "set_id": "d07f3437-4abc-43a2-aa64-5fb7c1ebaa84",
+  "front": "Density formula",
+  "back": "density = mass / volume",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "d391c625-c684-473b-b43b-a8ecf1b00cb1",
   "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
   "front": "Measuring",
@@ -5688,12 +6856,36 @@
   "created_at": "2026-10-12 08:03:08.398276+00"
  },
  {
+  "id": "d56af935-4405-433e-a266-91ca83967c00",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "When must you divide before splitting into partial fractions?",
+  "back": "When the numerator degree is at least the denominator degree. Divide first to get a polynomial plus a proper fraction.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "d5d62000-9aa5-4b14-8be5-c3101842bb7c",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "Two conditions a probability density function f must satisfy?",
+  "back": "f(x) ≥ 0 for all x, and the integral of f over its whole domain equals 1.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "d5e09aaa-7758-435d-a62d-f445670f5001",
   "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
   "front": "Why wireless uses CSMA/CA",
   "back": "Senders cannot detect collisions while transmitting, so they reserve the channel instead.",
   "sort_order": 8,
   "created_at": "2026-10-12 07:54:54.445133+00"
+ },
+ {
+  "id": "d6052c52-197d-4f80-990b-9a29c5d7c05a",
+  "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
+  "front": "Symmetry identity for the standard normal?",
+  "back": "Φ(−z) = 1 − Φ(z).",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "d63a001c-2f58-4eca-a767-ae76008b3751",
@@ -5726,6 +6918,14 @@
   "back": "Highest-frequency interval as an interval: 20 <= h < 30, never a single number.",
   "sort_order": 6,
   "created_at": "2026-10-12 07:35:47.684958+00"
+ },
+ {
+  "id": "d74702ba-02cf-4ac1-9f1c-c62d7c7f8dfe",
+  "set_id": "1be83c89-e448-48fc-a899-a46b825e27ed",
+  "front": "Transverse wave",
+  "back": "Oscillations perpendicular to the direction of energy transfer, e.g. light",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:42:54.410489+00"
  },
  {
   "id": "d747d949-eb2a-46ad-912f-fbe16ec5b96f",
@@ -5774,6 +6974,14 @@
   "back": "Compiler: whole program at once to machine code. Interpreter: line by line, slower, easier to debug.",
   "sort_order": 8,
   "created_at": "2026-10-12 07:48:00.880768+00"
+ },
+ {
+  "id": "d8b20c83-afe8-4d61-923e-dd2fab8c1421",
+  "set_id": "1be83c89-e448-48fc-a899-a46b825e27ed",
+  "front": "Wave speed",
+  "back": "v = fλ (frequency × wavelength)",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:42:54.410489+00"
  },
  {
   "id": "d8cff297-22d4-4f43-adff-c85b3e00cb67",
@@ -5848,6 +7056,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "daa9c906-bbeb-43e0-8670-a34157b09c2a",
+  "set_id": "385118c3-a705-4b80-8097-68ae529acc08",
+  "front": "Position of the median for n ordered values?",
+  "back": "The (n + 1)/2 th value.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "dab06bfd-55b7-470a-bb84-453df9bf1a7a",
   "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
   "front": "Power rule in one line",
@@ -5878,6 +7094,14 @@
   "back": "Assembler : assembly → machine code (1:1)",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "db35943f-4422-481d-9426-13e42af67301",
+  "set_id": "32a196b1-1330-4f0e-ae9d-2827a1579e78",
+  "front": "Field strength of a point mass",
+  "back": "g = GM/r²",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:42:56.462624+00"
  },
  {
   "id": "db4119bb-e062-41ef-b287-4dfe47813e66",
@@ -5960,6 +7184,14 @@
   "created_at": "2026-10-12 07:36:16.038442+00"
  },
  {
+  "id": "dd773c0c-dedb-43a4-a462-a07ca9f262d4",
+  "set_id": "66de0f22-b8ad-497e-a720-f1e8138dd018",
+  "front": "Ohm law",
+  "back": "V = IR",
+  "sort_order": 0,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "ddc5705d-f57c-4dbb-adb2-231719295acb",
   "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
   "front": "Partial Fractions",
@@ -5974,6 +7206,14 @@
   "back": "Both equal lambda.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:24:42.490112+00"
+ },
+ {
+  "id": "de06475e-3092-477b-81b6-4a7ef8b1271b",
+  "set_id": "d07f3437-4abc-43a2-aa64-5fb7c1ebaa84",
+  "front": "Pressure definition",
+  "back": "force per unit area, measured in pascals",
+  "sort_order": 2,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "de1bf9ea-c1e9-4a75-b737-63055a0d1974",
@@ -6064,6 +7304,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "e1d6f15e-3bf4-45b4-9dec-3ab01857fbb8",
+  "set_id": "191efa2e-c7f3-48b7-bb51-fc633efa4431",
+  "front": "Beta-minus emission",
+  "back": "neutron becomes proton and an electron is emitted",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "e22a1300-533e-43e4-b0a9-a610a68d196c",
   "set_id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
   "front": "Types of number",
@@ -6094,6 +7342,14 @@
   "back": "A stack is LIFO (push and pop at the top); a queue is FIFO (enqueue at the rear, dequeue from the front). Both can be arrays with index pointers or linked lists. Stack uses include call stacks and expression evaluation;",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "e2bf351e-eb46-44dd-8b65-a4c8fa9a598a",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "1 + tan² x equals?",
+  "back": "sec² x.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
   "id": "e2dee73b-27d3-4b11-b71e-12992e2f93b3",
@@ -6168,6 +7424,22 @@
   "created_at": "2026-10-12 07:47:24.107802+00"
  },
  {
+  "id": "e4cae8b0-fa55-4192-8413-8608ce8982eb",
+  "set_id": "60fc4ffd-a179-4306-86c5-7b7fca0ce2de",
+  "front": "Micrometer screw gauge",
+  "back": "measures small lengths to about 0.01 mm",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
+  "id": "e5384740-c7e7-474b-8885-22f1ed8e2bff",
+  "set_id": "dd1abc8e-2777-49af-987a-f25cc7bb69b6",
+  "front": "Power",
+  "back": "Work done ÷ time (or energy transferred ÷ time); unit W = J s⁻¹",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:42:52.98217+00"
+ },
+ {
   "id": "e54e3302-fe98-4bf9-9cb0-89231d109d65",
   "set_id": "056e492d-c0f3-49c8-9a02-be16b1fafeec",
   "front": "Using Identities",
@@ -6232,12 +7504,36 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "e6ef554e-1f39-47ca-8986-e243b31ffde0",
+  "set_id": "32a196b1-1330-4f0e-ae9d-2827a1579e78",
+  "front": "Gravitational field strength",
+  "back": "g = F/m; unit N kg⁻¹",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:42:56.462624+00"
+ },
+ {
+  "id": "e8e9fd65-54aa-4b0b-a50c-2a623cbd1712",
+  "set_id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",
+  "front": "Elastic deformation",
+  "back": "The material returns to its original length when the load is removed",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:42:53.681236+00"
+ },
+ {
   "id": "e90e68f3-92cc-44dc-bbbd-9292ccf9684e",
   "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
   "front": "Geometric Progressions (GP)",
   "back": "Terms multiply by a common ratio r.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "e93b571f-bb48-4541-9b35-7a61d4a7d764",
+  "set_id": "dd733c0d-2a41-42be-98cf-fb0813f56194",
+  "front": "Couple",
+  "back": "Two equal and opposite parallel forces with different lines of action; moment = F × d, the same about every point",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:42:52.459554+00"
  },
  {
   "id": "e949c85f-13f5-490b-af45-2c0082cdbe2d",
@@ -6288,6 +7584,14 @@
   "created_at": "2026-10-12 07:47:24.107802+00"
  },
  {
+  "id": "ea414ffb-adb2-4eef-b777-a5c423920631",
+  "set_id": "a87c607b-1168-47c6-88ad-4f0dbcf34fc9",
+  "front": "Fleming's left-hand rule",
+  "back": "First finger = Field, seCond finger = Current, thuMb = Motion (force)",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:51:16.271712+00"
+ },
+ {
   "id": "ea58d29f-7e4a-4218-8428-47db3b86f2f5",
   "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
   "front": "What are the Sum and Carry outputs of a half adder?",
@@ -6302,6 +7606,14 @@
   "back": "Circuit switching : a dedicated path is held for the call (traditional telephone) — wasteful if idle.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "eb19f126-b8cd-4351-8c03-6867c87fd5c1",
+  "set_id": "191efa2e-c7f3-48b7-bb51-fc633efa4431",
+  "front": "Background radiation",
+  "back": "subtract from the measured count rate",
+  "sort_order": 4,
+  "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "eb2dec39-9158-4e0f-8501-13753aff561c",
@@ -6376,6 +7688,14 @@
   "created_at": "2026-10-12 07:34:59.49118+00"
  },
  {
+  "id": "ee863714-fb84-456a-b92f-a765498922f1",
+  "set_id": "0f459219-a637-4fcf-a10b-f74c659c2ed5",
+  "front": "Rotation period of the Earth",
+  "back": "one day",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "ee9fa176-5a33-411c-b832-85844da402b2",
   "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
   "front": "Packets and Protocols",
@@ -6390,6 +7710,22 @@
   "back": "SELECT fields FROM table WHERE condition. Text values in single quotes.",
   "sort_order": 5,
   "created_at": "2026-10-12 07:47:24.107802+00"
+ },
+ {
+  "id": "ef00eb58-60f6-4d72-b45e-a1b04c12410c",
+  "set_id": "9b303f9e-f8b0-4cbc-9da6-6ffba93f21ea",
+  "front": "Fringe spacing (double slit)",
+  "back": "Δx = λD/a",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:42:55.141957+00"
+ },
+ {
+  "id": "ef48c61c-a8dc-4787-b443-0addfcf4e789",
+  "set_id": "f9ace2c3-59f3-4e16-a6a5-638be0fdcfb0",
+  "front": "Kirchhoff's first law",
+  "back": "Total current entering a junction equals total current leaving it",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:42:55.802533+00"
  },
  {
   "id": "ef9a51f2-c786-4546-8961-83fc0a8f2866",
@@ -6432,6 +7768,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "f10b2d3f-3857-4e5e-81d9-e0859ced72a7",
+  "set_id": "1be83c89-e448-48fc-a899-a46b825e27ed",
+  "front": "Order of EM spectrum (increasing wavelength)",
+  "back": "Gamma, X-ray, UV, visible, infrared, microwave, radio",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:42:54.410489+00"
+ },
+ {
   "id": "f10b9dcb-a691-4310-9144-09dcf52b1b32",
   "set_id": "afe11917-e1c6-4ca5-b710-9ebab500ae91",
   "front": "Professional Bodies",
@@ -6472,12 +7816,36 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "f1856980-4636-4675-ac6b-41060daca9ae",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "Integral of 1/(ax + b)?",
+  "back": "(1/a) ln|ax + b| + c.",
+  "sort_order": 101,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "f27c40f4-25d0-47fa-b5e7-6e64a13a2da4",
+  "set_id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",
+  "front": "Stress",
+  "back": "Force ÷ cross-sectional area; unit Pa (N m⁻²)",
+  "sort_order": 0,
+  "created_at": "2026-10-13 13:42:53.681236+00"
+ },
+ {
   "id": "f2ae986c-1b09-4ec5-a0ee-452b094ca098",
   "set_id": "c03773f6-3aad-460d-b245-9551bc332765",
   "front": "Describing circuits",
   "back": "Write the expression from a diagram gate by gate; annotate output of each gate (X, Y) before combining.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f367f8bd-9d49-4230-8aaa-bf122f1f2ca5",
+  "set_id": "9b303f9e-f8b0-4cbc-9da6-6ffba93f21ea",
+  "front": "Node",
+  "back": "A point of zero amplitude in a stationary wave",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:42:55.141957+00"
  },
  {
   "id": "f38595b8-53c2-447e-8c66-8ce65ec186c8",
@@ -6504,6 +7872,22 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "f42234e2-3cbf-42e9-9d1b-c02d4bc5fd94",
+  "set_id": "bab93e39-6cd9-4b12-9f01-ff4dbf41e7fb",
+  "front": "Impulse",
+  "back": "FΔt = Δp = m(v − u)",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:40:26.838311+00"
+ },
+ {
+  "id": "f4386f91-8cf1-460f-983e-dd07f5a1df00",
+  "set_id": "48227452-961b-4e02-a789-3a77d6131865",
+  "front": "Power",
+  "back": "P = W/t, in watts",
+  "sort_order": 1,
+  "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "f527077d-c033-48fc-a2fb-e9129598e682",
   "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
   "front": "Function notation",
@@ -6512,12 +7896,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "f561d897-4997-4d4d-b93b-d94ce4b03adc",
+  "set_id": "4b3cea6e-13e8-4a60-982b-242be0969af9",
+  "front": "SUVAT equation that does not contain v",
+  "back": "s = ut + ½at²",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:39:55.455544+00"
+ },
+ {
   "id": "f586a771-8b4a-4d87-a639-766dea20d8e1",
   "set_id": "9048243c-8098-447b-99ba-dfb350c2dd20",
   "front": "Rationalising 6 / root 3",
   "back": "Multiply by root 3 / root 3 and simplify fully: 2 root 3.",
   "sort_order": 9,
   "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
+  "id": "f6289766-4802-4aec-87a9-bbe6d4471325",
+  "set_id": "672f0d91-07bb-4cbc-99b6-73f34cd9e6be",
+  "front": "Where kinetic energy is greatest",
+  "back": "At the equilibrium position, where speed is greatest",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:54:32.087537+00"
  },
  {
   "id": "f6cecb1c-b21f-4031-8d96-a1c67b6ba0a7",
@@ -6560,6 +7960,14 @@
   "created_at": "2026-10-12 07:35:47.684958+00"
  },
  {
+  "id": "f77a5ada-4872-4a90-b0ae-c3eefbde46a3",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "Effect of multiplying every value by k on the variance?",
+  "back": "The variance is multiplied by k².",
+  "sort_order": 102,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "f78bb07a-7a62-4f37-b6cb-4c29babfa546",
   "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
   "front": "Fibonacci from 1, 1",
@@ -6568,12 +7976,44 @@
   "created_at": "2026-10-12 08:03:08.398276+00"
  },
  {
+  "id": "f793aad4-e7dd-4801-8e3b-74d437f1fe09",
+  "set_id": "dd733c0d-2a41-42be-98cf-fb0813f56194",
+  "front": "Principle of moments",
+  "back": "For a body in equilibrium, the total clockwise moment equals the total anticlockwise moment about any point",
+  "sort_order": 1,
+  "created_at": "2026-10-13 13:42:52.459554+00"
+ },
+ {
+  "id": "f7a97175-d3bf-40b0-8f2f-cbf7f0d12ec3",
+  "set_id": "dd733c0d-2a41-42be-98cf-fb0813f56194",
+  "front": "Three forces in equilibrium",
+  "back": "Non-parallel coplanar forces: their lines of action meet at one point",
+  "sort_order": 4,
+  "created_at": "2026-10-13 13:42:52.459554+00"
+ },
+ {
+  "id": "f7fca514-4d93-4a1d-9c0e-3b4d54129b16",
+  "set_id": "7e0f6250-7bb4-4623-9b84-d8751a983f45",
+  "front": "Evidence for the Big Bang",
+  "back": "Hubble expansion, the cosmic microwave background and the hydrogen/helium abundance",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:54:32.710733+00"
+ },
+ {
   "id": "f7fe4a84-f5b8-4f0d-95a7-23fdadf01d4a",
   "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
   "front": "Motion graphs",
   "back": "Distance–time: gradient = speed.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "f8960d19-c793-49b9-bac6-1b9055c4a0ea",
+  "set_id": "d07f3437-4abc-43a2-aa64-5fb7c1ebaa84",
+  "front": "Unit conversion for density",
+  "back": "1 g/cm³ = 1000 kg/m³",
+  "sort_order": 3,
+  "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
   "id": "f8e4666b-7d7b-40f1-8b53-7b41756eff2c",
@@ -6600,12 +8040,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "f8fd46d9-929c-48c8-a8f9-c0438cb3dc6a",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "front": "nPr formula?",
+  "back": "n!/(n − r)!.",
+  "sort_order": 100,
+  "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
   "id": "f8ff8b45-678d-4d45-a151-bf12473cf051",
   "set_id": "1a50a9c6-ffa0-40cf-9b24-dbf5db8953a7",
   "front": "Power and energy",
   "back": "P = VI = I²R = V²/R; E = VIt. Fuse rating just above normal current; earth wire, double insulation, circuit breakers (trip quickly, resettable).",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "f963f5f6-ddb0-4492-b92b-104e4548ddc9",
+  "set_id": "1be83c89-e448-48fc-a899-a46b825e27ed",
+  "front": "Doppler effect (source approaching)",
+  "back": "Observed frequency increases and wavelength decreases",
+  "sort_order": 3,
+  "created_at": "2026-10-13 13:42:54.410489+00"
  },
  {
   "id": "f97edb2d-af0f-4cb5-b319-1b4dd5fd17a7",
@@ -6648,6 +8104,14 @@
   "created_at": "2026-10-12 08:03:08.398276+00"
  },
  {
+  "id": "faa03b79-c8cb-4d95-9ebb-c64ca0eab0dc",
+  "set_id": "32a196b1-1330-4f0e-ae9d-2827a1579e78",
+  "front": "Newton's law of gravitation",
+  "back": "F = GMm/r², with r measured from the centre of each mass",
+  "sort_order": 2,
+  "created_at": "2026-10-13 13:42:56.462624+00"
+ },
+ {
   "id": "faae48c8-a032-4be2-9287-10a8d164874c",
   "set_id": "a464a554-5bfc-47cb-a929-26f4b2d09195",
   "front": "Cosine rule for sides (60-degree shortcut)",
@@ -6670,6 +8134,14 @@
   "back": "Roots = x-intercepts; y-intercept from x = 0.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "fb5edebc-bc1b-4407-a396-8f5d17bc544b",
+  "set_id": "bab93e39-6cd9-4b12-9f01-ff4dbf41e7fb",
+  "front": "Elastic collision",
+  "back": "Momentum and kinetic energy are both conserved",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:40:26.838311+00"
  },
  {
   "id": "fc3bc6dd-9ae9-4772-98e2-4392fd8561f9",
@@ -6774,6 +8246,14 @@
   "back": "|r| < 1 converges to a/(1-r). |r| >= 1 has no finite sum.",
   "sort_order": 8,
   "created_at": "2026-10-12 08:12:17.224583+00"
+ },
+ {
+  "id": "ff794a14-8b4a-457b-b191-ee75681824da",
+  "set_id": "9b303f9e-f8b0-4cbc-9da6-6ffba93f21ea",
+  "front": "Diffraction grating equation",
+  "back": "nλ = d sin θ",
+  "sort_order": 5,
+  "created_at": "2026-10-13 13:42:55.141957+00"
  },
  {
   "id": "ff8b1d00-97f3-4b8c-9e70-1568605d48ce",
