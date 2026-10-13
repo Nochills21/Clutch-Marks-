@@ -8,6 +8,14 @@
   "updated_at": "2026-09-30 17:20:49.76339+00"
  },
  {
+  "id": "037665e5-b521-4f97-ab78-5863a577f8a4",
+  "topic_id": "39682f0d-d101-4e70-8f91-05961d6c2a80",
+  "title": "Key terms: waves-sound",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:13:02.496566+00",
+  "updated_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "056e492d-c0f3-49c8-9a02-be16b1fafeec",
   "topic_id": "4149e92f-7b66-43ee-af8a-cab08f65524a",
   "title": "Trigonometry",
@@ -48,6 +56,30 @@
   "updated_at": "2026-09-30 17:20:49.76339+00"
  },
  {
+  "id": "0f459219-a637-4fcf-a10b-f74c659c2ed5",
+  "topic_id": "34c0d0f1-9536-4a5e-b120-fb820be09963",
+  "title": "Key terms: earth-space",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:13:02.496566+00",
+  "updated_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
+  "id": "10f2b7d3-5228-4d2a-9aea-7f282cff2c6b",
+  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
+  "title": "Key terms: forces-motion",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:08:56.63165+00",
+  "updated_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
+  "id": "191efa2e-c7f3-48b7-bb51-fc633efa4431",
+  "topic_id": "16bdef5e-f234-4bc1-a036-52816e2bfe44",
+  "title": "Key terms: nuclear-physics",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:13:02.496566+00",
+  "updated_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "19c43b32-4f72-44a4-8168-48157bd3e206",
   "topic_id": "33144da3-195d-4c11-b5f8-a1c05eec5286",
   "title": "Electric Fields and Capacitance",
@@ -62,6 +94,14 @@
   "description": "Key terms and facts from the Electricity & Circuits study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.128336+00"
+ },
+ {
+  "id": "1be83c89-e448-48fc-a899-a46b825e27ed",
+  "topic_id": "333739b9-8c29-4b03-b1c0-ec9767823dfd",
+  "title": "Key terms: Waves",
+  "description": "Recall wave speed, transverse and longitudinal waves, Doppler effect, the spectrum and polarisation.",
+  "created_at": "2026-10-13 13:42:54.410489+00",
+  "updated_at": "2026-10-13 13:42:54.410489+00"
  },
  {
   "id": "1cce5929-18d9-4949-a25e-bd61766e7016",
@@ -86,6 +126,14 @@
   "description": "Key terms and facts from the Sequences and Series study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:50.23248+00"
+ },
+ {
+  "id": "201c389b-db44-4298-81ab-e113ff586232",
+  "topic_id": "33144da3-195d-4c11-b5f8-a1c05eec5286",
+  "title": "Key terms: Electric fields and capacitance",
+  "description": "Recall Coulomb's law, field strength, potential and capacitance.",
+  "created_at": "2026-10-13 13:49:10.355822+00",
+  "updated_at": "2026-10-13 13:49:10.355822+00"
  },
  {
   "id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
@@ -126,6 +174,14 @@
   "description": "Key terms and facts from the Energy, Work & Power study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.128336+00"
+ },
+ {
+  "id": "32a196b1-1330-4f0e-ae9d-2827a1579e78",
+  "topic_id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
+  "title": "Key terms: Motion in a circle and gravity",
+  "description": "Recall centripetal force, Newton's law of gravitation, field strength and gravitational potential.",
+  "created_at": "2026-10-13 13:42:56.462624+00",
+  "updated_at": "2026-10-13 13:42:56.462624+00"
  },
  {
   "id": "33aa9b6f-a9dd-4cd8-a2b6-2de0ec6955e0",
@@ -176,6 +232,14 @@
   "updated_at": "2026-09-30 17:20:50.23248+00"
  },
  {
+  "id": "48227452-961b-4e02-a789-3a77d6131865",
+  "topic_id": "4fbcf844-f1cc-41c3-a81d-e4dba7ad964b",
+  "title": "Key terms: energy-work-power",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:08:56.63165+00",
+  "updated_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "48261bff-def2-4348-92a3-6ae100d7bf31",
   "topic_id": "b7daf14f-974d-4ad7-a848-07dd64176630",
   "title": "Differentiation II",
@@ -214,6 +278,14 @@
   "description": "Key terms and facts from the Web Technologies and Security study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "4b3cea6e-13e8-4a60-982b-242be0969af9",
+  "topic_id": "15a26a2d-cb1f-4059-810f-1698500fe548",
+  "title": "Key terms: Kinematics",
+  "description": "Recall the core definitions, graph rules and SUVAT choices.",
+  "created_at": "2026-10-13 13:39:55.455544+00",
+  "updated_at": "2026-10-13 13:39:55.455544+00"
  },
  {
   "id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
@@ -272,6 +344,22 @@
   "updated_at": "2026-09-30 17:20:49.76339+00"
  },
  {
+  "id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
+  "topic_id": "e8237701-4e22-468e-a25f-6bd96b5f22e1",
+  "title": "Key terms: Circular motion and SHM",
+  "description": "Recall angular speed, centripetal force and the SHM condition.",
+  "created_at": "2026-10-13 13:47:24.513655+00",
+  "updated_at": "2026-10-13 13:47:24.513655+00"
+ },
+ {
+  "id": "60fc4ffd-a179-4306-86c5-7b7fca0ce2de",
+  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
+  "title": "Key terms: measurement-units",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:08:56.63165+00",
+  "updated_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
   "topic_id": "9c985dc8-bbb0-4506-9dfc-2f49b774fc24",
   "title": "Nuclear Physics",
@@ -286,6 +374,14 @@
   "description": "Key terms and facts from the Processor Fundamentals study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "6383f2b6-41d9-4c2f-8251-ec812a3dbc2c",
+  "topic_id": "35b1da75-be47-4c45-8751-9a70ae75875a",
+  "title": "Key terms: thermal-physics",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:13:02.496566+00",
+  "updated_at": "2026-10-13 14:13:02.496566+00"
  },
  {
   "id": "656f3c57-d858-48b2-898e-ce99343a124c",
@@ -310,6 +406,30 @@
   "description": "Key terms and facts from the Oscillations and Waves II study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "66d7428f-ea79-4fd8-b4d0-1b9431b04809",
+  "topic_id": "8eef118f-639b-44a5-b503-80241e2bb58e",
+  "title": "Key terms: Quantum physics",
+  "description": "Recall photon energy, the photoelectric equation and energy levels.",
+  "created_at": "2026-10-13 13:51:17.069737+00",
+  "updated_at": "2026-10-13 13:51:17.069737+00"
+ },
+ {
+  "id": "66de0f22-b8ad-497e-a720-f1e8138dd018",
+  "topic_id": "3cbd0390-fca7-434d-aa02-241ce0947848",
+  "title": "Key terms: electricity-circuits",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:08:56.63165+00",
+  "updated_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
+  "id": "672f0d91-07bb-4cbc-99b6-73f34cd9e6be",
+  "topic_id": "1b6d51a7-a379-4b4a-9d3b-b461c1cf291a",
+  "title": "Key terms: Oscillations and waves II",
+  "description": "Recall SHM, energy and resonance.",
+  "created_at": "2026-10-13 13:54:32.087537+00",
+  "updated_at": "2026-10-13 13:54:32.087537+00"
  },
  {
   "id": "6d13d0f3-cc64-4333-82ab-c888694993d5",
@@ -392,6 +512,14 @@
   "updated_at": "2026-09-30 17:20:49.76339+00"
  },
  {
+  "id": "7e0f6250-7bb4-4623-9b84-d8751a983f45",
+  "topic_id": "68a0c8be-5eba-4a82-a948-a4baef78c57d",
+  "title": "Key terms: Astronomy and cosmology",
+  "description": "Recall intensity, stellar radius and Hubble's law.",
+  "created_at": "2026-10-13 13:54:32.710733+00",
+  "updated_at": "2026-10-13 13:54:32.710733+00"
+ },
+ {
   "id": "7edf67d1-2f28-4b1f-baa8-e124db29bc83",
   "topic_id": "ef569055-35ca-414b-b7bc-e7211c868d3d",
   "title": "Superposition",
@@ -456,6 +584,14 @@
   "updated_at": "2026-09-30 17:20:49.76339+00"
  },
  {
+  "id": "8b915678-fcf7-4fb0-8915-0f9b5daf331f",
+  "topic_id": "52889198-3121-4be7-8cd7-e3bd37e97430",
+  "title": "Key terms: Thermal physics",
+  "description": "Recall the gas equation, kinetic theory and the first law.",
+  "created_at": "2026-10-13 13:49:09.570913+00",
+  "updated_at": "2026-10-13 13:49:09.570913+00"
+ },
+ {
   "id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
   "topic_id": "0f4bcc9a-e4a0-4c6a-ae8d-2354b6190d2e",
   "title": "Transformations and Vectors",
@@ -488,12 +624,28 @@
   "updated_at": "2026-09-30 17:20:49.128336+00"
  },
  {
+  "id": "937c09bd-6bf4-4511-a7be-0ccd53eb29a4",
+  "topic_id": "9cc8a08c-1858-49b0-a80b-745a8dd4535b",
+  "title": "Key terms: magnetism-electromagnetism",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:13:02.496566+00",
+  "updated_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
   "id": "968b8ab5-524a-42d5-a08d-774664bfeb95",
   "topic_id": "9a277064-37cf-40c5-a484-34372e2f058b",
   "title": "Probability Distributions",
   "description": "Key terms and facts from the Probability Distributions study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.128336+00"
+ },
+ {
+  "id": "9b303f9e-f8b0-4cbc-9da6-6ffba93f21ea",
+  "topic_id": "ef569055-35ca-414b-b7bc-e7211c868d3d",
+  "title": "Key terms: Superposition",
+  "description": "Recall stationary waves, diffraction, interference and the diffraction grating.",
+  "created_at": "2026-10-13 13:42:55.141957+00",
+  "updated_at": "2026-10-13 13:42:55.141957+00"
  },
  {
   "id": "9b378e2f-83f6-427f-9158-3f5014c14443",
@@ -568,6 +720,14 @@
   "updated_at": "2026-09-30 17:20:49.128336+00"
  },
  {
+  "id": "a87c607b-1168-47c6-88ad-4f0dbcf34fc9",
+  "topic_id": "98dfbd94-3f76-4fa5-8e2e-c72c0c9a154a",
+  "title": "Key terms: Magnetic fields and electromagnetism",
+  "description": "Recall the force laws, Lenz's law and rectification.",
+  "created_at": "2026-10-13 13:51:16.271712+00",
+  "updated_at": "2026-10-13 13:51:16.271712+00"
+ },
+ {
   "id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
   "topic_id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
   "title": "Information Representation",
@@ -598,6 +758,14 @@
   "description": "Key terms and facts from the Algebra — Equations study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "bab93e39-6cd9-4b12-9f01-ff4dbf41e7fb",
+  "topic_id": "3688b9a5-187f-429d-b812-7b76fc6010ad",
+  "title": "Key terms: Dynamics",
+  "description": "Recall Newton's laws, momentum, impulse and collision rules.",
+  "created_at": "2026-10-13 13:40:26.838311+00",
+  "updated_at": "2026-10-13 13:40:26.838311+00"
  },
  {
   "id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
@@ -664,6 +832,14 @@
   "updated_at": "2026-09-30 17:20:49.76339+00"
  },
  {
+  "id": "d07f3437-4abc-43a2-aa64-5fb7c1ebaa84",
+  "topic_id": "bb600e06-32eb-473e-ac3e-6e1bd64cb01e",
+  "title": "Key terms: pressure-density",
+  "description": "Extra recall for the Cambridge IGCSE physics topic.",
+  "created_at": "2026-10-13 14:08:56.63165+00",
+  "updated_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
   "id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
   "topic_id": "f5ce9e1c-9c8f-46d2-95bd-ac9687b6ea07",
   "title": "Communication and Networking",
@@ -694,6 +870,22 @@
   "description": "Key terms and facts from the Probability study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.128336+00"
+ },
+ {
+  "id": "dd1abc8e-2777-49af-987a-f25cc7bb69b6",
+  "topic_id": "46485f71-55f2-4888-9462-d12d7a3833a2",
+  "title": "Key terms: Work, energy and power",
+  "description": "Recall work, energy stores, conservation of energy, power and efficiency.",
+  "created_at": "2026-10-13 13:42:52.98217+00",
+  "updated_at": "2026-10-13 13:42:52.98217+00"
+ },
+ {
+  "id": "dd733c0d-2a41-42be-98cf-fb0813f56194",
+  "topic_id": "91eac2dd-1acc-4ec2-8800-90ce2d4cc43e",
+  "title": "Key terms: Forces and equilibrium",
+  "description": "Recall moments, couples and the conditions for equilibrium.",
+  "created_at": "2026-10-13 13:42:52.459554+00",
+  "updated_at": "2026-10-13 13:42:52.459554+00"
  },
  {
   "id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
@@ -760,12 +952,28 @@
   "updated_at": "2026-09-30 17:20:49.76339+00"
  },
  {
+  "id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",
+  "topic_id": "d6c1020a-24ea-4820-b974-1126d494e3ab",
+  "title": "Key terms: Materials, deformation",
+  "description": "Recall stress, strain, Young modulus and elastic behaviour.",
+  "created_at": "2026-10-13 13:42:53.681236+00",
+  "updated_at": "2026-10-13 13:42:53.681236+00"
+ },
+ {
   "id": "f236c551-2062-4dd7-831b-779f826c9e72",
   "topic_id": "ec102c32-7550-40e8-91ec-985ec72ff83c",
   "title": "Data Types and File Organisation",
   "description": "Key terms and facts from the Data Types and File Organisation study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "f2e12ba5-d2ba-4e7e-9fac-c1c1d79c6b9a",
+  "topic_id": "9c985dc8-bbb0-4506-9dfc-2f49b774fc24",
+  "title": "Key terms: Nuclear physics",
+  "description": "Recall binding energy, half-life and decay rules.",
+  "created_at": "2026-10-13 13:54:31.315752+00",
+  "updated_at": "2026-10-13 13:54:31.315752+00"
  },
  {
   "id": "f411564d-8010-4b91-a19b-df34f3782f25",
@@ -782,6 +990,14 @@
   "description": "Key terms and facts from the Magnetic Fields and Electromagnetism study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "f9ace2c3-59f3-4e16-a6a5-638be0fdcfb0",
+  "topic_id": "d5e94211-9e09-4ccf-8086-47c044ed468a",
+  "title": "Key terms: Electricity, D.C. circuits",
+  "description": "Recall current, power, resistivity, meters, Kirchhoff's laws and potential dividers.",
+  "created_at": "2026-10-13 13:42:55.802533+00",
+  "updated_at": "2026-10-13 13:42:55.802533+00"
  },
  {
   "id": "fb66f416-0798-4f20-8857-210ec9889b83",

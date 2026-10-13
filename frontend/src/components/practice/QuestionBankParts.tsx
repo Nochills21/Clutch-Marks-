@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { cn } from "@/lib/utils";
+import { topicReadiness, READINESS_LABEL, type TopicReadiness } from "@/lib/topicReadiness";
 import { CheckCircle2, XCircle, RotateCcw, Trophy, TrendingUp, Clock, AlertCircle, BookOpen, Target, Database } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 
@@ -119,6 +120,12 @@ export function masteryLabel(pct: number): { label: string; tone: string } {
   if (pct > 0) return { label: "Practising", tone: "text-amber-500 border-amber-500/40 bg-amber-500/5" };
   return { label: "Not started", tone: "text-muted-foreground border-border bg-secondary/40" };
 }
+
+const READINESS_TONE: Record<TopicReadiness, string> = {
+  not_started: "text-muted-foreground border-border bg-secondary/40",
+  working_on_it: "text-amber-500 border-amber-500/40 bg-amber-500/5",
+  exam_ready: "text-primary border-primary/40 bg-primary/5",
+};
 
 export function SavedProgressPanel({
   summary,
@@ -274,7 +281,7 @@ export function SavedProgressPanel({
           <div className="space-y-2">
             {summary.map((s) => {
               const acc = s.answered ? Math.round((s.correct / s.answered) * 100) : 0;
-              const tag = masteryLabel(acc);
+              const readiness = topicReadiness(s);
               const coverage = s.total_questions ? Math.round((s.answered / s.total_questions) * 100) : 1;
               return (
                 <button
@@ -289,8 +296,8 @@ export function SavedProgressPanel({
                         {s.answered}/{s.total_questions} tried · {s.correct} correct · {s.attempts} attempts
                       </p>
                     </div>
-                    <Badge variant="outline" className={cn("text-[10px] shrink-0", tag.tone)}>
-                      {s.answered === 0 ? "Not started" : `${acc}% · ${tag.label}`}
+                    <Badge variant="outline" className={cn("text-[10px] shrink-0", READINESS_TONE[readiness])}>
+                      {s.answered === 0 ? READINESS_LABEL[readiness] : `${acc}% · ${READINESS_LABEL[readiness]}`}
                     </Badge>
                   </div>
                   <div className="mt-2 flex items-center gap-2">
