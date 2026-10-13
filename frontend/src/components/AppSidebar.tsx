@@ -1,14 +1,13 @@
 // Navigation: role-specific link sets (admin/student/parent), bookmarks,
 // student-preview toggle for admins.// Calendar removed: the study planner covers scheduling.
-import { BookOpen, LayoutDashboard, FileText, ClipboardList, Brain, BarChart3,
-  Megaphone, LogOut, Users, GraduationCap, Shield, FileCheck,
+import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
+  Megaphone, LogOut, Users, GraduationCap, FileCheck,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
   Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
   ShieldCheck, Wand2, ShieldAlert, ListChecks,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
-import { useQuery } from "@tanstack/react-query";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { BookmarkedSection } from "@/components/BookmarkedSection";
 import {
@@ -19,45 +18,61 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { BrandLockup } from "@/components/BrandMark";
-import { useEffect, useState } from "react";
-import { countUnreadAnnouncements } from "@/lib/announcements";
 
 
-const studentLinks = [
-  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Subjects", url: "/subjects", icon: Library },
-  { title: "Lessons", url: "/lessons", icon: BookOpen },
-  { title: "Revision Notes", url: "/notes", icon: FileText },
-  { title: "Quizzes", url: "/quizzes", icon: Brain },
-  { title: "Flashcards", url: "/flashcards", icon: Layers },
-  { title: "Study Planner", url: "/study-planner", icon: Sparkles },
-  { title: "Practice", url: "/practice", icon: Target },
-  // Mastery: the objective-level loop — what you are getting wrong, and what is
-  // due to come back — which the topic-level Progress page cannot show.
-  { title: "Mastery", url: "/mastery", icon: GraduationCap },
-  { title: "Progress", url: "/progress", icon: BarChart3 },
-  { title: "Leaderboard", url: "/leaderboard", icon: Trophy },
-
-  { title: "Past Papers", url: "/past-papers", icon: Archive },
-  { title: "AI Marker", url: "/ai-marker", icon: Wand2 },
-  { title: "Announcements", url: "/announcements", icon: Megaphone },
-  { title: "Feedback", url: "/feedback", icon: MessageSquareHeart },
-  { title: "Upgrade", url: "/pricing", icon: CreditCard },
+const studentLinkGroups = [
+  {
+    title: "Get started",
+    links: [
+      { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
+      { title: "Subjects", url: "/subjects", icon: Library },
+    ],
+  },
+  {
+    title: "Study & practise",
+    links: [
+      { title: "Lessons", url: "/lessons", icon: BookOpen },
+      { title: "Revision Notes", url: "/notes", icon: FileText },
+      { title: "Flashcards", url: "/flashcards", icon: Layers },
+      { title: "Quizzes", url: "/quizzes", icon: Brain },
+      { title: "Practice", url: "/practice", icon: Target },
+      { title: "Past Papers", url: "/past-papers", icon: Archive },
+      { title: "AI Marker", url: "/ai-marker", icon: Wand2 },
+    ],
+  },
+  {
+    title: "Progress",
+    links: [
+      // Mastery is the objective-level review loop; Progress shows wider trends.
+      { title: "Mastery", url: "/mastery", icon: GraduationCap },
+      { title: "Progress", url: "/progress", icon: BarChart3 },
+      { title: "Study Planner", url: "/study-planner", icon: Sparkles },
+      { title: "Leaderboard", url: "/leaderboard", icon: Trophy },
+    ],
+  },
+  {
+    title: "Account",
+    links: [
+      { title: "Feedback", url: "/feedback", icon: MessageSquareHeart },
+      { title: "Upgrade", url: "/pricing", icon: CreditCard },
+    ],
+  },
 ];
 
 const adminLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
+  // Build and publish curriculum first, then review the student/account work.
   { title: "Subjects", url: "/admin/subjects", icon: Library },
   { title: "Manage Lessons", url: "/admin/lessons", icon: FileText },
-  { title: "Manage Quizzes", url: "/admin/quizzes", icon: Brain },
   { title: "Study Materials", url: "/admin/materials", icon: FileText },
+  { title: "Manage Quizzes", url: "/admin/quizzes", icon: Brain },
+  { title: "Question Bank", url: "/admin/question-bank", icon: Database },
+  { title: "Manage Flashcards", url: "/admin/flashcards", icon: Layers },
+  { title: "Past Papers", url: "/admin/past-papers", icon: Archive },
   { title: "Announcements", url: "/admin/announcements", icon: Megaphone },
   { title: "Accounts", url: "/admin/accounts", icon: Users },
-  { title: "Manage Flashcards", url: "/admin/flashcards", icon: Layers },
-  { title: "Question Bank", url: "/admin/question-bank", icon: Database },
-  { title: "Submissions", url: "/admin/submissions", icon: FileCheck },
   { title: "Grade Book", url: "/admin/gradebook", icon: BookMarked },
-  { title: "Past Papers", url: "/admin/past-papers", icon: Archive },
+  { title: "Submissions", url: "/admin/submissions", icon: FileCheck },
   { title: "Audit Log", url: "/admin/audit-log", icon: History },
   // Content health: damage that is invisible in the console (a replacement
   // character, a 1-based answer index, a material_type students never read)
@@ -81,44 +96,19 @@ const APP_VERSION = "1.0.0";
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Child Progress", url: "/progress", icon: BarChart3 },
-  { title: "Announcements", url: "/announcements", icon: Megaphone },
   { title: "Feedback", url: "/feedback", icon: MessageSquareHeart },
 ];
 
-/** Show a red badge on the Announcements tab when the student has unread
- * announcements. The bell in the top-right already opens the same feed, so a
- * single tap covers both.
- */
 export function AppSidebar() {
-  const { role, signOut, studentPreview, exitStudentPreview, user } = useAuth();
+  const { role, signOut, studentPreview, exitStudentPreview } = useAuth();
   // While previewing, role is masked to "student" — use the real admin flag for the toggle.
   const isAdmin = studentPreview || role === "admin";
-  const links = role === "admin" ? adminLinks : role === "parent" ? parentLinks : studentLinks;
+  const linkGroups = role === "admin"
+    ? [{ title: "Console", links: adminLinks }]
+    : role === "parent"
+      ? [{ title: "Family", links: parentLinks }]
+      : studentLinkGroups;
 
-  // Unread count for the red badge on the Announcements tab.
-  //
-  // Read state is per user (public.announcement_reads, migration
-  // 20260929121000) — not the deprecated global `announcements.unread` flag,
-  // which could only ever show every student the same number, and not
-  // `notifications` either, which is a different feed and was empty, so the
-  // badge never appeared. Opening the announcements feed records the reads and
-  // clears this count.
-  const [unreadCount, setUnreadCount] = useState<number | undefined>(undefined);
-  useEffect(() => {
-    if (!user) return;
-    let mounted = true;
-    countUnreadAnnouncements(user.id)
-      .then((count) => {
-        if (mounted) setUnreadCount(count);
-      })
-      .catch(() => {
-        // A failed count must not invent a badge.
-        if (mounted) setUnreadCount(0);
-      });
-    return () => {
-      mounted = false;
-    };
-  }, [user]);
   return (
     <Sidebar className="border-r-0">
       <SidebarHeader className="px-5 pt-6 pb-4">
@@ -145,35 +135,32 @@ export function AppSidebar() {
             </button>
           </div>
         )}
-        <SidebarGroup className="pt-3">
-          <SidebarGroupLabel className="eyebrow px-3 mb-2 text-sidebar-foreground/35">
-            {role === "admin" ? "Console" : "Study"}
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu className="space-y-0.5">
-              {links.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      end={item.url === "/dashboard"}
-                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium text-sidebar-foreground/65 transition-colors duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                      activeClassName="bg-sidebar-accent text-sidebar-foreground font-semibold before:absolute before:left-0 before:top-1/2 before:h-4 before:w-[2px] before:-translate-y-1/2 before:rounded-full before:bg-primary"
-                    >
-                      <item.icon className="h-[17px] w-[17px] shrink-0 opacity-80 group-hover:opacity-100" />
-                      <span>{item.title}</span>
-                      {item.title === "Announcements" && (role !== "admin" || studentPreview) && (
-                        <span className="ml-auto flex shrink-0 items-center justify-center rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-semibold text-white shadow-sm">
-                          {unreadCount ?? 0}
-                        </span>
-                      )}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        {linkGroups.map((group) => (
+          <SidebarGroup key={group.title} className="pt-3">
+            <SidebarGroupLabel className="eyebrow px-3 mb-2 text-sidebar-foreground/35">
+              {group.title}
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu className="space-y-0.5">
+                {group.links.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <NavLink
+                        to={item.url}
+                        end={item.url === "/dashboard"}
+                        className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium text-sidebar-foreground/65 transition-colors duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                        activeClassName="bg-sidebar-accent text-sidebar-foreground font-semibold before:absolute before:left-0 before:top-1/2 before:h-4 before:w-[2px] before:-translate-y-1/2 before:rounded-full before:bg-primary"
+                      >
+                        <item.icon className="h-[17px] w-[17px] shrink-0 opacity-80 group-hover:opacity-100" />
+                        <span>{item.title}</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
 
         {role !== "parent" && <BookmarkedSection />}
       </SidebarContent>

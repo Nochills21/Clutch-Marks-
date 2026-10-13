@@ -13,13 +13,13 @@ import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { levelHead } from "@/lib/levelSeo";
-import { topicNotesPath, topicQuizPath, topicPapersPath, topicSlugOf } from "@/lib/topicUrls";
+import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
 import { usePreviewSlice, PreviewLimit } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
-import { BookOpen, FileText, Brain, Archive, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw } from "lucide-react";
+import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw } from "lucide-react";
 import { loadFailureMessage } from "@/lib/net";
 
 interface BankQuestion {
@@ -61,7 +61,6 @@ export default function Subject() {
   const [lessons, setLessons] = useState<any[]>([]);
   const [materials, setMaterials] = useState<any[]>([]);
   const [quizzes, setQuizzes] = useState<any[]>([]);
-  const [papers, setPapers] = useState<any[]>([]);
   const [questions, setQuestions] = useState<BankQuestion[]>([]);
   // AI-bank questions get their own query: browse_questions caps pages at 200
   // rows ordered by quiz title, so a client-side filter on the first page can
@@ -111,24 +110,22 @@ export default function Subject() {
       const ids = topicList.map((t: any) => t.id);
 
       if (ids.length) {
-        const [ls, ms, qz, pp] = await Promise.all([
+        const [ls, ms, qz] = await Promise.all([
           supabase.from("lessons").select("id, title, topic_id, sort_order").in("topic_id", ids).order("sort_order"),
           supabase.from("study_materials").select("id, title, topic_id, material_type, file_url").in("topic_id", ids),
           supabase.from("quizzes").select("id, title, topic_id, description, is_published, exam_type, is_ai_generated").in("topic_id", ids),
-          supabase.from("past_papers").select("id, title, year, session, paper_number, topic_id").in("topic_id", ids).order("year", { ascending: false }),
         ]);
         if (!active) return;
-        if (ls.error || ms.error || qz.error || pp.error) {
-          setLoadError(loadFailureMessage("this subject", ls.error ?? ms.error ?? qz.error ?? pp.error));
+        if (ls.error || ms.error || qz.error) {
+          setLoadError(loadFailureMessage("this subject", ls.error ?? ms.error ?? qz.error));
           setLoading(false);
           return;
         }
         setLessons(ls.data ?? []);
         setMaterials(ms.data ?? []);
         setQuizzes((qz.data ?? []).filter((q: any) => q.is_published));
-        setPapers(pp.data ?? []);
       } else {
-        setLessons([]); setMaterials([]); setQuizzes([]); setPapers([]);
+        setLessons([]); setMaterials([]); setQuizzes([]);
       }
       setLoading(false);
     })();
@@ -184,16 +181,11 @@ export default function Subject() {
   const visibleQuizzes = quizzes.filter((q) =>
     matchesTopic(q.topic_id) && matchesText(q.title, q.description) &&
     (examType === ALL || q.exam_type === examType));
-  const visiblePapers = papers.filter((p) =>
-    matchesTopic(p.topic_id) && matchesText(p.title, p.session, p.paper_number, String(p.year)) &&
-    (examType === ALL || examType === "exam" || examType === "mock"));
-
   // Free-plan preview: show only the first few items of every list; the rest
   // collapses into an upgrade prompt. Full-plan users see everything.
   const previewLessons = usePreviewSlice(visibleLessons);
   const previewMaterials = usePreviewSlice(visibleMaterials);
   const previewQuizzes = usePreviewSlice(visibleQuizzes);
-  const previewPapers = usePreviewSlice(visiblePapers);
   const previewQuestions = usePreviewSlice(questions);
   const visibleAiQuestions = aiQuestions.filter((q) => q.is_ai_generated);
   const previewAiQuestions = usePreviewSlice(visibleAiQuestions);
@@ -324,12 +316,11 @@ export default function Subject() {
         </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-3">
         {[
           { label: "Topics", value: topics.length, icon: BookOpen },
           { label: "Lessons", value: lessons.length, icon: FileText },
           { label: "Exams & Quizzes", value: quizzes.length, icon: Brain },
-          { label: "Past Papers", value: papers.length, icon: Archive },
         ].map((s) => (
           <Card key={s.label}>
             <CardContent className="flex items-center gap-3 p-4">
@@ -383,7 +374,7 @@ export default function Subject() {
         <TabsList className="flex-wrap h-auto" id="tabs">
           <TabsTrigger value="materials">Material ({visibleLessons.length + visibleMaterials.length})</TabsTrigger>
           <TabsTrigger value="questions">Questions ({questions.length})</TabsTrigger>
-          <TabsTrigger value="exams">Exams ({visibleQuizzes.length + visiblePapers.length})</TabsTrigger>
+          <TabsTrigger value="exams">Exams &amp; Quizzes ({visibleQuizzes.length})</TabsTrigger>
           <TabsTrigger value="bank">Question Bank ({visibleAiQuestions.length})</TabsTrigger>
         </TabsList>
 
@@ -448,7 +439,7 @@ export default function Subject() {
         </TabsContent>
 
         <TabsContent value="exams" id="exams" className="space-y-3 pt-4">
-          {visibleQuizzes.length === 0 && visiblePapers.length === 0 ? empty("exams") : (
+          {visibleQuizzes.length === 0 ? empty("exams") : (
             <>
               {previewQuizzes.map((q) => {
                 const ts = topicSlugMap.get(q.topic_id);
@@ -471,29 +462,9 @@ export default function Subject() {
                   </Card>
                 );
               })}
-              {previewPapers.map((p) => {
-                const ts = topicSlugMap.get(p.topic_id);
-                return (
-                  <Card key={p.id}>
-                    <CardContent className="flex items-center justify-between gap-3 p-4">
-                      <div className="min-w-0">
-                        <p className="font-medium truncate">{p.title}</p>
-                        <p className="text-xs text-muted-foreground">{p.year}{p.session ? ` · ${p.session}` : ""}{p.paper_number ? ` · ${p.paper_number}` : ""} · Past paper</p>
-                      </div>
-                      <Button asChild size="sm" variant="ghost" className="gap-1">
-                        {ts && subjectLevel ? (
-                          <Link to={topicPapersPath(subject!.slug!, subjectLevel.level.toLowerCase(), ts)}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
-                        ) : (
-                          <Link to="/past-papers">Open <ArrowRight className="h-3.5 w-3.5" /></Link>
-                        )}
-                      </Button>
-                    </CardContent>
-                  </Card>
-                );
-              })}
               <PreviewLimit
-                hiddenCount={visibleQuizzes.length + visiblePapers.length - previewQuizzes.length - previewPapers.length}
-                what="exams & past papers"
+                hiddenCount={visibleQuizzes.length - previewQuizzes.length}
+                what="exams & quizzes"
               />
             </>
           )}

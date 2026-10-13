@@ -1,5 +1,5 @@
 // Per-lesson notes view.
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
@@ -9,8 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { openProtectedFile } from "@/lib/contentFiles";
-import { relatedTopicPapers } from "@/lib/topicPapers";
-import { paperFileName } from "@/lib/pastPaperFiles";
 import { toast } from "sonner";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { SITE_URL } from "@/lib/seoRoutes";
@@ -18,8 +16,7 @@ import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { useNoteProgress, downloadNote, type NoteRow } from "./Notes";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVEL_LABELS } from "@/lib/subjects";
-import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil, Wand2 } from "lucide-react";
-import { MarkPaperDialog } from "@/components/MarkPaperDialog";
+import { FileText, Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -35,21 +32,10 @@ export default function LessonNotes() {
   const bump = () => setReloadKey((k) => k + 1);
   const [lesson, setLesson] = useState<any>(null);
   const [notes, setNotes] = useState<NoteRow[]>([]);
-  const [papers, setPapers] = useState<any[]>([]);
-  const [levelPapers, setLevelPapers] = useState<any[]>([]);
-  const [markPaper, setMarkPaper] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [lessonDone, setLessonDone] = useState(false);
   const { done, toggle } = useNoteProgress();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
-
-  // This lesson's paper, with its mark schemes: the topic's own papers plus
-  // every other paper in the subject-level in the same paper group.
-  const relatedPapers = useMemo(
-    () => relatedTopicPapers(lesson?.topic_id ?? "", papers, levelPapers.length > 0 ? levelPapers : papers),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [lesson?.topic_id, papers, levelPapers],
-  );
 
   useEffect(() => {
     if (!lessonId) return;
@@ -72,30 +58,6 @@ export default function LessonNotes() {
           .eq("topic_id", l.topic_id)
           .order("title");
         if (notesError) { report(notesError); setLoading(false); return; }
-        // Past papers for this lesson's paper: the topic's own papers plus
-        // every other paper in the subject-level sitting in the same paper
-        // group (Paper 1 lessons list Paper 1 + mark schemes, mechanics
-        // lessons list mechanics papers, …). Non-fatal — notes still render
-        // if this fails.
-        const { data: ownPapers } = await supabase
-          .from("past_papers")
-          .select("id, title, year, session, paper_number, paper_url, mark_scheme_url, source_url, topic_id")
-          .eq("topic_id", l.topic_id)
-          .order("year", { ascending: false });
-        setPapers((ownPapers ?? []) as any[]);
-        const slId = (l as any)?.topics?.subject_levels?.id;
-        if (slId) {
-          const { data: levelTopics } = await supabase.from("topics").select("id").eq("subject_level_id", slId);
-          const ids = ((levelTopics ?? []) as any[]).map((x: any) => x.id);
-          if (ids.length > 0) {
-            const { data: levelPapersData } = await supabase
-              .from("past_papers")
-              .select("id, title, year, session, paper_number, paper_url, mark_scheme_url, source_url, topic_id")
-              .in("topic_id", ids)
-              .order("year", { ascending: false });
-            setLevelPapers((levelPapersData ?? []) as any[]);
-          }
-        }
         const t: any = l as any;
         setNotes((data ?? []).map((m: any) => ({
           id: m.id,
@@ -320,97 +282,6 @@ export default function LessonNotes() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base flex items-center gap-2"><FileText className="h-4 w-4 text-primary" /> Past papers & mark schemes</CardTitle>
-          {relatedPapers.filtered && relatedPapers.groups.length > 0 && (
-            <p className="text-xs text-muted-foreground">Showing {relatedPapers.groups.join(", ")} papers for this lesson.</p>
-          )}
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {relatedPapers.papers.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No past papers are linked to this lesson yet.</p>
-          ) : relatedPapers.papers.slice(0, 10).map((p: any) => (
-            <div key={p.id} className="flex flex-wrap items-center gap-3 rounded-lg border p-3">
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">{p.title}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  {p.year}
-                  {p.session ? ` · ${p.session}` : ""}
-                  {p.paper_number ? ` · ${p.paper_number}` : ""}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {p.paper_url && (
-                  <>
-                    <Button size="sm" variant="outline" className="gap-1"
-                      onClick={async () => {
-                        try {
-                          await openProtectedFile("past-papers", p.paper_url);
-                        } catch (e: any) {
-                          toast.error(e?.message ?? "Could not open this paper");
-                        }
-                      }}>
-                      <ExternalLink className="h-3.5 w-3.5" /> Paper
-                    </Button>
-                    <Button size="sm" variant="ghost" className="gap-1"
-                      aria-label={`Download ${p.title} question paper`}
-                      onClick={async () => {
-                        try {
-                          await openProtectedFile("past-papers", p.paper_url, paperFileName(p.title, "paper"));
-                        } catch (e: any) {
-                          toast.error(e?.message ?? "Could not download this paper");
-                        }
-                      }}>
-                      <Download className="h-3.5 w-3.5" />
-                    </Button>
-                  </>
-                )}
-                {p.mark_scheme_url && (
-                  <>
-                    <Button size="sm" variant="outline" className="gap-1 text-green-600 border-green-200 hover:bg-green-50"
-                      onClick={async () => {
-                        try {
-                          await openProtectedFile("past-papers", p.mark_scheme_url);
-                        } catch (e: any) {
-                          toast.error(e?.message ?? "Could not open this mark scheme");
-                        }
-                      }}>
-                      <FileText className="h-3.5 w-3.5" /> Mark scheme
-                    </Button>
-                    <Button size="sm" variant="ghost" className="gap-1 text-green-600"
-                      aria-label={`Download ${p.title} mark scheme`}
-                      onClick={async () => {
-                        try {
-                          await openProtectedFile("past-papers", p.mark_scheme_url, paperFileName(p.title, "mark-scheme"));
-                        } catch (e: any) {
-                          toast.error(e?.message ?? "Could not download this mark scheme");
-                        }
-                      }}>
-                      <Download className="h-3.5 w-3.5" />
-                    </Button>
-                  </>
-                )}
-                <Button size="sm" variant="outline" className="gap-1"
-                  title="Submit your solved script — marked against this paper's mark scheme"
-                  onClick={() => setMarkPaper(p)}>
-                  <Wand2 className="h-3.5 w-3.5" /> Submit for marking
-                </Button>
-                {!p.paper_url && !p.mark_scheme_url && (
-                  <span className="text-xs text-muted-foreground">Files coming soon</span>
-                )}
-              </div>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-
-      {/* Submit-for-marking scoped to the tapped paper's own mark scheme. */}
-      <MarkPaperDialog
-        paper={markPaper}
-        open={markPaper !== null}
-        onOpenChange={(o) => { if (!o) setMarkPaper(null); }}
-      />
     </div>
   );
 }

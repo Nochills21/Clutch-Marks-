@@ -8,12 +8,12 @@ import { useToast } from "@/hooks/useToast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Circle, BookOpen, ChevronRight, Download, FileText, Loader2, ClipboardList, Archive, Layers } from "lucide-react";
+import { CheckCircle2, Circle, BookOpen, ChevronRight, Download, FileText, Loader2, ClipboardList, Layers } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { exportLessonToPdf } from "@/lib/pdfExport";
 import { SEOHead } from "@/components/SEOHead";
 import { openSignedFile } from "@/lib/contentFiles";
-import { topicNotesPath, topicQuizPath, topicPapersPath, topicSlugOf } from "@/lib/topicUrls";
+import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { usePreviewSlice, PreviewLimit, usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
@@ -32,10 +32,10 @@ export default function Lessons() {
   const [progress, setProgress] = useState<Record<string, boolean>>({});
   const [selectedLesson, setSelectedLesson] = useState<any>(null);
   const [notes, setNotes] = useState<any[]>([]);
-  // Per-topic hub links (notes / questions / past papers) plus the badge label
+  // Per-topic hub links (notes / questions) plus the badge label
   // (subject + level), so same-named topics on different levels — Nuclear
   // Physics (OL vs A2), Thermal Physics — are distinguishable in the list.
-  const [topicLinks, setTopicLinks] = useState<Record<string, { notes: string; quiz: string; papers: string } | undefined>>({});
+  const [topicLinks, setTopicLinks] = useState<Record<string, { notes: string; quiz: string } | undefined>>({});
   const [topicMeta, setTopicMeta] = useState<Record<string, { subject: string; level: string }>>({});
   const topicSlugMap = useMemo(() => new Map(topics.map((t) => [t.id, topicSlugOf(t)])), [topics]);
   const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
@@ -73,11 +73,11 @@ export default function Lessons() {
       const prog: Record<string, boolean> = {};
       (progressRes.data ?? []).forEach((p: any) => { prog[p.lesson_id] = p.completed; });
       setProgress(prog);
-      // Resolve each topic's hub links (notes / questions / papers) and badge
+      // Resolve each topic's hub links (notes / questions) and badge
       // label via its subject level + subject slug.
       const slMap = new Map(((slRes.data ?? []) as any[]).map((s) => [s.id, s]));
       const subMap = new Map(((subRes.data ?? []) as any[]).map((s) => [s.id, s]));
-      const links: Record<string, { notes: string; quiz: string; papers: string } | undefined> = {};
+      const links: Record<string, { notes: string; quiz: string } | undefined> = {};
       const meta: Record<string, { subject: string; level: string }> = {};
       for (const t of topicsList) {
         const sl = slMap.get((t as any).subject_level_id);
@@ -89,7 +89,6 @@ export default function Lessons() {
           links[t.id] = {
             notes: topicNotesPath(slug, lvl, tslug),
             quiz: topicQuizPath(slug, lvl, tslug),
-            papers: topicPapersPath(slug, lvl, tslug),
           };
           meta[t.id] = { subject: sub.name, level: sl.level };
         } else {
@@ -276,17 +275,14 @@ export default function Lessons() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-1 pb-2">
-                    {/* Topic menu: one tap to the topic's notes, questions,
-                        past papers or flashcards — no hunting through rows. */}
-                    <div className="grid grid-cols-2 gap-2 px-1 pb-3 sm:grid-cols-4">
+                    {/* Keep topic actions focused on learning here; past papers
+                        live together in the dedicated archive tab. */}
+                    <div className="grid grid-cols-2 gap-2 px-1 pb-3 sm:grid-cols-3">
                       <Button size="sm" variant="outline" className="gap-1.5" disabled={!links} onClick={() => links && navigate(links.notes)}>
                         <FileText className="h-3.5 w-3.5" /> Notes
                       </Button>
                       <Button size="sm" variant="outline" className="gap-1.5" disabled={!links} onClick={() => links && navigate(links.quiz)}>
                         <ClipboardList className="h-3.5 w-3.5" /> Questions
-                      </Button>
-                      <Button size="sm" variant="outline" className="gap-1.5" disabled={!links} onClick={() => links && navigate(links.papers)}>
-                        <Archive className="h-3.5 w-3.5" /> Past papers
                       </Button>
                       <Button size="sm" variant="outline" className="gap-1.5" onClick={() => navigate("/flashcards")}>
                         <Layers className="h-3.5 w-3.5" /> Flashcards
