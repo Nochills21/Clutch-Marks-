@@ -17,7 +17,6 @@ import { LEVELS, LEVEL_LABELS, subjectIcon, subjectAccent, type SubjectLevelCode
 import {
   topicNotesPath,
   topicQuizPath,
-  topicPapersPath,
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
@@ -26,7 +25,6 @@ import {
   Brain,
   CheckCircle2,
   XCircle,
-  Archive,
   ArrowRight,
   ArrowLeft,
   Bookmark,
@@ -82,9 +80,6 @@ export default function TopicQuiz() {
   const [score, setScore] = useState<{ correct: number; total: number } | null>(null);
   const [results, setResults] = useState<GradeRow[]>([]);
   const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>([]);
-  // Real count for the hero tile. It used to be a hardcoded 0, so every topic
-  // claimed to have no past papers.
-  const [pastPapersCount, setPastPapersCount] = useState(0);
   // After marking: the whole paper, or only the ones to redo.
   const [reviewOnly, setReviewOnly] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -103,7 +98,6 @@ export default function TopicQuiz() {
     (async () => {
       setLoading(true);
       setError(null);
-      setPastPapersCount(0);
       try {
         const { data: sub, error: subError } = await supabase.from("subjects").select("*").ilike("slug", subject ?? "").limit(1);
         if (subError) throw subError;
@@ -142,18 +136,6 @@ export default function TopicQuiz() {
         }
         setTopicTitle(topicRow.name);
         setTopicId(topicRow.id);
-
-        // Best effort: the hero tile is decoration, so a failed count falls back
-        // to 0 rather than failing the whole page.
-        try {
-          const { count, error: papersError } = await supabase
-            .from("past_papers")
-            .select("id", { count: "exact", head: true })
-            .eq("topic_id", topicRow.id);
-          if (active) setPastPapersCount(papersError ? 0 : count ?? 0);
-        } catch {
-          if (active) setPastPapersCount(0);
-        }
 
         if (active) {
           const { data, error: questionsError } = await supabase.rpc("browse_questions", {
@@ -432,11 +414,10 @@ export default function TopicQuiz() {
         </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2">
         {[
           { label: "Questions", value: topicQuestions, icon: Play, color: accent.text },
           { label: "Bookmarked", value: bookmarkedQuestions.length, icon: Bookmark, color: accent.text },
-          { label: "Past Papers", value: pastPapersCount, icon: Archive, color: accent.text },
         ].map((s) => (
           <Card key={s.label}>
             <CardContent className="flex items-center gap-3 p-4">

@@ -14,15 +14,13 @@ import { topicHead } from "@/lib/topicSeo";
 import {
   topicNotesPath,
   topicQuizPath,
-  topicPapersPath,
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { FileText, BookOpen, Play, Archive, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw } from "lucide-react";
+import { FileText, BookOpen, Play, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
 import { openProtectedFile } from "@/lib/contentFiles";
-import { relatedTopicPapers } from "@/lib/topicPapers";
 import { topicMasterySummary } from "@/lib/topicMastery";
 import { TopicMasteryRing } from "@/components/TopicMasteryRing";
 import { materialContentToHtml } from "@/lib/objectiveTeach";
@@ -44,8 +42,6 @@ export default function TopicNotes() {
   const [lessons, setLessons] = useState<any[]>([]);
   const [materials, setMaterials] = useState<any[]>([]);
   const [quizzes, setQuizzes] = useState<any[]>([]);
-  const [papers, setPapers] = useState<any[]>([]);
-  const [levelPapers, setLevelPapers] = useState<any[]>([]);
   const [masteryRows, setMasteryRows] = useState<{ state: string }[] | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const bumpRevision = () => setReloadKey((k) => k + 1);
@@ -71,16 +67,6 @@ export default function TopicNotes() {
   }, [topicId, user]);
 
   const mastery = masteryRows && masteryRows.length > 0 ? topicMasterySummary(masteryRows) : null;
-
-  // Paper-aware papers: the topic's own papers plus every other paper in this
-  // subject-level sitting in the same paper group (Paper 1 lessons list Paper
-  // 1 papers with their mark schemes, mechanics lessons list mechanics
-  // papers, …). Falls back to the whole level when the topic has no tagged
-  // papers of its own.
-  const relatedPapers = useMemo(
-    () => relatedTopicPapers(topicId ?? "", papers, levelPapers.length > 0 ? levelPapers : papers),
-    [topicId, papers, levelPapers],
-  );
 
   useEffect(() => {
     let active = true;
@@ -142,20 +128,15 @@ export default function TopicNotes() {
         setTopicTitle(topicRow?.name ?? normalizedTopic);
         setTopicId(topicId);
 
-        const levelTopicIds = topicList.map((t) => t.id);
-        const [ls, ms, qz, pp, lp] = await Promise.all([
+        const [ls, ms, qz] = await Promise.all([
           topicId && supabase.from("lessons").select("*, topics(name)").eq("topic_id", topicId).order("sort_order"),
           supabase.from("study_materials").select("*, topics(name)").eq("topic_id", topicId).order("created_at", { ascending: false }),
           supabase.from("quizzes").select("*, topics(name)").eq("topic_id", topicId).order("created_at", { ascending: false }),
-          supabase.from("past_papers").select("*, topics(name)").eq("topic_id", topicId).order("year", { ascending: false }),
-          supabase.from("past_papers").select("*, topics(name)").in("topic_id", levelTopicIds).order("year", { ascending: false }),
         ]);
 
         setLessons((ls.data ?? []).filter(Boolean));
         setMaterials((ms.data ?? []).filter(Boolean));
         setQuizzes((qz.data ?? []).filter((q) => q.is_published));
-        setPapers((pp.data ?? []).filter(Boolean));
-        setLevelPapers((lp.data ?? []).filter(Boolean));
       } catch (e: any) {
         setError(e.message ?? "Failed to load topic content");
       } finally {
@@ -176,7 +157,7 @@ export default function TopicNotes() {
   if (needsSubjectPick) {
     return (
       <div className="space-y-6">
-        <SEOHead title={`${topicTitle ?? "Revision Notes"} — Clutch Marks`} description="Revision notes, topic questions and past papers." path={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
+        <SEOHead title={`${topicTitle ?? "Revision Notes"} — Clutch Marks`} description="Revision notes and topic questions." path={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)} />
         <SubjectGate />
       </div>
     );
@@ -282,7 +263,7 @@ export default function TopicNotes() {
             <Badge variant="outline">{levelLabel}</Badge>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
-            Revision notes, topic questions and past papers for {topicTitle} in {subjectMeta.name} {levelLabel}.
+            Revision notes and topic questions for {topicTitle} in {subjectMeta.name} {levelLabel}.
           </p>
         </div>
         <div className="flex gap-2">
@@ -478,8 +459,7 @@ export default function TopicNotes() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        <Card className="min-w-0">
+      <Card className="min-w-0">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2"><Play className="h-5 w-5 text-primary" /> Topic Questions</CardTitle>
             <CardDescription>Exam-style questions for {topicTitle}</CardDescription>
@@ -511,52 +491,9 @@ export default function TopicNotes() {
               <Link to={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}>
                 Browse all topic questions <ArrowRight className="h-4 w-4" />
               </Link>
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card className="min-w-0">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2"><Archive className="h-5 w-5 text-primary" /> Past Papers & Mark Schemes</CardTitle>          <CardDescription>
-            Papers linked to {topicTitle}
-            {relatedPapers.filtered && relatedPapers.groups.length > 0 && (
-              <> — showing {relatedPapers.groups.join(", ")} papers</>
-            )}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-2">
-            {relatedPapers.papers.length === 0 ? (
-              <p className="text-sm text-muted-foreground py-4 text-center">No past papers are linked to this topic yet.</p>
-            ) : (
-              relatedPapers.papers.slice(0, 5).map((p) => (
-                <Link
-                  key={p.id}
-                  to={topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-                  className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
-                >
-                  <div className="min-w-0 flex-1">
-                    <p className="font-medium truncate">{p.title}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      {p.year}
-                      {p.session ? ` · ${p.session}` : ""}
-                      {p.paper_number ? ` · ${p.paper_number}` : ""}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0 ml-4">
-                    <Badge variant="outline" className="text-[10px]">Past Paper</Badge>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                  </div>
-                </Link>
-              ))
-            )}
-            <Button asChild variant="outline" className="gap-2 mt-3 w-full justify-center">
-              <Link to={topicPapersPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}>
-                Browse all topic papers <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
+            </Button>          </CardContent>
+      </Card>
     </div>
   );
 }
+
