@@ -440,7 +440,7 @@ export default function AdminPastPapers() {
           {linkHealthError ? (
             <p className="text-sm text-muted-foreground">
               Couldn't load link health.{" "}
-              <button type="button" className="underline" onClick={() => refetchLinkHealth()}>Retry</button>
+              <button type="button" className="inline-flex items-center underline underline-offset-2" onClick={() => refetchLinkHealth()}>Retry</button>
             </p>
           ) : (
             <div className="grid gap-4 sm:grid-cols-3">
@@ -648,12 +648,12 @@ export default function AdminPastPapers() {
                         </Badge>
                       )}
                       {p.paper_url && (
-                        <button type="button" onClick={() => openSigned(p.paper_url)}>
+                        <button type="button" className="inline-flex items-center justify-center" onClick={() => openSigned(p.paper_url)}>
                           <Badge variant="outline" className="gap-1 cursor-pointer"><FileText className="h-3 w-3" /> Paper</Badge>
                         </button>
                       )}
                       {p.mark_scheme_url && (
-                        <button type="button" onClick={() => openSigned(p.mark_scheme_url)}>
+                        <button type="button" className="inline-flex items-center justify-center" onClick={() => openSigned(p.mark_scheme_url)}>
                           <Badge variant="outline" className="gap-1 cursor-pointer text-green-600"><FileCheck className="h-3 w-3" /> MS</Badge>
                         </button>
                       )}

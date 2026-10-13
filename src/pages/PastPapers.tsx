@@ -26,6 +26,7 @@ import {
   sortSessions,
   SESSION_ORDER,
   filterArchivePapers,
+  filterPapersForSubjects,
 } from "@/lib/pastPaperFiles";
 import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download, Wand2 } from "lucide-react";
 import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
@@ -65,6 +66,17 @@ export default function PastPapers() {
   const { user } = useAuth();
   const qc = useQueryClient();
   const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
+  const { data: subjectLevels } = useQuery({
+    queryKey: ["archive_subject_levels"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("subject_levels")
+        .select("id, level, subjects(slug)")
+        .eq("is_active", true);
+      if (error) throw error;
+      return data ?? [];
+    },
+  });
   const [search, setSearch] = useState("");
   const [yearFilter, setYearFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
@@ -158,32 +170,35 @@ export default function PastPapers() {
     }
   };
 
-  // Past papers whose topic belongs to a subject-level the student picked.
-  // Admins see everything.
-  // `topics` is loaded with `select("*")`, so there is no nested
-  // `subject_levels` object on it — reading `t.subject_levels?.id` left this map
-  // permanently empty, which made `scopedPapers` empty and left every student
-  // staring at "No past papers match your search". The topic row carries
-  // `subject_level_id` directly.
+  // Topic-linked rows use topic ownership; metadata-only rows use their
+  // persisted subject_slug + level. The latter matters for archive papers that
+  // are correctly classified but intentionally not assigned to a single topic.
   const topicToSl = useMemo(() => {
     const m = new Map<string, string>();
     (topics ?? []).forEach((t: any) => { if (t.subject_level_id) m.set(t.id, t.subject_level_id); });
     return m;
   }, [topics]);
 
-  const scopedPapers = useMemo(() => {
-    if (isAdmin || !prefsLoaded) return papers ?? [];
-    return (papers ?? []).filter((p: any) => {
-      const tid = p.topic_id;
-      if (!tid) return false; // untagged papers — hide from everyone
-      const sl = topicToSl.get(tid);
-      if (!sl) return false;
-      // Anonymous visitors have no picks, so the subject filter would empty the
-      // archive; they see every tagged paper, then the free-plan slice above
-      // them applies as it does for a signed-in student.
-      return !user || pickedIds.has(sl);
+  const subjectLevelByCode = useMemo(() => {
+    const m = new Map<string, string>();
+    (subjectLevels ?? []).forEach((row: any) => {
+      const slug = row.subjects?.slug;
+      if (slug && row.level) m.set(`${slug.toLowerCase()}/${String(row.level).toUpperCase()}`, row.id);
     });
-  }, [papers, isAdmin, prefsLoaded, pickedIds, topicToSl, user]);
+    return m;
+  }, [subjectLevels]);
+
+  const scopedPapers = useMemo(
+    () => filterPapersForSubjects(papers ?? [], {
+      isAdmin,
+      loaded: prefsLoaded,
+      signedIn: !!user,
+      pickedSubjectLevels: pickedIds,
+      topicSubjectLevels: topicToSl,
+      subjectLevelByCode,
+    }),
+    [papers, isAdmin, prefsLoaded, user, pickedIds, topicToSl, subjectLevelByCode],
+  );
 
   // Filter options come from the whole subject-scoped archive, not the free
   // slice, so a student can see (and reach) every board / paper / session on

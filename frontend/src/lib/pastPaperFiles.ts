@@ -372,3 +372,42 @@ export function matchesArchiveFilters(p: ArchiveFilterablePaper, filters: Archiv
 export function filterArchivePapers<T extends ArchiveFilterablePaper>(papers: T[], filters: ArchiveFilters): T[] {
   return papers.filter((p) => matchesArchiveFilters(p, filters));
 }
+
+export interface SubjectScopedPaper extends ArchiveFilterablePaper {
+  topic_id?: string | null;
+  subject_slug?: string | null;
+  level?: string | null;
+}
+
+export interface ArchiveSubjectScope {
+  isAdmin: boolean;
+  loaded: boolean;
+  signedIn: boolean;
+  pickedSubjectLevels: ReadonlySet<string>;
+  topicSubjectLevels: ReadonlyMap<string, string>;
+  /** Keyed as `${subject_slug}/${level}`, e.g. `mathematics/AS`. */
+  subjectLevelByCode: ReadonlyMap<string, string>;
+}
+
+/**
+ * Scope archive rows to a student's selected subject-levels. Topic-linked rows
+ * use their topic relation; metadata-only past-paper rows use their persisted
+ * subject_slug/level pair so archive records with no topic assignment are not
+ * hidden from students.
+ */
+export function filterPapersForSubjects<T extends SubjectScopedPaper>(
+  papers: T[],
+  scope: ArchiveSubjectScope,
+): T[] {
+  if (scope.isAdmin || !scope.loaded) return papers;
+
+  return papers.filter((paper) => {
+    const topicLevel = paper.topic_id ? scope.topicSubjectLevels.get(paper.topic_id) : undefined;
+    const code = paper.subject_slug && paper.level
+      ? `${paper.subject_slug.toLowerCase()}/${paper.level.toUpperCase()}`
+      : "";
+    const levelId = topicLevel ?? scope.subjectLevelByCode.get(code);
+    if (!levelId) return false;
+    return !scope.signedIn || scope.pickedSubjectLevels.has(levelId);
+  });
+}

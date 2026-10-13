@@ -276,7 +276,7 @@ export default function AdminMaterials() {
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <FileIcon className="h-3 w-3" />
                         <span className="truncate max-w-[180px]">{file.name}</span>
-                        <button type="button" onClick={() => setFile(null)} aria-label="Remove selected file"><X className="h-3 w-3" /></button>
+                        <button type="button" onClick={() => setFile(null)} aria-label="Remove selected file" className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-muted"><X className="h-3 w-3" /></button>
                       </div>
                     )}
                     {!file && existingFileUrl && <Badge variant="outline" className="gap-1"><FileIcon className="h-3 w-3" /> File attached</Badge>}

@@ -17,7 +17,8 @@ import { useToast } from "@/hooks/useToast";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
-import { BookOpen, Loader2, GraduationCap, LogIn, ArrowRight } from "lucide-react";
+import { BookOpen, Loader2, LogIn, ArrowRight } from "lucide-react";
+import { BrandMark } from "@/components/BrandMark";
 
 export function SubjectGate() {
   const { user } = useAuth();
@@ -45,9 +46,7 @@ export function SubjectGate() {
     return (
       <Card className="mx-auto max-w-xl">
         <CardHeader className="text-center space-y-2">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20">
-            <GraduationCap className="h-8 w-8 text-primary" />
-          </div>
+          <BrandMark size={64} className="mx-auto" />
           <CardTitle className="text-xl">Pick your subjects to personalise this page</CardTitle>
           <CardDescription className="text-sm">
             This content is open to everyone, but signing in and picking your subjects hides
@@ -108,9 +107,7 @@ export function SubjectGate() {
   return (
     <Card className="mx-auto max-w-xl">
       <CardContent className="flex flex-col items-center py-10 px-6 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 mb-5">
-          <GraduationCap className="h-8 w-8 text-primary" />
-        </div>
+        <BrandMark size={64} className="mb-5" />
         <h2 className="text-xl font-semibold mb-2">Pick your subjects to personalise this page</h2>
         <p className="text-sm text-muted-foreground mb-6 max-w-sm leading-relaxed">
           Choose what you study so we only show you lessons, quizzes and past papers for

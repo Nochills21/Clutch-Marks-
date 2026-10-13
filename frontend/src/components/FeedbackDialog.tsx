@@ -66,7 +66,7 @@ export function FeedbackDialog({
               key={r.value}
               type="button"
               onClick={() => setRating(r.value)}
-              className={`rounded-full border px-3 py-1.5 text-sm transition-colors ${rating === r.value ? "border-primary bg-primary/10 text-primary" : "hover:bg-accent/50"}`}
+              className={`inline-flex items-center justify-center rounded-full border px-3 py-1.5 text-sm transition-colors ${rating === r.value ? "border-primary bg-primary/10 text-primary" : "hover:bg-accent/50"}`}
             >
               {r.label}
             </button>

@@ -404,13 +404,6 @@ export default function TopicQuiz() {
           <Button asChild variant="outline" size="sm" className="gap-2">
             <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
           </Button>
-          {bookmarkedQuestions.length > 0 && (
-            <Button asChild variant="outline" size="sm" className="gap-2">
-              <Link to={`/practice?level=${subjectLevel.id}&mode=bookmarked`}>
-                <Bookmark className="h-3.5 w-3.5" /> Bookmarked ({bookmarkedQuestions.length})
-              </Link>
-            </Button>
-          )}
         </div>
       </div>
 

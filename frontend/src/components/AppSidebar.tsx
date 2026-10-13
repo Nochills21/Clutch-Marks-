@@ -1,5 +1,5 @@
-// Navigation: role-specific link sets (admin/student/parent), bookmarks,
-// student-preview toggle for admins.// Calendar removed: the study planner covers scheduling.
+// Navigation: role-specific link sets (admin/student/parent) and the
+// student-preview toggle for admins. Calendar is handled by the study planner.
 import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, FileCheck,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
@@ -9,7 +9,6 @@ import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { BookmarkedSection } from "@/components/BookmarkedSection";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarFooter, SidebarHeader,
@@ -162,7 +161,6 @@ export function AppSidebar() {
           </SidebarGroup>
         ))}
 
-        {role !== "parent" && <BookmarkedSection />}
       </SidebarContent>
 
 
@@ -189,9 +187,9 @@ export function AppSidebar() {
           )
         )}
         <Separator className="bg-sidebar-border/50" />
-        <div className="flex items-center justify-between">
+        <div className="grid grid-cols-[40px_minmax(0,1fr)_auto] items-center gap-2">
           <ThemeToggle variant="ghost" size="icon" />
-          <div className="flex items-center gap-1">
+          <div className="flex min-w-0 items-center justify-center gap-1">
             <a
               href="/privacy"
               className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
@@ -217,7 +215,7 @@ export function AppSidebar() {
           <Button
             variant="ghost"
             size="sm"
-            className="gap-2 text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent text-xs"
+            className="shrink-0 gap-2 text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent text-xs"
             onClick={signOut}
           >
             <LogOut className="h-4 w-4" /> Sign Out

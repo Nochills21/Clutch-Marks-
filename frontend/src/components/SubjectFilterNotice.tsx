@@ -84,7 +84,7 @@ export function SubjectFilterNotice() {
         type="button"
         onClick={() => setDismissed(true)}
         aria-label="Dismiss"
-        className="ml-auto text-muted-foreground hover:text-foreground"
+        className="ml-auto inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-accent/50 hover:text-foreground"
       >
         <X className="h-3.5 w-3.5" />
       </button>

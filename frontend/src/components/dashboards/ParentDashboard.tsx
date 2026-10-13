@@ -231,10 +231,10 @@ export function ParentDashboard() {
             <div className="flex flex-wrap gap-2 pt-1">
               {children.map(c => (
                 <span key={c.user_id} className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs">
-                  <button className={`font-medium ${active?.user_id === c.user_id ? "text-primary" : ""}`} onClick={() => setActive(c)}>
+                  <button className={`inline-flex items-center font-medium ${active?.user_id === c.user_id ? "text-primary" : ""}`} onClick={() => setActive(c)}>
                     {emailLabel(c)}
                   </button>
-                  <button aria-label={`Unlink ${emailLabel(c)}`} onClick={() => unlink(c.user_id)} className="text-muted-foreground hover:text-destructive">
+                  <button aria-label={`Unlink ${emailLabel(c)}`} onClick={() => unlink(c.user_id)} className="inline-flex h-6 w-6 items-center justify-center rounded-full text-muted-foreground hover:bg-muted hover:text-destructive">
                     <Unlink className="h-3 w-3" />
                   </button>
                 </span>

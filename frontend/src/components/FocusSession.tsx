@@ -95,7 +95,7 @@ export function FocusSession({ activeSession, suggestedMinutes, animations, onCh
               onClick={() => setChosen(m)}
               aria-pressed={chosen === m}
               className={cn(
-                "num inline-flex items-center justify-center rounded-xl border px-3 py-2 text-sm leading-none transition-colors",
+                "num inline-flex h-9 items-center justify-center rounded-xl border px-3 text-sm leading-none transition-colors",
                 chosen === m
                   ? "border-primary/60 bg-primary/10 text-foreground"
                   : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground",
