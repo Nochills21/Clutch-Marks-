@@ -176,6 +176,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "06149bc0-b859-4ae5-9077-7ef2693b6ee8",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Why use a buffer between components with different transfer rates?",
+  "back": "It temporarily queues data during transfer so the faster component can continue while the slower one processes it; it is not permanent storage.",
+  "sort_order": 10,
+  "created_at": "2026-10-12 20:03:59.658342+00"
+ },
+ {
   "id": "06204481-0a8c-48df-8ec5-00ef028b2397",
   "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
   "front": "What is the R formula for a cos x + b sin x?",
@@ -1360,6 +1368,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "32a222fa-8036-4126-8525-b964cdd04d50",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "What makes a control system closed-loop?",
+  "back": "It measures the result of an action and feeds that reading back to the controller, which can adjust later actions against a target.",
+  "sort_order": 15,
+  "created_at": "2026-10-12 20:03:59.658342+00"
+ },
+ {
   "id": "32f30a2c-5275-4302-aaec-7f68fae2eb88",
   "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
   "front": "Modelling Decisions",
@@ -1726,6 +1742,14 @@
   "back": "Wien: λ_max T = 2.9 × 10⁻³ m K — hotter stars are bluer",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "3f720a34-199d-4a04-902e-ddf69b496c3b",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "How does monitoring differ from control?",
+  "back": "Monitoring records, displays or reports sensor readings; control uses measured input to decide an action and can operate an actuator.",
+  "sort_order": 14,
+  "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
   "id": "3f9706d5-d40c-4bb6-add8-8a02f86e54ec",
@@ -2382,6 +2406,14 @@
   "back": "One-tailed tests take the whole α in one direction. Two-tailed tests split α across both tails: compare against α/2 on each side, or equivalently check whether the observation falls in the extreme 2.5% (for α = 5%).",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "5aad7b92-3424-40dd-8a29-8a2d719c4a59",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "What are the Sum and Carry-out expressions of a full adder?",
+  "back": "Sum = A XOR B XOR Cin. Cout = AB + A·Cin + B·Cin; carry is produced when at least two inputs are 1.",
+  "sort_order": 20,
+  "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
   "id": "5bc4879b-4fb0-4130-8d2e-835d051c00d2",
@@ -3128,6 +3160,14 @@
   "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
+  "id": "7432c675-0b16-4ffb-bbdf-81fbadc70a83",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "How do PROM, EPROM and EEPROM differ?",
+  "back": "PROM is programmed once; EPROM is erased with ultraviolet light and programmed again; EEPROM is erased electrically and reprogrammed, often in-circuit.",
+  "sort_order": 12,
+  "created_at": "2026-10-12 20:03:59.658342+00"
+ },
+ {
   "id": "7439c354-c9f5-4008-8d36-dbc96656e7c2",
   "set_id": "9d2a09c9-8644-444f-9a26-6d7e060f8fbe",
   "front": "Length, area, volume factors",
@@ -3638,6 +3678,14 @@
   "back": "Solid: fixed positions, vibrate — fixed shape/volume. Liquid: move around, touching — fixed volume, flows. Gas: far apart, fast random motion — fills container. Brownian motion evidences random molecular motion.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "89966ab3-652b-49c6-8ae3-5077030a4a78",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Give one benefit and one limitation of an embedded system.",
+  "back": "A dedicated embedded computer can be compact, low-power and reliable for its task; it may be difficult to upgrade or repair and has limited flexibility.",
+  "sort_order": 13,
+  "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
   "id": "89b39de3-a11e-4195-86c8-50e80e67445d",
@@ -4528,6 +4576,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "afc74821-b08a-4f01-a097-7835778e6e71",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "State the functions of NAND and NOR.",
+  "back": "NAND = NOT(A AND B), so it is 0 only when both inputs are 1. NOR = NOT(A OR B), so it is 1 only when both inputs are 0.",
+  "sort_order": 16,
+  "created_at": "2026-10-12 20:03:59.658342+00"
+ },
+ {
   "id": "b03d5c96-03c2-4e49-b7d2-580317a43863",
   "set_id": "e8b72d9a-9879-43c2-897b-42e2576de483",
   "front": "Line-following sensor",
@@ -4590,6 +4646,14 @@
   "back": "TRY the risky open; EXCEPT the named error with a clean message.",
   "sort_order": 8,
   "created_at": "2026-10-12 08:03:08.398276+00"
+ },
+ {
+  "id": "b184299e-b9cc-449a-8ee3-d9b892b0fba1",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "When does XOR output 1?",
+  "back": "For two inputs, XOR outputs 1 when exactly one input is 1; equivalently, when inputs differ. It outputs 0 when they match.",
+  "sort_order": 17,
+  "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
   "id": "b18d91f0-4237-454b-80bd-7b1ba1b8f2aa",
@@ -5134,6 +5198,14 @@
   "back": "Symmetric speed for the message plus asymmetric safety for the session key.",
   "sort_order": 9,
   "created_at": "2026-10-12 07:54:54.445133+00"
+ },
+ {
+  "id": "c4c6e083-ae0c-49c1-b8d8-292c10f68595",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "Compare SRAM and DRAM refresh, speed and typical use.",
+  "back": "Both are volatile. SRAM is faster and needs no periodic refresh while powered, so it suits cache; DRAM needs refresh but is denser and cheaper per bit, so it suits main memory.",
+  "sort_order": 11,
+  "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
   "id": "c4d2aa62-61c0-48bf-a8af-687af324944e",
@@ -6216,6 +6288,14 @@
   "created_at": "2026-10-12 07:47:24.107802+00"
  },
  {
+  "id": "ea58d29f-7e4a-4218-8428-47db3b86f2f5",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "What are the Sum and Carry outputs of a half adder?",
+  "back": "Sum = A XOR B; Carry = A AND B. A half adder has no carry-in input.",
+  "sort_order": 19,
+  "created_at": "2026-10-12 20:03:59.658342+00"
+ },
+ {
   "id": "eaa54c89-4798-41a4-9174-b4f0a732459a",
   "set_id": "0649e869-6bcb-4247-a462-a6228d37357b",
   "front": "Switching",
@@ -6230,6 +6310,14 @@
   "back": "Sensors → processor → actuators loops (greenhouses, traffic lights, self-checkouts). Simulation models real systems cheaply and safely (flight training, weather, crash tests) — limitations: model quality, missing variables.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "ebc28632-65c7-4611-b9b2-b851b17efce6",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "State De Morgan's two laws.",
+  "back": "(A AND B)' = A' OR B'; (A OR B)' = A' AND B'. Complement each input and swap AND with OR.",
+  "sort_order": 18,
+  "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
   "id": "ebf11c78-d3ee-4c78-bf46-57d7cbdf57e5",
@@ -6358,6 +6446,14 @@
   "back": "that is the factor theorem. Divide out fully to reduce a cubic to a quadratic and factorise completely.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f132367b-d54d-4375-aace-37ff1d175f37",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "front": "What grouping rules matter in a Karnaugh map?",
+  "back": "Use Gray-code labels; group adjacent 1s in rectangles of 1, 2, 4, 8... cells. Opposite edges wrap; diagonals are not adjacent. Eliminate variables that change within a group.",
+  "sort_order": 21,
+  "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
   "id": "f13b2a61-5bc5-40bc-8e99-78a90d46a4f2",

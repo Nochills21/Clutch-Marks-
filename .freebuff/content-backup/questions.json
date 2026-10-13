@@ -632,20 +632,20 @@
  {
   "id": "0385c7ee-3e20-4d7e-8c91-e32fca34818c",
   "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
-  "question_text": "Which statement belongs to the \"Hardware and Logic Gates\" notes?",
+  "question_text": "Which comparison of SRAM and DRAM is accurate?",
   "options": [
-   "Object-oriented: classes encapsulating state + behaviour — reusability",
-   "Joins combine tables: FROM students s JOIN enrolments e ON s.id = e.sid",
-   "Execute: ALU/registers act; results stored; PC may be overwritten (jumps)",
-   "De Morgan: (A·B)′ = A′ + B′; (A + B)′ = A′ · B′"
+   "SRAM must be refreshed more often than DRAM",
+   "DRAM is faster and more expensive per bit than SRAM",
+   "Both lose contents without power; DRAM needs refresh and is denser than SRAM",
+   "SRAM is non-volatile, while DRAM is volatile"
   ],
-  "correct_option": 3,
-  "explanation": "From the Hardware and Logic Gates study notes: “De Morgan: (A·B)′ = A′ + B′; (A + B)′ = A′ · B′”.",
+  "correct_option": 2,
+  "explanation": "Both types are volatile. DRAM stores charge that leaks and therefore requires refresh; its simpler, denser cells make it cheaper per bit, while SRAM is faster and commonly used for cache.",
   "sort_order": 1,
   "created_at": "2026-09-26 09:37:31.853038+00",
-  "difficulty": "medium",
+  "difficulty": "drill",
   "objective_id": null,
-  "statement_id": null
+  "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
  },
  {
   "id": "0386e506-fc79-418b-b779-d08f0b44bce7",
@@ -8012,20 +8012,20 @@
  {
   "id": "29e47e7e-66f6-4c54-b505-add341456ff2",
   "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
-  "question_text": "Which statement is from the \"Hardware and Logic Gates\" study notes?",
+  "question_text": "A greenhouse reads a temperature sensor and switches a heater to keep near a target. This is:",
   "options": [
-   "Distribution: A·(B + C) = A·B + A·C",
-   "Merge O(n log n) O(n log n) divide and merge",
-   "Linear: check each item, O(n), works unsorted",
-   "Binary: halve a sorted list each step, O(log n)"
+   "monitoring only, because it records a reading",
+   "open-loop control, because it has an actuator",
+   "closed-loop control, because sensor feedback informs heater action",
+   "secondary storage, because readings may be saved"
   ],
-  "correct_option": 0,
-  "explanation": "From the Hardware and Logic Gates study notes: “Distribution: A·(B + C) = A·B + A·C”.",
+  "correct_option": 2,
+  "explanation": "The system measures temperature, compares it with a target and changes heater output. Sensor readings report the effect of that action, forming feedback; monitoring alone would not automatically control the heater.",
   "sort_order": 2,
   "created_at": "2026-09-26 09:37:31.853038+00",
-  "difficulty": "medium",
+  "difficulty": "drill",
   "objective_id": null,
-  "statement_id": null
+  "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
  },
  {
   "id": "29fb0fb6-e638-461e-b0c4-6d3f1158ebb4",
@@ -8260,6 +8260,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "edda58fe-f97a-49f4-a8bf-af9a5c03b393"
+ },
+ {
+  "id": "2b9aae4c-404b-4233-bb70-6a0c96dbd113",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "Evaluate Y=(A OR B) AND NOT C when A=0, B=1, C=1.",
+  "options": [
+   "1",
+   "0",
+   "A",
+   "cannot be determined"
+  ],
+  "correct_option": 1,
+  "explanation": "A OR B is 0 OR 1 = 1. NOT C is NOT 1 = 0. The final AND is 1 AND 0 = 0. Evaluate the bracketed operations before the final AND.",
+  "sort_order": 22,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "e005eaef-0406-41c2-b17e-8bff074be4b7"
  },
  {
   "id": "2ba0a5c0-f3ba-451e-8bbb-26e5111fcead",
@@ -11232,6 +11250,24 @@
   "statement_id": null
  },
  {
+  "id": "3a076a15-63e3-4829-b1f1-15ec3cd9f58b",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "For a two-input NAND gate, A=1 and B=1. What is the output?",
+  "options": [
+   "0",
+   "1",
+   "A",
+   "undefined"
+  ],
+  "correct_option": 0,
+  "explanation": "AND(1,1)=1, and NAND complements that result, so the output is 0. NAND is not the same as OR.",
+  "sort_order": 20,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "e005eaef-0406-41c2-b17e-8bff074be4b7"
+ },
+ {
   "id": "3a195e41-be98-4ca1-9184-1008db19450d",
   "quiz_id": "8c35a10c-0dad-49f8-9b40-69a8722e10b6",
   "question_text": "Arc length with r = 8, θ = 0.75 rad:",
@@ -11464,6 +11500,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "3aeaa0f4-dc29-4f69-9e3d-5aa151a5f6a6",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "For an active-high JK flip-flop, what happens when J=1 and K=1 at the active clock event?",
+  "options": [
+   "Holds current state",
+   "Resets to 0",
+   "Sets to 1",
+   "Toggles to the complement of its current state"
+  ],
+  "correct_option": 3,
+  "explanation": "The JK flip-flop's J=K=1 case toggles, unlike the forbidden S=R=1 combination of a common active-high NOR SR latch. The result depends on the clock event, not on continuously changing inputs.",
+  "sort_order": 30,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
   "id": "3af69da9-b980-4d28-93d6-a618199d0173",
@@ -20844,6 +20898,24 @@
   "statement_id": "d0e325c3-6cac-440c-a462-60339b3e2cc9"
  },
  {
+  "id": "6784a75f-83ba-47f0-96da-5955ddbd210d",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "A 3-input K-map has output 1 for minterms 1,3,5,7, with A most significant and C least significant. Simplify.",
+  "options": [
+   "A'",
+   "B'",
+   "C",
+   "A OR B"
+  ],
+  "correct_option": 2,
+  "explanation": "The minterms are 001, 011, 101 and 111. In every row C=1 while A and B vary, so one four-cell group eliminates A and B and leaves C. This group covers all specified 1-cells.",
+  "sort_order": 29,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
+ },
+ {
   "id": "679a95c7-f5c3-4270-a35a-a07cf397ea76",
   "quiz_id": "087a5b6e-7c15-463a-b714-f75cb9a74d98",
   "question_text": "Which statement is from the \"Number — Sets\" study notes?",
@@ -24786,6 +24858,24 @@
   "statement_id": null
  },
  {
+  "id": "7ac3fba0-93f2-4ec8-b736-731ba1ba1b1d",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "Which expression is equivalent to NOT(A OR B)?",
+  "options": [
+   "A OR B",
+   "A' OR B'",
+   "A' AND B'",
+   "A AND B"
+  ],
+  "correct_option": 2,
+  "explanation": "By De Morgan's law, complementing an OR changes it to AND and complements each input: (A OR B)' = A' AND B'. This is NOR, not NAND.",
+  "sort_order": 23,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
+ },
+ {
   "id": "7ac9ee2e-e044-4d28-9054-d5d6538f4083",
   "quiz_id": "2835673e-a45d-48ec-84bb-8457577ff1b3",
   "question_text": "The y-intercept of 2x − 5y = 20 is:",
@@ -25864,6 +25954,24 @@
   "difficulty": "check",
   "objective_id": null,
   "statement_id": "e7ccd480-7016-45b8-b780-861f237f7e5e"
+ },
+ {
+  "id": "7f666039-0230-4b2e-8e33-7a520fe0245d",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "A full adder receives A=1, B=1 and Cin=1. What are Sum and Cout?",
+  "options": [
+   "Sum=1, Cout=1",
+   "Sum=0, Cout=1",
+   "Sum=1, Cout=0",
+   "Sum=0, Cout=0"
+  ],
+  "correct_option": 0,
+  "explanation": "The total is 1+1+1=3, or binary 11. The current-column sum bit is 1 and carry-out is 1; carry is generated because at least two inputs are 1, while sum is odd parity.",
+  "sort_order": 27,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
   "id": "7f6f479e-2d0e-4213-bbc5-371157385f28",
@@ -27448,6 +27556,24 @@
   "difficulty": "check",
   "objective_id": null,
   "statement_id": "be47ee15-cea1-41cb-85c6-d642f779858c"
+ },
+ {
+  "id": "874a8385-86bb-48d7-bc89-c6fd19080d11",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "A full adder receives A=1, B=1 and Cin=0. What are Sum and Cout?",
+  "options": [
+   "Sum=1, Cout=0",
+   "Sum=0, Cout=1",
+   "Sum=1, Cout=1",
+   "Sum=0, Cout=0"
+  ],
+  "correct_option": 1,
+  "explanation": "The total is 1+1+0=2, which is binary 10. The current-column sum bit is 0 and carry 1 moves to the next column; a full adder includes the incoming carry.",
+  "sort_order": 26,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
   "id": "87acfa73-cc91-42cd-bbc7-3230e8e3caf8",
@@ -29234,20 +29360,20 @@
  {
   "id": "91479ec7-0529-4cdb-bb14-9bd739912e19",
   "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
-  "question_text": "From the \"Hardware and Logic Gates\" notes, which statement appears?",
+  "question_text": "A device must retain firmware but allow it to be erased and rewritten electrically while installed. Which memory fits?",
   "options": [
-   "TCP/IP stack: application → transport → network → link",
-   "Supervised: learns from labelled data (spam detection)",
-   "SR latch: set/reset, invalid state S=R=1",
-   "3NF: 2NF + no transitive dependencies (non-key → non-key)"
+   "PROM",
+   "EEPROM",
+   "SRAM",
+   "EPROM erased by ultraviolet light"
   ],
-  "correct_option": 2,
-  "explanation": "From the Hardware and Logic Gates study notes: “SR latch: set/reset, invalid state S=R=1”.",
+  "correct_option": 1,
+  "explanation": "EEPROM is electrically erasable and reprogrammable, including in-circuit on suitable devices. PROM is one-time programmable, while EPROM conventionally requires ultraviolet erasure after removal.",
   "sort_order": 4,
   "created_at": "2026-09-26 09:37:31.853038+00",
-  "difficulty": "medium",
+  "difficulty": "drill",
   "objective_id": null,
-  "statement_id": null
+  "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
  },
  {
   "id": "9151cd2c-3667-473f-89bb-8a9d88e091b1",
@@ -31464,6 +31590,24 @@
   "statement_id": null
  },
  {
+  "id": "9d158896-72dd-4e89-9001-3d97c1829afc",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "Which statement correctly distinguishes monitoring from control?",
+  "options": [
+   "Monitoring needs an actuator; control cannot use sensors",
+   "Monitoring observes and reports; control can use sensor readings to operate an actuator",
+   "Control only stores readings; monitoring changes the process",
+   "They are identical terms for any sensor system"
+  ],
+  "correct_option": 1,
+  "explanation": "Monitoring observes, records or reports. Control uses the measured state to decide an action and can operate an actuator; feedback can report the result. A sensor alone does not make a system control.",
+  "sort_order": 31,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
+ },
+ {
   "id": "9d3f0143-2221-43c2-b407-a09f8d6938be",
   "quiz_id": "c2781b30-a319-4f2d-903d-2e86fd885ad9",
   "question_text": "The mean of five values is 8. A sixth value of 20 is added. The new mean is:",
@@ -32420,20 +32564,20 @@
  {
   "id": "a21963a2-05d1-4ebf-a3b6-9a2fabbb6d54",
   "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
-  "question_text": "Which of these is covered by the \"Hardware and Logic Gates\" study notes?",
+  "question_text": "For a common active-high NOR SR latch, what does S=0 and R=0 do?",
   "options": [
-   "Client-server: central services, easy administration, single point of failure",
-   "Truth table → Boolean expression → gates. A half adder: S = A XOR B, C = A AND B",
-   "push/pop/peek at one end. Uses: call stacks, undo, expression evaluation, DFS",
-   "LAN: small site, privately owned; WAN: large geographic scale (the internet)"
+   "Sets Q to 1",
+   "Resets Q to 0",
+   "Forces the forbidden condition",
+   "Retains the previous state of Q"
   ],
-  "correct_option": 1,
-  "explanation": "From the Hardware and Logic Gates study notes: “Truth table → Boolean expression → gates. A half adder: S = A XOR B, C = A AND B”.",
+  "correct_option": 3,
+  "explanation": "With both active-high inputs at 0, neither NOR gate is commanded to set or reset the latch, so feedback retains the previous state. This assumes the stated NOR implementation and active-high inputs.",
   "sort_order": 3,
   "created_at": "2026-09-26 09:37:31.853038+00",
-  "difficulty": "medium",
+  "difficulty": "drill",
   "objective_id": null,
-  "statement_id": null
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
   "id": "a23b25a5-0866-41d0-a5a4-e9be550b1e7a",
@@ -33660,6 +33804,24 @@
   "statement_id": null
  },
  {
+  "id": "a78cd8cb-8d5d-46cb-a6b6-df0021e4a5a5",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "A warning output is 1 when sensor A is active and either sensor B or C is active. Which expression matches?",
+  "options": [
+   "A AND (B OR C)",
+   "(A AND B) OR C",
+   "A OR (B AND C)",
+   "NOT A AND (B OR C)"
+  ],
+  "correct_option": 0,
+  "explanation": "A must be active in every warning case, while at least one of B or C must also be active. The parentheses make the grouping explicit; alternatives either allow a warning without A or require both B and C.",
+  "sort_order": 21,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "e005eaef-0406-41c2-b17e-8bff074be4b7"
+ },
+ {
   "id": "a78d27e6-7696-41e5-9fdf-9e374e14337c",
   "quiz_id": "9ff80671-9b05-479c-81a5-00a92188c1ad",
   "question_text": "A material has stress 5 x 10^7 Pa at strain 2.5 x 10^-4. What is its Young modulus?",
@@ -34022,20 +34184,20 @@
  {
   "id": "a988f728-3562-4d9d-8eb5-02a3c756a621",
   "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
-  "question_text": "From the \"Hardware and Logic Gates\" notes, which statement appears?",
+  "question_text": "A processor sends a large data block to a slower printer. Which memory use best smooths the transfer?",
   "options": [
-   "Fetch: PC → MAR; read memory → MDR; instruction → CIR; PC increments",
-   "Object-oriented: classes encapsulating state + behaviour — reusability",
-   "NOT inverts; NAND is 'AND then NOT'; XOR outputs 1 when inputs differ",
-   "Joins combine tables: FROM students s JOIN enrolments e ON s.id = e.sid"
+   "A buffer temporarily queues data until the printer accepts it",
+   "ROM stores the print job permanently",
+   "The address bus stores the data",
+   "Disable the printer queue"
   ],
-  "correct_option": 2,
-  "explanation": "From the Hardware and Logic Gates study notes: “NOT inverts; NAND is 'AND then NOT'; XOR outputs 1 when inputs differ”.",
+  "correct_option": 0,
+  "explanation": "A buffer temporarily queues data between components with different transfer rates, allowing the processor to continue while the slower printer consumes output. It is not permanent storage.",
   "sort_order": 0,
   "created_at": "2026-09-26 09:37:31.853038+00",
-  "difficulty": "medium",
+  "difficulty": "drill",
   "objective_id": null,
-  "statement_id": null
+  "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
  },
  {
   "id": "a9af0eb9-5a44-4711-9f1b-e3cb983e8978",
@@ -36432,6 +36594,24 @@
   "statement_id": null
  },
  {
+  "id": "b6c2377f-a15d-4ff7-bd95-d756984fc3ca",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "Simplify A OR (A AND B).",
+  "options": [
+   "A AND B",
+   "A",
+   "A OR B",
+   "B"
+  ],
+  "correct_option": 1,
+  "explanation": "By absorption, A OR (A AND B) = A. If A is 1 the result is 1; if A is 0, A AND B is 0, so the result is 0 regardless of B. Thus B cannot affect the output.",
+  "sort_order": 24,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
+ },
+ {
   "id": "b6eb549e-3ec1-4d52-aaa9-9645a05e5daa",
   "quiz_id": "c48bbc84-5221-4be3-8e63-c76eee92f4e1",
   "question_text": "If U = {1, 2, 3, 4, 5} and A = {1, 3, 5}, what is A'?",
@@ -36880,6 +37060,24 @@
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "b8816a33-e6be-43dc-b427-43f3a3448fd9",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "Which Boolean expression is equivalent to NOT(A AND B)?",
+  "options": [
+   "A' AND B'",
+   "A' OR B'",
+   "A AND B",
+   "A OR B"
+  ],
+  "correct_option": 1,
+  "explanation": "De Morgan's law gives (A AND B)' = A' OR B'. Complementing changes AND to OR and complements both inputs; this is NAND, whose output is 0 only when both inputs are 1.",
+  "sort_order": 35,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
   "id": "b8828da7-56ed-4563-9af3-fa92956f45fe",
@@ -40428,6 +40626,24 @@
   "statement_id": null
  },
  {
+  "id": "cc5886a3-16eb-4554-8742-bfa1f8bd32c7",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "A truth table is 1 only for A=0,B=1 and A=1,B=0. Which expression matches?",
+  "options": [
+   "A AND B",
+   "A OR B",
+   "A'B + AB'",
+   "A'B'"
+  ],
+  "correct_option": 2,
+  "explanation": "The first true row contributes A'B and the second AB'. OR the minterms: A'B + AB'. This is XOR because the inputs differ; the other rows are both 0.",
+  "sort_order": 34,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "e005eaef-0406-41c2-b17e-8bff074be4b7"
+ },
+ {
   "id": "ccae3ef7-1d2c-4917-9ede-4aaff063973a",
   "quiz_id": "a1af827c-dcdd-45af-a919-3f21ac573019",
   "question_text": "Which statement belongs to the \"Permutations and Combinations\" notes?",
@@ -41308,6 +41524,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": null
+ },
+ {
+  "id": "d1c88a6a-d92a-45ad-8f29-12ed017f9d35",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "Which memory comparison is correct?",
+  "options": [
+   "PROM is electrically rewritten in-circuit; EEPROM is one-time programmable",
+   "EPROM uses periodic refresh; DRAM is non-volatile",
+   "PROM is programmed once; EEPROM can be electrically erased and rewritten",
+   "SRAM is secondary storage; ROM is volatile"
+  ],
+  "correct_option": 2,
+  "explanation": "PROM cannot be erased after one-time programming, whereas EEPROM supports electrical erasure and reprogramming. DRAM refresh and SRAM/ROM volatility are separate distinctions; the alternatives mix unrelated properties.",
+  "sort_order": 32,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
  },
  {
   "id": "d1e19c54-ad5b-485b-aca9-c85cf0d81501",
@@ -42712,6 +42946,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "2433737a-745c-4bf8-9603-d1a94a7602e4"
+ },
+ {
+  "id": "da5895d5-231b-42ca-b640-5a38d8757d80",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "In a Karnaugh map, which cells may be grouped as adjacent?",
+  "options": [
+   "Only diagonal cells",
+   "Gray-code labels differing in one bit, including opposite-edge neighbours",
+   "Any separated cells containing 1",
+   "Only cells in the same row"
+  ],
+  "correct_option": 1,
+  "explanation": "K-map adjacency means input combinations differ in exactly one variable. Gray-code ordering makes this visible; opposite edges wrap, but diagonal cells are not adjacent. Group sizes are powers of two.",
+  "sort_order": 28,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
   "id": "da6d1e41-82af-4adf-8f03-59e0a47f8694",
@@ -48510,6 +48762,24 @@
   "statement_id": "eb2d68a1-e33a-4154-a99a-bdfd986408ad"
  },
  {
+  "id": "f6c10375-7540-4106-b78f-fa3d2049e7f7",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "A system displays live pressure and automatically opens a valve above a limit. Which description is best?",
+  "options": [
+   "A control system uses the pressure sensor and valve actuator; display is also an output",
+   "Monitoring alone opens the valve without control",
+   "The valve is input and the sensor is storage",
+   "Open-loop system measures only valve position"
+  ],
+  "correct_option": 0,
+  "explanation": "The pressure sensor supplies input, the controller checks the threshold, and the valve actuator changes the process. Displaying the reading is monitoring output, but automatic valve action makes the system control; measured pressure can close the loop.",
+  "sort_order": 33,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
+ },
+ {
   "id": "f6c10d40-dc6e-4755-9877-0ca7e3f6abc2",
   "quiz_id": "b51bd9cf-0bba-4507-870e-b38f4c08c520",
   "question_text": "Which statement is from the \"System Software and Security\" study notes?",
@@ -49138,6 +49408,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "33584833-368d-47fe-9688-e4e1913896c1"
+ },
+ {
+  "id": "fada4f15-781c-457f-9091-5243143c9d5f",
+  "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
+  "question_text": "A half adder receives A=1 and B=1. What are its Sum and Carry outputs?",
+  "options": [
+   "Sum=0, Carry=1",
+   "Sum=1, Carry=0",
+   "Sum=1, Carry=1",
+   "Sum=0, Carry=0"
+  ],
+  "correct_option": 0,
+  "explanation": "The binary total 1+1 is 10: the least-significant result bit is Sum=0 and the next-column bit is Carry=1. Equivalently XOR gives 0 and AND gives 1; do not swap the outputs.",
+  "sort_order": 25,
+  "created_at": "2026-10-12 20:03:59.658342+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
   "id": "fae5aca6-a244-4d28-b6e5-411684855622",
