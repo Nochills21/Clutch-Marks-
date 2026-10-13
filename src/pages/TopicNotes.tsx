@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { TopicBreadcrumb } from "@/components/TopicBreadcrumb";
-import { subjectIcon, subjectAccent, LEVELS, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { subjectAccent, LEVELS, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { ManuscriptHead } from "@/components/StudyManuscript";
 import { topicHead } from "@/lib/topicSeo";
 import {
   topicNotesPath,
@@ -216,7 +217,6 @@ export default function TopicNotes() {
     );
   }
 
-  const Icon = subjectIcon(subjectMeta.icon);
   const accent = subjectAccent(subjectMeta.color);
   const levelCode = subjectLevel.level as SubjectLevelCode;
   const levelLabel = LEVEL_LABELS[levelCode];
@@ -252,26 +252,16 @@ export default function TopicNotes() {
         topicSlug={topicSlug}
       />
 
-      <div className={`cm-panel p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
-        <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>
-          <Icon className="h-7 w-7" />
-        </div>
-        <div className="flex-1 min-w-[200px]">
-          <h1 className="text-2xl font-bold tracking-tight">{topicTitle}</h1>
-          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-            <Badge variant="secondary">{subjectMeta.name}</Badge>
-            <Badge variant="outline">{levelLabel}</Badge>
-          </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Revision notes and topic questions for {topicTitle} in {subjectMeta.name} {levelLabel}.
-          </p>
-        </div>
-        <div className="flex gap-2">
+      <ManuscriptHead
+        eyebrow={`${subjectMeta.name} · ${levelLabel}`}
+        title={topicTitle ?? topicSlug}
+        lede={`Revision notes and topic questions for ${topicTitle} in ${subjectMeta.name} ${levelLabel}.`}
+        actions={
           <Button asChild variant="outline" size="sm" className="gap-2">
             <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
           </Button>
-        </div>
-      </div>
+        }
+      />
 
       {mastery && (
         <Card className={mastery.examReady ? "border-emerald-500/40" : ""}>

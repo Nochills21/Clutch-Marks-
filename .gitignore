@@ -65,6 +65,10 @@ dist-ssr
 # is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
 # author to run it before a topic's objectives are published.
 !.freebuff/gate-objectives.cjs
+# The edge-function deploy path: ships every .ts file in the function dir so
+# relative imports (ai-correction's ./marks.ts) bundle. Without this a fresh
+# clone deploys an ai-correction that cannot resolve its own imports.
+!.freebuff/redeploy-manage-accounts.cjs
 !.freebuff/content-backup/
 !.freebuff/pdftool/
 # Generated PDF artifacts (booklets, per-topic notes/questions) live in Supabase
