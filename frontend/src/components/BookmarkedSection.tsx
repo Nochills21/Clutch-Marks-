@@ -39,7 +39,7 @@ export function BookmarkedSection() {
   return (
     <SidebarGroup>
       <Collapsible open={open} onOpenChange={(v) => { setOpen(v); if (!v) setLoaded(false); }}>
-        <CollapsibleTrigger className="w-full">
+        <CollapsibleTrigger className="flex w-full items-center text-left">
           <SidebarGroupLabel className="flex w-full items-center gap-2 text-sidebar-foreground/30 text-[10px] uppercase tracking-[0.15em] font-semibold px-3 mb-1 cursor-pointer hover:text-sidebar-foreground/60 transition-colors">
             <ChevronRight className={cn("h-3 w-3 transition-transform", open && "rotate-90")} />
             Bookmarked

@@ -16,4 +16,7 @@ These source edits do not themselves alter any live content. No seed operation h
 ## Verification
 
 - Correct-option distribution and structure checks run on the authored A2 banks after these edits.
-- Application typecheck, tests, build, and local interface smoke checks are to be rerun against the final state before handoff.
+- Final application typecheck passed.
+- Vitest passed: 21 files, 266 tests.
+- Production-mode Vite build and CSS class verification passed.
+- Local browser review confirmed the grouped sidebar no longer shows Announcements, the subject Exams & Quizzes tab lists quizzes without a separate paper panel, and topic notes still show topic-question links. Browser requests touched ordinary read-only content endpoints only; no content apply/write path was used.

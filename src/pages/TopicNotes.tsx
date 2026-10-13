@@ -460,38 +460,39 @@ export default function TopicNotes() {
       </Card>
 
       <Card className="min-w-0">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2"><Play className="h-5 w-5 text-primary" /> Topic Questions</CardTitle>
-            <CardDescription>Exam-style questions for {topicTitle}</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {quizzes.length === 0 ? (
-              <p className="text-sm text-muted-foreground py-4 text-center">No topic questions have been created for this topic yet.</p>
-            ) : (
-              quizzes.map((q) => (
-                <Link
-                  key={q.id}
-                  to={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
-                  className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
-                >
-                  <div className="min-w-0 flex-1">
-                    <p className="font-medium truncate">{q.title}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5 capitalize">
-                      {(q.exam_type === "ai_bank" ? "AI Bank" : "Quiz")} · {topicTitle}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0 ml-4">
-                    <Badge variant="outline" className="text-[10px]">{q.questions?.length ?? "Questions"}</Badge>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                  </div>
-                </Link>
-              ))
-            )}
-            <Button asChild variant="outline" className="gap-2 mt-3 w-full justify-center">
-              <Link to={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}>
-                Browse all topic questions <ArrowRight className="h-4 w-4" />
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2"><Play className="h-5 w-5 text-primary" /> Topic Questions</CardTitle>
+          <CardDescription>Exam-style questions for {topicTitle}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {quizzes.length === 0 ? (
+            <p className="text-sm text-muted-foreground py-4 text-center">No topic questions have been created for this topic yet.</p>
+          ) : (
+            quizzes.map((q) => (
+              <Link
+                key={q.id}
+                to={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
+                className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
+              >
+                <div className="min-w-0 flex-1">
+                  <p className="font-medium truncate">{q.title}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5 capitalize">
+                    {(q.exam_type === "ai_bank" ? "AI Bank" : "Quiz")} · {topicTitle}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0 ml-4">
+                  <Badge variant="outline" className="text-[10px]">{q.questions?.length ?? "Questions"}</Badge>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                </div>
               </Link>
-            </Button>          </CardContent>
+            ))
+          )}
+          <Button asChild variant="outline" className="gap-2 mt-3 w-full justify-center">
+            <Link to={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}>
+              Browse all topic questions <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </CardContent>
       </Card>
     </div>
   );
