@@ -510,7 +510,7 @@ function ObjectiveReview({
             </button>
             {teachOpen && (
               <div
-                className="border-t px-3 py-2 text-sm leading-relaxed [&_h3]:mt-3 [&_h3]:font-semibold [&_h3]:first:mt-0 [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5 [&_p]:mt-1"
+                className="cm-notes cm-m-inline border-t px-3 py-2 text-sm leading-relaxed [&_h3]:mt-3 [&_h3]:font-semibold [&_h3]:first:mt-0 [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5 [&_p]:mt-1"
                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(teachToHtml(teach)) }}
               />
             )}
@@ -535,7 +535,7 @@ function ObjectiveReview({
               <span>{tally.correct} right so far</span>
             </div>
 
-            <p className="text-sm font-medium">{question.question_text}</p>
+            <p className="cm-m-qtext !mt-0 text-[1.05rem]">{question.question_text}</p>
 
             <div className="grid gap-2 sm:grid-cols-2">
               {question.options.map((option, i) => {

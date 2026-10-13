@@ -12,6 +12,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { TopicBreadcrumb } from "@/components/TopicBreadcrumb";
 import { useToast } from "@/hooks/useToast";
 import { BookmarkButton } from "@/components/BookmarkButton";
+import { ManuscriptHead, ManuscriptQuestion } from "@/components/StudyManuscript";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVELS, LEVEL_LABELS, subjectIcon, subjectAccent, type SubjectLevelCode } from "@/lib/subjects";
 import {
@@ -22,9 +23,6 @@ import {
 } from "@/lib/topicUrls";
 import { topicDisplayName, topicHead } from "@/lib/topicSeo";
 import {
-  Brain,
-  CheckCircle2,
-  XCircle,
   ArrowRight,
   ArrowLeft,
   Bookmark,
@@ -385,27 +383,16 @@ export default function TopicQuiz() {
         topicSlug={topicSlug}
       />
 
-      <div className={`glass-card p-6 flex flex-wrap items-center gap-4 ${accent.border}`}>
-        <div className={`flex h-14 w-14 items-center justify-center rounded-2xl border ${accent.border} ${accent.bg} ${accent.text}`}>
-          <Icon className="h-7 w-7" />
-        </div>
-        <div className="flex-1 min-w-[200px]">
-          <h1 className="text-2xl font-bold tracking-tight">{topicLabel}</h1>
-          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-            <Badge variant="secondary">{subjectMeta.name}</Badge>
-            <Badge variant="outline">{LEVEL_LABELS[levelCode]}</Badge>
-          </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {topicQuestions} exam-style question{topicQuestions === 1 ? "" : "s"} for {topicLabel}.
-            Answer all the questions, submit, and review the marking and explanations.
-          </p>
-        </div>
-        <div className="flex gap-2">
+      <ManuscriptHead
+        eyebrow={`${subjectMeta.name} · ${LEVEL_LABELS[levelCode]}`}
+        title={topicLabel}
+        lede={`${topicQuestions} exam-style question${topicQuestions === 1 ? "" : "s"} for ${topicLabel}. Answer all the questions, submit, and review the marking and explanations.`}
+        actions={
           <Button asChild variant="outline" size="sm" className="gap-2">
             <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
           </Button>
-        </div>
-      </div>
+        }
+      />
 
       <div className="grid gap-3 sm:grid-cols-2">
         {[
@@ -504,63 +491,29 @@ export default function TopicQuiz() {
         </Card>
       )}
 
-      <div className="space-y-2">
-        {visibleRows.map(({ ordinal, question, result, picked }) => {
-          const selectedOption = picked ?? -1;
-          const isCorrect = result && selectedOption === result.correct_option;
-          const isWrong = result && selectedOption !== -1 && selectedOption !== result.correct_option;
-
-          return (
-            <Card key={question.id}>
-              <CardHeader className="pb-2">
-                <div className="flex items-center justify-between">
-                  <div className="min-w-0">
-                    {/* The ordinal is the position on the full paper, so filtering
-                        the list does not renumber the questions. */}
-                    <p className="font-medium truncate">Question {ordinal + 1}</p>
-                    <p className="text-sm text-muted-foreground truncate">{question.quiz_title ?? topicLabel}</p>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    <Badge variant="outline" className="capitalize">{question.difficulty}</Badge>
-                    <BookmarkButton
-                      questionId={question.id}
-                      bookmarked={question.bookmarked}
-                      onChange={(next) => toggleBookmark(question.id, next)}
-                    />
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="p-4">
-                <p className="text-base font-medium mb-4">{question.question_text}</p>
-                <div className="space-y-2">
-                  {(question.options as string[]).map((option, i) => {
-                    const selectedThisQuestion = selectedOption === i;
-                    const showCorrectness = submitted && result;
-                    const optionCorrect = showCorrectness && i === result.correct_option;
-                    const optionWrong = showCorrectness && selectedThisQuestion && !optionCorrect;
-                    return (
-                      <button
-                        key={i}
-                        disabled={submitted}
-                        onClick={() => selectAnswer(question.id, i)}
-                        className={`w-full text-left rounded-lg border p-3 text-sm transition-colors ${selectedThisQuestion ? "border-primary bg-primary/5" : ""} ${optionCorrect ? "border-primary bg-primary/10" : ""} ${optionWrong ? "border-destructive bg-destructive/10" : ""} ${!submitted ? "hover:border-primary/30 hover:bg-secondary/30" : ""}`}
-                      >
-                        <span className="flex items-center gap-2">
-                          {showCorrectness && optionCorrect && <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />}
-                          {showCorrectness && optionWrong && <XCircle className="h-4 w-4 text-destructive shrink-0" />}
-                          {option}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-                {result && result.explanation && (
-                  <p className="mt-4 text-sm text-muted-foreground bg-secondary/50 p-3 rounded-lg">{result.explanation}</p>
-                )}
-              </CardContent>
-            </Card>
-          );
-        })}
+      <div className="space-y-4">
+        {visibleRows.map(({ ordinal, question, result, picked }) => (
+          <ManuscriptQuestion
+            key={question.id}
+            /* The ordinal is the position on the full paper, so filtering
+               the list does not renumber the questions. */
+            eyebrow={`Question ${ordinal + 1} · ${question.difficulty ?? topicLabel}`}
+            question={question.question_text}
+            options={question.options as string[]}
+            selected={picked ?? null}
+            correctOption={result ? result.correct_option : null}
+            disabled={submitted}
+            onSelect={(i) => selectAnswer(question.id, i)}
+            explanation={result?.explanation ?? null}
+            actions={
+              <BookmarkButton
+                questionId={question.id}
+                bookmarked={question.bookmarked}
+                onChange={(next) => toggleBookmark(question.id, next)}
+              />
+            }
+          />
+        ))}
       </div>
     </div>
   );

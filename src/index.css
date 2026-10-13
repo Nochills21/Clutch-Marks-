@@ -109,6 +109,17 @@
     --chart-4: 32 88% 44%;
     --chart-5: 0 68% 45%;
     --sidebar: 40 30% 98%;
+
+    /* Manuscript tokens live on :root (not scoped to .cm-manuscript) so every
+       cm-m-* class renders anywhere — inside full manuscript pages, inline
+       note panels in list rows, and Mastery checks alike. */
+    --m-wash: 48 40% 97.5%;
+    --m-card: 0 0% 100%;
+    --m-ink: 240 10% 9%;
+    --m-subtle: 240 6% 38%;
+    --m-eyebrow: 38 55% 32%;
+    --m-rule: 42 16% 87%;
+    --m-chip: 42 90% 94%;
   }
 
   .dark {
@@ -194,6 +205,14 @@
     --chart-4: 38 92% 58%;
     --chart-5: 0 72% 58%;
     --sidebar: 240 9% 3.5%;
+
+    --m-wash: 240 8% 5.5%;
+    --m-card: 240 7% 7.5%;
+    --m-ink: 40 18% 95%;
+    --m-subtle: 40 8% 64%;
+    --m-eyebrow: 42 65% 68%;
+    --m-rule: 40 10% 17%;
+    --m-chip: 42 50% 13%;
   }
 }
 
@@ -736,6 +755,271 @@
   .cm-notes td {
     padding: 0.5rem 0.75rem;
     border-top: 1px solid hsl(var(--border));
+  }
+
+  /* ---------- manuscript: the luxury study surface ----------
+     The editorial look from the design reference: a warm ivory canvas in
+     light mode, serif display title under a tracked-out gold eyebrow, a
+     hairline gold rule, and white section cards with gold section eyebrows.
+     In dark mode the same structure is re-pointed at the ink palette, so the
+     pages stay indistinguishable from the rest of the app.
+     Theme sync is pure CSS: next-themes toggles `.dark` on <html>, and every
+     manuscript token below has a `.dark` override — no JS theme reads, so the
+     design cannot drift out of sync with the toggle beside the bell. */
+  .cm-manuscript {
+    border-radius: 1.25rem;
+    background: hsl(var(--m-wash));
+    border: 1px solid hsl(var(--m-rule));
+    padding: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+  }
+
+  .cm-m-eyebrow {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: hsl(var(--m-eyebrow));
+  }
+
+  .cm-m-title {
+    margin: 0.6rem 0 0;
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    font-size: clamp(1.75rem, 1.25rem + 2.5vw, 2.75rem);
+    color: hsl(var(--m-ink));
+    text-wrap: balance;
+  }
+
+  .cm-m-rule {
+    height: 1px;
+    border: 0;
+    margin: 1.25rem 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent);
+  }
+
+  .cm-m-lede {
+    margin: 0;
+    max-width: 68ch;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: hsl(var(--m-subtle));
+  }
+
+  .cm-m-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  /* Section card: white paper on ivory in light mode, raised ink in dark. */
+  .cm-m-section {
+    background: hsl(var(--m-card));
+    border: 1px solid hsl(var(--m-rule));
+    border-radius: 1rem;
+    box-shadow: var(--shadow-card);
+    padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  }
+
+  .cm-m-section-title {
+    margin: 0.5rem 0 0;
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    font-size: clamp(1.3rem, 1.1rem + 1vw, 1.65rem);
+    color: hsl(var(--m-ink));
+    text-wrap: balance;
+  }
+
+  .cm-m-body {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: hsl(var(--m-ink));
+  }
+
+  /* Inline note text inside list rows (TopicNotes material rows): an inset
+     manuscript panel rather than a full section card. */
+  .cm-m-inline {
+    border-top: 1px solid hsl(var(--m-rule));
+    background: hsl(var(--m-wash));
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  /* ---------- manuscript questions ---------- */
+  .cm-m-qtext {
+    margin: 0.5rem 0 0;
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: hsl(var(--m-ink));
+    text-wrap: pretty;
+  }
+
+  .cm-m-options {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+  }
+
+  .cm-m-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: left;
+    border: 1px solid hsl(var(--m-rule));
+    border-radius: 0.75rem;
+    background: hsl(var(--m-card));
+    padding: 0.8rem 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: hsl(var(--m-ink));
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  button.cm-m-option:not(:disabled):hover {
+    border-color: hsl(var(--gold) / 0.55);
+    background: hsl(var(--gold) / 0.05);
+  }
+
+  button.cm-m-option:not(:disabled):active {
+    transform: scale(0.995);
+  }
+
+  .cm-m-option:disabled {
+    cursor: default;
+  }
+
+  .cm-m-option[data-state="selected"] {
+    border-color: hsl(var(--gold));
+    background: hsl(var(--gold) / 0.08);
+    box-shadow: 0 0 0 1px hsl(var(--gold) / 0.7);
+  }
+
+  .cm-m-option[data-state="correct"] {
+    border-color: hsl(var(--success) / 0.65);
+    background: hsl(var(--success) / 0.09);
+    box-shadow: 0 0 0 1px hsl(var(--success) / 0.45);
+  }
+
+  .cm-m-option[data-state="wrong"] {
+    border-color: hsl(var(--destructive) / 0.6);
+    background: hsl(var(--destructive) / 0.07);
+    box-shadow: 0 0 0 1px hsl(var(--destructive) / 0.4);
+  }
+
+  .cm-m-letter {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.5rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: hsl(var(--m-chip));
+    color: hsl(var(--m-eyebrow));
+  }
+
+  .cm-m-option[data-state="correct"] .cm-m-letter {
+    background: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+  }
+
+  .cm-m-option[data-state="wrong"] .cm-m-letter {
+    background: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+
+  .cm-m-explain {
+    margin-top: 1rem;
+    border-left: 3px solid hsl(var(--gold));
+    border-radius: 0.625rem;
+    background: hsl(var(--gold) / 0.07);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: hsl(var(--m-ink));
+  }
+
+  .cm-m-explain-title {
+    margin: 0 0 0.25rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--m-eyebrow));
+  }
+
+  /* ---------- manuscript flashcard ---------- */
+  .cm-m-flash {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    border-radius: 1.25rem;
+    border: 1px solid hsl(var(--m-rule));
+    background: hsl(var(--m-card));
+    box-shadow: var(--shadow-card);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  button.cm-m-flash:hover {
+    border-color: hsl(var(--gold) / 0.5);
+  }
+
+  .cm-m-flash[data-flipped="true"] {
+    border-color: hsl(var(--gold) / 0.65);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .cm-m-flash::before {
+    content: "";
+    position: absolute;
+    inset: 0.6rem;
+    border: 1px solid hsl(var(--gold) / 0.28);
+    border-radius: 0.85rem;
+    pointer-events: none;
+  }
+
+  .cm-m-flash-text {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    line-height: 1.55;
+    color: hsl(var(--m-ink));
+    text-wrap: pretty;
+  }
+
+  .cm-m-progress {
+    height: 0.375rem;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: hsl(var(--m-rule));
+  }
+
+  .cm-m-progress > div {
+    height: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, hsl(var(--gold-deep)), hsl(var(--gold-bright)));
+    transition: width 0.3s ease;
   }
 
   /* Dark companion: the study scope re-points at the app shell's own dark

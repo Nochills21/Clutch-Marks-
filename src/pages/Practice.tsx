@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ManuscriptQuestion } from "@/components/StudyManuscript";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -475,50 +476,30 @@ export default function Practice() {
           <Button variant="ghost" onClick={drillReset}>← Exit</Button>
           <Badge variant="outline">{drillIdx + 1} / {drill.length}</Badge>
         </div>
-        <Card className="neon-border">
-          <CardHeader className="pb-2">
-            <Badge variant="secondary" className="w-fit text-[10px]">{q.topic_name}</Badge>
-            <CardTitle className="text-base mt-2 leading-relaxed">{q.question_text}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {q.options.map((opt, i) => {
-              const isCorrect = drillSelected !== null && i === q.correct_option;
-              const isWrong = drillSelected === i && i !== q.correct_option;
-              return (
-                <button
-                  key={i}
-                  disabled={drillSelected !== null}
-                  onClick={() => handleDrillAnswer(i)}
-                  className={cn(
-                    "w-full text-left rounded-lg border p-3 text-sm transition-colors",
-                    isCorrect && "border-primary bg-primary/10",
-                    isWrong && "border-destructive bg-destructive/10",
-                    drillSelected === null && "hover:border-primary/40 hover:bg-secondary/50"
-                  )}
-                >
-                  <span className="flex items-center gap-2">
-                    {isCorrect && <CheckCircle2 className="h-4 w-4 text-primary" />}
-                    {isWrong && <XCircle className="h-4 w-4 text-destructive" />}
-                    {opt}
-                  </span>
-                </button>
-              );
-            })}
-            {drillCorrected && drillSelected !== null && (
-              <p className="text-xs text-primary/90 flex items-center gap-1.5 mt-2">
-                <Sparkles className="h-3.5 w-3.5" /> That one had you before — it doesn't now.
-              </p>
-            )}
-            {drillSelected !== null && q.explanation && (
-              <p className="text-xs text-muted-foreground bg-secondary/50 p-3 rounded-lg mt-2">{q.explanation}</p>
-            )}
-            {drillSelected !== null && (
-              <Button className="w-full mt-2" onClick={drillNext}>
-                {drillIdx + 1 < drill.length ? "Next question →" : "Finish session"}
-              </Button>
-            )}
-          </CardContent>
-        </Card>
+        <ManuscriptQuestion
+          eyebrow={`Drill · ${drillIdx + 1} of ${drill.length} · ${q.topic_name}`}
+          question={q.question_text}
+          options={q.options}
+          selected={drillSelected}
+          correctOption={drillSelected !== null ? q.correct_option : null}
+          disabled={drillSelected !== null}
+          onSelect={handleDrillAnswer}
+          explanation={drillSelected !== null ? q.explanation : null}
+          footer={
+            <>
+              {drillCorrected && drillSelected !== null && (
+                <p className="text-xs text-primary/90 flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5" /> That one had you before — it doesn't now.
+                </p>
+              )}
+              {drillSelected !== null && (
+                <Button className="w-full mt-2" onClick={drillNext}>
+                  {drillIdx + 1 < drill.length ? "Next question →" : "Finish session"}
+                </Button>
+              )}
+            </>
+          }
+        />
       </div>
     );
   }
@@ -547,45 +528,28 @@ export default function Practice() {
           <Button variant="ghost" onClick={() => setBankActive(null)}>← Back to questions</Button>
           <Badge variant="outline">{bankActive.quiz_title}</Badge>
         </div>
-        <Card className="neon-border">
-          <CardHeader><CardTitle className="text-base leading-relaxed">{bankActive.question_text}</CardTitle></CardHeader>
-          <CardContent className="space-y-2">
-            {bankActive.options.map((opt, i) => {
-              const isCorrect = bankReveal && i === bankReveal.correct_option;
-              const isWrong = bankReveal && bankSelected === i && !bankReveal.correct;
-              return (
-                <button
-                  key={i}
-                  disabled={bankSelected !== null}
-                  onClick={() => submitBankQuestion(i)}
-                  className={cn(
-                    "w-full text-left rounded-lg border p-3 text-sm transition-colors",
-                    isCorrect && "border-primary bg-primary/10",
-                    isWrong && "border-destructive bg-destructive/10",
-                    bankSelected === null && "hover:border-primary/40 hover:bg-secondary/50"
-                  )}
-                >
-                  <span className="flex items-center gap-2">
-                    {isCorrect && <CheckCircle2 className="h-4 w-4 text-primary" />}
-                    {isWrong && <XCircle className="h-4 w-4 text-destructive" />}
-                    {opt}
-                  </span>
-                </button>
-              );
-            })}
-            {bankReveal?.corrected && (
-              <p className="text-xs text-primary/90 flex items-center gap-1.5 mt-2">
-                <Sparkles className="h-3.5 w-3.5" /> That one had you before — it doesn't now.
-              </p>
-            )}
-            {bankReveal?.explanation && (
-              <p className="text-xs text-muted-foreground bg-secondary/50 p-3 rounded-lg mt-2">{bankReveal.explanation}</p>
-            )}
-            {bankReveal && (
-              <Button className="w-full mt-2" onClick={() => setBankActive(null)}><RotateCcw className="h-4 w-4 mr-2" /> Pick another</Button>
-            )}
-          </CardContent>
-        </Card>
+        <ManuscriptQuestion
+          eyebrow={`Question bank · ${bankActive.quiz_title}`}
+          question={bankActive.question_text}
+          options={bankActive.options}
+          selected={bankSelected}
+          correctOption={bankReveal ? bankReveal.correct_option : null}
+          disabled={bankSelected !== null}
+          onSelect={submitBankQuestion}
+          explanation={bankReveal?.explanation ?? null}
+          footer={
+            <>
+              {bankReveal?.corrected && (
+                <p className="text-xs text-primary/90 flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5" /> That one had you before — it doesn't now.
+                </p>
+              )}
+              {bankReveal && (
+                <Button className="w-full mt-2" onClick={() => setBankActive(null)}><RotateCcw className="h-4 w-4 mr-2" /> Pick another</Button>
+              )}
+            </>
+          }
+        />
       </div>
     );
   }
@@ -728,35 +692,21 @@ export default function Practice() {
           )}
 
           {active && (
-            <Card className="border-primary/40">
-              <CardHeader className="flex-row items-start justify-between gap-3 space-y-0">
-                <div className="min-w-0">
-                  <CardTitle className="text-base">{active.question_text}</CardTitle>
-                  <CardDescription>{active.topic_name ?? "General"} · {active.quiz_title}</CardDescription>
-                </div>
+            <ManuscriptQuestion
+              eyebrow={`Review · ${active.topic_name ?? "General"} · ${active.quiz_title}`}
+              question={active.question_text}
+              options={active.options}
+              selected={selected}
+              correctOption={reveal ? reveal.correct_option : null}
+              disabled={Boolean(reveal)}
+              onSelect={(i) => !reveal && setSelected(i)}
+              explanation={reveal?.explanation ?? null}
+              actions={
                 <BookmarkButton questionId={active.id} bookmarked={active.bookmarked}
                   onChange={(next) => setQuestions((p) => p.map((q) => q.id === active.id ? { ...q, bookmarked: next } : q))} />
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {active.options.map((opt, i) => {
-                  const isCorrect = reveal && i === reveal.correct_option;
-                  const isWrong = reveal && i === selected && !reveal.correct;
-                  return (
-                    <button
-                      key={i}
-                      onClick={() => !reveal && setSelected(i)}
-                      className={cn(
-                        "w-full rounded-xl border p-3 text-left text-sm transition-colors",
-                        selected === i && !reveal && "border-primary bg-primary/5",
-                        isCorrect && "border-emerald-500 bg-emerald-500/10",
-                        isWrong && "border-destructive bg-destructive/10",
-                      )}
-                    >
-                      {opt}
-                    </button>
-                  );
-                })}
-                {reveal ? (
+              }
+              footer={
+                reveal ? (
                   <div className="space-y-3">
                     <p className={cn("text-sm font-semibold flex items-center gap-2", reveal.correct ? "text-emerald-600" : "text-destructive")}>
                       {reveal.correct ? <CheckCircle2 className="h-4 w-4" /> : <XCircle className="h-4 w-4" />}
@@ -767,7 +717,6 @@ export default function Practice() {
                         <Sparkles className="h-4 w-4" /> That one had you before — it doesn't now.
                       </p>
                     )}
-                    {reveal.explanation && <p className="text-sm text-muted-foreground">{reveal.explanation}</p>}
                     <div className="flex gap-2">
                       <Button size="sm" variant="outline" onClick={() => setActive(null)}>Close</Button>
                       <Button size="sm" onClick={() => startReview(active)}>Try again</Button>
@@ -778,9 +727,9 @@ export default function Practice() {
                     <Button size="sm" onClick={submitReview} disabled={selected === null}>Check answer</Button>
                     <Button size="sm" variant="ghost" onClick={() => setActive(null)}>Cancel</Button>
                   </div>
-                )}
-              </CardContent>
-            </Card>
+                )
+              }
+            />
           )}
 
           {loading ? (

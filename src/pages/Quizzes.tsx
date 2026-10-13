@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { ManuscriptQuestion } from "@/components/StudyManuscript";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -526,45 +527,18 @@ export default function Quizzes() {
         {visibleRows.map((row) => {
           const { question: q, result, ordinal } = row;
           const options = Array.isArray(q.options) ? q.options : [];
-          const selected = row.picked;
           return (
-            <Card key={q.id} className="neon-border bg-card">
-              <CardContent className="p-5">
-                <p className="font-medium mb-3">
-                  <span className="text-primary mr-2">Q{ordinal + 1}.</span>
-                  {q.question_text}
-                </p>
-                <div className="space-y-2">
-                  {options.map((opt: string, i: number) => {
-                    const isSelected = selected === i;
-                    const isCorrect = submitted && result && i === result.correct_option;
-                    const isWrong = submitted && isSelected && !!result && i !== result.correct_option;
-                    return (
-                      <button
-                        key={i}
-                        disabled={submitted || timedOut}
-                        onClick={() => setAnswers((a) => ({ ...a, [q.id]: i }))}
-                        className={`w-full text-left rounded-lg border p-3 text-sm transition-colors ${
-                          isCorrect ? "border-primary bg-primary/10" :
-                          isWrong ? "border-destructive bg-destructive/10" :
-                          isSelected ? "border-primary/50 bg-primary/5" :
-                          "border-border hover:border-primary/30 hover:bg-secondary/50"
-                        }`}
-                      >
-                        <span className="flex items-center gap-2">
-                          {submitted && isCorrect && <CheckCircle2 className="h-4 w-4 text-primary" />}
-                          {submitted && isWrong && <XCircle className="h-4 w-4 text-destructive" />}
-                          {opt}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-                {submitted && result?.explanation && (
-                  <p className="mt-3 text-sm text-muted-foreground bg-secondary/50 p-3 rounded-lg">{result.explanation}</p>
-                )}
-              </CardContent>
-            </Card>
+            <ManuscriptQuestion
+              key={q.id}
+              eyebrow={`Question ${ordinal + 1}`}
+              question={q.question_text}
+              options={options}
+              selected={row.picked ?? null}
+              correctOption={submitted && result ? result.correct_option : null}
+              disabled={submitted || timedOut}
+              onSelect={(i) => setAnswers((a) => ({ ...a, [q.id]: i }))}
+              explanation={submitted ? result?.explanation ?? null : null}
+            />
           );
         })}
 
