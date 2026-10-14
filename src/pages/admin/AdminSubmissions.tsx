@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/useToast";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
+import type { Json } from "@/integrations/supabase/types";
 import { QueryError } from "@/components/QueryError";
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
@@ -47,7 +48,7 @@ interface QuizSubmission {
   completed_at: string | null;
   submission_file_url: string | null;
   correction_file_url: string | null;
-  answers: any;
+  answers: Json;
   quiz_title: string;
   student_name: string;
   student_username: string | null;

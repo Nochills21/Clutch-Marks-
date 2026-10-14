@@ -11,6 +11,23 @@ const json = (body: unknown, status = 200) =>
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
 
+type GeneratedQuestion = {
+  question_text: string;
+  options: unknown[];
+  correct_option: number;
+  explanation?: unknown;
+};
+
+// Model output is untrusted: keep only well-formed 4-option questions.
+const isGeneratedQuestion = (q: unknown): q is GeneratedQuestion => {
+  if (!q || typeof q !== "object") return false;
+  const c = q as Record<string, unknown>;
+  return typeof c.question_text === "string" &&
+    Array.isArray(c.options) && c.options.length === 4 &&
+    Number.isInteger(c.correct_option) &&
+    (c.correct_option as number) >= 0 && (c.correct_option as number) <= 3;
+};
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
@@ -70,7 +87,7 @@ Deno.serve(async (req) => {
         .maybeSingle();
       if (sl) {
         level = sl.level;
-        subjectName = (sl as any).subjects?.name ?? subjectName;
+        subjectName = (sl.subjects as { name?: string | null } | null)?.name ?? subjectName;
       }
     }
     const levelLabel = level === "OL" ? "IGCSE" : level === "AS" ? "AS Level" : "A2 Level";
@@ -148,18 +165,16 @@ Rules:
 
     const data = await response.json();
     const args = data?.choices?.[0]?.message?.tool_calls?.[0]?.function?.arguments;
-    let parsed: any;
+    let parsed: { questions?: unknown } | null;
     try {
       parsed = typeof args === "string" ? JSON.parse(args) : args;
     } catch {
       return json({ error: "AI returned an unreadable response" }, 502);
     }
 
-    const generated = (parsed?.questions ?? []).filter((q: any) =>
-      q && typeof q.question_text === "string" &&
-      Array.isArray(q.options) && q.options.length === 4 &&
-      Number.isInteger(q.correct_option) && q.correct_option >= 0 && q.correct_option <= 3
-    ).slice(0, count);
+    const rawQuestions = parsed?.questions;
+    const candidates: unknown[] = Array.isArray(rawQuestions) ? rawQuestions : [];
+    const generated = candidates.filter(isGeneratedQuestion).slice(0, count);
 
     if (generated.length === 0) return json({ error: "The AI did not return any usable questions" }, 502);
 
@@ -179,7 +194,7 @@ Rules:
       .single();
     if (quizError) throw quizError;
 
-    const rows = generated.map((q: any, i: number) => ({
+    const rows = generated.map((q, i: number) => ({
       quiz_id: quiz.id,
       question_text: String(q.question_text).slice(0, 2000),
       options: q.options.map((o: unknown) => String(o).slice(0, 500)),

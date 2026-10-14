@@ -24,6 +24,7 @@ import {
   KeyRound, FileText, Upload, Download, Search, Shield, X, AtSign, CreditCard,
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
+import { addMonths } from "date-fns";
 import { validateUploadFile, getSafeUploadExtension } from "@/lib/fileValidation";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
@@ -159,7 +160,7 @@ export default function AdminUsers() {
     // look like free ones.
     if (subsError) report(subsError);
     const subMap: Record<string, { id: string; plan_id: string; status: string }> = {};
-    ((subs ?? []) as any[]).forEach((s) => { subMap[s.user_id] = s; });
+    (subs ?? []).forEach((s) => { subMap[s.user_id] = s; });
     setPaidSubs(subMap);
 
     setLoading(false);
@@ -238,7 +239,7 @@ export default function AdminUsers() {
     setActionLoading(row.user_id);
     const { error } = await supabase
       .from("user_roles")
-      .update({ role: "student" as any })
+      .update({ role: "student" })
       .eq("id", row.role_id);
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
@@ -249,8 +250,8 @@ export default function AdminUsers() {
     setActionLoading(null);
   };
 
-  // Toggle paid access for a student: grant a 30-day active subscription or
-  // cancel the existing one. Admins pass subscriptions RLS via dedicated
+  // Toggle paid access for a student: grant a 1-month (calendar) active
+  // subscription or cancel the existing one. Admins pass subscriptions RLS via dedicated
   // policies.
   const handleTogglePaid = async (row: UserRow) => {
     setActionLoading(row.user_id);
@@ -269,10 +270,10 @@ export default function AdminUsers() {
           plan_id: "monthly",
           status: "active",
           starts_at: new Date().toISOString(),
-          ends_at: new Date(Date.now() + 30 * 864e5).toISOString(),
+          ends_at: addMonths(new Date(), 1).toISOString(),
         });
         if (error) throw error;
-        toast({ title: "Paid access granted", description: `${row.full_name} now has full access for 30 days.` });
+        toast({ title: "Paid access granted", description: `${row.full_name} now has full access for 1 month.` });
       }
       load();
     } catch (e) {
@@ -288,7 +289,7 @@ export default function AdminUsers() {
     setActionLoading(row.user_id);
     const { error } = await supabase
       .from("user_roles")
-      .update({ role: "admin" as any })
+      .update({ role: "admin" })
       .eq("id", row.role_id);
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });

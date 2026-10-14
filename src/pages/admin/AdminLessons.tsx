@@ -13,6 +13,10 @@ import { Badge } from "@/components/ui/badge";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
 import { contentGuardMessage, contentSaveError } from "@/lib/contentGuards";
+import type { Tables } from "@/integrations/supabase/types";
+
+/** A lesson row with its topic embed (`select("*, topics(name)")`). */
+type LessonRow = Tables<"lessons"> & { topics: { name: string } | null };
 
 /** PostgREST's "no rows for .single()" code — an expected result here, not a failure. */
 const NO_ROWS = "PGRST116";
@@ -35,9 +39,9 @@ async function resolveTopicId(name: string): Promise<string | null> {
 
 export default function AdminLessons() {
   const { toast } = useToast();
-  const [lessons, setLessons] = useState<any[]>([]);
+  const [lessons, setLessons] = useState<LessonRow[]>([]);
   const [open, setOpen] = useState(false);
-  const [editing, setEditing] = useState<any>(null);
+  const [editing, setEditing] = useState<LessonRow | null>(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [topicName, setTopicName] = useState("");
@@ -96,7 +100,7 @@ export default function AdminLessons() {
     toast({ title: "Deleted" }); load();
   };
 
-  const openEdit = (l) => {
+  const openEdit = (l: LessonRow) => {
     setEditing(l); setTitle(l.title); setContent(l.content ?? ""); setTopicName(l.topics?.name ?? ""); setVideoUrl(l.video_url ?? ""); setZoomUrl(l.zoom_url ?? ""); setSortOrder(l.sort_order); setOpen(true);
   };
 

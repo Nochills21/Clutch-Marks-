@@ -10,12 +10,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
 import { Database, Sparkles, Search } from "lucide-react";
+import type { Json } from "@/integrations/supabase/types";
+
+type Topic = { id: string; name: string; sort_order: number };
+type Question = { id: string; question_text: string; quiz_id: string; correct_option: number; options: Json };
+type Quiz = { id: string; title: string; topic_id: string };
 
 export default function AdminQuestionBank() {
   const { toast } = useToast();
-  const [topics, setTopics] = useState<any[]>([]);
-  const [questions, setQuestions] = useState<any[]>([]);
-  const [quizzes, setQuizzes] = useState<any[]>([]);
+  const [topics, setTopics] = useState<Topic[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [quizzes, setQuizzes] = useState<Quiz[]>([]);
   const [filterTopic, setFilterTopic] = useState<string>("all");
   const [search, setSearch] = useState("");
 

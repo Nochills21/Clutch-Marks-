@@ -17,13 +17,17 @@ import { Badge } from "@/components/ui/badge";
 import { getSafeUploadExtension } from "@/lib/fileValidation";
 import { contentGuardMessage, contentSaveError } from "@/lib/contentGuards";
 import { resolveQuizOptions } from "@/lib/quizAnswers";
+import type { Tables } from "@/integrations/supabase/types";
+
+/** A quiz row with its topic embed (`select("*, topics(name)")`). */
+type QuizRow = Tables<"quizzes"> & { topics: { name: string } | null };
 
 export default function AdminQuizzes() {
   const { toast } = useToast();
-  const [quizzes, setQuizzes] = useState<any[]>([]);
-  const [topics, setTopics] = useState<any[]>([]);
+  const [quizzes, setQuizzes] = useState<QuizRow[]>([]);
+  const [topics, setTopics] = useState<Tables<"topics">[]>([]);
   const [open, setOpen] = useState(false);
-  const [editing, setEditing] = useState<any>(null);
+  const [editing, setEditing] = useState<QuizRow | null>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [topicId, setTopicId] = useState("");
@@ -33,7 +37,7 @@ export default function AdminQuizzes() {
   const [uploadingFile, setUploadingFile] = useState(false);
 
   const [questionsOpen, setQuestionsOpen] = useState<string | null>(null);
-  const [questions, setQuestions] = useState<any[]>([]);
+  const [questions, setQuestions] = useState<Tables<"questions">[]>([]);
   const [qText, setQText] = useState("");
   const [qOptions, setQOptions] = useState(["", "", "", ""]);
   const [qCorrect, setQCorrect] = useState(0);
@@ -97,7 +101,7 @@ export default function AdminQuizzes() {
       setUploadingFile(false);
     }
 
-    const payload: any = {
+    const payload = {
       title, description, topic_id: topicId || null,
       time_limit_minutes: timeLimit || null, is_published: isPublished,
       exam_file_url: examFileUrl,
@@ -286,7 +290,7 @@ export default function AdminQuizzes() {
               <div className="min-w-0">
                 <p className="font-medium">{q.title}</p>
                 <div className="flex gap-2 mt-1">
-                  <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+                  <Badge variant="secondary">{q.topics?.name ?? "General"}</Badge>
                   <Badge variant={q.is_published ? "default" : "outline"}>{q.is_published ? "Published" : "Draft"}</Badge>
                   {q.exam_file_url && <Badge variant="outline" className="border-primary/30 text-primary">📎 Exam File</Badge>}
                 </div>

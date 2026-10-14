@@ -17,6 +17,8 @@ import { format } from "date-fns";
 import { Heart, Link2, Unlink, RefreshCw, BookOpen, Brain, Activity } from "lucide-react";
 
 type Child = { user_id: string; full_name: string; email: string | null };
+type AttemptStat = { quiz_id: string; score: number | null; total_questions: number | null; completed_at: string | null; quiz_title: string };
+type LessonStat = { lesson_id: string; completed_at: string | null; lesson_title: string };
 
 const emailLabel = (c: Child) =>
   c.full_name?.trim() || c.email?.split("@")[0] || "Student";
@@ -29,7 +31,7 @@ export function ParentDashboard() {
   const [linking, setLinking] = useState(false);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState<Child | null>(null);
-  const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
+  const [stats, setStats] = useState<{ attempts: AttemptStat[]; lessons: LessonStat[] }>({ attempts: [], lessons: [] });
   const [statsLoading, setStatsLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
   // Two independent loads, so two independent failure reports.
@@ -191,7 +193,7 @@ export function ParentDashboard() {
     await loadLinks();
   };
 
-  const avg = (xs: any[]) =>
+  const avg = (xs: AttemptStat[]) =>
     xs.length
       ? Math.round(xs.reduce((s, a) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0) / xs.length)
       : null;

@@ -40,6 +40,14 @@ interface DrillQuestion {
   explanation?: string | null;
 }
 
+// Shape of the check_practice_answer RPC result (returned as Json by the generated types).
+interface PracticeVerdict {
+  correct_option: number;
+  explanation: string | null;
+  correct: boolean;
+  corrected_mistake?: boolean | null;
+}
+
 interface ReviewQuestion {
   id: string;
   quiz_id: string;
@@ -372,7 +380,7 @@ export default function Practice() {
       _selected: selected,
     });
     if (error) { setError(error.message); return; }
-    const res = data as any;
+    const res = data as unknown as PracticeVerdict;
     setReveal({
       correct_option: res.correct_option,
       explanation: res.explanation,
@@ -401,7 +409,7 @@ export default function Practice() {
       });
       return;
     }
-    const r = data as any;
+    const r = data as unknown as PracticeVerdict;
     setBankReveal({
       correct_option: r.correct_option,
       explanation: r.explanation,

@@ -201,8 +201,7 @@ export default function Pricing() {
       .order("created_at", { ascending: false })
       .limit(1)
       .then(({ data }) => {
-        // Cast: generated DB types predate the payment_method/full_name columns.
-        const row = (data as any[] | null)?.[0];
+        const row = data?.[0];
         if (!row) return;
         setPending(row.plan_id);
         setPendingDetails({ method: (row.payment_method as PaymentMethod) ?? null });

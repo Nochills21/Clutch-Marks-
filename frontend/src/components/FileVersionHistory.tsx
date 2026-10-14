@@ -66,11 +66,12 @@ export function FileVersionHistory({ entityType, entityId, label = "Versions", o
     if (!target) return;
     setRestoringId(v.id);
     try {
-      // The table/column pair comes from the hard-coded allow-list above, so the
-      // cast is only needed because the key is computed rather than literal.
-      const { error: updateError } = await (supabase as any)
+      // The table/column pair comes from the hard-coded allow-list above; the
+      // computed key is typed as one of the two file columns.
+      const patch: Partial<Record<"file_url" | "preview_url", string>> = { [target.column]: v.file_path };
+      const { error: updateError } = await supabase
         .from(target.table)
-        .update({ [target.column]: v.file_path })
+        .update(patch)
         .eq("id", entityId);
       if (updateError) throw updateError;
 

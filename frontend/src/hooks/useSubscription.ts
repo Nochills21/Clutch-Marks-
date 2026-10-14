@@ -39,9 +39,13 @@ function loadSubscriptionRow(userId: string): Promise<SubRow | null> {
       .select("plan_id, status, ends_at")
       .eq("user_id", userId)
       .order("created_at", { ascending: false })
-      .limit(1),
+      .limit(20),
   ).then(({ data }) => {
-    const row = (data?.[0] ?? null) as SubRow | null;
+    // A newer pending request (e.g. a second plan) must not hide an active,
+    // unexpired grant, so prefer the newest active row and fall back to the latest.
+    const now = Date.now();
+    const rows = (data ?? []) as SubRow[];
+    const row = (rows.find((r) => r.status === "active" && (!r.ends_at || new Date(r.ends_at).getTime() > now)) ?? rows[0] ?? null) as SubRow | null;
     subCache = { userId, at: Date.now(), row };
     if (subInflight?.promise === promise) subInflight = null;
     return row;

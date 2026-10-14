@@ -456,7 +456,15 @@ export type Database = {
           topic_id?: string | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "flashcard_sets_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "topics"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       flashcards: {
         Row: {
@@ -998,15 +1006,41 @@ export type Database = {
           },
         ]
       }
+      plans: {
+        Row: {
+          description: string | null
+          id: string
+          months: number
+          name: string
+          price_monthly: number
+        }
+        Insert: {
+          description?: string | null
+          id: string
+          months?: number
+          name: string
+          price_monthly: number
+        }
+        Update: {
+          description?: string | null
+          id?: string
+          months?: number
+          name?: string
+          price_monthly?: number
+        }
+        Relationships: []
+      }
       past_papers: {
         Row: {
           created_at: string
           id: string
+          level: Database["public"]["Enums"]["subject_level"] | null
           mark_scheme_url: string | null
           paper_number: string | null
           paper_url: string | null
           session: string | null
           source_url: string | null
+          subject_slug: string | null
           title: string
           topic_id: string | null
           updated_at: string
@@ -1015,11 +1049,13 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: string
+          level?: Database["public"]["Enums"]["subject_level"] | null
           mark_scheme_url?: string | null
           paper_number?: string | null
           paper_url?: string | null
           session?: string | null
           source_url?: string | null
+          subject_slug?: string | null
           title: string
           topic_id?: string | null
           updated_at?: string
@@ -1028,11 +1064,13 @@ export type Database = {
         Update: {
           created_at?: string
           id?: string
+          level?: Database["public"]["Enums"]["subject_level"] | null
           mark_scheme_url?: string | null
           paper_number?: string | null
           paper_url?: string | null
           session?: string | null
           source_url?: string | null
+          subject_slug?: string | null
           title?: string
           topic_id?: string | null
           updated_at?: string
@@ -1671,6 +1709,10 @@ export type Database = {
           ends_at: string | null
           created_at: string
           updated_at: string
+          payment_method: string | null
+          full_name: string | null
+          receipt_url: string | null
+          receipt_path: string | null
         }
         Insert: {
           id?: string
@@ -1681,6 +1723,10 @@ export type Database = {
           ends_at?: string | null
           created_at?: string
           updated_at?: string
+          payment_method?: string | null
+          full_name?: string | null
+          receipt_url?: string | null
+          receipt_path?: string | null
         }
         Update: {
           id?: string
@@ -1691,8 +1737,20 @@ export type Database = {
           ends_at?: string | null
           created_at?: string
           updated_at?: string
+          payment_method?: string | null
+          full_name?: string | null
+          receipt_url?: string | null
+          receipt_path?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "subscriptions_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "plans"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       student_subject_prefs: {
         Row: {

@@ -29,6 +29,14 @@ interface ContentEditorProps {
   trigger?: React.ReactNode;
 }
 
+type Revision = {
+  id: string;
+  version: number;
+  title: string | null;
+  created_at: string;
+  created_by_username: string | null;
+};
+
 export function ContentEditor({ entityType, entityId, initialTitle, initialContent, onSaved, trigger }: ContentEditorProps) {
   const { role } = useAuth();
   const { toast } = useToast();
@@ -36,7 +44,7 @@ export function ContentEditor({ entityType, entityId, initialTitle, initialConte
   const [title, setTitle] = useState(initialTitle);
   const [content, setContent] = useState(initialContent ?? "");
   const [saving, setSaving] = useState(false);
-  const [revisions, setRevisions] = useState<any[]>([]);
+  const [revisions, setRevisions] = useState<Revision[]>([]);
   const [revisionsLoading, setRevisionsLoading] = useState(false);
   const [revisionsError, setRevisionsError] = useState<string | null>(null);
   const [preview, setPreview] = useState(false);
