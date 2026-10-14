@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import tailwindAnimate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
 
 export default {
   darkMode: ["class"],
@@ -180,5 +182,5 @@ export default {
   // `@tailwindcss/typography` is a declared devDependency and the app already
   // writes `prose prose-sm dark:prose-invert` (src/pages/Lessons.tsx), so the
   // plugin has to be enabled or those classes do nothing.
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [tailwindAnimate, typography],
 } satisfies Config;

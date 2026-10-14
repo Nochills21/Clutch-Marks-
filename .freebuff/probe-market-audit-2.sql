@@ -1,0 +1,23 @@
+-- Read-only: exact product/content numbers (pg_stat estimates are stale).
+select
+  (select count(*) from public.subjects)                                              as subjects,
+  (select count(*) from public.subject_levels)                                        as subject_levels,
+  (select count(*) from public.topics)                                               as topics,
+  (select count(*) from public.lessons)                                              as lessons,
+  (select count(*) from public.questions)                                            as questions,
+  (select count(*) from public.quizzes)                                              as quizzes,
+  (select count(*) from public.study_materials)                                      as materials,
+  (select count(*) from public.past_papers)                                          as papers,
+  (select count(*) from public.past_papers where paper_url is not null)              as papers_with_file,
+  (select count(*) from public.past_papers where mark_scheme_url is not null)        as papers_with_ms,
+  (select count(*) from public.flashcards)                                           as flashcards,
+  (select count(*) from public.profiles)                                             as profiles,
+  (select count(*) from public.user_roles where role = 'student')                    as students,
+  (select count(*) from public.user_roles where role = 'admin')                      as admins,
+  (select count(*) from public.user_roles where role = 'parent')                     as parents,
+  (select count(*) from auth.users)                                                  as auth_users,
+  (select count(*) from public.subscriptions)                                        as subs_total,
+  (select count(*) from public.subscriptions where status = 'active')                as subs_active,
+  (select count(*) from public.xp_events)                                            as xp_rows,
+  (select count(*) from public.past_paper_attempts)                                  as paper_attempts,
+  (select count(*) from public.ai_correction)                                        as ai_corrections;

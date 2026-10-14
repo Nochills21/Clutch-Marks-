@@ -4,7 +4,7 @@ import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, FileCheck,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
   Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
-  ShieldCheck, Wand2, ShieldAlert, ListChecks,
+  ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -80,6 +80,8 @@ const adminLinks = [
   // Coverage: the boards' own subtopic lists against our topics, so "the whole
   // specification is covered" is a number an admin can read, per spec.
   { title: "Syllabus Coverage", url: "/admin/syllabus-coverage", icon: ListChecks },
+  // AI marking quota: papers marked today and Gemini refusals, from the audit log.
+  { title: "AI Quota", url: "/admin/ai-quota", icon: Gauge },
   { title: "Payments", url: "/admin/payments", icon: CreditCard },
   { title: "Feedback", url: "/admin/feedback", icon: MessageSquareHeart },
   { title: "Email Health", url: "/admin/suppressions", icon: MailX },
@@ -187,9 +189,18 @@ export function AppSidebar() {
           )
         )}
         <Separator className="bg-sidebar-border/50" />
-        <div className="grid grid-cols-[40px_minmax(0,1fr)_auto] items-center gap-2">
+        <div className="flex items-center justify-between gap-2">
           <ThemeToggle variant="ghost" size="icon" />
-          <div className="flex min-w-0 items-center justify-center gap-1">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="shrink-0 gap-2 text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent text-xs"
+            onClick={signOut}
+          >
+            <LogOut className="h-4 w-4" /> Sign Out
+          </Button>
+        </div>
+        <div className="flex items-center justify-center gap-1">
             <a
               href="/privacy"
               className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
@@ -211,15 +222,6 @@ export function AppSidebar() {
             >
               Support
             </a>
-          </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="shrink-0 gap-2 text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent text-xs"
-            onClick={signOut}
-          >
-            <LogOut className="h-4 w-4" /> Sign Out
-          </Button>
         </div>
         <p className="pt-1 text-center text-[10px] tabular-nums text-sidebar-foreground/30">
           v{APP_VERSION}

@@ -83,6 +83,7 @@ const AdminContentIntegrity = lazy(() => import("./pages/admin/AdminContentInteg
 // Coverage of the boards' own specifications: the claim "every statement is
 // covered, and here is where" has to be checkable by an admin, not asserted.
 const AdminSyllabusCoverage = lazy(() => import("./pages/admin/AdminSyllabusCoverage"));
+const AdminAiQuota = lazy(() => import("./pages/admin/AdminAiQuota"));
 // The mastery loop: per-objective state, the weakest next action, and the checks
 // that are due to resurface. Personal, so it sits inside the approval gate.
 const Mastery = lazy(() => import("./pages/Mastery"));
@@ -235,6 +236,7 @@ const App = () => (
                   <Route path="/admin/data-requests" element={<AdminDataRequests />} />
                   <Route path="/admin/content-integrity" element={<AdminContentIntegrity />} />
                   <Route path="/admin/syllabus-coverage" element={<AdminSyllabusCoverage />} />
+                  <Route path="/admin/ai-quota" element={<AdminAiQuota />} />
                 </Route>
               </Route>
               <Route path="*" element={<NotFound />} />

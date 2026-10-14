@@ -135,5 +135,18 @@ describe("StudyManuscript", () => {
       (card.querySelector("button") as HTMLElement).click();
     });
     expect(onFlip).toHaveBeenCalled();
+
+    const entityCard = mount(
+      <ManuscriptFlashcard
+        eyebrow="Question"
+        face={"p = h&rho;g, v = f&lambda; and &lt;tag&gt; <sup>2</sup><script>x</script>"}
+        flipped={false}
+        onFlip={() => {}}
+      />,
+    );
+    expect(entityCard.textContent).toContain("p = hρg, v = fλ and <tag>");
+    expect(entityCard.textContent).not.toContain("&rho;");
+    expect(entityCard.querySelector("sup")?.textContent).toBe("2");
+    expect(entityCard.querySelector("script")).toBeNull();
   });
 });

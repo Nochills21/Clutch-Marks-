@@ -8,6 +8,7 @@
 // notification bell.
 import type { ReactNode } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
+import DOMPurify from "dompurify";
 import { cn } from "@/lib/utils";
 
 /* ------------------------------------------------------------------ */
@@ -167,6 +168,16 @@ export function ManuscriptQuestion({
 /* Flashcard: double-ruled card, serif face, gold frame when flipped.  */
 /* ------------------------------------------------------------------ */
 
+// Card faces are stored with HTML entities (`p = h&rho;g`, `v = f&lambda;`).
+// Rendering them as text showed the raw entity, so decode them through the
+// HTML parser and keep only inline formatting tags.
+export function flashcardFaceHtml(text: string): string {
+  return DOMPurify.sanitize(text, {
+    ALLOWED_TAGS: ["sup", "sub", "em", "strong", "b", "i", "br", "span"],
+    ALLOWED_ATTR: [],
+  });
+}
+
 export function ManuscriptFlashcard({
   eyebrow,
   face,
@@ -190,7 +201,7 @@ export function ManuscriptFlashcard({
     >
       <span className="relative space-y-4">
         <span className="cm-m-eyebrow block">{eyebrow}</span>
-        <span className="cm-m-flash-text block">{face}</span>
+        <span className="cm-m-flash-text block" dangerouslySetInnerHTML={{ __html: flashcardFaceHtml(face) }} />
         {hint && !flipped && (
           <span className="block text-xs" style={{ color: "hsl(var(--m-subtle))" }}>
             {hint}

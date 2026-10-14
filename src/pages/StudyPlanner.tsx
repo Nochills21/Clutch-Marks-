@@ -69,7 +69,7 @@ export default function StudyPlanner() {
   const [generating, setGenerating] = useState(false);
   const [generatedPlan, setGeneratedPlan] = useState<string>("");
   const [planModel, setPlanModel] = useState<string>("");
-  const [savedPlans, setSavedPlans] = useState<any[]>([]);
+  const [savedPlans, setSavedPlans] = useState<StudyPlan[]>([]);
   const [planTitle, setPlanTitle] = useState("");
 
   const loadPlans = () => {
@@ -80,7 +80,7 @@ export default function StudyPlanner() {
       .select("*")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false });
-    (q as any).then(({ data, error }: any) => {
+    q.then(({ data, error }) => {
       // Report instead of silently showing an empty planner.
       if (error) {
         toast({ title: "Could not load your plans", description: error.message, variant: "destructive" });
@@ -98,7 +98,7 @@ export default function StudyPlanner() {
     setGeneratedPlan("");
     setPlanModel("");
     try {
-      const { quizPerformance, upcomingHomework, weakTopics: wt } = extractContext();
+      const { quizPerformance, upcomingHomework, weakTopics: wt } = await extractContext();
       const out = await callStudyPlanner({
         quizPerformance,
         upcomingHomework,
@@ -148,26 +148,28 @@ export default function StudyPlanner() {
     }
   };
 
-  const extractContext = () => {
+  const extractContext = async () => {
     let quizPerformance = "No completed quizzes yet";
     let upcomingHomework = "No upcoming deadlines";
     let weakTopics = "";
 
     if (user) {
-      const { data: attempts } = (supabase
+      // Awaited: the query builders are lazy, so destructuring them without
+      // await read `data` as undefined and the planner never saw the context.
+      const { data: attempts } = await supabase
         .from("quiz_attempts")
         .select("score, total_questions, quizzes(title)")
         .eq("user_id", user.id)
         .not("completed_at", "is", null)
         .order("completed_at", { ascending: false })
-        .limit(5)) as any;
+        .limit(5);
 
-      const { data: homework } = (supabase
+      const { data: homework } = await supabase
         .from("homework")
         .select("title, due_date")
         .gte("due_date", new Date().toISOString())
         .order("due_date")
-        .limit(5)) as any;
+        .limit(5);
 
       const perf = (attempts ?? []).map((a) =>
         `${a.quizzes?.title ?? "Quiz"}: ${a.score ?? 0}/${a.total_questions ?? 0}`

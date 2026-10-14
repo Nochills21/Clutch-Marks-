@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -49,8 +50,8 @@ export default function TopicPapers() {
   }>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [subjectMeta, setSubjectMeta] = useState<any>(null);
-  const [subjectLevel, setSubjectLevel] = useState<any>(null);
+  const [subjectMeta, setSubjectMeta] = useState<Tables<"subjects"> | null>(null);
+  const [subjectLevel, setSubjectLevel] = useState<Tables<"subject_levels"> | null>(null);
   const [topicTitle, setTopicTitle] = useState<string | null>(null);
   const topicSlug = slugifyTopicName(topic ?? "");
   const [topicId, setTopicId] = useState<string | null>(null);
