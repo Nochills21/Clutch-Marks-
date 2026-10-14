@@ -34,7 +34,7 @@ export function AdminDashboard() {
         // Admin-gated on the database side; this dashboard is admin-only.
         supabase.rpc("content_integrity_findings"),
       ]);
-      const c = ((countsRes.data ?? []) as any[])[0];
+      const c = (countsRes.data ?? [])[0];
       if (c) {
         setCounts({
           topics: Number(c.topics_total ?? 0),

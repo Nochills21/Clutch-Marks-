@@ -151,7 +151,7 @@ export default function TopicQuiz() {
             setBookmarkedQuestions((data as unknown as TopicQuestion[]).filter((q) => q.bookmarked));
           }
         }
-      } catch (e: any) {
+      } catch (e) {
         setError(e.message ?? "Failed to load topic questions");
       } finally {
         if (active) setLoading(false);
@@ -237,7 +237,7 @@ export default function TopicQuiz() {
       setSubmitted(true);
       setReviewOnly(false);
       toast({ title: "Answers submitted", description: `You got ${correctCount}/${questions.length} correct.`, variant: "default" });
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Submission failed", description: e.message, variant: "destructive" });
     }
   };
@@ -359,7 +359,7 @@ export default function TopicQuiz() {
         })),
         identity: { owner: user?.email ?? null },
       });
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Couldn't build the PDF", description: e?.message ?? "Please try again.", variant: "destructive" });
     } finally {
       setExporting(false);

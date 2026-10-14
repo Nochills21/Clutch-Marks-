@@ -57,7 +57,7 @@ export function AiCorrectionForm({
     setError(null);
     setResult(null);
     try {
-      const out = await callPaperCorrector(paper as string | CorrectedPaperInput[], "cloudflare", subjectLevelId);
+      const out = await callPaperCorrector(paper as string | CorrectedPaperInput[], "gemini", subjectLevelId);
       setResult(out.corrected_papers);
       onCorrected?.(out);
       toast({
@@ -65,7 +65,7 @@ export function AiCorrectionForm({
         description: `Overall grade: ${out.overall_grade}% (${out.total_earned}/${out.total_possible} marks)`,
       });
       if (onReset) onReset();
-    } catch (e: any) {
+    } catch (e) {
       if (isPlanRequiredError(e)) {
         setPlanBlocked(true);
       } else {

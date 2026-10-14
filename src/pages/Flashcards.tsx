@@ -19,6 +19,13 @@ import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { useToast } from "@/hooks/useToast";
 import { loadFailureMessage } from "@/lib/net";
 import { levelLabel } from "@/lib/levels";
+import type { Tables } from "@/integrations/supabase/types";
+
+type FlashcardSetRow = Tables<"flashcard_sets"> & {
+  topics?: { name: string } | null;
+  flashcards?: { id: string }[];
+};
+type ProgressRow = Pick<Tables<"flashcard_progress">, "ease_factor" | "interval_days" | "repetitions" | "next_review_at">;
 
 // SM-2 Algorithm
 function sm2(quality: number, prev: { ease_factor: number; interval_days: number; repetitions: number }) {
@@ -48,15 +55,15 @@ export default function Flashcards() {
   const { user } = useAuth();
   const { toast } = useToast();
   const { failure, report } = useLoadFailure("your flashcard sets");
-  const [sets, setSets] = useState<any[]>([]);
-  const [topics, setTopics] = useState<any[]>([]);
+  const [sets, setSets] = useState<FlashcardSetRow[]>([]);
+  const [topics, setTopics] = useState<Tables<"topics">[]>([]);
   const [levelById, setLevelById] = useState<Record<string, string>>({});
   const [filter, setFilter] = useState("all");
   const [studySetId, setStudySetId] = useState<string | null>(null);
-  const [studyCards, setStudyCards] = useState<any[]>([]);
+  const [studyCards, setStudyCards] = useState<Tables<"flashcards">[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const [progressMap, setProgressMap] = useState<Record<string, any>>({});
+  const [progressMap, setProgressMap] = useState<Record<string, ProgressRow>>({});
   const [dueCount, setDueCount] = useState<Record<string, number>>({});
   const [studyComplete, setStudyComplete] = useState(false);
 
@@ -73,7 +80,7 @@ export default function Flashcards() {
     setSets(setsRes.data ?? []);
     setTopics(topicsRes.data ?? []);
     const lv: Record<string, string> = {};
-    (levelsRes.data ?? []).forEach((l: any) => { lv[l.id] = l.level; });
+    (levelsRes.data ?? []).forEach((l) => { lv[l.id] = l.level; });
     setLevelById(lv);
   }, [report]);
 
@@ -84,15 +91,15 @@ export default function Flashcards() {
     if (progressError) { report(progressError); return; }
     const now = new Date();
     const dueMap: Record<string, boolean> = {};
-    (progress ?? []).forEach((p: any) => {
+    (progress ?? []).forEach((p) => {
       if (new Date(p.next_review_at) <= now) dueMap[p.flashcard_id] = true;
     });
 
     const { data: allCards, error: allCardsError } = await supabase.from("flashcards").select("id, set_id");
     if (allCardsError) { report(allCardsError); return; }
-    const reviewed = new Set((progress ?? []).map((p: any) => p.flashcard_id));
+    const reviewed = new Set((progress ?? []).map((p) => p.flashcard_id));
     const counts: Record<string, number> = {};
-    (allCards ?? []).forEach((c: any) => {
+    (allCards ?? []).forEach((c) => {
       // Due if never reviewed OR next_review_at is past
       if (!reviewed.has(c.id) || dueMap[c.id]) {
         counts[c.set_id] = (counts[c.set_id] || 0) + 1;
@@ -116,13 +123,13 @@ export default function Flashcards() {
       });
       return;
     }
-    const pMap: Record<string, any> = {};
-    (prog ?? []).forEach((p: any) => { pMap[p.flashcard_id] = p; });
+    const pMap: Record<string, Tables<"flashcard_progress">> = {};
+    (prog ?? []).forEach((p) => { pMap[p.flashcard_id] = p; });
     setProgressMap(pMap);
 
     // Filter to due cards (unreviewed or next_review_at <= now)
     const now = new Date();
-    const dueCards = (cards ?? []).filter((c: any) => {
+    const dueCards = (cards ?? []).filter((c) => {
       const p = pMap[c.id];
       return !p || new Date(p.next_review_at) <= now;
     });
@@ -164,26 +171,26 @@ export default function Flashcards() {
   // subjects' topics (and therefore their flashcard sets).
   const pickedTopicIds = useMemo(() => {
     if (isAdminRole || !prefsLoaded) return new Set<string>();
-    return new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id));
+    return new Set(topics.filter((t) => pickedIds.has(t.subject_level_id)).map((t) => t.id));
   }, [topics, pickedIds, isAdminRole, prefsLoaded]);
 
   // Topics sharing a name across levels ("Thermal Physics" exists at OL and
   // AS) get the level appended so duplicate tabs and badges stay distinct.
   const topicLevelOf = (topicId: string) => {
-    const lv = levelById[topics.find((x: any) => x.id === topicId)?.subject_level_id];
+    const lv = levelById[topics.find((x) => x.id === topicId)?.subject_level_id];
     return lv ? levelLabel(lv) : "";
   };
   const dupTopicNames = useMemo(() => {
     const counts: Record<string, number> = {};
-    topics.forEach((t: any) => { counts[t.name] = (counts[t.name] ?? 0) + 1; });
+    topics.forEach((t) => { counts[t.name] = (counts[t.name] ?? 0) + 1; });
     return new Set(Object.keys(counts).filter((n) => counts[n] > 1));
   }, [topics]);
-  const topicTabLabel = (t: any) => {
+  const topicTabLabel = (t) => {
     const lv = topicLevelOf(t.id);
     return dupTopicNames.has(t.name) && lv ? `${t.name} · ${lv}` : t.name;
   };
-  const setTopicBadge = (s: any) => {
-    const t = topics.find((x: any) => x.id === s.topic_id);
+  const setTopicBadge = (s) => {
+    const t = topics.find((x) => x.id === s.topic_id);
     const name = s.topics?.name ?? t?.name;
     if (!name) return null;
     const lv = t ? topicLevelOf(t.id) : "";
@@ -193,8 +200,8 @@ export default function Flashcards() {
 
   //_visibleTopicIds picks the topic ids used for the per-topic tab triggers.
   const visibleTopicIds = useMemo(() => {
-    if (isAdminRole || !prefsLoaded) return topics.map((t: any) => t.id);
-    return topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id);
+    if (isAdminRole || !prefsLoaded) return topics.map((t) => t.id);
+    return topics.filter((t) => pickedIds.has(t.subject_level_id)).map((t) => t.id);
   }, [topics, pickedIds, isAdminRole, prefsLoaded]);
 
   // Everything the student is entitled to see, scoped to their picked subjects
@@ -216,10 +223,10 @@ export default function Flashcards() {
     // flashcard sets per subject-level, so a free student picking "Ol Math"
     // never sees Physics/CS sets and only gets a small slice of Ol Math.
     if (!(isPreview && !hasPaid) || scopedSets.length === 0) return scopedSets;
-    const byLevel = new Map<string, any[]>();
+    const byLevel = new Map<string, FlashcardSetRow[]>();
     for (const s of scopedSets) {
       const tid = s.topic_id;
-      const sl = topics.find((t: any) => t.id === tid)?.subject_level_id;
+      const sl = topics.find((t) => t.id === tid)?.subject_level_id;
       if (sl) byLevel.set(sl, (byLevel.get(sl) || []).concat(s));
     }
     const limited = new Set<string>();
@@ -383,7 +390,7 @@ export default function Flashcards() {
                           owner: user?.email ?? user?.id ?? null,
                         });
                         toast({ title: "Saved", description: "Your flashcard PDF is downloading." });
-                      } catch (e: any) {
+                      } catch (e) {
                         toast({
                           title: "Couldn't build the PDF",
                           description: e?.message ?? "Please try again.",

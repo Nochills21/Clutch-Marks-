@@ -11,10 +11,11 @@ import { Plus, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { format } from "date-fns";
 import { contentSaveError } from "@/lib/contentGuards";
+import type { Tables } from "@/integrations/supabase/types";
 
 export default function AdminAnnouncements() {
   const { toast } = useToast();
-  const [announcements, setAnnouncements] = useState<any[]>([]);
+  const [announcements, setAnnouncements] = useState<Tables<"announcements">[]>([]);
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");

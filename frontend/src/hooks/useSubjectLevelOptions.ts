@@ -31,7 +31,7 @@ export function useSubjectLevelOptions(enabled = true) {
         .eq("is_active", true)
         .order("sort_order");
       if (error) throw error;
-      return (data ?? []).map((l: any) => {
+      return (data ?? []).map((l) => {
         const level = l.level as SubjectLevelCode;
         const subjectName = l.subjects?.name ?? "Subject";
         return {

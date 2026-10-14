@@ -221,7 +221,7 @@ export default function Quizzes() {
     );
   }
 
-  const startQuiz = async (quiz: any) => {
+  const startQuiz = async (quiz) => {
     // Questions are loaded through an approval-gated RPC and marking writes an
     // attempt, so a signed-out visitor is asked to sign in. Without this the
     // card click ended in "permission denied for function get_student_questions".
@@ -321,7 +321,7 @@ export default function Quizzes() {
         })),
         identity: { owner: user?.email ?? null },
       });
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Couldn't build the PDF", description: e?.message ?? "Please try again.", variant: "destructive" });
     } finally {
       setExporting(false);
@@ -349,7 +349,7 @@ export default function Quizzes() {
       } else {
         setAiFeedback(data.feedback);
       }
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Failed to get feedback", description: e.message, variant: "destructive" });
     } finally {
       setLoadingFeedback(false);

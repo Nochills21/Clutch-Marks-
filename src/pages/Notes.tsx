@@ -3,7 +3,6 @@
 // measure-limited reader, rather than a wall of identical cards.
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,13 +10,11 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/SEOHead";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
-import { openProtectedFile, getSignedUrl } from "@/lib/contentFiles";
-import { WatermarkOverlay } from "@/components/WatermarkOverlay";
+import { openProtectedFile } from "@/lib/contentFiles";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { toast } from "sonner";
 import { loadFailureMessage } from "@/lib/net";
@@ -56,7 +53,7 @@ export async function fetchNotes(): Promise<NoteRow[]> {
     .order("title")
     .limit(LIBRARY_LIMIT);
   if (error) throw error;
-  return (data ?? []).map((m: any) => ({
+  return (data ?? []).map((m) => ({
     id: m.id,
     title: m.title,
     file_url: m.file_url,
@@ -91,7 +88,7 @@ export function useNoteProgress() {
           return;
         }
         const map: Record<string, boolean> = {};
-        (data ?? []).forEach((r: any) => { map[r.material_id] = r.completed; });
+        (data ?? []).forEach((r) => { map[r.material_id] = r.completed; });
         setDone(map);
       } catch (e) {
         // A failed progress read must not surface as an unhandled rejection;
@@ -138,7 +135,6 @@ export default function Notes() {
   const [subject, setSubject] = useState("all");
   const [level, setLevel] = useState("all");
   const [type, setType] = useState("all");
-  const [viewing, setViewing] = useState<NoteRow | null>(null);
   const { done, toggle } = useNoteProgress();
   // The library is scoped to the student's picked subject-levels, the same way
   // the dashboard tiles are. Without this a Mathematics + Physics student read
@@ -157,7 +153,7 @@ export default function Notes() {
     setError(null);
     try {
       setNotes(await fetchNotes());
-    } catch (e: any) {
+    } catch (e) {
       setError(e.message ?? "Failed to load notes");
     }
     setLoading(false);
@@ -215,10 +211,6 @@ export default function Notes() {
 
   return (
     <div className="cm-study mx-auto max-w-4xl space-y-8">
-      {/* Only while a note is actually open. On the library list the watermark
-          covered the whole viewport — sidebar, filters and every card — without
-          protecting anything: the list shows titles and types, not content. */}
-      {viewing && <WatermarkOverlay />}
       <SEOHead path="/notes" />
 
       {/* ---------- masthead ---------- */}
@@ -361,8 +353,8 @@ export default function Notes() {
                         />
                       )}
                       {n.content && (
-                        <Button size="sm" variant="secondary" className="gap-1" onClick={() => setViewing(n)}>
-                          <Eye className="h-3.5 w-3.5" /> Read
+                        <Button size="sm" variant="secondary" className="gap-1" asChild>
+                          <Link to={`/notes/${n.id}`}><Eye className="h-3.5 w-3.5" /> Read</Link>
                         </Button>
                       )}
                       {/* File-backed controls only appear when there is a file. Every
@@ -374,7 +366,7 @@ export default function Notes() {
                             onClick={async () => {
                               try {
                                 await openProtectedFile("study-materials", n.file_url!);
-                              } catch (e: any) {
+                              } catch (e) {
                                 toast.error(e?.message ?? "Could not open this file");
                               }
                             }}>
@@ -383,7 +375,7 @@ export default function Notes() {
                           <Button size="sm" variant="ghost"
                             aria-label={`Download ${n.title}`}
                             title={`Download ${n.title}`}
-                            onClick={() => downloadNote(n).catch((e: any) => toast.error(e?.message ?? "Could not download this file"))}>
+                            onClick={() => downloadNote(n).catch((e) => toast.error(e?.message ?? "Could not download this file"))}>
                             <Download className="h-3.5 w-3.5" />
                           </Button>
                         </>
@@ -396,29 +388,6 @@ export default function Notes() {
           })}
         </ol>
       )}
-
-      {/* ---------- reader ---------- */}
-      <Dialog open={!!viewing} onOpenChange={(o) => !o && setViewing(null)}>
-        <DialogContent className="cm-study max-w-3xl max-h-[85vh] overflow-y-auto grid-rows-[auto_1fr]">
-          <DialogHeader className="text-left">
-            <p className="eyebrow mb-1">
-              {viewing ? `${viewing.subject_name}${viewing.level ? ` · ${LEVEL_LABELS[viewing.level as "OL"] ?? viewing.level}` : ""}` : ""}
-            </p>
-            <DialogTitle className="font-display text-2xl font-semibold tracking-tight">
-              {viewing?.title}
-            </DialogTitle>
-            <DialogDescription>{viewing?.topic_name}</DialogDescription>
-            <hr className="rule-gold mt-3" />
-          </DialogHeader>
-          <div className="prose-elegant pt-1 [&>div>h1:first-child]:!mt-0 [&>div>h2:first-child]:!mt-0 [&>div>h3:first-child]:!mt-0 [&>div>h1:first-child]:!border-0 [&>div>h1:first-child]:!p-0 [&>div>h2:first-child]:!border-0 [&>div>h2:first-child]:!p-0 [&>div>h3:first-child]:!border-0 [&>div>h3:first-child]:!p-0">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(/<\/?(p|h[1-6]|ul|ol|li|table|div)\b/i.test(viewing?.content ?? "") ? (viewing?.content ?? "") : (viewing?.content ?? "").replace(/\n/g, "<br/>")),
-              }}
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
 
       <p className="text-xs text-muted-foreground">
         Looking for a specific lesson? Open it from <Link to="/lessons" className="text-primary underline">Lessons</Link> to view its notes.

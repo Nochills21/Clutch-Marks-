@@ -360,11 +360,10 @@ async function extractPdfText(bytes: Uint8Array): Promise<string> {
     }
   });
 
-  // \u0000 separates every run so a line break survives normalisation.
+  // Pieces join with no separator. Removing every NUL is what the old
+  // NUL-delimiter pass did, and a regex over control characters trips no-control-regex.
   return pieces
-    .join("\u0000")
-    .replace(/\u0000*\n\u0000*/g, "\n")
-    .replace(/\u0000/g, "")
+    .join("")
     .split("\n")
     .map((line) => line.replace(/[ \t]{2,}/g, " ").trim())
     .filter((line) => line.length > 0)

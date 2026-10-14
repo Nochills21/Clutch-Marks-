@@ -126,7 +126,7 @@ export default function DataRights() {
         title: "Your copy is downloading",
         description: "It contains every record we hold for your account, in plain JSON.",
       });
-    } catch (e: any) {
+    } catch (e) {
       toast({
         title: "Could not prepare your copy",
         description: e?.message ?? `Please try again, or email ${PRIVACY_CONTACT_EMAIL}.`,
@@ -157,7 +157,7 @@ export default function DataRights() {
         description: `Reference ${ref}. We answer within ${DATA_REQUEST_RESPONSE_DAYS} days — the admins have been notified.`,
       });
       await loadRequests();
-    } catch (e: any) {
+    } catch (e) {
       toast({
         title: "Could not file that request",
         description: e?.message ?? `Please email ${PRIVACY_CONTACT_EMAIL} instead.`,

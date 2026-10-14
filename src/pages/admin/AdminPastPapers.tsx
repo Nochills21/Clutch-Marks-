@@ -183,7 +183,7 @@ export default function AdminPastPapers() {
     // Shared helper: opens external (sourced) PDFs directly, signs bucket paths.
     try {
       await openSignedFile("past-papers", urlOrPath);
-    } catch (error: any) {
+    } catch (error) {
       toast({ title: "Error", description: error?.message ?? "Unable to open file", variant: "destructive" });
     }
   };
@@ -226,7 +226,7 @@ export default function AdminPastPapers() {
       toast({ title: editing ? "Paper updated" : "Paper added" });
       closeDialog();
     },
-    onError: (e: any) => toast({ title: "Error", description: e.message, variant: "destructive" }),
+    onError: (e) => toast({ title: "Error", description: e.message, variant: "destructive" }),
   });
 
   const deleteMutation = useMutation({
@@ -293,7 +293,7 @@ export default function AdminPastPapers() {
           : undefined,
       });
     },
-    onError: (e: any) => toast({ title: "Could not update", description: e.message, variant: "destructive" }),
+    onError: (e) => toast({ title: "Could not update", description: e.message, variant: "destructive" }),
   });
 
   const visiblePapers = useMemo(() => {
@@ -335,7 +335,7 @@ export default function AdminPastPapers() {
         if (isMarkScheme) patch.mark_scheme_url = path;
         else patch.paper_url = path;
         updates.set(item.row.id, patch);
-      } catch (e: any) {
+      } catch (e) {
         failed += 1;
         toast({ title: `Could not upload ${item.file.name}`, description: e?.message ?? "Upload failed", variant: "destructive" });
       }
@@ -371,7 +371,7 @@ export default function AdminPastPapers() {
     setOpen(true);
   };
 
-  const openEdit = (p: any) => {
+  const openEdit = (p) => {
     setEditing(p);
     setForm({ title: p.title, year: p.year, session: p.session ?? "", paper_number: p.paper_number ?? "", topic_id: p.topic_id ?? "", source_url: p.source_url ?? "", subject_slug: p.subject_slug ?? "none", level: p.level ?? "none" });
     setPaperFile(null);
@@ -510,7 +510,7 @@ export default function AdminPastPapers() {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {pendingCandidates.map((c: any) => (
+                        {pendingCandidates.map((c) => (
                           <TableRow key={c.id}>
                             <TableCell>
                               <p className="text-sm font-medium">
@@ -568,7 +568,7 @@ export default function AdminPastPapers() {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {deadLinks.map((l: any) => (
+                        {deadLinks.map((l) => (
                           <TableRow key={l.id}>
                             <TableCell className="text-sm">
                               {l.paper_id ? paperTitleById.get(l.paper_id) ?? "—" : "—"}
@@ -633,7 +633,7 @@ export default function AdminPastPapers() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {visiblePapers.map((p: any) => (
+                {visiblePapers.map((p) => (
                   <TableRow key={p.id}>
                     <TableCell className="font-medium">{p.title}</TableCell>
                     <TableCell>{p.level ? <Badge variant="outline" className="text-[10px] uppercase">{p.level}</Badge> : "—"}</TableCell>

@@ -1027,36 +1027,11 @@
      dark mode. This block must list every variable `.cm-study` sets above —
      without it, the ivory values win (components layer beats base layer) and
      study pages flash white inside a dark shell. */
-  /* The notes reader is an editorial paper surface, not a themed card: keep
-     it light even when the surrounding application is in dark mode. */
-  .dark [role="dialog"].cm-study {
-    --background: 40 33% 99%;
-    --foreground: 240 10% 9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 9%;
-    --primary: 40 92% 38%;
-    --primary-foreground: 40 33% 99%;
-    --secondary: 40 20% 95%;
-    --secondary-foreground: 240 10% 20%;
-    --muted: 40 18% 95%;
-    --muted-foreground: 240 6% 42%;
-    --accent: 40 92% 38%;
-    --accent-foreground: 40 33% 99%;
-    --border: 40 14% 88%;
-    --input: 40 14% 86%;
-    --ring: 40 92% 42%;
-    --gold: 40 92% 38%;
-    --gold-soft: 42 70% 60%;
-    --gold-deep: 32 80% 30%;
-    --shadow-card: var(--shadow-sm);
-    --shadow-card-hover: var(--shadow-md);
-    --hairline: hsla(240, 10%, 10%, 0.09);
-    --hairline-strong: hsla(240, 10%, 10%, 0.16);
-  }
-
-  .dark .cm-study:not([role="dialog"]) {
+  /* Study surfaces follow the app theme toggle (next-themes sets `.dark` on
+     <html>). Every study page and note reader is a `.cm-study` scope, so this
+     one dark companion is the only dark palette for them: no per-surface
+     light lock, which would leave notes white while the toggle reads dark. */
+  .dark .cm-study {
     --background: 240 8% 4.5%;
     --foreground: 40 18% 95%;
     --card: 240 7% 7%;

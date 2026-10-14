@@ -7,6 +7,7 @@
 // announcements at all.
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ import { markAnnouncementsRead } from "@/lib/announcements";
 
 export default function Announcements() {
   const { user } = useAuth();
-  const [announcements, setAnnouncements] = useState<any[]>([]);
+  const [announcements, setAnnouncements] = useState<Tables<"announcements">[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
@@ -41,7 +42,7 @@ export default function Announcements() {
           const rows = data ?? [];
           setAnnouncements(rows);
           // Reading the feed is what marks it read.
-          if (user) void markAnnouncementsRead(user.id, rows.map((a: any) => a.id));
+          if (user) void markAnnouncementsRead(user.id, rows.map((a) => a.id));
         }
         setLoading(false);
       });

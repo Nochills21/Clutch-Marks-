@@ -55,7 +55,7 @@ export function ContentEditor({ entityType, entityId, initialTitle, initialConte
         .order("version", { ascending: false });
       if (error) throw error;
       setRevisions(data ?? []);
-    } catch (e: any) {
+    } catch (e) {
       // Without this the History tab claimed "No previous versions yet" for
       // what was actually a failed query, hiding real history.
       setRevisionsError(e?.message ?? "Could not load version history");

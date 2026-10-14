@@ -292,7 +292,7 @@ Reply with ONE JSON object per line and NOTHING else — no array around them, n
 prose, no code fence. One line per question, each a complete object on its own:
 {"statement_code":"<one of the codes above>","difficulty":"check|drill|exam","question_text":"...","options":["...","...","...","..."],"correct_option":0,"explanation":"..."}
 correct_option is the ZERO-BASED index of the correct option, so 0 means the
-first option in the array. Escape any double quote inside a string as \". Do not
+first option in the array. Escape any double quote inside a string as \\". Do not
 put a line break inside a string.
 `.trim();
 }

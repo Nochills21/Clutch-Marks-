@@ -55,7 +55,7 @@ export function SubjectGate() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="w-full max-h-[320px] overflow-y-auto space-y-2 pr-1">
-            {options.map((o: any) => (
+            {options.map((o) => (
               <label key={o.id} className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer hover:bg-accent/50 text-left">
                 <Checkbox
                   checked={picked.has(o.id)}
@@ -70,7 +70,7 @@ export function SubjectGate() {
             <Button asChild className="gap-2">
               <Link to="/auth"><LogIn className="h-4 w-4" /> Sign in to personalise</Link>
             </Button>
-            <Button onClick={() => setPicked(new Set(options.map((o: any) => o.id)))} className="gap-2">
+            <Button onClick={() => setPicked(new Set(options.map((o) => o.id)))} className="gap-2">
               Pick for now<ArrowRight className="h-4 w-4" />
             </Button>
           </div>
@@ -81,7 +81,7 @@ export function SubjectGate() {
 
   // Picking a subset here hides every other subject everywhere, which is easy
   // to do by accident on first run. Offer the escape hatch up front.
-  const selectAll = () => setPicked(new Set(options.map((o: any) => o.id)));
+  const selectAll = () => setPicked(new Set(options.map((o) => o.id)));
 
   const toggle = (id: string) =>
     setPicked(p => {
@@ -97,7 +97,7 @@ export function SubjectGate() {
     try {
       await savePicks([...picked]);
       toast({ title: "You're set!", description: "Your subjects are ready below." });
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Save failed", description: e?.message, variant: "destructive" });
     } finally {
       setSaving(false);

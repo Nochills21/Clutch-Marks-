@@ -111,7 +111,7 @@ export default function StudyPlanner() {
       setPlanModel(out.model);
       setPlanTitle(`Study Plan – ${format(new Date(), "MMM d, yyyy")}`);
       toast({ title: "Plan generated", description: "Your personalized schedule is ready." });
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Generation failed", description: e?.message ?? "Please try again", variant: "destructive" });
     } finally {
       setGenerating(false);
@@ -169,11 +169,11 @@ export default function StudyPlanner() {
         .order("due_date")
         .limit(5)) as any;
 
-      const perf = (attempts ?? []).map((a: any) =>
+      const perf = (attempts ?? []).map((a) =>
         `${a.quizzes?.title ?? "Quiz"}: ${a.score ?? 0}/${a.total_questions ?? 0}`
       ).join("; ") || "No completed quizzes yet";
       quizPerformance = perf;
-      upcomingHomework = (homework ?? []).map((h: any) =>
+      upcomingHomework = (homework ?? []).map((h) =>
         `${h.title} (due ${h.due_date ? format(new Date(h.due_date), "MMM d") : "TBD"})`
       ).join("; ") || "No upcoming deadlines";
 

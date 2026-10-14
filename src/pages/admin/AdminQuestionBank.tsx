@@ -86,7 +86,7 @@ export default function AdminQuestionBank() {
       setTitle("");
       setPickedTopics({});
       load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Failed", description: e.message, variant: "destructive" });
     } finally {
       setBuilding(false);

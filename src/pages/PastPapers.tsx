@@ -141,7 +141,7 @@ export default function PastPapers() {
   const handleOpenFile = async (url: string) => {
     try {
       await openProtectedFile("past-papers", url);
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Unable to open file", description: e?.message ?? "Please try again", variant: "destructive" });
     }
   };
@@ -151,7 +151,7 @@ export default function PastPapers() {
   const handleDownloadFile = async (url: string, name: string) => {
     try {
       await openProtectedFile("past-papers", url, name);
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Unable to download file", description: e?.message ?? "Please try again", variant: "destructive" });
     }
   };
@@ -161,7 +161,7 @@ export default function PastPapers() {
   const handleOpenExternal = async (url: string, label?: string) => {
     try {
       await openExternalPaper(url, label);
-    } catch (e: any) {
+    } catch (e) {
       if (e instanceof ExternalPaperGated) {
         toast({ title: "Full plan required", description: e.message });
         return;
@@ -175,13 +175,13 @@ export default function PastPapers() {
   // are correctly classified but intentionally not assigned to a single topic.
   const topicToSl = useMemo(() => {
     const m = new Map<string, string>();
-    (topics ?? []).forEach((t: any) => { if (t.subject_level_id) m.set(t.id, t.subject_level_id); });
+    (topics ?? []).forEach((t) => { if (t.subject_level_id) m.set(t.id, t.subject_level_id); });
     return m;
   }, [topics]);
 
   const subjectLevelByCode = useMemo(() => {
     const m = new Map<string, string>();
-    (subjectLevels ?? []).forEach((row: any) => {
+    (subjectLevels ?? []).forEach((row) => {
       const slug = row.subjects?.slug;
       if (slug && row.level) m.set(`${slug.toLowerCase()}/${String(row.level).toUpperCase()}`, row.id);
     });
@@ -205,19 +205,19 @@ export default function PastPapers() {
   // offer. Sessions always include the full board calendar, `Specimen` included.
   const boardOptions = useMemo(() => {
     const set = new Set<string>();
-    (scopedPapers ?? []).forEach((p: any) => set.add(archiveBoard(p)));
+    (scopedPapers ?? []).forEach((p) => set.add(archiveBoard(p)));
     return [...set].sort((a, b) => a.localeCompare(b));
   }, [scopedPapers]);
 
   const paperOptions = useMemo(() => {
     const set = new Set<string>();
-    (scopedPapers ?? []).forEach((p: any) => set.add(archivePaperGroup(p)));
+    (scopedPapers ?? []).forEach((p) => set.add(archivePaperGroup(p)));
     return [...set].sort((a, b) => paperSortKey(a).localeCompare(paperSortKey(b)));
   }, [scopedPapers]);
 
   const sessionOptions = useMemo(() => {
     const set = new Set<string>(SESSION_ORDER);
-    (scopedPapers ?? []).forEach((p: any) => { if (p.session) set.add(p.session); });
+    (scopedPapers ?? []).forEach((p) => { if (p.session) set.add(p.session); });
     return [...set].sort(sortSessions);
   }, [scopedPapers]);
 
@@ -238,13 +238,13 @@ export default function PastPapers() {
 
   // Year chips reflect the papers that survive the other filters, so switching
   // board or session never offers a year that would come up empty.
-  const years = [...new Set(matchedPapers.map((p: any) => p.year))].sort((a, b) => b - a);
-  const yearScoped = yearFilter === "all" ? matchedPapers : matchedPapers.filter((p: any) => p.year === Number(yearFilter));
+  const years = [...new Set(matchedPapers.map((p) => p.year))].sort((a, b) => b - a);
+  const yearScoped = yearFilter === "all" ? matchedPapers : matchedPapers.filter((p) => p.year === Number(yearFilter));
   const { slice: visiblePapers } = usePreviewSliceWithLimit(yearScoped, FREE_PREVIEW_LIMIT);
   const filteredPapers = visiblePapers ?? [];
 
   const groupedPapers = years
-    .map((y) => ({ year: y, papers: filteredPapers.filter((p: any) => p.year === y) }))
+    .map((y) => ({ year: y, papers: filteredPapers.filter((p) => p.year === y) }))
     .filter((g) => g.papers.length > 0);
 
   if (!isAdmin && !prefsLoaded) {
@@ -391,7 +391,7 @@ export default function PastPapers() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {groupedPapers.flatMap((g) =>
-            g.papers.map((p: any) => (
+            g.papers.map((p) => (
               <Card key={p.id} className="hover:shadow-md transition-shadow group">
                 <CardHeader className="pb-2">
                   <div className="flex flex-wrap items-start justify-between gap-2">
@@ -435,9 +435,9 @@ export default function PastPapers() {
                       <div> — invalid nesting, which React warns about. */}
                   <div className="text-sm text-muted-foreground space-y-1">
                     <div className="flex items-center gap-1.5">
-                      {(p.level ?? p.topics?.subject_levels?.level) && (
+                      {p.topics?.subject_levels?.level && (
                         <Badge variant="outline" className="text-[10px] uppercase tracking-[0.08em]">
-                          {levelLabel(p.level ?? p.topics?.subject_levels?.level)}
+                          {levelLabel(p.topics?.subject_levels?.level)}
                         </Badge>
                       )}
                       <span>

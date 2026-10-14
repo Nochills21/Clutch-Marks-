@@ -138,7 +138,7 @@ export default function TopicNotes() {
         setLessons((ls.data ?? []).filter(Boolean));
         setMaterials((ms.data ?? []).filter(Boolean));
         setQuizzes((qz.data ?? []).filter((q) => q.is_published));
-      } catch (e: any) {
+      } catch (e) {
         setError(e.message ?? "Failed to load topic content");
       } finally {
         setLoading(false);
@@ -263,90 +263,6 @@ export default function TopicNotes() {
         }
       />
 
-      {mastery && (
-        <Card className={mastery.examReady ? "border-emerald-500/40" : ""}>
-          <CardContent className="flex flex-wrap items-center gap-4 p-4">
-            <TopicMasteryRing percent={mastery.percent} band={mastery.band} label={`${topicTitle} mastery ${mastery.percent}%`} />
-            <div className="min-w-0 flex-1">
-              <p className="font-semibold">
-                {mastery.examReady ? "Exam-ready" : `${mastery.mastered} of ${mastery.total} objectives mastered`}
-              </p>
-              <p className="text-xs text-muted-foreground">
-                {mastery.examReady
-                  ? "Every objective in this topic is mastered. Keep it green with refresh checks."
-                  : "Master every objective to turn this topic green — wrong answers come back as Strengthen checks."}
-              </p>
-            </div>
-            <Button asChild variant={mastery.examReady ? "outline" : "default"} size="sm" className="gap-1.5">
-              <Link to="/mastery">
-                {mastery.examReady ? "Refresh checks" : "Strengthen"} <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-      )}
-
-      <div className="grid gap-3 sm:grid-cols-3">
-        {[
-          { label: "Lessons", value: topicLessons, icon: BookOpen, color: accent.text },
-          { label: "Notes", value: topicNotesCount, icon: FileText, color: accent.text },
-          { label: "Topic Questions", value: quizzes.length, icon: Play, color: accent.text },
-        ].map((s) => (
-          <Card key={s.label}>
-            <CardContent className="flex items-center gap-3 p-4">
-              <s.icon className={`h-5 w-5 ${s.color}`} />
-              <div>
-                <p className="text-xl font-bold leading-none">{s.value}</p>
-                <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg flex items-center gap-2"><BookOpen className="h-5 w-5 text-primary" /> Lessons</CardTitle>
-          <CardDescription>Structured lessons for {topicTitle}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          {lessons.length === 0 ? (
-            <p className="text-sm text-muted-foreground py-4 text-center">No lessons have been created for this topic yet.</p>
-          ) : (
-            lessons.map((l) => (
-              <Link
-                key={l.id}
-                to={`/lessons/${l.id}/notes`}
-                className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
-              >
-                <div className="min-w-0 flex-1">
-                  <p className="font-medium truncate">{l.title}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Lesson · {topicTitle}</p>
-                </div>
-                <div className="flex items-center gap-2 shrink-0 ml-4">
-                  {role === "admin" && (
-                    <ContentEditor
-                      entityType="lesson"
-                      entityId={l.id}
-                      initialTitle={l.title}
-                      initialContent={l.content ?? null}
-                      onSaved={bumpRevision}
-                      trigger={
-                        <Button size="sm" variant="ghost" className="gap-1 h-8" onClick={(e) => e.preventDefault()}>
-                          <Pencil className="h-3.5 w-3.5" /> Edit
-                        </Button>
-                      }
-                    />
-                  )}
-                  <Badge variant="outline" className="text-[10px]">Notes</Badge>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                </div>
-              </Link>
-            ))
-          )}
-        </CardContent>
-      </Card>
-
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2"><FileText className="h-5 w-5 text-primary" /> Revision Notes & Study Materials</CardTitle>
@@ -405,7 +321,7 @@ export default function TopicNotes() {
                         onClick={async () => {
                           try {
                             await openProtectedFile("study-materials", m.file_url);
-                          } catch (e: any) {
+                          } catch (e) {
                             toast.error(e?.message ?? "Could not open this file");
                           }
                         }}>
@@ -415,7 +331,7 @@ export default function TopicNotes() {
                         onClick={async () => {
                           try {
                             await openProtectedFile("study-materials", m.file_url, m.title);
-                          } catch (e: any) {
+                          } catch (e) {
                             toast.error(e?.message ?? "Could not download this file");
                           }
                         }}>
@@ -448,6 +364,90 @@ export default function TopicNotes() {
           )}
         </CardContent>
       </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2"><BookOpen className="h-5 w-5 text-primary" /> Lessons</CardTitle>
+          <CardDescription>Structured lessons for {topicTitle}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {lessons.length === 0 ? (
+            <p className="text-sm text-muted-foreground py-4 text-center">No lessons have been created for this topic yet.</p>
+          ) : (
+            lessons.map((l) => (
+              <Link
+                key={l.id}
+                to={`/lessons/${l.id}/notes`}
+                className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/50 transition-colors"
+              >
+                <div className="min-w-0 flex-1">
+                  <p className="font-medium truncate">{l.title}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Lesson · {topicTitle}</p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0 ml-4">
+                  {role === "admin" && (
+                    <ContentEditor
+                      entityType="lesson"
+                      entityId={l.id}
+                      initialTitle={l.title}
+                      initialContent={l.content ?? null}
+                      onSaved={bumpRevision}
+                      trigger={
+                        <Button size="sm" variant="ghost" className="gap-1 h-8" onClick={(e) => e.preventDefault()}>
+                          <Pencil className="h-3.5 w-3.5" /> Edit
+                        </Button>
+                      }
+                    />
+                  )}
+                  <Badge variant="outline" className="text-[10px]">Notes</Badge>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                </div>
+              </Link>
+            ))
+          )}
+        </CardContent>
+      </Card>
+
+      {mastery && (
+        <Card className={mastery.examReady ? "border-emerald-500/40" : ""}>
+          <CardContent className="flex flex-wrap items-center gap-4 p-4">
+            <TopicMasteryRing percent={mastery.percent} band={mastery.band} label={`${topicTitle} mastery ${mastery.percent}%`} />
+            <div className="min-w-0 flex-1">
+              <p className="font-semibold">
+                {mastery.examReady ? "Exam-ready" : `${mastery.mastered} of ${mastery.total} objectives mastered`}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {mastery.examReady
+                  ? "Every objective in this topic is mastered. Keep it green with refresh checks."
+                  : "Master every objective to turn this topic green — wrong answers come back as Strengthen checks."}
+              </p>
+            </div>
+            <Button asChild variant={mastery.examReady ? "outline" : "default"} size="sm" className="gap-1.5">
+              <Link to="/mastery">
+                {mastery.examReady ? "Refresh checks" : "Strengthen"} <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      )}
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        {[
+          { label: "Lessons", value: topicLessons, icon: BookOpen, color: accent.text },
+          { label: "Notes", value: topicNotesCount, icon: FileText, color: accent.text },
+          { label: "Topic Questions", value: quizzes.length, icon: Play, color: accent.text },
+        ].map((s) => (
+          <Card key={s.label}>
+            <CardContent className="flex items-center gap-3 p-4">
+              <s.icon className={`h-5 w-5 ${s.color}`} />
+              <div>
+                <p className="text-xl font-bold leading-none">{s.value}</p>
+                <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
       <Card className="min-w-0">
         <CardHeader>

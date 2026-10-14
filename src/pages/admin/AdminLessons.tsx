@@ -64,7 +64,7 @@ export default function AdminLessons() {
     let topicId: string | null = null;
     try {
       topicId = await resolveTopicId(topicName);
-    } catch (e: any) {
+    } catch (e) {
       // A topic name is guarded too, so a damaged one can be refused here.
       toast({
         title: "Could not look up that topic",
@@ -96,7 +96,7 @@ export default function AdminLessons() {
     toast({ title: "Deleted" }); load();
   };
 
-  const openEdit = (l: any) => {
+  const openEdit = (l) => {
     setEditing(l); setTitle(l.title); setContent(l.content ?? ""); setTopicName(l.topics?.name ?? ""); setVideoUrl(l.video_url ?? ""); setZoomUrl(l.zoom_url ?? ""); setSortOrder(l.sort_order); setOpen(true);
   };
 

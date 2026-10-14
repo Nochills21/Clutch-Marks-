@@ -72,7 +72,7 @@ export function useMySubjects() {
     )
       .then(({ data }) => {
         if (cancelled) return;
-        setPicks(new Set((data ?? []).map((r: any) => r.subject_level_id)));
+        setPicks(new Set((data ?? []).map((r) => r.subject_level_id)));
       })
       .catch((error) => {
         // Recoverable: leaving `picks` empty shows the subject picker, and

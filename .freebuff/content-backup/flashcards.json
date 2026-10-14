@@ -162,7 +162,7 @@
  {
   "id": "04bc216e-d665-475f-ac91-a0436b54d60d",
   "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
-  "front": "Validation vs verification",
+  "front": "Verification: checking entry accuracy",
   "back": "Validation checks plausibility on input (range, type). Verification checks accuracy of entry (double entry).",
   "sort_order": 8,
   "created_at": "2026-10-12 07:47:24.107802+00"
@@ -794,7 +794,7 @@
  {
   "id": "18e71b29-fde6-4c5a-9df3-016b3e8f1e89",
   "set_id": "e7dff2a4-8ff1-4b1b-9c02-e2aa020fd343",
-  "front": "Basics",
+  "front": "Wave energy transfer",
   "back": "A wave transfers energy without net transfer of matter.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -1186,7 +1186,7 @@
  {
   "id": "22aec09d-088b-4bcf-9408-0f532fbf0f20",
   "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
-  "front": "The Nucleus",
+  "front": "Nuclide notation and isotopes",
   "back": "Protons + neutrons (nucleons). Nuclide notation: ᴬZX — Z protons, A nucleons. Isotopes share Z, differ in N.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -1250,7 +1250,7 @@
  {
   "id": "243fb161-265b-4dd4-84f8-5d78790ee4a8",
   "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
-  "front": "Recursion",
+  "front": "Recursion: base case and call stack",
   "back": "A recursive routine calls itself with a smaller input and a base case that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
@@ -1514,7 +1514,7 @@
  {
   "id": "2c5eb63d-0f22-415f-a835-9df394aa7584",
   "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
-  "front": "Recursion",
+  "front": "Recursive factorial",
   "back": "A function calling itself with a base case. Factorial: f(0)=1, f(n)=n·f(n−1). Stack frames handle state.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:33.346797+00"
@@ -1650,7 +1650,7 @@
  {
   "id": "314139e7-9445-45be-bec0-9664eac0ef87",
   "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
-  "front": "Potential",
+  "front": "Electric potential",
   "back": "V = W/q, scalar; E = −dV/dr. Potential energy of q at V is qV.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:33.346797+00"
@@ -1658,7 +1658,7 @@
  {
   "id": "3184aef8-4851-483f-a245-4a60297ce2a5",
   "set_id": "c477df2e-d7ac-46bd-852e-5af9a0a6be07",
-  "front": "Photons",
+  "front": "Photon energy",
   "back": "E = hf = hc/λ, h = 6.63 × 10⁻³⁴ J s.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -1842,7 +1842,7 @@
  {
   "id": "36bb75a3-3617-40e6-86bb-fb8a8f88c22f",
   "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
-  "front": "Basics",
+  "front": "Data types and casting",
   "back": "Constants vs variables; types: INTEGER, REAL, CHAR, STRING, BOOLEAN, DATE; casting between them. Declaration with meaningful names.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -2826,7 +2826,7 @@
  {
   "id": "58baaeff-0000-4a99-b674-8602d701e61d",
   "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
-  "front": "Conditional probability",
+  "front": "Conditional probability: restricting to the condition",
   "back": "Restrict the denominator to the condition: 12 females of 20 glasses-wearers gives 3/5.",
   "sort_order": 8,
   "created_at": "2026-10-12 07:36:16.038442+00"
@@ -3154,7 +3154,7 @@
  {
   "id": "63db1bd8-45cd-4e97-8bdf-43ea3d8d0d98",
   "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
-  "front": "Testing",
+  "front": "Black-box vs white-box testing; dry runs",
   "back": "White-box tests trace internal paths; black-box tests check specification behaviour. Choose normal, boundary and erroneous data. Dry runs use trace tables recording variables line by line; a trace of recursion should log each call and its return.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
@@ -3322,7 +3322,7 @@
  {
   "id": "68429cff-c895-4770-8df3-1b8f349e36d5",
   "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
-  "front": "Testing",
+  "front": "Types of test data",
   "back": "Normal (typical), abnormal (rejects invalid), boundary (extremes just inside/outside). Test data tables list input → expected output.",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:34.091917+00"
@@ -3426,7 +3426,7 @@
  {
   "id": "6b33ae80-5952-4e22-acbe-94d6196a9ed8",
   "set_id": "3d93ef99-c0fc-4151-a202-9cdc85b364f3",
-  "front": "Validation vs verification",
+  "front": "Validation: automatic data checks",
   "back": "Validation : automatic checks on data — range (exam mark 0–100), length (password ≥ 8), type, format (postcode pattern), presence (field not empty), check digit (barcode).",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.091917+00"
@@ -3562,7 +3562,7 @@
  {
   "id": "6e08b2c9-f879-4e17-99d0-0f0514044e90",
   "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
-  "front": "Basics",
+  "front": "Probability rules",
   "back": "P(event) = favourable/total; 0 ≤ P ≤ 1; P(not A) = 1 − P(A). Probabilities of a complete set sum to 1 — use to find a missing probability.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -3938,7 +3938,7 @@
  {
   "id": "79512203-0fd5-4a7f-b7af-05594f7f6e54",
   "set_id": "31a9d2a1-e5fe-4c70-a9da-d39861746fed",
-  "front": "Efficiency",
+  "front": "Efficiency of an energy transfer",
   "back": "Efficiency = useful output ÷ total input (×100%). Sankey diagrams show losses.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.636501+00"
@@ -4122,7 +4122,7 @@
  {
   "id": "7f664851-214c-4b35-be15-1437f575a68e",
   "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
-  "front": "IDEs",
+  "front": "Features of an IDE",
   "back": "Editors with syntax highlighting, autocompletion, debugger (breakpoints, stepping, variable watch), and integrated compilation.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
@@ -4338,7 +4338,7 @@
  {
   "id": "876bc17a-8e8e-4b4e-a752-09fcf4de96fd",
   "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
-  "front": "Basics",
+  "front": "Complex number form and equality",
   "back": "i² = −1. A complex number z = a + bi has real part a and imaginary part b. Two numbers are equal iff both parts match.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -4458,7 +4458,7 @@
  {
   "id": "8ae388ad-49c1-443d-8dd5-c58eb84f3aec",
   "set_id": "87d5bf34-c749-452e-87ef-be044fd8549b",
-  "front": "Kinematics",
+  "front": "Average speed under uniform acceleration",
   "back": "Speed = distance/time; average speed = (u + v)/2 for uniform acceleration.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -6234,7 +6234,7 @@
  {
   "id": "c369d5d1-8fce-4782-a7cc-689aa950d6f5",
   "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
-  "front": "Capacitance",
+  "front": "Capacitance and stored energy",
   "back": "C = Q/V (farads). Energy stored: W = ½QV = ½CV².",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
@@ -6362,8 +6362,8 @@
  {
   "id": "c6ce66b5-4418-4ac4-9d71-274c71c655c6",
   "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
-  "front": "Radioactive Decay",
-  "back": "Type What changes Stopped by",
+  "front": "Alpha, beta and gamma: ionisation and penetration",
+  "back": "Alpha: helium nucleus, strongly ionising, stopped by paper or a few cm of air. Beta: fast electron, moderately ionising, stopped by a few mm of aluminium. Gamma: high-energy EM radiation, weakly ionising, needs thick lead or concrete.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
@@ -6450,8 +6450,8 @@
  {
   "id": "c8cb6922-9086-49a2-9d3b-6150df88fdc7",
   "set_id": "a7cabf3b-9c20-4caa-830f-a1f06ee600c4",
-  "front": "Assembler",
-  "back": "assembly → machine code (1:1)",
+  "front": "What an assembler does",
+  "back": "An assembler translates assembly language (mnemonics) into machine code, one instruction per line (1:1).",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
@@ -6586,7 +6586,7 @@
  {
   "id": "ccde3745-3ea7-4494-86b1-086f90a94dcd",
   "set_id": "65a3fb9e-eba1-4524-9302-e30cfb17e9be",
-  "front": "Harmonics",
+  "front": "Harmonics on a string fixed at both ends",
   "back": "A string fixed at both ends: f₁ = v/2L, then 2f₁, 3f₁… Closed pipes resonate at odd multiples; open pipes at all multiples.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
@@ -6794,7 +6794,7 @@
  {
   "id": "d391c625-c684-473b-b43b-a8ecf1b00cb1",
   "set_id": "2cc96d0b-014c-40b7-8ae1-2e466c1d3647",
-  "front": "Measuring",
+  "front": "Measuring length precisely",
   "back": "Length: ruler (mm), vernier calipers (0.1 mm / 0.01 cm), micrometer screw gauge (0.01 mm).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
@@ -7650,7 +7650,7 @@
  {
   "id": "ed065d9c-570a-451a-82a9-32b5132ff3f5",
   "set_id": "06445612-40db-4f5d-803a-102e821c9ecd",
-  "front": "Conditional probability",
+  "front": "Conditional probability: the formula",
   "back": "P(A|B) = P(A ∩ B)/P(B). From tree diagrams it is the \"given the first branch happened\" re-weighting.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
@@ -8082,7 +8082,7 @@
  {
   "id": "f9c4b2dc-2840-4865-bba6-c25292c3f04c",
   "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
-  "front": "Potential",
+  "front": "Gravitational potential",
   "back": "Gravitational potential φ = −GM/r (zero at infinity). Potential gradient gives field strength: g = −dφ/dr.",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:34.091917+00"
@@ -8170,7 +8170,7 @@
  {
   "id": "fc9b21a7-e003-491a-b79a-15c5896567d7",
   "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
-  "front": "Definitions",
+  "front": "Displacement",
   "back": "Displacement s: distance in a given direction (vector)",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"

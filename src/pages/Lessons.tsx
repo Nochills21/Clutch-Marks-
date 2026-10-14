@@ -43,11 +43,11 @@ export default function Lessons() {
   // Save the open lesson as branded revision paper. The export loads the brand
   // tile and stamps the account watermark, so it is async and can fail (offline,
   // a blocked canvas) — awaited in a try/catch rather than fired into the void.
-  const saveLessonPdf = async (lesson: any) => {
+  const saveLessonPdf = async (lesson) => {
     try {
       await exportLessonToPdf(lesson, { owner: user?.email ?? user?.id ?? null });
       toast({ title: "Saved", description: "Your PDF is downloading." });
-    } catch (e: any) {
+    } catch (e) {
       toast({
         title: "Couldn't build the PDF",
         description: e?.message ?? "Please try again.",
@@ -71,7 +71,7 @@ export default function Lessons() {
       setLessons(lessonsRes.data ?? []);
       setNotes(notesRes.data ?? []);
       const prog: Record<string, boolean> = {};
-      (progressRes.data ?? []).forEach((p: any) => { prog[p.lesson_id] = p.completed; });
+      (progressRes.data ?? []).forEach((p) => { prog[p.lesson_id] = p.completed; });
       setProgress(prog);
       // Resolve each topic's hub links (notes / questions) and badge
       // label via its subject level + subject slug.
@@ -120,14 +120,14 @@ export default function Lessons() {
     // away — they see every subject, still cut down by the free-plan slice
     // below, exactly like a student on the free plan.
     const picked = user
-      ? topics.filter((t: any) => pickedIds.has((t as any).subject_level_id))
+      ? topics.filter((t) => pickedIds.has((t as any).subject_level_id))
       : topics;
     if (planLoading) return picked;
     // Free plan: first 2 lessons per subject-level (preview limit)
     if (!isPreview) {
       const byLevel = new Map<string, any[]>();
       for (const t of picked) {
-        const qs = lessons.filter((l: any) => l.topic_id === t.id);
+        const qs = lessons.filter((l) => l.topic_id === t.id);
         byLevel.set(t.id, qs);
       }
       const limited = new Map<string, any[]>();
@@ -144,8 +144,8 @@ export default function Lessons() {
     if (isAdmin || !prefsLoaded) return 0;
     if (!isPreview) {
       let total = 0;
-      for (const t of pickedIds ? topics.filter((t: any) => pickedIds.has(t.subject_level_id)) : topics) {
-        total += (lessons.filter((l: any) => l.topic_id === t.id)).length;
+      for (const t of pickedIds ? topics.filter((t) => pickedIds.has(t.subject_level_id)) : topics) {
+        total += (lessons.filter((l) => l.topic_id === t.id)).length;
       }
       return total;
     }
@@ -330,7 +330,7 @@ export default function Lessons() {
                         <button
                           key={n.id}
                           onClick={() => {
-                            if (n.file_url) openSignedFile("study-materials", n.file_url).catch((e: any) => toast({ title: "Couldn't open this file", description: e?.message ?? "Please try again.", variant: "destructive" }));
+                            if (n.file_url) openSignedFile("study-materials", n.file_url).catch((e) => toast({ title: "Couldn't open this file", description: e?.message ?? "Please try again.", variant: "destructive" }));
                             else if (dest) navigate(dest);
                           }}
                           className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm hover:bg-muted transition-colors text-left"

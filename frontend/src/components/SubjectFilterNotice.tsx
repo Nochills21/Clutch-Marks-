@@ -45,7 +45,7 @@ export function SubjectFilterNotice() {
         description: "All subjects and their lessons are visible again.",
       });
       setDismissed(true);
-    } catch (e: any) {
+    } catch (e) {
       toast({
         title: "Could not change subjects",
         description: e?.message ?? "Check your connection and try again.",

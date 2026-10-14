@@ -132,7 +132,7 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
     try {
       // Reuse the existing corrector, but name the paper so marking is anchored
       // to this sitting rather than a generic set of answers.
-      const out = await callPaperCorrector(answers, "cloudflare", undefined, {
+      const out = await callPaperCorrector(answers, "gemini", undefined, {
         id: paper.id,
         title: paper.title,
         session: paper.session,
@@ -163,7 +163,7 @@ export function PaperPractice({ paper, open, onOpenChange, onSaved }: PaperPract
         title: "Sitting saved",
         description: `${out.overall_grade}%${attempt?.xp_earned ? ` · +${attempt.xp_earned} XP` : ""}`,
       });
-    } catch (e: any) {
+    } catch (e) {
       // A plan refusal swaps the dialog for an upgrade card; anything else
       // keeps the answers and returns to the running step so a transient
       // failure is retryable without losing the sitting.
