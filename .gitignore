@@ -79,3 +79,18 @@ Notes.zip
 
 # Local content backups (scripts/backup-content.cjs) — large, machine-specific.
 backups/
+
+# Autobuild bundle (rebuildable: scripts/build-single-file.cjs from vite.config.ts).
+# Large, machine-specific, and redundant with the project's own build toolchain.
+# This project ships via `npm run build` and the Vercel/Render hooks above, so the
+# standalone bundle is deliberately excluded from git (and from the deploy manifest
+# unless that hook explicitly opts into it).
+dist-single/
+
+# One-off spec/extract PDFs and recall-question exports used during content work.
+.freebuff-tmp/spec/
+.freebuff-tmp/retired-recall-questions.json
+
+# Playtest / QA snapshots generated under this worktree. Not part of the shipped product.
+
+# Playtest / QA snapshots generated under this worktree. Not part of the shipped product.
