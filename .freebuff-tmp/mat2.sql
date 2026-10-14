@@ -1,0 +1,1 @@
+select count(*) filter (where file_url is not null) as with_file, count(*) filter (where material_type in ('notes') and length(content)<1000) as short_notes, count(*) filter (where material_type in ('notes') and length(content)<1000 and file_url is not null) as short_notes_with_file from public.study_materials;

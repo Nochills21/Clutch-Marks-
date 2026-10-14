@@ -1,0 +1,6 @@
+{
+  "1": "In any triangle each side divided by the sine of its opposite angle is the same, which is the diameter of the triangle's circumcircle. That is why the rule works for every triangle, not only right-angled ones. Two sides and a non-included angle can give two triangles, so check for the second solution.",
+  "2": "The cosine rule generalises Pythagoras. When A = 90°, cos A = 0 and the formula reduces to a² = b² + c², so it is the same result with a correction for the angle.",
+  "3": "Points on the unit circle at angle x have coordinates (cos x, sin x). The identity sin²x + cos²x = 1 is Pythagoras applied to that point, and tan x = sin x ÷ cos x follows from the same picture.",
+  "4": "The calculator gives only the principal value, which lies in a fixed range. The sine and cosine graphs are symmetric and periodic, so the other solutions come from reflection and repetition within the range the question gives."
+}

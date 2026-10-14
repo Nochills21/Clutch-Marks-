@@ -1,0 +1,1 @@
+select q.question_text, q.options::text as opts, q.correct_option, q.difficulty, q.sort_order, q.statement_id is not null as linked, z.id::text as quiz, z.title, z.is_published, z.exam_type, z.description from questions q join quizzes z on z.id=q.quiz_id join topics t on t.id=z.topic_id where t.slug='kinematics' order by q.sort_order limit 2;

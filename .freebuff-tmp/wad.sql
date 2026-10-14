@@ -1,0 +1,1 @@
+select q.question_text, q.options::text as opts, q.correct_option, q.explanation, q.difficulty, q.statement_id, q.objective_id, z.title as quiz, t.slug as topic from public.questions q join public.quizzes z on z.id=q.quiz_id join public.topics t on t.id=z.topic_id where q.id='f3574328-ff25-49db-a43c-083505e41a1e';

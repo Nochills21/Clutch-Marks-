@@ -1,0 +1,43 @@
+{
+  "Q026": {
+    "correct_option": 1,
+    "explanation": "Use the general term formula for \\((a + bx)^n\\), which is \\(\\binom{n}{r} a^{n-r} (bx)^r\\) M1 [1]. For \\(x^2\\) take \\(r = 2\\), with \\(n = 5\\), \\(a = 3\\) and \\(b = 2\\), giving the term \\(\\binom{5}{2}(3)^{3}(2x)^2\\) M1 [1]. Evaluate \\(\\binom{5}{2} = 10\\), \\(3^3 = 27\\) and \\((2x)^2 = 4x^2\\). Multiplying these gives \\(10 \\times 27 \\times 4 = 1080\\). The exact coefficient is 1080 A1 [1]."
+  },
+  "Q029": {
+    "correct_option": 0,
+    "explanation": "Factor out 4 from inside the square root so the bracket takes the form \\((1 + bx)^n\\): \\(\\sqrt{4\\left(1 - \\frac{x}{4}\\right)} = 2\\left(1 - \\frac{x}{4}\\right)^{\\frac{1}{2}}\\) M1 [1]. Expand the bracket with \\(n = \\frac{1}{2}\\) and \\(bx = -\\frac{x}{4}\\) M1 [1]: \\(1 + \\frac{1}{2}\\left(-\\frac{x}{4}\\right) + \\frac{\\left(\\frac{1}{2}\\right)\\left(-\\frac{1}{2}\\right)}{2!}\\left(-\\frac{x}{4}\\right)^2 = 1 - \\frac{x}{8} - \\frac{x^2}{128}\\). Multiplying every term by the factor 2 outside gives the first three terms \\(2 - \\frac{1}{4}x - \\frac{1}{64}x^2\\) M1 [1]. The exact expansion is \\(2 - \\frac{1}{4}x - \\frac{1}{64}x^2\\) A1 [1]."
+  },
+  "Q031": {
+    "correct_option": 0,
+    "question_text": "Solve the equation \\(5^{2x} = 3^{x+1}\\). Give your answer to 3 significant figures. [WMA12 P2, 4 marks]",
+    "options": ["0.518", "0.431", "0.564", "0.829"],
+    "explanation": "Take logarithms of both sides: \\(\\log(5^{2x}) = \\log(3^{x+1})\\) M1 [1]. Bring the exponents to the front: \\(2x \\log 5 = (x + 1)\\log 3\\) M1 [1]. Expand the right side and collect the x terms: \\(x(2\\log 5 - \\log 3) = \\log 3\\) M1 [1]. Solve for x: \\(x = \\frac{\\log 3}{2\\log 5 - \\log 3} \\approx \\frac{0.47712}{0.92082} \\approx 0.5181\\). To 3 significant figures the solution is 0.518 A1 [1]."
+  },
+  "Q034": {
+    "correct_option": 0,
+    "options": ["15.75", "7.5", "8.25", "9.0"],
+    "explanation": "Rewrite the fraction with a negative index and integrate term by term with the power rule: \\(\\int_1^4 (2x + x^{-2}) dx = \\left[x^2 - \\frac{1}{x}\\right]_1^4\\) M1 [1]. Substitute the upper limit: \\(4^2 - \\frac{1}{4} = 16 - 0.25 = 15.75\\) M1 [1]. Substitute the lower limit: \\(1^2 - \\frac{1}{1} = 0\\) M1 [1]. Subtracting the lower value from the upper gives \\(15.75\\), so the exact value is 15.75 A1 [1]."
+  },
+  "Q037": {
+    "correct_option": 0,
+    "options": ["0.775", "0.792", "0.785", "0.750"],
+    "explanation": "Find the strip width \\(h = \\frac{1 - 0}{2} = 0.5\\) M1 [1]. The ordinates are \\(x_0 = 0, x_1 = 0.5, x_2 = 1.0\\), giving \\(y_0 = 1\\), \\(y_1 = \\frac{1}{1.25} = 0.8\\) and \\(y_2 = 0.5\\) M1 [1]. Apply the trapezoidal rule: \\(\\frac{h}{2}(y_0 + y_2 + 2y_1) = \\frac{0.5}{2}(1 + 0.5 + 2(0.8)) = 0.25(3.1)\\) M1 [1]. This gives \\(0.775\\), so the estimate to 3 decimal places is 0.775 A1 [1]."
+  },
+  "Q043": {
+    "correct_option": 1,
+    "explanation": "We are given \\(ar = 6\\), so \\(a = \\frac{6}{r}\\), and \\(S_\\infty = \\frac{a}{1 - r} = 25\\) M1 [1]. Substitute \\(a = \\frac{6}{r}\\): \\(\\frac{6}{r(1 - r)} = 25\\) M1 [1]. Rearrange into a quadratic: \\(6 = 25r(1 - r)\\), so \\(25r^2 - 25r + 6 = 0\\) M1 [1]. Factorise: \\((5r - 2)(5r - 3) = 0\\), giving \\(r = \\frac{2}{5} = 0.4\\) and \\(r = \\frac{3}{5} = 0.6\\), both of which satisfy \\(\\vert{}r\\vert{} < 1\\). The possible values are 0.4 or 0.6 A1 [1]."
+  },
+  "Q046": {
+    "correct_option": 1,
+    "question_text": "Given that \\((x - 2)\\) is a factor of \\(x^3 + kx^2 - 11x + 6\\), find the exact value of k. [WMA12 P2, 3 marks]",
+    "explanation": "By the factor theorem, if \\((x - 2)\\) is a factor then substituting \\(x = 2\\) gives zero M1 [1]. Set up the equation: \\(2^3 + k(2)^2 - 11(2) + 6 = 0\\) M1 [1]. Simplify: \\(8 + 4k - 22 + 6 = 0\\), which reduces to \\(4k - 8 = 0\\). Therefore the exact value of k is 2 A1 [1]."
+  },
+  "Q047": {
+    "correct_option": 1,
+    "explanation": "Use the general term formula \\(\\binom{n}{r} a^{n-r} b^r\\) M1 [1]. For the \\(x^3\\) term take \\(n = 7\\), \\(r = 3\\), \\(a = 2\\) and \\(b = 1\\): \\(\\binom{7}{3}(2)^{4}(x)^3\\) M1 [1]. Calculate \\(\\binom{7}{3} = 35\\) and \\(2^4 = 16\\). Multiplying gives \\(35 \\times 16 = 560\\), so the exact coefficient is 560 A1 [1]."
+  },
+  "Q049": {
+    "correct_option": 1,
+    "explanation": "Integrate the polynomial with the power rule: \\(\\int (3x^2 - 2x + 1) dx = x^3 - x^2 + x\\) M1 [1]. Apply the limits: \\(\\left[x^3 - x^2 + x\\right]_1^2\\) M1 [1]. At \\(x = 2\\): \\(8 - 4 + 2 = 6\\). At \\(x = 1\\): \\(1 - 1 + 1 = 1\\). Subtracting the lower limit from the upper gives \\(6 - 1 = 5\\) M1 [1]. The exact value is 5 A1 [1]."
+  }
+}

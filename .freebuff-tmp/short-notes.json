@@ -1,0 +1,1244 @@
+[
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "algorithms-programming",
+    "id": "6cec9be3-8863-48ae-b426-084f33567d9b",
+    "material_type": "summary",
+    "title": "Algorithms & Programming — Quick Revision Summary",
+    "text_len": 444
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "data-representation",
+    "id": "bfb3a5da-592c-4c27-b57d-df44885a19d9",
+    "material_type": "summary",
+    "title": "Data Representation — Quick Revision Summary",
+    "text_len": 395
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "database-systems",
+    "id": "d4d41ed0-cbb8-4358-909f-a9a7d7aa7149",
+    "material_type": "summary",
+    "title": "Database Systems — Quick Revision Summary",
+    "text_len": 427
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "ethics-security-impact",
+    "id": "1cbe3f90-97ce-4f84-8928-e7f861cadf0e",
+    "material_type": "summary",
+    "title": "Ethics, Security & Impact — Quick Revision Summary",
+    "text_len": 488
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "hardware-architecture",
+    "id": "d07d1666-3d97-477e-be2e-83709b9c429c",
+    "material_type": "summary",
+    "title": "Hardware & Architecture — Quick Revision Summary",
+    "text_len": 423
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "logic-gates-boolean-logic",
+    "id": "b6a60bd2-bb48-4e1a-a466-d85e083f3864",
+    "material_type": "summary",
+    "title": "Logic Gates & Boolean Logic — Quick Revision Summary",
+    "text_len": 422
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "networking-communication",
+    "id": "df55315a-8910-4ae3-9efa-c0687ddc1336",
+    "material_type": "summary",
+    "title": "Networking & Communication — Quick Revision Summary",
+    "text_len": 430
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "operating-systems",
+    "id": "b7f9feba-e818-46de-814a-b49f366be6b8",
+    "material_type": "summary",
+    "title": "Operating Systems — Quick Revision Summary",
+    "text_len": 433
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "programming-concepts",
+    "id": "1eb9529e-c138-45df-bf2b-3b19ae7f78e9",
+    "material_type": "summary",
+    "title": "Programming Concepts — Quick Revision Summary",
+    "text_len": 411
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "robotics-ai",
+    "id": "df370140-5994-418a-a951-ee91f81d7ebd",
+    "material_type": "summary",
+    "title": "Robotics & AI — Quick Revision Summary",
+    "text_len": 410
+  },
+  {
+    "subject": "computer-science",
+    "level": "OL",
+    "topic": "web-technologies",
+    "id": "65b69ba8-a597-453b-9400-fff8b8582b14",
+    "material_type": "summary",
+    "title": "Web Technologies — Quick Revision Summary",
+    "text_len": 379
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "communication-and-networking",
+    "id": "e984fd15-d160-45e6-984a-ec7940c7650b",
+    "material_type": "summary",
+    "title": "Communication and Networking — Quick Revision Summary",
+    "text_len": 353
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "data-structures",
+    "id": "56ee9aa1-f335-4a7a-9af1-1b32e9b1d4d5",
+    "material_type": "summary",
+    "title": "Data Structures — Quick Revision Summary",
+    "text_len": 315
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "databases",
+    "id": "979f42e1-d3ff-4dd4-8993-d6a7ada44e76",
+    "material_type": "summary",
+    "title": "Databases — Quick Revision Summary",
+    "text_len": 277
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "ethics-and-ai",
+    "id": "25c811e0-13a3-4375-91d3-0d2c8110fc77",
+    "material_type": "summary",
+    "title": "Ethics and AI — Quick Revision Summary",
+    "text_len": 322
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "hardware-and-logic-gates",
+    "id": "adfdd6de-4b49-4644-ba99-f93eddeef0bd",
+    "material_type": "summary",
+    "title": "Hardware and Logic Gates — Quick Revision Summary",
+    "text_len": 353
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "information-representation",
+    "id": "f187bf2b-d087-4965-90c9-cf1449f19473",
+    "material_type": "summary",
+    "title": "Information Representation — Quick Revision Summary",
+    "text_len": 339
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "processor-fundamentals",
+    "id": "8ace548d-24a6-4523-87d6-efb8b01c02f9",
+    "material_type": "summary",
+    "title": "Processor Fundamentals — Quick Revision Summary",
+    "text_len": 318
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "programming-and-algorithms",
+    "id": "7ffb73b1-93f6-4a6b-95e2-46131d5d1317",
+    "material_type": "summary",
+    "title": "Programming and Algorithms — Quick Revision Summary",
+    "text_len": 330
+  },
+  {
+    "subject": "computer-science",
+    "level": "AS",
+    "topic": "system-software-and-security",
+    "id": "dda72fa0-d883-4994-9e85-9530efc1e841",
+    "material_type": "summary",
+    "title": "System Software and Security — Quick Revision Summary",
+    "text_len": 346
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "abstract-data-types",
+    "id": "7d59a676-02f5-41a7-8e3b-4447b3495899",
+    "material_type": "summary",
+    "title": "Abstract Data Types — Quick Revision Summary",
+    "text_len": 587
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "computational-thinking-and-problem-solving",
+    "id": "a08058d5-9984-4983-b1bd-fca455e25220",
+    "material_type": "summary",
+    "title": "Computational Thinking and Problem-Solving — Quick Revision Summary",
+    "text_len": 598
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "data-types-and-file-organisation",
+    "id": "eb0814a1-dfea-4224-af6d-931215635f9c",
+    "material_type": "summary",
+    "title": "Data Types and File Organisation — Quick Revision Summary",
+    "text_len": 766
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "databases-and-data-definition",
+    "id": "aa8b627f-2264-4698-be0f-0165fce80c9d",
+    "material_type": "summary",
+    "title": "Databases and Data Definition — Quick Revision Summary",
+    "text_len": 557
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "networks-and-the-internet",
+    "id": "3232dace-5b8d-4bde-8511-79a0bceb36fb",
+    "material_type": "summary",
+    "title": "Networks and the Internet — Quick Revision Summary",
+    "text_len": 624
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "programming-paradigms-and-low-level",
+    "id": "b0d2af91-b490-4d5c-85f0-c502fd80b1a3",
+    "material_type": "summary",
+    "title": "Programming Paradigms and Low-Level — Quick Revision Summary",
+    "text_len": 562
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "simulation-sensors-and-real-data",
+    "id": "39a4043c-189a-416c-882b-d9b503694e4e",
+    "material_type": "summary",
+    "title": "Simulation, Sensors and Real Data — Quick Revision Summary",
+    "text_len": 690
+  },
+  {
+    "subject": "computer-science",
+    "level": "A2",
+    "topic": "web-technologies-and-security",
+    "id": "242f1185-1c0f-4d78-8f75-b076f7880714",
+    "material_type": "summary",
+    "title": "Web Technologies and Security — Quick Revision Summary",
+    "text_len": 445
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "algebra-equations",
+    "id": "5044a262-a2b1-459f-92fb-3866734eb1a1",
+    "material_type": "summary",
+    "title": "Algebra — Equations — Quick Revision Summary",
+    "text_len": 444
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "algebra-graphs",
+    "id": "1e8487a9-74ee-4699-8e57-03a86a2d6ec3",
+    "material_type": "summary",
+    "title": "Algebra — Graphs — Quick Revision Summary",
+    "text_len": 430
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "algebra-inequalities",
+    "id": "074439e5-ee02-4481-98ca-67a38ac7edf8",
+    "material_type": "summary",
+    "title": "Algebra — Inequalities — Quick Revision Summary",
+    "text_len": 398
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "algebra-sequences-and-functions",
+    "id": "6f197bc5-9095-4ee7-9174-5057751e9f21",
+    "material_type": "summary",
+    "title": "Algebra — Sequences and Functions — Quick Revision Summary",
+    "text_len": 451
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "algebra-simplifying-and-expanding",
+    "id": "6b07220f-fe34-4ce6-83b5-5a5e4c4fe103",
+    "material_type": "summary",
+    "title": "Algebra — Simplifying and Expanding — Quick Revision Summary",
+    "text_len": 467
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "geometry-angles-and-polygons",
+    "id": "0832a964-36cb-422e-b5f2-f32b559c16d6",
+    "material_type": "summary",
+    "title": "Geometry — Angles and Polygons — Quick Revision Summary",
+    "text_len": 382
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "geometry-congruence-and-similarity",
+    "id": "4e688b99-920a-4bf0-bacc-3731d779167d",
+    "material_type": "summary",
+    "title": "Geometry — Congruence and Similarity — Quick Revision Summary",
+    "text_len": 431
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "mensuration-area-and-volume",
+    "id": "eb109f34-0b60-4e21-96b3-cdbf01b20885",
+    "material_type": "summary",
+    "title": "Mensuration — Area and Volume — Quick Revision Summary",
+    "text_len": 384
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "mensuration-bearings-and-loci",
+    "id": "fbcba50b-3333-4cbf-ab27-edc82bac1691",
+    "material_type": "summary",
+    "title": "Mensuration — Bearings and Loci — Quick Revision Summary",
+    "text_len": 375
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "number-arithmetic-and-place-value",
+    "id": "6d424f54-d316-4876-8768-e3b3df081df6",
+    "material_type": "summary",
+    "title": "Number — Arithmetic and Place Value — Quick Revision Summary",
+    "text_len": 452
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "number-fractions-decimals-and-percentages",
+    "id": "ef09f735-d75d-40c6-8308-fc8d4212d324",
+    "material_type": "summary",
+    "title": "Number — Fractions, Decimals and Percentages — Quick Revision Summary",
+    "text_len": 456
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "number-indices-and-standard-form",
+    "id": "9fe2f14b-5551-4243-bd1c-cc87b02ee427",
+    "material_type": "summary",
+    "title": "Number — Indices and Standard Form — Quick Revision Summary",
+    "text_len": 391
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "number-ratio-rate-and-proportion",
+    "id": "a62a1c91-ed1b-4585-9247-e2804f9c434b",
+    "material_type": "summary",
+    "title": "Number — Ratio, Rate and Proportion — Quick Revision Summary",
+    "text_len": 411
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "number-sets",
+    "id": "e7813732-d626-49af-a422-6d68faf6340b",
+    "material_type": "summary",
+    "title": "Number — Sets — Quick Revision Summary",
+    "text_len": 349
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "scatter-diagrams-and-correlation",
+    "id": "6e7e2341-7451-4e84-9e1c-69e220436abb",
+    "material_type": "summary",
+    "title": "Scatter Diagrams and Correlation — Quick Revision Summary",
+    "text_len": 414
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "statistics-data-handling",
+    "id": "18c77db3-3d16-4e63-b19a-c8fb9e1bdfc0",
+    "material_type": "summary",
+    "title": "Statistics — Data Handling — Quick Revision Summary",
+    "text_len": 390
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "statistics-probability",
+    "id": "e17a624b-2af7-4814-9f39-c302535c75f8",
+    "material_type": "summary",
+    "title": "Statistics — Probability — Quick Revision Summary",
+    "text_len": 424
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "transformations-and-vectors",
+    "id": "23188cf0-1f26-446b-8c51-fcce1cb9471a",
+    "material_type": "summary",
+    "title": "Transformations and Vectors — Quick Revision Summary",
+    "text_len": 442
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "trigonometry-right-angled-triangles",
+    "id": "fc574fd3-a368-4d93-ac10-03d2b0257133",
+    "material_type": "summary",
+    "title": "Trigonometry — Right-Angled Triangles — Quick Revision Summary",
+    "text_len": 404
+  },
+  {
+    "subject": "mathematics",
+    "level": "OL",
+    "topic": "trigonometry-sine-and-cosine-rules",
+    "id": "139e542c-853c-4cc8-adc9-753d2f78e2fa",
+    "material_type": "summary",
+    "title": "Trigonometry — Sine and Cosine Rules — Quick Revision Summary",
+    "text_len": 406
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "circular-measure",
+    "id": "7a971f20-7ee9-4a15-9c5d-d0b0420228e0",
+    "material_type": "summary",
+    "title": "Circular Measure — Quick Revision Summary",
+    "text_len": 370
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "circular-measure",
+    "id": "28b7ebd7-b943-4980-b5d5-755f8526819d",
+    "material_type": "notes",
+    "title": "Circular Measure & Sectors — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "circular-measure",
+    "id": "58f6b1bd-dd6c-4653-85e3-8c5ed5e1dd76",
+    "material_type": "notes",
+    "title": "Circular Measure & Sectors — Revision Notes (P1 Trigonometry B)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "coordinate-geometry",
+    "id": "48a22dad-ac6e-4a2c-b616-faca351645d9",
+    "material_type": "notes",
+    "title": "Coordinate Geometry — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "coordinate-geometry",
+    "id": "394cb753-26fe-47fd-a973-3989e8116211",
+    "material_type": "summary",
+    "title": "Coordinate Geometry — Quick Revision Summary",
+    "text_len": 415
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "coordinate-geometry",
+    "id": "aeea4b47-1fd5-4694-b62c-281cac5c10ce",
+    "material_type": "notes",
+    "title": "Coordinate Geometry — Revision Notes (P1)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "coordinate-geometry",
+    "id": "9cec7201-6956-44ec-aa6a-50a141777f11",
+    "material_type": "notes",
+    "title": "Coordinate Geometry — Summary Booklet (AS Revision)",
+    "text_len": 115
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "differentiation",
+    "id": "e80156fd-ec00-4ff2-a5b2-4f2e1951dd6d",
+    "material_type": "notes",
+    "title": "Differentiation — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "differentiation",
+    "id": "849a823f-2b5c-44c4-9432-5abe3f415a1f",
+    "material_type": "summary",
+    "title": "Differentiation — Quick Revision Summary",
+    "text_len": 345
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "differentiation",
+    "id": "e908872f-cf79-4883-8980-16255fbe7180",
+    "material_type": "notes",
+    "title": "Differentiation — Revision Notes (P1)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "differentiation",
+    "id": "99e6559d-e675-4258-9bc2-2149a0b50b82",
+    "material_type": "notes",
+    "title": "Differentiation — Summary Booklet (AS Revision)",
+    "text_len": 111
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "functions",
+    "id": "a5e5b5fb-bc6b-47a2-86b5-79dad143946f",
+    "material_type": "notes",
+    "title": "Functions — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "functions",
+    "id": "34e6b43c-48b2-408f-81c4-7699c8a95a7d",
+    "material_type": "summary",
+    "title": "Functions — Quick Revision Summary",
+    "text_len": 349
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "functions",
+    "id": "f2da9e82-d6ec-4141-b9f4-44caf3c1f6ec",
+    "material_type": "notes",
+    "title": "Functions — Revision Notes (P1)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "functions",
+    "id": "62a540b0-b84c-4f14-93ac-28e3d7306b97",
+    "material_type": "notes",
+    "title": "Functions — Summary Booklet (AS Revision)",
+    "text_len": 105
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "integration",
+    "id": "80ee71f3-e4c7-4f07-8a7d-10356850f4cb",
+    "material_type": "notes",
+    "title": "Integration — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "integration",
+    "id": "6d372466-7990-438f-ac73-a0c8b8a657d2",
+    "material_type": "summary",
+    "title": "Integration — Quick Revision Summary",
+    "text_len": 371
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "integration",
+    "id": "a7f84aa6-84b8-43c3-b387-1d8a2d7d907c",
+    "material_type": "notes",
+    "title": "Integration — Revision Notes (P1)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "integration",
+    "id": "017b83f8-4a5f-4e24-ab24-9d345e32d53f",
+    "material_type": "notes",
+    "title": "Integration — Summary Booklet (AS Revision)",
+    "text_len": 104
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "quadratics",
+    "id": "28f93177-0cc6-484c-9080-86a27805c0da",
+    "material_type": "notes",
+    "title": "Algebra Foundations — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "quadratics",
+    "id": "432b462a-edc3-451c-878a-2e73b878cc7c",
+    "material_type": "notes",
+    "title": "Algebra Foundations — Revision Notes (P1)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "quadratics",
+    "id": "c127f256-2232-4e26-9d74-eb179a073e49",
+    "material_type": "notes",
+    "title": "Discriminant — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "quadratics",
+    "id": "f82719f0-4e48-4ba1-911b-a2e06da06897",
+    "material_type": "notes",
+    "title": "Discriminant — Revision Notes (P1)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "quadratics",
+    "id": "d0a35e08-95a1-4cb2-8159-f10d1e086f8c",
+    "material_type": "summary",
+    "title": "Quadratics — Quick Revision Summary",
+    "text_len": 438
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "quadratics",
+    "id": "42843a4d-5003-4a14-b155-3a80cad00d3c",
+    "material_type": "notes",
+    "title": "Quadratics — Summary Booklet (AS Revision)",
+    "text_len": 109
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "sequences-and-series",
+    "id": "48eb2c92-c8a0-4948-94ec-04ba6f954e79",
+    "material_type": "notes",
+    "title": "Sequences and Series — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "sequences-and-series",
+    "id": "1e4fed25-c788-42a1-8331-cea119299ab9",
+    "material_type": "summary",
+    "title": "Sequences and Series — Quick Revision Summary",
+    "text_len": 346
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "sequences-and-series",
+    "id": "b57a4eed-8ce6-4f40-ae64-3e3a1e30ce2f",
+    "material_type": "notes",
+    "title": "Sequences and Series — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "trigonometry",
+    "id": "dc60ca88-40b1-4db8-9e46-667d8b536d23",
+    "material_type": "notes",
+    "title": "Trigonometry — Exam Questions (P1 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "trigonometry",
+    "id": "0886ecfd-6c56-4cec-a789-c9fb76259cd4",
+    "material_type": "summary",
+    "title": "Trigonometry — Quick Revision Summary",
+    "text_len": 440
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "trigonometry",
+    "id": "01c2ff35-5ae0-49bd-b5d4-0a22ae5215be",
+    "material_type": "notes",
+    "title": "Trigonometry — Revision Notes (P1)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "AS",
+    "topic": "trigonometry",
+    "id": "74af0921-b1f9-401b-9f0e-27d46557dd8f",
+    "material_type": "notes",
+    "title": "Trigonometry — Summary Booklet (AS Revision)",
+    "text_len": 108
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "binomial-distribution",
+    "id": "464ba5ea-f481-4229-ac71-6b3217804ea8",
+    "material_type": "summary",
+    "title": "Binomial Distribution — Quick Revision Summary",
+    "text_len": 384
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "complex-numbers",
+    "id": "4f15878c-8b50-429c-a3ea-19b2eae76d4c",
+    "material_type": "summary",
+    "title": "Complex Numbers — Quick Revision Summary",
+    "text_len": 416
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "continuous-random-variables",
+    "id": "2533db4e-b82d-4d5d-bc05-6e82b803ba82",
+    "material_type": "summary",
+    "title": "Continuous Random Variables — Quick Revision Summary",
+    "text_len": 471
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "differentiation-ii",
+    "id": "cdc68215-f8b4-494a-94c1-af933151fd8b",
+    "material_type": "notes",
+    "title": "Differentiation II — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "differentiation-ii",
+    "id": "75a8a9e4-15af-43f6-9395-1a37660fd65d",
+    "material_type": "summary",
+    "title": "Differentiation II — Quick Revision Summary",
+    "text_len": 404
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "differentiation-ii",
+    "id": "fcdc9bf0-d837-4c63-8a50-7153dc896c62",
+    "material_type": "notes",
+    "title": "Differentiation II — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "dd18931a-157d-48e7-9e66-bb652dc7340c",
+    "material_type": "notes",
+    "title": "Binomial Expansion — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "1931c053-d2df-4d17-b5e7-979b7c7d750d",
+    "material_type": "notes",
+    "title": "Binomial Expansion — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "bf28a182-8b42-4329-94cf-eedae01c6639",
+    "material_type": "notes",
+    "title": "Factor & Remainder Theorem — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "c3a28c7a-4e0b-41cc-aff2-7ce104799746",
+    "material_type": "notes",
+    "title": "Factor & Remainder Theorem — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "31047ce2-126a-4ce6-b0af-ce1049258953",
+    "material_type": "summary",
+    "title": "Further Algebra — Quick Revision Summary",
+    "text_len": 403
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "9ef53dcf-cf0b-4f69-a966-9e070614eda6",
+    "material_type": "notes",
+    "title": "Logarithms — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "601e8c93-b27d-45e8-9f14-5f11ef32dcfd",
+    "material_type": "notes",
+    "title": "Logarithms — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "facf761f-acdd-46df-ae16-f6799e6f402b",
+    "material_type": "notes",
+    "title": "Proofs — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-algebra",
+    "id": "2b44173a-bcfa-4283-b7e5-0b7f4481d594",
+    "material_type": "notes",
+    "title": "Proofs — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-trigonometry",
+    "id": "f8c8b001-6ff2-4a71-b419-6a8b19f1ab05",
+    "material_type": "notes",
+    "title": "Further Trigonometry — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-trigonometry",
+    "id": "2c00c211-7438-4cb8-9846-3e4cccf034a9",
+    "material_type": "summary",
+    "title": "Further Trigonometry — Quick Revision Summary",
+    "text_len": 368
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "further-trigonometry",
+    "id": "fb114d9b-a2cb-47b3-a90c-c1edca88d29c",
+    "material_type": "notes",
+    "title": "Further Trigonometry — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "hypothesis-testing",
+    "id": "46636b0d-bd26-45c4-92ab-5957188bc34d",
+    "material_type": "summary",
+    "title": "Hypothesis Testing — Quick Revision Summary",
+    "text_len": 466
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "integration-ii",
+    "id": "c447a914-6fe7-4dde-bc5a-8ebb56e4ef29",
+    "material_type": "notes",
+    "title": "Integration II — Exam Questions (P2 Classified)",
+    "text_len": 66
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "integration-ii",
+    "id": "e55b2928-1858-4fff-9a10-5587d803053b",
+    "material_type": "summary",
+    "title": "Integration II — Quick Revision Summary",
+    "text_len": 372
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "integration-ii",
+    "id": "ee89b58f-f19d-4079-895b-53eac277b2ff",
+    "material_type": "notes",
+    "title": "Integration II — Revision Notes (P2)",
+    "text_len": 60
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "measures-of-variation-and-standard-deviation",
+    "id": "eda06930-1fde-4f9f-bfdf-58bcf2a64245",
+    "material_type": "summary",
+    "title": "Measures of Variation and Standard Deviation — Quick Revision Summary",
+    "text_len": 677
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "numerical-measures-of-central-tendency",
+    "id": "c9ad3127-9994-4908-94f4-a408320c21ab",
+    "material_type": "summary",
+    "title": "Numerical Measures of Central Tendency — Quick Revision Summary",
+    "text_len": 331
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "permutations-and-combinations",
+    "id": "5f4ea511-14f7-47b6-b864-7c036cdcaaaf",
+    "material_type": "summary",
+    "title": "Permutations and Combinations — Quick Revision Summary",
+    "text_len": 581
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "poisson-distribution",
+    "id": "5fa2d944-3cb4-4d1b-b811-fe3f1d75dcbc",
+    "material_type": "summary",
+    "title": "Poisson Distribution — Quick Revision Summary",
+    "text_len": 559
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "probability",
+    "id": "ef8a0104-500c-4738-ba8d-7b0355e3119b",
+    "material_type": "summary",
+    "title": "Probability — Quick Revision Summary",
+    "text_len": 483
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "probability-distributions",
+    "id": "844f4bee-1575-40a3-a553-5acf50a41168",
+    "material_type": "summary",
+    "title": "Probability Distributions — Quick Revision Summary",
+    "text_len": 537
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "sampling-and-estimation",
+    "id": "e70f2ff0-b466-43aa-8198-65c76e368381",
+    "material_type": "summary",
+    "title": "Sampling and Estimation — Quick Revision Summary",
+    "text_len": 558
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "the-normal-distribution",
+    "id": "887eb0dc-eb5d-47ea-81ab-4d527cbcb3e1",
+    "material_type": "summary",
+    "title": "The Normal Distribution — Quick Revision Summary",
+    "text_len": 632
+  },
+  {
+    "subject": "mathematics",
+    "level": "A2",
+    "topic": "vectors",
+    "id": "6023ea36-590a-4e96-b1f4-1bde8040b4db",
+    "material_type": "summary",
+    "title": "Vectors — Quick Revision Summary",
+    "text_len": 440
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "earth-space",
+    "id": "3f486936-595a-4153-bc31-bd0cfdfb2a8d",
+    "material_type": "summary",
+    "title": "Earth & Space — Quick Revision Summary",
+    "text_len": 373
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "electricity-circuits",
+    "id": "c7daf842-eea0-4694-822c-73d26ee9d12a",
+    "material_type": "summary",
+    "title": "Electricity & Circuits — Quick Revision Summary",
+    "text_len": 470
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "energy-work-power",
+    "id": "bfa1398d-e6d9-434d-b29a-7d1e0ec1c782",
+    "material_type": "summary",
+    "title": "Energy, Work & Power — Quick Revision Summary",
+    "text_len": 378
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "forces-motion",
+    "id": "92ac219d-46c1-4f3b-9d29-8bcd68492b5c",
+    "material_type": "summary",
+    "title": "Forces & Motion — Quick Revision Summary",
+    "text_len": 504
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "magnetism-electromagnetism",
+    "id": "3f569a21-6b9a-4004-a7eb-1338d8bf8267",
+    "material_type": "summary",
+    "title": "Magnetism & Electromagnetism — Quick Revision Summary",
+    "text_len": 534
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "measurement-units",
+    "id": "c989dc5d-9cbc-49c9-a0d7-34613b70534f",
+    "material_type": "summary",
+    "title": "Measurement & Units — Quick Revision Summary",
+    "text_len": 455
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "nuclear-physics",
+    "id": "a31e240d-d35c-4916-b5d9-136f0cbe98a5",
+    "material_type": "summary",
+    "title": "Nuclear Physics — Quick Revision Summary",
+    "text_len": 418
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "pressure-density",
+    "id": "980eda3e-71d2-463a-8fde-138d0f37faf0",
+    "material_type": "summary",
+    "title": "Pressure & Density — Quick Revision Summary",
+    "text_len": 405
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "thermal-physics",
+    "id": "52d7d95f-02a1-4bca-8cd8-56763ac82239",
+    "material_type": "summary",
+    "title": "Thermal Physics — Quick Revision Summary",
+    "text_len": 484
+  },
+  {
+    "subject": "physics",
+    "level": "OL",
+    "topic": "waves-sound",
+    "id": "abaf06dc-1e29-438d-b5c0-9d2738e6e888",
+    "material_type": "summary",
+    "title": "Waves & Sound — Quick Revision Summary",
+    "text_len": 373
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "dynamics",
+    "id": "909d81df-9e5c-4113-8588-db4986eb9a6a",
+    "material_type": "summary",
+    "title": "Dynamics — Quick Revision Summary",
+    "text_len": 341
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "electricity-d-c-circuits",
+    "id": "ad1b115f-bf78-4238-8fc7-94833b10d60c",
+    "material_type": "summary",
+    "title": "Electricity: D.C. Circuits — Quick Revision Summary",
+    "text_len": 460
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "forces-and-equilibrium",
+    "id": "d744af58-5730-4a8b-abf9-dc3a40c52896",
+    "material_type": "summary",
+    "title": "Forces and Equilibrium — Quick Revision Summary",
+    "text_len": 465
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "kinematics",
+    "id": "12080994-0309-4d7d-8fea-86149b5a013f",
+    "material_type": "summary",
+    "title": "Kinematics — Quick Revision Summary",
+    "text_len": 358
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "materials-deformation",
+    "id": "ea3e26f0-5633-44d8-83cd-a2b20075b086",
+    "material_type": "summary",
+    "title": "Materials: Deformation — Quick Revision Summary",
+    "text_len": 414
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "motion-in-a-circle-and-gravity",
+    "id": "f6199585-7784-4ada-8bb6-a7bd76b8a931",
+    "material_type": "summary",
+    "title": "Motion in a Circle and Gravity — Quick Revision Summary",
+    "text_len": 421
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "superposition",
+    "id": "6684d335-e13b-4016-a272-14fad0b652a2",
+    "material_type": "summary",
+    "title": "Superposition — Quick Revision Summary",
+    "text_len": 444
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "waves",
+    "id": "0a6dd708-d477-4b7b-a734-f1178b3a3f67",
+    "material_type": "summary",
+    "title": "Waves — Quick Revision Summary",
+    "text_len": 331
+  },
+  {
+    "subject": "physics",
+    "level": "AS",
+    "topic": "work-energy-and-power",
+    "id": "f7323111-ee30-4cfd-8723-bc9f02828808",
+    "material_type": "summary",
+    "title": "Work, Energy and Power — Quick Revision Summary",
+    "text_len": 355
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "astronomy-and-cosmology",
+    "id": "2eba0d65-fcdd-4f71-bd2f-ba7ea6c8b8eb",
+    "material_type": "summary",
+    "title": "Astronomy and Cosmology — Quick Revision Summary",
+    "text_len": 401
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "circular-motion-and-shm",
+    "id": "24f6e4fa-159d-45b1-8282-7bd24292eb53",
+    "material_type": "summary",
+    "title": "Circular Motion and SHM — Quick Revision Summary",
+    "text_len": 378
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "electric-fields-and-capacitance",
+    "id": "e5f53156-8227-4f3c-92c7-dcdd8ea84914",
+    "material_type": "summary",
+    "title": "Electric Fields and Capacitance — Quick Revision Summary",
+    "text_len": 389
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "magnetic-fields-and-electromagnetism",
+    "id": "0b8c2b5f-335c-4baa-89a2-b14c808bfd1f",
+    "material_type": "summary",
+    "title": "Magnetic Fields and Electromagnetism — Quick Revision Summary",
+    "text_len": 409
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "nuclear-physics",
+    "id": "379155d8-4a5c-418e-b3cc-ecd40080281d",
+    "material_type": "summary",
+    "title": "Nuclear Physics — Quick Revision Summary",
+    "text_len": 382
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "oscillations-and-waves-ii",
+    "id": "2e10ac10-f110-4a0e-a462-9d0eec4f6a62",
+    "material_type": "summary",
+    "title": "Oscillations and Waves II — Quick Revision Summary",
+    "text_len": 506
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "quantum-physics",
+    "id": "7708d324-6446-47ec-89b1-66e4f1a7e6fe",
+    "material_type": "summary",
+    "title": "Quantum Physics — Quick Revision Summary",
+    "text_len": 335
+  },
+  {
+    "subject": "physics",
+    "level": "A2",
+    "topic": "thermal-physics",
+    "id": "7ef073cd-8302-40c9-9ac0-f0abfd7534fa",
+    "material_type": "summary",
+    "title": "Thermal Physics — Quick Revision Summary",
+    "text_len": 427
+  }
+]

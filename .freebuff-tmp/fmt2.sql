@@ -1,0 +1,1 @@
+select m.material_type, length(m.content) as len, left(m.content,1800) as head from study_materials m join topics t on t.id=m.topic_id where t.slug='kinematics' and m.material_type in ('notes','summary');

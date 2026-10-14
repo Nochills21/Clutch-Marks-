@@ -1,0 +1,8 @@
+{
+  "1": "Rotating a region about the x-axis sweeps out discs of area πy² at each x. The volume is the sum of those discs, which is the integral.",
+  "2": "Substituting u = g(x) changes the variable so the integrand matches a known form. The du/dx term accounts for how the small change in x is rescaled.",
+  "3": "Integration by parts is the product rule reversed. Choosing u as the part that becomes simpler when differentiated is what makes the new integral easier.",
+  "4": "Once a rational function is split into partial fractions, each term is integrated on its own. The decomposition is what turns one hard integral into several easy ones.",
+  "5": "Separating the variables lets each side be integrated independently. The constant comes from the initial condition, so the particular solution passes through the given point.",
+  "6": "The area under a parametric curve is the integral of y with respect to x. Writing dx as (dx/dt) dt converts the integral into the parameter t, which is how the curve is given."
+}

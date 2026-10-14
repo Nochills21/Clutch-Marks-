@@ -1,0 +1,119 @@
+backend/supabase/functions/ai-correction/index.ts:502: .filter((f: any) => f && typeof f === "object")
+backend/supabase/functions/ai-correction/index.ts:503: .map((f: any) => ({
+backend/supabase/functions/ai-correction/index.ts:626: ? rawPaper.map((p: any) =>
+backend/supabase/functions/ai-correction/index.ts:737: const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+backend/supabase/functions/generate-questions/index.ts:62: subjectName = (sl as any).subjects?.name ?? subjectName;
+backend/supabase/functions/generate-questions/index.ts:129: let parsed: any;
+backend/supabase/functions/generate-questions/index.ts:136: const generated = (parsed?.questions ?? []).filter((q: any) =>
+backend/supabase/functions/generate-questions/index.ts:160: const rows = generated.map((q: any, i: number) => ({
+backend/supabase/functions/quiz-feedback/index.ts:86: const wrong = questions.filter((q: any) => {
+backend/supabase/functions/quiz-feedback/index.ts:104: .map((q: any, i: number) => {
+backend/supabase/functions/quiz-feedback/index.ts:114: const topicName = (quiz as any).topics?.name ?? null;
+frontend/src/components/FileVersionHistory.tsx:71: const { error: updateError } = await (supabase as any)
+frontend/src/components/admin/ContentEditor.tsx:39: const [revisions, setRevisions] = useState<any[]>([]);
+frontend/src/components/dashboards/AdminDashboard.tsx:37: const c = ((countsRes.data ?? []) as any[])[0];
+frontend/src/components/dashboards/ParentDashboard.tsx:32: const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
+frontend/src/components/dashboards/ParentDashboard.tsx:32: const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
+frontend/src/components/dashboards/ParentDashboard.tsx:194: const avg = (xs: any[]) =>
+frontend/src/components/dashboards/StudentDashboard.tsx:67: const [announcements, setAnnouncements] = useState<any[]>([]);
+frontend/src/components/dashboards/StudentDashboard.tsx:98: const c = ((countsRes.data ?? []) as any[])[0];
+src/pages/Announcements.tsx:21: const [announcements, setAnnouncements] = useState<any[]>([]);
+src/pages/Flashcards.tsx:51: const [sets, setSets] = useState<any[]>([]);
+src/pages/Flashcards.tsx:52: const [topics, setTopics] = useState<any[]>([]);
+src/pages/Flashcards.tsx:56: const [studyCards, setStudyCards] = useState<any[]>([]);
+src/pages/Flashcards.tsx:59: const [progressMap, setProgressMap] = useState<Record<string, any>>({});
+src/pages/Flashcards.tsx:119: const pMap: Record<string, any> = {};
+src/pages/Flashcards.tsx:219: const byLevel = new Map<string, any[]>();
+src/pages/LessonNotes.tsx:33: const [lesson, setLesson] = useState<any>(null);
+src/pages/Lessons.tsx:30: const [topics, setTopics] = useState<any[]>([]);
+src/pages/Lessons.tsx:31: const [lessons, setLessons] = useState<any[]>([]);
+src/pages/Lessons.tsx:33: const [selectedLesson, setSelectedLesson] = useState<any>(null);
+src/pages/Lessons.tsx:34: const [notes, setNotes] = useState<any[]>([]);
+src/pages/Lessons.tsx:78: const slMap = new Map(((slRes.data ?? []) as any[]).map((s) => [s.id, s]));
+src/pages/Lessons.tsx:79: const subMap = new Map(((subRes.data ?? []) as any[]).map((s) => [s.id, s]));
+src/pages/Lessons.tsx:83: const sl = slMap.get((t as any).subject_level_id);
+src/pages/Lessons.tsx:123: ? topics.filter((t) => pickedIds.has((t as any).subject_level_id))
+src/pages/Lessons.tsx:128: const byLevel = new Map<string, any[]>();
+src/pages/Lessons.tsx:133: const limited = new Map<string, any[]>();
+src/pages/PastPapers.tsx:89: const [markPaper, setMarkPaper] = useState<any | null>(null);
+src/pages/Practice.tsx:375: const res = data as any;
+src/pages/Practice.tsx:404: const r = data as any;
+src/pages/Pricing.tsx:205: const row = (data as any[] | null)?.[0];
+src/pages/ProgressPage.tsx:131: const totalPct = topicAttempts.reduce((s: number, a: any) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0);
+src/pages/ProgressPage.tsx:139: if ((q as any).topic_id !== t.id) continue;
+src/pages/ProgressPage.tsx:140: const pq = practiceQ.get((q as any).id);
+src/pages/ProgressPage.tsx:145: if (bookmarkedIds.has((q as any).id)) bookmarked += 1;
+src/pages/Quizzes.tsx:72: const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/Quizzes.tsx:73: const [activeQuiz, setActiveQuiz] = useState<any>(null);
+src/pages/Quizzes.tsx:138: const sl = (q as any).topics?.subject_level_id as string | undefined;
+src/pages/Quizzes.tsx:310: topicName: (activeQuiz as any).topics?.name ?? null,
+src/pages/Quizzes.tsx:614: <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+src/pages/StudyPlanner.tsx:72: const [savedPlans, setSavedPlans] = useState<any[]>([]);
+src/pages/StudyPlanner.tsx:83: (q as any).then(({ data, error }: any) => {
+src/pages/StudyPlanner.tsx:83: (q as any).then(({ data, error }: any) => {
+src/pages/StudyPlanner.tsx:163: .limit(5)) as any;
+src/pages/StudyPlanner.tsx:170: .limit(5)) as any;
+src/pages/Subject.tsx:58: const [subject, setSubject] = useState<any>(null);
+src/pages/Subject.tsx:59: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/Subject.tsx:60: const [topics, setTopics] = useState<any[]>([]);
+src/pages/Subject.tsx:61: const [lessons, setLessons] = useState<any[]>([]);
+src/pages/Subject.tsx:62: const [materials, setMaterials] = useState<any[]>([]);
+src/pages/Subject.tsx:63: const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/TopicNotes.tsx:38: const [subjectMeta, setSubjectMeta] = useState<any>(null);
+src/pages/TopicNotes.tsx:39: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/TopicNotes.tsx:43: const [lessons, setLessons] = useState<any[]>([]);
+src/pages/TopicNotes.tsx:44: const [materials, setMaterials] = useState<any[]>([]);
+src/pages/TopicNotes.tsx:45: const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/TopicPapers.tsx:52: const [subjectMeta, setSubjectMeta] = useState<any>(null);
+src/pages/TopicPapers.tsx:53: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/TopicQuiz.tsx:69: const [subjectMeta, setSubjectMeta] = useState<any>(null);
+src/pages/TopicQuiz.tsx:70: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/TopicQuiz.tsx:226: const resultsData = (data as any)?.results ?? questions.map((q) => ({
+src/pages/TopicQuiz.tsx:235: const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
+src/pages/TopicQuiz.tsx:235: const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
+src/pages/admin/AdminFlashcards.tsx:20: const [sets, setSets] = useState<any[]>([]);
+src/pages/admin/AdminFlashcards.tsx:21: const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminFlashcards.tsx:23: const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminFlashcards.tsx:28: const [cards, setCards] = useState<any[]>([]);
+src/pages/admin/AdminFlashcards.tsx:31: const [editingCard, setEditingCard] = useState<any>(null);
+src/pages/admin/AdminGradeBook.tsx:309: <Select value={sortBy} onValueChange={(v) => setSortBy(v as any)}>
+src/pages/admin/AdminLessons.tsx:38: const [lessons, setLessons] = useState<any[]>([]);
+src/pages/admin/AdminLessons.tsx:40: const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminPastPapers.tsx:80: const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminPastPapers.tsx:208: level: form.level === "none" ? null : (form.level as any),
+src/pages/admin/AdminPastPapers.tsx:246: for (const p of (papers ?? []) as any[]) m.set(p.id, p.title);
+src/pages/admin/AdminPastPapers.tsx:252: const rows = (papers ?? []) as any[];
+src/pages/admin/AdminPastPapers.tsx:300: const rows = (papers ?? []) as any[];
+src/pages/admin/AdminPayments.tsx:39: const [rows, setRows] = useState<any[]>([]);
+src/pages/admin/AdminQuestionBank.tsx:16: const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminQuestionBank.tsx:17: const [questions, setQuestions] = useState<any[]>([]);
+src/pages/admin/AdminQuestionBank.tsx:18: const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/admin/AdminQuizzes.tsx:23: const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/admin/AdminQuizzes.tsx:24: const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminQuizzes.tsx:26: const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminQuizzes.tsx:36: const [questions, setQuestions] = useState<any[]>([]);
+src/pages/admin/AdminQuizzes.tsx:100: const payload: any = {
+src/pages/admin/AdminQuizzes.tsx:289: <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+src/pages/admin/AdminSubjects.tsx:152: if ((data as any)?.error) throw new Error((data as any).error);
+src/pages/admin/AdminSubjects.tsx:152: if ((data as any)?.error) throw new Error((data as any).error);
+src/pages/admin/AdminSubjects.tsx:153: toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
+src/pages/admin/AdminSubjects.tsx:153: toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
+src/pages/admin/AdminSubmissions.tsx:50: answers: any;
+src/pages/admin/AdminTopics.tsx:20: const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminTopics.tsx:23: const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminUsers.tsx:162: ((subs ?? []) as any[]).forEach((s) => { subMap[s.user_id] = s; });
+src/pages/admin/AdminUsers.tsx:241: .update({ role: "student" as any })
+src/pages/admin/AdminUsers.tsx:291: .update({ role: "admin" as any })
+supabase/functions/ai-correction/index.ts:180: return content.map((part: any) => {
+supabase/functions/ai-correction/index.ts:234: const parts: any[] = Array.isArray(candidate?.content?.parts)
+supabase/functions/ai-correction/index.ts:623: .filter((f: any) => f && typeof f === "object")
+supabase/functions/ai-correction/index.ts:624: .map((f: any) => ({
+supabase/functions/ai-correction/index.ts:747: ? rawPaper.map((p: any) =>
+supabase/functions/ai-correction/index.ts:869: const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+supabase/functions/generate-questions/index.ts:73: subjectName = (sl as any).subjects?.name ?? subjectName;
+supabase/functions/generate-questions/index.ts:151: let parsed: any;
+supabase/functions/generate-questions/index.ts:158: const generated = (parsed?.questions ?? []).filter((q: any) =>
+supabase/functions/generate-questions/index.ts:182: const rows = generated.map((q: any, i: number) => ({
+supabase/functions/quiz-feedback/index.ts:86: const wrong = questions.filter((q: any) => {
+supabase/functions/quiz-feedback/index.ts:104: .map((q: any, i: number) => {
+supabase/functions/quiz-feedback/index.ts:114: const topicName = (quiz as any).topics?.name ?? null;

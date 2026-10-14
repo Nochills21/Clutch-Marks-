@@ -1,0 +1,4 @@
+select t.slug, string_agg(ss.code || ' ' || left(ss.title,45), ' | ' order by ss.code) as st
+from topics t join syllabus_statements ss on ss.topic_id=t.id
+where t.slug in ('algorithms-programming','data-representation','database-systems','ethics-security-impact','networking-communication','operating-systems','programming-concepts','robotics-ai','web-technologies','abstract-data-types','computational-thinking-and-problem-solving','data-types-and-file-organisation','databases-and-data-definition','networks-and-the-internet','programming-paradigms-and-low-level','simulation-sensors-and-real-data','web-technologies-and-security','communication-and-networking','data-structures','databases','ethics-and-ai','information-representation','processor-fundamentals','programming-and-algorithms','system-software-and-security')
+group by t.slug;

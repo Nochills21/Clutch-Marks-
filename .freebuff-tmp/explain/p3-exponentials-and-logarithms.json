@@ -1,0 +1,6 @@
+{
+  "1": "The natural logarithm undoes e^x, so each function reverses the other. Since e^x is always positive, the domain of ln x is positive numbers only.",
+  "2": "The shifts and stretches of e^x follow the same rules as other graphs. The horizontal asymptote moves with the vertical translation, so its new position follows from the shift.",
+  "3": "Taking the inverse function on both sides undoes the exponential or logarithm, which isolates the variable. Choosing the right inverse for the form of the equation is the key step.",
+  "4": "Taking logs of y = ax^n gives log y = n log x + log a, a straight line with gradient n. This is why plotting log y against log x reveals the power and the constant."
+}

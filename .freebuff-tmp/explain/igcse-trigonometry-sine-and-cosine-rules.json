@@ -1,0 +1,7 @@
+{
+  "1": "In any triangle, each side divided by the sine of its opposite angle is the same, which is the diameter of the circumcircle. The rule therefore works for non-right triangles, and it needs a pair of opposite side and angle.",
+  "2": "The cosine rule generalises Pythagoras. The cos term corrects for the angle between the two known sides, so the rule needs the included angle or all three sides.",
+  "3": "The height of a triangle is b sin C, so the area is ½ab sin C. This gives the area without needing the perpendicular height.",
+  "4": "Since sin θ = sin (180° − θ), the calculator's acute answer has a second possible angle. The second answer is valid only if the angles still add to less than 180 degrees.",
+  "5": "Choose the rule from the information given: two angles and a side, or a pair of opposite side and angle, suggests the sine rule; three sides, or two sides and the included angle, suggests the cosine rule."
+}

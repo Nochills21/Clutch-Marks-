@@ -1,0 +1,394 @@
+[
+ {
+  "id": "edba7bc0-257d-4c02-929d-2b8623018718",
+  "slug": "abstract-data-types",
+  "set_id": "9b378e2f-83f6-427f-9158-3f5014c14443",
+  "sort_order": 4,
+  "front": "in-order traversal",
+  "back": "outputs keys in ascending order. A degenerate (linear) tree from sorted input degrades to O(n)."
+ },
+ {
+  "id": "e6378f5e-f07f-40c9-b261-4ddec5abc9ef",
+  "slug": "algebra-inequalities",
+  "set_id": "e0750335-2d13-422e-82e3-25b64ca0fa46",
+  "sort_order": 4,
+  "front": "reverse the sign",
+  "back": "when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3."
+ },
+ {
+  "id": "f8f5352a-a45b-49ff-86b1-341a1d99348a",
+  "slug": "communication-and-networking",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "sort_order": 0,
+  "front": "Transmission",
+  "back": "Serial : one bit at a time — cheaper, reliable over distance"
+ },
+ {
+  "id": "201fb0ad-f32b-43bb-8654-703ff8994317",
+  "slug": "communication-and-networking",
+  "set_id": "d1a3f043-5a37-452c-b4f8-d82ff94607d2",
+  "sort_order": 5,
+  "front": "Serial",
+  "back": "one bit at a time — cheaper, reliable over distance"
+ },
+ {
+  "id": "19fd2031-ca3d-4b80-8d73-e01ad7925692",
+  "slug": "complex-numbers",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "sort_order": 4,
+  "front": "de Moivre and Roots",
+  "back": "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ)."
+ },
+ {
+  "id": "ffcf18b9-332c-4933-83b5-c64a1e63b788",
+  "slug": "computational-thinking-and-problem-solving",
+  "set_id": "c115ca1d-68eb-42df-b051-3dccc761a1d5",
+  "sort_order": 5,
+  "front": "base case",
+  "back": "that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow. Any recursion can be rewritten with a loop and explicit stack."
+ },
+ {
+  "id": "0db46f25-abce-4f02-9f39-b66304ee6f81",
+  "slug": "data-structures",
+  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
+  "sort_order": 5,
+  "front": "Complexity",
+  "back": "Operation Array Linked List Hash"
+ },
+ {
+  "id": "83d03433-1a05-4338-a25d-15ebc1e28528",
+  "slug": "data-types-and-file-organisation",
+  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
+  "sort_order": 4,
+  "front": "enumerated type",
+  "back": "lists named values in order: TYPE Months = (Jan, Feb, Mar ...). Internally each value is an integer index starting at 0."
+ },
+ {
+  "id": "e01b1e6d-9e6d-48af-8c4d-f8c59dd2a86c",
+  "slug": "database-systems",
+  "set_id": "9098acae-a3f2-4054-8d98-91edace9d7c6",
+  "sort_order": 2,
+  "front": "SQL",
+  "back": "SELECT Title, Year FROM Films"
+ },
+ {
+  "id": "af7dc217-61e5-4ad5-b82b-b1ce9c25c9ba",
+  "slug": "databases",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "sort_order": 1,
+  "front": "Normalisation",
+  "back": "1NF : atomic values, no repeating groups"
+ },
+ {
+  "id": "e3a6cb93-118b-47b7-8e60-186d961261d1",
+  "slug": "databases",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "sort_order": 2,
+  "front": "SQL",
+  "back": "SELECT name, grade FROM students"
+ },
+ {
+  "id": "df9b7fd9-9fe3-468b-89d5-48cc0e7fb141",
+  "slug": "databases",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "sort_order": 4,
+  "front": "1NF",
+  "back": "atomic values, no repeating groups"
+ },
+ {
+  "id": "2ed513eb-1600-4d13-a5a0-69ce78744566",
+  "slug": "databases",
+  "set_id": "d6404f6a-be7e-4be1-a4d5-23aee76c05e3",
+  "sort_order": 5,
+  "front": "2NF",
+  "back": "1NF + no partial dependency on a composite key"
+ },
+ {
+  "id": "f4199778-9242-4170-9f35-00cc1e15df60",
+  "slug": "databases-and-data-definition",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "sort_order": 4,
+  "front": "primary key",
+  "back": "uniquely identifies each row; a"
+ },
+ {
+  "id": "bc4fe44d-45c5-4dad-a288-3fdb427e445e",
+  "slug": "databases-and-data-definition",
+  "set_id": "fb66f416-0798-4f20-8857-210ec9889b83",
+  "sort_order": 5,
+  "front": "foreign key",
+  "back": "references a primary key in another table, creating the relationship. A composite key uses two or more columns together."
+ },
+ {
+  "id": "a135f7ae-2fe2-47d4-aa47-1a3e90b05a7d",
+  "slug": "differentiation",
+  "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
+  "sort_order": 3,
+  "front": "Stationary Points",
+  "back": "Set dy/dx = 0, then classify with the second derivative:"
+ },
+ {
+  "id": "a7d9b5ca-6ea9-430f-953e-1b217ef557ab",
+  "slug": "differentiation-ii",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "sort_order": 1,
+  "front": "Standard Derivatives",
+  "back": "sin x → cos x; cos x → −sin x; tan x → sec²x"
+ },
+ {
+  "id": "70a59f92-90a5-4293-9fc1-8ec7d6bae022",
+  "slug": "dynamics",
+  "set_id": "1ce6db4b-f232-4278-bd11-5f6f13344436",
+  "sort_order": 4,
+  "front": "different bodies.\nExample",
+  "back": "a 2 kg mass with a 10 N resultant accelerates at 5 m s⁻²."
+ },
+ {
+  "id": "c5fb3def-fa46-4602-b71a-7024dcbe4ec0",
+  "slug": "electricity-d-c-circuits",
+  "set_id": "a3f5c59d-7c8b-43c7-8763-1f8979ca8052",
+  "sort_order": 3,
+  "front": "Series and Parallel",
+  "back": "Series: same current, R_total = R₁ + R₂ + …"
+ },
+ {
+  "id": "c5c4d4c0-ed57-49d3-8dad-b553312cf7be",
+  "slug": "forces-and-equilibrium",
+  "set_id": "919d900d-ae45-4830-8da9-109e9a3aa6f8",
+  "sort_order": 5,
+  "front": "every",
+  "back": "direction and the resultant moment is zero."
+ },
+ {
+  "id": "db20144b-3adc-4fac-921c-8434af9894c0",
+  "slug": "functions",
+  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
+  "sort_order": 3,
+  "front": "domain",
+  "back": "to exactly one output in the"
+ },
+ {
+  "id": "9838a33e-1715-44eb-8cde-bac971146994",
+  "slug": "functions",
+  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
+  "sort_order": 4,
+  "front": "one-one",
+  "back": "If not, restrict the domain (e.g. f(x) = x² for x ≥ 0 has f⁻¹(x) = √x). Graphically, y = f⁻¹(x) is the reflection of y = f(x) in the line y = x, and the range of f becomes the domain of f⁻¹."
+ },
+ {
+  "id": "f1231eeb-c19e-46da-80e8-ed9f796a044c",
+  "slug": "further-algebra",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "sort_order": 3,
+  "front": "factor",
+  "back": "that is the factor theorem. Divide out fully to reduce a cubic to a quadratic and factorise completely."
+ },
+ {
+  "id": "7827ff21-cc0a-4df3-945d-16675d2e3e7c",
+  "slug": "further-trigonometry",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "sort_order": 1,
+  "front": "Double Angles",
+  "back": "cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A"
+ },
+ {
+  "id": "fdcec10e-3f0b-4e70-acee-1d643c40b0a3",
+  "slug": "hardware-and-logic-gates",
+  "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
+  "sort_order": 3,
+  "front": "Flip-Flops (Bistables)",
+  "back": "SR latch : set/reset, invalid state S=R=1"
+ },
+ {
+  "id": "1a9277d6-64bc-43dc-a404-e0b9684cfffd",
+  "slug": "hardware-architecture",
+  "set_id": "4863ea99-2a3b-473f-a7b8-3a40d336ccb8",
+  "sort_order": 1,
+  "front": "Registers",
+  "back": "PC address of next instruction"
+ },
+ {
+  "id": "e5933df6-43ff-456c-810e-fb55c65bca9e",
+  "slug": "information-representation",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "sort_order": 2,
+  "front": "Text",
+  "back": "ASCII : 7 bits, 128 characters, English only"
+ },
+ {
+  "id": "caa41284-8ba9-4d50-8b2a-6eb4236313eb",
+  "slug": "information-representation",
+  "set_id": "ab37859a-d1bc-4552-b7ed-d9204226616c",
+  "sort_order": 5,
+  "front": "ASCII",
+  "back": "7 bits, 128 characters, English only"
+ },
+ {
+  "id": "dbcee12e-f9cb-4ef4-aab0-b1eccdbf9cc2",
+  "slug": "kinematics",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "sort_order": 1,
+  "front": "Graphs",
+  "back": "Gradient of a displacement–time graph = velocity"
+ },
+ {
+  "id": "7f0ec7d8-161c-4354-aead-bf855fb016d3",
+  "slug": "kinematics",
+  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
+  "sort_order": 5,
+  "front": "Velocity",
+  "back": "v: rate of change of displacement, v = ds/dt"
+ },
+ {
+  "id": "f0c8ebf6-42b0-40c5-a87e-98dd64a58dd9",
+  "slug": "materials-deformation",
+  "set_id": "c00d9e5c-b51b-4f4a-bf17-00c87ec8cceb",
+  "sort_order": 2,
+  "front": "Force–Extension Graphs",
+  "back": "Gradient of the linear region = k"
+ },
+ {
+  "id": "de2db7ed-e283-48f3-99c3-50fc22066a31",
+  "slug": "motion-in-a-circle-and-gravity",
+  "set_id": "e271fe32-a5af-4025-961e-a83a96454474",
+  "sort_order": 4,
+  "front": "slower but have longer",
+  "back": "periods (Kepler's third law: T² ∝ r³)."
+ },
+ {
+  "id": "c6ce66b5-4418-4ac4-9d71-274c71c655c6",
+  "slug": "nuclear-physics",
+  "set_id": "625f005e-f2be-4fd0-87da-6088a5a4e25d",
+  "sort_order": 1,
+  "front": "Radioactive Decay",
+  "back": "Type What changes Stopped by"
+ },
+ {
+  "id": "7ac35fbb-97ff-47b8-9cc8-49e63f0b3615",
+  "slug": "oscillations-and-waves-ii",
+  "set_id": "65a3fb9e-eba1-4524-9302-e30cfb17e9be",
+  "sort_order": 2,
+  "front": "Superposition Applications",
+  "back": "Young's double slit: x = λD/a — evidence light is a wave"
+ },
+ {
+  "id": "ca54443d-9174-43bf-bb34-0e7f141cee77",
+  "slug": "permutations-and-combinations",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "sort_order": 1,
+  "front": "Permutations — Order Matters",
+  "back": "The number of ways of arranging r objects from n distinct objects is"
+ },
+ {
+  "id": "55ed49ea-b480-4025-a218-767359f5098d",
+  "slug": "permutations-and-combinations",
+  "set_id": "45b4d5b2-e0cd-4b82-888e-1589fb3193f9",
+  "sort_order": 2,
+  "front": "Combinations — Order Irrelevant",
+  "back": "The number of ways of choosing r objects from n is"
+ },
+ {
+  "id": "d8cff297-22d4-4f43-adff-c85b3e00cb67",
+  "slug": "poisson-distribution",
+  "set_id": "e551bfc9-96bf-48fa-8002-4ce1e4309572",
+  "sort_order": 2,
+  "front": "Mean and Variance",
+  "back": "The defining signature of the Poisson:"
+ },
+ {
+  "id": "0b550003-a276-4c98-b04e-cf6f26334660",
+  "slug": "processor-fundamentals",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "sort_order": 0,
+  "front": "The FDE Cycle",
+  "back": "Fetch : PC → MAR; read memory → MDR; instruction → CIR; PC increments"
+ },
+ {
+  "id": "11fb7db9-18ed-497e-b555-f325804429bb",
+  "slug": "processor-fundamentals",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "sort_order": 1,
+  "front": "Registers",
+  "back": "PC address of next instruction"
+ },
+ {
+  "id": "8f071a03-0b2d-4d1d-b0ba-463a4ce03526",
+  "slug": "processor-fundamentals",
+  "set_id": "6274a521-9e18-434e-9783-481490c41737",
+  "sort_order": 5,
+  "front": "Fetch",
+  "back": "PC → MAR; read memory → MDR; instruction → CIR; PC increments"
+ },
+ {
+  "id": "155a7eab-0215-448f-ba8b-86efd32c05d4",
+  "slug": "programming-and-algorithms",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "sort_order": 3,
+  "front": "Sorting",
+  "back": "Algorithm Best Average Idea"
+ },
+ {
+  "id": "309f341a-f0d6-486b-b61c-a42ee926f982",
+  "slug": "programming-and-algorithms",
+  "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
+  "sort_order": 5,
+  "front": "Top-down (stepwise refinement)",
+  "back": "decompose into modules — planned structure"
+ },
+ {
+  "id": "4586b7d8-66c0-47f9-b6b0-65b85fbfec08",
+  "slug": "programming-concepts",
+  "set_id": "48e7d9b7-4a77-462a-9cbd-6715f5116089",
+  "sort_order": 1,
+  "front": "Selection and iteration",
+  "back": "OTHERWISE : OUTPUT \"keep going\""
+ },
+ {
+  "id": "77d535f4-7f83-42db-a7c9-cb71ebc7b506",
+  "slug": "quadratics",
+  "set_id": "28bb1f09-6952-4f4e-92c4-6c35021913dd",
+  "sort_order": 1,
+  "front": "The Discriminant",
+  "back": "Δ = b² − 4ac decides how the curve meets the x-axis:"
+ },
+ {
+  "id": "35b0a29a-46c2-4030-9c1c-336c08a64584",
+  "slug": "sampling-and-estimation",
+  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
+  "sort_order": 2,
+  "front": "Distribution of the Sample Mean",
+  "back": "For a sample of size n from a population with mean μ and variance σ²:"
+ },
+ {
+  "id": "b5edefbf-aa59-4aa2-8a96-0d05f6ece3b9",
+  "slug": "simulation-sensors-and-real-data",
+  "set_id": "4f973854-1af0-40b2-9dfb-3bedc8f864fb",
+  "sort_order": 4,
+  "front": "analogue",
+  "back": "signals varying continuously; computers need"
+ },
+ {
+  "id": "e3e67718-9bd3-4863-bc57-248bd3e7d764",
+  "slug": "web-technologies",
+  "set_id": "523d46a0-2a1f-411f-a791-464a78deb79e",
+  "sort_order": 0,
+  "front": "HTML",
+  "back": "<head><title>Page</title></head>"
+ },
+ {
+  "id": "4801c3cc-4961-45d6-ad1b-fc625bb828cf",
+  "slug": "web-technologies",
+  "set_id": "523d46a0-2a1f-411f-a791-464a78deb79e",
+  "sort_order": 1,
+  "front": "CSS",
+  "back": "p { color: red; font-size: 14px; }"
+ },
+ {
+  "id": "110f5ee0-cd4e-48ec-9557-f6ab7eaea2b5",
+  "slug": "work-energy-and-power",
+  "set_id": "c4738d08-03c9-4492-8940-bc84efd3f4a5",
+  "sort_order": 1,
+  "front": "Energy Forms",
+  "back": "Gravitational PE: Ep = mgh"
+ }
+]

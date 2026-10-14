@@ -1,0 +1,7 @@
+{
+  "1": "Storing programs and data in one memory means both travel on the same buses. The CPU fetches each instruction from memory, which is why the fetch-decode-execute cycle is central.",
+  "2": "The program counter holds the address of the next instruction, so the CPU always knows where to fetch from. Decoding then identifies the operation, and execution carries it out.",
+  "3": "RAM is volatile because its contents depend on power. It is fast working memory, which is why it holds only the programs and data in use.",
+  "4": "Input devices turn real-world signals into digital data, and output devices turn digital data back into something a person can perceive. Sensors are input devices that measure physical quantities.",
+  "5": "Secondary storage keeps data without power but is slower than RAM. The CPU accesses RAM directly, which is why RAM counts as primary storage."
+}

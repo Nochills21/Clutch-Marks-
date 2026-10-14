@@ -1,0 +1,1 @@
+update public.questions set correct_option = 1, explanation = $e$The area of a circular segment is ½r²(θ − sin θ), where θ is in radians. With r = 2 and θ = π/2: ½ × 4 × (π/2 − 1) = 2(π/2 − 1) = π − 2 ≈ 1.14. The option π/2 is the angle, not the area, and 4 − π is not the segment area.$e$ where id = '096d5c0c-07e4-4014-9040-d253e236dc14';

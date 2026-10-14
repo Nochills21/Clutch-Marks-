@@ -1,0 +1,26 @@
+{
+  "Q057": {
+    "correct_option": 0,
+    "question_text": "Find the equation of the normal to the curve \\(y = x^3 - 3x\\) at the point where \\(x = 2\\). Give your answer in the form \\(y = mx + c\\), with the values of m and c rounded to 1 decimal place. [WMA12 P2, 4 marks]"
+  },
+  "Q060": {
+    "correct_option": 1,
+    "explanation": "Use the general term formula \\(\\binom{n}{r} a^{n-r} (bx)^r\\) M1 [1]. For \\(x^3\\), \\(n = 5, r = 3, a = 2, b = -3\\), so the term is \\(\\binom{5}{3}(2)^{5-3}(-3x)^3 = 10 \\times 4 \\times (-27x^3)\\) M1 [1]. Evaluating the coefficients gives \\(10 \\times 4 \\times (-27) = -1080\\), so the exact coefficient is -1080 A1 [1]."
+  },
+  "Q065": {
+    "correct_option": 2,
+    "explanation": "Factorise the curve as \\(y = x^2 - 4x + 3 = (x - 1)(x - 3)\\), so it meets the x-axis at \\(x = 1\\) and \\(x = 3\\); between \\(x = 3\\) and \\(x = 5\\) the curve lies above the axis, so the area is the definite integral M1 [1]. Set up \\(\\int_3^5 (x^2 - 4x + 3) dx\\) M1 [1]. Integrate term by term: \\([\\frac{x^3}{3} - 2x^2 + 3x]_3^5\\) M1 [1]. At the upper limit: \\(\\frac{125}{3} - 50 + 15 = \\frac{125}{3} - \\frac{105}{3} = \\frac{20}{3}\\). At the lower limit: \\(9 - 18 + 9 = 0\\). The exact area is \\(\\frac{20}{3}\\) A1 [1]."
+  },
+  "Q066": {
+    "correct_option": 1,
+    "explanation": "Divide both sides by \\(\\cos x\\) to convert to tangent: \\(\\frac{\\sin x}{\\cos x} = \\tan x = 0.5\\) M1 [1]. The principal acute angle is \\(\\arctan(0.5) \\approx 26.565^\\circ\\) M1 [1]. Tangent is positive in the first and third quadrants, so the solutions in \\(0^\\circ \\leq x < 360^\\circ\\) are \\(26.6^\\circ\\) and \\(26.6^\\circ + 180^\\circ = 206.6^\\circ\\) A1 [1]."
+  },
+  "Q072": {
+    "correct_option": 0,
+    "options": ["1", "e", "0", "\\(\\frac{1}{e}\\)"]
+  },
+  "Q075": {
+    "correct_option": 0,
+    "explanation": "Set up the definite integral between limits 1 and 3 M1 [1]: \\(\\int_1^3 (3x^2 + 2x) dx\\). Integrate using the power rule: \\([x^3 + x^2]_1^3\\) M1 [1]. Substitute the upper limit 3: \\(27 + 9 = 36\\). Substitute the lower limit 1: \\(1 + 1 = 2\\). The exact area is \\(36 - 2 = 34\\) A1 [1]."
+  }
+}

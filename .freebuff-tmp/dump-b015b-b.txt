@@ -1,0 +1,64 @@
+=== Q393  [WMA11 4.3]
+State the period of the graph \(y = \sin 3x\). [WMA11 P1, 2 marks]
+  0: \(\frac{2\pi}{3}\)   <-- KEY
+  1: \(6\pi\)
+  2: \(3\pi\)
+  3: \(2\pi\)
+EXP: For \(y = \sin bx\) the period is \(\frac{2\pi}{b}\) M1 [1]. Here \(b = 3\), so the period is exactly \(\frac{2\pi}{3}\) A1 [1].
+
+=== Q394  [WMA11 4.3]
+Find the number of solutions of \(\sin x = 0.5\) for \(0^\circ \leq x \leq 720^\circ\). [WMA11 P1, 3 marks]
+  0: 4   <-- KEY
+  1: 2
+  2: 6
+  3: 8
+EXP: The principal solution is \(30^\circ\), and the second solution in the first period is \(180^\circ - 30^\circ = 150^\circ\) M1 [1]. The sine graph repeats every \(360^\circ\), so adding \(360^\circ\) gives \(390^\circ\) and \(510^\circ\) M1 [1]. There are exactly 4 solutions in the interval A1 [1].
+
+=== Q395  [WMA11 4.3]
+State the equations of the asymptotes of the graph \(y = \tan x\) for \(-180^\circ < x < 180^\circ\). [WMA11 P1, 2 marks]
+  0: \(x = -90^\circ\) and \(x = 90^\circ\)   <-- KEY
+  1: \(x = -180^\circ\) and \(x = 180^\circ\)
+  2: \(x = 0^\circ\) and \(x = 180^\circ\)
+  3: \(x = 90^\circ\) only
+EXP: Writing \(\tan x = \frac{\sin x}{\cos x}\) shows the graph is undefined where \(\cos x = 0\) M1 [1]. Within \(-180^\circ < x < 180^\circ\) this happens at exactly \(x = -90^\circ\) and \(x = 90^\circ\), so those are the asymptotes A1 [1].
+
+=== Q396  [WMA11 4.3]
+Find the x-coordinates of the points where the graph \(y = 2\cos x\) crosses the x-axis for \(0 \leq x \leq 2\pi\). [WMA11 P1, 3 marks]
+  0: \(x = \frac{\pi}{2}\) and \(x = \frac{3\pi}{2}\)   <-- KEY
+  1: \(x = 0\) and \(x = \pi\)
+  2: \(x = \frac{\pi}{2}\) and \(x = \pi\)
+  3: \(x = \pi\) and \(x = 2\pi\)
+EXP: The graph crosses the x-axis where \(2\cos x = 0\), that is where \(\cos x = 0\) M1 [1]. On the interval \(0 \leq x \leq 2\pi\) this happens at \(x = \frac{\pi}{2}\) and \(x = \frac{3\pi}{2}\) M1 [1]. Those are exactly the two crossing points A1 [1].
+
+=== Q397  [WMA11 4.3]
+State the maximum value of \(y = 3 - 2\sin x\). [WMA11 P1, 2 marks]
+  0: 5   <-- KEY
+  1: 1
+  2: 3
+  3: 6
+EXP: The sine function takes every value between -1 and 1 M1 [1]. The expression \(3 - 2\sin x\) is largest when \(\sin x\) takes its smallest value, -1, giving \(3 - 2(-1) = 5\) A1 [1].
+
+=== Q398  [WMA11 4.3]
+Write down the coordinates of the maximum point of the graph \(y = \sin x\) for \(0^\circ \leq x \leq 360^\circ\). [WMA11 P1, 2 marks]
+  0: \((90^\circ, 1)\)   <-- KEY
+  1: \((0^\circ, 1)\)
+  2: \((180^\circ, 1)\)
+  3: \((270^\circ, 1)\)
+EXP: The maximum value of \(\sin x\) is 1 M1 [1]. On \(0^\circ \leq x \leq 360^\circ\) this value is first reached at \(x = 90^\circ\), so the maximum point is \((90^\circ, 1)\) A1 [1].
+
+=== Q399  [WMA11 4.3]
+State the period of the graph \(y = \tan x\). [WMA11 P1, 2 marks]
+  0: \(180^\circ\)   <-- KEY
+  1: \(360^\circ\)
+  2: \(90^\circ\)
+  3: \(720^\circ\)
+EXP: The tangent graph has asymptotes \(180^\circ\) apart, and between consecutive asymptotes it traces the whole of its range M1 [1]. The pattern therefore repeats every \(180^\circ\), which is the period A1 [1].
+
+=== Q400  [WMA11 4.3]
+Find the number of times the graph \(y = \sin 2x\) crosses the x-axis for \(0^\circ \leq x \leq 360^\circ\). [WMA11 P1, 3 marks]
+  0: 5   <-- KEY
+  1: 3
+  2: 4
+  3: 6
+EXP: The graph crosses the x-axis where \(\sin 2x = 0\) M1 [1]. Solving \(2x = 0^\circ, 180^\circ, 360^\circ, 540^\circ, 720^\circ\) gives \(x = 0^\circ, 90^\circ, 180^\circ, 270^\circ\) and \(360^\circ\) M1 [1]. The graph therefore crosses the axis 5 times A1 [1].
+

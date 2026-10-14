@@ -1,0 +1,7 @@
+{
+  "1": "A variable can change during a program, while a constant protects a value that must stay fixed. The data type decides what values are allowed and what operations make sense.",
+  "2": "A WHILE loop tests before each pass, so it can run zero times. A REPEAT loop tests after each pass, so it always runs at least once. Choosing the right one depends on whether the body must run first.",
+  "3": "An array groups related values under one name, and an index picks out each one. A loop can then process every element by changing the index.",
+  "4": "A file must be opened before use and closed afterwards, so the data is read or written reliably and the resources are released. Opening for reading or writing controls what the program may do.",
+  "5": "A compiler translates the whole program before it runs, while an interpreter translates and runs it line by line. Development environments support both by helping with editing and debugging."
+}

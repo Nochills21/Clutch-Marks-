@@ -1,0 +1,7 @@
+{
+  "1": "A square metre is a square of side 1 m, which is 100 cm by 100 cm, so 1 m² = 10 000 cm². Volume uses cubes, so 1 m³ = 1 000 000 cm³. Units must be squared or cubed with the length conversion, not just multiplied by it.",
+  "2": "Perimeter is a length measured around the outside, so it uses ordinary units. Area counts squares inside the shape, so its units are squared.",
+  "3": "An arc is the same fraction of the circumference as the sector angle is of 360 degrees, and a sector is the same fraction of the whole circle's area. Both formulas come from that proportion.",
+  "4": "A prism has the same cross-section along its length, so its volume is the cross-section area times the length. Surface area adds up every face, and the formulas for the other solids follow from the same reasoning.",
+  "5": "A compound shape is a combination of simple shapes, so its area or volume is the sum or difference of the parts. Splitting it into known shapes avoids needing a new formula."
+}

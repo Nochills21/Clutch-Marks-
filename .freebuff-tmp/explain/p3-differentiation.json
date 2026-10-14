@@ -1,0 +1,8 @@
+{
+  "1": "Each standard derivative comes from the limit definition of the gradient. Memorising them is worth the effort because every other rule is built from them.",
+  "2": "A product changes in two ways, one from each factor. The product rule adds both contributions, u times the change in v and v times the change in u.",
+  "3": "The quotient rule follows from the product rule applied to u times 1 over v, with the chain rule giving the squared denominator. Write it as (v du/dx − u dv/dx) over v², keeping the order of the terms.",
+  "4": "A change in x produces a change in the inner function u, which then changes y. Multiplying the two rates gives the total rate, which is why the derivative is a product.",
+  "5": "dy/dx and dx/dy are reciprocals because they describe the same slope read in opposite directions. This lets you differentiate with respect to whichever variable is easier.",
+  "6": "A quantity whose rate of change is proportional to itself follows an exponential. The sign of k decides between growth and decay, and A is the starting value."
+}

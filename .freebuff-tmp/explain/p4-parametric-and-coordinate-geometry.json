@@ -1,0 +1,7 @@
+{
+  "1": "A parameter tracks the position of a point as it moves along the curve. Each value of t gives one point, so the parameter describes the motion as well as the shape.",
+  "2": "Eliminating t removes the parameter and gives the Cartesian equation of the same curve. Solving one equation for t and substituting into the other usually does it.",
+  "3": "The chain rule gives dy/dx = (dy/dt) divided by (dx/dt). This is valid only where dx/dt is not zero, because the division would be undefined there.",
+  "4": "The tangent has the gradient dy/dx at the point, and the normal is perpendicular to it. Its gradient is the negative reciprocal, −1 divided by dy/dx.",
+  "5": "For a curve given as an equation in x and y, the chain rule applies to every term containing y. The derivative of y² is 2y dy/dx, so each y term brings in a dy/dx factor."
+}

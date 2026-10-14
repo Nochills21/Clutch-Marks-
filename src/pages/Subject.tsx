@@ -21,6 +21,7 @@ import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
 import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw } from "lucide-react";
 import { loadFailureMessage } from "@/lib/net";
+import type { Tables } from "@/integrations/supabase/types";
 
 interface BankQuestion {
   id: string;
@@ -55,12 +56,12 @@ export default function Subject() {
   }, [location.hash]);
 
   const [loading, setLoading] = useState(true);
-  const [subject, setSubject] = useState<any>(null);
-  const [subjectLevel, setSubjectLevel] = useState<any>(null);
-  const [topics, setTopics] = useState<any[]>([]);
-  const [lessons, setLessons] = useState<any[]>([]);
-  const [materials, setMaterials] = useState<any[]>([]);
-  const [quizzes, setQuizzes] = useState<any[]>([]);
+  const [subject, setSubject] = useState<Tables<"subjects"> | null>(null);
+  const [subjectLevel, setSubjectLevel] = useState<Tables<"subject_levels"> | null>(null);
+  const [topics, setTopics] = useState<Tables<"topics">[]>([]);
+  const [lessons, setLessons] = useState<Pick<Tables<"lessons">, "id" | "title" | "topic_id" | "sort_order">[]>([]);
+  const [materials, setMaterials] = useState<Pick<Tables<"study_materials">, "id" | "title" | "topic_id" | "material_type" | "file_url">[]>([]);
+  const [quizzes, setQuizzes] = useState<Pick<Tables<"quizzes">, "id" | "title" | "topic_id" | "description" | "is_published" | "exam_type" | "is_ai_generated">[]>([]);
   const [questions, setQuestions] = useState<BankQuestion[]>([]);
   // AI-bank questions get their own query: browse_questions caps pages at 200
   // rows ordered by quiz title, so a client-side filter on the first page can

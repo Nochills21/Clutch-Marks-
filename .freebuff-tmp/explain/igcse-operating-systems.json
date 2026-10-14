@@ -1,0 +1,6 @@
+{
+  "1": "System software manages the hardware, so application software can run without knowing the details of the machine. The operating system is the main example.",
+  "2": "An interrupt lets a device signal the processor when it needs attention. The processor then runs a short routine and resumes, so it does not waste time checking every device.",
+  "3": "The operating system manages memory, processes, files and devices, and it provides the user interface. Each of these tasks lets many programs share one machine safely.",
+  "4": "Utilities keep the computer healthy: defragmentation, backup, anti-malware and compression. They are system software because they act on the machine itself."
+}

@@ -1,0 +1,7 @@
+{
+  "1": "Drawing distributions side by side shows differences in centre, spread and shape at a glance. The same scale on both diagrams is what makes the comparison fair.",
+  "2": "The mean uses every value, so an outlier pulls it; the median is unaffected. Choosing the measure depends on the shape of the data and on whether outliers are present.",
+  "3": "The range is sensitive to extremes, while the IQR covers the middle half of the data and ignores them. The variance uses all values, so it reflects the whole distribution.",
+  "4": "In a positively skewed distribution the long tail on the right pulls the mean above the median. Checking the relative position of the mean and median reveals the skew.",
+  "5": "Comparing the median and IQR answers the question about two distributions in a way that is robust to outliers. The conclusion should state the comparison in the context of the data."
+}

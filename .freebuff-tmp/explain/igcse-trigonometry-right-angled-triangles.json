@@ -1,0 +1,6 @@
+{
+  "1": "In a right-angled triangle the squares on the two shorter sides add to the square on the hypotenuse. The theorem holds only for right angles, so check for one first.",
+  "2": "Each ratio compares two sides relative to a given angle, so the angle fixes the ratio. The inverse function works backwards from a ratio to the angle.",
+  "3": "The 30, 45 and 60 degree triangles have sides in fixed ratios, so their exact trig values come from those triangles. Knowing them avoids calculator rounding.",
+  "4": "Many problems have two steps: Pythagoras finds a missing side, and a trig ratio finds an angle or another side. Work out the missing side first, then use it in the ratio."
+}

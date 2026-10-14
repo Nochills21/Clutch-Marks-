@@ -1,0 +1,7 @@
+{
+  "1": "A function gives exactly one output for each input. The domain restriction, such as x ≥ 0 for √x, is what keeps the output real, and the range follows from the domain.",
+  "2": "In fg(x) the output of g becomes the input of f, so the nesting fixes the order. fg and gf usually give different results because the operations do not commute.",
+  "3": "An inverse exists only when each output comes from one input, so the function must be one-to-one. Swapping x and y reflects the graph in the line y = x, which is why the graphs of f and f⁻¹ are mirror images.",
+  "4": "A change inside the function, such as f(x + a), moves the graph sideways in the opposite direction to the sign. A change outside, such as f(x) + a, moves it vertically in the expected direction. The order matters because transformations do not commute in general.",
+  "5": "A curve is fixed by its intercepts, turning points and end behaviour. Finding these is enough to show the correct shape without plotting many points."
+}

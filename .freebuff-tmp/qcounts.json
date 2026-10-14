@@ -1,0 +1,502 @@
+[
+ {
+  "label": "computer-science/AS/hardware-and-logic-gates",
+  "n": 15,
+  "d": "{\"medium\":15}"
+ },
+ {
+  "label": "physics/A2/electric-fields-and-capacitance",
+  "n": 16,
+  "d": "{\"medium\":16}"
+ },
+ {
+  "label": "mathematics/AS/circular-measure",
+  "n": 16,
+  "d": "{\"medium\":16}"
+ },
+ {
+  "label": "mathematics/OL/algebra-sequences-and-functions",
+  "n": 17,
+  "d": "{\"medium\":17}"
+ },
+ {
+  "label": "physics/A2/astronomy-and-cosmology",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "physics/A2/nuclear-physics",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "computer-science/AS/data-structures",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "computer-science/AS/databases",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "mathematics/AS/coordinate-geometry",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "mathematics/AS/sequences-and-series",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "physics/AS/materials-deformation",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "physics/AS/motion-in-a-circle-and-gravity",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "mathematics/OL/number-indices-and-standard-form",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "mathematics/A2/differentiation-ii",
+  "n": 18,
+  "d": "{\"medium\":18}"
+ },
+ {
+  "label": "physics/A2/circular-motion-and-shm",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "physics/A2/thermal-physics",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "computer-science/AS/processor-fundamentals",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "computer-science/AS/programming-and-algorithms",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/AS/differentiation",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/AS/functions",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/AS/integration",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/AS/trigonometry",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "physics/AS/electricity-d-c-circuits",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "physics/AS/work-energy-and-power",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/OL/algebra-graphs",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/OL/algebra-inequalities",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/OL/geometry-congruence-and-similarity",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/A2/further-trigonometry",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "mathematics/A2/integration-ii",
+  "n": 19,
+  "d": "{\"medium\":19}"
+ },
+ {
+  "label": "computer-science/OL/logic-gates-boolean-logic",
+  "n": 19,
+  "d": "{\"exam\":3,\"medium\":10,\"drill\":3,\"check\":3}"
+ },
+ {
+  "label": "physics/A2/magnetic-fields-and-electromagnetism",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/A2/oscillations-and-waves-ii",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/A2/quantum-physics",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/AS/communication-and-networking",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/AS/ethics-and-ai",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/AS/system-software-and-security",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/computational-thinking-and-problem-solving",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/networks-and-the-internet",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/web-technologies-and-security",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/binomial-distribution",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/continuous-random-variables",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/hypothesis-testing",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/measures-of-variation-and-standard-deviation",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/numerical-measures-of-central-tendency",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/AS/quadratics",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/AS/dynamics",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/AS/forces-and-equilibrium",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/AS/kinematics",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/AS/superposition",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/AS/waves",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/algebra-simplifying-and-expanding",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/geometry-angles-and-polygons",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/mensuration-area-and-volume",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/mensuration-bearings-and-loci",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/number-arithmetic-and-place-value",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/number-fractions-decimals-and-percentages",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/number-ratio-rate-and-proportion",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/number-sets",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/scatter-diagrams-and-correlation",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/statistics-data-handling",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/statistics-probability",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/transformations-and-vectors",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/trigonometry-right-angled-triangles",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/OL/trigonometry-sine-and-cosine-rules",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/abstract-data-types",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/data-types-and-file-organisation",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/databases-and-data-definition",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/programming-paradigms-and-low-level",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/A2/simulation-sensors-and-real-data",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/complex-numbers",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/further-algebra",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/permutations-and-combinations",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/poisson-distribution",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/probability",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/probability-distributions",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/sampling-and-estimation",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/the-normal-distribution",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "mathematics/A2/vectors",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/OL/robotics-ai",
+  "n": 20,
+  "d": "{\"exam\":3,\"drill\":3,\"check\":4,\"medium\":10}"
+ },
+ {
+  "label": "physics/OL/earth-space",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/electricity-circuits",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/energy-work-power",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/forces-motion",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/magnetism-electromagnetism",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/measurement-units",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/nuclear-physics",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/pressure-density",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/thermal-physics",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "physics/OL/waves-sound",
+  "n": 20,
+  "d": "{\"medium\":20}"
+ },
+ {
+  "label": "computer-science/OL/data-representation",
+  "n": 21,
+  "d": "{\"check\":5,\"drill\":3,\"medium\":10,\"exam\":3}"
+ },
+ {
+  "label": "computer-science/AS/information-representation",
+  "n": 23,
+  "d": "{\"exam\":2,\"medium\":10,\"drill\":4,\"check\":7}"
+ },
+ {
+  "label": "computer-science/OL/hardware-architecture",
+  "n": 23,
+  "d": "{\"drill\":4,\"medium\":10,\"exam\":5,\"check\":4}"
+ },
+ {
+  "label": "computer-science/OL/database-systems",
+  "n": 24,
+  "d": "{\"medium\":10,\"drill\":5,\"exam\":4,\"check\":5}"
+ },
+ {
+  "label": "computer-science/OL/programming-concepts",
+  "n": 24,
+  "d": "{\"medium\":10,\"drill\":5,\"check\":6,\"exam\":3}"
+ },
+ {
+  "label": "computer-science/OL/algorithms-programming",
+  "n": 25,
+  "d": "{\"drill\":5,\"check\":5,\"exam\":5,\"medium\":10}"
+ },
+ {
+  "label": "computer-science/OL/ethics-security-impact",
+  "n": 25,
+  "d": "{\"check\":6,\"medium\":10,\"drill\":6,\"exam\":3}"
+ },
+ {
+  "label": "computer-science/OL/networking-communication",
+  "n": 25,
+  "d": "{\"check\":6,\"exam\":3,\"medium\":10,\"drill\":6}"
+ },
+ {
+  "label": "computer-science/OL/web-technologies",
+  "n": 25,
+  "d": "{\"medium\":10,\"check\":6,\"drill\":6,\"exam\":3}"
+ },
+ {
+  "label": "computer-science/OL/operating-systems",
+  "n": 26,
+  "d": "{\"drill\":6,\"medium\":10,\"check\":6,\"exam\":4}"
+ },
+ {
+  "label": "mathematics/OL/algebra-equations",
+  "n": 29,
+  "d": "{\"check\":10,\"medium\":10,\"exam\":7,\"drill\":2}"
+ }
+]

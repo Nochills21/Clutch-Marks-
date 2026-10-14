@@ -1,0 +1,136 @@
+=== Q376  [WMA11 1.4]
+Expand and simplify \((x + 2)(x - 3)(x + 1)\). [WMA11 P1, 3 marks]
+  0: \(x^3 - 7x - 6\)   <-- KEY
+  1: \(x^3 - 7x + 6\)
+  2: \(x^3 + 7x - 6\)
+  3: \(x^3 - x^2 - 7x - 6\)
+EXP: Multiply the first two brackets: \((x + 2)(x - 3) = x^2 - x - 6\) M1 [1]. Multiply this by \((x + 1)\): \(x^3 + x^2 - x^2 - x - 6x - 6\) M1 [1]. Collecting like terms gives exactly \(x^3 - 7x - 6\) A1 [1].
+
+=== Q377  [WMA11 1.4]
+Factorise completely \(x^3 - 4x^2 + 3x\). [WMA11 P1, 2 marks]
+  0: \(x(x - 1)(x - 3)\)   <-- KEY
+  1: \(x(x + 1)(x + 3)\)
+  2: \(x(x - 1)(x + 3)\)
+  3: \(x(x - 3)^2\)
+EXP: Take out the common factor x: \(x(x^2 - 4x + 3)\) M1 [1]. Factorise the quadratic: \(x^2 - 4x + 3 = (x - 1)(x - 3)\). The complete factorisation is \(x(x - 1)(x - 3)\) A1 [1].
+
+=== Q378  [WMA11 1.4]
+Given that \(f(x) = x^3 + 2x^2 - 5x - 6\) and \(f(2) = 0\), factorise \(f(x)\) completely. [WMA11 P1, 3 marks]
+  0: \((x - 2)(x + 1)(x + 3)\)   <-- KEY
+  1: \((x + 2)(x - 1)(x - 3)\)
+  2: \((x - 2)(x - 1)(x + 3)\)
+  3: \((x - 2)(x + 1)(x - 3)\)
+EXP: Since \(f(2) = 0\), \((x - 2)\) is a factor M1 [1]. Algebraic division gives the quotient \(x^2 + 4x + 3\) M1 [1]. Factorising the quotient gives \((x + 1)(x + 3)\), so \(f(x) = (x - 2)(x + 1)(x + 3)\) A1 [1].
+
+=== Q379  [WMA11 1.4]
+Factorise \(2x^3 + 3x^2 - 11x - 6\) completely. [WMA11 P1, 3 marks]
+  0: \((x - 2)(2x + 1)(x + 3)\)   <-- KEY
+  1: \((x + 2)(2x - 1)(x - 3)\)
+  2: \((x - 2)(2x - 1)(x + 3)\)
+  3: \((x - 2)(2x + 1)(x - 3)\)
+EXP: Test a value: \(f(2) = 16 + 12 - 22 - 6 = 0\), so \((x - 2)\) is a factor M1 [1]. Dividing gives the quadratic quotient \(2x^2 + 7x + 3\) M1 [1]. This factorises as \((2x + 1)(x + 3)\), so the complete factorisation is \((x - 2)(2x + 1)(x + 3)\) A1 [1].
+
+=== Q380  [WMA11 1.4]
+Factorise completely \(x^4 - 16\). [WMA11 P1, 3 marks]
+  0: \((x - 2)(x + 2)(x^2 + 4)\)   <-- KEY
+  1: \((x - 4)(x + 4)\)
+  2: \((x - 2)^2(x + 2)^2\)
+  3: \((x^2 + 4)^2\)
+EXP: Treat \(x^4 - 16\) as a difference of two squares: \((x^2 - 4)(x^2 + 4)\) M1 [1]. The first bracket factorises further as \((x - 2)(x + 2)\) M1 [1]. The complete factorisation is \((x - 2)(x + 2)(x^2 + 4)\), since \(x^2 + 4\) has no real roots A1 [1].
+
+=== Q381  [WMA11 1.4]
+Expand and simplify \((2x - 1)^3\). [WMA11 P1, 3 marks]
+  0: \(8x^3 - 12x^2 + 6x - 1\)   <-- KEY
+  1: \(8x^3 + 12x^2 + 6x + 1\)
+  2: \(8x^3 - 12x^2 + 6x + 1\)
+  3: \(8x^3 - 6x^2 + 6x - 1\)
+EXP: Write the cube as a product: \((2x - 1)(4x^2 - 4x + 1)\) M1 [1]. Expand every term: \(8x^3 - 8x^2 + 2x - 4x^2 + 4x - 1\) M1 [1]. Collecting like terms gives exactly \(8x^3 - 12x^2 + 6x - 1\) A1 [1].
+
+=== Q382  [WMA11 1.4]
+Given that \((x - 3)\) is a factor of \(x^3 - 2x^2 - 5x + 6\), factorise the expression completely. [WMA11 P1, 3 marks]
+  0: \((x - 3)(x + 2)(x - 1)\)   <-- KEY
+  1: \((x - 3)(x - 2)(x + 1)\)
+  2: \((x + 3)(x + 2)(x - 1)\)
+  3: \((x - 3)(x + 2)(x + 1)\)
+EXP: Divide by the given factor \((x - 3)\) to obtain the quadratic quotient \(x^2 + x - 2\) M1 [1]. Factorise the quotient: \((x + 2)(x - 1)\) M1 [1]. The complete factorisation is \((x - 3)(x + 2)(x - 1)\) A1 [1].
+
+=== Q383  [WMA11 1.4]
+Simplify \(\frac{x^3 - 8}{x - 2}\). [WMA11 P1, 3 marks]
+  0: \(x^2 + 2x + 4\)   <-- KEY
+  1: \(x^2 - 2x + 4\)
+  2: \(x^2 + 4\)
+  3: \(x^2 + 2x - 4\)
+EXP: Recognise \(x^3 - 8\) as a difference of two cubes, with \(a = x\) and \(b = 2\) M1 [1]. It factorises as \((x - 2)(x^2 + 2x + 4)\) M1 [1]. Cancelling the common factor \((x - 2)\) leaves exactly \(x^2 + 2x + 4\) A1 [1].
+
+=== Q384  [WMA11 1.4]
+Expand \((x + 1)(x^2 - 3x + 2)\) and state the coefficient of x. [WMA11 P1, 2 marks]
+  0: -1   <-- KEY
+  1: 1
+  2: -3
+  3: 2
+EXP: Multiply each term of the quadratic by \((x + 1)\): \(x^3 - 3x^2 + 2x + x^2 - 3x + 2\) M1 [1]. Collecting like terms gives \(x^3 - 2x^2 - x + 2\), so the coefficient of x is exactly -1 A1 [1].
+
+=== Q385  [WMA11 4.2]
+The line \(y = x - 1\) intersects the curve \(y = x^2 - 4x + 3\) at two points. Find the x-coordinates of these points. [WMA11 P1, 4 marks]
+  0: \(x = 1\) and \(x = 4\)   <-- KEY
+  1: \(x = -1\) and \(x = -4\)
+  2: \(x = 1\) and \(x = -4\)
+  3: \(x = -1\) and \(x = 4\)
+EXP: At an intersection the two expressions for y are equal: \(x^2 - 4x + 3 = x - 1\) M1 [1]. Rearrange to \(x^2 - 5x + 4 = 0\) M1 [1]. Factorise: \((x - 1)(x - 4) = 0\) M1 [1]. The x-coordinates are exactly 1 and 4 A1 [1].
+
+=== Q386  [WMA11 4.2]
+Find the coordinates of the points of intersection of the line \(y = 2x + 3\) and the curve \(y = x^2\). [WMA11 P1, 4 marks]
+  0: (3, 9) and (-1, 1)   <-- KEY
+  1: (3, 9) and (1, 1)
+  2: (-3, 9) and (1, 1)
+  3: (3, 6) and (-1, 2)
+EXP: Set the expressions equal: \(x^2 = 2x + 3\) M1 [1]. Rearrange to \(x^2 - 2x - 3 = 0\) and factorise: \((x - 3)(x + 1) = 0\), so \(x = 3\) or \(x = -1\) M1 [1]. Substitute back: \(x = 3\) gives \(y = 9\) and \(x = -1\) gives \(y = 1\) M1 [1]. The points are (3, 9) and (-1, 1) A1 [1].
+
+=== Q387  [WMA11 4.2]
+The line \(y = k\) is a tangent to the curve \(y = x^2 - 6x + 11\). Find the value of k. [WMA11 P1, 3 marks]
+  0: 2   <-- KEY
+  1: -2
+  2: 11
+  3: 20
+EXP: The line is a tangent when the equation \(x^2 - 6x + 11 = k\) has exactly one solution M1 [1]. That requires the discriminant of \(x^2 - 6x + (11 - k) = 0\) to be zero: \(36 - 4(11 - k) = 0\) M1 [1]. This gives \(36 - 44 + 4k = 0\), so \(k = 2\) A1 [1].
+
+=== Q388  [WMA11 4.2]
+The line \(y = 3x - 4\) and the curve \(y = x^2 - 2x + 1\) meet at two points. Find the sum of the x-coordinates of these points. [WMA11 P1, 4 marks]
+  0: 5   <-- KEY
+  1: -5
+  2: 3
+  3: 2
+EXP: Equate the two expressions: \(x^2 - 2x + 1 = 3x - 4\) M1 [1]. Rearrange to \(x^2 - 5x + 5 = 0\) M1 [1]. The sum of the roots of \(ax^2 + bx + c = 0\) is \(-\frac{b}{a}\) M1 [1]. Here that gives exactly 5 A1 [1].
+
+=== Q389  [WMA11 4.2]
+The graphs of \(y = x^2 - 2x - 3\) and \(y = 5\) intersect at two points. Find the x-coordinates of these points. [WMA11 P1, 4 marks]
+  0: \(x = 4\) and \(x = -2\)   <-- KEY
+  1: \(x = -4\) and \(x = 2\)
+  2: \(x = 4\) and \(x = 2\)
+  3: \(x = -4\) and \(x = -2\)
+EXP: Equate the two expressions: \(x^2 - 2x - 3 = 5\) M1 [1]. Rearrange to \(x^2 - 2x - 8 = 0\) M1 [1]. Factorise: \((x - 4)(x + 2) = 0\) M1 [1]. The x-coordinates are exactly 4 and -2 A1 [1].
+
+=== Q390  [WMA11 4.2]
+The line \(y = 2x + c\) is a tangent to the curve \(y = x^2 - 4x + 7\). Find the value of c. [WMA11 P1, 3 marks]
+  0: -2   <-- KEY
+  1: 2
+  2: -8
+  3: 8
+EXP: The line is a tangent when \(x^2 - 4x + 7 = 2x + c\) has exactly one solution M1 [1]. Rearranging gives \(x^2 - 6x + (7 - c) = 0\), so the discriminant must be zero: \(36 - 4(7 - c) = 0\) M1 [1]. This simplifies to \(36 - 28 + 4c = 0\), so \(c = -2\) A1 [1].
+
+=== Q391  [WMA11 4.2]
+The curve \(y = x^2 + 4x + 1\) and the line \(y = 2x + k\) intersect at two distinct points. Find the condition on k. [WMA11 P1, 3 marks]
+  0: \(k > 0\)   <-- KEY
+  1: \(k < 0\)
+  2: \(k > 1\)
+  3: \(k < 1\)
+EXP: Equate the two expressions: \(x^2 + 4x + 1 = 2x + k\), giving \(x^2 + 2x + (1 - k) = 0\) M1 [1]. Two distinct intersection points require the discriminant to be greater than zero: \(4 - 4(1 - k) > 0\) M1 [1]. This simplifies to \(4k > 0\), so \(k > 0\) A1 [1].
+
+=== Q392  [WMA11 4.2]
+Find the number of points of intersection of the line \(y = x + 2\) with the curve \(y = x^2 - 3x + 1\). [WMA11 P1, 3 marks]
+  0: 2   <-- KEY
+  1: 0
+  2: 1
+  3: 3
+EXP: Equate: \(x^2 - 3x + 1 = x + 2\), so \(x^2 - 4x - 1 = 0\) M1 [1]. Its discriminant is \((-4)^2 - 4(1)(-1) = 16 + 4 = 20\) M1 [1]. Because the discriminant is positive the equation has two distinct real solutions, so there are 2 points of intersection A1 [1].
+

@@ -1,0 +1,9 @@
+{
+  "1": "Expanding (x + p)(x + q) gives x² + (p + q)x + pq, so factorising means finding p and q with pq = c and p + q = b. Setting each bracket to zero works because a product is zero only when one of its factors is zero.",
+  "2": "The formula works for every quadratic, including those that do not factorise. It comes from completing the square on ax² + bx + c = 0, so it is the same method done once in general.",
+  "3": "The square root in the formula is real only when b² − 4ac is not negative. A zero discriminant gives one repeated root, because the ± part adds nothing, and a negative one gives no real roots because the square root does not exist.",
+  "4": "For real x, (x + p)² is never negative, so a(x + p)² + q reaches its extreme at x = −p with value q. The sign of a decides whether that extreme is a minimum or a maximum.",
+  "5": "The product of a conjugate pair such as (3 + √2)(3 − √2) = 9 − 2 = 7 has no surd, so multiplying top and bottom by the conjugate makes the denominator rational without changing the value.",
+  "6": "Substituting the line for y removes one unknown and leaves a single equation in x. Each real root gives one intersection point, which is why the discriminant also tells you how many times the line meets the curve.",
+  "7": "A parabola with positive a lies below the x-axis between its roots, so the inequality is read from the sketch rather than tested interval by interval. Checking one value inside the region confirms the direction."
+}

@@ -1,0 +1,1 @@
+select t.slug, length(sm.content) as notes from topics t join subject_levels sl on sl.id=t.subject_level_id join subjects s on s.id=sl.subject_id join study_materials sm on sm.topic_id=t.id and sm.material_type='notes' where s.name='Mathematics' and sl.level::text='OL' order by t.slug;

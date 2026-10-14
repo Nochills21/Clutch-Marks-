@@ -1,0 +1,9 @@
+{
+  "1": "The fraction, decimal and percentage are three forms of one number. A fraction becomes a decimal by division, and a percentage is that decimal times 100 because percent means out of one hundred.",
+  "2": "Dividing by the denominator finds one equal share, and multiplying by the numerator takes the required number of shares. Dividing by the numerator instead would give the wrong size of share.",
+  "3": "A mixed number holds whole parts, so converting it to an improper fraction lets the ordinary multiplication and division rules apply. Dividing is the same as multiplying by the reciprocal.",
+  "4": "Percentage change is measured against the original value, so that value is the divisor. The sign of the result shows whether the quantity went up or down.",
+  "5": "The new value equals the original times a multiplier, so working back divides by the multiplier. Dividing by the percentage instead is a common error.",
+  "6": "Each change applies to the value left by the previous one, so the multipliers multiply. A 10% fall followed by a 10% rise gives 0.9 × 1.1 = 0.99, not the original value.",
+  "7": "A fixed percentage growth multiplies the amount by the same factor each period, so after n periods the factor is raised to the power n. This is why compound growth is exponential, not linear."
+}

@@ -1,0 +1,446 @@
+[
+  {
+    "stmts": [
+      {
+        "id": "1056b4cf-d399-4380-b797-e7fcd1778031",
+        "code": "1.1",
+        "area": "1",
+        "level": "AS",
+        "title": "Data Representation",
+        "topic_id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
+        "tier": "both",
+        "area_n": 1
+      },
+      {
+        "id": "95574092-9a00-4ea4-a7ee-1fa340d9c5d3",
+        "code": "1.2",
+        "area": "1",
+        "level": "AS",
+        "title": "Multimedia Graphics",
+        "topic_id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
+        "tier": "both",
+        "area_n": 1
+      },
+      {
+        "id": "09c04f27-7772-484b-9365-784c02ad698b",
+        "code": "1.3",
+        "area": "1",
+        "level": "AS",
+        "title": "Compression",
+        "topic_id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
+        "tier": "both",
+        "area_n": 1
+      },
+      {
+        "id": "45128b4e-255e-4db6-a708-f9c9cb3f9834",
+        "code": "2.1",
+        "area": "2",
+        "level": "AS",
+        "title": "Networks including the internet",
+        "topic_id": "f5ce9e1c-9c8f-46d2-95bd-ac9687b6ea07",
+        "tier": "both",
+        "area_n": 2
+      },
+      {
+        "id": "10e07249-0c61-4ccc-af69-b3dc52030551",
+        "code": "3.1",
+        "area": "3",
+        "level": "AS",
+        "title": "Computers and their components",
+        "topic_id": "532f32af-de30-4ad5-a9be-33e0d552a831",
+        "tier": "both",
+        "area_n": 3
+      },
+      {
+        "id": "e005eaef-0406-41c2-b17e-8bff074be4b7",
+        "code": "3.2",
+        "area": "3",
+        "level": "AS",
+        "title": "Logic Gates and Logic Circuits",
+        "topic_id": "532f32af-de30-4ad5-a9be-33e0d552a831",
+        "tier": "both",
+        "area_n": 3
+      },
+      {
+        "id": "c11f07d2-3194-42a7-8702-ff21d45de66a",
+        "code": "4.1",
+        "area": "4",
+        "level": "AS",
+        "title": "Central Processing Unit (CPU) Architecture",
+        "topic_id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
+        "tier": "both",
+        "area_n": 4
+      },
+      {
+        "id": "1572cff2-8cc5-41a1-a765-da4c6e360975",
+        "code": "4.2",
+        "area": "4",
+        "level": "AS",
+        "title": "Assembly Language",
+        "topic_id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
+        "tier": "both",
+        "area_n": 4
+      },
+      {
+        "id": "dca96142-d3c7-436f-99c5-8edb05baab74",
+        "code": "4.3",
+        "area": "4",
+        "level": "AS",
+        "title": "Bit manipulation",
+        "topic_id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
+        "tier": "both",
+        "area_n": 4
+      },
+      {
+        "id": "636e6516-32cb-4d3b-9ee2-f6671711e675",
+        "code": "5.1",
+        "area": "5",
+        "level": "AS",
+        "title": "Operating Systems",
+        "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
+        "tier": "both",
+        "area_n": 5
+      },
+      {
+        "id": "852b09a3-33c4-4ddf-b814-54be80f67555",
+        "code": "5.2",
+        "area": "5",
+        "level": "AS",
+        "title": "Language Translators",
+        "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
+        "tier": "both",
+        "area_n": 5
+      },
+      {
+        "id": "d4196e05-0ff4-41d1-96f4-a88e0ddbe8a7",
+        "code": "6.1",
+        "area": "6",
+        "level": "AS",
+        "title": "Data Security",
+        "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
+        "tier": "both",
+        "area_n": 6
+      },
+      {
+        "id": "b5e5940a-1f74-439c-9b76-dedd1d06a7fe",
+        "code": "6.2",
+        "area": "6",
+        "level": "AS",
+        "title": "Data Integrity",
+        "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
+        "tier": "both",
+        "area_n": 6
+      },
+      {
+        "id": "3d85c27c-fbbb-4e83-a5bd-b9cecbf10d73",
+        "code": "7.1",
+        "area": "7",
+        "level": "AS",
+        "title": "Ethics and Ownership",
+        "topic_id": "1bdc4fd6-0627-40d3-a8e4-bbe5827c51e0",
+        "tier": "both",
+        "area_n": 7
+      },
+      {
+        "id": "159ced61-5d0f-45c6-9005-67f79320d2cf",
+        "code": "8.1",
+        "area": "8",
+        "level": "AS",
+        "title": "Database Concepts",
+        "topic_id": "f52cc259-2b6e-4aca-818b-56556bf68950",
+        "tier": "both",
+        "area_n": 8
+      },
+      {
+        "id": "79b5d59c-2011-4cad-8078-c064d75b4d39",
+        "code": "8.2",
+        "area": "8",
+        "level": "AS",
+        "title": "Database Management Systems (DBMS)",
+        "topic_id": "f52cc259-2b6e-4aca-818b-56556bf68950",
+        "tier": "both",
+        "area_n": 8
+      },
+      {
+        "id": "8d983a40-ff2e-4ce8-b823-75d4b7db77f5",
+        "code": "8.3",
+        "area": "8",
+        "level": "AS",
+        "title": "Data Definition Language (DDL) and Data Manipulation Language (DML)",
+        "topic_id": "76639184-3968-4dca-92f4-c5b52f558d8e",
+        "tier": "both",
+        "area_n": 8
+      },
+      {
+        "id": "138a58e3-5399-40a9-8b98-85cf26c3ef64",
+        "code": "9.1",
+        "area": "9",
+        "level": "AS",
+        "title": "Computational Thinking Skills",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 9
+      },
+      {
+        "id": "2f431699-b1be-480f-a202-4f4233393bcc",
+        "code": "9.2",
+        "area": "9",
+        "level": "AS",
+        "title": "Algorithms",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 9
+      },
+      {
+        "id": "aa0bb9c4-2061-4e3c-bdc9-dc8e7de8f7ff",
+        "code": "10.1",
+        "area": "10",
+        "level": "AS",
+        "title": "Data Types and Records",
+        "topic_id": "372710b0-fcac-4f55-af62-67b9bec5940c",
+        "tier": "both",
+        "area_n": 10
+      },
+      {
+        "id": "a65bf273-559a-4cbe-b16f-ad772c711ab6",
+        "code": "10.2",
+        "area": "10",
+        "level": "AS",
+        "title": "Arrays",
+        "topic_id": "372710b0-fcac-4f55-af62-67b9bec5940c",
+        "tier": "both",
+        "area_n": 10
+      },
+      {
+        "id": "8a290027-e463-4de7-8b82-9e0a45c800f8",
+        "code": "10.3",
+        "area": "10",
+        "level": "AS",
+        "title": "Files",
+        "topic_id": "ec102c32-7550-40e8-91ec-985ec72ff83c",
+        "tier": "both",
+        "area_n": 10
+      },
+      {
+        "id": "4ad919db-fbbd-461d-afd8-0742d3398aae",
+        "code": "10.4",
+        "area": "10",
+        "level": "AS",
+        "title": "Introduction to Abstract Data Types (ADT)",
+        "topic_id": "d731e71c-1bcb-47b4-8837-644b3fd97e29",
+        "tier": "both",
+        "area_n": 10
+      },
+      {
+        "id": "872ae651-57df-4d79-a740-c721d24fee49",
+        "code": "11.1",
+        "area": "11",
+        "level": "AS",
+        "title": "Programming Basics",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 11
+      },
+      {
+        "id": "8869c786-4ec6-4754-8f42-18320a5ac476",
+        "code": "11.2",
+        "area": "11",
+        "level": "AS",
+        "title": "Constructs",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 11
+      },
+      {
+        "id": "d77a1698-b69d-4c48-a463-1ff15070d0fb",
+        "code": "11.3",
+        "area": "11",
+        "level": "AS",
+        "title": "Structured Programming",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 11
+      },
+      {
+        "id": "7cf3448c-ed55-4ab9-b4c3-3eb618988a02",
+        "code": "12.1",
+        "area": "12",
+        "level": "AS",
+        "title": "Program Development Life cycle",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 12
+      },
+      {
+        "id": "8c25b728-030d-4b72-bd59-4e4a9d44466b",
+        "code": "12.2",
+        "area": "12",
+        "level": "AS",
+        "title": "Program Design",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 12
+      },
+      {
+        "id": "a66c7808-5106-4cf6-a975-f108569cf6db",
+        "code": "12.3",
+        "area": "12",
+        "level": "AS",
+        "title": "Program Testing and Maintenance",
+        "topic_id": "ced121cb-433c-4a2a-bc15-d33098a610eb",
+        "tier": "both",
+        "area_n": 12
+      },
+      {
+        "id": "c807a386-79b3-4325-bac6-ca9c9aa5da05",
+        "code": "13.1",
+        "area": "13",
+        "level": "A2",
+        "title": "User-defined data types",
+        "topic_id": "ec102c32-7550-40e8-91ec-985ec72ff83c",
+        "tier": "both",
+        "area_n": 13
+      },
+      {
+        "id": "8dd36dbc-1c26-4116-853c-d8225ab32eda",
+        "code": "13.2",
+        "area": "13",
+        "level": "A2",
+        "title": "File organisation and access",
+        "topic_id": "ec102c32-7550-40e8-91ec-985ec72ff83c",
+        "tier": "both",
+        "area_n": 13
+      },
+      {
+        "id": "2532ce4e-3a14-4ebf-bd14-f23407d0f423",
+        "code": "13.3",
+        "area": "13",
+        "level": "A2",
+        "title": "Floating-point numbers, representation and manipulation",
+        "topic_id": "ec102c32-7550-40e8-91ec-985ec72ff83c",
+        "tier": "both",
+        "area_n": 13
+      },
+      {
+        "id": "7fe7d055-d0c1-4a7c-abf3-0c52d0769593",
+        "code": "14.1",
+        "area": "14",
+        "level": "A2",
+        "title": "Protocols",
+        "topic_id": "346acb48-363d-495f-bf45-5170082e4abb",
+        "tier": "both",
+        "area_n": 14
+      },
+      {
+        "id": "fafe7fd4-0579-4493-8374-66838ea45e87",
+        "code": "14.2",
+        "area": "14",
+        "level": "A2",
+        "title": "Circuit switching, packet switching",
+        "topic_id": "346acb48-363d-495f-bf45-5170082e4abb",
+        "tier": "both",
+        "area_n": 14
+      },
+      {
+        "id": "dbe9b9aa-32a4-417a-a994-3d84de3ef14b",
+        "code": "15.1",
+        "area": "15",
+        "level": "A2",
+        "title": "Processors, Parallel Processing and Virtual Machines",
+        "topic_id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
+        "tier": "both",
+        "area_n": 15
+      },
+      {
+        "id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c",
+        "code": "15.2",
+        "area": "15",
+        "level": "A2",
+        "title": "Boolean Algebra and Logic Circuits",
+        "topic_id": "532f32af-de30-4ad5-a9be-33e0d552a831",
+        "tier": "both",
+        "area_n": 15
+      },
+      {
+        "id": "018668a8-911a-4f44-a0ef-fd7baf2f6e63",
+        "code": "16.1",
+        "area": "16",
+        "level": "A2",
+        "title": "Purposes of an Operating System (OS)",
+        "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
+        "tier": "both",
+        "area_n": 16
+      },
+      {
+        "id": "afb6ff80-284f-4027-921c-37201a50c2fa",
+        "code": "16.2",
+        "area": "16",
+        "level": "A2",
+        "title": "Translation Software",
+        "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
+        "tier": "both",
+        "area_n": 16
+      },
+      {
+        "id": "d43781f2-8303-4e53-9076-568943e4266a",
+        "code": "17.1",
+        "area": "17",
+        "level": "A2",
+        "title": "Encryption, Encryption Protocols and Digital Certificates",
+        "topic_id": "1323a228-279d-4364-a21f-b07cff9db871",
+        "tier": "both",
+        "area_n": 17
+      },
+      {
+        "id": "587d01b7-cf6c-4ec1-8d6e-f13e46eb1de7",
+        "code": "18.1",
+        "area": "18",
+        "level": "A2",
+        "title": "Artificial Intelligence (AI)",
+        "topic_id": "1bdc4fd6-0627-40d3-a8e4-bbe5827c51e0",
+        "tier": "both",
+        "area_n": 18
+      },
+      {
+        "id": "ef5896e9-cae4-4a30-b429-e453b87cb83d",
+        "code": "19.1",
+        "area": "19",
+        "level": "A2",
+        "title": "Algorithms",
+        "topic_id": "965f1ced-091e-4f23-8f27-57fdb3db0b24",
+        "tier": "both",
+        "area_n": 19
+      },
+      {
+        "id": "369a367e-d71c-40f2-b35a-1ac27b2d7254",
+        "code": "19.2",
+        "area": "19",
+        "level": "A2",
+        "title": "Recursion",
+        "topic_id": "965f1ced-091e-4f23-8f27-57fdb3db0b24",
+        "tier": "both",
+        "area_n": 19
+      },
+      {
+        "id": "5e88eb14-f6fd-46e7-8982-b5221d33aeb5",
+        "code": "20.1",
+        "area": "20",
+        "level": "A2",
+        "title": "Programming Paradigms",
+        "topic_id": "580136d1-5758-460e-8f79-7a04e39b9899",
+        "tier": "both",
+        "area_n": 20
+      },
+      {
+        "id": "bc23fdc1-7b68-4ab6-8f3d-335360b72ac3",
+        "code": "20.2",
+        "area": "20",
+        "level": "A2",
+        "title": "File Processing and Exception Handling",
+        "topic_id": "580136d1-5758-460e-8f79-7a04e39b9899",
+        "tier": "both",
+        "area_n": 20
+      }
+    ]
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "circular-measure",
+    "before": 937,
+    "after": 1424,
+    "fixedHeading": false
+  },
+  {
+    "slug": "further-trigonometry",
+    "before": 1006,
+    "after": 1431,
+    "fixedHeading": false
+  },
+  {
+    "slug": "sequences-and-series",
+    "before": 1010,
+    "after": 1476,
+    "fixedHeading": false
+  },
+  {
+    "slug": "integration",
+    "before": 1031,
+    "after": 1594,
+    "fixedHeading": false
+  },
+  {
+    "slug": "differentiation-ii",
+    "before": 1036,
+    "after": 1484,
+    "fixedHeading": false
+  },
+  {
+    "slug": "electric-fields-and-capacitance",
+    "before": 1068,
+    "after": 1572,
+    "fixedHeading": false
+  },
+  {
+    "slug": "pressure-density",
+    "before": 1072,
+    "after": 1572,
+    "fixedHeading": false
+  },
+  {
+    "slug": "motion-in-a-circle-and-gravity",
+    "before": 1091,
+    "after": 1672,
+    "fixedHeading": false
+  },
+  {
+    "slug": "thermal-physics",
+    "before": 1102,
+    "after": 1569,
+    "fixedHeading": false
+  },
+  {
+    "slug": "work-energy-and-power",
+    "before": 1104,
+    "after": 1541,
+    "fixedHeading": false
+  },
+  {
+    "slug": "circular-motion-and-shm",
+    "before": 1114,
+    "after": 1618,
+    "fixedHeading": false
+  },
+  {
+    "slug": "integration-ii",
+    "before": 1119,
+    "after": 1649,
+    "fixedHeading": false
+  },
+  {
+    "slug": "coordinate-geometry",
+    "before": 1119,
+    "after": 1574,
+    "fixedHeading": false
+  },
+  {
+    "slug": "astronomy-and-cosmology",
+    "before": 1145,
+    "after": 1571,
+    "fixedHeading": false
+  },
+  {
+    "slug": "differentiation",
+    "before": 1150,
+    "after": 1614,
+    "fixedHeading": false
+  },
+  {
+    "slug": "quantum-physics",
+    "before": 1163,
+    "after": 1722,
+    "fixedHeading": false
+  },
+  {
+    "slug": "vectors",
+    "before": 1168,
+    "after": 1570,
+    "fixedHeading": false
+  },
+  {
+    "slug": "number-sets",
+    "before": 1178,
+    "after": 1543,
+    "fixedHeading": false
+  },
+  {
+    "slug": "materials-deformation",
+    "before": 1182,
+    "after": 1597,
+    "fixedHeading": false
+  },
+  {
+    "slug": "algebra-inequalities",
+    "before": 1207,
+    "after": 1665,
+    "fixedHeading": false
+  },
+  {
+    "slug": "trigonometry",
+    "before": 1273,
+    "after": 1696,
+    "fixedHeading": false
+  },
+  {
+    "slug": "nuclear-physics",
+    "before": 1318,
+    "after": 1691,
+    "fixedHeading": false
+  },
+  {
+    "slug": "data-structures",
+    "before": 1345,
+    "after": 1858,
+    "fixedHeading": true
+  },
+  {
+    "slug": "kinematics",
+    "before": 1423,
+    "after": 1921,
+    "fixedHeading": false
+  },
+  {
+    "slug": "hardware-and-logic-gates",
+    "before": 1487,
+    "after": 1916,
+    "fixedHeading": true
+  }
+]

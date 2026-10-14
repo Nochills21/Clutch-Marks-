@@ -1,0 +1,279 @@
+backend/supabase/functions/ai-correction/index.ts:366 [no-control-regex] .replace(/\u0000*\n\u0000*/g, "\n")
+backend/supabase/functions/ai-correction/index.ts:367 [no-control-regex] .replace(/\u0000/g, "")
+backend/supabase/functions/ai-correction/index.ts:503 [@typescript-eslint/no-explicit-any] .filter((f: any) => f && typeof f === "object")
+backend/supabase/functions/ai-correction/index.ts:504 [@typescript-eslint/no-explicit-any] .map((f: any) => ({
+backend/supabase/functions/ai-correction/index.ts:627 [@typescript-eslint/no-explicit-any] ? rawPaper.map((p: any) =>
+backend/supabase/functions/ai-correction/index.ts:738 [@typescript-eslint/no-explicit-any] const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+backend/supabase/functions/draft-content/index.ts:295 [no-useless-escape] first option in the array. Escape any double quote inside a string as \". Do not
+backend/supabase/functions/generate-questions/index.ts:62 [@typescript-eslint/no-explicit-any] subjectName = (sl as any).subjects?.name ?? subjectName;
+backend/supabase/functions/generate-questions/index.ts:129 [@typescript-eslint/no-explicit-any] let parsed: any;
+backend/supabase/functions/generate-questions/index.ts:136 [@typescript-eslint/no-explicit-any] const generated = (parsed?.questions ?? []).filter((q: any) =>
+backend/supabase/functions/generate-questions/index.ts:160 [@typescript-eslint/no-explicit-any] const rows = generated.map((q: any, i: number) => ({
+backend/supabase/functions/quiz-feedback/index.ts:86 [@typescript-eslint/no-explicit-any] const wrong = questions.filter((q: any) => {
+backend/supabase/functions/quiz-feedback/index.ts:104 [@typescript-eslint/no-explicit-any] .map((q: any, i: number) => {
+backend/supabase/functions/quiz-feedback/index.ts:114 [@typescript-eslint/no-explicit-any] const topicName = (quiz as any).topics?.name ?? null;
+frontend/src/components/AiCorrectionForm.tsx:68 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/FileVersionHistory.tsx:58 [@typescript-eslint/no-explicit-any] .catch((e: any) => { if (!cancelled) setError(e?.message ?? "Could not load version history"); })
+frontend/src/components/FileVersionHistory.tsx:71 [@typescript-eslint/no-explicit-any] const { error: updateError } = await (supabase as any)
+frontend/src/components/FileVersionHistory.tsx:101 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/NotificationCenter.tsx:61 [@typescript-eslint/no-explicit-any] setItems((data ?? []).map((d: any) => ({
+frontend/src/components/PaperPractice.tsx:166 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/SubjectFilterNotice.tsx:48 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/SubjectGate.tsx:58 [@typescript-eslint/no-explicit-any] {options.map((o: any) => (
+frontend/src/components/SubjectGate.tsx:73 [@typescript-eslint/no-explicit-any] <Button onClick={() => setPicked(new Set(options.map((o: any) => o.id)))} className="gap-2">
+frontend/src/components/SubjectGate.tsx:84 [@typescript-eslint/no-explicit-any] const selectAll = () => setPicked(new Set(options.map((o: any) => o.id)));
+frontend/src/components/SubjectGate.tsx:100 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/SubjectPicker.tsx:42 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/admin/ContentEditor.tsx:39 [@typescript-eslint/no-explicit-any] const [revisions, setRevisions] = useState<any[]>([]);
+frontend/src/components/admin/ContentEditor.tsx:58 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/dashboards/AdminDashboard.tsx:37 [@typescript-eslint/no-explicit-any] const c = ((countsRes.data ?? []) as any[])[0];
+frontend/src/components/dashboards/ParentDashboard.tsx:32 [@typescript-eslint/no-explicit-any] const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
+frontend/src/components/dashboards/ParentDashboard.tsx:32 [@typescript-eslint/no-explicit-any] const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
+frontend/src/components/dashboards/ParentDashboard.tsx:112 [@typescript-eslint/no-explicit-any] const quizIds = [...new Set((attempts.data ?? []).map((a: any) => a.quiz_id).filter(Boolean))];
+frontend/src/components/dashboards/ParentDashboard.tsx:113 [@typescript-eslint/no-explicit-any] const lessonIds = [...new Set((lessons.data ?? []).map((l: any) => l.lesson_id).filter(Boolean))];
+frontend/src/components/dashboards/ParentDashboard.tsx:118 [@typescript-eslint/no-explicit-any] (data ?? []).forEach((q: any) => titleMap.set(`q:${q.id}`, q.title));
+frontend/src/components/dashboards/ParentDashboard.tsx:123 [@typescript-eslint/no-explicit-any] (data ?? []).forEach((l: any) => titleMap.set(`l:${l.id}`, l.title));
+frontend/src/components/dashboards/ParentDashboard.tsx:130 [@typescript-eslint/no-explicit-any] attempts: (attempts.data ?? []).map((a: any) => ({ ...a, quiz_title: titleMap.get(`q:${a.quiz_id}`) ?? "Quiz" })),
+frontend/src/components/dashboards/ParentDashboard.tsx:131 [@typescript-eslint/no-explicit-any] lessons: (lessons.data ?? []).map((l: any) => ({ ...l, lesson_title: titleMap.get(`l:${l.lesson_id}`) ?? "Lesson" })),
+frontend/src/components/dashboards/ParentDashboard.tsx:179 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+frontend/src/components/dashboards/ParentDashboard.tsx:194 [@typescript-eslint/no-explicit-any] const avg = (xs: any[]) =>
+frontend/src/components/dashboards/StudentDashboard.tsx:67 [@typescript-eslint/no-explicit-any] const [announcements, setAnnouncements] = useState<any[]>([]);
+frontend/src/components/dashboards/StudentDashboard.tsx:98 [@typescript-eslint/no-explicit-any] const c = ((countsRes.data ?? []) as any[])[0];
+frontend/src/components/ui/command.tsx:24 [@typescript-eslint/no-empty-object-type] interface CommandDialogProps extends DialogProps {}
+frontend/src/components/ui/textarea.tsx:5 [@typescript-eslint/no-empty-object-type] export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+frontend/src/hooks/useMySubjects.ts:75 [@typescript-eslint/no-explicit-any] setPicks(new Set((data ?? []).map((r: any) => r.subject_level_id)));
+frontend/src/hooks/useSubjectLevelOptions.ts:34 [@typescript-eslint/no-explicit-any] return (data ?? []).map((l: any) => {
+frontend/src/lib/ai.ts:94 [@typescript-eslint/no-explicit-any] async function planRequiredFrom(error: any): Promise<string | null> {
+frontend/src/lib/ai.ts:119 [@typescript-eslint/no-explicit-any] async function workerErrorMessage(error: any): Promise<string | null> {
+frontend/src/lib/ai.ts:267 [@typescript-eslint/no-explicit-any] const { data, error } = await (supabase as any)
+frontend/src/lib/ai.ts:279 [@typescript-eslint/no-explicit-any] } as any)
+frontend/src/lib/ai.ts:283 [@typescript-eslint/no-explicit-any] const row = data as any;
+src/pages/Announcements.tsx:21 [@typescript-eslint/no-explicit-any] const [announcements, setAnnouncements] = useState<any[]>([]);
+src/pages/Announcements.tsx:44 [@typescript-eslint/no-explicit-any] if (user) void markAnnouncementsRead(user.id, rows.map((a: any) => a.id));
+src/pages/DataRights.tsx:129 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/DataRights.tsx:160 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/Flashcards.tsx:51 [@typescript-eslint/no-explicit-any] const [sets, setSets] = useState<any[]>([]);
+src/pages/Flashcards.tsx:52 [@typescript-eslint/no-explicit-any] const [topics, setTopics] = useState<any[]>([]);
+src/pages/Flashcards.tsx:56 [@typescript-eslint/no-explicit-any] const [studyCards, setStudyCards] = useState<any[]>([]);
+src/pages/Flashcards.tsx:59 [@typescript-eslint/no-explicit-any] const [progressMap, setProgressMap] = useState<Record<string, any>>({});
+src/pages/Flashcards.tsx:76 [@typescript-eslint/no-explicit-any] (levelsRes.data ?? []).forEach((l: any) => { lv[l.id] = l.level; });
+src/pages/Flashcards.tsx:87 [@typescript-eslint/no-explicit-any] (progress ?? []).forEach((p: any) => {
+src/pages/Flashcards.tsx:93 [@typescript-eslint/no-explicit-any] const reviewed = new Set((progress ?? []).map((p: any) => p.flashcard_id));
+src/pages/Flashcards.tsx:95 [@typescript-eslint/no-explicit-any] (allCards ?? []).forEach((c: any) => {
+src/pages/Flashcards.tsx:119 [@typescript-eslint/no-explicit-any] const pMap: Record<string, any> = {};
+src/pages/Flashcards.tsx:120 [@typescript-eslint/no-explicit-any] (prog ?? []).forEach((p: any) => { pMap[p.flashcard_id] = p; });
+src/pages/Flashcards.tsx:125 [@typescript-eslint/no-explicit-any] const dueCards = (cards ?? []).filter((c: any) => {
+src/pages/Flashcards.tsx:167 [@typescript-eslint/no-explicit-any] return new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id));
+src/pages/Flashcards.tsx:167 [@typescript-eslint/no-explicit-any] return new Set(topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id));
+src/pages/Flashcards.tsx:173 [@typescript-eslint/no-explicit-any] const lv = levelById[topics.find((x: any) => x.id === topicId)?.subject_level_id];
+src/pages/Flashcards.tsx:178 [@typescript-eslint/no-explicit-any] topics.forEach((t: any) => { counts[t.name] = (counts[t.name] ?? 0) + 1; });
+src/pages/Flashcards.tsx:181 [@typescript-eslint/no-explicit-any] const topicTabLabel = (t: any) => {
+src/pages/Flashcards.tsx:185 [@typescript-eslint/no-explicit-any] const setTopicBadge = (s: any) => {
+src/pages/Flashcards.tsx:186 [@typescript-eslint/no-explicit-any] const t = topics.find((x: any) => x.id === s.topic_id);
+src/pages/Flashcards.tsx:196 [@typescript-eslint/no-explicit-any] if (isAdminRole || !prefsLoaded) return topics.map((t: any) => t.id);
+src/pages/Flashcards.tsx:197 [@typescript-eslint/no-explicit-any] return topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id);
+src/pages/Flashcards.tsx:197 [@typescript-eslint/no-explicit-any] return topics.filter((t: any) => pickedIds.has(t.subject_level_id)).map((t: any) => t.id);
+src/pages/Flashcards.tsx:219 [@typescript-eslint/no-explicit-any] const byLevel = new Map<string, any[]>();
+src/pages/Flashcards.tsx:222 [@typescript-eslint/no-explicit-any] const sl = topics.find((t: any) => t.id === tid)?.subject_level_id;
+src/pages/Flashcards.tsx:386 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/LessonNotes.tsx:33 [@typescript-eslint/no-explicit-any] const [lesson, setLesson] = useState<any>(null);
+src/pages/LessonNotes.tsx:61 [@typescript-eslint/no-explicit-any] const t: any = l as any;
+src/pages/LessonNotes.tsx:61 [@typescript-eslint/no-explicit-any] const t: any = l as any;
+src/pages/LessonNotes.tsx:62 [@typescript-eslint/no-explicit-any] setNotes((data ?? []).map((m: any) => ({
+src/pages/LessonNotes.tsx:264 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/LessonNotes.tsx:271 [@typescript-eslint/no-explicit-any] onClick={() => downloadNote(n).catch((e: any) => toast.error(e?.message ?? "Could not download this file"))}>
+src/pages/Lessons.tsx:30 [@typescript-eslint/no-explicit-any] const [topics, setTopics] = useState<any[]>([]);
+src/pages/Lessons.tsx:31 [@typescript-eslint/no-explicit-any] const [lessons, setLessons] = useState<any[]>([]);
+src/pages/Lessons.tsx:33 [@typescript-eslint/no-explicit-any] const [selectedLesson, setSelectedLesson] = useState<any>(null);
+src/pages/Lessons.tsx:34 [@typescript-eslint/no-explicit-any] const [notes, setNotes] = useState<any[]>([]);
+src/pages/Lessons.tsx:46 [@typescript-eslint/no-explicit-any] const saveLessonPdf = async (lesson: any) => {
+src/pages/Lessons.tsx:50 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/Lessons.tsx:74 [@typescript-eslint/no-explicit-any] (progressRes.data ?? []).forEach((p: any) => { prog[p.lesson_id] = p.completed; });
+src/pages/Lessons.tsx:78 [@typescript-eslint/no-explicit-any] const slMap = new Map(((slRes.data ?? []) as any[]).map((s) => [s.id, s]));
+src/pages/Lessons.tsx:79 [@typescript-eslint/no-explicit-any] const subMap = new Map(((subRes.data ?? []) as any[]).map((s) => [s.id, s]));
+src/pages/Lessons.tsx:83 [@typescript-eslint/no-explicit-any] const sl = slMap.get((t as any).subject_level_id);
+src/pages/Lessons.tsx:123 [@typescript-eslint/no-explicit-any] ? topics.filter((t: any) => pickedIds.has((t as any).subject_level_id))
+src/pages/Lessons.tsx:123 [@typescript-eslint/no-explicit-any] ? topics.filter((t: any) => pickedIds.has((t as any).subject_level_id))
+src/pages/Lessons.tsx:128 [@typescript-eslint/no-explicit-any] const byLevel = new Map<string, any[]>();
+src/pages/Lessons.tsx:130 [@typescript-eslint/no-explicit-any] const qs = lessons.filter((l: any) => l.topic_id === t.id);
+src/pages/Lessons.tsx:133 [@typescript-eslint/no-explicit-any] const limited = new Map<string, any[]>();
+src/pages/Lessons.tsx:147 [@typescript-eslint/no-explicit-any] for (const t of pickedIds ? topics.filter((t: any) => pickedIds.has(t.subject_level_id)) : topics) {
+src/pages/Lessons.tsx:148 [@typescript-eslint/no-explicit-any] total += (lessons.filter((l: any) => l.topic_id === t.id)).length;
+src/pages/Lessons.tsx:333 [@typescript-eslint/no-explicit-any] if (n.file_url) openSignedFile("study-materials", n.file_url).catch((e: any) => toast({ title: "Couldn't open this file", description: e?.message ?? "Please try again.", variant: "destructive" }));
+src/pages/Notes.tsx:56 [@typescript-eslint/no-explicit-any] return (data ?? []).map((m: any) => ({
+src/pages/Notes.tsx:91 [@typescript-eslint/no-explicit-any] (data ?? []).forEach((r: any) => { map[r.material_id] = r.completed; });
+src/pages/Notes.tsx:156 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/Notes.tsx:369 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/Notes.tsx:378 [@typescript-eslint/no-explicit-any] onClick={() => downloadNote(n).catch((e: any) => toast.error(e?.message ?? "Could not download this file"))}>
+src/pages/PastPapers.tsx:89 [@typescript-eslint/no-explicit-any] const [markPaper, setMarkPaper] = useState<any | null>(null);
+src/pages/PastPapers.tsx:144 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/PastPapers.tsx:154 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/PastPapers.tsx:164 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/PastPapers.tsx:178 [@typescript-eslint/no-explicit-any] (topics ?? []).forEach((t: any) => { if (t.subject_level_id) m.set(t.id, t.subject_level_id); });
+src/pages/PastPapers.tsx:184 [@typescript-eslint/no-explicit-any] (subjectLevels ?? []).forEach((row: any) => {
+src/pages/PastPapers.tsx:208 [@typescript-eslint/no-explicit-any] (scopedPapers ?? []).forEach((p: any) => set.add(archiveBoard(p)));
+src/pages/PastPapers.tsx:214 [@typescript-eslint/no-explicit-any] (scopedPapers ?? []).forEach((p: any) => set.add(archivePaperGroup(p)));
+src/pages/PastPapers.tsx:220 [@typescript-eslint/no-explicit-any] (scopedPapers ?? []).forEach((p: any) => { if (p.session) set.add(p.session); });
+src/pages/PastPapers.tsx:241 [@typescript-eslint/no-explicit-any] const years = [...new Set(matchedPapers.map((p: any) => p.year))].sort((a, b) => b - a);
+src/pages/PastPapers.tsx:242 [@typescript-eslint/no-explicit-any] const yearScoped = yearFilter === "all" ? matchedPapers : matchedPapers.filter((p: any) => p.year === Number(yearFilter));
+src/pages/PastPapers.tsx:247 [@typescript-eslint/no-explicit-any] .map((y) => ({ year: y, papers: filteredPapers.filter((p: any) => p.year === y) }))
+src/pages/PastPapers.tsx:394 [@typescript-eslint/no-explicit-any] g.papers.map((p: any) => (
+src/pages/Practice.tsx:156 [@typescript-eslint/no-explicit-any] setTopicSL(new Map(topics.map((t: any) => [t.id, t.subject_level_id])));
+src/pages/Practice.tsx:157 [@typescript-eslint/no-explicit-any] setBankTopics(topics.map((t: any) => ({ id: t.id, name: t.name })));
+src/pages/Practice.tsx:158 [@typescript-eslint/no-explicit-any] const quizTopic = new Map((quizzesRes.data ?? []).map((q: any) => [q.id, q.topic_id]));
+src/pages/Practice.tsx:160 [@typescript-eslint/no-explicit-any] (attemptsRes.data ?? []).forEach((a: any) => {
+src/pages/Practice.tsx:169 [@typescript-eslint/no-explicit-any] .map((t: any) => ({ id: t.id, name: t.name, avg: tally[t.id] ? Math.round(tally[t.id].sum / tally[t.id].n) : -1 }))
+src/pages/Practice.tsx:172 [@typescript-eslint/no-explicit-any] setWeakTopics(ranked.length > 0 ? ranked : topics.map((t: any) => ({ id: t.id, name: t.name, avg: 0 })));
+src/pages/Practice.tsx:199 [@typescript-eslint/no-explicit-any] (data ?? []).map((l: any) => ({
+src/pages/Practice.tsx:226 [@typescript-eslint/no-explicit-any] (data ?? []).forEach((a: any) => { map[a.question_id] = a; });
+src/pages/Practice.tsx:305 [@typescript-eslint/no-explicit-any] const pool: DrillQuestion[] = (qs ?? []).map((q: any) => ({
+src/pages/Practice.tsx:324 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/Practice.tsx:375 [@typescript-eslint/no-explicit-any] const res = data as any;
+src/pages/Practice.tsx:404 [@typescript-eslint/no-explicit-any] const r = data as any;
+src/pages/Pricing.tsx:205 [@typescript-eslint/no-explicit-any] const row = (data as any[] | null)?.[0];
+src/pages/Pricing.tsx:279 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/ProgressPage.tsx:106 [@typescript-eslint/no-explicit-any] const slMap = new Map((topicsRes.data ?? []).map((t: any) => [t.id, t.subject_level_id]));
+src/pages/ProgressPage.tsx:111 [@typescript-eslint/no-explicit-any] const quizTopic = new Map((quizzesRes.data ?? []).map((q: any) => [q.id, q.topic_id]));
+src/pages/ProgressPage.tsx:113 [@typescript-eslint/no-explicit-any] (practiceRes.data ?? []).forEach((a: any) => {
+src/pages/ProgressPage.tsx:116 [@typescript-eslint/no-explicit-any] const bookmarkedIds = new Set((bookmarkRes.data ?? []).map((b: any) => b.question_id));
+src/pages/ProgressPage.tsx:121 [@typescript-eslint/no-explicit-any] (quizzesRes.data ?? []).forEach((q: any) => {
+src/pages/ProgressPage.tsx:128 [@typescript-eslint/no-explicit-any] const completed = new Set((progressRes.data ?? []).map((p: any) => p.lesson_id));
+src/pages/ProgressPage.tsx:129 [@typescript-eslint/no-explicit-any] setTopics((topicsRes.data ?? []).map((t: any) => {
+src/pages/ProgressPage.tsx:130 [@typescript-eslint/no-explicit-any] const topicAttempts = attempts.filter((a: any) => quizTopic.get(a.quiz_id) === t.id);
+src/pages/ProgressPage.tsx:131 [@typescript-eslint/no-explicit-any] const totalPct = topicAttempts.reduce((s: number, a: any) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0);
+src/pages/ProgressPage.tsx:132 [@typescript-eslint/no-explicit-any] const topicLessons = lessons.filter((l: any) => l.topic_id === t.id);
+src/pages/ProgressPage.tsx:139 [@typescript-eslint/no-explicit-any] if ((q as any).topic_id !== t.id) continue;
+src/pages/ProgressPage.tsx:140 [@typescript-eslint/no-explicit-any] const pq = practiceQ.get((q as any).id);
+src/pages/ProgressPage.tsx:145 [@typescript-eslint/no-explicit-any] if (bookmarkedIds.has((q as any).id)) bookmarked += 1;
+src/pages/ProgressPage.tsx:153 [@typescript-eslint/no-explicit-any] mastered: topicAttempts.length > 0 && topicAttempts.every((a: any) => (a.score ?? 0) / (a.total_questions || 1) >= 0.8),
+src/pages/ProgressPage.tsx:154 [@typescript-eslint/no-explicit-any] totalQuizzes: (quizzesRes.data ?? []).filter((q: any) => q.topic_id === t.id).length,
+src/pages/ProgressPage.tsx:155 [@typescript-eslint/no-explicit-any] completedLessons: topicLessons.filter((l: any) => completed.has(l.id)).length,
+src/pages/Quizzes.tsx:72 [@typescript-eslint/no-explicit-any] const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/Quizzes.tsx:73 [@typescript-eslint/no-explicit-any] const [activeQuiz, setActiveQuiz] = useState<any>(null);
+src/pages/Quizzes.tsx:138 [@typescript-eslint/no-explicit-any] const sl = (q as any).topics?.subject_level_id as string | undefined;
+src/pages/Quizzes.tsx:224 [@typescript-eslint/no-explicit-any] const startQuiz = async (quiz: any) => {
+src/pages/Quizzes.tsx:310 [@typescript-eslint/no-explicit-any] topicName: (activeQuiz as any).topics?.name ?? null,
+src/pages/Quizzes.tsx:324 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/Quizzes.tsx:352 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/Quizzes.tsx:614 [@typescript-eslint/no-explicit-any] <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+src/pages/StudyPlanner.tsx:72 [@typescript-eslint/no-explicit-any] const [savedPlans, setSavedPlans] = useState<any[]>([]);
+src/pages/StudyPlanner.tsx:83 [@typescript-eslint/no-explicit-any] (q as any).then(({ data, error }: any) => {
+src/pages/StudyPlanner.tsx:83 [@typescript-eslint/no-explicit-any] (q as any).then(({ data, error }: any) => {
+src/pages/StudyPlanner.tsx:114 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/StudyPlanner.tsx:163 [@typescript-eslint/no-explicit-any] .limit(5)) as any;
+src/pages/StudyPlanner.tsx:170 [@typescript-eslint/no-explicit-any] .limit(5)) as any;
+src/pages/StudyPlanner.tsx:172 [@typescript-eslint/no-explicit-any] const perf = (attempts ?? []).map((a: any) =>
+src/pages/StudyPlanner.tsx:176 [@typescript-eslint/no-explicit-any] upcomingHomework = (homework ?? []).map((h: any) =>
+src/pages/Subject.tsx:58 [@typescript-eslint/no-explicit-any] const [subject, setSubject] = useState<any>(null);
+src/pages/Subject.tsx:59 [@typescript-eslint/no-explicit-any] const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/Subject.tsx:60 [@typescript-eslint/no-explicit-any] const [topics, setTopics] = useState<any[]>([]);
+src/pages/Subject.tsx:61 [@typescript-eslint/no-explicit-any] const [lessons, setLessons] = useState<any[]>([]);
+src/pages/Subject.tsx:62 [@typescript-eslint/no-explicit-any] const [materials, setMaterials] = useState<any[]>([]);
+src/pages/Subject.tsx:63 [@typescript-eslint/no-explicit-any] const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/Subject.tsx:110 [@typescript-eslint/no-explicit-any] const ids = topicList.map((t: any) => t.id);
+src/pages/Subject.tsx:126 [@typescript-eslint/no-explicit-any] setQuizzes((qz.data ?? []).filter((q: any) => q.is_published));
+src/pages/Subjects.tsx:43 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicNotes.tsx:38 [@typescript-eslint/no-explicit-any] const [subjectMeta, setSubjectMeta] = useState<any>(null);
+src/pages/TopicNotes.tsx:39 [@typescript-eslint/no-explicit-any] const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/TopicNotes.tsx:43 [@typescript-eslint/no-explicit-any] const [lessons, setLessons] = useState<any[]>([]);
+src/pages/TopicNotes.tsx:44 [@typescript-eslint/no-explicit-any] const [materials, setMaterials] = useState<any[]>([]);
+src/pages/TopicNotes.tsx:45 [@typescript-eslint/no-explicit-any] const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/TopicNotes.tsx:141 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicNotes.tsx:324 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicNotes.tsx:334 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicPapers.tsx:52 [@typescript-eslint/no-explicit-any] const [subjectMeta, setSubjectMeta] = useState<any>(null);
+src/pages/TopicPapers.tsx:53 [@typescript-eslint/no-explicit-any] const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/TopicPapers.tsx:94 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicPapers.tsx:104 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicPapers.tsx:114 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicPapers.tsx:181 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicQuiz.tsx:69 [@typescript-eslint/no-explicit-any] const [subjectMeta, setSubjectMeta] = useState<any>(null);
+src/pages/TopicQuiz.tsx:70 [@typescript-eslint/no-explicit-any] const [subjectLevel, setSubjectLevel] = useState<any>(null);
+src/pages/TopicQuiz.tsx:154 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicQuiz.tsx:226 [@typescript-eslint/no-explicit-any] const resultsData = (data as any)?.results ?? questions.map((q) => ({
+src/pages/TopicQuiz.tsx:235 [@typescript-eslint/no-explicit-any] const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
+src/pages/TopicQuiz.tsx:235 [@typescript-eslint/no-explicit-any] const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
+src/pages/TopicQuiz.tsx:240 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/TopicQuiz.tsx:362 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminAnnouncements.tsx:17 [@typescript-eslint/no-explicit-any] const [announcements, setAnnouncements] = useState<any[]>([]);
+src/pages/admin/AdminAuditLog.tsx:67 [@typescript-eslint/no-explicit-any] const [logs, setLogs] = useState<any[]>([]);
+src/pages/admin/AdminFlashcards.tsx:20 [@typescript-eslint/no-explicit-any] const [sets, setSets] = useState<any[]>([]);
+src/pages/admin/AdminFlashcards.tsx:21 [@typescript-eslint/no-explicit-any] const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminFlashcards.tsx:23 [@typescript-eslint/no-explicit-any] const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminFlashcards.tsx:28 [@typescript-eslint/no-explicit-any] const [cards, setCards] = useState<any[]>([]);
+src/pages/admin/AdminFlashcards.tsx:31 [@typescript-eslint/no-explicit-any] const [editingCard, setEditingCard] = useState<any>(null);
+src/pages/admin/AdminFlashcards.tsx:103 [@typescript-eslint/no-explicit-any] const editSet = (s: any) => {
+src/pages/admin/AdminFlashcards.tsx:143 [@typescript-eslint/no-explicit-any] const startEditCard = (c: any) => {
+src/pages/admin/AdminGradeBook.tsx:309 [@typescript-eslint/no-explicit-any] <Select value={sortBy} onValueChange={(v) => setSortBy(v as any)}>
+src/pages/admin/AdminLessons.tsx:38 [@typescript-eslint/no-explicit-any] const [lessons, setLessons] = useState<any[]>([]);
+src/pages/admin/AdminLessons.tsx:40 [@typescript-eslint/no-explicit-any] const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminLessons.tsx:67 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminLessons.tsx:99 [@typescript-eslint/no-explicit-any] const openEdit = (l: any) => {
+src/pages/admin/AdminMaterials.tsx:35 [@typescript-eslint/no-explicit-any] const [materials, setMaterials] = useState<any[]>([]);
+src/pages/admin/AdminMaterials.tsx:38 [@typescript-eslint/no-explicit-any] const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminMaterials.tsx:157 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminMaterials.tsx:176 [@typescript-eslint/no-explicit-any] const removeMaterial = async (m: any) => {
+src/pages/admin/AdminMaterials.tsx:194 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminMaterials.tsx:201 [@typescript-eslint/no-explicit-any] const openEdit = (m: any) => {
+src/pages/admin/AdminPastPapers.tsx:80 [@typescript-eslint/no-explicit-any] const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminPastPapers.tsx:186 [@typescript-eslint/no-explicit-any] } catch (error: any) {
+src/pages/admin/AdminPastPapers.tsx:208 [@typescript-eslint/no-explicit-any] level: form.level === "none" ? null : (form.level as any),
+src/pages/admin/AdminPastPapers.tsx:229 [@typescript-eslint/no-explicit-any] onError: (e: any) => toast({ title: "Error", description: e.message, variant: "destructive" }),
+src/pages/admin/AdminPastPapers.tsx:246 [@typescript-eslint/no-explicit-any] for (const p of (papers ?? []) as any[]) m.set(p.id, p.title);
+src/pages/admin/AdminPastPapers.tsx:252 [@typescript-eslint/no-explicit-any] const rows = (papers ?? []) as any[];
+src/pages/admin/AdminPastPapers.tsx:296 [@typescript-eslint/no-explicit-any] onError: (e: any) => toast({ title: "Could not update", description: e.message, variant: "destructive" }),
+src/pages/admin/AdminPastPapers.tsx:300 [@typescript-eslint/no-explicit-any] const rows = (papers ?? []) as any[];
+src/pages/admin/AdminPastPapers.tsx:338 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminPastPapers.tsx:374 [@typescript-eslint/no-explicit-any] const openEdit = (p: any) => {
+src/pages/admin/AdminPastPapers.tsx:513 [@typescript-eslint/no-explicit-any] {pendingCandidates.map((c: any) => (
+src/pages/admin/AdminPastPapers.tsx:571 [@typescript-eslint/no-explicit-any] {deadLinks.map((l: any) => (
+src/pages/admin/AdminPastPapers.tsx:636 [@typescript-eslint/no-explicit-any] {visiblePapers.map((p: any) => (
+src/pages/admin/AdminPayments.tsx:39 [@typescript-eslint/no-explicit-any] const [rows, setRows] = useState<any[]>([]);
+src/pages/admin/AdminQuestionBank.tsx:16 [@typescript-eslint/no-explicit-any] const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminQuestionBank.tsx:17 [@typescript-eslint/no-explicit-any] const [questions, setQuestions] = useState<any[]>([]);
+src/pages/admin/AdminQuestionBank.tsx:18 [@typescript-eslint/no-explicit-any] const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/admin/AdminQuestionBank.tsx:89 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminQuizzes.tsx:23 [@typescript-eslint/no-explicit-any] const [quizzes, setQuizzes] = useState<any[]>([]);
+src/pages/admin/AdminQuizzes.tsx:24 [@typescript-eslint/no-explicit-any] const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminQuizzes.tsx:26 [@typescript-eslint/no-explicit-any] const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminQuizzes.tsx:36 [@typescript-eslint/no-explicit-any] const [questions, setQuestions] = useState<any[]>([]);
+src/pages/admin/AdminQuizzes.tsx:100 [@typescript-eslint/no-explicit-any] const payload: any = {
+src/pages/admin/AdminQuizzes.tsx:289 [@typescript-eslint/no-explicit-any] <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+src/pages/admin/AdminSubjects.tsx:152 [@typescript-eslint/no-explicit-any] if ((data as any)?.error) throw new Error((data as any).error);
+src/pages/admin/AdminSubjects.tsx:152 [@typescript-eslint/no-explicit-any] if ((data as any)?.error) throw new Error((data as any).error);
+src/pages/admin/AdminSubjects.tsx:153 [@typescript-eslint/no-explicit-any] toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
+src/pages/admin/AdminSubjects.tsx:153 [@typescript-eslint/no-explicit-any] toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
+src/pages/admin/AdminSubjects.tsx:155 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminSubmissions.tsx:50 [@typescript-eslint/no-explicit-any] answers: any;
+src/pages/admin/AdminTopics.tsx:20 [@typescript-eslint/no-explicit-any] const [topics, setTopics] = useState<any[]>([]);
+src/pages/admin/AdminTopics.tsx:23 [@typescript-eslint/no-explicit-any] const [editing, setEditing] = useState<any>(null);
+src/pages/admin/AdminTopics.tsx:63 [@typescript-eslint/no-explicit-any] const openEdit = (t: any) => {
+src/pages/admin/AdminTopics.tsx:74 [no-useless-escape] const path = `notes/${topicId}/${Date.now()}-${file.name.replace(/[^\w.\-]/g, "_")}`;
+src/pages/admin/AdminUsers.tsx:162 [@typescript-eslint/no-explicit-any] ((subs ?? []) as any[]).forEach((s) => { subMap[s.user_id] = s; });
+src/pages/admin/AdminUsers.tsx:205 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminUsers.tsx:217 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminUsers.tsx:230 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminUsers.tsx:241 [@typescript-eslint/no-explicit-any] .update({ role: "student" as any })
+src/pages/admin/AdminUsers.tsx:278 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminUsers.tsx:291 [@typescript-eslint/no-explicit-any] .update({ role: "admin" as any })
+src/pages/admin/AdminUsers.tsx:316 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminUsers.tsx:336 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+src/pages/admin/AdminUsers.tsx:352 [@typescript-eslint/no-explicit-any] } catch (e: any) {
+supabase/functions/ai-correction/index.ts:180 [@typescript-eslint/no-explicit-any] return content.map((part: any) => {
+supabase/functions/ai-correction/index.ts:234 [@typescript-eslint/no-explicit-any] const parts: any[] = Array.isArray(candidate?.content?.parts)
+supabase/functions/ai-correction/index.ts:487 [no-control-regex] .replace(/\u0000*\n\u0000*/g, "\n")
+supabase/functions/ai-correction/index.ts:488 [no-control-regex] .replace(/\u0000/g, "")
+supabase/functions/ai-correction/index.ts:624 [@typescript-eslint/no-explicit-any] .filter((f: any) => f && typeof f === "object")
+supabase/functions/ai-correction/index.ts:625 [@typescript-eslint/no-explicit-any] .map((f: any) => ({
+supabase/functions/ai-correction/index.ts:748 [@typescript-eslint/no-explicit-any] ? rawPaper.map((p: any) =>
+supabase/functions/ai-correction/index.ts:870 [@typescript-eslint/no-explicit-any] const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+supabase/functions/draft-content/index.ts:295 [no-useless-escape] first option in the array. Escape any double quote inside a string as \". Do not
+supabase/functions/generate-questions/index.ts:73 [@typescript-eslint/no-explicit-any] subjectName = (sl as any).subjects?.name ?? subjectName;
+supabase/functions/generate-questions/index.ts:151 [@typescript-eslint/no-explicit-any] let parsed: any;
+supabase/functions/generate-questions/index.ts:158 [@typescript-eslint/no-explicit-any] const generated = (parsed?.questions ?? []).filter((q: any) =>
+supabase/functions/generate-questions/index.ts:182 [@typescript-eslint/no-explicit-any] const rows = generated.map((q: any, i: number) => ({
+supabase/functions/quiz-feedback/index.ts:86 [@typescript-eslint/no-explicit-any] const wrong = questions.filter((q: any) => {
+supabase/functions/quiz-feedback/index.ts:104 [@typescript-eslint/no-explicit-any] .map((q: any, i: number) => {
+supabase/functions/quiz-feedback/index.ts:114 [@typescript-eslint/no-explicit-any] const topicName = (quiz as any).topics?.name ?? null;
+tailwind.config.ts:183 [@typescript-eslint/no-require-imports] plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+tailwind.config.ts:183 [@typescript-eslint/no-require-imports] plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

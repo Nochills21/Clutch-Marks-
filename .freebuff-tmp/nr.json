@@ -1,0 +1,422 @@
+[
+  {
+    "slug": "thermal-physics",
+    "recall_rows": 19,
+    "n": 19
+  },
+  {
+    "slug": "nuclear-physics",
+    "recall_rows": 18,
+    "n": 18
+  },
+  {
+    "slug": "hypothesis-testing",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "vectors",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "the-normal-distribution",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "kinematics",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "magnetic-fields-and-electromagnetism",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "mensuration-bearings-and-loci",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "energy-work-power",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "dynamics",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "continuous-random-variables",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "algebra-simplifying-and-expanding",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "number-fractions-decimals-and-percentages",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "waves-sound",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "forces-and-equilibrium",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "geometry-angles-and-polygons",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "web-technologies-and-security",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "mensuration-area-and-volume",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "statistics-probability",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "number-ratio-rate-and-proportion",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "computational-thinking-and-problem-solving",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "quadratics",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "binomial-distribution",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "oscillations-and-waves-ii",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "trigonometry-right-angled-triangles",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "probability",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "measures-of-variation-and-standard-deviation",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "numerical-measures-of-central-tendency",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "data-types-and-file-organisation",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "networks-and-the-internet",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "databases-and-data-definition",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "transformations-and-vectors",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "forces-motion",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "sampling-and-estimation",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "measurement-units",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "programming-paradigms-and-low-level",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "system-software-and-security",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "earth-space",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "complex-numbers",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "statistics-data-handling",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "ethics-and-ai",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "further-algebra",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "number-arithmetic-and-place-value",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "number-sets",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "electricity-circuits",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "waves",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "abstract-data-types",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "magnetism-electromagnetism",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "superposition",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "pressure-density",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "quantum-physics",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "trigonometry-sine-and-cosine-rules",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "scatter-diagrams-and-correlation",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "communication-and-networking",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "poisson-distribution",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "probability-distributions",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "permutations-and-combinations",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "simulation-sensors-and-real-data",
+    "recall_rows": 10,
+    "n": 10
+  },
+  {
+    "slug": "integration-ii",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "processor-fundamentals",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "work-energy-and-power",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "programming-and-algorithms",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "algebra-inequalities",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "geometry-congruence-and-similarity",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "integration",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "further-trigonometry",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "functions",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "circular-motion-and-shm",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "differentiation",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "trigonometry",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "electricity-d-c-circuits",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "algebra-graphs",
+    "recall_rows": 9,
+    "n": 9
+  },
+  {
+    "slug": "differentiation-ii",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "materials-deformation",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "astronomy-and-cosmology",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "number-indices-and-standard-form",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "motion-in-a-circle-and-gravity",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "sequences-and-series",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "coordinate-geometry",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "databases",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "data-structures",
+    "recall_rows": 8,
+    "n": 8
+  },
+  {
+    "slug": "algebra-sequences-and-functions",
+    "recall_rows": 7,
+    "n": 7
+  },
+  {
+    "slug": "circular-measure",
+    "recall_rows": 6,
+    "n": 6
+  },
+  {
+    "slug": "electric-fields-and-capacitance",
+    "recall_rows": 6,
+    "n": 6
+  }
+]

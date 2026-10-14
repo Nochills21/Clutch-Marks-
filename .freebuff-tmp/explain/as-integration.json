@@ -1,0 +1,6 @@
+{
+  "1": "Integration reverses differentiation. Differentiating x^(n+1) ÷ (n + 1) gives xⁿ, which is why the power goes up by one and is divided by the new power. The rule fails for n = −1 because the derivative of ln x is 1/x, so 1/x needs a logarithm.",
+  "2": "Differentiation loses any constant, so an indefinite integral is a whole family of curves. A given point picks out the one member that passes through it.",
+  "3": "F(b) − F(a) is the change in the antiderivative over the interval. The constant c cancels in the subtraction, which is why definite integrals do not need it.",
+  "4": "A definite integral measures signed area, so the result equals the area only while the curve stays above the x-axis. Where the curve dips below, that part counts as negative, so split the integral at each crossing point and add the areas as positive values."
+}

@@ -1,0 +1,8 @@
+{
+  "1": "One radian is the angle that cuts off an arc equal in length to the radius. This definition makes the radian a natural unit for arc length and area, with no conversion factor in the formulas.",
+  "2": "The arc is the fraction θ/(2π) of the full circumference 2πr, so the arc length is rθ. The formula needs θ in radians to hold.",
+  "3": "The sector is the same fraction θ/(2π) of the full area πr², which gives ½r²θ. Using degrees here would give the wrong answer.",
+  "4": "The segment is the sector minus the triangle formed by the two radii and the chord. The triangle's area is ½r² sin θ, so subtracting it from the sector gives ½r²(θ − sin θ).",
+  "5": "The formulas can be rearranged to find the angle when the arc or area is known. The angle must still be in radians, because the formulas were derived using radian measure.",
+  "6": "The two sectors together make the whole circle, so the major angle is 2π minus the minor angle. Checking which sector the question asks for prevents the wrong answer."
+}

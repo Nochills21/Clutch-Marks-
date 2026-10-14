@@ -173,7 +173,7 @@ async function callCloudflareAI(
  * alike, so this path has no vision fallback chain. `messages` keeps the shape
  * the Cloudflare path uses; geminiParts converts it.
  */
-const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.8-flash";
+const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.5-flash-lite";
 
 function geminiParts(content: string | unknown[]): unknown[] {
   if (typeof content === "string") return [{ text: content }];
@@ -188,6 +188,14 @@ function geminiParts(content: string | unknown[]): unknown[] {
     }
     return { text: String(part?.text ?? "") };
   });
+}
+
+/** Gemini answered 429: the daily or per-minute free-tier limit was hit. */
+class GeminiQuotaError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "GeminiQuotaError";
+  }
 }
 
 async function callGemini(
@@ -220,7 +228,7 @@ async function callGemini(
         contents,
         generationConfig: {
           temperature: 0.2,
-          maxOutputTokens: 8192,
+          maxOutputTokens: 32768,
           responseMimeType: "application/json",
         },
       }),
@@ -228,7 +236,9 @@ async function callGemini(
   );
   if (!res.ok) {
     const detail = await res.text().catch(() => "");
-    throw new Error("Gemini API error: " + res.status + " " + detail.slice(0, 300));
+    const message = "Gemini API error: " + res.status + " " + detail.slice(0, 300);
+    if (res.status === 429) throw new GeminiQuotaError(message);
+    throw new Error(message);
   }
   const data = await res.json();
   const candidate = data?.candidates?.[0];
@@ -239,7 +249,8 @@ async function callGemini(
   if (!text.trim()) {
     const reason = candidate?.finishReason ??
       data?.promptFeedback?.blockReason ?? "no text returned";
-    throw new Error("Gemini returned no marking text (" + reason + ")");
+    const thoughts = data?.usageMetadata?.thoughtsTokenCount ?? "?";
+    throw new Error("Gemini returned no marking text (" + reason + ", thoughts=" + thoughts + ")");
   }
   return { text, model: GEMINI_MODEL };
 }
@@ -817,7 +828,24 @@ Mark scheme style:
     let modelName = textModel;
 
     if (PROVIDER === "gemini") {
-      const gemini = await callGemini(multimodalMessages);
+      let gemini: { text: string; model: string };
+      try {
+        gemini = await callGemini(multimodalMessages);
+      } catch (error) {
+        // Record each refusal so /admin/ai-quota can show how close marking is
+        // to the limit. Non-fatal: the student still gets the 503 below.
+        if (error instanceof GeminiQuotaError) {
+          const { error: quotaError } = await admin.from("ai_audit_log").insert({
+            user_id: user.id,
+            action: "quota_exhausted",
+            model: GEMINI_MODEL,
+            provider: "gemini",
+            output_preview: error.message.slice(0, 300),
+          });
+          if (quotaError) console.error("ai-correction quota log failed:", quotaError.message);
+        }
+        throw error;
+      }
       llmOutput = gemini.text;
       modelName = gemini.model;
     } else if (images.length > 0 && PROVIDER === "cloudflare") {

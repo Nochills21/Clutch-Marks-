@@ -1,0 +1,1 @@
+select sm.id, sm.title, sm.material_type, length(sm.content) as chars from study_materials sm join topics t on t.id = sm.topic_id where t.slug = 'circular-measure' and sm.material_type in ('notes','summary') order by sm.title

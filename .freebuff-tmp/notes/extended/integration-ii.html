@@ -1,0 +1,23 @@
+<h2>Integration II</h2>
+<h3>Standard Integrals</h3>
+<ul>
+<li>∫ sin x dx = −cos x + c</li>
+<li>∫ cos x dx = sin x + c</li>
+<li>∫ e^x dx = e^x + c</li>
+<li>∫ 1/x dx = ln|x| + c</li>
+<li>∫ sec²x dx = tan x + c</li>
+</ul>
+<p>With linear arguments: ∫ e^(3x) dx = e^(3x)/3 + c; ∫ cos 2x dx = sin 2x/2 + c.</p>
+<h3>Substitution</h3>
+<p>Reverse of the chain rule. For ∫ 2x e^(x²) dx, let u = x²: du = 2x dx, so the integral is ∫ e^u du = e^(x²) + c.</p>
+<h3>Integration by Parts</h3>
+<p>∫ u (dv/dx) dx = uv − ∫ v (du/dx) dx. Choose u to be the part that simplifies when differentiated (LIATE: logs, inverse trig, algebraic, trig, exponential).</p>
+<p><strong>Example:</strong> ∫ x e^x dx = x e^x − ∫ e^x dx = x e^x − e^x + c.</p>
+<h3>Partial Fractions</h3>
+<p>Break rational functions into pieces like ∫ 1/(x+1) dx = ln|x + 1| + c.</p>
+<p><strong>Example:</strong> ∫ 4x/(x² − 1) dx = ∫ [2/(x − 1) + 2/(x + 1)] dx = 2 ln|x − 1| + 2 ln|x + 1| + c.</p>
+<p><strong>Exam tips:</strong> definite integrals: substitute limits into the transformed variable directly; for by-parts integrals like ∫ ln x dx, take u = ln x, dv/dx = 1.</p>
+<h3>Worked example</h3>
+<p>By parts with u = x and dv = eˣ dx, ∫ x eˣ dx = (x − 1)eˣ + C. For partial fractions, (3x + 5)/((x + 1)(x + 2)) = 2/(x + 1) + 1/(x + 2): check by substituting x = −1 to get 2 and x = −2 to get 1. For substitution, ∫ 2x(x² + 1)³ dx = (x² + 1)⁴/4 + C, with u = x² + 1.</p>
+<h3>Common mistakes</h3>
+<ul><li>Choosing the wrong part for u in integration by parts; pick the part that simplifies when differentiated.</li><li>Forgetting to change the limits when substituting in a definite integral.</li></ul>

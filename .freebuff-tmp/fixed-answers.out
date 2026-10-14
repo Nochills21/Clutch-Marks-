@@ -1,0 +1,1262 @@
+[
+  {
+    "title": "Practice — Astronomy and Cosmology",
+    "quiz_id": "713097aa-18af-4289-910d-500748cf5a69",
+    "question_id": "b266ca78-1fa8-4e0b-837e-bd2348bdf55d",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Electron degeneracy pressure",
+      "Nuclear fusion pressure",
+      "Magnetic repulsion",
+      "Thermal gas pressure alone"
+    ]
+  },
+  {
+    "title": "Practice — Astronomy and Cosmology",
+    "quiz_id": "713097aa-18af-4289-910d-500748cf5a69",
+    "question_id": "f3e88037-b9c7-4270-8b7f-91c118f344d8",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "10 pc",
+      "0.1 pc",
+      "1 pc",
+      "100 pc"
+    ]
+  },
+  {
+    "title": "Practice — Astronomy and Cosmology",
+    "quiz_id": "713097aa-18af-4289-910d-500748cf5a69",
+    "question_id": "f180111e-9897-4797-897e-5b486ca38b2a",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "7000 km/s",
+      "0.7 km/s",
+      "170 km/s",
+      "700 km/s"
+    ]
+  },
+  {
+    "title": "Practice — Astronomy and Cosmology",
+    "quiz_id": "713097aa-18af-4289-910d-500748cf5a69",
+    "question_id": "4eb296e7-586d-42f5-9942-5f020d7d47a2",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Their period fixes their luminosity, so distance follows from brightness",
+      "They all have equal mass",
+      "They never change brightness",
+      "They are all the same distance away"
+    ]
+  },
+  {
+    "title": "Practice — Astronomy and Cosmology",
+    "quiz_id": "713097aa-18af-4289-910d-500748cf5a69",
+    "question_id": "2d954f36-7141-4ef9-b049-f70f40775f8d",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Cosmic microwave background radiation in all directions",
+      "Red giants in clusters",
+      "Solar eclipses",
+      "Planetary retrograde motion"
+    ]
+  },
+  {
+    "title": "Practice — Databases and Data Definition",
+    "quiz_id": "c575d822-8b4f-47e0-a8e9-1430b0abde7b",
+    "question_id": "9c91ef22-9f41-4fe6-ac69-7df9236b5eed",
+    "sort_order": 10,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "All DML",
+      "DDL, DML, access control respectively",
+      "All DDL",
+      "DML, DDL, DDL"
+    ]
+  },
+  {
+    "title": "Practice — Databases and Data Definition",
+    "quiz_id": "c575d822-8b4f-47e0-a8e9-1430b0abde7b",
+    "question_id": "cd45bfb6-b5e6-48d5-8cc0-3e5437b976b3",
+    "sort_order": 11,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "UPDATE Customer SET Email ... (DML)",
+      "ALTER TABLE Customer ADD Email TEXT(50); (DDL)",
+      "INSERT INTO Customer ... (DML)",
+      "SELECT Email ... (DQL)"
+    ]
+  },
+  {
+    "title": "Practice — Databases and Data Definition",
+    "quiz_id": "c575d822-8b4f-47e0-a8e9-1430b0abde7b",
+    "question_id": "9789bacb-3817-437b-b02e-735b43d6d26a",
+    "sort_order": 12,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Consistency only",
+      "Atomicity rolls back the partial work; durability protects committed work",
+      "Isolation deletes accounts",
+      "No properties apply"
+    ]
+  },
+  {
+    "title": "Practice — Databases and Data Definition",
+    "quiz_id": "c575d822-8b4f-47e0-a8e9-1430b0abde7b",
+    "question_id": "5cc81548-a255-4dc1-9d62-60b908e5003e",
+    "sort_order": 13,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Deadlock; buy more seats",
+      "Lost update; locking or serialisation",
+      "No problem exists",
+      "Virus; antivirus"
+    ]
+  },
+  {
+    "title": "Practice — Databases and Data Definition",
+    "quiz_id": "c575d822-8b4f-47e0-a8e9-1430b0abde7b",
+    "question_id": "b7694ba7-15dc-456d-bba8-fffcc3c28bbf",
+    "sort_order": 14,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Never useful",
+      "To hide sensitive columns and to simplify complex joins for users",
+      "Views run slower always",
+      "Views replace backups"
+    ]
+  },
+  {
+    "title": "Practice — Dynamics",
+    "quiz_id": "0a4b03bf-3f68-4078-942a-26cca88f7536",
+    "question_id": "ac277aff-7732-4852-a5b1-2308818a106f",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "3 m/s^2",
+      "7 m/s^2",
+      "2 m/s^2",
+      "5 m/s^2"
+    ]
+  },
+  {
+    "title": "Practice — Dynamics",
+    "quiz_id": "0a4b03bf-3f68-4078-942a-26cca88f7536",
+    "question_id": "76b45606-c6d5-4347-948e-e2f0f026e7d0",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "1.6 N s",
+      "0.4 N s",
+      "1.0 N s",
+      "2.5 N s"
+    ]
+  },
+  {
+    "title": "Practice — Dynamics",
+    "quiz_id": "0a4b03bf-3f68-4078-942a-26cca88f7536",
+    "question_id": "bfb6dd3c-2165-4f69-9ca7-94d57063238c",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "2 m/s",
+      "3 m/s",
+      "1.5 m/s",
+      "6 m/s"
+    ]
+  },
+  {
+    "title": "Practice — Dynamics",
+    "quiz_id": "0a4b03bf-3f68-4078-942a-26cca88f7536",
+    "question_id": "39b318e9-8abb-4938-8360-13a7e44f2f70",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "4 kg m/s",
+      "16 kg m/s",
+      "0.0625 kg m/s",
+      "8.5 kg m/s"
+    ]
+  },
+  {
+    "title": "Practice — Dynamics",
+    "quiz_id": "0a4b03bf-3f68-4078-942a-26cca88f7536",
+    "question_id": "189eeaf8-4b65-4522-862e-892ad0496f9a",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Kinetic energy",
+      "Momentum",
+      "Total energy",
+      "Mass"
+    ]
+  },
+  {
+    "title": "Practice — Earth & Space",
+    "quiz_id": "776c83b0-c8be-4f70-a973-67da5fa8a479",
+    "question_id": "9bad188b-f772-4c33-911e-2bcdb350275a",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "The low-orbit satellite",
+      "The geostationary satellite",
+      "Both have equal speed",
+      "Speed cannot be compared"
+    ]
+  },
+  {
+    "title": "Practice — Earth & Space",
+    "quiz_id": "776c83b0-c8be-4f70-a973-67da5fa8a479",
+    "question_id": "350d8129-8589-47f9-9a90-3090738d54dc",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "4.0 x 10^13 km",
+      "2.3 x 10^12 km",
+      "3.8 x 10^13 km",
+      "5.0 x 10^14 km"
+    ]
+  },
+  {
+    "title": "Practice — Earth & Space",
+    "quiz_id": "776c83b0-c8be-4f70-a973-67da5fa8a479",
+    "question_id": "1589df60-79c0-496a-a6b5-f952ee8855af",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "The universe is expanding",
+      "Galaxies are moving toward us",
+      "Stars are cooling down",
+      "Light slows in space"
+    ]
+  },
+  {
+    "title": "Practice — Earth & Space",
+    "quiz_id": "776c83b0-c8be-4f70-a973-67da5fa8a479",
+    "question_id": "fbea7769-d823-4afe-9850-38fe206479a6",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "80 kg and 128 N",
+      "12.8 kg and 128 N",
+      "80 kg and 800 N",
+      "12.8 kg and 800 N"
+    ]
+  },
+  {
+    "title": "Practice — Earth & Space",
+    "quiz_id": "776c83b0-c8be-4f70-a973-67da5fa8a479",
+    "question_id": "4b1ecd46-f7e3-4572-86e3-0ed09f15db4f",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "The axis is tilted so each hemisphere gets varying sunlight through the year",
+      "Earth is closer to the Sun in summer",
+      "The Moon blocks sunlight in winter",
+      "Solar output varies monthly"
+    ]
+  },
+  {
+    "title": "Practice — Electric Fields and Capacitance",
+    "quiz_id": "0053d34d-de61-4a74-aa3c-6de44ee2bd2d",
+    "question_id": "f757c86d-42c1-4d54-88f7-d83090f02cc8",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "720 microJ",
+      "120 microJ",
+      "60 microJ",
+      "1440 microJ"
+    ]
+  },
+  {
+    "title": "Practice — Electric Fields and Capacitance",
+    "quiz_id": "0053d34d-de61-4a74-aa3c-6de44ee2bd2d",
+    "question_id": "aad90d6b-3073-41a2-91ba-c41b582fe437",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "4000 N/C",
+      "0.0001 N/C",
+      "250000 N/C",
+      "0.1 N/C"
+    ]
+  },
+  {
+    "title": "Practice — Electric Fields and Capacitance",
+    "quiz_id": "0053d34d-de61-4a74-aa3c-6de44ee2bd2d",
+    "question_id": "a0bcaad0-903a-4329-8ac1-b549030231c0",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "5000 V/m",
+      "2 V/m",
+      "0.2 V/m",
+      "2000 V/m"
+    ]
+  },
+  {
+    "title": "Practice — Electric Fields and Capacitance",
+    "quiz_id": "0053d34d-de61-4a74-aa3c-6de44ee2bd2d",
+    "question_id": "0ed5bc0a-074c-498d-b128-a17de096a7b2",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "120 microC",
+      "0.83 microC",
+      "22 microC",
+      "120 C"
+    ]
+  },
+  {
+    "title": "Practice — Electric Fields and Capacitance",
+    "quiz_id": "0053d34d-de61-4a74-aa3c-6de44ee2bd2d",
+    "question_id": "09bbbbd7-d8b4-41a3-85e5-7199960a42ab",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "5 microF",
+      "1.2 microF",
+      "6 microF",
+      "0.5 microF"
+    ]
+  },
+  {
+    "title": "Practice — Electricity & Circuits",
+    "quiz_id": "b007ee24-81aa-4b64-844a-629f8c668ac0",
+    "question_id": "182f0e28-2b70-4d57-b049-ecd8e9331f2c",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Current",
+      "Voltage",
+      "Power",
+      "Resistance"
+    ]
+  },
+  {
+    "title": "Practice — Electricity & Circuits",
+    "quiz_id": "b007ee24-81aa-4b64-844a-629f8c668ac0",
+    "question_id": "a3639c83-cdc6-4a4c-a4d2-a406dd642099",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "115 W",
+      "460 W",
+      "230 W",
+      "0.5 W"
+    ]
+  },
+  {
+    "title": "Practice — Electricity & Circuits",
+    "quiz_id": "b007ee24-81aa-4b64-844a-629f8c668ac0",
+    "question_id": "c21fe0c5-4ce4-4e2c-94f7-7aafc9f74ca7",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "13 A",
+      "3 A",
+      "10 A exactly",
+      "1 A"
+    ]
+  },
+  {
+    "title": "Practice — Electricity & Circuits",
+    "quiz_id": "b007ee24-81aa-4b64-844a-629f8c668ac0",
+    "question_id": "a31c3001-756a-4d42-8f7c-85697fa27872",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "4 ohm",
+      "36 ohm",
+      "0.25 ohm",
+      "9 ohm"
+    ]
+  },
+  {
+    "title": "Practice — Electricity & Circuits",
+    "quiz_id": "b007ee24-81aa-4b64-844a-629f8c668ac0",
+    "question_id": "cab8697a-b393-496e-ae6f-72a72b035da4",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "6 V",
+      "3 V",
+      "12 V",
+      "0 V"
+    ]
+  },
+  {
+    "title": "Practice — Electricity: D.C. Circuits",
+    "quiz_id": "e867590a-e5c1-4190-8a63-3e9463a63abd",
+    "question_id": "2f70af25-82ec-49be-965a-35749272ff02",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "1.3 A",
+      "2.7 A",
+      "0.7 A",
+      "2 A"
+    ]
+  },
+  {
+    "title": "Practice — Electricity: D.C. Circuits",
+    "quiz_id": "e867590a-e5c1-4190-8a63-3e9463a63abd",
+    "question_id": "4ae4e807-1f64-4f29-887d-dd859ebfb3ec",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "10 V",
+      "12 V",
+      "14 V",
+      "2 V"
+    ]
+  },
+  {
+    "title": "Practice — Electricity: D.C. Circuits",
+    "quiz_id": "e867590a-e5c1-4190-8a63-3e9463a63abd",
+    "question_id": "f9ae248e-fe04-46ab-984f-47efcb5e8593",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "R",
+      "2R",
+      "R/2",
+      "4R"
+    ]
+  },
+  {
+    "title": "Practice — Electricity: D.C. Circuits",
+    "quiz_id": "e867590a-e5c1-4190-8a63-3e9463a63abd",
+    "question_id": "7f0a29ba-72d2-4380-bc09-00a551f5f7a2",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "It doubles",
+      "It halves",
+      "It stays the same",
+      "It quadruples"
+    ]
+  },
+  {
+    "title": "Practice — Electricity: D.C. Circuits",
+    "quiz_id": "e867590a-e5c1-4190-8a63-3e9463a63abd",
+    "question_id": "624da516-c104-4ec9-b2db-ea58e6081388",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "3 ohm",
+      "12 ohm",
+      "6 ohm",
+      "36 ohm"
+    ]
+  },
+  {
+    "title": "Practice — Ethics and AI",
+    "quiz_id": "a7b929b8-1c3c-4581-b843-e11079542e89",
+    "question_id": "902fdb3c-7718-4363-ac1b-418baed02c0c",
+    "sort_order": 10,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "No risk; data is always neutral",
+      "Bias amplified: the tool learns past discrimination; retrain on balanced data and audit outcomes",
+      "AI cannot be biased",
+      "Delete the software"
+    ]
+  },
+  {
+    "title": "Practice — Ethics and AI",
+    "quiz_id": "a7b929b8-1c3c-4581-b843-e11079542e89",
+    "question_id": "d6f3c606-04b3-4a52-a517-3dcfd969de94",
+    "sort_order": 11,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Data Protection Act",
+      "Copyright, Designs and Patents Act",
+      "Health and Safety Act",
+      "Computer Misuse Act"
+    ]
+  },
+  {
+    "title": "Practice — Ethics and AI",
+    "quiz_id": "a7b929b8-1c3c-4581-b843-e11079542e89",
+    "question_id": "43fbea5d-3fb5-4e35-a73a-44dca6aa18a8",
+    "sort_order": 12,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "No offence without damage",
+      "Unauthorised access under the Computer Misuse Act",
+      "Copyright infringement",
+      "Plagiarism only"
+    ]
+  },
+  {
+    "title": "Practice — Ethics and AI",
+    "quiz_id": "a7b929b8-1c3c-4581-b843-e11079542e89",
+    "question_id": "8d0602be-b14e-4c7b-8293-b54720480c59",
+    "sort_order": 13,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Deepfakes of real people and copied music",
+      "Medical image diagnosis plus licensed training data with consent",
+      "Spying tools and scraped private photos",
+      "Automated spam and plagiarised essays"
+    ]
+  },
+  {
+    "title": "Practice — Ethics and AI",
+    "quiz_id": "a7b929b8-1c3c-4581-b843-e11079542e89",
+    "question_id": "1911fe17-409a-484a-ab17-ad7b4d7a7b6c",
+    "sort_order": 14,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Open source forbids all use",
+      "Open source allows use, modification and sharing under licence terms; proprietary restricts them",
+      "There is no difference",
+      "Proprietary always costs nothing"
+    ]
+  },
+  {
+    "title": "Practice — Magnetism & Electromagnetism",
+    "quiz_id": "336414a5-fbc5-461b-ac23-a7c7b055e120",
+    "question_id": "44f89213-dd42-42e2-92cf-dd2200c8fe1a",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Fleming left-hand rule on current and field",
+      "Fleming right-hand rule",
+      "Lenz law on flux change",
+      "Corkscrew rule on charge only"
+    ]
+  },
+  {
+    "title": "Practice — Magnetism & Electromagnetism",
+    "quiz_id": "336414a5-fbc5-461b-ac23-a7c7b055e120",
+    "question_id": "92ccd0ed-c71e-4dab-809d-1c920d7c7018",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "More turns of wire carrying a larger current around a soft iron core",
+      "Fewer turns with a steel core",
+      "Reversing the current direction",
+      "Using a longer air gap"
+    ]
+  },
+  {
+    "title": "Practice — Magnetism & Electromagnetism",
+    "quiz_id": "336414a5-fbc5-461b-ac23-a7c7b055e120",
+    "question_id": "5139fe5b-b2c9-41a9-956c-e1b20847efc9",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "11.5 V",
+      "4600 V",
+      "230 V",
+      "23 V"
+    ]
+  },
+  {
+    "title": "Practice — Magnetism & Electromagnetism",
+    "quiz_id": "336414a5-fbc5-461b-ac23-a7c7b055e120",
+    "question_id": "08b8a60b-e226-469b-bfa2-c1ccb31b24a8",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Greater emf when pushed quickly",
+      "Smaller emf when pushed quickly",
+      "No emf in either case",
+      "Same emf both times"
+    ]
+  },
+  {
+    "title": "Practice — Magnetism & Electromagnetism",
+    "quiz_id": "336414a5-fbc5-461b-ac23-a7c7b055e120",
+    "question_id": "8df76836-787f-4195-ad36-fcd22bc0ec87",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Laminated soft iron",
+      "Solid steel",
+      "Copper",
+      "Plastic"
+    ]
+  },
+  {
+    "title": "Practice — Materials: Deformation",
+    "quiz_id": "9ff80671-9b05-479c-81a5-00a92188c1ad",
+    "question_id": "5bb8cb21-fd0f-426d-be64-d70d81b09862",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Ductile stretches plastically before fracture; brittle breaks with little extension",
+      "Brittle has higher Young modulus always",
+      "Ductile cannot obey Hooke law",
+      "Brittle stretches further"
+    ]
+  },
+  {
+    "title": "Practice — Materials: Deformation",
+    "quiz_id": "9ff80671-9b05-479c-81a5-00a92188c1ad",
+    "question_id": "f1ba460d-610b-45ad-88e1-b1c39b6366a4",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Elastic potential energy stored",
+      "Young modulus",
+      "Spring constant",
+      "Breaking stress"
+    ]
+  },
+  {
+    "title": "Practice — Materials: Deformation",
+    "quiz_id": "9ff80671-9b05-479c-81a5-00a92188c1ad",
+    "question_id": "a78d27e6-7696-41e5-9fdf-9e374e14337c",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "2 x 10^11 Pa",
+      "1.25 x 10^4 Pa",
+      "2 x 10^4 Pa",
+      "5 x 10^7 Pa"
+    ]
+  },
+  {
+    "title": "Practice — Materials: Deformation",
+    "quiz_id": "9ff80671-9b05-479c-81a5-00a92188c1ad",
+    "question_id": "42dff05a-5e37-4cce-8186-d0c858d36e6c",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "2.5 x 10^-4",
+      "4 x 10^3",
+      "0.25",
+      "1 x 10^-3"
+    ]
+  },
+  {
+    "title": "Practice — Materials: Deformation",
+    "quiz_id": "9ff80671-9b05-479c-81a5-00a92188c1ad",
+    "question_id": "3a33ab53-1f80-428c-b9ca-69fe4a51e94a",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "5 x 10^7 Pa",
+      "2 x 10^-8 Pa",
+      "200 Pa",
+      "50 Pa"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "8fa3c3de-6408-4032-a719-214b7d8cc8b0",
+    "question_id": "481a87a8-2ad4-4508-9d3d-41c24323962c",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "9.0 x 10^-13 J",
+      "3.0 x 10^-21 J",
+      "1.0 x 10^-29 J",
+      "9.0 x 10^13 J"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "6dbb07b8-8c93-4641-8501-aaae1a91dd3f",
+    "question_id": "9cc85923-29bd-4e42-adb9-96ef001f5e42",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Beta particles have much smaller mass and opposite charge sign effects",
+      "Beta particles are heavier",
+      "Alpha particles carry no charge",
+      "Beta particles are uncharged"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "6dbb07b8-8c93-4641-8501-aaae1a91dd3f",
+    "question_id": "77198c16-34c8-4e17-b8c6-002e981e1268",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "2 g",
+      "4 g",
+      "1 g",
+      "0 g"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "6dbb07b8-8c93-4641-8501-aaae1a91dd3f",
+    "question_id": "7514a267-1e2b-4e29-a50b-ccb3564a3f64",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Gamma rays",
+      "Alpha particles",
+      "Beta particles",
+      "Ultraviolet light"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "6dbb07b8-8c93-4641-8501-aaae1a91dd3f",
+    "question_id": "cb739c3a-188a-4465-b98f-cf22b544d380",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Alpha particles",
+      "Beta particles",
+      "Gamma rays",
+      "X-rays"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "6dbb07b8-8c93-4641-8501-aaae1a91dd3f",
+    "question_id": "10ed2cde-436d-46db-9dc2-e77a9032c201",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Moving the source closer to the detector",
+      "Placing lead between source and detector",
+      "Moving the source further away",
+      "Removing the source entirely"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "8fa3c3de-6408-4032-a719-214b7d8cc8b0",
+    "question_id": "f8b941c5-28b5-43b0-be3e-30f56247715b",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "1 : 2",
+      "1 : 8",
+      "1 : 4",
+      "1 : 64"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "8fa3c3de-6408-4032-a719-214b7d8cc8b0",
+    "question_id": "bdda6b2a-3571-419b-8ca2-9c5ed40d250e",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Nuclear fusion of hydrogen",
+      "Nuclear fission of uranium",
+      "Chemical combustion",
+      "Gravitational cooling"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "8fa3c3de-6408-4032-a719-214b7d8cc8b0",
+    "question_id": "e22bf471-ea86-4977-9f11-6b9c88fbee63",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "1.0 x 10^10 Bq",
+      "1.0 x 10^12 Bq",
+      "1.0 x 10^14 Bq",
+      "0.01 Bq"
+    ]
+  },
+  {
+    "title": "Practice — Nuclear Physics",
+    "quiz_id": "8fa3c3de-6408-4032-a719-214b7d8cc8b0",
+    "question_id": "6593e450-b3d6-4348-a510-7281af0cc250",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "0.069 s^-1",
+      "10 s^-1",
+      "6.93 s^-1",
+      "0.1 s^-1"
+    ]
+  },
+  {
+    "title": "Practice — Pressure & Density",
+    "quiz_id": "0fe7f77f-cdeb-4d7e-9777-2f39cba58ecf",
+    "question_id": "c104e058-13fd-45cc-95ba-437f3742d401",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "200 Pa",
+      "50 Pa",
+      "100 Pa",
+      "20 Pa"
+    ]
+  },
+  {
+    "title": "Practice — Pressure & Density",
+    "quiz_id": "0fe7f77f-cdeb-4d7e-9777-2f39cba58ecf",
+    "question_id": "b222358e-cd5d-4746-95f3-d60148e9b265",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "It doubles",
+      "It halves",
+      "It stays the same",
+      "It becomes zero"
+    ]
+  },
+  {
+    "title": "Practice — Pressure & Density",
+    "quiz_id": "0fe7f77f-cdeb-4d7e-9777-2f39cba58ecf",
+    "question_id": "5e62ca94-7611-43a8-bd6f-9f572db4d759",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Molecules colliding with the wall",
+      "Gravity pulling gas down",
+      "Static charge on the wall",
+      "Magnetic attraction of molecules"
+    ]
+  },
+  {
+    "title": "Practice — Pressure & Density",
+    "quiz_id": "0fe7f77f-cdeb-4d7e-9777-2f39cba58ecf",
+    "question_id": "ef5c8113-7c6a-45b6-a23e-3fc9a4c25b11",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "100 N",
+      "10 N",
+      "1 N",
+      "1000 N"
+    ]
+  },
+  {
+    "title": "Practice — Pressure & Density",
+    "quiz_id": "0fe7f77f-cdeb-4d7e-9777-2f39cba58ecf",
+    "question_id": "d6228f16-9241-42c8-9e98-e4da436c8cd3",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "About 1.0 x 10^5 Pa, supporting roughly 76 cm of mercury",
+      "Zero at sea level",
+      "Equal to 10 Pa",
+      "Greater on mountain tops"
+    ]
+  },
+  {
+    "title": "Practice — Programming Paradigms and Low-Level",
+    "quiz_id": "27c69eb3-2192-4056-ac2b-56bf01d993eb",
+    "question_id": "9377b275-ed47-4e4e-8bbc-cffc66d28551",
+    "sort_order": 10,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "All low-level",
+      "Assembly low-level; C imperative; SQL declarative; Java OOP",
+      "All declarative",
+      "Assembly OOP; Java low-level"
+    ]
+  },
+  {
+    "title": "Practice — Programming Paradigms and Low-Level",
+    "quiz_id": "27c69eb3-2192-4056-ac2b-56bf01d993eb",
+    "question_id": "c1a42f47-09c1-4638-9fbc-2e6cd18f5ded",
+    "sort_order": 11,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "To slow programs",
+      "Inheritance reuses parent features in children; polymorphism lets one interface serve many types",
+      "To delete code",
+      "To avoid all testing"
+    ]
+  },
+  {
+    "title": "Practice — Programming Paradigms and Low-Level",
+    "quiz_id": "27c69eb3-2192-4056-ac2b-56bf01d993eb",
+    "question_id": "1ba718af-8176-4eb7-accc-f53d8f181f89",
+    "sort_order": 12,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "No handling needed",
+      "TRY the open, EXCEPT FileNotFound: show a message and continue safely",
+      "Delete the disk",
+      "Halt without message"
+    ]
+  },
+  {
+    "title": "Practice — Programming Paradigms and Low-Level",
+    "quiz_id": "27c69eb3-2192-4056-ac2b-56bf01d993eb",
+    "question_id": "0309085a-eee6-4481-bcb5-ca6d9ad6fe53",
+    "sort_order": 13,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "It runs faster always",
+      "It states what is wanted not how, leaving optimisation to the engine; it is shorter and less error-prone",
+      "It uses more code",
+      "It bans databases"
+    ]
+  },
+  {
+    "title": "Practice — Programming Paradigms and Low-Level",
+    "quiz_id": "27c69eb3-2192-4056-ac2b-56bf01d993eb",
+    "question_id": "d82a08db-ca39-419d-b221-f9fd06e5074d",
+    "sort_order": 14,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "It is prettier",
+      "Direct hardware control with minimal overhead suits timing-critical control",
+      "It ports everywhere",
+      "It needs no assembler"
+    ]
+  },
+  {
+    "title": "Practice — Quantum Physics",
+    "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
+    "question_id": "8a8bc62e-2b73-44c2-82eb-c7d506ef583c",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Electron diffraction through a thin crystal",
+      "Photoelectric emission",
+      "Brownian motion",
+      "Cathode-ray deflection"
+    ]
+  },
+  {
+    "title": "Practice — Quantum Physics",
+    "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
+    "question_id": "abcd8bc6-3d0e-4ee6-bc45-1378744c8457",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "3.3 x 10^-19 J",
+      "1.3 x 10^-48 J",
+      "7.5 x 10^47 J",
+      "3.3 x 10^-14 J"
+    ]
+  },
+  {
+    "title": "Practice — Quantum Physics",
+    "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
+    "question_id": "6cffdd51-e105-4002-9583-ed64d7f01352",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Electron transitions between discrete energy levels",
+      "Doppler broadening only",
+      "Black-body shape always",
+      "Random thermal collisions"
+    ]
+  },
+  {
+    "title": "Practice — Quantum Physics",
+    "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
+    "question_id": "f2a14349-f379-4527-b00a-fe621512fa3d",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "6.6 x 10^-10 m",
+      "1.5 x 10^9 m",
+      "6.6 x 10^-34 m",
+      "1.0 x 10^-24 m"
+    ]
+  },
+  {
+    "title": "Practice — Quantum Physics",
+    "quiz_id": "caa9b694-c8bc-4378-ac0a-858732c22a5e",
+    "question_id": "7a9f56d7-5e8e-49fd-8eca-2cf6be8213b5",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "No electrons are emitted at all",
+      "Electrons emerge slowly",
+      "Electrons emerge with high energy",
+      "The metal melts first"
+    ]
+  },
+  {
+    "title": "Practice — System Software and Security",
+    "quiz_id": "b51bd9cf-0bba-4507-870e-b38f4c08c520",
+    "question_id": "2ddffc94-720d-4563-8c09-18a15da70d08",
+    "sort_order": 10,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Wallpaper and fonts",
+      "Memory allocation with paging, plus processor scheduling across processes",
+      "Mouse drivers only",
+      "File names only"
+    ]
+  },
+  {
+    "title": "Practice — System Software and Security",
+    "quiz_id": "b51bd9cf-0bba-4507-870e-b38f4c08c520",
+    "question_id": "140b7872-859e-40b1-8ce8-530b53619275",
+    "sort_order": 11,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Assemble by hand per CPU",
+      "Interpreted bytecode/VM or recompiled high-level code for portability",
+      "Machine code needs no translation",
+      "Translators are unnecessary"
+    ]
+  },
+  {
+    "title": "Practice — System Software and Security",
+    "quiz_id": "b51bd9cf-0bba-4507-870e-b38f4c08c520",
+    "question_id": "1a1e5190-64f2-45a8-9b99-53ce0fb97fce",
+    "sort_order": 12,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Identical malware",
+      "Worm self-spreads over networks (e.g. emailed copies); virus needs a host file and user action",
+      "Virus spreads alone; worm needs hosts",
+      "Neither spreads"
+    ]
+  },
+  {
+    "title": "Practice — System Software and Security",
+    "quiz_id": "b51bd9cf-0bba-4507-870e-b38f4c08c520",
+    "question_id": "9f1ceaea-d833-4222-a902-f745e386b714",
+    "sort_order": 13,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "Encryption is faster to check",
+      "Hashing is one-way for verification; salt defeats rainbow tables by uniqueness",
+      "Salt encrypts better",
+      "Plaintext is fine"
+    ]
+  },
+  {
+    "title": "Practice — System Software and Security",
+    "quiz_id": "b51bd9cf-0bba-4507-870e-b38f4c08c520",
+    "question_id": "d9a51515-7b4c-4b25-bb15-c07778668450",
+    "sort_order": 14,
+    "correct_option": 1,
+    "n_opts": 4,
+    "options": [
+      "None",
+      "Checksums catch corruption; mirroring survives disk loss; levels block unauthorised edits",
+      "Backups slow hackers",
+      "Checksums stop power cuts"
+    ]
+  },
+  {
+    "title": "Practice — Thermal Physics",
+    "quiz_id": "5f37269c-acab-4eab-912a-1ad013f2e9a2",
+    "question_id": "ee3c755b-7d38-4069-80bd-e553a637acd6",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Matt black",
+      "Shiny silver",
+      "White gloss",
+      "Transparent glass"
+    ]
+  },
+  {
+    "title": "Practice — Thermal Physics",
+    "quiz_id": "5f37269c-acab-4eab-912a-1ad013f2e9a2",
+    "question_id": "76779060-2b29-4685-9b47-b63209678db9",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "The fastest molecules escape, lowering the average kinetic energy",
+      "Cold air enters the liquid",
+      "Molecules gain energy from air",
+      "Density increases"
+    ]
+  },
+  {
+    "title": "Practice — Thermal Physics",
+    "quiz_id": "5f37269c-acab-4eab-912a-1ad013f2e9a2",
+    "question_id": "7f74b773-d9c5-4b35-b44a-5c3e25f75361",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "42000 J",
+      "420 J",
+      "4200 J",
+      "420000 J"
+    ]
+  },
+  {
+    "title": "Practice — Thermal Physics",
+    "quiz_id": "5f37269c-acab-4eab-912a-1ad013f2e9a2",
+    "question_id": "298f75c9-fd14-4f04-b1a7-fd9eb66f43a2",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Upward, then sideways as it cools and sinks",
+      "Downward to the heater",
+      "Sideways only",
+      "It stays still"
+    ]
+  },
+  {
+    "title": "Practice — Thermal Physics",
+    "quiz_id": "5f37269c-acab-4eab-912a-1ad013f2e9a2",
+    "question_id": "b2dc0482-0256-4ed6-8104-cbd1fe1df897",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "Free electrons carry energy quickly through the metal",
+      "Their molecules are far apart",
+      "They radiate poorly",
+      "They convect internally"
+    ]
+  },
+  {
+    "title": "Practice — Work, Energy and Power",
+    "quiz_id": "69b41076-f271-4769-bd29-a1f3a0ac25fa",
+    "question_id": "2f2ef36a-d95e-4521-9bc6-09d51d8b8e76",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "40 W",
+      "1000 W",
+      "25 W",
+      "205 W"
+    ]
+  },
+  {
+    "title": "Practice — Work, Energy and Power",
+    "quiz_id": "69b41076-f271-4769-bd29-a1f3a0ac25fa",
+    "question_id": "29ce08a1-ed51-462a-a309-b8c4e64fd3b5",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "About 98 J",
+      "About 20 J",
+      "About 49 J",
+      "About 196 J"
+    ]
+  },
+  {
+    "title": "Practice — Work, Energy and Power",
+    "quiz_id": "69b41076-f271-4769-bd29-a1f3a0ac25fa",
+    "question_id": "d1a43563-7e76-4847-bdd4-bc849ba4a206",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "9 J",
+      "6 J",
+      "18 J",
+      "12 J"
+    ]
+  },
+  {
+    "title": "Practice — Work, Energy and Power",
+    "quiz_id": "69b41076-f271-4769-bd29-a1f3a0ac25fa",
+    "question_id": "153ce73d-f10d-4468-b6aa-774bb23635fa",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "200 J",
+      "12.5 J",
+      "54 J",
+      "450 J"
+    ]
+  },
+  {
+    "title": "Practice — Work, Energy and Power",
+    "quiz_id": "69b41076-f271-4769-bd29-a1f3a0ac25fa",
+    "question_id": "32d6434f-e96f-4cbd-b415-6b626751ba45",
+    "sort_order": 0,
+    "correct_option": 0,
+    "n_opts": 4,
+    "options": [
+      "75%",
+      "133%",
+      "25%",
+      "50%"
+    ]
+  }
+]

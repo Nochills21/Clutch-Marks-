@@ -1,0 +1,7 @@
+{
+  "1": "The internet is the network that carries data between devices, and the World Wide Web is a service that runs on it. Confusing the two is a common error in exam answers.",
+  "2": "The URL tells the browser which protocol to use, which server to contact and which page to request. Each part is needed to reach the right resource.",
+  "3": "A browser requests a page from a server, then renders the HTML, CSS and scripts it receives. The layers of the page are separate, so each can be changed independently.",
+  "4": "Web crawlers visit pages and collect their content, and the search engine indexes that content. The index is what makes a search return results quickly.",
+  "5": "A digital currency exists only in electronic form, and a cryptocurrency uses cryptography and a distributed ledger to record transactions. This allows transfers without a central authority."
+}

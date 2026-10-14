@@ -1,0 +1,23 @@
+{
+  "Q177": {
+    "correct_option": 0,
+    "question_text": "Given that \\((x + 2)\\) is a factor of \\(f(x) = 2x^3 + kx^2 - 5x - 6\\), find the exact value of k. [WMA12 P2, 3 marks]",
+    "options": ["3", "-3", "2", "-2"],
+    "explanation": "By the factor theorem, if \\((x + 2)\\) is a factor then \\(f(-2) = 0\\) M1 [1]. Substitute \\(x = -2\\): \\(2(-2)^3 + k(-2)^2 - 5(-2) - 6 = 0\\) M1 [1]. Simplify: \\(-16 + 4k + 10 - 6 = 0\\), so \\(4k - 12 = 0\\). Therefore the exact value of k is 3 A1 [1]."
+  },
+  "Q179": {
+    "correct_option": 0,
+    "options": ["\\(2 + \\frac{1}{4}x - \\frac{1}{64}x^2\\)", "\\(2 + \\frac{1}{2}x - \\frac{1}{16}x^2\\)", "\\(3 + \\frac{1}{4}x - \\frac{1}{64}x^2\\)", "\\(2 + \\frac{1}{4}x - \\frac{1}{32}x^2\\)"],
+    "explanation": "Factor out 4 from inside the square root: \\(\\sqrt{4(1 + \\frac{x}{4})} = 2(1 + \\frac{x}{4})^{\\frac{1}{2}}\\) M1 [1]. Apply the binomial expansion to \\((1 + \\frac{x}{4})^{\\frac{1}{2}}\\) with \\(n = \\frac{1}{2}\\): \\(1 + \\frac{1}{2}(\\frac{x}{4}) + \\frac{\\frac{1}{2}(-\\frac{1}{2})}{2!}(\\frac{x}{4})^2 = 1 + \\frac{x}{8} - \\frac{x^2}{128}\\) M1 [1]. Multiply every term by 2: \\(2 + \\frac{x}{4} - \\frac{x^2}{64}\\) A1 [1]."
+  },
+  "Q183": {
+    "correct_option": 2,
+    "options": ["6", "7", "8", "9"],
+    "explanation": "Integrate term by term: \\(\\int (4x^3 - 6x + 2) dx = x^4 - 3x^2 + 2x\\) M1 [1]. Apply the limits: \\([x^4 - 3x^2 + 2x]_1^2\\) M1 [1]. At the upper limit \\(x = 2\\): \\(16 - 12 + 4 = 8\\). At the lower limit \\(x = 1\\): \\(1 - 3 + 2 = 0\\). Subtracting gives \\(8 - 0 = 8\\) A1 [1]."
+  },
+  "Q186": {
+    "correct_option": 3,
+    "options": ["4.5", "4.0", "5.0", "3.0"],
+    "explanation": "Find the strip width \\(h = \\frac{2 - 0}{2} = 1\\) M1 [1]. The ordinates \\(x = 0, 1, 2\\) give \\(y_0 = 0, y_1 = 1, y_2 = 4\\) M1 [1]. Apply the trapezoidal rule: \\(\\frac{h}{2}(y_0 + y_2 + 2y_1)\\) M1 [1]. Substituting: \\(\\frac{1}{2}(0 + 4 + 2(1)) = \\frac{1}{2}(6) = 3.0\\) A1 [1]."
+  }
+}

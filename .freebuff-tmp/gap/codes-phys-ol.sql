@@ -1,0 +1,1 @@
+select t.slug, ss.code, left(ss.title, 60) as title from syllabus_statements ss join topics t on t.id = ss.topic_id where t.slug in ('pressure-density','energy-work-power','forces-motion','electricity-circuits','measurement-units') order by t.slug, ss.code;

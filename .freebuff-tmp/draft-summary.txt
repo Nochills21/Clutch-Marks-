@@ -1,0 +1,37 @@
+OK coordinate-geometry: 13 questions drafted, 6 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK differentiation: 11 questions drafted, 14 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK functions: 7 questions drafted, 20 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK integration: 3 questions drafted, 28 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK quadratics: 14 questions drafted, 2 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK sequences-and-series: 13 questions drafted, 20 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK trigonometry: 9 questions drafted, 8 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK algebra-equations: 7 questions drafted, 8 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK algebra-graphs: 14 questions drafted, 7 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK algebra-inequalities: 5 questions drafted, 26 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK algebra-sequences-and-functions: 9 questions drafted, 8 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK algebra-simplifying-and-expanding: 7 questions drafted, 20 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK geometry-angles-and-polygons: 15 questions drafted, 10 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK geometry-congruence-and-similarity: 15 questions drafted, 8 rejected, 1 fully covering their statements, 1 with an exam-technique note
+NO mensuration-area-and-volume
+NO mensuration-bearings-and-loci
+NO number-arithmetic-and-place-value
+NO number-fractions-decimals-and-percentages
+NO number-indices-and-standard-form
+NO number-ratio-rate-and-proportion
+NO number-sets
+NO scatter-diagrams-and-correlation
+NO statistics-data-handling
+NO statistics-probability
+NO transformations-and-vectors
+NO trigonometry-right-angled-triangles
+NO trigonometry-sine-and-cosine-rules
+NO forces-motion
+OK algorithms-programming: 15 questions drafted, 0 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK data-representation: 11 questions drafted, 4 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK database-systems: 14 questions drafted, 1 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK hardware-architecture: 13 questions drafted, 2 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK networking-communication: 15 questions drafted, 0 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK operating-systems: 16 questions drafted, 1 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK programming-concepts: 14 questions drafted, 1 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK robotics-ai: 10 questions drafted, 5 rejected, 1 fully covering their statements, 1 with an exam-technique note
+OK web-technologies: 15 questions drafted, 0 rejected, 1 fully covering their statements, 1 with an exam-technique note

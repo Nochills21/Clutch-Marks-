@@ -1,0 +1,6 @@
+{
+  "1": "Transmission types differ in how bits travel: serial sends bits one after another, and parallel sends several at once. Each suits different distances and speeds.",
+  "2": "A parity bit makes the number of 1s even, so a single flipped bit is detected. Parity detects errors but cannot say where they are or correct them.",
+  "3": "Without the key the ciphertext is unreadable, so encryption protects data that might be intercepted. The security depends on keeping the key private.",
+  "4": "An IP address is assigned by the network and can change, while a MAC address is fixed to the hardware. This is why the two identify different things."
+}

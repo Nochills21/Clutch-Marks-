@@ -1,6 +1,7 @@
 // Quiz hub: published quizzes per topic.
 import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ManuscriptQuestion } from "@/components/StudyManuscript";
@@ -67,10 +68,13 @@ type ReviewRow = {
   status: "correct" | "incorrect" | "unanswered";
 };
 
+/** A published quiz row with its topic embed (`select("*, topics(*)")`). */
+type QuizRow = Tables<"quizzes"> & { topics: Tables<"topics"> | null };
+
 export default function Quizzes() {
   const { toast } = useToast();
-  const [quizzes, setQuizzes] = useState<any[]>([]);
-  const [activeQuiz, setActiveQuiz] = useState<any>(null);
+  const [quizzes, setQuizzes] = useState<QuizRow[]>([]);
+  const [activeQuiz, setActiveQuiz] = useState<QuizRow | null>(null);
   const [questions, setQuestions] = useState<StudentQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -135,7 +139,7 @@ export default function Quizzes() {
     // the free-plan slice above them decides how many are actually shown.
     if (!user) return quizzes;
     return quizzes.filter((q) => {
-      const sl = (q as any).topics?.subject_level_id as string | undefined;
+      const sl = q.topics?.subject_level_id as string | undefined;
       return sl ? pickedIds.has(sl) : false;
     });
   }, [quizzes, isAdminRole, prefsLoaded, pickedIds, user]);
@@ -221,7 +225,7 @@ export default function Quizzes() {
     );
   }
 
-  const startQuiz = async (quiz) => {
+  const startQuiz = async (quiz: QuizRow) => {
     // Questions are loaded through an approval-gated RPC and marking writes an
     // attempt, so a signed-out visitor is asked to sign in. Without this the
     // card click ended in "permission denied for function get_student_questions".
@@ -307,7 +311,7 @@ export default function Quizzes() {
     try {
       await exportQuizResultToPdf({
         quizTitle: activeQuiz.title ?? "Quiz result",
-        topicName: (activeQuiz as any).topics?.name ?? null,
+        topicName: activeQuiz.topics?.name ?? null,
         correct: score?.correct ?? 0,
         total: score?.total ?? questions.length,
         questions: reviewRows.map((row) => ({
@@ -611,7 +615,7 @@ export default function Quizzes() {
             <Card key={q.id} className="cursor-pointer neon-border bg-card hover:border-primary/40 transition-all" onClick={() => startQuiz(q)}>
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
-                  <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+                  <Badge variant="secondary">{q.topics?.name ?? "General"}</Badge>
                   <div className="flex items-center gap-2">
                     {q.exam_file_url && <Badge variant="outline" className="border-primary/30 text-primary text-[10px]">📎 Exam</Badge>}
                     {q.time_limit_minutes && <span className="flex items-center gap-1 text-xs text-muted-foreground"><Clock className="h-3 w-3" />{q.time_limit_minutes}m</span>}

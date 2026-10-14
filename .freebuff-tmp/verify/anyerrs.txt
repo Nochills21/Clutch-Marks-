@@ -1,0 +1,109 @@
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\ai-correction\index.ts:502: .filter((f: any) => f && typeof f === "object")
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\ai-correction\index.ts:503: .map((f: any) => ({
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\ai-correction\index.ts:626: ? rawPaper.map((p: any) =>
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\ai-correction\index.ts:737: const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\generate-questions\index.ts:62: subjectName = (sl as any).subjects?.name ?? subjectName;
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\generate-questions\index.ts:129: let parsed: any;
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\generate-questions\index.ts:136: const generated = (parsed?.questions ?? []).filter((q: any) =>
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\generate-questions\index.ts:160: const rows = generated.map((q: any, i: number) => ({
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\quiz-feedback\index.ts:86: const wrong = questions.filter((q: any) => {
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\quiz-feedback\index.ts:104: .map((q: any, i: number) => {
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\quiz-feedback\index.ts:114: const topicName = (quiz as any).topics?.name ?? null;
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\FileVersionHistory.tsx:71: const { error: updateError } = await (supabase as any)
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\admin\ContentEditor.tsx:39: const [revisions, setRevisions] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\dashboards\ParentDashboard.tsx:32: const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\dashboards\ParentDashboard.tsx:32: const [stats, setStats] = useState<{ attempts: any[]; lessons: any[] }>({ attempts: [], lessons: [] });
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\dashboards\ParentDashboard.tsx:194: const avg = (xs: any[]) =>
+C:\Users\zaidt\Downloads\top-67-master\src\pages\LessonNotes.tsx:33: const [lesson, setLesson] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:30: const [topics, setTopics] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:31: const [lessons, setLessons] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:33: const [selectedLesson, setSelectedLesson] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:34: const [notes, setNotes] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:78: const slMap = new Map(((slRes.data ?? []) as any[]).map((s) => [s.id, s]));
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:79: const subMap = new Map(((subRes.data ?? []) as any[]).map((s) => [s.id, s]));
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:83: const sl = slMap.get((t as any).subject_level_id);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:123: ? topics.filter((t) => pickedIds.has((t as any).subject_level_id))
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:128: const byLevel = new Map<string, any[]>();
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx:133: const limited = new Map<string, any[]>();
+C:\Users\zaidt\Downloads\top-67-master\src\pages\PastPapers.tsx:89: const [markPaper, setMarkPaper] = useState<any | null>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Practice.tsx:375: const res = data as any;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Practice.tsx:404: const r = data as any;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Pricing.tsx:205: const row = (data as any[] | null)?.[0];
+C:\Users\zaidt\Downloads\top-67-master\src\pages\ProgressPage.tsx:131: const totalPct = topicAttempts.reduce((s: number, a: any) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\ProgressPage.tsx:139: if ((q as any).topic_id !== t.id) continue;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\ProgressPage.tsx:140: const pq = practiceQ.get((q as any).id);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\ProgressPage.tsx:145: if (bookmarkedIds.has((q as any).id)) bookmarked += 1;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Quizzes.tsx:72: const [quizzes, setQuizzes] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Quizzes.tsx:73: const [activeQuiz, setActiveQuiz] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Quizzes.tsx:138: const sl = (q as any).topics?.subject_level_id as string | undefined;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Quizzes.tsx:310: topicName: (activeQuiz as any).topics?.name ?? null,
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Quizzes.tsx:614: <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx:72: const [savedPlans, setSavedPlans] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx:83: (q as any).then(({ data, error }: any) => {
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx:83: (q as any).then(({ data, error }: any) => {
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx:163: .limit(5)) as any;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx:170: .limit(5)) as any;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Subject.tsx:58: const [subject, setSubject] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Subject.tsx:59: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Subject.tsx:60: const [topics, setTopics] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Subject.tsx:61: const [lessons, setLessons] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Subject.tsx:62: const [materials, setMaterials] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Subject.tsx:63: const [quizzes, setQuizzes] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicNotes.tsx:38: const [subjectMeta, setSubjectMeta] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicNotes.tsx:39: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicNotes.tsx:43: const [lessons, setLessons] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicNotes.tsx:44: const [materials, setMaterials] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicNotes.tsx:45: const [quizzes, setQuizzes] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicPapers.tsx:52: const [subjectMeta, setSubjectMeta] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicPapers.tsx:53: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicQuiz.tsx:69: const [subjectMeta, setSubjectMeta] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicQuiz.tsx:70: const [subjectLevel, setSubjectLevel] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicQuiz.tsx:226: const resultsData = (data as any)?.results ?? questions.map((q) => ({
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicQuiz.tsx:235: const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicQuiz.tsx:235: const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminFlashcards.tsx:20: const [sets, setSets] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminFlashcards.tsx:21: const [topics, setTopics] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminFlashcards.tsx:23: const [editing, setEditing] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminFlashcards.tsx:28: const [cards, setCards] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminFlashcards.tsx:31: const [editingCard, setEditingCard] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminGradeBook.tsx:309: <Select value={sortBy} onValueChange={(v) => setSortBy(v as any)}>
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminLessons.tsx:38: const [lessons, setLessons] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminLessons.tsx:40: const [editing, setEditing] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPastPapers.tsx:80: const [editing, setEditing] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPastPapers.tsx:208: level: form.level === "none" ? null : (form.level as any),
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPastPapers.tsx:246: for (const p of (papers ?? []) as any[]) m.set(p.id, p.title);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPastPapers.tsx:252: const rows = (papers ?? []) as any[];
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPastPapers.tsx:300: const rows = (papers ?? []) as any[];
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPayments.tsx:39: const [rows, setRows] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuestionBank.tsx:16: const [topics, setTopics] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuestionBank.tsx:17: const [questions, setQuestions] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuestionBank.tsx:18: const [quizzes, setQuizzes] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuizzes.tsx:23: const [quizzes, setQuizzes] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuizzes.tsx:24: const [topics, setTopics] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuizzes.tsx:26: const [editing, setEditing] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuizzes.tsx:36: const [questions, setQuestions] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuizzes.tsx:100: const payload: any = {
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuizzes.tsx:289: <Badge variant="secondary">{(q as any).topics?.name ?? "General"}</Badge>
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminSubjects.tsx:152: if ((data as any)?.error) throw new Error((data as any).error);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminSubjects.tsx:152: if ((data as any)?.error) throw new Error((data as any).error);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminSubjects.tsx:153: toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminSubjects.tsx:153: toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminSubmissions.tsx:50: answers: any;
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminTopics.tsx:20: const [topics, setTopics] = useState<any[]>([]);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminTopics.tsx:23: const [editing, setEditing] = useState<any>(null);
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminUsers.tsx:162: ((subs ?? []) as any[]).forEach((s) => { subMap[s.user_id] = s; });
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminUsers.tsx:241: .update({ role: "student" as any })
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminUsers.tsx:291: .update({ role: "admin" as any })
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\ai-correction\index.ts:180: return content.map((part: any) => {
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\ai-correction\index.ts:234: const parts: any[] = Array.isArray(candidate?.content?.parts)
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\ai-correction\index.ts:623: .filter((f: any) => f && typeof f === "object")
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\ai-correction\index.ts:624: .map((f: any) => ({
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\ai-correction\index.ts:747: ? rawPaper.map((p: any) =>
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\ai-correction\index.ts:869: const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\generate-questions\index.ts:73: subjectName = (sl as any).subjects?.name ?? subjectName;
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\generate-questions\index.ts:151: let parsed: any;
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\generate-questions\index.ts:158: const generated = (parsed?.questions ?? []).filter((q: any) =>
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\generate-questions\index.ts:182: const rows = generated.map((q: any, i: number) => ({
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\quiz-feedback\index.ts:86: const wrong = questions.filter((q: any) => {
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\quiz-feedback\index.ts:104: .map((q: any, i: number) => {
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\quiz-feedback\index.ts:114: const topicName = (quiz as any).topics?.name ?? null;

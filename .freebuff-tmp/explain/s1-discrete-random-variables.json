@@ -1,0 +1,7 @@
+{
+  "1": "Probabilities must sum to 1 because the outcomes cover every possibility, and no probability can be negative. These two checks catch most errors in a probability table.",
+  "2": "The cumulative distribution function adds the probabilities up to a point, so it rises from 0 to 1 as x increases. It gives the probability of at most a given value.",
+  "3": "The mean is the probability-weighted average of the values. The variance equals E(X²) minus the mean squared, which is the average squared distance from the mean written in a simpler form.",
+  "4": "Adding b shifts every value but leaves the spread unchanged. Multiplying by a scales the spread, and because variance is a squared quantity the factor is a².",
+  "5": "When all values are equally likely, the mean is the midpoint of the range. The symmetry follows from the equal probabilities."
+}

@@ -1,0 +1,7 @@
+{
+  "1": "Only terms with the same letter and the same power represent the same quantity, so only they can be added. The sign in front of a term belongs to that term and must be kept with it.",
+  "2": "The distributive law says a(b + c) = ab + ac, so every term in a bracket is multiplied by the term outside. Two brackets need every pair of terms multiplied, which is what FOIL lists.",
+  "3": "Factorising reverses expanding, so checking by expanding again confirms the answer. Taking out the highest common factor first leaves the simplest bracket.",
+  "4": "Index laws follow from what a power means: multiplying the same base adds the powers, dividing subtracts them, and a power of a power multiplies them. Each part of a term is handled separately.",
+  "5": "Algebraic fractions combine the same way as numeric ones: a common denominator is needed before the numerators can be added or subtracted. Simplify the result by cancelling common factors last."
+}

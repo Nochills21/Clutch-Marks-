@@ -1,0 +1,7 @@
+{
+  "1": "A ratio compares sizes, so dividing every part by the highest common factor keeps the comparison true while reducing the numbers.",
+  "2": "The total number of parts is the sum of the ratio numbers. Finding the value of one part and then multiplying gives each share its correct size.",
+  "3": "A rate divides two quantities of different kinds, so its units say what it means. Speed as distance divided by time is the standard example.",
+  "4": "When a quantity scales up or down, every part scales by the same factor, so the ratio between parts stays the same. This is what makes recipes and map scales work.",
+  "5": "Direct proportion means y = kx, so y divided by x is constant. Inverse proportion means y = k divided by x, so the product xy is constant. Finding k first from the given values makes the rest of the question a single calculation."
+}

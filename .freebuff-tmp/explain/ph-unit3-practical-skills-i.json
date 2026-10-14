@@ -1,0 +1,5 @@
+{
+  "1": "A good plan controls every variable except the one being changed, so the data can show a cause. Health and safety and calibration are assessed because they decide whether the results can be trusted.",
+  "2": "Reading resolution limits the precision of every measurement, so the instrument must suit the quantity. A reading with the wrong number of significant figures or a point off the line signals a mistake that should be checked.",
+  "3": "A gradient taken from two widely separated points is more precise than one taken from close points, because the reading error is a smaller share of the run. Uncertainties in the results show whether a trend is real."
+}

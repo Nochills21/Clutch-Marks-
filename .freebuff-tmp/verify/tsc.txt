@@ -1,0 +1,4 @@
+src/pages/Practice.tsx(383,17): error TS2352: Conversion of type 'string | number | boolean | { [key: string]: Json; } | Json[]' to type 'PracticeVerdict' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Json[]' is missing the following properties from type 'PracticeVerdict': correct_option, explanation, correct
+src/pages/Practice.tsx(412,15): error TS2352: Conversion of type 'string | number | boolean | { [key: string]: Json; } | Json[]' to type 'PracticeVerdict' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Json[]' is missing the following properties from type 'PracticeVerdict': correct_option, explanation, correct

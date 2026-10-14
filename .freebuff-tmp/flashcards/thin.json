@@ -1,0 +1,38 @@
+[
+ {
+  "slug": "sequences-and-series",
+  "txt": "Chapter PDF from Mr Seif's P2 Notes — AS Mathematics (9709)."
+ },
+ {
+  "slug": "sequences-and-series",
+  "txt": "Chapter PDF from Mr Seif's P2 Classified — AS Mathematics (9709)."
+ },
+ {
+  "slug": "trigonometry",
+  "txt": "Chapter PDF from Mr Seif's P1 notes — AS Mathematics (9709)."
+ },
+ {
+  "slug": "trigonometry",
+  "txt": "Chapter PDF from Mr Seif's P1 Classified — AS Mathematics (9709)."
+ },
+ {
+  "slug": "trigonometry",
+  "txt": " Trigonometry Exact Values Angle sin cos tan 30° 1/2 √3/2 √3/3 45° √2/2 √2/2 1 60° √3/2 1/2 √3 Key Identities sin²θ + cos²θ = 1 tan θ = sin θ / cos θ sec²θ = 1 + tan²θ Solving Equations Use the symmetry of the graphs. For sin x = 1/2 in 0 ≤ x ≤ 2π: the acute answer is π/6, and the second solution is π − π/6 = 5π/6. For cos x = 0.5 in 0° ≤ x ≤ 360°: x = 60° and 360° − 60° = 300°. Always check the required interval and give every solution. Graphs and Transformations y = a sin(bx) + c has amplitude a, period 2π/b, and vertical shift c. Example: y = 3 sin(2x) has amplitude 3 and period π. Using Identities If sin x = 0.6 with x acute, then cos x = √(1 − 0.36) = 0.8 (positive in the first quadrant). Exam tips: write the general second solution using graph symmetry rather than memorising CAST blindly; square both sides only with care, as it can add false solutions. "
+ },
+ {
+  "slug": "trigonometry",
+  "txt": " Quick revision: Trigonometry Mathematics — AS (9709). Use the symmetry of the graphs. For sin x = 1/2 in 0 ≤ x ≤ 2π: the acute answer is π/6, and the second solution is π − π/6 = 5π/6. Key areas to revise Exact Values Key Identities Solving Equations Graphs and Transformations Using Identities How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself. "
+ },
+ {
+  "slug": "sequences-and-series",
+  "txt": " Sequences and Series Arithmetic Progressions (AP) Terms increase by a common difference d. nth term: uₙ = a + (n − 1)d Sum: Sₙ = n/2 [2a + (n − 1)d] Example: AP 5, 8, 11: the 20th term is 5 + 19 × 3 = 62. Geometric Progressions (GP) Terms multiply by a common ratio r. nth term: uₙ = arⁿ⁻¹ Sum: Sₙ = a(1 − rⁿ)/(1 − r) Sum to infinity (|r| &lt; 1 only): S∞ = a/(1 − r) Example: a = 8, r = 1/2 gives S∞ = 8/(1/2) = 16. Binomial Expansion (1 + x)ⁿ = 1 + nx + n(n − 1)/2! x² + n(n − 1)(n − 2)/3! x³ + …, valid for |x| &lt; 1. For positive integer n, coefficients come from Pascal's triangle: (1 + 2x)⁴ = 1 + 8x + 24x² + 32x³ + 16x⁴. Exam tips: identify a, d or r first; for \"sum to infinity\" questions check |r| &lt; 1 explicitly, and for binomial expansions give terms up to the power asked (usually x² or x³). "
+ },
+ {
+  "slug": "sequences-and-series",
+  "txt": " Quick revision: Sequences and Series Mathematics — AS (9709). Terms increase by a common difference d. Key areas to revise Arithmetic Progressions (AP) Geometric Progressions (GP) Binomial Expansion How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself. "
+ },
+ {
+  "slug": "trigonometry",
+  "txt": "Focused summary pages from the Practikum AS Revision booklet (p12–15) — Trigonometry, AS Mathematics (9709)."
+ }
+]

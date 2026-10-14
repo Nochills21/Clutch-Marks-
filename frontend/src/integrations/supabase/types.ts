@@ -1454,31 +1454,40 @@ export type Database = {
       }
       study_plans: {
         Row: {
+          ai_generated: boolean
+          ai_model: string | null
           content: string
           created_at: string
           end_date: string | null
           id: string
           start_date: string | null
+          subject_level_id: string | null
           title: string
           updated_at: string
           user_id: string
         }
         Insert: {
+          ai_generated?: boolean
+          ai_model?: string | null
           content: string
           created_at?: string
           end_date?: string | null
           id?: string
           start_date?: string | null
+          subject_level_id?: string | null
           title: string
           updated_at?: string
           user_id: string
         }
         Update: {
+          ai_generated?: boolean
+          ai_model?: string | null
           content?: string
           created_at?: string
           end_date?: string | null
           id?: string
           start_date?: string | null
+          subject_level_id?: string | null
           title?: string
           updated_at?: string
           user_id?: string
@@ -1829,6 +1838,17 @@ export type Database = {
           severity: string
           snippet: string | null
           table_name: string
+        }[]
+      }
+      // Admin-only AI marker quota counts for the current Gemini day
+      // (supabase/migrations/20261014120000_ai_marker_quota.sql).
+      ai_marker_quota_today: {
+        Args: Record<string, never>
+        Returns: {
+          marked_today: number
+          refusals_today: number
+          last_refusal_at: string | null
+          window_start: string
         }[]
       }
       // The boards' own subtopic lists against our topics, admin-gated

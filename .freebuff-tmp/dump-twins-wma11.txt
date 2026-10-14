@@ -1,0 +1,136 @@
+=== wma11-p1-b004.json Q081  [WMA11 5.1]
+Find the gradient of the line passing through (1, 2) and (5, 4). [WMA11 P1, 2 marks]
+  0: 2
+  1: -2
+  2: \(\frac{1}{2}\)   <-- KEY
+  3: \(-\frac{1}{2}\)
+EXP: Use the gradient formula \(m = \frac{y_2 - y_1}{x_2 - x_1}\) M1 [1]. Substitute the coordinates: \(m = \frac{4 - 2}{5 - 1} = \frac{2}{4}\) M1 [1]. This simplifies to exactly \(\frac{1}{2}\) A1 [1].
+
+=== wma11-p1-b006.json Q135  [WMA11 5.1]
+The distance between the points (1, a) and (4, a + 5) is d. Calculate the exact value of d. [WMA11 P1, 2 marks]
+  0: 25
+  1: 7
+  2: \(\sqrt{34}\)   <-- KEY
+  3: \(\sqrt{7}\)
+EXP: The horizontal difference is \(4 - 1 = 3\) and the vertical difference is \((a + 5) - a = 5\) M1 [1]. Apply the distance formula: \(d = \sqrt{3^2 + 5^2} = \sqrt{9 + 25}\) M1 [1]. This gives exactly \(d = \sqrt{34}\) A1 [1].
+
+=== wma11-p1-b007.json Q158  [WMA11 6.3]
+The area of triangle ABC is 24 cm\(^2\). Given a = 6 cm and b = 8 cm, find the size of angle C. [WMA11 P1, 3 marks]
+  0: \(90^\circ\)   <-- KEY
+  1: \(60^\circ\)
+  2: \(45^\circ\)
+  3: \(30^\circ\)
+EXP: Use the area formula \(\frac{1}{2}ab\sin C = 24\) M1 [1]. Substitute the sides: \(\frac{1}{2}(6)(8)\sin C = 24\sin C = 24\), so \(\sin C = 1\) M1 [1]. The angle whose sine is 1 is exactly \(90^\circ\) A1 [1].
+
+=== wma11-p1-b011.json Q271  [WMA11 7.4]
+Find the range of values for x for which the function \(y = 2x^3 - 6x\) is decreasing. [WMA11 P1, 4 marks]
+  0: \(x < -1 \text{ or } x > 1\)
+  1: \(x < -6 \text{ or } x > 6\)
+  2: \(-1 < x < 1\)   <-- KEY
+  3: \(-6 < x < 6\)
+EXP: A function is decreasing where its first derivative is negative. Differentiate to get \(\frac{dy}{dx} = 6x^2 - 6\) M1 [1]. Take out the common factor and set up the inequality: \(6(x^2 - 1) < 0\), so \(x^2 - 1 < 0\) M1 [1]. This factorises as \((x - 1)(x + 1) < 0\) with critical values -1 and 1 M1 [1]. The positive quadratic falls below the x-axis between its roots, giving exactly \(-1 < x < 1\) A1 [1].
+
+=== wma11-p1-b012.json Q281  [WMA11 3.1]
+Solve the simultaneous equations \(y = x + 1\) and \(y = 2x^2 + 5x - 1\). Find the exact values of x. [WMA11 P1, 4 marks]
+  0: \(-1 \pm \sqrt{2}\)   <-- KEY
+  1: \(1 \pm \sqrt{2}\)
+  2: \(-1 \pm \sqrt{3}\)
+  3: \(-1 \pm 2\sqrt{2}\)
+EXP: Substitute the linear equation into the quadratic: \(2x^2 + 5x - 1 = x + 1\) M1 [1]. Rearrange to \(2x^2 + 4x - 2 = 0\) and divide by 2: \(x^2 + 2x - 1 = 0\) M1 [1]. Apply the quadratic formula: \(x = \frac{-2 \pm \sqrt{4 + 4}}{2} = \frac{-2 \pm \sqrt{8}}{2}\) M1 [1]. This simplifies to \(x = -1 \pm \sqrt{2}\) A1 [1].
+
+=== wma11-p1-b014.json Q341  [WMA11 6.3]
+In triangle ABC, side a = 6 cm, angle A = \(45^\circ\), and angle B = \(60^\circ\). Find the exact length of side b. [WMA11 P1, 3 marks]
+  0: \(3\sqrt{2}\)
+  1: \(6\sqrt{2}\)
+  2: \(6\sqrt{6}\)
+  3: \(3\sqrt{6}\)   <-- KEY
+EXP: Apply the sine rule \(\frac{a}{\sin A} = \frac{b}{\sin B}\) M1 [1]. Rearrange for b: \(b = \frac{a\sin B}{\sin A} = \frac{6\sin 60^\circ}{\sin 45^\circ}\) M1 [1]. Substitute the exact values: \(b = \frac{6(\frac{\sqrt{3}}{2})}{\frac{\sqrt{2}}{2}} = \frac{6\sqrt{3}}{\sqrt{2}} = 3\sqrt{6}\) A1 [1].
+
+=== wma11-p1-b015.json Q361  [WMA11 5.1]
+Find the coordinates of the midpoint of the line segment joining (1, 6) and (5, -2). [WMA11 P1, 2 marks]
+  0: (1, 2)
+  1: (2, 4)
+  2: (1, 3)
+  3: (3, 2)   <-- KEY
+EXP: Apply the midpoint formula: \((\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})\) M1 [1]. Substitute the coordinates: \((\frac{1 + 5}{2}, \frac{6 + (-2)}{2})\). This simplifies to \((\frac{6}{2}, \frac{4}{2})\), yielding exactly (3, 2) A1 [1].
+
+=== wma11-p1-b015.json Q365  [WMA11 6.3]
+In triangle ABC, side a = 3 cm, side b = 8 cm, and angle C = \(60^\circ\). Find the exact length of side c. [WMA11 P1, 3 marks]
+  0: 7   <-- KEY
+  1: \(\sqrt{73}\)
+  2: \(\sqrt{97}\)
+  3: \(\sqrt{55}\)
+EXP: Apply the cosine rule: \(c^2 = a^2 + b^2 - 2ab\cos C\) M1 [1]. Substitute the values: \(c^2 = 3^2 + 8^2 - 2(3)(8)\cos 60^\circ\). Calculate: \(c^2 = 9 + 64 - 48(0.5)\) M1 [1]. This simplifies to \(73 - 24 = 49\), so \(c = 7\) A1 [1].
+
+=== wma11-p1-b016.json Q413  [WMA11 6.3]
+The area of triangle ABC is \(6\sqrt{3}\) cm\(^2\). Side a = 4 cm and side b = 6 cm. Find the size of the acute angle C. [WMA11 P1, 3 marks]
+  0: \(60^\circ\)   <-- KEY
+  1: \(30^\circ\)
+  2: \(45^\circ\)
+  3: \(75^\circ\)
+EXP: Use the area formula \(\frac{1}{2}ab\sin C = 6\sqrt{3}\) M1 [1]. Substitute the sides: \(\frac{1}{2}(4)(6)\sin C = 12\sin C = 6\sqrt{3}\), so \(\sin C = \frac{\sqrt{3}}{2}\) M1 [1]. The acute angle with this sine is exactly \(60^\circ\) A1 [1].
+
+=== wma11-p1-b016.json Q415  [WMA11 7.2]
+Find the coordinates of the minimum point on the curve \(y = x^2 - 4x + 7\). [WMA11 P1, 3 marks]
+  0: (2, 11)
+  1: (2, -3)
+  2: (2, 3)   <-- KEY
+  3: (-2, 3)
+EXP: Differentiate to find the stationary point: \(\frac{dy}{dx} = 2x - 4\) M1 [1]. Set the derivative to zero: \(2x - 4 = 0\), so \(x = 2\) M1 [1]. Substitute back: \(y = 2^2 - 4(2) + 7 = 4 - 8 + 7 = 3\). The minimum point is exactly (2, 3) A1 [1].
+
+=== wma11-p1-b016.json Q422  [WMA11 3.1]
+Solve the simultaneous equations \(y = 2x\) and \(x^2 + y^2 = 45\). Find the positive value of x. [WMA11 P1, 4 marks]
+  0: 3   <-- KEY
+  1: 4
+  2: 5
+  3: \(\sqrt{45}\)
+EXP: Substitute \(y = 2x\) into the second equation: \(x^2 + (2x)^2 = 45\) M1 [1]. This gives \(x^2 + 4x^2 = 5x^2 = 45\) M1 [1]. Dividing by 5 gives \(x^2 = 9\), so \(x = \pm 3\) and the positive value is exactly 3 A1 [1].
+
+=== wma11-p1-b017.json Q441  [WMA11 3.2]
+Solve the linear inequality \(5(x - 1) \geq 2x + 4\). [WMA11 P1, 3 marks]
+  0: \(x \geq 3\)   <-- KEY
+  1: \(x \leq 3\)
+  2: \(x \geq -3\)
+  3: \(x \leq -3\)
+EXP: Expand the bracket: \(5x - 5 \geq 2x + 4\) M1 [1]. Collect the x terms on one side and the numbers on the other: \(3x \geq 9\) M1 [1]. Dividing by 3 gives exactly \(x \geq 3\) A1 [1].
+
+=== wma11-p1-b018.json Q455  [WMA11 2.4]
+The quadratic equation \(3x^2 + kx + 12 = 0\) has equal roots. Given that \(k > 0\), find the exact value of k. [WMA11 P1, 3 marks]
+  0: 16
+  1: 4
+  2: 12   <-- KEY
+  3: 32
+EXP: For equal roots the discriminant must be zero: \(k^2 - 4(3)(12) = 0\) M1 [1]. This gives \(k^2 - 144 = 0\), so \(k^2 = 144\) M1 [1]. Taking the positive square root gives exactly \(k = 12\) A1 [1].
+
+=== wma11-p1-b018.json Q458  [WMA11 3.1]
+Find the positive x-coordinate of the point of intersection of the line \(y = 2x + 1\) and the curve \(y = x^2 + 1\). [WMA11 P1, 4 marks]
+  0: 1
+  1: 2   <-- KEY
+  2: 3
+  3: 4
+EXP: Set the two expressions for y equal: \(2x + 1 = x^2 + 1\) M1 [1]. Rearrange to \(x^2 - 2x = 0\) M1 [1]. Factorise: \(x(x - 2) = 0\), so \(x = 0\) or \(x = 2\). The positive x-coordinate is exactly 2 A1 [1].
+
+=== wma11-p1-b018.json Q467  [WMA11 6.2]
+Find the area of a sector of a circle with radius 8 cm and central angle \(\frac{\pi}{4}\) radians. State the exact value. [WMA11 P1, 2 marks]
+  0: \(2\pi\)
+  1: \(8\pi\)   <-- KEY
+  2: \(12\pi\)
+  3: \(3\pi\)
+EXP: Use the sector area formula \(A = \frac{1}{2}r^2\theta\) M1 [1]. Substitute \(r = 8\) and \(\theta = \frac{\pi}{4}\): \(A = \frac{1}{2}(64)(\frac{\pi}{4}) = 8\pi\) A1 [1].
+
+=== wma11-p1-b019.json Q479  [WMA11 3.1]
+Solve the simultaneous equations \(y = 3x\) and \(y = x^2 - 10\). Find the positive value of x. [WMA11 P1, 4 marks]
+  0: 2
+  1: 3
+  2: 4
+  3: 5   <-- KEY
+EXP: Substitute \(y = 3x\) into the curve: \(3x = x^2 - 10\) M1 [1]. Rearrange to \(x^2 - 3x - 10 = 0\) M1 [1]. Factorise: \((x - 5)(x + 2) = 0\), so \(x = 5\) or \(x = -2\). The positive value is exactly 5 A1 [1].
+
+=== wma11-p1-b019.json Q487  [WMA11 6.2]
+A sector of a circle has an area of 15 cm\(^2\) and a radius of 5 cm. Find the angle of the sector in radians. [WMA11 P1, 2 marks]
+  0: 1.2   <-- KEY
+  1: 0.4
+  2: 1.25
+  3: 1.6
+EXP: Use the sector area formula \(A = \frac{1}{2}r^2\theta\) M1 [1]. Substitute \(A = 15\) and \(r = 5\): \(15 = \frac{1}{2}(25)\theta\), so \(\theta = \frac{30}{25} = 1.2\) A1 [1].
+

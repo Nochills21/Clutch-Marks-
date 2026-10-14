@@ -1,0 +1,3952 @@
+INTERNATIONAL ADVANCED LEVEL
+
+PHYSICS
+
+SPECIFICATION
+
+Pearson Edexcel International Advanced Subsidiary in Physics (XPH11)
+Pearson Edexcel International Advanced Level in Physics (YPH11)
+First teaching September 2018
+First examination from January 2019
+First certification from August 2019 (International Advanced Subsidiary)
+and August 2020 (International Advanced Level)
+Issue 3
+Edexcel, BTEC and LCCI qualifications
+Edexcel, BTEC and LCCI qualifications are awarded by Pearson, the UK's largest awarding
+body offering academic and vocational qualifications that are globally recognised and
+benchmarked. For further information, please visit our qualifications website at
+qualifications.pearson.com. Alternatively, you can get in touch with us using the details on
+our contact us page at qualifications.pearson.com/contactus
+About Pearson
+Pearson is the world's leading learning company, with 22,500 employees in more than
+70 countries working to help people of all ages to make measurable progress in their lives
+through learning. We put the learner at the centre of everything we do, because wherever
+learning flourishes, so do people. Find out more about how we can help you and your
+learners at qualifications.pearson.com
+
+Acknowledgements
+This specification has been produced by Pearson on the basis of consultation with teachers,
+examiners, consultants and other interested parties. Pearson would like to thank all those
+who contributed their time and expertise to the specification's development.
+
+References to third party materials made in this specification are made in good faith.
+Pearson does not endorse, approve or accept responsibility for the content of materials,
+which may be subject to change, or any opinions expressed therein. (Materials may include
+textbooks, journals, magazines and other publications and websites.)
+
+All information in this specification is correct at time of going to publication.
+
+ISBN 978 1 446 95778 3
+All the material in this publication is copyright
+© Pearson Education Limited 2021
+Summary of Pearson Edexcel International Advanced
+Subsidiary/Advanced Level in Physics specification Issue 3
+changes
+
+Summary of changes made between previous issue and this current           Page
+issue                                                                   number
+
+These sentences have been added to ensure that thorough information on
+assessment criteria is provided:
+
+This paper may contain some synoptic questions which require knowledge  9, 27
+and understanding from Units 1 and 2.
+
+This paper may contain some synoptic questions which require knowledge  10, 33
+and understanding from Units 1, 2 and 4.
+
+Earlier issue shows previous changes.
+
+If you need further information on these changes or what they mean, contact us via our
+website at: qualifications.pearson.com/en/support/contact-us.html
+Contents
+
+About this specification                              1
+
+Why choose Pearson Edexcel qualifications?            3
+
+Why choose Pearson Edexcel International Advanced
+
+Subsidiary/Advanced Level qualifications in Physics?  4
+
+Supporting you in planning and implementing these qualifications 5
+
+Qualification at a glance                             6
+
+Physics content                                       12
+
+Unit 1: Mechanics and Materials                       14
+
+Unit 2: Waves and Electricity                         19
+
+Unit 3: Practical Skills in Physics I                 24
+
+Unit 4: Further Mechanics, Fields and Particles       27
+
+Unit 5: Thermodynamics, Radiation, Oscillations and Cosmology 32
+
+Unit 6: Practical Skills in Physics II                38
+
+Assessment information                                41
+
+Administration and general information                45
+
+Entries, resitting of units                           45
+
+Access arrangements, reasonable adjustments, special
+
+consideration and malpractice                         45
+
+Awarding and reporting                                47
+
+Student recruitment and progression                   49
+
+Appendices                                            50
+
+Appendix 1: Codes                                     51
+
+Appendix 2: Pearson World Class Qualification design principles 52
+
+Appendix 3: Transferable skills                       54
+
+Appendix 4: Level 3 Extended Project qualification    56
+
+Appendix 5: Glossary                                  58
+
+Appendix 6: Mathematical skills and exemplifications  59
+
+Appendix 7: Equations                                 65
+
+Appendix 8: Data sheet                                72
+
+Appendix 9: Taxonomy                                  73
+
+Appendix 10: Uncertainties and practical work         75
+
+Appendix 11: Use of calculators                       82
+About this specification
+
+The Pearson Edexcel International Advanced Subsidiary in Physics and the Pearson Edexcel
+International Advanced Level in Physics are part of a suite of International Advanced Level
+qualifications offered by Pearson.
+These qualifications are not accredited or regulated by any UK regulatory body.
+
+Key features
+
+This specification includes the following key features:
+
+Structure
+The Pearson Edexcel International Advanced Subsidiary in Physics and the Pearson Edexcel
+International Advanced Level in Physics are modular qualifications. The Advanced Subsidiary
+can be claimed on completion of the International Advanced Subsidiary (IAS) units.
+The International Advanced Level can be claimed on completion of all the units
+(IAS and IA2 units).
+
+Content
+The content is relevant for learners who have achieved an International GCSE in Physics and
+who want to study this subject at a higher level. The content has been updated from the
+previous Pearson Edexcel International Advanced Subsidiary in Physics and the previous
+Pearson Edexcel International Advanced Level in Physics qualifications. It covers the major
+topics in physics, including mechanics, materials, waves, electricity, fields, thermodynamics,
+radiation, particles, oscillations and cosmology.
+
+Assessment
+Assessment consists of three written papers at IAS level that are externally assessed. The
+International A level consists of three further written papers that are externally assessed.
+
+Approach
+Learners will develop their knowledge and understanding of physics by applying the concepts
+in this specification to a range of different problems that include a variety of contexts.
+Problems will require the application of mathematical skills.
+Learners will also develop their practical skills. The specification includes 16 core practical
+activities. This is the minimum number of practical activities that learners will carry out;
+centres are encouraged to enable learners to carry out additional practical activities to
+further develop practical skills.
+
+Specification updates
+
+This specification is Issue 3 and is valid for first teaching from September 2018. If there are
+any significant changes to the specification, we will inform centres in writing. Changes will
+also be posted on our website.
+For more information please visit qualifications.pearson.com
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  1
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Using this specification
+
+This specification has been designed to give guidance to teachers and encourage effective
+delivery of these qualifications. The following information will help you get the most out of
+the content and guidance.
+Compulsory content: as a minimum, all the items in the content must be taught. The word
+`including' in content specifies the detail of what must be covered.
+Assessments: use a range of material and are not limited to the examples given. Teachers
+should deliver these qualifications using a good range of examples to support the
+assessment of the content.
+Depth and breadth of content: teachers should use the full range of content and all the
+assessment objectives given in the subject content section.
+
+Qualification aims and objectives
+
+The aims and objectives of these qualifications are to enable students to develop:
+· essential knowledge and understanding of different areas of the subject and how they
+
+    relate to each other
+· a deep appreciation of the skills, knowledge and understanding of scientific methods
+· competence and confidence in a variety of practical, mathematical and problem-solving
+
+    skills
+· their interest in and enthusiasm for the subject, including developing an interest in further
+
+    study and careers associated with the subject.
+
+Qualification abbreviations used in this specification
+
+The following abbreviations appear in this specification:
+· International Advanced Subsidiary - IAS
+· International A2 - IA2 (the additional content required for an IAL)
+· International Advanced Level - IAL.
+
+2  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+   Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Why choose Pearson Edexcel qualifications?
+
+Pearson - the world's largest education company
+
+All Edexcel's academic qualifications, including our new International AS and A level suite,
+are produced by Pearson, the UK's largest awarding organisation. With over 3.4 million
+students studying our academic and vocational qualifications worldwide, we offer
+internationally recognised qualifications to schools, colleges and employers globally.
+
+Pearson is recognised as the world's largest education company, allowing us to drive
+innovation and provide comprehensive support for Pearson Edexcel students in acquiring the
+knowledge and skills they need for progression in study, work and life.
+
+A heritage you can trust
+
+The background to Pearson becoming the UK's largest awarding organisation began in 1836,
+when a royal charter gave the University of London its first powers to conduct exams and
+confer degrees on its students. Pearson Edexcel qualifications build on experience of over
+150 years in international education, and have a firm academic foundation, built on the
+traditions and rigour associated with Britain's educational system.
+
+Results you can trust
+
+Pearson's leading online marking technology has been shown to produce exceptionally
+reliable results, demonstrating that at every stage, Pearson Edexcel qualifications maintain
+the highest standards.
+
+Developed to Pearson's world-class qualifications standards
+
+Pearson's world-class standards mean that all Pearson Edexcel qualifications are developed
+to be rigorous, demanding, inclusive and empowering. We work collaboratively with a panel
+of educational thought leaders and assessment experts to ensure that Pearson Edexcel
+qualifications are globally relevant, represent world-class best practice and maintain a
+consistent standard.
+
+For more information on the world-class qualification process and principles please go to
+Appendix 2: Pearson World Class Qualification design principles or visit our website:
+uk.pearson.com/world-class-qualifications.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  3
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Why choose Pearson Edexcel International
+Advanced Subsidiary/Advanced Level qualifications
+in Physics?
+
+We have listened to feedback from all parts of the international school education community,
+including a large number of teachers. Our International Advanced Subsidiary and Advanced
+Levels have been developed to be engaging for international learners; and to give them the
+necessary skills to support progression to further study in Physics, as well as to a wide range
+of other subjects.
+
+Key qualification features - using feedback from teachers, we've retained several key
+features which we know you value. These include:
+
+· modular assessment, offered at different times of year to suit your delivery model
+
+· practical skills assessed through a dedicated examination Unit both at AS (Unit 3) and at
+    A Level Unit 6) to ensure key practical skills are developed and assessed in an accessible
+    way
+
+· comparable content with the UK GCE AS and A Level - giving confidence to students,
+    teachers and universities about the comparability between specifications
+
+· range of types of questions in exams - to test breadth of subject knowledge, as well as
+    allowing depth of understanding to be examined.
+
+Clear and straightforward question papers - our question papers are clear and
+accessible for students of all ability ranges, and use a series of well-defined command
+words. Our mark schemes are straightforward so that the assessment requirements are
+clear.
+
+Broad and deep development of learners' skills - we designed the Advanced Subsidiary
+and International Advanced Level qualifications to extend learners' knowledge by broadening
+and deepening skills. For example learners will:
+
+· develop and use a range of mathematical skills which support their knowledge and
+    understanding of Physics
+
+· gain experience in a variety of practical techniques and procedures, which will be
+    assessed separately within Unit 3 and Unit 6
+
+· widen their learning through a number of key transferable skills, which may be cognitive,
+    intrapersonal or interpersonal (see Appendix 3: Transferable skills).
+
+Progression - these qualifications enable successful progression to further education
+courses in physical sciences. Through our world-class qualification development process we
+have consulted with a number of universities in the UK, as well as internationally, to validate
+the appropriateness of these qualifications, including content, skills and the assessment
+structure.
+
+Our International Advanced Subsidiary and Advanced Levels in Physics sits within our wider
+subject offer for sciences. We also offer International Advanced Subsidiary and Advanced
+Levels in Biology, Chemistry and Psychology; and well as in Mathematics and Further
+Mathematics.
+
+More information can be found on our website (qualifications.pearson.com) on the
+Pearson Edexcel International Advanced Level pages.
+
+4  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+   Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Supporting you in planning and implementing
+these qualifications
+
+Planning
+
+· Our Getting Started Guide gives you an overview of the Pearson Edexcel International
+    Advanced Subsidiary and Advanced Levels in Physics qualifications to help you understand the
+    changes to content and assessment, and what these changes mean for you and your students.
+
+· We will provide you with an editable course planner and scheme of work to save you time
+    in planning and help you to put together teaching strategies for delivering the
+    specification content.
+
+· Our mapping documents highlight key differences between the new and legacy
+    qualifications to help you understand the changes made to the new specifications.
+
+Teaching and learning
+
+There will be a variety of teaching and learning support to help you deliver the new
+specifications, including:
+
+· Practical Skills Guides and Mathematical Skills Guides - to help you ensure that students
+    are developing these skills, both of which form a key part of the assessment of the new
+    International Advanced Subsidiary and Advanced Levels
+
+· Getting Ready to Teach and other training events - available locally, as well as online - to
+    support you as you prepare to teach the new specification
+
+· Printed textbooks and digital teaching resources - promote any time, any place learning
+    to improve student motivation and encourage new ways of working.
+
+Preparing for exams
+
+We will also provide a range of resources to help you prepare your students for the
+assessments, including:
+
+· specimen assessment materials to support formative assessments and mock exams
+
+· examiner commentaries on questions following each examination series.
+
+ResultsPlus
+
+ResultsPlus provides the most detailed analysis available of your students' examination
+performance. It can help you identify the topics and skills where further learning would
+benefit your students.
+
+examWizard
+
+A free online resource is available, designed to support students and teachers with
+examination preparation and assessment.
+
+Training events
+
+In addition to online training, we host a series of training events each year for teachers to
+deepen their understanding of our qualifications.
+
+Get help and support
+
+Our Subject Advisor service will ensure that you receive help and guidance from us. You can
+sign up to receive Pearson Edexcel newsletter for qualification updates and product and
+service news.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  5
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Qualification at a glance
+
+Qualification overview
+
+Pearson Edexcel International Advanced Subsidiary in Physics
+This qualification consists of three externally examined units.
+The International Advanced Subsidiary is the first half of the International Advanced Level
+qualification and consists of three IAS units, Units 1, 2 and 3. This qualification can be
+awarded as a discrete qualification or can contribute 50 percent towards the International
+Advanced Level qualification.
+The qualification will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). Overall, a minimum of 40% of the
+marks across the papers will be awarded for mathematics at Level 2 or above.
+
+Pearson Edexcel International Advanced Level in Physics
+This qualification consists of six externally examined units.
+The International Advanced Level consists of the three IAS units (Units 1, 2 and 3) plus
+three IA2 units (Units 4, 5 and 6). Candidates wishing to take the International Advanced
+Level must, therefore, complete all six units.
+The qualification will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). Overall, a minimum of 40% of the
+marks across the papers will be awarded for mathematics at Level 2 or above.
+
+Course of study
+
+The structure of these qualifications allows teachers to construct a course of study that can
+be taught and assessed as either:
+· distinct modules of teaching and learning with related units of assessment taken at
+
+     appropriate stages during the course; or
+· a linear course assessed in its entirety at the end.
+
+6  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+   Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Content and assessment overview
+
+IAS                                                                          *Unit code:
+Unit 1: Mechanics and Materials                                              WPH11/01
+
+Externally assessed                                                          40% of     20% of
+Written examination: 1 hour and 30 minutes                                   the total  the total
+Availability: January, June and October                                      IAS        IAL
+
+First assessment: January 2019
+
+80 marks
+
+Content overview
+
+· Mechanics
+
+· Materials
+
+Assessment overview
+
+The paper may include multiple-choice, short open, open-response, calculations and
+extended-writing questions.
+
+The paper will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). A minimum of 32 marks will be
+awarded for mathematics at Level 2 or above.
+
+Candidates will be expected to apply their knowledge and understanding to familiar and
+unfamiliar contexts.
+
+IAS                                                                          *Unit code:
+Unit 2: Waves and Electricity                                                WPH12/01
+
+Externally assessed                                                          40% of     20% of
+Written examination: 1 hour and 30 minutes                                   the total  the total
+Availability: January, June and October                                      IAS        IAL
+
+First assessment: June 2019
+
+80 marks
+
+Content overview
+
+· Waves and Particle Nature of Light
+
+· Electric Circuits
+
+Assessment overview
+
+The paper may include multiple-choice, short-open, open-response, calculations and
+extended-writing questions.
+
+The paper will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). A minimum of 32 marks will be
+awarded for mathematics at Level 2 or above.
+
+Candidates will be expected to apply their knowledge and understanding to familiar and
+unfamiliar contexts.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                        7
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+IAS                                         *Unit code:
+Unit 3: Practical Skills in Physics I       WPH13/01
+
+Externally assessed                         20% of     10% of
+Written examination: 1 hour and 20 minutes  the total  the total
+Availability: January, June and October     IAS        IAL
+
+First assessment: June 2019
+
+50 marks
+
+Content overview
+
+Students are expected to develop experimental skills, and a knowledge and understanding
+of experimental techniques, by carrying out a range of practical experiments and
+investigations while they study Units 1 and 2.
+
+This unit will assess candidates' knowledge and understanding of experimental procedures
+and techniques that were developed in Units 1 and 2.
+
+Assessment overview
+
+The paper may include short-open, open-response, calculations and extended-writing
+questions.
+
+The paper will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). A minimum of 20 marks will be
+awarded for mathematics at Level 2 or above.
+
+Candidates will be expected to apply their knowledge and understanding of practical skills
+to familiar and unfamiliar situations.
+
+8                            Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                       Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+IA2                                                                          *Unit code:
+Unit 4: Further Mechanics, Fields and Particles                              WPH14/01
+
+Externally assessed                                                          40% of     20% of
+Written examination: 1 hour and 45 minutes                                   the total  the total
+Availability: January, June and October                                      IA2        IAL
+
+First assessment: January 2020
+
+90 marks
+
+Content overview
+
+· Further Mechanics
+
+· Electric and Magnetic Fields
+
+· Nuclear and Particle Physics
+
+Assessment overview
+
+The paper may include multiple-choice, short-open, open-response, calculations and
+extended-writing questions.
+
+The paper will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). A minimum of 36 marks will be
+awarded for mathematics at Level 2 or above.
+
+Candidates will be expected to apply their knowledge and understanding to familiar and
+unfamiliar contexts.
+
+This paper may contain some synoptic questions which require knowledge and
+understanding from Units 1 and 2.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                        9
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+IA2                                              *Unit code:
+                                                 WPH15/01
+Unit 5: Thermodynamics, Radiation, Oscillations
+and Cosmology
+
+Externally assessed                              40% of                     20% of
+Written examination: 1 hour and 45 minutes       the total                  the total
+Availability: January, June and October          IA2                        IAL
+
+First assessment: June 2020
+
+90 marks
+Content overview
+
+· Thermodynamics
+
+· Nuclear Decay
+
+· Oscillations
+
+· Astrophysics and Cosmology
+Assessment overview
+
+The paper may include multiple-choice, short-open, open-response, calculations and
+extended-writing questions.
+
+The paper will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). A minimum of 36 marks will be
+awarded for mathematics at Level 2 or above.
+
+Candidates will be expected to apply their knowledge and understanding to familiar and
+unfamiliar contexts.
+
+This paper may contain some synoptic questions which require knowledge and
+understanding from Units 1, 2 and 4.
+
+10                           Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                              Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+IA2                                                                          *Unit code:
+Unit 6: Practical Skills in Physics II                                       WPH16/01
+
+Externally assessed                                                          20% of     10% of
+Written examination: 1 hour and 20 minutes                                   the total  the total
+Availability: January, June and October                                      IA2        IAL
+
+First assessment: June 2020
+
+50 marks
+
+Content overview
+
+Students are expected to further develop the experimental skills and the knowledge and
+understanding of experimental techniques that they acquired in Units 1 and 2 by carrying
+out a range of practical experiments and investigations while they study Units 4 and 5.
+
+This unit will assess candidates' knowledge and understanding of the experimental
+procedures and techniques that were developed in Units 4 and 5.
+
+Assessment overview
+
+The paper may include short-open, open-response, calculations and extended-writing
+questions.
+
+The paper will include questions that target mathematics at Level 2 or above (see
+Appendix 6: Mathematical skills and exemplifications). A minimum of 20 marks will be
+awarded for mathematics at Level 2 or above.
+
+Candidates will be expected to apply their knowledge and understanding of practical skills
+to familiar and unfamiliar situations.
+
+*See Appendix 1: Codes for a description of this code and all other codes relevant to
+these qualifications.
+
+Calculators
+
+Calculators may be used in the examination. Please see Appendix 11: Use of calculators.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                        11
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Physics content
+
+Content overview
+
+Students are expected to demonstrate and apply the knowledge, understanding and skills
+described in the content. They are also expected to analyse, interpret and evaluate a range
+of scientific information, ideas and evidence using their knowledge, understanding and skills.
+
+To demonstrate their knowledge, students should be able to undertake a range of activities,
+including the ability to recall, describe and define, as appropriate.
+
+To demonstrate their understanding, students should be able to explain ideas and use their
+knowledge to apply, analyse, interpret and evaluate, as appropriate.
+
+Throughout the course, students should develop their ability to apply mathematical skills to
+physics. These skills include the ability to change the subject of an equation, substitute
+numerical values and solve algebraic equations using decimal and standard form, ratios,
+fractions and percentages. Further details of the skills that should be developed are given in
+Appendix 6: Mathematical skills and exemplifications. Students should also be familiar with
+Système Internationale d'Unités (SI) units and their prefixes, be able to estimate physical
+quantities and know the limits of physical measurements.
+
+Practical work is central to any study of physics. For this reason, the specification includes
+16 core practical activities that form a thread linking theoretical knowledge and
+understanding to practical scenarios. In following this thread, students will build on practical
+skills learned at GCSE (or equivalent), becoming confident practical physicists, handling
+apparatus competently and safely. Using a variety of apparatus and techniques, they should
+be able to design and carry out both the core practical activities and their own
+investigations, collecting data that can be analysed and used to draw valid conclusions.
+
+Questions in examination papers for Units 1, 2, 4 and 5 will aim to assess the knowledge
+and understanding that students gain while carrying out practical activities, within the
+context of the 16 core practical activities, as well as in novel practical scenarios. Success in
+questions that indirectly assess practical skills will come more naturally to those candidates
+who have a solid foundation of laboratory practice and who, having carried them out, have a
+thorough understanding of practical techniques. Therefore, where possible, teachers should
+consider adding additional experiments to the core practical activities.
+
+Candidates will be assessed on their practical skills in Papers 3 and 6. These papers will
+include testing candidates' skills in planning practical work - both in familiar and unfamiliar
+applications - including risk management and the selection of apparatus, with reasons.
+
+When data handling, candidates will be expected to use significant figures appropriately, to
+process data and to plot graphs. In analysing outcomes and drawing valid conclusions,
+students should critically consider methods and data, including assessing measurement
+uncertainties and errors. Appendix 10: Uncertainties and practical work provides guidance
+on this.
+
+Students should be encouraged to use information technology throughout the course.
+
+12  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Units
+
+       Unit 1: Mechanics and Materials                                       14
+
+       Unit 2: Waves and Electricity                                         19
+
+       Unit 3: Practical Skills in Physics I                                 24
+
+       Unit 4: Further Mechanics, Fields and Particles                       27
+
+       Unit 5: Thermodynamics, Radiation, Oscillations and Cosmology 32
+
+       Unit 6: Practical Skills in Physics II                                38
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  13
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit 1: Mechanics and Materials
+
+IAS compulsory unit
+Externally assessed
+
+1.1 Unit description
+
+Introduction         This unit covers mechanics and materials.
+Practical skills
+Mathematical skills  This topic may be studied using applications that relate to
+                     mechanics, for example sports and to materials, for example
+                     spare-part surgery.
+
+                     This topic also enables students to develop practical and
+                     mathematical skills.
+
+                     In order to develop their practical skills, students should be
+                     encouraged to carry out a range of practical experiments related
+                     to this topic. Possible experiments include strobe photography or
+                     the use of a video camera to analyse projectile motion, determine
+                     the centre of gravity of an irregular rod, investigate the
+                     conservation of momentum using light gates and air track,
+                     Hooke's law and the Young modulus experiments for a variety of
+                     materials.
+
+                     Mathematical skills that could be developed in this topic include:
+                     plotting two variables from experimental data; calculating rate of
+                     change from a graph showing a linear relationship; drawing and
+                     using the slope of a tangent to a curve as a measure of rate of
+                     change; calculating or estimating, by graphical methods as
+                     appropriate, the area between a curve and the x-axis and realising
+                     the physical significance of the area that has been determined;
+                     distinguishing between instantaneous rate of change and average
+                     rate of change and identifying uncertainties in measurements;
+                     using simple techniques to determine uncertainty when data are
+                     combined; using angles in regular 2D and 3D structures with force
+                     diagrams and using sin, cos and tan in physical problems.
+
+14                   Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                      Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+1.2 Assessment information
+
+Some questions    · First assessment: January 2019.
+will assess
+knowledge and     · The assessment is 1 hour and 30 minutes.
+understanding of
+experimental      · The assessment is out of 80 marks.
+methods.
+                  · Candidates must answer all questions.
+
+                  · The paper may include multiple-choice, short open, open-
+                      response, calculations and extended-writing questions.
+
+                  · The paper will include questions that target mathematics
+                      at Level 2. A minimum of 32 marks will be awarded for
+                      mathematics at Level 2 or above in this paper.
+
+                  · Candidates will be expected to apply their knowledge and
+                      understanding to familiar and unfamiliar contexts.
+
+                  · Calculators may be used in the examination. Please see
+                      Appendix 11: Use of calculators.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics   15
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+1.3 Mechanics
+
+This topic covers rectilinear motion, forces, energy and power. It may be studied using
+applications that relate to mechanics such as sports.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+1   be able to use the equations for uniformly accelerated motion in one dimension:
+
+    s = (u + v)t
+            2
+
+    v = u + at
+
+    s  =  ut  +  1  at 2
+                 2
+
+    v2 = u 2 + 2as
+
+2   be able to draw and interpret displacement-time, velocity-time and acceleration-
+
+    time graphs
+
+3   know the physical quantities derived from the slopes and areas of displacement-
+
+    time, velocity-time and acceleration-time graphs, including cases of non-uniform
+
+    acceleration and understand how to use the quantities
+
+4   understand scalar and vector quantities and know examples of each type of quantity
+
+    and recognise vector notation
+
+5   be able to resolve a vector into two components at right angles to each other by
+
+    drawing and by calculation
+
+6   be able to find the resultant of two coplanar vectors at any angle to each other by
+
+    drawing, and at right angles to each other by calculation
+
+7   understand how to make use of the independence of vertical and horizontal motion
+
+    of a projectile moving freely under gravity
+
+8   be able to draw and interpret free-body force diagrams to represent forces on a
+
+    particle or on an extended but rigid body using the concept of centre of gravity of an
+
+    extended body
+
+9   be able to use the equation F = ma, and understand how to use this equation in
+
+    situations where m is constant (Newton's second law of motion), including Newton's
+
+    first law of motion where a = 0, objects at rest or travelling at constant velocity
+
+    Use of the term `terminal velocity' is expected.
+
+10 be able to use the equations for gravitational field strength g = F and
+                                                                                               m
+
+          weight W = mg
+
+11  CORE PRACTICAL 1: Determine the acceleration of a freely-falling object
+
+12  know and understand Newton's third law of motion and know the properties of pairs
+
+    of forces in an interaction between two bodies
+
+13  understand that momentum is defined as p = mv
+
+16                        Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                   Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+14  know the principle of conservation of linear momentum, understand how to relate
+
+    this to Newton's laws of motion and understand how to apply this to problems in one
+
+    dimension
+
+15  be able to use the equation for the moment of a force, moment of force = Fx where
+
+    x is the perpendicular distance between the line of action of the force and the axis of
+
+    rotation
+
+16  be able to use the concept of centre of gravity of an extended body and apply the
+
+    principle of moments to an extended body in equilibrium
+
+17  be able to use the equation for work W = Fs, including calculations when the force
+
+    is not along the line of motion
+
+18  be able to use the equation Ek = 21 mv2 for the kinetic energy of a body
+
+19  be able to use the equation Egrav = mgh for the difference in gravitational potential
+
+    energy near the Earth's surface
+
+20  know, and understand how to apply, the principle of conservation of energy
+
+    including use of work done, gravitational potential energy and kinetic energy
+
+21  be able to use the equations relating power, time and energy transferred or work
+
+    done P = E and P = W
+               t  t
+
+22  be able to use the equations
+
+    efficiency = useful energy output
+                      total energy input
+
+    and
+
+    efficiency = useful power output
+                      total power input
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics        17
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+1.4 Materials
+
+This topic covers density, flow of liquids, Hooke's law, the Young modulus and elastic strain
+energy.
+
+This topic should be studied using a variety of applications, for example making and testing
+food, engineering materials, spare-part surgery for joint replacement.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+23 be able to use the equation density  = m
+                                                                V
+
+24  understand how to use the relationship upthrust = weight of fluid displaced
+
+25  a be able to use the equation for viscous drag (Stokes' Law),
+
+    F = 6rv.
+
+    b understand that this equation applies only to small spherical objects moving at
+        low speeds with laminar flow (or in the absence of turbulent flow) and that
+        viscosity is temperature dependent
+
+26  CORE PRACTICAL 2: Use a falling-ball method to determine the viscosity of
+
+    a liquid
+
+27  be able to use the Hooke's law equation, F = kx, where k is the stiffness of the
+
+    object
+
+28  understand how to use the relationships
+
+    · (tensile or compressive) stress = force/cross-sectional area
+
+    · (tensile or compressive) strain= change in length/original length
+
+    Young modulus = stress/strain.
+
+29  a be able to draw and interpret force-extension and force-compression graphs
+
+    b understand the terms limit of proportionality, elastic limit, yield point, elastic
+        deformation and plastic deformation and be able to apply them to these graphs
+
+30  be able to draw and interpret tensile or compressive stress-strain graphs, and
+
+    understand the term breaking stress
+
+31  CORE PRACTICAL 3: Determine the Young modulus of a material
+
+32  be able to calculate the elastic strain energy Eel in a deformed material sample, using
+
+    the  equation  Eel  =  1  Fx ,  and  from  the  area           under  the  force-extension  graph
+                           2
+
+    The estimation of area and hence energy change for both linear and non-linear
+    force-extension graphs is expected.
+
+18                            Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit 2: Waves and Electricity
+
+IAS compulsory unit
+Externally assessed
+
+2.1 Unit description
+
+Introduction         This topic covers waves and the particle nature of light and
+Practical skills     electric currents.
+Mathematical skills
+                     This topic may be studied using applications that relate to
+                     electricity, for example space technology and to waves, for
+                     example medical physics.
+
+                     This topic also enables students to develop practical and
+                     mathematical skills.
+
+                     In order to develop their practical skills, students should be
+                     encouraged to carry out a range of practical experiments related
+                     to this topic. Possible experiments include estimating power output
+                     of an electric motor, using a digital voltmeter to investigate the
+                     output of a potential divider and investigating current/voltage
+                     graphs for a filament bulb, thermistor and diode, determining the
+                     refractive index of solids and liquids, demonstrating progressive
+                     and stationary waves on a slinky.
+
+                     Mathematical skills that could be developed in this topic include
+                     substituting numerical values into algebraic equations using
+                     appropriate units for physical quantities and applying the equation
+                     y = mx + c to experimental data, using calculators to handle sin x,
+                     identifying uncertainties in measurements and using simple
+                     techniques to determine uncertainty when data are combined.
+
+2.2 Assessment information
+
+                                         · First assessment: June 2019.
+
+                                         · The assessment is 1 hour and 30 minutes.
+
+                                         · The assessment is out of 80 marks.
+
+                                         · Candidates must answer all questions.
+
+                                         · The paper may include multiple-choice, short open, open-
+                                             response, calculations and extended-writing questions.
+
+                                         · The paper will include questions that target mathematics
+                                             at Level 2. A minimum of 32 marks will be awarded for
+                                             mathematics at Level 2 or above in this paper.
+
+                                         · Candidates will be expected to apply their knowledge and
+                                             understanding to familiar and unfamiliar contexts.
+
+                                         · Calculators may be used in the examination. Please see
+                                             Appendix 11: Use of calculators.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                          19
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+2.3 Waves and Particle Nature of Light
+
+This topic covers the properties of different types of wave, including standing waves.
+Refraction, polarisation and diffraction are also included and the wave/particle nature of
+light. This topic should be studied by exploring the applications of waves, for example
+applications in medical physics or music.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+33  understand the terms amplitude, frequency, period, speed and wavelength
+
+34  be able to use the wave equation v = f
+
+35  be able to describe longitudinal waves in terms of pressure variation and the
+
+    displacement of molecules
+
+36  be able to describe transverse waves
+
+37  be able to draw and interpret graphs representing transverse and longitudinal waves
+
+    including standing/stationary waves
+
+38  CORE PRACTICAL 4: Determine the speed of sound in air using a
+
+    2-beam oscilloscope, signal generator, speaker and microphone
+
+39  know and understand what is meant by wavefront, coherence, path difference,
+
+    superposition, interference and phase
+
+40  be able to use the relationship between phase difference and path difference
+
+41  know what is meant by a standing/stationary wave and understand how such a
+
+    wave is formed, know how to identify nodes and antinodes
+
+42 be able to use the equation for the speed of a transverse wave on a string v = T
+                                                                                                            µ
+
+43  CORE PRACTICAL 5: Investigate the effects of length, tension and mass per
+
+    unit length on the frequency of a vibrating string or wire
+
+44 be able to use the equation for the intensity of radiation I = P
+                                                                                           A
+
+45  know and understand that at the interface between medium 1 and medium 2
+
+    n1sin 1= n2sin 2 where refractive index is
+
+    n=c
+        v
+
+46  be able to calculate critical angle using
+
+    sin C = 1
+             n
+
+20              Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                               Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+47  be able to predict whether total internal reflection will occur at an interface
+
+48  understand how to measure the refractive index of a solid material
+
+49  understand what is meant by plane polarisation
+
+50  understand what is meant by diffraction and use Huygens' construction to explain
+
+    what happens to a wave when it meets a slit or an obstacle
+
+51  be able to use n = dsin for a diffraction grating
+
+52  CORE PRACTICAL 6: Determine the wavelength of light from a laser or other
+
+    light source using a diffraction grating
+
+53  understand how diffraction experiments provide evidence for the wave nature of
+
+    electrons
+
+54  be able to use the de Broglie equation
+
+    = h
+         p
+
+55  understand that waves can be transmitted and reflected at an interface
+
+    between media
+
+56  understand how a pulse-echo technique can provide information about the position
+
+    of an object and how the amount of information obtained may be limited by the
+
+    wavelength of the radiation or by the duration of pulses
+
+57  understand how the behaviour of electromagnetic radiation can be described in
+
+    terms of a wave model and a photon model, and how these models developed over
+
+    time
+
+58  be able to use the equation E = hf, that relates the photon energy to the wave
+
+    frequency
+
+59  understand that the absorption of a photon can result in the emission of a
+
+    photoelectron
+
+60  understand the terms `threshold frequency' and `work function' and be able to use
+
+    the equation
+
+    hf =  + 21 mvmax 2
+
+61  be able to use the electronvolt (eV) to express small energies
+
+62  understand how the photoelectric effect provides evidence for the particle nature of
+
+    electromagnetic radiation
+
+63  understand atomic line spectra in terms of transitions between discrete energy
+
+    levels and understand how to calculate the frequency of radiation that could be
+
+    emitted or absorbed in a transition between energy levels.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics          21
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+2.4 Electric Circuits
+
+This topic covers the definitions of various electrical quantities, for example current,
+potential difference and resistance, Ohm's law and non-ohmic conductors, potential dividers,
+e.m.f. and internal resistance of cells and negative temperature coefficient thermistors.
+
+This topic should be studied using applications such as space technology.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+64  understand that electric current is the rate of flow of charged particles and be able
+
+    to use the equation I = Q
+                                    t
+
+65 understand how to use the equation V = W
+                                                                 Q
+
+66 understand that resistance is defined by R = V and that Ohm's law is a special case
+                                                                       I
+
+          when I  V for constant temperature
+
+67  (a) understand how the distribution of current in a circuit is a consequence of charge
+
+    conservation
+
+    (b) understand how the distribution of potential differences in a circuit is a
+         consequence of energy conservation
+
+68  be able to derive the equations for combining resistances in series and parallel using
+
+    the principles of charge and energy conservation, and be able to use these
+
+    equations
+
+69  be able to use the equations P = VI, W = VIt and be able to derive and use related
+
+    equations, e.g. P = I2R and P = V 2
+                                                R
+
+70  understand how to sketch, recognise and interpret current-potential difference
+
+    graphs for components, including ohmic conductors, filament bulbs, thermistors
+
+    and diodes
+
+71 be able to use the equation R = l
+                                                      A
+
+72  CORE PRACTICAL 7: Determine the electrical resistivity of a material
+
+73  be able to use I = nqvA to explain the large range of resistivities of different
+
+    materials
+
+74  understand how the potential along a uniform current-carrying wire varies with the
+
+    distance along it
+
+75  understand the principles of a potential divider circuit and understand how to
+
+    calculate potential differences and resistances in such a circuit
+
+76  be able to analyse potential divider circuits where one resistance is variable
+
+    including thermistors and light dependent resistors (LDRs)
+
+22                     Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                       Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+77  know the definition of electromotive force (e.m.f.) and understand what is meant by
+
+    internal resistance and know how to distinguish between e.m.f. and terminal
+
+    potential difference
+
+78  CORE PRACTICAL 8: Determine the e.m.f. and internal resistance of an
+
+    electrical cell
+
+79  understand how changes of resistance with temperature may be modelled in terms
+
+    of lattice vibrations and number of conduction electrons and understand how to
+
+    apply this model to metallic conductors and negative temperature coefficient
+
+    thermistors
+
+80  understand how changes of resistance with illumination may be modelled in terms of
+
+    the number of conduction electrons and understand how to apply this model to
+
+    LDRs.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics         23
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit 3: Practical Skills in Physics I
+
+IAS compulsory unit
+Externally assessed
+
+3.1 Unit description
+
+Introduction       Students are expected to develop experimental skills, and a
+                   knowledge and understanding of experimental techniques, by
+Development of     carrying out a range of practical experiments and investigations
+practical skills,  while they study Units 1 and 2.
+knowledge and
+understanding      This unit will assess students' knowledge and understanding of
+                   experimental procedures and techniques that were developed
+                   when they conducted these experiments.
+
+                   Students should carry out a variety of practical work during the
+                   IAS course to develop their practical skills. This should help them
+                   to gain an understanding and knowledge of the practical
+                   techniques that are used in experimental work.
+
+                   In order to prepare students for the assessment of
+                   this unit, centres should give students opportunities to plan
+                   experiments, implement their plans, collect data, analyse their
+                   data and draw conclusions.
+
+                   Experiments should cover a range of different topic areas and
+                   require the use of a variety of practical techniques.
+
+3.2 Assessment information
+
+                                         · First assessment: June 2019.
+
+                                         · The assessment is 1 hour and 20 minutes.
+
+                                         · The assessment is out of 50 marks.
+
+                                         · Candidates must answer all questions.
+
+                                         · The paper may include short-open, open-response, calculations
+                                             and extended-writing questions.
+
+                                         · The paper will include questions that target mathematics
+                                             at Level 2. A minimum of 20 marks will be awarded for
+                                             mathematics at Level 2 or above in this paper.
+
+                                         · Calculators may be used in the examination. Please see
+                                             Appendix 11: Use of calculators.
+
+24                 Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                      Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+3.3 Planning
+
+Students will be expected to plan an experiment set by Pearson, although they will not be
+expected to carry it out.
+
+Candidates will be assessed on their ability to:
+
+Plan an experiment  · identify the apparatus required
+
+                    · the range and resolution of measuring instruments including
+                        Vernier calipers (0.1mm) and micrometer screw gauge
+                        (0.01mm)
+
+                    · discuss calibration of instruments, e.g. whether a meter reads
+                        zero before measurements are made
+
+                    · describe how to measure relevant variables using the most
+                        appropriate instrument and correct measuring techniques
+
+                    · identify and state how to control all other relevant variables to
+                        make it a fair test
+
+                    · discuss whether repeat readings are appropriate
+
+                    · identify health and safety issues and discuss how these may be
+                        dealt with
+
+                    · discuss how the data collected will be used
+
+                    · identify possible sources of uncertainty and/or systematic error
+                        and explain how these may be reduced or eliminated
+
+                    · comment on the implications of physics (e.g. benefits/risks) and
+                        on its context (e.g. social/environmental/historical).
+
+3.4 Implementation and measurements
+
+Students will be given details of an experiment carried out by an inexperienced student.
+Results may be included.
+
+Candidates will be assessed on their ability to:
+
+Implementation and  · comment on the number of readings taken
+measurements
+                    · comment on the range of measurements taken
+
+                    · comment on significant figures
+
+                    · check a reading that is inconsistent with other readings, e.g. a
+                        point that is not on the line of a graph - students may be
+                        shown a diagram of a micrometer that is being used to measure
+                        the diameter of a wire and be expected to write down the
+                        reading to the correct number of significant figures
+
+                    · comment on how the experiment may be improved, possibly by
+                        using additional apparatus (e.g. to reduce errors) - examples
+                        may include using a set square to determine whether a ruler is
+                        vertical to aid the measurement of the extension of a spring.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                25
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+3.5 Processing Results
+
+Students will be provided with a set of experimental results that were obtained by a
+more-experienced student conducting an experiment.
+
+Candidates will be assessed on their ability to:
+
+Process results  · perform calculations, using the correct number of significant
+                     figures
+
+                 · plot results on a graph using an appropriate scale
+
+                 · use the correct units throughout
+
+                 · comment on the relationship obtained from the graph
+
+                 · determine the relationship between two variables or determine
+                     a constant with the aid of a graph, e.g. by determining the
+                     gradient using a large triangle
+
+                 · suggest realistic modifications to reduce errors
+
+                 · suggest realistic modifications to improve the experiment
+
+                 · discuss uncertainties, qualitatively and quantitatively
+
+                 · determine the percentage uncertainty in measurements for a
+                     single reading using half the resolution of the instrument and
+                     from multiple readings using the half range (students are not
+                     expected to compound percentage uncertainties).
+
+26               Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                        Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit 4: Further Mechanics, Fields and Particles
+
+IA2 compulsory unit
+Externally assessed
+
+4.1 Unit description
+
+Introduction         This topic covers further mechanics, electric and magnetic fields,
+Practical skills     and nuclear and particle physics.
+Mathematical skills
+                     This topic may be studied using applications that relate to
+                     mechanics, for example transportation and fields, for example
+                     communications and display techniques.
+
+                     This topic also enables students to develop practical and
+                     mathematical skills.
+
+                     In order to develop their practical skills, students should be
+                     encouraged to carry out a range of practical experiments related
+                     to this topic. Possible experiments include investigating the effect
+                     of mass, velocity and radius of orbit on centripetal force, using a
+                     coulomb meter to measure charge stored and using an electronic
+                     balance to measure the force between two charges.
+
+                     Mathematical skills that could be developed in this topic include
+                     translating between degrees and radians and using trigonometric
+                     functions, sketching relationships that are modelled by y = k/x,
+                     and y = k/x2, using logarithmic plots to test exponential and power
+                     law variations, interpreting logarithmic plots and sketching
+                     relationships that are modelled by y = e-x.
+
+4.2 Assessment information
+
+                                         · First assessment: January 2020.
+
+                                         · The assessment is 1 hour and 45 minutes.
+
+                                         · The assessment is out of 90 marks.
+
+                                         · Candidates must answer all questions.
+
+                                         · The paper may include multiple-choice, short open, open-
+                                             response, calculations and extended-writing questions.
+
+                                         · The paper will include questions that target mathematics
+                                             at Level 2. A minimum of 36 marks will be awarded for
+                                             mathematics at Level 2 or above in this paper.
+
+                                         · Candidates will be expected to apply their knowledge and
+                                             understanding to familiar and unfamiliar contexts.
+
+                                         · This paper may contain some synoptic questions which require
+                                             knowledge and understanding from Units 1 and 2.
+
+                                         · Calculators may be used in the examination. Please see
+                                             Appendix 11: Use of calculators.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  27
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+4.3 Further Mechanics
+
+This topic covers impulse, conservation of momentum in two dimensions and circular
+motion.
+
+It can be studied using applications that relate to, for example, a modern rail transportation
+system.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+81  understand how to use the equation impulse = Ft =p (Newton's second law of
+
+    motion)
+
+82  CORE PRACTICAL 9: Investigate the relationship between the force exerted
+
+    on an object and its change of momentum
+
+83  understand how to apply conservation of linear momentum to problems in two
+
+    dimensions
+
+84  CORE PRACTICAL 10: Use ICT to analyse collisions between small spheres,
+
+    e.g. ball bearings on a table top
+
+85  understand how to determine whether a collision is elastic or inelastic
+
+86  be able to derive and use the equation Ek =  p2  for the kinetic energy of a non-
+
+                                                 2m
+
+    relativistic particle
+
+87  be able to express angular displacement in radians and in degrees, and convert
+
+    between these units
+
+88  understand what is meant by angular velocity and be able to use the equations
+
+    v = r and T = 2
+
+                       
+
+89  be able to use vector diagrams to derive the equations for centripetal acceleration
+
+    a = v = r 2 2 and understand how to use these equations
+         r
+
+90  understand that a resultant force (centripetal force) is required to produce and
+
+    maintain circular motion
+
+91 be able to use the equations for centripetal force F = ma = mv = mr 2 2 .
+                                                                                           r
+
+28                         Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                              Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+4.4 Electric and Magnetic Fields
+
+This topic covers Coulomb's law, capacitors, magnetic flux density and the laws of
+electromagnetic induction.
+
+This topic may be studied using applications that relate to, for example, communications and
+display techniques.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiment.
+
+Candidates will be assessed on their ability to:
+
+92   understand that an electric field (force field) is defined as a region where a charged
+
+     particle experiences a force
+
+93 understand that electric field strength is defined as E = F and be able to use
+                                                                                     Q
+
+            this equation
+
+94 be able to use the equation F = 2 Q1Q2 for the force between two charges
+                                                 4 0 r
+
+95 be able to use the equation E = 2 Q for the electric field due to a point charge
+                                                4 0 r
+
+96   know and understand the relation between electric field and electric potential
+
+97 be able to use the equation E = V for an electric field between parallel plates
+                                                      d
+
+98 be able to use V = Q for a radial field
+                                 4 0 r
+
+99   be able to draw and interpret diagrams using field lines and equipotentials to
+100  describe radial and uniform electric fields
+101
+     understand that capacitance is defined as C = Q and be able to use this equation
+                                                                  V
+
+     be  able  to  use  the  equation  W  =  1  QV  for the energy stored by a capacitor, be able
+                                             2
+
+     to derive the equation from the area under a graph of potential difference against
+
+     charge stored and be able to derive and use the equations W = 21 CV 2 and
+
+     1 W = 2 Q2
+             C
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics             29
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+102  be able to draw and interpret charge and discharge curves for resistor capacitor
+103  circuits and understand the significance of the time constant RC
+104
+     CORE PRACTICAL 11: Use an oscilloscope or data logger to display and
+105  analyse the potential difference (p.d.) across a capacitor as it charges and
+106  discharges through a resistor
+107
+108  be able to use the equation Q = Q0e-t/RC and derive and use related equations for
+109  exponential discharge in a resistor-capacitor circuit, I = I0 e-t/RC, and V = V0 e-t/RC and
+110
+     the corresponding log equations ln Q = ln Q0 - t , ln I = ln I0 - t and
+                          RC  RC
+
+     lnV = lnV0 - t
+                      RC
+
+     understand and use the terms magnetic flux density B, flux  and
+     flux linkage N
+
+     be able to use the equation F = Bqv sin and apply Fleming's left-hand rule to
+
+     charged particles moving in a magnetic field
+
+     be able to use the equation F = BIl sin and apply Fleming's left-hand rule to current
+
+     carrying conductors in a magnetic field
+
+     understand the factors affecting the e.m.f. induced in a coil when there is relative
+     motion between the coil and a permanent magnet
+
+     understand the factors affecting the e.m.f. induced in a coil when there is a change
+     of current in another coil linked with this coil
+
+     understand how to use Faraday's law to determine the magnitude of an induced
+     e.m.f. and be able to use the equation that combines Faraday's and Lenz's laws
+
+     E = - d(N) .
+
+              dt
+
+30                        Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                          Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+4.5 Nuclear and Particle Physics
+
+This topic covers atomic structure, particle accelerators and the standard quark-lepton
+model.
+
+This topic is the subject of current research, involving the acceleration and detection of high-
+energy particles. It may be taught by exploring a range of experiments such as
+
+· alpha scattering and the nuclear model of the atom
+
+· accelerating particles to high energy
+
+· detecting and interpreting interactions between particles.
+
+Candidates will be assessed on their ability to:
+
+111  understand what is meant by nucleon number (mass number) and proton number
+112  (atomic number)
+113
+114  understand how large-angle alpha particle scattering gives evidence for a nuclear
+115  model of the atom and how our understanding of atomic structure has changed over
+116  time
+117
+118  understand that electrons are released in the process of thermionic emission and
+119  how they can be accelerated by electric and magnetic fields
+120
+121  understand the role of electric and magnetic fields in particle accelerators (linac and
+     cyclotron) and detectors (general principles of ionisation and deflection only)
+122
+123  be able to derive and use the equation r = p for a charged particle in
+124                                                           BQ
+
+     a magnetic field
+
+     be able to apply conservation of charge, energy and momentum to interactions
+     between particles and interpret particle tracks
+
+     understand why high energies are required to investigate the structure of nucleons
+
+     be able to use the equation E = c2m in situations involving the creation and
+
+     annihilation of matter and antimatter particles
+
+     be able to use MeV and GeV (energy) and MeV/c2, GeV/c2 (mass) and convert
+     between these and SI units
+
+     understand situations in which the relativistic increase in particle lifetime is
+     significant (use of relativistic equations not required)
+
+     know that in the standard quark-lepton model particles can be classified as:
+
+     · baryons (e.g. neutrons and protons), which are made from three quarks
+
+     · mesons (e.g. pions), which are made from a quark and an antiquark
+
+     · leptons (e.g. electrons and neutrinos), which are fundamental particles
+
+     · photons
+
+     and that the symmetry of the model predicted the top quark
+
+     know that every particle has a corresponding antiparticle and be able to use the
+     properties of a particle to deduce the properties of its antiparticle and vice versa
+
+     understand how to use laws of conservation of charge, baryon number and lepton
+     number to determine whether a particle interaction is possible
+
+     be able to write and interpret particle equations given the relevant particle symbols.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  31
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit 5: Thermodynamics, Radiation, Oscillations
+and Cosmology
+
+IA2 compulsory unit
+Externally assessed
+
+5.1 Unit description
+
+Introduction         This topic covers thermal energy, nuclear decay, oscillations and
+Practical skills     astrophysics and cosmology.
+Mathematical skills
+                     This topic may be studied using applications that relate to
+                     thermodynamics, for example space technology, and to nuclear
+                     radiation, for example nuclear power stations and medical physics.
+
+                     This topic also enables students to develop practical and
+                     mathematical skills.
+
+                     In order to develop their practical skills, students should be
+                     encouraged to carry out a range of practical experiments related
+                     to this topic. Possible experiments include investigating the
+                     relationship between the volume and temperature of a fixed mass
+                     of gas, measuring the half-life of a radioactive material, measuring
+                     gravitational field strength using a simple pendulum and
+                     measuring a spring constant from simple harmonic motion.
+
+                     Mathematical skills that could be developed in this topic include
+                     substituting numerical values into algebraic equations using
+                     appropriate units for physical quantities, applying the concepts
+                     underlying calculus (but without requiring the explicit use of
+                     derivatives or integrals) by solving equations involving rates of
+                     change, for example. x/t = -x using a graphical method or
+                     spreadsheet modelling and understanding probability in the
+                     context of radioactive decay, sketching relationships that are
+                     modelled by y = sin x, y = cos x, y = k/x, y = k/x2
+
+32                   Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                      Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+5.2 Assessment information
+
+                                         · First assessment: June 2020.
+
+                                         · The assessment is 1 hour and 45 minutes.
+
+                                         · The assessment is out of 90 marks.
+
+                                         · Candidates must answer all questions.
+
+                                         · The paper may include multiple-choice, short open, open-
+                                             response, calculations and extended-writing questions.
+
+                                         · The paper will include questions that target mathematics
+                                             at Level 2. A minimum of 36 marks will be awarded for
+                                             mathematics at Level 2 or above in this paper.
+
+                                         · Candidates will be expected to apply their knowledge and
+                                             understanding to familiar and unfamiliar contexts.
+
+                                         · This paper may contain some synoptic questions which require
+                                             knowledge and understanding from Units 1, 2 and 4.
+
+                                         · Calculators may be used in the examination. Please see
+                                             Appendix 11: Use of calculators.
+
+5.3 Thermodynamics
+
+This topic covers specific heat capacity, specific latent heat, internal energy and the gas
+equation.
+
+This topic may be studied using applications that relate, for example, to space technology.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+125  be able to use the equations E = mc and E = Lm
+126
+     CORE PRACTICAL 12: Calibrate a thermistor in a potential divider circuit as
+127  a thermostat
+128
+     CORE PRACTICAL 13: Determine the specific latent heat of a phase change
+129
+     understand the concept of internal energy as the random distribution of potential
+130  and kinetic energy amongst molecules
+131
+     understand the concept of absolute zero and how the average kinetic energy of
+132  molecules is related to the absolute temperature
+
+     be able to use the equation pV = NkT for an ideal gas
+
+     CORE PRACTICAL 14: Investigate the relationship between pressure and
+     volume of a gas at fixed temperature
+
+     be able to derive and use the equation  1  m<c2>               =  3  kT
+                                             2                         2
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                  33
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+5.4 Nuclear Decay
+
+This topic covers radioactive decay.
+
+This topic may be studied using applications that relate to, for example, medical physics and
+carbon dating.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+133  understand the concept of nuclear binding energy and be able to use the equation
+134
+135  E = c2m in calculations of nuclear mass (including mass deficit) and energy
+136
+137  use the atomic mass unit (u) to express small masses and convert between this and
+138  SI units
+139
+140  understand the processes of nuclear fusion and fission with reference to the binding
+141  energy per nucleon curve
+142
+     understand the mechanism of nuclear fusion and the need for very high densities of
+     matter and very high temperatures to bring about and maintain nuclear fusion
+
+     understand that there is background radiation and how to take appropriate account
+     of it in calculations
+
+     understand the relationships between the nature, penetration, ionising ability and
+     range in different materials of nuclear radiations (alpha, beta and gamma)
+
+     be able to write and interpret nuclear equations given the relevant particle symbols
+
+     CORE PRACTICAL 15: Investigate the absorption of gamma radiation
+     by lead
+
+     understand the spontaneous and random nature of nuclear decay
+
+     be able to determine the half-lives of radioactive isotopes graphically and be able to
+
+     use the equations for radioactive decay
+
+     activity A = N , d = -N,  = ln 2 , N = N0 e-t and A = A0 e-t and
+     d  t1
+
+            2
+
+     derive and use the corresponding log equations.
+
+34      Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+        Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+5.5 Oscillations
+
+This topic covers simple harmonic motion and damping.
+
+This topic may be studied using applications that relate to, for example, the construction of
+buildings in earthquake zones.
+
+This unit includes many opportunities for developing experimental skills and techniques by
+carrying out more than just the core practical experiments.
+
+Candidates will be assessed on their ability to:
+
+143  understand that the condition for simple harmonic motion is F = - kx, and hence
+144
+     understand how to identify situations in which simple harmonic motion will occur
+145
+     be able to use the equations a = - 2x, x = Acos t, v = - A sin t,
+     a = - A2 cos t, and T = 1 = 2 and  = 2f as applied to a simple
+
+                                      f
+
+     harmonic oscillator
+
+     be able to use equations for a simple harmonic oscillator
+
+     T = 2 m , and a simple pendulum T = 2 l
+     k                                                              g
+
+146  be able to draw and interpret a displacement-time graph for an object oscillating
+147  and know that the gradient at a point gives the velocity at that point
+148
+149  be able to draw and interpret a velocity-time graph for an oscillating object and
+150  know that the gradient at a point gives the acceleration at that point
+151
+152  understand what is meant by resonance
+
+153  CORE PRACTICAL 16: Determine the value of an unknown mass using the
+     resonant frequencies of the oscillation of known masses
+
+     understand how to apply conservation of energy to damped and undamped
+     oscillating systems
+
+     understand the distinction between free and forced oscillations
+
+     understand how the amplitude of a forced oscillation changes at and around the
+     natural frequency of a system and know, qualitatively, how damping affects
+     resonance
+
+     understand how damping and the plastic deformation of ductile materials reduce the
+     amplitude of oscillation.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics            35
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+5.6 Astrophysics and Cosmology
+
+This topic covers gravitational fields and the physical interpretation of astronomical
+observations, the formation and evolution of stars and the history and future of the
+universe.
+
+Candidates will be assessed on their ability to:
+
+154  understand that a gravitational field (force field) is defined as a region where a mass
+     experiences a force
+155
+     understand that gravitational field strength is defined as g = F and be able to use
+156                                                                                   m
+157
+     this equation
+158
+159  be able to use the equation F = 2 Gm1m2 (Newton's law of universal gravitation)
+160                                                r
+161
+162  be able to derive and use the equation g = 2 Gm for the gravitational field due to a
+163                                                            r
+164
+     point mass
+165
+166  be able to use the equation Vgrav = - Gm for a radial gravitational field
+167                                                   r
+168
+169  be able to compare electric fields with gravitational fields
+
+     be able to apply Newton's laws of motion and universal gravitation to orbital motion
+
+     understand what is meant by a black body radiator and be able to interpret radiation
+     curves for such a radiator
+
+     be able to use the Stefan-Boltzmann law equation L = AT4 for black body radiators
+
+     be able to use Wien's law equation maxT = 2.898 x 10-3 m K for black body radiators
+
+     be able to use the equation, intensity I = 4d 2 L  where L is luminosity
+     and d is distance from the source
+
+     understand how astronomical distances can be determined using trigonometric
+     parallax
+
+     understand how astronomical distances can be determined using measurements of
+     intensity received from standard candles (objects of known luminosity)
+
+     be able to sketch and interpret a simple Hertzsprung-Russell diagram that relates
+     stellar luminosity to surface temperature
+
+     understand how to relate the Hertzsprung-Russell diagram to the life cycle of stars
+
+     understand how the movement of a source of waves relative to an observer/detector
+     gives rise to a shift in frequency (Doppler effect)
+
+36   Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+     Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+170  be able to use the equations for redshift
+171
+     z =   f  v
+           fc
+
+     for a source of electromagnetic radiation moving relative to an observer and
+     v = H0d for objects at cosmological distances
+
+     understand the controversy over the age and ultimate fate of the universe
+     associated with the value of the Hubble constant and the possible existence of
+     dark matter.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics          37
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit 6: Practical Skills in Physics II
+
+IA2 compulsory unit
+Externally assessed
+
+6.1 Unit description
+
+Introduction       Students are expected to further develop the experimental skills
+                   they acquired in Units 1 and 2.
+Development of
+practical skills,  Students are expected to develop these skills, and a knowledge and
+knowledge and      understanding of experimental techniques, by carrying out a range of
+understanding      practical experiments and investigations while they study Units 4 and 5.
+
+                   This unit will assess students' knowledge and understanding of
+                   experimental procedures and techniques that were developed when
+                   they conducted these experiments.
+
+                   Students should carry out a variety of practical work during the IA2
+                   course to develop their practical skills.
+
+                   In order to prepare students for the assessment of this unit, centres
+                   should give students opportunities to plan experiments, implement
+                   their plans, collect data, analyse their data and draw conclusions.
+
+                   Experiments should cover a range of different topic areas and use a
+                   variety of practical techniques.
+
+                   Students should gain experience of using log graphs to determine
+                   the relationship between two variables. The graphs do not always
+                   need to be obtained for variables that are related by the exponential
+                   function.
+
+                   For example, students could investigate how the pressure of a fixed
+                   mass of gas varies with its volume at constant temperature and plot
+                   an appropriate log/log graph to determine the relationship between
+                   the pressure and volume of the gas.
+
+6.2 Assessment information
+
+                                         · First assessment: June 2020.
+
+                                         · The assessment is 1 hour and 20 minutes.
+
+                                         · The assessment is out of 50 marks.
+
+                                         · Candidates must answer all questions.
+
+                                         · The paper may include short open, open-response, calculations
+                                             and extended-writing questions.
+
+                                         · The paper will include questions that target mathematics
+                                             at Level 2. A minimum of 20 marks will be awarded for
+                                             mathematics at Level 2 or above in this paper.
+
+                                         · Calculators may be used in the examination.
+                                             Please see Appendix 11: Use of calculators.
+
+38                 Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                      Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+6.3 Planning
+
+Students will be expected to plan an experiment set by Pearson, although they will not be
+expected to carry it out.
+
+Candidates will be assessed on their ability to:
+
+Plan an experiment  · identify the most appropriate apparatus, giving details. These
+                        may include the range and resolution of instruments and/or
+                        relevant dimensions of apparatus (e.g. the length of string used
+                        for a pendulum)
+
+                    · discuss calibration of instruments, e.g. whether a meter reads
+                        zero before measurements are made
+
+                    · describe how to measure relevant variables using the most
+                        appropriate instrument(s) and techniques
+
+                    · identify and state how to control all other relevant variables to
+                        make it a fair test
+
+                    · discuss whether repeat readings are appropriate
+
+                    · identify health and safety issues and discuss how these may be
+                        dealt with
+
+                    · discuss how the data collected will be used.
+
+6.4 Implementation and Measurements
+
+Students will be given partial details of how an experiment was carried out.
+Results may be included.
+
+Candidates will be assessed on their ability to:
+
+Implementation and  · comment on how the experiment could have been improved,
+measurements            possibly by using additional apparatus (e.g. to reduce errors) -
+                        examples may include using set squares to measure the
+                        diameter of a cylinder and using a marker for timing oscillations
+
+                    · comment on the number of readings taken
+
+                    · comment on the range of measurements taken
+
+                    · comment on significant figures - students may be required to
+                        identify and/or round up any incorrect figures in a table of
+                        results
+
+                    · identify and/or amend units that are incorrect
+
+                    · identify and check a reading that is inconsistent with other
+                        readings, e.g. a point that is not on the line of a graph.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                39
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+6.5 Analysis
+
+Students may be given a set of experimental results to analyse.
+
+Candidates will be assessed on their ability to:
+
+Analyse data  · perform calculations, using the correct number of significant
+                  figures
+
+              · plot results on a graph using an appropriate scale and units -
+                  the graph could be logarithmic in nature
+
+              · use the correct units throughout
+
+              · comment on the trend/pattern obtained
+
+              · determine the relationship between two variables or determine
+                  a constant with the aid of the graph, e.g. by determining the
+                  gradient using a large triangle
+
+              · use the terms precision, accuracy and sensitivity appropriately
+
+              · suggest realistic modifications to reduce errors
+
+              · suggest realistic modifications to improve the experiment
+
+              · discuss uncertainties qualitatively and quantitatively
+
+              · compound percentage uncertainties correctly
+
+              · determine the percentage uncertainty in measurements for a
+                  single reading using half the resolution of the instrument and
+                  from multiple readings using the half range.
+
+40            Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+              Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Assessment information
+
+Assessment requirements
+
+The Pearson Edexcel International Advanced Subsidiary in Physics consists of three
+externally examined units.
+
+The Pearson Edexcel International Advanced Level in Physics consists of six
+externally examined units.
+
+Candidates must complete all assessments.
+
+Please see the Assessment availability and first award section for information on from when
+the assessment for each unit will be available.
+
+Unit                   IAS or  Assessment information                        Number of raw
+                       IA2                                                   marks allocated
+Unit 1: Mechanics              Externally assessed                           in the unit
+and Materials          IAS     Written examination:                          80 marks
+                               1 hour and 30 minutes
+Unit 2: Waves and      IAS     Availability: January, June and               80 marks
+                               October
+Electricity                    First assessment: January 2019                50 marks
+                               Externally assessed
+Unit 3: Practical      IAS     Written examination:                          90 marks
+                               1 hour and 30 minutes
+Skills in Physics I            Availability: January, June and
+                               October
+Unit 4: Further        IA2     First assessment: June 2019
+                               Externally assessed
+Mechanics, Fields and          Written examination: 1 hour and
+                               20 minutes
+Particles                      Availability: January, June and
+                               October
+                               First assessment: June 2019
+                               Externally assessed
+                               Written examination: 1 hour and
+                               45 minutes
+                               Availability: January, June and
+                               October
+                               First assessment: January 2020
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  41
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit                  IAS or  Assessment information           Number of raw
+                      IA2                                      marks allocated
+Unit 5:               IA2     Externally assessed              in the unit
+Thermodynamics,               Written examination: 1 hour and  90 marks
+Radiation,            IA2     45 minutes
+Oscillations and              Availability: January, June and  50 marks
+Cosmology                     October
+                              First assessment: June 2020
+Unit 6: Practical             Externally assessed
+Skills in Physics II          Written examination: 1 hour and
+                              20 minutes
+                              Availability: January, June and
+                              October
+                              First assessment: June 2020
+
+Sample assessment materials
+
+Sample papers and mark schemes can be found in the Pearson Edexcel International
+Advanced Subsidiary/Advanced Level in Physics Sample Assessment Materials (SAMs)
+document.
+
+A full list of command words that will be used in the assessment across the IAS/IAL Science
+qualifications can be found in Appendix 9: Taxonomy.
+
+Assessment objectives and weightings
+
+AO1  Demonstrate knowledge and understanding of science.       % in   % in   % in
+AO2                                                             IAS    IA2    IAL
+     (a) Application of knowledge and understanding of         34-36  29-31  32-34
+AO3  science in familiar and unfamiliar contexts.
+                                                               34-36  33-36  34-36
+     (b) Analysis and evaluation of scientific information to
+     make judgements and reach conclusions.                    9-11 14-16 11-14
+
+     Experimental skills in science, including analysis and    20     20                     20
+     evaluation of data and methods.
+
+42                    Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                              Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Relationship of assessment objectives to units for the International
+Advanced Subsidiary qualification
+
+Unit number                   Assessment objective (%)
+
+                     AO1      AO2(a)                                         AO2(b)     AO3
+
+Unit 1               17-18    17-18                                          4.5-5.5    0.0
+
+Unit 2               17-18    17-18                                          4.5-5.5    0.0
+
+Unit 3               0.0      0.0                                            0.0        20
+
+Total for            34-36    34-36                                          9-11       20
+
+International
+
+Advanced Subsidiary
+
+Relationship of assessment objectives to units for the International
+Advanced Level qualification
+
+Unit number                   Assessment objective (%)
+
+                     AO1      AO2(a)                                         AO2(b)     AO3
+
+Unit 1               8.5-9.0  8.5-9.0                                        2.25-2.75  0
+Unit 2
+Unit 3               8.5-9.0  8.5-9.0                                        2.25-2.75  0
+Unit 4
+Unit 5               0        0                                              0          10
+Unit 6
+Total for            7.3-7.8  8.4-8.9                                        3.6-4.0    0
+International
+Advanced Level       7.3-7.8  8.4-8.9                                        3.6-4.0    0
+
+                     0        0                                              0          10
+
+                     32-34    34-36                                          11-14      20
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                  43
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Assessment availability and first award
+
+Unit       January  June 2019  October   January  June 2020
+             2019                2019      2020
+1                                                        
+2                                                        
+3                                                        
+4                                                        
+5                                                        
+6                                                        
+IAS award                                                
+IAL award                                                
+
+From June 2020, all six units will be assessed in January, June and October for the
+lifetime of the qualifications.
+
+From June 2020, IAL and IAS will both be awarded in January, June and October for the
+lifetime of the qualifications.
+
+44                  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Administration and general information
+
+Entries, resitting of units
+
+Entries
+
+Details of how to enter students for the examinations for these qualifications can be found in
+our International Information Manual. A copy is made available to all examinations officers
+and is available on our website, qualifications.pearson.com
+
+Resitting of units
+
+Candidates can resit any unit irrespective of whether the qualification is to be cashed in. If a
+candidate resits a unit more than once, only the better of the two most recent attempts of
+that unit will be available for aggregation to a qualification grade.
+
+Access arrangements, reasonable adjustments,
+special consideration and malpractice
+
+Equality and fairness are central to our work. Our equality policy requires all students to
+have equal opportunity to access our qualifications and assessments, and our qualifications
+to be awarded in a way that is fair to every student.
+We are committed to making sure that:
+· students with a protected characteristic (as defined by the UK Equality Act 2010) are not,
+
+    when they are undertaking one of our qualifications, disadvantaged in comparison to
+    students who do not share that characteristic
+· all students achieve the recognition they deserve for undertaking a qualification and that
+    this achievement can be compared fairly to the achievement of their peers.
+
+Language of assessment
+
+Assessment of these qualifications will be available in English only. All student work must be
+in English.
+We recommend that students are able to read and write in English at Level B2 of the
+Common European Framework of Reference for Languages.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  45
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Access arrangements
+
+Access arrangements are agreed before an assessment. They allow students with special
+educational needs, disabilities or temporary injuries to:
+
+· access the assessment
+
+· show what they know and can do without changing the demands of the assessment.
+
+The intention behind an access arrangement is to meet the particular needs of an individual
+student with a disability without affecting the integrity of the assessment. Access
+arrangements are the principal way in which awarding bodies comply with the duty under
+the Equality Act 2010 to make `reasonable adjustments'.
+
+Access arrangements should always be processed at the start of the course. Students will
+then know what is available and have the access arrangement(s) in place for assessment.
+
+Reasonable adjustments
+
+The Equality Act 2010 requires an awarding organisation to make reasonable adjustments
+where a student with a disability would be at a substantial disadvantage in undertaking an
+assessment. The awarding organisation is required to take reasonable steps to overcome
+that disadvantage.
+
+A reasonable adjustment for a particular student may be unique to that individual and
+therefore might not be in the list of available access arrangements.
+
+Whether an adjustment will be considered reasonable will depend on a number of factors,
+including:
+
+· the needs of the student with the disability
+
+· the effectiveness of the adjustment
+
+· the cost of the adjustment
+
+· the likely impact of the adjustment on the student with the disability and other students.
+
+An adjustment will not be approved if it involves unreasonable costs to the awarding
+organisation, timeframes or affects the security or integrity of the assessment. This is
+because the adjustment is not `reasonable'.
+
+Special consideration
+
+Special consideration is a post-examination adjustment to a candidate's mark or grade to
+reflect temporary injury, illness or other indisposition at the time of the
+examination/assessment, which has had, or is reasonably likely to have had, a material
+effect on a student's ability to take an assessment or demonstrate their level of attainment
+in an assessment.
+
+Further information
+
+Please see our website for further information about how to apply for access arrangements
+and special consideration.
+
+For further information about access arrangements, reasonable adjustments and special
+consideration please refer to the JCQ website: www.jcq.org.uk
+
+46  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Candidate malpractice
+
+Candidate malpractice refers to any act by a candidate that compromises or seeks to
+compromise the process of assessment, or which undermines the integrity of the
+qualifications or the validity of results/certificates.
+
+Candidate malpractice in examinations must be reported to Pearson using a
+JCQ Form M1 (available at www.jcq.org.uk/exams-office/malpractice). The form should be
+emailed to candidatemalpractice@pearson.com. Please provide as much information and
+supporting documentation as possible. Note that the final decision regarding appropriate
+sanctions lies with Pearson.
+
+Failure to report malpractice constitutes staff or centre malpractice.
+
+Staff/centre malpractice
+
+Staff and centre malpractice includes both deliberate malpractice and maladministration of
+our qualifications. As with candidate malpractice, staff and centre malpractice is any act that
+compromises or seeks to compromise the process of assessment, or which undermines the
+integrity of the qualifications or the validity of results/certificates.
+
+All cases of suspected staff malpractice and maladministration must be reported
+immediately, before any investigation is undertaken by the centre, to Pearson on a
+JCQ Form M2(a) (available at www.jcq.org.uk/exams-office/malpractice).
+
+The form, supporting documentation and as much information as possible should be emailed
+to pqsmalpractice@pearson.com. Note that the final decision regarding appropriate sanctions
+lies with Pearson.
+
+Failure to report malpractice itself constitutes malpractice.
+
+More detailed guidance on malpractice can be found in the latest version of the document
+Suspected Malpractice in Examinations and Assessments Policies and Procedures, available
+at www.jcq.org.uk/exams-office/malpractice
+
+Awarding and reporting
+
+The Pearson Edexcel International Advanced Subsidiary in Physics will be graded on a five-
+grade scale from A to E. The Pearson Edexcel International Advanced Level in Physics will be
+graded on a six-point scale A* to E. Individual unit results will be reported. Only Units 1, 2
+and 3 will contribute to the International Advanced Subsidiary grade. All six units will
+contribute to the International Advanced Level grade.
+
+The first certification opportunity for the Pearson Edexcel International Advanced Subsidiary
+in Physics will be in August 2019. The first certification opportunity for the Pearson Edexcel
+International Advanced Level in Physics will be in August 2020. A pass in an International
+Advanced Subsidiary subject is indicated by one of the five grades A, B, C, D, E, of which
+grade A is the highest and grade E the lowest. A pass in an International Advanced Level
+subject is indicated by one of the six grades A*, A, B, C, D, E, of which grade A* is the
+highest and grade E the lowest. Candidates whose level of achievement is below the
+minimum judged by Pearson to be of sufficient standard to be recorded on a certificate will
+receive an unclassified U result.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  47
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Unit results
+
+Candidates will receive a uniform mark between 0 and the maximum uniform mark for
+each unit.
+
+The uniform marks at each grade threshold for each unit are:
+
+Units 1, 2, 4 and 5
+
+Unit grade           Maximum A B C D E
+               uniform mark
+
+                     120     96   84                72        60             48
+
+Units 3 and 6
+
+Unit grade           Maximum A B C D E
+               uniform mark
+
+                     60      48   42                36        30             24
+
+Qualification results
+
+The minimum uniform marks required for each grade:
+
+International Advanced Subsidiary (cash-in code: XPH11)
+
+Qualification Maximum A B C                                    D               E
+grade          uniform mark                                   150            120
+
+                     300     240  210               180
+
+Candidates with a uniform mark in the range 0-119 will be Unclassified (U).
+
+International Advanced Level (cash-in code: YPH11)
+
+Qualification Maximum A B C D E
+grade          uniform mark
+
+                     600     480  420               360       300            240
+
+Candidates with a uniform mark in the range 0-239 will be Unclassified (U).
+
+To be awarded an A*, Candidates will need to achieve an A for the International Advanced
+Level qualification (at least 480 uniform marks) and at least 90 percent of the total uniform
+marks available across the IA2 units combined (at least 270 uniform marks).
+
+48                        Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                             Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Student recruitment and progression
+
+Pearson follows the JCQ policy concerning recruitment to our qualifications in that:
+· they must be available to anyone who is capable of reaching the required standard
+· they must be free from barriers that restrict access and progression
+· equal opportunities exist for all students.
+
+Prior learning and other requirements
+
+Students who would benefit most from studying these qualifications are likely to have a
+Level 2 qualification in this subject such as a GCSE in Physics and also a GCSE in
+mathematics (or equivalent).
+
+Progression
+
+Students can progress from these qualifications to:
+· a range of different, relevant academic or vocational higher education qualifications,
+
+    e.g. degrees in physics or related subjects including engineering and environmental
+    science or equivalent qualifications such as BTEC Higher Nationals in Engineering
+· employment
+· further training.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics               49
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendices
+
+    Appendix 1: Codes                                     51
+
+    Appendix 2: Pearson World Class Qualification design principles 52
+
+    Appendix 3: Transferable skills                       54
+
+    Appendix 4: Level 3 Extended Project qualification    56
+
+    Appendix 5: Glossary                                  58
+
+    Appendix 6: Mathematical skills and exemplifications  59
+
+    Appendix 7: Equations                                 65
+
+    Appendix 8: Data sheet                                72
+
+    Appendix 9: Taxonomy                                  73
+
+    Appendix 10: Uncertainties and practical work         75
+
+    Appendix 11: Use of calculators                       82
+
+50                     Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                            Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 1: Codes
+
+Type of code   Use of code                                                   Code
+Unit codes                                                                   Unit 1: WPH11/01
+               Each unit is assigned a unit code. This                       Unit 2: WPH12/01
+Cash-in codes  unit code is used as an entry code to                         Unit 3: WPH13/01
+Entry codes    indicate that a student wishes to take                        Unit 4: WPH14/01
+               the assessment for that unit. Centres                         Unit 5: WPH15/01
+               will need to use the entry codes only                         Unit 6: WPH16/01
+               when entering students for their                              International Advanced
+               examination.                                                  Subsidiary - XPH11
+                                                                             International Advanced
+               The cash-in code is used as an entry                          Level - YPH11
+               code to aggregate the student's unit
+               scores to obtain the overall grade for                        Please refer to the
+               the qualification. Centres will need to                       Pearson Information
+               use the entry codes only when entering                        Manual, available on
+               students for their qualification.                             our website.
+
+               The entry codes are used to:
+
+               · enter a student for the assessment
+                   of a unit
+
+               · aggregate the student's unit scores
+                   to obtain the overall grade for the
+                   qualification.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                          51
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 2: Pearson World Class Qualification
+design principles
+
+Pearson's World Class Qualification design principles mean that all Pearson Edexcel
+qualifications are developed to be rigorous, demanding, inclusive and empowering.
+
+We work collaboratively to gain approval from an external panel of educational
+thought leaders and assessment experts from across the globe. This is to ensure that
+Pearson Edexcel qualifications are globally relevant, represent world-class best practice in
+qualification and assessment design, maintain a consistent standard and support learner
+progression in today's fast-changing world.
+
+Pearson's Expert Panel for World-Class Qualifications is chaired by Sir Michael Barber, a
+leading authority on education systems and reform. He is joined by a wide range of key
+influencers with expertise in education and employability.
+
+"I'm excited to be in a position to work with the global leaders in curriculum and assessment
+to take a fresh look at what young people need to know and be able to do in the 21st
+century, and to consider how we can give them the opportunity to access that sort of
+education." Sir Michael Barber.
+
+52  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Endorsement from Pearson's Expert Panel for World Class
+Qualifications for the International Advanced Subsidiary
+(IAS)/International Advanced Level (IAL) development process
+
+May 2014
+
+"We were chosen, either because of our expertise in the UK education system, or because of
+our experience in reforming qualifications in other systems around the world as diverse as
+Singapore, Hong Kong, Australia and a number of countries across Europe.
+
+We have guided Pearson through what we judge to be a rigorous world-class qualification
+development process that has included:
+
+· extensive international comparability of subject content against the highest-performing
+    jurisdictions in the world
+
+· benchmarking assessments against UK and overseas providers to ensure that they are at
+    the right level of demand
+
+· establishing External Subject Advisory Groups, drawing on independent subject-specific
+    expertise to challenge and validate our qualifications.
+
+Importantly, we have worked to ensure that the content and learning is future oriented, and
+that the design has been guided by Pearson's Efficacy Framework. This is a structured,
+evidenced process which means that learner outcomes have been at the heart of this
+development throughout.
+
+We understand that ultimately it is excellent teaching that is the key factor to a learner's
+success in education but as a result of our work as a panel we are confident that we have
+supported the development of Edexcel IAS and IAL qualifications that are outstanding for
+their coherence, thoroughness and attention to detail and can be regarded as representing
+world-class best practice."
+
+Sir Michael Barber (Chair)                    Professor Lee Sing Kong
+Chief Education Advisor, Pearson plc          Dean and Managing Director, National
+                                              Institute of Education International,
+Dr Peter Hill                                 Singapore
+Former Chief Executive ACARA
+Professor Jonathan Osborne                    Bahram Bekhradnia
+Stanford University                           President, Higher Education Policy Institute
+
+Professor Dr Ursula Renold                    Dame Sally Coates
+Federal Institute of Technology, Switzerland  Director of Academies (South), United
+Professor Janice Kay                          Learning Trust
+Provost, University of Exeter
+                                              Professor Bob Schwartz
+Jason Holt                                    Harvard Graduate School of Education
+CEO, Holts Group
+                                              Jane Beine
+                                              Head of Partner Development, John Lewis
+                                              Partnership
+
+All titles correct as at May 2014.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  53
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 3: Transferable skills
+
+The need for transferable skills
+
+In recent years, higher-education institutions and employers have consistently flagged the
+need for students to develop a range of transferable skills to enable them to respond with
+confidence to the demands of undergraduate study and the world of work.
+
+The Organisation for Economic Co-operation and Development (OECD) defines skills, or
+competencies, as `the bundle of knowledge, attributes and capacities that can be learned
+and that enable individuals to successfully and consistently perform an activity or task and
+can be built upon and extended through learning.'[ 1]
+
+To support the design of our qualifications, the Pearson Research Team selected and
+evaluated seven global 21st-century skills frameworks. Following on from this process, we
+identified the National Research Council's (NRC) framework [ 2] as the most evidence-based
+and robust skills framework, and have used this as a basis for our adapted skills framework.
+
+The framework includes cognitive, intrapersonal skills and interpersonal skills.
+
+The skills have been interpreted for this specification to ensure they are appropriate for the
+subject. All of the skills listed are evident or accessible in the teaching, learning and/or
+assessment of the qualifications. Some skills are directly assessed. Pearson materials will
+support you in identifying these skills and developing these skills in students.
+
+The table overleaf sets out the framework and gives an indication of the skills that can be
+found in physics and indicates the interpretation of the skill in this area. A full subject
+interpretation of each skill, with mapping to show opportunities for student development is
+given on the subject pages of our website: qualifications.pearson.com
+
+1 OECD - Better Skills, Better Jobs, Better Lives (OECD Publishing, 2012)
+2 Koenig J A, National Research Council - Assessing 21st Century Skills: Summary of a Workshop (National
+
+  Academies Press, 2011)
+
+54  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Cognitive skills      Cognitive          · Critical thinking                    Developing the ability to solve
+                      processes and      · Problem solving                      physics problems, including those
+Intrapersonal skills  strategies         · Analysis                             of a mathematical nature.
+                                         · Reasoning/argumentation
+Interpersonal skills  Creativity         · Interpretation                       Taking responsibility for carrying
+                      Intellectual       · Decision making                      out practical work in a safe
+                      openness           · Adaptive learning                    manner, following all safety
+                                         · Executive function                   requirements.
+                      Work ethic/        · Creativity
+                      conscientiousness  · Innovation                           Presenting practical results in a
+                                         · Adaptability                         standard scientific format;
+                      Positive core      · Personal and social responsibility   presenting problems to solutions
+                      self-evaluation    · Continuous learning                  in a clear and coherent fashion.
+                      Teamwork and       · Intellectual interest and curiosity
+                      collaboration      · Initiative
+                                         · Self-direction
+                      Leadership         · Responsibility
+                                         · Perseverance
+                                         · Productivity
+                                         · Self-regulation (metacognition,
+
+                                              forethought, reflection)
+                                         · Ethics
+                                         · Integrity
+                                         · Self-monitoring/self-
+
+                                              evaluation/self-reinforcement
+                                         · Communication
+                                         · Collaboration
+                                         · Teamwork
+                                         · Cooperation
+                                         · Empathy/perspective taking
+                                         · Negotiation
+                                         · Responsibility
+                                         · Assertive communication
+                                         · Self-presentation
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics     55
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 4: Level 3 Extended Project qualification
+
+What is the Extended Project?
+
+The Extended Project is a stand-alone qualification that can be taken alongside International
+Advanced Level (IAL) qualifications. It supports the development of independent learning
+skills and helps to prepare students for their next step - whether that be higher education or
+employment. The qualification:
+
+· is recognised by higher education institutions for the skills it develops
+
+· is worth half of an International Advanced Level (IAL) qualification at grades A*-E
+
+· carries UCAS points for university entry.
+
+The Extended Project encourages students to develop skills in the following areas: research,
+critical thinking, extended writing and project management. Students identify and agree a
+topic area of their choice for in-depth study (which may or may not be related to an IAL
+subject they are already studying), guided by their teacher.
+
+Students can choose from one of four approaches to produce:
+
+· a dissertation (for example, an investigation based on predominately secondary research)
+
+· an investigation/field study (for example, a practical experiment)
+
+· a performance (for example, in music, drama or sport)
+
+· an artefact (for example, creating a sculpture in response to a client brief or solving an
+    engineering problem).
+
+The qualification is non-examined assessment-based and students are assessed on the skills
+of managing, planning and evaluating their project. Students will research their topic,
+develop skills to review and evaluate the information, and then present the final outcome of
+their project.
+
+The Extended Project has 120 guided learning hours (GLH) consisting of a 40-GLH taught
+element that includes teaching the technical skills (for example, research skills) and an
+80-GLH guided element that includes mentoring students through the project work. The
+qualification is 100% internally assessed and externally moderated.
+
+How to link the Extended Project with physics
+
+The Extended Project creates the opportunity to develop transferable skills for progression to
+higher education and to the workplace through the exploration of either an area of personal
+interest or a topic of interest from within the physics qualification content.
+
+Through the Extended Project, students will develop skills that support their study of
+physics, including:
+
+· conducting, organising and using research
+
+· independent reading in the subject area
+
+· planning, project management and time management
+
+· stating a proposal to be tested in investigations
+
+· collecting, handling and interpreting data and evidence
+
+· evaluating arguments and processes, including arguments in favour of alternative
+    interpretations of data and evaluation of experimental methodology
+
+· critical thinking.
+
+56  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+In the context of the Extended Project, critical thinking refers to the ability to identify and
+develop arguments for a point of view or hypothesis and to consider and respond to
+alternative arguments.
+
+Types of Extended Project related to physics
+
+Students may produce a dissertation on any topic that can be researched and argued. A
+dissertation might involve an investigation such as:
+
+· Are wind turbines a good solution to the energy crisis?
+
+· Can we justify human space exploration?
+
+· How did the Copernican paradigm shift affect subsequent developments in cosmology?
+
+The dissertation uses secondary research sources to provide a reasoned defence or a point
+of view, with consideration of counterarguments.
+
+An alternative might be an investigative project or field study involving the collection of data
+from primary research, for example:
+
+· How does solar activity affect weather?
+
+· Do `sharkskin' swimsuits give the wearer an unfair advantage?
+
+· Over its working lifetime, does the energy output from a photovoltaic solar panel exceed
+    the energy required to make, install and operate it?
+
+Using the Extended Project to support breadth and depth
+
+In the Extended Project, students are assessed on the quality of the work they produce and
+the skills they develop and demonstrate through completing this work. Students should
+demonstrate that they have extended themselves in some significant way beyond what they
+have been studying in physics. Students can demonstrate extension in one or more
+dimensions:
+
+· deepening understanding - where a student explores a topic in greater depth than in
+    the specification content
+
+· broadening skills - where a student learns a new skill. In a physics-based project, this
+    might involve learning to assemble and manipulate an unfamiliar piece of apparatus or
+    learning advanced data-handling techniques
+
+· widening perspectives - where the student's project spans different subjects. This
+    might involve discussing historical, philosophical or ethical aspects of a physics-based
+    topic or making links with other subject areas such as chemistry or economics.
+
+A wide range of information to support the delivery and assessment of the Extended Project,
+including the specification, teacher guidance for all aspects, an editable scheme of work and
+exemplars for all four approaches, can be found on our website.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  57
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 5: Glossary
+
+Term                      Definition
+Assessments objectives
+                          The requirements that students need to meet to succeed in
+External assessment       the qualification. Each assessment objective has a unique
+International Advanced    focus, which is then targeted in examinations or coursework.
+Subsidiary                Assessment objectives may be assessed individually or in
+International Advanced    combination.
+Level
+International A2 (IA2)    An examination that is held at the same time and place in a
+Linear                    global region.
+
+Modular                   Abbreviated to IAS.
+
+Non-examined assessment   Abbreviated to IAL.
+(NEA)
+Raw marks                 The additional content required for an IAL.
+
+Uniform Mark Scale (UMS)  Linear qualifications have all assessments at the end of a
+                          course of study. The final qualification grade is worked out
+Unit                      from the combined unit results.
+
+                          Modular qualifications contain units of assessment.
+                          These units can be taken during the course of study.
+                          The final qualification grade is worked out from the
+                          combined unit results.
+
+                          This is any assessment that is not sat in examination
+                          conditions at a fixed time and place. It includes coursework,
+                          oral examinations and practical examinations.
+
+                          Raw marks are the actual marks that students achieve when
+                          taking an assessment. When calculating an overall grade,
+                          raw marks often need to be converted so that it is possible
+                          to see the proportionate achievement of a student across all
+                          units of study.
+
+                          Candidate's actual marks (or raw marks) will be converted
+                          into a UMS mark so that it is possible to see the
+                          proportionate result of a candidate. Two units may each be
+                          worth 25 percent of a total qualification. The raw marks for
+                          each unit may differ, but the uniform mark will be the same.
+
+                          A modular qualification will be divided into a number of
+                          units. Each unit will have its own assessment.
+
+58                        Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                          Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 6: Mathematical skills and
+exemplifications
+
+In order to be able to develop their skills, knowledge and understanding in physics, students
+need to have been taught, and to have acquired competence in, the appropriate areas of
+mathematics relevant to the subject as indicated in the table on the following pages 3.
+
+The assessment of quantitative skills will include at least 40 percent Level 2 or above
+mathematical skills. These skills will be applied in the context of physics.
+
+All mathematical content will be assessed within the lifetime of the qualifications.
+
+The following tables illustrate where these mathematical skills may be developed and could
+be assessed. Those shown in bold type would only be tested in the full International
+Advanced Level course.
+
+This list of examples is not exhaustive. These skills could be developed in other areas of
+specification content.
+
+3 The information in this appendix has been taken directly from the document GCE AS and A level regulatory
+  requirements for biology, chemistry, physics and psychology published by the Department for Education (April
+  2014).
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                                     59
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+       Mathematical skills                Exemplification of mathematical skill in the
+                                          context of A Level Physics (assessment is
+                                          not limited to the examples given below)
+
+(i) C.0 - arithmetic and numerical computation
+
+C.0.1  Recognise and make use of          Candidates may be tested on their ability to:
+       appropriate units in calculations
+                                          · identify the correct units for physical
+                                              properties such as m s-1, the unit for velocity
+
+                                          · convert between units with different prefixes,
+                                              e.g. cm3 to m3
+
+C.0.2  Recognise and use expressions in   Candidates may be tested on their ability to:
+       decimal and standard form
+                                          · use physical constants expressed in standard
+                                              form such as
+                                              c = 3.00 x 108 m s-1
+
+C.0.3  Use ratios, fractions and          Candidates may be tested on their ability to:
+       percentages                        · calculate efficiency of devices
+
+                                          · calculate percentage uncertainties in
+                                              measurements.
+
+C.0.4  Estimate results                   Candidates may be tested on their ability to:
+
+                                          · estimate the effect of changing experimental
+                                              parameters on measurable values.
+
+C.0.5  Use calculators to find and use    Candidates may be tested on their ability to:
+       power, exponential and
+       logarithmic functions              · solve for unknowns in decay problems
+                                              such as N = N0e-t
+
+C.0.6  Use calculators to handle sin x,   Candidates may be tested on their ability to:
+       cos x, tan x when x is expressed   · calculate the direction of resultant vectors.
+       in degrees or radians
+
+60                          Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                  Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+       Mathematical skills             Exemplification of mathematical skill in the
+                                       context of A Level Physics (assessment is
+(ii) C.1 - handling data               not limited to the examples given below)
+
+C.1.1  Use an appropriate number of    Candidates may be tested on their ability to:
+       significant figures
+                                       · report calculations to an appropriate number
+C.1.2  Find arithmetic means               of significant figures given raw data quoted to
+                                           varying numbers of significant figures
+C.1.3  Understand simple probability
+                                       · understand that calculated results can only be
+C.1.4  Make order of magnitude             reported to the limits of the least accurate
+       calculations                        measurement.
+
+C.1.5  Identify uncertainties in       Candidates may be tested on their ability to:
+       measurements and use simple
+       techniques to determine         · calculate a mean value for repeated
+       uncertainty when data are           experimental readings.
+       combined by addition,
+       subtraction, multiplication,    Candidates may be tested on their ability to:
+       division and raising to powers
+                                       · understand probability in the context of
+                                           radioactive decay.
+
+                                       Candidates may be tested on their ability to:
+
+                                       · evaluate equations with variables expressed in
+                                           different orders of magnitude.
+
+                                       Candidates may be tested on their ability to:
+
+                                       · determine the uncertainty where two readings
+                                           for length need to be added together.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  61
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+       Mathematical skills               Exemplification of mathematical skill in the
+                                         context of A Level Physics (assessment is
+(iii) C.2 - algebra                      not limited to the examples given below)
+
+C.2.1  Understand and use the            Candidates may be tested on their ability to:
+       symbols: =, <, <<, >>, >, ,       · recognise the significance of the symbols in
+       , 
+                                             the expression F  p/t
+C.2.2  Change the subject of an          Candidates may be tested on their ability to:
+C.2.3  equation, including non-linear    · rearrange E = mc2 to make m the subject.
+       equations
+                                         Candidates may be tested on their ability to:
+       Substitute numerical values into  · calculate the momentum p of an object by
+       algebraic equations using
+       appropriate units for physical        substituting the values for mass m and
+       quantities                            velocity v into the equation p = mv
+                                         Candidates may be tested on their ability to:
+C.2.4  Solve algebraic equations,        · solve kinematic equations for constant
+       including quadratic equations         acceleration such as v = u + at and
+                                             s = ut + ½ at2
+C.2.5  Use logarithms in relation to     Candidates may be tested on their ability to:
+       quantities that range over        · recognise and interpret real-world
+       several orders of magnitude           examples of logarithmic scales.
+
+(iv) C.3 - graphs                        Candidates may be tested on their ability to:
+                                         · calculate Young modulus for materials using
+C.3.1  Translate information between
+       graphical, numerical and              stress-strain graphs.
+       algebraic forms                   Candidates may be tested on their ability to:
+                                         · plot graphs of extension of a wire against
+C.3.2  Plot two variables from
+       experimental or other data            force applied.
+                                         Candidates may be tested on their ability to:
+C.3.3  Understand that y = mx + c        · rearrange and compare v = u + at with
+       represents a linear relationship
+                                             y = mx + c for velocity-time graph in constant
+C.3.4  Determine the slope and               acceleration problems.
+       intercept of a linear graph       Candidates may be tested on their ability to:
+                                         · read off and interpret intercept point from a
+                                             graph, e.g. the initial velocity in a velocity-
+                                             time graph.
+
+62                          Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                      Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+        Mathematical skills                  Exemplification of mathematical skill in the
+                                             context of A Level Physics (assessment is
+(iv) C.3 - graphs                            not limited to the examples given below)
+
+C.3.5   Calculate rate of change from a      Candidates may be tested on their ability to:
+        graph showing a linear               · calculate acceleration from a linear velocity-
+        relationship
+                                                 time graph.
+C.3.6   Draw and use the slope of a          Candidates may be tested on their ability to:
+        tangent to a curve as a measure      · draw a tangent to the curve of a
+        of rate of change
+                                                 displacement-time graph and use the gradient
+C.3.7   Distinguish between                      to approximate the velocity at a specific time.
+        instantaneous rate of change and     Candidates may be tested on their ability to:
+        average rate of change               · understand that the gradient of the tangent of
+                                                 a displacement-time graph gives the velocity
+C.3.8   Understand the possible physical         at a point in time which is a different measure
+C.3.9   significance of the area between         to the average velocity.
+C.3.10  a curve and the x axis and be        Candidates may be tested on their ability to:
+        able to calculate it or estimate it  · recognise that for a capacitor the area under a
+        by graphical methods as                  voltage-charge graph is equivalent to the
+        appropriate                              energy stored.
+
+        Apply the concepts underlying        Candidates may be tested on their ability to:
+        calculus (but without requiring      · determine g from distance-time plot, projectile
+        the explicit use of derivatives or
+        integrals) by solving equations          motion.
+        involving rates of change, e.g.
+        x /t = -x                            Candidates may be tested on their ability to:
+        using a graphical method or          · obtain time constant for capacitor
+        spreadsheet modelling
+                                                 discharge by interpreting plot of log V
+        Interpret logarithmic plots              against time.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  63
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+        Mathematical skills               Exemplification of mathematical skill in the
+                                          context of A Level Physics (assessment is
+(iv) C.3 - graphs                         not limited to the examples given below)
+
+C.3.11  Use logarithmic plots to test     Candidates may be tested on their ability to:
+        exponential and power law         · use logarithmic plots with decay law of
+        variations
+                                              radioactivity/charging and discharging of
+C.3.12  Sketch relationships which are        a capacitor.
+        modelled by y = k/x, y = kx2,     Candidates may be tested on their ability to:
+        y = k/x2, y= kx, y = sin x,       · sketch relationships between pressure
+        y = cos x, y = e±x, and               and volume for an ideal gas.
+        y = sin2x, y = cos2x a as
+                                          Candidates may be tested on their ability to:
+        applied to physical               · interpret force diagrams to solve problems.
+                                          Candidates may be tested on their ability to:
+        relationships                     · draw force diagrams to solve mechanics
+
+(v) C.4 - geometry and trigonometry           problems.
+
+C.4.1   Use angles in regular 2D and 3D   Candidates may be tested on their ability to:
+        structures                        · calculate the area of the cross section to work
+
+C.4.2   Visualise and represent 2D and        out the resistance of a conductor given its
+C.4.3   3D forms including two-               length and resistivity.
+C.4.4   dimensional representations of
+        3D objects                        Candidates may be tested on their ability to:
+                                          · calculate the magnitude of a resultant vector,
+        Calculate areas of triangles,
+        circumferences and areas of           resolving forces into components to solve
+        circles, surface areas and            problems.
+        volumes of rectangular blocks,    Candidates may be tested on their ability to:
+        cylinders and spheres             · resolve forces into components.
+                                          Candidates may be tested on their ability to:
+        Use Pythagoras' theorem, and      · calculate fringe separations in interference
+        the angle sum of a triangle           patterns.
+
+C.4.5   Use sin, cos and tan in physical  Candidates may be tested on their ability to:
+C.4.6   problems                          · convert angle in degrees to angle in radians.
+
+C.4.7   Use of small angle
+        approximations including sin  
+        , tan   , cos   1 for small
+         where appropriate
+
+        Understand the relationship
+        between degrees and radians
+        and translate from one to the
+        other
+
+64                           Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                             Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 7: Equations
+
+Students need not memorise formulae for these qualifications.
+The formulae below will be supplied in each examination. Any other formulae that are
+required will be provided in the question. Symbols used comply with the Association for
+Science Education (ASE) guidelines (which are based on International Union of Pure and
+Applied Physics (IUPAP) recommendations).
+
+Unit 1: Mechanics and Materials
+
+Mechanics
+
+Kinematic equations of motion  s = (u + v)t
+                                       2
+
+                               v = u + at
+
+                               s  =  ut  +  1  at 2
+                                            2
+
+                               v2 = u 2 + 2as
+
+Forces                         F = ma
+Momentum                       g=F
+
+                                    m
+                               W = mg
+                               p = mv
+
+Moment of force                = Fx
+
+Materials                      =m
+                                    V
+Density
+                               F = 6rv
+Stokes' law                    F = kx
+Hooke's law                    Stress  = F
+Young modulus
+                                            A
+                               Strain  = x
+
+                                            x
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics              65
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+                                 E=
+                                      
+
+Elastic strain energy            Eel  =  1  Fx
+                                         2
+
+Unit 2: Waves and Electricity
+Waves and particle nature of light
+
+Wave speed                       v = f
+
+Speed of a transverse wave on a  v= T
+string                                 µ
+
+Intensity of radiation           I=P
+Refractive index                      A
+
+Critical angle                   n1 sin 1= n2 sin 2
+Diffraction grating              n= c
+de Broglie wavelength
+                                      v
+                                 sin C = 1
+
+                                          n
+                                 n = dsin
+                                 = h
+
+                                      p
+
+Photon model                     E = hf
+
+Einstein's photoelectric equation hf =  + 21 mvmax 2
+
+66                      Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                 Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Electricity                   I = Q
+                                   t
+Current
+Potential difference          V =W
+Resistance                          Q
+Electrical power, energy and
+efficiency                    R=V
+                                    I
+Resistivity
+                              P = VI
+                              P = I2R
+                              P=V2
+
+                                    R
+                              W = VIt
+
+                              R = l
+                                    A
+
+                              I = nqvA
+
+Unit 4: Further Mechanics, Fields and Particles
+Further mechanics
+
+Impulse                       Ft = p
+
+Kinetic energy of a                  p2
+non-relativistic particle     Ek =
+
+Motion in a circle                   2m
+
+                              v = r
+                              T = 2
+
+                                   
+
+                              a = v2
+                                    r
+
+                              a = r 2
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  67
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Centripetal force             F = ma = mv2
+                                            r
+
+                              F = mr2
+
+Electric and magnetic fields
+
+Electric field                E= F
+                                   Q
+
+Coulomb's law                 F = 2 Q1Q2
+                                   4 0 r
+
+                              E = 2 Q
+                                   4 0r
+
+                              E=V
+                                   d
+
+Electric potential            V= Q
+                                   4 0r
+
+Capacitance                   C=Q
+                                   V
+
+Energy stored in capacitor    W  =  1  QV
+                                    2
+Capacitor discharge
+Resistor-capacitor discharge  W = 21 CV 2
+
+                              1 W = 2 Q2
+                                      C
+
+                              Q = Q0 e-t/RC
+
+                              I = Io e-t/RC
+                              V = Vo e-t/RC
+                              ln Q = ln Q0 - t
+
+                                              RC
+
+68                            Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                 Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+In a magnetic field           ln I = ln I0 - t
+Faraday and Lenz's laws                       RC
+
+                              lnV = lnV0 - t
+                                              RC
+
+                              F = Bqv sin 
+                              F = BIl sin 
+
+                              E = - d(N)
+
+                                        dt
+
+Nuclear and particle physics
+
+In a magnetic field           r= p
+                                  BQ
+
+Mass-energy                   E = c2m
+
+Unit 5: Thermodynamics, Radiation, Oscillations and Cosmology
+Thermodynamics
+
+Heating                       E = mc
+                              E = Lm
+
+Ideal gas equation            pV = NkT
+
+Molecular kinetic theory      1  m<c2>  =  3  kT
+                              2            2
+
+Nuclear decay                 E = c2m
+
+Mass-energy
+
+Radioactive decay             A = N
+                              d = -N
+
+                              d
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  69
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+                               = ln 2
+                                    t 12
+
+                              N = N0 e-t
+                              A = A0 e-t
+
+Oscillations                  F = - kx
+                              a = - 2x
+Simple harmonic motion        x = Acos t
+                              v = - A sin t
+Simple harmonic oscillator    a = - A2 cos t
+
+                              T = 1 = 2
+                                    f
+
+                               = 2f
+
+                              T = 2 m
+                                         k
+
+                              T = 2 l
+                                         g
+
+Astrophysics and cosmology
+
+Gravitational field strength  g = F/m
+
+Gravitational force           F = 2 Gm1m2
+                                      r
+
+Gravitational field           g = 2 Gm
+                                   r
+
+Gravitational potential       Vgrav = - Gm
+                                        r
+
+70                            Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                              Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Stefan-Boltzmann law         L = T4A
+Wien's law                   maxT = 2.898 x 10-3 m K
+Intensity of radiation       I = 2 L
+
+Redshift of electromagnetic       4d
+radiation                    z =   f  v
+Cosmological expansion
+                                   fc
+                             v = Hod
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  71
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 8: Data sheet
+
+The value of the following constants will be provided in each examination paper.
+
+Acceleration of free fall  g = 9.81 m s-2                  (close to Earth's
+                                                           surface)
+
+Boltzmann constant         k = 1.38 × 10-23 J K-1
+
+Coulomb law constant       k = 1/4o = 8.99 x 109 N m2 C-2
+
+Electron charge            e = -1.60 × 10-19 C
+
+Electron mass              me = 9.11 × 10-31 kg
+
+Electronvolt               1 eV = 1.60 × 10-19 J
+
+Gravitational constant     G = 6.67 × 10-11 N m2 kg-2
+
+Gravitational field        g = 9.81 N kg-1                 (close to Earth's
+strength                                                   surface)
+
+Planck constant            h = 6.63 × 10-34 J s
+
+Permittivity of free space o = 8.85 × 10-12 F m-1
+
+Proton mass                mp = 1.67 × 10-27 kg
+
+Speed of light in a        c = 3.00 × 108 m s-1
+vacuum
+
+Stefan-Boltzmann            = 5.67 x 10-8 W m-2 K-4
+constant
+
+Unified atomic mass unit u = 1.66 x 10-27 kg
+
+72                         Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                           Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 9: Taxonomy
+
+The following table lists the command words used across the IAS/IAL Science qualifications
+in the external assessments.
+
+Term                  Definition
+Add/Label
+Assess                Requires the addition or labelling to stimulus material given in the
+                      question, for example: labelling a diagram or adding units to a
+Calculate             table.
+Comment on
+Compare and contrast  Give careful consideration to all the factors or events that apply
+                      and identify which are the most important or relevant. Make a
+Complete/Record       judgement on the importance of something, and come to a
+Criticise             conclusion where needed.
+Deduce
+Derive                Obtain a numerical answer, showing relevant working. If the
+Describe              answer has a unit, this must be included.
+Determine
+Devise                Requires the synthesis of a number of factors from
+Discuss               data/information to form a judgement. More than two factors
+                      need to be synthesised.
+
+                      Look for the similarities and differences of two (or more) things.
+                      Should not require the drawing of a conclusion. Answer must
+                      relate to both (or all) things mentioned in the question.
+
+                      The answer must include at least one similarity and one
+                      difference.
+
+                      Requires the completion of a table/diagram/equation.
+
+                      Inspect a set of data, an experimental plan or a scientific
+                      statement and consider the elements. Look at the merits and/or
+                      faults of the information presented and back judgements made.
+
+                      Draw/reach conclusion(s) from the information provided.
+
+                      Combine two or more equations or principles to develop a new
+                      equation.
+
+                      Give an account of something. Statements in the response need
+                      to be developed as they are often linked but do not need to
+                      include a justification or reason.
+
+                      The answer must have an element which is quantitative from the
+                      stimulus provided, or must show how the answer can be reached
+                      quantitatively.
+
+                      Plan or invent a procedure from existing principles/ideas.
+
+                      Identify the issue/situation/problem/argument that is being
+                      assessed within the question.
+
+                      Explore all aspects of an issue/situation/problem.
+
+                      Investigate the issue/situation/problem etc. by reasoning or
+                      argument.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  73
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Term                   Definition
+Draw
+Estimate               Produce a diagram either using a ruler or freehand.
+Evaluate
+                       Give an approximate value for a physical quantity, or
+Explain                measurement, or uncertainty.
+Give/State/Name
+Give a reason/reasons  Review information, then bring it together to form a conclusion,
+Identify               drawing on evidence including strengths, weaknesses, alternative
+Justify                actions, relevant data or information. Come to a supported
+Plot                   judgement of a subject's qualities and relation to its context.
+                       An explanation requires a justification/exemplification of a point.
+Predict                The answer must contain some element of reasoning/justification,
+Show that              this can include mathematical explanations.
+                       All of these command words are really synonyms. They generally
+Sketch                 all require a recall of one or more pieces of information.
+
+State what is meant    When a statement has been made and the requirement is only to
+by                     give the reasons why.
+Suggest
+                       Usually requires some key information to be selected from a
+Write                  given stimulus/resource.
+
+                       Give evidence to support (either the statement given in the
+                       question or an earlier answer).
+
+                       Produce a graph by marking points accurately on a grid from data
+                       that is provided and then drawing a line of best fit through these
+                       points. A suitable scale and appropriately labelled axes must be
+                       included if these are not provided in the question.
+
+                       Give an expected result or outcome.
+
+                       Prove that a numerical figure is as stated in the question. The
+                       answer must be to at least one more significant figure than the
+                       numerical figure in the question.
+
+                       Produce a freehand drawing. For a graph this would need a line
+                       and labelled axes with important features indicated; the axes are
+                       not scaled.
+
+                       When the meaning of a term is expected but there are different
+                       ways of how these can be described.
+
+                       Use your knowledge and understanding in an unfamiliar context.
+                       May include material or ideas that have not been learnt directly
+                       from the specification.
+
+                       When the questions ask for an equation.
+
+74                     Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                       Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 10: Uncertainties and practical work
+
+The aim of physics in studying natural phenomena is to develop explanations based on
+empirical evidence. Hence there is a central concern about the quality of evidence and of the
+explanations that are based on it. This involves an appreciation of the causes of
+uncertainties that can arise in practical work and how they should be dealt with, both in
+planning an experiment to minimise these uncertainties and in forming a valid conclusion.
+
+There is no practical examination in this qualification and a set of practical skills has been
+identified as appropriate for indirect assessment. Practical skills should be developed by
+carrying out practical work throughout the course, for example by carrying out the Core
+Practicals listed in the Specification. The assessment of these skills will be through
+examination questions, in particular for Unit 3: Practical Skills in Physics I and Unit 6:
+Practical Skills in Physics II.
+
+It is clearly important that the words used within the practical context have a precise and
+scientific meaning as distinct from their everyday usage. The terms used for this assessment
+will be those described in the publication by the Association for Science Education (ASE)
+entitled The Language of Measurement (ISBN 9780863574245). In adopting this
+terminology, it should be noted that certain terms will have a meaning different to that
+in the previous specification. In accordance with common practice, this qualification will
+adopt the Uncertainty Approach to measurement. Using this approach assumes that the
+measurement activity produces an interval of reasonable values together with a statement
+of the confidence that the true value lies within this interval.
+
+The following Glossary is a selection of terms from the list in The Language of Measurement
+published by ASE (ISBN 9780863574245).
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  75
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Glossary          Meaning and notes
+
+ Term             A measurement is valid if it measures what it is supposed to be
+ Validity         measuring - this depends both on the method and the instruments.
+ True value
+ Accuracy         The value that would have been obtained in an ideal measurement -
+ Precision        with the exception of a fundamental constant the true value is
+                  considered unknowable.
+ Repeatability
+                  A measurement result is considered accurate if it is judged to be close to
+ Reproducibility  the true value. It is a quality denoting the closeness of agreement
+                  between measurement and true value - it cannot be quantified and is
+ Uncertainty      influenced by random and systematic errors.
+
+ Error            A quality denoting the closeness of agreement (consistency) between
+ Resolution       values obtained by repeated measurement - this is influenced only by
+ Significant      random effects and can be expressed numerically by measures such as
+ figures (SF)     standard deviation. A measurement is precise if the values `cluster'
+                  closely together.
+
+                  The precision obtained when measurement results are obtained by a
+                  single operator using a single method over a short timescale. A
+                  measurement is repeatable when similar results are obtained by
+                  students from the same group using the same method. Students can use
+                  the precision of their measurement results to judge this.
+
+                  The precision obtained when measurement results are obtained by
+                  different operators using different pieces of apparatus. A measurement
+                  is reproducible when similar results are obtained by students from
+                  different groups using different methods or apparatus. This is a harder
+                  test of the quality of data.
+
+                  The interval within which the true value can be considered to lie with a
+                  given level of confidence or probability - any measurement will have
+                  some uncertainty about the result, this will come from variation in the
+                  data obtained and be subject to systematic or random effects. This can
+                  be estimated by considering the instruments and the method and will
+                  usually be expressed as a range such as 20 °C ± 2 °C. The confidence
+                  will be qualitative and based on the goodness of fit of the line of best fit
+                  and the size of the percentage uncertainty.
+
+                  The difference between the measurement result and the true value if a
+                  true value is thought to exist. This is not a mistake in the measurement.
+                  The error can be due to both systematic and random effects and an
+                  error of unknown size is a source of uncertainty.
+
+                  The smallest measuring interval and the source of uncertainty in a single
+                  reading.
+
+                  The number of SF used in recording the measurements depends on the
+                  resolution of the measuring instruments and should usually be the same
+                  as given in the instrument with the fewest SF in its reading.
+
+76                Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                  Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Uncertainties in practice
+
+What are uncertainties and why are they important?
+
+When you repeat a measurement, you often get different results. There is an uncertainty in
+the measurement that you have taken. It is important to be able to determine the
+uncertainty in measurements so that its effect can be taken into consideration when drawing
+conclusions about experimental results. The uncertainty might be the resolution of the
+instrument or, if the readings were repeated, the uncertainty might be half the range of
+the repeats. If the uncertainty is predictable, i.e. it is systematic, then the uncertainty
+should be subtracted from each reading, for example if there is a zero error on an
+instrument.
+
+Recording data
+
+Results should be recorded to the resolution of the measuring instrument which means there
+will be a consistent number of decimal places for the readings for any one variable.
+If data has to be processed, these values should be recorded to a consistent number of
+significant figures which is usually 3 as this is what we can usually confidently plot on a
+graph. If data goes over a power of ten we would not penalise a mixture of 3 and 4 sf.
+
+Calculating uncertainties
+
+There are several techniques that will produce an estimate of the uncertainty in the value
+of the mean. Since we are expecting students to produce an estimate of the uncertainty any
+suitable value that indicates half the range is acceptable.
+
+Example: A student measures the diameter of a metal canister using a ruler graduated in
+mm and records these results:
+
+               Diameter/mm
+
+Reading 1  Reading 2  Reading 3                                              Mean
+     66                                                                        64
+           65                                                       61
+
+The uncertainty in the mean value (64 mm) can be calculated as follows.
+
+a. Using the half range
+The range of readings is 61 mm - 66 mm so half the range is used to determine the
+uncertainty.
+Uncertainty in the mean diameter = (66 mm - 61 mm)/2 = 2.5 mm.
+Therefore, the diameter of the metal canister is 64 mm ± 2.5 mm.
+Since a ruler graduated in mm could easily be read to ± 0.5 mm, it is acceptable to quote
+the uncertainty as ± 2.5 mm for this experiment.
+
+b. Using the reading furthest from the mean
+In this case, the measurement of 61 mm is further from the average value than 66 mm,
+therefore we can use this value to calculate the uncertainty in the mean.
+Uncertainty in the mean diameter= 64 mm - 61mm = 3 mm.
+Therefore, the diameter of the metal canister is 64 mm ± 3 mm.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                77
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+c. Using the resolution of the instrument
+
+This is used if a single reading is taken or if repeated readings have the same value. This is
+because there is an uncertainty in the measurement because the instrument used to take
+the measurement has its own limitations. If the three readings obtained above were all 64
+mm then the value of the diameter being measured lies somewhere between 63.5 mm and
+64.5 mm since a metre rule could easily be read to half a millimetre. In this case, the
+uncertainty in the diameter is 0.5 mm.
+
+Therefore, the diameter of the metal canister is 64 mm ± 0.5 mm.
+
+This also applies to digital instruments. An ammeter records currents to 0.1 A. A current of
+0.36 A would be displayed as 0.4 A, and a current of 0.44 A would also be displayed as 0.4
+A. The resolution of the instrument is 0.1 A but the uncertainty in a reading is 0.05 A.
+
+Calculating percentage uncertainties
+
+The percentage uncertainty in a measurement can be calculated using:
+
+Percentage uncertainty = (Uncertainty of measurement/Measurement) × 100%
+
+In the above example, the percentage uncertainty in the diameter of the metal canister is:
+
+Percentage uncertainty = (3/64) × 100% = 4.7%
+
+Often, the radius would be used in a calculation, for example in a calculation of volume. In
+this case, the percentage uncertainty for the radius of the canister is the same as its
+diameter, i.e. 4.7%, and not half of the percentage uncertainty. This is one reason why the
+percentage uncertainty in a measurement is useful.
+
+Additionally, the value is less than 5%, which shows that the measurement is probably
+repeatable. Note that a percentage uncertainty would normally be quoted to 1 or 2 SF.
+
+Compounding uncertainties
+
+Calculations often use more than one measurement. Each measurement will have its own
+uncertainty, so it is necessary to combine the uncertainties for each measurement to
+calculate the overall uncertainty in the calculation provided all the measured quantities are
+independent of one another.
+
+There are three methods of compounding uncertainties depending on whether the
+measurements in a calculation are raised to a power, multiplied/divided, or
+added/subtracted.
+
+a. Raising a measurement to a power
+
+If a measurement is raised to a power, for example squared or cubed, then the percentage
+uncertainty is multiplied by that power to give the total percentage uncertainty.
+
+Example: A builder wants to calculate the area of a square tile. He uses a rule to measure
+the two adjacent sides of a square tile and obtains the following results:
+
+Length of one side = 84 mm ± 0.5mm
+
+Length of perpendicular side = 84 mm ± 0.5mm.
+
+The percentage uncertainty in the length of each side of this square tile is given by:
+
+Percentage uncertainty = (0.5/84) × 100% = 0.59 % = 0.6 %
+The area of the tile A is given by A = 84 × 84 = 7100 mm2
+
+Note that this is to 2 SF since the measurements are to 2 SF.
+
+78  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+The percentage uncertainty in the area of the square tile is calculated by multiplying the
+percentage uncertainty in the length by 2.
+
+Percentage uncertainty in A = 2 × 0.6% = 1.2%
+Therefore the uncertainty in A = 7100 × 1.2% = 85 mm2
+So A = 7100 mm2 ± 1.2% or A = 7100 mm2 ± 85 mm2
+
+b. Multiplying or dividing measurements
+
+The total percentage uncertainty is calculated by adding together the percentage
+uncertainties for each measurement.
+
+Example: A metallurgist is determining the purity of a sample of an alloy that is in the
+shape of a cube by determining the density of the material.
+
+The following readings are taken:
+
+Length of each side of the cube = 24.0 mm ± 0.5 mm
+
+Mass of cube = 48.23 g ± 0.05 g
+
+She calculates (i) the density of the material and (ii) the percentage uncertainty in the
+density of the material.
+(i) Density of alloy = mass/volume = mass/length3
+= (48.23 x 10-3 kg) / (24.0 x 10-3 m)3 = 3490 kg m-3
+
+(ii) Percentage uncertainty in the length = 0.5 / 24.0 × 100% = 2.1%
+
+Percentage uncertainty in the mass = 0.05/48.23 × 100% = 0.1%
+
+Percentage uncertainty in density = 3 × 2.1% +0.1% = 6.4% (or 6%)
+Therefore, the density of the material = 3490 kg m-3 ± 6% or 3490 kg m-3 ± 210 kg m-3
+
+Example: A student calculates the volume of a drinks can and the percentage uncertainty
+for the final value.
+
+The student determines that the radius of the metal can is 33 mm with an uncertainty of 1%
+so the cross-sectional area A of the canister is:
+A = r2 =  (33)2 = 3.4 × 103 mm2 ± 2%
+
+Notice that the result has been expressed using scientific notation so that we can write down
+just two significant figures. The calculator answer (3421.1...) gives the impression of far
+more SF than is justified when the radius is only known to the nearest mm.
+
+The cross-sectional area was calculated by squaring the radius. Since two quantities have in
+effect been multiplied together, the percentage uncertainty in the value of the cross-
+sectional area is found by adding the percentage uncertainty of the radius to the percentage
+uncertainty of the radius - doubling it.
+
+The student measures the length L of the can = 115 mm ± 2 mm.
+
+The volume V of the can is:
+V = 3.4 × 103 mm2 × 115 mm = 3.9 × 105 mm3 = 3.9 × 10-4 m3
+
+The percentage uncertainty in this value is obtained by adding together an appropriate
+combination of the uncertainties.
+
+Percentage uncertainty in L = (2/115) × 100% = 1.7
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics  79
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Therefore, percentage uncertainty in V= 2% + 1.7% = 3.7%
+Volume V = 3.91 × 10-4 m3 ± 3.7% = 3.91 × 10-4 m3 ± 1.4 × 10-5 m3
+
+Again, an overall percentage uncertainty of less than 5% suggests that this determination of
+the volume of a can is repeatable.
+
+c. Adding or subtracting measurements
+
+When measurements are added or subtracted in a calculation then the uncertainty for each
+measurement is added to calculate the total uncertainty.
+
+Example: A student wants to determine the thickness of the walls of a plastic pipe. He
+measures the internal and external diameters of the pipe using vernier calipers and obtains
+the following readings:
+
+Internal diameter = 101.4 mm ± 0.1 mm
+
+External diameter = 102.8 mm ± 0.3 mm.
+
+The difference between these two measurements is 1.4 mm ± 0.4 mm.
+
+Since the difference in the radius is required then both the diameter and the uncertainty
+must be divided by 2 (since the percentage uncertainty remains the same), therefore the
+thickness of the walls is 0.7 mm ± 0.2 mm.
+
+Using uncertainties in drawing conclusions
+
+Often an experiment will require a comparison to a known value. This is when the
+uncertainty can be used to assess whether the measured value is accurate or not. This can
+be achieved in the following ways.
+
+a. Calculating maximum and minimum values
+
+The final uncertainty can be used to determine the range in which the measured value may
+lie. If the known value lies within this range then we can say that the measured value is
+accurate.
+Example: A student used a simple pendulum to obtain a value of g = 10.1 m s-2. The
+experimental percentage uncertainty was calculated as 4%.
+Minimum value of g = 10.1 - (10.1 × 4%) = 9.7 m s-2
+Since the accepted value of g = 9.81 m s-2 lies above the minimum value, then we can
+conclude that the measured value of g is accurate.
+
+This method should always be used when the percentage uncertainty in the value is known.
+
+b. Calculating a percentage difference
+
+If the measured value has been determined from a graph and there is no information about
+the percentage uncertainty of the measured value, then percentage difference can be used
+to comment on accuracy. If the percentage difference is less than 5%, then this is an
+indication that the result is accurate. In the above example, the percentage difference is
+calculated as:
+
+Percentage difference = (10.1-9.81)/9.81 × 100% = 3%
+
+As this is less than 5% we can conclude that the measured value of g is accurate.
+
+80  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+    Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+c. Observations from graphs
+
+There is no expectation that error bars should be added to graphs.
+
+If a straight-line graph through the origin is expected but the line of best fit of the plotted
+points does not pass through the origin, then this is an indication of a systematic error. If
+there is a large scatter of points around the line of best fit this is an indication of a large
+uncertainty possibly due to random errors.
+
+Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics                      81
+
+Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+Appendix 11: Use of calculators
+
+Candidates may use a calculator in assessments for these qualifications. Centres are
+responsible for making sure that calculators used by their students meet the requirements
+given in the table below.
+
+Candidates must be familiar with the requirements before their assessments for these
+qualifications.
+
+Calculators must be:                   Calculators must not:
+· of a size suitable for use on a      · be designed or adapted to offer any of these
+
+    desk                                   facilities:
+· battery- or solar-powered                o language translators
+· free of lids, cases and covers           o symbolic algebraic manipulation
+                                           o symbolic differentiation or integration
+    that contain printed instructions      o communication with other machines or the
+    or formulae.
+                                               internet
+The candidate is responsible           · be borrowed from another candidate during an
+for the following:
+· the calculator's power supply            examination for any reason*
+· the calculator's working             · have retrievable information stored in them. This
+
+    condition                              includes:
+· clearing anything stored in the          o databanks
+                                           o dictionaries
+    calculator.                            o mathematical formulae
+                                           o text.
+
+*An invigilator may give a candidate a calculator.
+
+Further information can be found in the JCQ documents Instructions for conducting
+examinations and Information for candidates - written exams,, available at
+www.jcq.org.uk/exams-office.
+
+TM213721V:\LT\PD\IALS 2018\9781446957783_IAL_PHYSICS\9781446957783_IAL_PHYSICS.DOCX.1-87/0
+
+82  Pearson Edexcel International Advanced Subsidiary/Advanced Level in Physics
+
+                                       Specification - Issue 3 - July 2021 Pearson Education Limited 2021
+For information about Pearson Qualifications, including Pearson Edexcel,
+BTEC and LCCI qualifications visit qualifications.pearson.com
+
+Edexcel and BTEC are registered trademarks of Pearson Education Limited
+
+Pearson Education Limited. Registered in England and Wales No. 872828
+Registered Office: 80 Strand, London WC2R 0RL
+
+VAT Reg No GB 278 537121
+
+Getty Images: Alex Belmonlinsky
+

@@ -1,0 +1,18 @@
+const fs = require("fs");
+const p = "./.freebuff/objectives/robotics-ai.cjs";
+const lines = fs.readFileSync(p, "utf8").split("\n");
+const qi = lines.findIndex((l) => l.indexOf("car-fault expert system") >= 0);
+if (qi < 0) throw new Error("anchor missing");
+const oi = lines.findIndex((l, i) => i > qi && l.indexOf("options:") >= 0);
+const inner = lines[oi].slice(lines[oi].indexOf("[") + 1, lines[oi].lastIndexOf("]"));
+const opts = inner.split('", "').map((t) => t.trim().replace(/^"/, "").replace(/"$/, ""));
+const ci = lines.findIndex((l, i) => i > oi && l.trim().startsWith("correct:"));
+const cur = parseInt(lines[ci].trim().replace("correct:", "").replace(",", ""), 10);
+const answer = opts[cur];
+const rest = opts.filter((_, i) => i !== cur);
+rest.splice(2, 0, answer);
+const indent = lines[oi].slice(0, lines[oi].indexOf("options:"));
+lines[oi] = indent + "options: [" + rest.map((o) => JSON.stringify(o)).join(", ") + "],";
+lines[ci] = lines[ci].replace(/correct:\s*\d/, "correct: 2");
+fs.writeFileSync(p, lines.join("\n"));
+console.log(`moved E2 ${cur} -> 2`);

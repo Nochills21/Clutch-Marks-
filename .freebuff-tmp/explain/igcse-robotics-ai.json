@@ -1,0 +1,6 @@
+{
+  "1": "An automated system runs a loop: sensors gather data, a processor decides, and actuators act. Each part depends on the one before, so a fault in any part affects the whole system.",
+  "2": "Robots respond to their environment through sensors and a control system, rather than following a fixed sequence. This adaptability is what separates a robot from a simple machine.",
+  "3": "AI learns patterns from data, so biased data gives biased decisions. Responsibility for an AI decision still rests with the people who design and use the system.",
+  "4": "Automation increases speed and accuracy and can work in dangerous places, but it can displace workers and depends on reliable systems. Weighing both sides is what the question asks for."
+}

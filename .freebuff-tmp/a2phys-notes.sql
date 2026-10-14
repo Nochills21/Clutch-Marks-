@@ -1,0 +1,1 @@
+select t.slug, m.content from study_materials m join topics t on t.id=m.topic_id join subject_levels sl on sl.id=t.subject_level_id join subjects s on s.id=sl.subject_id where m.material_type='notes' and s.name ilike '%physics%' and sl.level::text ilike '%a2%' order by t.sort_order nulls last, t.slug;

@@ -1,0 +1,7 @@
+{
+  "1": "Each base uses place values that are powers of that base, so a digit's value depends on its position. Converting between bases uses those place values directly.",
+  "2": "Binary carries work as in denary, but the carry happens at 2 instead of 10. Overflow occurs when the result needs more bits than the register can hold.",
+  "3": "Inverting every bit and adding 1 gives the negative of a number. The leftmost bit then signals the sign, and addition works without special rules for negatives.",
+  "4": "Characters, sound samples and pixels are all stored as numbers. More bits give more distinct values, so text, sound and images can be represented more precisely.",
+  "5": "A byte is 8 bits, and storage units must be converted with care. Compression reduces file size by removing redundancy, either without losing data or by discarding some detail."
+}

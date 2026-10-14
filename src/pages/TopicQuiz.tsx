@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -66,8 +67,8 @@ export default function TopicQuiz() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [subjectMeta, setSubjectMeta] = useState<any>(null);
-  const [subjectLevel, setSubjectLevel] = useState<any>(null);
+  const [subjectMeta, setSubjectMeta] = useState<Tables<"subjects"> | null>(null);
+  const [subjectLevel, setSubjectLevel] = useState<Tables<"subject_levels"> | null>(null);
   const [topicTitle, setTopicTitle] = useState<string | null>(null);
   const topicSlug = useMemo(() => slugifyTopicName(topic ?? ""), [topic]);
   const [topicId, setTopicId] = useState<string | null>(null);
@@ -223,7 +224,8 @@ export default function TopicQuiz() {
       });
       if (rpcError) throw rpcError;
 
-      const resultsData = (data as any)?.results ?? questions.map((q) => ({
+      const gradePayload = data as { results?: GradeRow[] } | null;
+      const resultsData: GradeRow[] = gradePayload?.results ?? questions.map((q) => ({
         question_id: q.id,
         selected: answers[q.id] ?? -1,
         correct_option: 0,
@@ -231,8 +233,8 @@ export default function TopicQuiz() {
         options: (q.options as string[]) ?? [],
       }));
 
-      setResults((resultsData as GradeRow[]) ?? []);
-      const correctCount = resultsData.filter((r) => (r as any).selected === (r as any).correct_option).length;
+      setResults(resultsData);
+      const correctCount = resultsData.filter((r) => r.selected === r.correct_option).length;
       setScore({ correct: correctCount, total: questions.length });
       setSubmitted(true);
       setReviewOnly(false);

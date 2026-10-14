@@ -1,0 +1,6 @@
+{
+  "1": "A formula for the nth term gives any term directly, while a recurrence needs the term before it. Either way the rule defines the whole sequence, so use it to find the pattern rather than guessing from the first few terms.",
+  "2": "Each step adds the same d, so the nth term is a + (n − 1)d: the first term plus n − 1 steps. The sum pairs the first and last terms, giving n ÷ 2 times (first + last).",
+  "3": "Whether a sequence grows or shrinks depends on the sign of the difference between terms (or on the size of r for a geometric sequence). Testing that difference settles the question for every term.",
+  "4": "Each term is multiplied by r, so the nth term is ar^(n−1). The sum formula comes from multiplying the sum by r and subtracting, which cancels all the middle terms. The infinite sum a ÷ (1 − r) needs |r| < 1, because then rⁿ tends to zero."
+}

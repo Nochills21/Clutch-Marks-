@@ -1,0 +1,8 @@
+{
+  "1": "The constant-acceleration equations come from integrating acceleration to get velocity and velocity to get displacement. They apply only while acceleration is constant, so check that before using them.",
+  "2": "On a velocity–time graph the gradient is acceleration and the area is displacement, because area is the integral of velocity over time. These hold for non-uniform acceleration too, where a formula would not apply.",
+  "3": "Horizontal and vertical motion are independent, so the two components can be treated separately. With no air resistance there is no horizontal force, so the horizontal velocity stays constant.",
+  "4": "F = ma defines the resultant force. Newton's third law pairs act on different bodies, so they never cancel each other. Terminal velocity occurs when drag rises until it balances weight, leaving zero resultant force.",
+  "5": "Momentum is conserved because internal forces in a closed system are equal and opposite. A moment is the turning effect of a force, and a body in equilibrium has zero total moment.",
+  "6": "Work is force times displacement in the direction of the force, so only the component along the motion does work. Efficiency is a fraction of energy input, so it can never exceed 1."
+}

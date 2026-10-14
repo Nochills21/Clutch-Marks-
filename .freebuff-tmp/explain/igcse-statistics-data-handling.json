@@ -1,0 +1,8 @@
+{
+  "1": "Discrete data are counted and take exact values, while continuous data are measured and fall in ranges. The type decides how the data should be grouped and which chart fits.",
+  "2": "In a frequency table each value counts as often as it occurs, so the mean multiplies each value by its frequency before dividing by the total frequency. Grouped data use the midpoints as estimates.",
+  "3": "A pie chart uses the whole circle for the total, so each item's angle is 360 divided by the total, times its frequency. The angles must add to 360 degrees.",
+  "4": "A running total shows how many values fall at or below each point, so the median and quartiles can be read from the curve. Plotting against the upper class boundary matches the cumulative count to the right place.",
+  "5": "In a histogram the area of each bar represents frequency, so bars of unequal width can be compared fairly. The height is frequency density, which is frequency divided by class width.",
+  "6": "A trend claim should quote a value from the data, not just say increasing, so the reader can check it. The conclusion should also answer the question that was asked."
+}

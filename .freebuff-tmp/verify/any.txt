@@ -1,0 +1,129 @@
+../../backend/supabase/functions/ai-correction/index.ts:502 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/ai-correction/index.ts:503 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/ai-correction/index.ts:626 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/ai-correction/index.ts:737 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/generate-questions/index.ts:62 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/generate-questions/index.ts:129 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/generate-questions/index.ts:136 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/generate-questions/index.ts:160 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/quiz-feedback/index.ts:86 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/quiz-feedback/index.ts:104 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../backend/supabase/functions/quiz-feedback/index.ts:114 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../frontend/src/components/FileVersionHistory.tsx:71 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../frontend/src/components/admin/ContentEditor.tsx:39 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../frontend/src/components/dashboards/ParentDashboard.tsx:32 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../frontend/src/components/dashboards/ParentDashboard.tsx:32 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../frontend/src/components/dashboards/ParentDashboard.tsx:194 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/LessonNotes.tsx:33 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:30 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:31 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:33 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:34 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:78 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:79 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:83 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:123 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:128 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Lessons.tsx:133 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/PastPapers.tsx:89 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Practice.tsx:375 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Practice.tsx:404 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Pricing.tsx:205 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/ProgressPage.tsx:131 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/ProgressPage.tsx:139 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/ProgressPage.tsx:140 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/ProgressPage.tsx:145 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Quizzes.tsx:72 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Quizzes.tsx:73 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Quizzes.tsx:138 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Quizzes.tsx:310 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Quizzes.tsx:614 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/StudyPlanner.tsx:72 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/StudyPlanner.tsx:83 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/StudyPlanner.tsx:83 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/StudyPlanner.tsx:163 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/StudyPlanner.tsx:170 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Subject.tsx:58 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Subject.tsx:59 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Subject.tsx:60 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Subject.tsx:61 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Subject.tsx:62 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/Subject.tsx:63 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicNotes.tsx:38 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicNotes.tsx:39 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicNotes.tsx:43 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicNotes.tsx:44 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicNotes.tsx:45 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicPapers.tsx:52 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicPapers.tsx:53 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicQuiz.tsx:69 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicQuiz.tsx:70 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicQuiz.tsx:226 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicQuiz.tsx:235 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/TopicQuiz.tsx:235 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminGradeBook.tsx:309 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminLessons.tsx:38 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminLessons.tsx:40 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminPastPapers.tsx:80 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminPastPapers.tsx:208 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminPastPapers.tsx:246 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminPastPapers.tsx:252 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminPastPapers.tsx:300 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminPayments.tsx:39 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminQuizzes.tsx:23 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminQuizzes.tsx:24 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminQuizzes.tsx:26 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminQuizzes.tsx:36 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminQuizzes.tsx:100 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminQuizzes.tsx:289 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminSubjects.tsx:152 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminSubjects.tsx:152 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminSubjects.tsx:153 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminSubjects.tsx:153 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminSubmissions.tsx:50 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminUsers.tsx:163 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminUsers.tsx:242 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../src/pages/admin/AdminUsers.tsx:292 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/ai-correction/index.ts:180 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/ai-correction/index.ts:234 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/ai-correction/index.ts:623 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/ai-correction/index.ts:624 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/ai-correction/index.ts:747 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/ai-correction/index.ts:869 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/generate-questions/index.ts:73 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/generate-questions/index.ts:151 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/generate-questions/index.ts:158 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/generate-questions/index.ts:182 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/quiz-feedback/index.ts:86 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/quiz-feedback/index.ts:104 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+../../supabase/functions/quiz-feedback/index.ts:114 [@typescript-eslint/no-explicit-any] Unexpected any. Specify a different type.
+TOTAL 99
+10 ../../src/pages/Lessons.tsx
+6 ../../src/pages/Subject.tsx
+6 ../../src/pages/admin/AdminQuizzes.tsx
+6 ../../supabase/functions/ai-correction/index.ts
+5 ../../src/pages/Quizzes.tsx
+5 ../../src/pages/StudyPlanner.tsx
+5 ../../src/pages/TopicNotes.tsx
+5 ../../src/pages/TopicQuiz.tsx
+5 ../../src/pages/admin/AdminPastPapers.tsx
+4 ../../backend/supabase/functions/ai-correction/index.ts
+4 ../../backend/supabase/functions/generate-questions/index.ts
+4 ../../src/pages/ProgressPage.tsx
+4 ../../src/pages/admin/AdminSubjects.tsx
+4 ../../supabase/functions/generate-questions/index.ts
+3 ../../backend/supabase/functions/quiz-feedback/index.ts
+3 ../../frontend/src/components/dashboards/ParentDashboard.tsx
+3 ../../src/pages/admin/AdminUsers.tsx
+3 ../../supabase/functions/quiz-feedback/index.ts
+2 ../../src/pages/Practice.tsx
+2 ../../src/pages/TopicPapers.tsx
+2 ../../src/pages/admin/AdminLessons.tsx
+1 ../../frontend/src/components/FileVersionHistory.tsx
+1 ../../frontend/src/components/admin/ContentEditor.tsx
+1 ../../src/pages/LessonNotes.tsx
+1 ../../src/pages/PastPapers.tsx
+1 ../../src/pages/Pricing.tsx
+1 ../../src/pages/admin/AdminGradeBook.tsx
+1 ../../src/pages/admin/AdminPayments.tsx
+1 ../../src/pages/admin/AdminSubmissions.tsx

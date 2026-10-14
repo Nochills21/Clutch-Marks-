@@ -1,0 +1,6 @@
+{
+  "1": "The explanatory variable is the one you use to predict, and the response variable is the one predicted. Choosing them correctly matters because regression of y on x is not the same as regression of x on y.",
+  "2": "The coefficient r is built from standardised deviations, so it has no units and always lies between −1 and +1. It measures how close the points are to a straight line, not whether one variable causes the other.",
+  "3": "The least-squares line minimises the sum of squared vertical distances from the points to the line. The line always passes through the mean point (x̄, ȳ), which is why a = ȳ − bx̄.",
+  "4": "The linear model is fitted only over the range of the data. Predictions outside that range assume the trend continues, which may not hold, so they are less reliable."
+}

@@ -1,0 +1,8 @@
+{
+  "1": "Density is mass per unit volume, so it compares how much matter fits in a given space. Upthrust arises because pressure is greater at the bottom of a submerged object, and the net upward force equals the weight of fluid displaced.",
+  "2": "Drag grows with speed and radius, and Stokes' law describes it only for small slow spheres in smooth (laminar) flow. Viscosity depends on temperature, and it falls as a liquid is heated.",
+  "3": "Hooke's law holds only within the limit of proportionality, where the extension is directly proportional to the force. Beyond that limit the material no longer returns to its original length, so the linear relation fails.",
+  "4": "Stress and strain divide out the size of the sample, so they describe the material rather than the particular specimen. This is why the Young modulus is a property of the material.",
+  "5": "The gradient of the linear part of a stress–strain graph is the Young modulus, because stress divided by strain is that constant. The breaking stress is read at the point where the material fractures.",
+  "6": "The energy stored is the area under the force–extension graph, a triangle with area ½Fx. Within the elastic limit the energy is returned when the load is removed, which is why the material springs back."
+}

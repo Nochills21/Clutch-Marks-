@@ -1,0 +1,7 @@
+{
+  "1": "Impulse is the force times the time it acts, and it equals the change in momentum. Momentum is a vector, so in two dimensions each component is conserved separately.",
+  "2": "An elastic collision conserves kinetic energy, while an inelastic collision transfers some of it to other forms. You decide which by comparing the kinetic energy before and after.",
+  "3": "Kinetic energy is ½mv², and substituting p = mv gives p²/(2m). Expressing it in momentum is useful when momentum is conserved.",
+  "4": "Angles in radians make arc length s = rθ and the link v = rω direct. Angular velocity is the angle turned per unit time, so it is the rotational analogue of linear speed.",
+  "5": "A body moving in a circle changes direction, so its velocity changes and it accelerates towards the centre. The resultant force towards the centre is what provides this acceleration, F = mv²/r."
+}

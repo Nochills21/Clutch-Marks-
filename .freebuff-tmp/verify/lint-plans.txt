@@ -1,0 +1,13 @@
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPayments.tsx
+  39:36  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  62:54  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminUsers.tsx
+  163:22  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  169:32  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  242:36  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  292:34  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+
+✖ 6 problems (4 errors, 2 warnings)
+

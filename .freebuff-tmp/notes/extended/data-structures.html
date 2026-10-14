@@ -1,0 +1,24 @@
+<h2>Data Structures</h2>
+<h3>Arrays and Lists</h3>
+<p>Contiguous, indexed, O(1) access; fixed size. 2D arrays: element (i, j) — rows × columns.</p>
+<h3>Stack (LIFO)</h3>
+<p>push/pop/peek at one end. Uses: call stacks, undo, expression evaluation, DFS.</p>
+<p><strong>Example:</strong> evaluating 3 4 + : push 3, push 4, pop both, push 7.</p>
+<h3>Queue (FIFO)</h3>
+<p>enqueue at rear, dequeue at front. Uses: print queues, schedulers, BFS. A <strong>circular queue</strong> reuses vacated slots with head/tail pointers modulo capacity.</p>
+<h3>Linked List</h3>
+<p>Nodes with data + pointer. Insert/delete O(1) at a known node; search O(n). Traversal follows next pointers until null.</p>
+<h3>Hash Table</h3>
+<p>Hash function maps keys → index. Collisions resolved by chaining or open addressing. Average O(1) lookup, worst O(n).</p>
+<h3>Complexity</h3>
+<table border="1" cellpadding="6">
+<tr><th>Operation</th><th>Array</th><th>Linked List</th><th>Hash</th></tr>
+<tr><td>Access by index</td><td>O(1)</td><td>O(n)</td><td>—</td></tr>
+<tr><td>Search</td><td>O(n)</td><td>O(n)</td><td>O(1) avg</td></tr>
+<tr><td>Insert/delete</td><td>O(n)</td><td>O(1)</td><td>O(1) avg</td></tr>
+</table>
+<p><strong>Exam tips:</strong> trace pointers carefully in linked-list diagrams; for circular queues, show head/tail movement and overflow/underflow checks.</p>
+<h3>Worked example</h3>
+<p>Push A, B and C onto a stack, then pop: the order is C, B, A (LIFO). Enqueue 1, 2 and 3 into a queue, then dequeue: the order is 1, 2, 3 (FIFO). With a hash function h(k) = k mod 5, inserting 12 puts it in slot 2, and inserting 17 also maps to slot 2, which is a collision that must be resolved.</p>
+<h3>Common mistakes</h3>
+<ul><li>Saying a stack is FIFO or a queue is LIFO.</li><li>Quoting O(1) for linear search; it is O(n), while binary search on sorted data is O(log n).</li></ul>

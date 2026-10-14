@@ -1,0 +1,148 @@
+## abstract-data-types #4 | in-order traversal
+  back: outputs keys in ascending order. A degenerate (linear) tree from sorted input degrades to O(n).
+  notes: (no match)
+## algebra-inequalities #4 | reverse the sign
+  back: when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3.
+  notes: Solving Like equations, but reverse the sign when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3.
+## communication-and-networking #0 | Transmission
+  back: Serial : one bit at a time — cheaper, reliable over distance
+  notes:   `# Communication and Networking Transmission Serial : one bit at a time — cheaper, reliable over distance Parallel : multiple bits simultaneously — fast but suffers skew and crosstalk over long runs Direction: simplex (one way), half-duplex (alternating), fu || `# Communication and Networking Key areas to revise Transmission Packets and Protocols Network Types Hardware Client-Server vs Peer-to-Peer How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the 
+## communication-and-networking #5 | Serial
+  back: one bit at a time — cheaper, reliable over distance
+  notes:   `# Communication and Networking Transmission Serial : one bit at a time — cheaper, reliable over distance Parallel : multiple bits simultaneously — fast but suffers skew and crosstalk over long runs Direction: simplex (one way), half-duplex (alternating), fu
+## complex-numbers #4 | de Moivre and Roots
+  back: [r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ).
+  notes: de Moivre and Roots [r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ). || Key areas to revise Basics Conjugates Argand Diagram Modulus–Argument Form de Moivre and Roots How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## computational-thinking-and-problem-solving #5 | base case
+  back: that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow. Any recursion can be rewritten with a loop and explicit stack.
+  notes: Recursion A recursive routine calls itself with a smaller input and a base case that stops the recursion. || Exam tips: write the base case before the recursive call in pseudocode; give the Big-O with a one-line justification; construct a trace table for a small loop or recursive call.
+## data-structures #5 | Complexity
+  back: Operation Array Linked List Hash
+  notes: Complexity Operation Array Linked List Hash Access by index O(1) O(n) — Search O(n) O(n) O(1) avg Insert/delete O(n) O(1) O(1) avg Exam tips: trace pointers carefully in linked-list diagrams; for circular queues, show head/tail movement and overflow/underflow  || `# Data Structures Key areas to revise Arrays and Lists Stack (LIFO) Queue (FIFO) Linked List Hash Table Complexity How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check your
+## data-types-and-file-organisation #4 | enumerated type
+  back: lists named values in order: TYPE Months = (Jan, Feb, Mar ...). Internally each value is an integer index starting at 0.
+  notes: An enumerated type lists named values in order: TYPE Months = (Jan, Feb, Mar ...). || Exam tips: state the internal integer representation of enumerated values; define a collision before describing its resolution; compare the three file organisations in terms of search and insert cost.
+## database-systems #2 | SQL
+  back: SELECT Title, Year FROM Films
+  notes: limitations of file-based systems; relational concepts; SQL (SELECT, FROM, WHERE, ORDER BY, GROUP BY, INNER JOIN, SUM, COUNT); DBMS features. || SQL 4.
+## databases #1 | Normalisation
+  back: 1NF : atomic values, no repeating groups
+  notes: Keys : Primary key: unique identifier Foreign key: references another table's PK — creates relationships Candidate/secondary keys: other unique identifiers Normalisation 1NF : atomic values, no repeating groups 2NF : 1NF + no partial dependency on a composite  || `# Databases Key areas to revise Relational Basics Normalisation SQL Transactions How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## databases #2 | SQL
+  back: SELECT name, grade FROM students
+  notes: SQL SELECT name, grade FROM students WHERE grade &gt;= 'A' ORDER BY name; INSERT INTO students VALUES (...); UPDATE students SET grade = 'B' WHERE id = 5; DELETE FROM students WHERE id = 5; Joins combine tables: FROM students s JOIN enrolments e ON s.id = e.si || Exam tips: justify each normal form step with the dependency removed; write SQL with correct WHERE clauses to avoid accidental full-table updates.
+## databases #4 | 1NF
+  back: atomic values, no repeating groups
+  notes: Keys : Primary key: unique identifier Foreign key: references another table's PK — creates relationships Candidate/secondary keys: other unique identifiers Normalisation 1NF : atomic values, no repeating groups 2NF : 1NF + no partial dependency on a composite  || Record locking prevents conflicting simultaneous edits.
+## databases #5 | 2NF
+  back: 1NF + no partial dependency on a composite key
+  notes: Keys : Primary key: unique identifier Foreign key: references another table's PK — creates relationships Candidate/secondary keys: other unique identifiers Normalisation 1NF : atomic values, no repeating groups 2NF : 1NF + no partial dependency on a composite  || Record locking prevents conflicting simultaneous edits.
+## databases-and-data-definition #4 | primary key
+  back: uniquely identifies each row; a
+  notes: The primary key uniquely identifies each row; a foreign key references a primary key in another table, creating the relationship. || The primary key uniquely identifies each row; a foreign key references a primary key in another table, creating the relationship.
+## databases-and-data-definition #5 | foreign key
+  back: references a primary key in another table, creating the relationship. A composite key uses two or more columns together.
+  notes: The primary key uniquely identifies each row; a foreign key references a primary key in another table, creating the relationship. || The primary key uniquely identifies each row; a foreign key references a primary key in another table, creating the relationship.
+## differentiation #3 | Stationary Points
+  back: Set dy/dx = 0, then classify with the second derivative:
+  notes: Stationary Points Set dy/dx = 0, then classify with the second derivative: d²y/dx² &gt; 0 → minimum d²y/dx² &lt; 0 → maximum d²y/dx² = 0 → test either side Example: y = x³ − 3x: dy/dx = 3x² − 3 = 0 at x = ±1; d²y/dx² = 6x, so a maximum at x = −1 and a minimum  || Key areas to revise Basic Rules Chain Rule Tangents and Normals Stationary Points Rates of Change How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## differentiation-ii #1 | Standard Derivatives
+  back: sin x → cos x; cos x → −sin x; tan x → sec²x
+  notes: Standard Derivatives sin x → cos x; cos x → −sin x; tan x → sec²x e^x → e^x; ln x → 1/x Chain Rule Everywhere d/dx [ln(3x)] = 3/(3x) = 1/x; d/dx [e^(2x)] = 2e^(2x); d/dx [sin²x] = 2 sin x cos x. || Key areas to revise Product and Quotient Rules Standard Derivatives Chain Rule Everywhere Implicit Differentiation Parametric Curves How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic q
+## dynamics #4 | different bodies.
+Example
+  back: a 2 kg mass with a 10 N resultant accelerates at 5 m s⁻².
+  notes: Forces occur in pairs: equal magnitude, opposite direction, on different bodies.
+## electricity-d-c-circuits #3 | Series and Parallel
+  back: Series: same current, R_total = R₁ + R₂ + …
+  notes: Series and Parallel Series: same current, R_total = R₁ + R₂ + … Parallel: same voltage, 1/R_total = 1/R₁ + 1/R₂ + … EMF and Internal Resistance ε = I(R + r) — some voltage is 'lost' inside the battery. || Key areas to revise Current and Charge Voltage and Power Resistance and Resistivity Series and Parallel EMF and Internal Resistance Potential Dividers How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finis
+## forces-and-equilibrium #5 | every
+  back: direction and the resultant moment is zero.
+  notes:   Forces and Equilibrium Free-Body Diagrams Draw every force on one body: weight (down), normal reactions (perpendicular to surfaces), tension (along strings), friction (opposing motion). || Equilibrium A body is in equilibrium when the resultant force is zero in every direction and the resultant moment is zero.
+## functions #3 | domain
+  back: to exactly one output in the
+  notes: Functions A function maps each input in the domain to exactly one output in the range . || If not, restrict the domain (e.g.
+## functions #4 | one-one
+  back: If not, restrict the domain (e.g. f(x) = x² for x ≥ 0 has f⁻¹(x) = √x). Graphically, y = f⁻¹(x) is the reflection of y = f(x) in the line y = x, and the range of f becomes the domain of f⁻¹.
+  notes: (no match)
+## further-algebra #3 | factor
+  back: that is the factor theorem. Divide out fully to reduce a cubic to a quadratic and factorise completely.
+  notes: If p(a) = 0, then (x − a) is a factor — that is the factor theorem. || Divide out fully to reduce a cubic to a quadratic and factorise completely.
+## further-trigonometry #1 | Double Angles
+  back: cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A
+  notes: Double Angles sin 2A = 2 sin A cos A cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A Example: express 4 sin x cos x in one term: 2 sin 2x. || Key areas to revise Compound Angles Double Angles The R-Form Reciprocal Functions How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## hardware-and-logic-gates #3 | Flip-Flops (Bistables)
+  back: SR latch : set/reset, invalid state S=R=1
+  notes: (no match)
+## hardware-architecture #1 | Registers
+  back: PC address of next instruction
+  notes: von Neumann model, FDE cycle, registers, buses, RAM/ROM, secondary storage, embedded systems. || Registers 3.
+## information-representation #2 | Text
+  back: ASCII : 7 bits, 128 characters, English only
+  notes: Text ASCII : 7 bits, 128 characters, English only Unicode : universal scripts; UTF-8 is variable-width (1–4 bytes) Images and Sound Bitmap: pixels with colour depth (bits per pixel). || Compression Lossless (ZIP, run-length encoding): exact reconstruction — required for text/code Lossy (JPEG, MP3): discards perceptually minor data — smaller files Example: RLE of AAABBBCC → 3A3B2C.
+## information-representation #5 | ASCII
+  back: 7 bits, 128 characters, English only
+  notes: Text ASCII : 7 bits, 128 characters, English only Unicode : universal scripts; UTF-8 is variable-width (1–4 bytes) Images and Sound Bitmap: pixels with colour depth (bits per pixel).
+## kinematics #1 | Graphs
+  back: Gradient of a displacement–time graph = velocity
+  notes:   Kinematics Definitions Displacement s: distance in a given direction (vector) Velocity v: rate of change of displacement, v = ds/dt Acceleration a: rate of change of velocity, a = dv/dt Graphs Gradient of a displacement–time graph = velocity Gradient of a ve || Key areas to revise Definitions Graphs SUVAT (uniform acceleration only) Projectiles How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## kinematics #5 | Velocity
+  back: v: rate of change of displacement, v = ds/dt
+  notes:   Kinematics Definitions Displacement s: distance in a given direction (vector) Velocity v: rate of change of displacement, v = ds/dt Acceleration a: rate of change of velocity, a = dv/dt Graphs Gradient of a displacement–time graph = velocity Gradient of a ve || Projectiles Resolve into independent components: horizontal at constant velocity (s = ut), vertical under gravity (SUVAT).
+## materials-deformation #2 | Force–Extension Graphs
+  back: Gradient of the linear region = k
+  notes: (no match)
+## motion-in-a-circle-and-gravity #4 | slower but have longer
+  back: periods (Kepler's third law: T² ∝ r³).
+  notes: Orbits For a circular orbit, gravity supplies the centripetal force: GMm/r² = mv²/r, so v = √(GM/r) — higher orbits move slower but have longer periods (Kepler's third law: T² ∝ r³).
+## nuclear-physics #1 | Radioactive Decay
+  back: Type What changes Stopped by
+  notes: Radioactive Decay Random and spontaneous: Type What changes Stopped by alpha Z − 2, A − 4 paper beta-minus Z + 1, A same mm of aluminium gamma nothing thick lead Half-life: time for half the nuclei to decay. || Key areas to revise The Nucleus Radioactive Decay Mass–Energy Fission and Fusion How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## oscillations-and-waves-ii #2 | Superposition Applications
+  back: Young's double slit: x = λD/a — evidence light is a wave
+  notes: Superposition Applications Young's double slit: x = λD/a — evidence light is a wave Diffraction grating: d sin θ = nλ — resolution of spectra Noise-cancelling headphones: destructive interference of antiphase sound Polarization Applications Polaroid sunglasses || Key areas to revise Progressive vs Stationary Harmonics Superposition Applications Polarization Applications How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## permutations-and-combinations #1 | Permutations — Order Matters
+  back: The number of ways of arranging r objects from n distinct objects is
+  notes:   Quick revision: Permutations and Combinations Mathematics — A2. || Key areas to revise The Multiplication Principle Permutations — Order Matters Combinations — Order Irrelevant Restricted Permutations Combinations with Constraints How to use this: skim the list above, then read the full study notes for any area that feels sha
+## permutations-and-combinations #2 | Combinations — Order Irrelevant
+  back: The number of ways of choosing r objects from n is
+  notes:   Quick revision: Permutations and Combinations Mathematics — A2. || Key areas to revise The Multiplication Principle Permutations — Order Matters Combinations — Order Irrelevant Restricted Permutations Combinations with Constraints How to use this: skim the list above, then read the full study notes for any area that feels sha
+## poisson-distribution #2 | Mean and Variance
+  back: The defining signature of the Poisson:
+  notes: Mean and Variance The defining signature of the Poisson: E(X) = λ and Var(X) = λ — the mean and variance are equal. || If a question gives a mean m, then λ = m; the variance is also m.
+## processor-fundamentals #0 | The FDE Cycle
+  back: Fetch : PC → MAR; read memory → MDR; instruction → CIR; PC increments
+  notes:   `# Processor Fundamentals The FDE Cycle Fetch : PC → MAR; read memory → MDR; instruction → CIR; PC increments Decode : control unit interprets the opcode Execute : ALU/registers act; results stored; PC may be overwritten (jumps) Registers Register Role PC ad || `# Processor Fundamentals Key areas to revise The FDE Cycle Registers Buses Interrupts Assembly and Addressing How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## processor-fundamentals #1 | Registers
+  back: PC address of next instruction
+  notes:   `# Processor Fundamentals The FDE Cycle Fetch : PC → MAR; read memory → MDR; instruction → CIR; PC increments Decode : control unit interprets the opcode Execute : ALU/registers act; results stored; PC may be overwritten (jumps) Registers Register Role PC ad || `# Processor Fundamentals Key areas to revise The FDE Cycle Registers Buses Interrupts Assembly and Addressing How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.
+## processor-fundamentals #5 | Fetch
+  back: PC → MAR; read memory → MDR; instruction → CIR; PC increments
+  notes:   `# Processor Fundamentals The FDE Cycle Fetch : PC → MAR; read memory → MDR; instruction → CIR; PC increments Decode : control unit interprets the opcode Execute : ALU/registers act; results stored; PC may be overwritten (jumps) Registers Register Role PC ad
+## programming-and-algorithms #3 | Sorting
+  back: Algorithm Best Average Idea
+  notes: Sorting Algorithm Best Average Idea Bubble O(n) O(n²) swap neighbours Insertion O(n) O(n²) insert into sorted prefix Merge O(n log n) O(n log n) divide and merge Merge sort example: [5,2,9,1] → [5,2][9,1] → [2,5][1,9] → [1,2,5,9]. || `# Programming and Algorithms Key areas to revise Design Approaches Pseudocode Conventions Searching Sorting Recursion How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check y
+## programming-and-algorithms #5 | Top-down (stepwise refinement)
+  back: decompose into modules — planned structure
+  notes: (no match)
+## programming-concepts #1 | Selection and iteration
+  back: OTHERWISE : OUTPUT "keep going"
+  notes: variables/constants, data types, selection/iteration, arrays, file handling, subroutines, scope, IDE tools. || Selection and iteration 3.
+## quadratics #1 | The Discriminant
+  back: Δ = b² − 4ac decides how the curve meets the x-axis:
+  notes: Master three tools: completing the square, the discriminant, and inequalities. || The Discriminant Δ = b² − 4ac decides how the curve meets the x-axis: Δ Roots Graph Δ &gt; 0 two distinct real roots crosses x-axis twice Δ = 0 repeated root touches (tangent) Δ &lt; 0 no real roots never meets x-axis Example: kx² + 4x + 1 = 0 has equal roots 
+## sampling-and-estimation #2 | Distribution of the Sample Mean
+  back: For a sample of size n from a population with mean μ and variance σ²:
+  notes: Distribution of the Sample Mean For a sample of size n from a population with mean μ and variance σ²: E(x̄) = μ and Var(x̄) = σ²/n Averaging shrinks spread — bigger samples give steadier estimates. || Key areas to revise Populations, Samples, Statistics Unbiased Variance Distribution of the Sample Mean Central Limit Theorem Using x̄ to Estimate How to use this: skim the list above, then read the full study notes for any area that feels shaky, and finish wit
+## simulation-sensors-and-real-data #4 | analogue
+  back: signals varying continuously; computers need
+  notes: Most output analogue signals varying continuously; computers need digital values, so an ADC (analogue-to-digital converter) samples the signal. || A DAC converts digital output back to analogue for actuators or speakers.
+## web-technologies #0 | HTML
+  back: <head><title>Page</title></head>
+  notes: HTML structure/tags, CSS styling, JS interactivity, the DOM, microprocessors/controllers in web context. || HTML 2.
+## web-technologies #1 | CSS
+  back: p { color: red; font-size: 14px; }
+  notes: HTML structure/tags, CSS styling, JS interactivity, the DOM, microprocessors/controllers in web context. || CSS 3.
+## work-energy-and-power #1 | Energy Forms
+  back: Gravitational PE: Ep = mgh
+  notes:   Work, Energy and Power Work W = Fs cos θ — force × displacement in the force's direction. || Energy Forms Kinetic energy: Ek = ½mv² Gravitational PE: Ep = mgh Elastic PE: ½kx² (spring, Hooke's law region) Conservation of Energy Energy changes between forms but the total stays constant (no external work).

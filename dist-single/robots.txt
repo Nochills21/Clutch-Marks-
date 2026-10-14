@@ -1,0 +1,38 @@
+# Crawl rules.
+#
+# Only /admin is disallowed.
+#
+# A Disallow blocks the fetch, and a blocked fetch means Google can never read
+# the `noindex` the page sends — so a page you are trying to remove from the
+# index can sit there indefinitely. That is exactly what happened to /auth: it
+# was Disallowed *and* noindexed, so the disallow won and a sign-in page stayed
+# indexed. Every page that must not rank (/auth, /auth/callback,
+# /reset-password, /dashboard, /leaderboard, /progress, /announcements,
+# /feedback) is now allowed here and carries `noindex` instead, in the
+# prerendered HTML plus an X-Robots-Tag where a header can be set.
+#
+# The admin console keeps a Disallow rather than a noindex because it is not a
+# page at all as far as crawlers are concerned: nothing links to it, and every
+# visitor who is not an admin is redirected to /auth before any content exists.
+# Add a Disallow here only for that category — never for a URL you have marked
+# noindex.
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://clutchmarks.study/sitemap.xml

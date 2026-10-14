@@ -1,0 +1,10 @@
+{
+  "1": "Each number type follows from a definition: primes have exactly two factors, and square numbers are whole numbers multiplied by themselves. Recognising the type tells you which method applies.",
+  "2": "Place value gives each digit a value by its position, so the digits of 10007 mean ten thousand plus seven. Comparing numbers starts from the leading digit.",
+  "3": "Order of operations (BIDMAS) fixes the result of a calculation with several steps. Fractions and negative numbers follow the same rules, with extra care for signs.",
+  "4": "Rounding each number to one significant figure gives a quick estimate that shows whether a full calculation is reasonable. It checks for a misplaced decimal point or a wrong key press.",
+  "5": "A value rounded to a given accuracy lies within half a unit either side. The lower bound is included and the upper bound is not, so the true value can be anywhere in that interval.",
+  "6": "On a calculator, the decimal point position matters: 4.8 in money means $4.80, and 3.25 hours means three hours and fifteen minutes, not three hours and twenty-five minutes. Reading the context prevents that error.",
+  "7": "The 24-hour clock removes the need for a.m. and p.m., so each time has one form. Times are added in hours and minutes, carrying 60 minutes into the hour.",
+  "8": "Money questions use the exchange rate by multiplying or dividing, depending on the direction. Checking the answer is sensible because a foreign amount usually comes out larger or smaller than the original by the rate."
+}

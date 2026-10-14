@@ -1,0 +1,6 @@
+{
+  "1": "If the statement P is false, its negation is true. Deriving a contradiction from the negation proves that P must be true.",
+  "2": "If √2 = p/q in lowest terms, then both p and q must be even, which contradicts lowest terms. The contradiction shows that no such fraction exists.",
+  "3": "The number N built from a finite list of primes has no factor in that list, so it must have a prime factor not in the list. This shows the list cannot be complete.",
+  "4": "Choosing the right assumption is the hard part. Look for a contradiction with a known fact, and state the assumption clearly so the argument can be followed."
+}

@@ -1,0 +1,1 @@
+select t.slug, m.content from study_materials m join topics t on t.id=m.topic_id where m.material_type='notes' and t.id in ('1b6d51a7-a379-4b4a-9d3b-b461c1cf291a','68a0c8be-5eba-4a82-a948-a4baef78c57d');

@@ -1,0 +1,30 @@
+{
+  "Q076": {
+    "correct_option": 0,
+    "options": ["\\(\\frac{14}{3}\\)", "\\(\\frac{40}{3}\\)", "\\(\\frac{26}{3}\\)", "\\(10\\)"],
+    "explanation": "Expand the bracket before integrating: \\((2x - 3)^2 = 4x^2 - 12x + 9\\) M1 [1]. Integrate term by term: \\(\\int (4x^2 - 12x + 9) dx = \\frac{4x^3}{3} - 6x^2 + 9x\\) M1 [1]. At the upper limit 3: \\(\\frac{4(27)}{3} - 6(9) + 9(3) = 36 - 54 + 27 = 9\\). At the lower limit 1: \\(\\frac{4}{3} - 6 + 9 = \\frac{13}{3}\\). Subtract: \\(9 - \\frac{13}{3} = \\frac{27 - 13}{3} = \\frac{14}{3}\\) A1 [1]."
+  },
+  "Q078": {
+    "correct_option": 2,
+    "explanation": "Integrate term by term: \\(\\int e^x dx = e^x\\) and \\(\\int 2x dx = x^2\\) M1 [1]. The antiderivative is \\([e^x + x^2]_0^1\\) M1 [1]. At the upper limit 1: \\(e^1 + 1^2 = e + 1\\). At the lower limit 0: \\(e^0 + 0 = 1\\). Subtract: \\((e + 1) - 1 = e\\) A1 [1]."
+  },
+  "Q079": {
+    "correct_option": 0,
+    "options": ["1.491", "1.487", "1.462", "1.505"],
+    "explanation": "Find the strip width \\(h = \\frac{1 - 0}{4} = 0.25\\) M1 [1]. The ordinates \\(x = 0, 0.25, 0.5, 0.75, 1.0\\) give \\(y = e^{x^2} = 1.0, 1.06449, 1.28403, 1.75505, 2.71828\\) M1 [1]. Apply the trapezoidal rule: \\(\\frac{0.25}{2}(1.0 + 2.71828 + 2(1.06449 + 1.28403 + 1.75505)) = 0.125(11.92542) \\approx 1.49067\\) M1 [1]. To 3 decimal places the estimate is \\(1.491\\) A1 [1]."
+  },
+  "Q088": {
+    "correct_option": 3,
+    "question_text": "Given that \\((x + 1)\\) is a factor of \\(f(x) = 2x^3 + kx^2 - 8x - 3\\), find the exact value of k. [WMA12 P2, 3 marks]",
+    "explanation": "By the factor theorem, if \\((x + 1)\\) is a factor then \\(f(-1) = 0\\) M1 [1]. Substitute \\(x = -1\\): \\(2(-1)^3 + k(-1)^2 - 8(-1) - 3 = 0\\) M1 [1]. Simplify: \\(-2 + k + 8 - 3 = 0\\), which reduces to \\(k + 3 = 0\\). Therefore the exact value of k is -3 A1 [1]."
+  },
+  "Q095": {
+    "correct_option": 0,
+    "statement_code": "WMA12 1.1"
+  },
+  "Q100": {
+    "correct_option": 0,
+    "question_text": "The sum of the first 3 terms of a geometric progression is 7 and the sum of the first 6 terms is 63. Find the common ratio r. [WMA12 P2, 3 marks]",
+    "explanation": "Use the sum formula \\(S_n = \\frac{a(r^n - 1)}{r - 1}\\), so \\(S_3 = \\frac{a(r^3 - 1)}{r - 1} = 7\\) and \\(S_6 = \\frac{a(r^6 - 1)}{r - 1} = 63\\) M1 [1]. Since \\(r^6 - 1 = (r^3 - 1)(r^3 + 1)\\), we get \\(S_6 = S_3(r^3 + 1) = 63\\) M1 [1]. Substitute \\(S_3 = 7\\): \\(7(r^3 + 1) = 63\\), so \\(r^3 + 1 = 9\\) and \\(r^3 = 8\\). Therefore the common ratio is \\(r = 2\\) A1 [1]."
+  }
+}

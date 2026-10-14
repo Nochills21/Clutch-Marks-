@@ -1,0 +1,7 @@
+{
+  "1": "Each symbol says how a value relates to a bound. Strict symbols exclude the bound, and inclusive symbols include it, which the number line makes visible.",
+  "2": "An open circle leaves the end value out, so the value is not part of the solution. A closed circle includes it, which is why the two circles look different.",
+  "3": "Listing the integers is a count of the whole numbers inside the solution set. The end values matter because a strict bound removes that integer from the list.",
+  "4": "Adding or subtracting the same amount keeps the inequality true. Multiplying or dividing by a negative number reverses the sign, because it reverses the order of the numbers, so the inequality must be flipped.",
+  "5": "A number-line diagram encodes the same information as the inequality, so reading it is the reverse of drawing it. Checking whether the end value is included is the step most often missed."
+}

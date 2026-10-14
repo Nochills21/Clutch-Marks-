@@ -1,0 +1,2700 @@
+  Syllabus
+  Cambridge IGCSETM
+  Mathematics 0580
+
+      Use this syllabus for exams in 2025, 2026 and 2027.
+      Exams are available in the June and November series.
+      Exams are also available in the March series in India.
+
+Version 3
+
+For the purposes of screen readers, any mention in this document of Cambridge IGCSE
+refers to Cambridge International General Certificate of Secondary Education.
+Why choose Cambridge International?
+
+Cambridge International prepares school students for life, helping them develop an informed curiosity and a
+lasting passion for learning. We are part of Cambridge University Press & Assessment, which is a department
+of the University of Cambridge.
+Our Cambridge Pathway gives students a clear path for educational success from age 5 to 19. Schools can
+shape the curriculum around how they want students to learn - with a wide range of subjects and flexible ways
+to offer them. It helps students discover new abilities and a wider world, and gives them the skills they need for
+life, so they can achieve at school, university and work.
+Our programmes and qualifications set the global standard for international education. They are created by
+subject experts, rooted in academic rigour and reflect the latest educational research. They provide a strong
+platform for learners to progress from one stage to the next, and are well supported by teaching and learning
+resources.
+Our mission is to provide educational benefit through provision of international programmes and qualifications
+for school education and to be the world leader in this field. Together with schools, we develop Cambridge
+learners who are confident, responsible, reflective, innovative and engaged - equipped for success in the
+modern world.
+Every year, nearly a million Cambridge students from 10000 schools in 160 countries prepare for their future
+with the Cambridge Pathway.
+
+School feedback: `We think the Cambridge curriculum is superb preparation for university.'
+
+Feedback from: Christoph Guttentag, Dean of Undergraduate Admissions, Duke University, USA
+
+  Quality management
+  Cambridge International is committed to providing exceptional quality. In line with this commitment, our
+  quality management system for the provision of international qualifications and education programmes
+  for students aged 5 to 19 is independently certified as meeting the internationally recognised standard,
+  ISO 9001:2015. Learn more at www.cambridgeinternational.org/ISO9001
+
+©Cambridge University Press & Assessment September 2022
+Cambridge Assessment International Education is part of Cambridge University Press & Assessment. Cambridge University Press &
+Assessment is a department of the University of Cambridge.
+Cambridge University Press & Assessment retains the copyright on all its publications. Registered centres are permitted to copy
+material from this booklet for their own internal use. However, we cannot give permission to centres to photocopy any material that is
+acknowledged to a third party even for internal use within a centre.
+Contents
+
+Why choose Cambridge International?......................................................................... 2
+
+1 Why choose this syllabus? ......................................................................................... 4
+
+2 Syllabus overview ........................................................................................................ 7
+
+Aims                                                                                    7
+
+Content overview                                                                        8
+
+Assessment overview                                                                     9
+
+Assessment objectives                                                                   10
+
+3 Subject content ..........................................................................................................12
+
+Core subject content                                                                    12
+
+Extended subject content                                                                32
+
+4 Details of the assessment ........................................................................................ 57
+
+Core assessment                                                                         58
+
+Extended assessment                                                                     59
+
+List of formulas - Core (Paper 1 and Paper 3)                                           60
+
+List of formulas - Extended (Paper 2 and Paper 4)                                       61
+
+Mathematical conventions                                                                62
+
+Command words                                                                           64
+
+5 What else you need to know .................................................................................... 65
+
+Before you start                                                                        65
+
+Making entries                                                                          66
+
+Accessibility and equality                                                              66
+
+After the exam                                                                          67
+
+How students and teachers can use the grades                                            67
+
+Grade descriptions                                                                      67
+
+Changes to this syllabus for 2025, 2026 and 2027                                        68
+
+Important: Changes to this syllabus
+For information about changes to this syllabus for 2025, 2026 and 2027, go to page 68.
+The latest syllabus is version 3, published May 2024.
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027.
+
+1 Why choose this syllabus?
+
+Key benefits
+
+Cambridge IGCSE is the world's most popular international
+qualification for 14 to 16 year olds, although it can be taken by
+students of other ages. It is tried, tested and trusted.
+
+Students can choose from 70 subjects in any combination - it is    Cambridge
+taught by over 4500 schools in over 140 countries.                   learner
+
+Our programmes balance a thorough knowledge and
+understanding of a subject and help to develop the skills
+learners need for their next steps in education or employment.
+
+Cambridge IGCSE Mathematics supports learners in
+building competency, confidence and fluency in their use
+of techniques and mathematical understanding. Learners
+develop a feel for quantity, patterns and relationships, as well
+as developing reasoning, problem-solving and analytical skills in a variety of abstract and real-life contexts.
+
+Cambridge IGCSE Mathematics provides a strong foundation of mathematical knowledge both for candidates
+studying mathematics at a higher level and those who will require mathematics to support skills in other
+subjects.
+
+The course is tiered to allow all candidates to achieve and progress in their mathematical studies.
+
+Our approach in Cambridge IGCSE Mathematics encourages learners to be:
+
+confident, in using mathematical language and techniques to ask questions, explore ideas and communicate
+
+responsible, by taking ownership of their learning, and applying their mathematical knowledge and skills so
+that they can reason, problem solve and work collaboratively
+
+reflective, by making connections within mathematics and across other subjects, and in evaluating methods
+and checking solutions
+
+innovative, by applying their knowledge and understanding to solve unfamiliar problems creatively, flexibly and
+efficiently
+
+engaged, by the beauty, patterns and structure of mathematics, becoming curious to learn about its many
+applications in society and the economy.
+
+School feedback: `The strength of Cambridge IGCSE qualifications is internationally
+recognised and has provided an international pathway for our students to continue their studies
+around the world.'
+
+Feedback from: Gary Tan, Head of Schools and CEO, Raffles International Group of Schools, Indonesia
+
+Back to contents page                                              www.cambridgeinternational.org/igcse          4
+                                         Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Why choose this syllabus?
+
+International recognition and acceptance
+
+Our expertise in curriculum, teaching and learning, and assessment is the basis for the recognition of our
+programmes and qualifications around the world. The combination of knowledge and skills in Cambridge
+IGCSE Mathematics gives learners a solid foundation for further study. Candidates who achieve grades A*
+to C are well prepared to follow a wide range of courses including Cambridge International AS & A Level
+Mathematics.
+
+Cambridge IGCSEs are accepted and valued by leading universities and employers around the world as
+evidence of academic achievement. Many universities require a combination of Cambridge International AS & A
+Levels and Cambridge IGCSEs or equivalent to meet their entry requirements.
+
+UK NARIC*, the national agency in the UK for the recognition and comparison of international qualifications and
+skills, has carried out an independent benchmarking study of Cambridge IGCSE and found it to be comparable
+to the standard of the GCSE in the UK. This means students can be confident that their Cambridge IGCSE
+qualifications are accepted as equivalent to UK GCSEs by leading universities worldwide.
+
+* Due to the United Kingdom leaving the European Union, the UK NARIC national recognition agency function was re-titled as UK ENIC
+on 1 March 2021, operated and managed by Ecctis Limited. From 1 March 2021, international benchmarking findings are published
+under the Ecctis name.
+
+Learn more at www.cambridgeinternational.org/recognition
+
+School feedback: `Cambridge IGCSE is one of the most sought-after and recognised
+qualifications in the world. It is very popular in Egypt because it provides the perfect
+preparation for success at advanced level programmes.'
+
+Feedback from: Managing Director of British School of Egypt BSE
+
+Back to contents page  www.cambridgeinternational.org/igcse                               5
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Why choose this syllabus?
+
+Supporting teachers
+
+We provide a wide range of resources, detailed guidance, innovative training and professional development
+so that you can give your students the best possible preparation for Cambridge IGCSE. To find out which
+resources are available for each syllabus go to our School Support Hub.
+
+The School Support Hub is our secure online site for Cambridge teachers where you can find the resources
+you need to deliver our programmes. You can also keep up to date with your subject and the global Cambridge
+community through our online discussion forums.
+
+Find out more at www.cambridgeinternational.org/support
+
+Support for Cambridge IGCSE
+
+Planning and           Teaching and          Learning and revision  Results
+preparation            assessment                                   · Candidate Results
+· Schemes of work                            · Example candidate
+· Specimen papers      · Endorsed resources       responses              Service
+· Syllabuses                                                        · Principal examiner
+· Teacher guides       · Online forums       · Past papers and
+                                                  mark schemes           reports for teachers
+                       · Support for                                · Results Analysis
+                            coursework and   · Specimen paper
+                            speaking tests        answers
+
+Sign up for email notifications about changes to syllabuses, including new and revised products and services at
+www.cambridgeinternational.org/syllabusupdates
+
+Professional development
+
+We support teachers through:
+· Introductory Training - face-to-face or online
+· Extension Training - face-to-face or online
+· Enrichment Professional Development - face-to-face or online
+Find out more at www.cambridgeinternational.org/events
+
+· Cambridge Professional Development Qualifications
+Find out more at www.cambridgeinternational.org/profdev
+
+Supporting exams officers
+
+We provide comprehensive support and guidance for all Cambridge exams officers.
+Find out more at: www.cambridgeinternational.org/eoguide
+
+Back to contents page                                    www.cambridgeinternational.org/igcse                    6
+                                                                             Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027.
+
+2 Syllabus overview
+
+Aims
+
+The aims describe the purposes of a course based on this syllabus.
+
+The aims are to enable students to:
+· develop a positive attitude towards mathematics in a way that encourages enjoyment, establishes
+
+     confidence and promotes enquiry and further learning
+· develop a feel for number and understand the significance of the results obtained
+· apply their mathematical knowledge and skills to their own lives and the world around them
+· use creativity and resilience to analyse and solve problems
+· communicate mathematics clearly
+· develop the ability to reason logically, make inferences and draw conclusions
+· develop fluency so that they can appreciate the interdependence of, and connections between, different
+
+     areas of mathematics
+· acquire a foundation for further study in mathematics and other subjects.
+
+Cambridge Assessment International Education is an education organisation and politically
+neutral. The contents of this syllabus, examination papers and associated materials do not endorse
+any political view. We endeavour to treat all aspects of the exam process neutrally.
+
+Back to contents page  www.cambridgeinternational.org/igcse                                         7
+                                                    Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Syllabus overview
+
+Content overview
+
+All candidates study the following topics:
+1 Number
+2 Algebra and graphs
+3 Coordinate geometry
+4 Geometry
+5 Mensuration
+6 Trigonometry
+7 Transformations and vectors
+8 Probability
+9 Statistics
+
+Cambridge IGCSE Mathematics is tiered to enable effective differentiation for learners. The Core subject
+content is intended for learners targeting grades C-G, and the Extended subject content is intended for
+learners targeting grades A*-C. The Extended subject content contains the Core subject content as well as
+additional content.
+
+The subject content is organised by topic and is not presented in a teaching order. This content structure and
+the use of tiering allows flexibility for teachers to plan delivery in a way that is appropriate for their learners.
+Learners are expected to use techniques listed in the content and apply them to solve problems with or without
+the use of a calculator, as appropriate.
+
+Back to contents page  www.cambridgeinternational.org/igcse  8
+                                    Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Syllabus overview
+
+Assessment overview
+
+All candidates take two components.
+
+Candidates who have studied the Core subject content, or who are expected to achieve a grade D or below,
+should be entered for Paper 1 and Paper 3. These candidates will be eligible for grades C to G.
+
+Candidates who have studied the Extended subject content, and who are expected to achieve a grade C or
+above, should be entered for Paper 2 and Paper 4. These candidates will be eligible for grades A* to E.
+
+Candidates should have a scientific calculator for Paper 3 and Paper 4. Calculators are not allowed for Paper 1
+and Paper 2.
+
+Please see the Cambridge Handbook at www.cambridgeinternational.org/eoguide for guidance on use of
+calculators in the examinations.
+
+Core assessment
+
+Core candidates take Paper 1 and Paper 3. The questions are based on the Core subject content only:
+
+Paper 1: Non-calculator (Core)                                   Paper 3: Calculator (Core)
+
+1 hour 30 minutes                                                1 hour 30 minutes
+
+80 marks                               50%                       80 marks                               50%
+
+Structured and unstructured questions                            Structured and unstructured questions
+
+Use of a calculator is not allowed                               A scientific calculator is required
+
+Externally assessed                                              Externally assessed
+
+Extended assessment
+
+Extended candidates take Paper 2 and Paper 4. The questions are based on the Extended subject content
+only:
+
+Paper 2: Non-calculator (Extended)                               Paper 4: Calculator (Extended)
+
+2 hours                                                          2 hours
+
+100 marks                              50%                       100 marks                              50%
+
+Structured and unstructured questions                            Structured and unstructured questions
+
+Use of a calculator is not allowed                               A scientific calculator is required
+
+Externally assessed                                              Externally assessed
+
+Information on availability is in the Before you start section.
+
+Back to contents page                                                       www.cambridgeinternational.org/igcse  9
+                                                    Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Syllabus overview
+
+Assessment objectives
+
+The assessment objectives (AOs) are:
+
+AO1 Knowledge and understanding of mathematical techniques
+Candidates should be able to:
+· recall and apply mathematical knowledge and techniques
+· carry out routine procedures in mathematical and everyday situations
+· understand and use mathematical notation and terminology
+· perform calculations with and without a calculator
+· organise, process, present and understand information in written form, tables, graphs and diagrams
+· estimate, approximate and work to degrees of accuracy appropriate to the context and convert between
+
+     equivalent numerical forms
+· understand and use measurement systems in everyday use
+· measure and draw using geometrical instruments to an appropriate degree of accuracy
+· recognise and use spatial relationships in two and three dimensions.
+
+AO2 Analyse, interpret and communicate mathematically
+Candidates should be able to:
+· analyse a problem and identify a suitable strategy to solve it, including using a combination of processes
+
+     where appropriate
+· make connections between different areas of mathematics
+· recognise patterns in a variety of situations and make and justify generalisations
+· make logical inferences and draw conclusions from mathematical data or results
+· communicate methods and results in a clear and logical form
+· interpret information in different forms and change from one form of representation to another.
+
+Back to contents page  www.cambridgeinternational.org/igcse  10
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Syllabus overview
+
+Weighting for assessment objectives
+
+The approximate weightings allocated to each of the assessment objectives (AOs) are summarised below.
+
+Assessment objectives as a percentage of the Core qualification      Weighting in IGCSE %
+ Assessment objective                                                            60-70
+ AO1 Knowledge and understanding of mathematical techniques                     30-40
+ AO2 Analyse, interpret and communicate mathematically                            100
+ Total
+
+Assessment objectives as a percentage of the Extended qualification
+
+Assessment objective                                                 Weighting in IGCSE %
+
+AO1 Knowledge and understanding of mathematical techniques              40-50
+
+AO2 Analyse, interpret and communicate mathematically                   50-60
+
+Total                                                                   100
+
+Assessment objectives as a percentage of each component
+
+Assessment objective                                        Weighting in components %
+
+                                                       Paper 1 Paper 2 Paper 3 Paper 4
+
+AO1 Knowledge and understanding of mathematical        60-70     40-50  60-70  40-50
+techniques
+
+AO2 Analyse, interpret and communicate mathematically 30-40      50-60  30-40  50-60
+
+Total                                                  100       100    100            100
+
+Back to contents page                                            www.cambridgeinternational.org/igcse  11
+                                           Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027.
+
+3 Subject content
+
+This syllabus gives you the flexibility to design a course that will interest, challenge and engage your learners.
+Where appropriate you are responsible for selecting resources and examples to support your learners'
+study. These should be appropriate for the learners' age, cultural background and learning context as well as
+complying with your school policies and local legal requirements.
+
+Learners should pursue an integrated course that allows them to fully develop their skills and understanding
+both with and without the use of a calculator.
+
+Candidates study either the Core subject content or the Extended subject content. Candidates aiming for
+grades A* to C should study the Extended subject content.
+
+A List of formulas is provided on page 2 of the examination papers for candidates to refer to during the
+examinations. Please note that not all required formulas are given; the `Notes and examples' column of the
+subject content will indicate where a formula is given in the examination papers and when a formula is not
+given, i.e. knowledge of a formula is required.
+
+Core subject content                       Notes and examples
+
+ 1 Number                                  Example tasks include:
+
+ C1.1 Types of number                      · convert between numbers and words, e.g.
+                                                six billion is 6000000000
+ Identify and use:                              10007 is ten thousand and seven
+ · natural numbers
+ · integers (positive, zero and negative)  · express 72 as a product of its prime factors
+ · prime numbers                           · find the highest common factor (HCF) of two
+ · square numbers
+ · cube numbers                                 numbers
+ · common factors                          · find the lowest common multiple (LCM) of two
+ · common multiples
+ · rational and irrational numbers              numbers.
+ · reciprocals.
+
+Back to contents page                      www.cambridgeinternational.org/igcse                                     12
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                                Notes and examples
+
+C1.2 Sets                                           Venn diagrams are limited to two sets.
+Understand and use set language, notation and
+Venn diagrams to describe sets.                     The following set notation will be used:
+
+C1.3 Powers and roots                               · n(A) Number of elements in set A
+Calculate with the following:
+· squares                                           · A  Complement of set A
+· square roots
+· cubes                                             ·    Universal set
+· cube roots
+· other powers and roots of numbers.                · A  B Union of A and B
+
+                                                    · A  B Intersection of A and B.
+
+                                                    Example definition of sets:
+                                                    A = {x: x is a natural number}
+                                                    B = {a, b, c, ...}
+                                                    C = {x: a  x  b}.
+
+                                                    Notes and examples
+
+                                                    Includes recall of squares and their corresponding
+                                                    roots from 1 to 15, and recall of cubes and their
+                                                    corresponding roots of 1, 2, 3, 4, 5 and 10, e.g.:
+                                                    · Write down the value of 169 .
+                                                    · Work out 52 # 3 8 .
+
+C1.4 Fractions, decimals and percentages            Notes and examples
+                                                    Candidates are expected to be able to write
+1Use the language and notation of the following in  fractions in their simplest form.
+   appropriate contexts:                            Candidates are not expected to use recurring
+   · proper fractions                               decimal notation.
+   · improper fractions
+   · mixed numbers                                  Candidates are not expected to demonstrate the
+   · decimals                                       conversion of a recurring decimal to a fraction and
+   · percentages.                                   vice versa.
+
+2Recognise equivalence and convert between
+   these forms.
+
+C1.5 Ordering                                       Notes and examples
+
+Order quantities by magnitude and demonstrate
+familiarity with the symbols =, , >, < ,  and .
+
+Back to contents page                                    www.cambridgeinternational.org/igcse            13
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                                 Notes and examples
+                                                     Includes:
+C1.6 The four operations                             · negative numbers
+Use the four operations for calculations with        · improper fractions
+integers, fractions and decimals, including correct  · mixed numbers
+ordering of operations and use of brackets.          · practical situations, e.g. temperature changes.
+
+C1.7 Indices I                                       Notes and examples
+1Understand and use indices (positive, zero and      e.g. find the value of 7-2.
+
+   negative integers).                               e.g. find the value of 2-3 × 24, (23)2, 23 ÷ 24.
+2Understand and use the rules of indices.
+
+C1.8 Standard form                                   Notes and examples
+
+1Use the standard form A × 10n where n is a          Core candidates are expected to calculate with
+  positive or negative integer and 1  A < 10.        standard form only on Paper 3.
+
+2Convert numbers into and out of standard form.
+3Calculate with values in standard form.
+
+C1.9 Estimation                                      Notes and examples
+
+1Round values to a specified degree of accuracy.     Includes decimal places and significant figures.
+2Make estimates for calculations involving           e.g. write 5764 correct to the nearest thousand.
+                                                     e.g. by writing each number correct to 1 significant
+   numbers, quantities and measurements.
+                                                                                           41.3
+3Round answers to a reasonable degree of             figure, estimate the value of 9.79 # 0.765 .
+   accuracy in the context of a given problem.
+                                                     Notes and examples
+C1.10 Limits of accuracy
+                                                     e.g. write down the upper bound of a length
+Give upper and lower bounds for data rounded to a    measured correct to the nearest metre.
+specified accuracy.                                  Candidates are not expected to find the bounds
+                                                     of the results of calculations which have used data
+                                                     rounded to a specified accuracy.
+
+Back to contents page                                www.cambridgeinternational.org/igcse                  14
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                                Notes and examples
+
+C1.11 Ratio and proportion                          e.g. 20:30:40 in its simplest form is 2:3:4.
+                                                    e.g. adapt recipes; use map scales; determine best
+Understand and use ratio and proportion to:         value.
+· give ratios in their simplest form
+· divide a quantity in a given ratio
+· use proportional reasoning and ratios in
+
+     context.
+
+C1.12 Rates                                         Notes and examples
+1 Use common measures of rate.
+                                                    e.g. calculate with:
+2 Apply other measures of rate.                     · hourly rates of pay
+                                                    · exchange rates between currencies
+3 Solve problems involving average speed.           · flow rates
+                                                    · fuel consumption.
+
+                                                    e.g. calculate with:
+                                                    · pressure
+                                                    · density
+                                                    · population density.
+
+                                                    Required formulas will be given in the question.
+                                                    Knowledge of speed/distance/time formula is
+                                                    required.
+                                                    e.g. A cyclist travels 45km in 3 hours 45 minutes.
+                                                    What is their average speed?
+                                                    Notation used will be, e.g. m/s (metres per second),
+                                                    g/cm3 (grams per cubic centimetre).
+
+C1.13 Percentages                                   Notes and examples
+
+1 Calculate a given percentage of a quantity.       Formulas are not given.
+2 Express one quantity as a percentage of another.  Percentage calculations may include:
+3 Calculate percentage increase or decrease.        · deposit
+4 Calculate with simple and compound interest.      · discount
+                                                    · profit and loss (as an amount or a percentage)
+                                                    · earnings
+                                                    · percentages over 100%.
+
+Back to contents page                               www.cambridgeinternational.org/igcse                  15
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                                 Notes and examples
+                                                     e.g. know not to round values within a calculation
+C1.14 Using a calculator                             and to only round the final answer.
+1 Use a calculator efficiently.                      e.g. enter 2 hours 30 minutes as 2.5 hours or
+                                                     2° 30' 0''.
+2 Enter values appropriately on a calculator.        e.g. in money 4.8 means $4.80; in time 3.25 means
+                                                     3 hours 15 minutes.
+3 Interpret the calculator display appropriately.
+                                                     Notes and examples
+C1.15 Time                                           1 year = 365 days.
+1Calculate with time: seconds (s), minutes (min),
+                                                     In the 24-hour clock, for example, 3.15 a.m. will be
+   hours (h), days, weeks, months, years, including  denoted by 0315 and 3.15 p.m. by 1515.
+   the relationship between units.                   Includes problems involving time zones, local times
+2Calculate times in terms of the 24-hour and         and time differences.
+   12-hour clock.
+3 Read clocks and timetables.                        Notes and examples
+
+C1.16 Money
+1 Calculate with money.
+2 Convert from one currency to another.
+
+C1.17 Extended content only.
+
+C1.18 Extended content only.
+
+Back to contents page                                www.cambridgeinternational.org/igcse                  16
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs                              Notes and examples
+
+C2.1 Introduction to algebra                      Notes and examples
+1Know that letters can be used to represent       Simplify means give the answer in its simplest form,
+                                                  e.g. 2a + 3b + 5a - 9b = 7a - 6b.
+   generalised numbers.                           e.g. expand 3x(2x - 4y).
+2Substitute numbers into expressions and          Includes products of two brackets involving one
+                                                  variable, e.g. expand (2x + 1)(x - 4).
+   formulas.                                      Factorise means factorise fully,
+                                                  e.g. 9x2 + 15xy = 3x(3x + 5y).
+C2.2 Algebraic manipulation
+1 Simplify expressions by collecting like terms.  Notes and examples
+                                                  e.g. 2x = 32. Find the value of x.
+2 Expand products of algebraic expressions.
+                                                  e.g. simplify:
+3 Factorise by extracting common factors.         · (5x3)2
+                                                  · 12a5 ÷ 3a-2
+C2.3 Extended content only.                       · 6x7y4 × 5x-5y.
+                                                  Knowledge of logarithms is not required.
+C2.4 Indices II
+1Understand and use indices (positive, zero and   Notes and examples
+                                                  e.g. write an expression for a number that is 2 more
+   negative).                                     than n.
+2 Understand and use the rules of indices.        Includes constructing linear simultaneous
+                                                  equations.
+C2.5 Equations                                    Examples include:
+1Construct simple expressions, equations and      · 3x + 4 = 10
+                                                  · 5 - 2x = 3(x + 7).
+   formulas.                                      e.g. change the subject of formulas where:
+                                                  · the subject only appears once
+2 Solve linear equations in one unknown.          · there is not a power or root of the subject.
+3Solve simultaneous linear equations in two
+
+   unknowns.
+4 Change the subject of simple formulas.
+
+Back to contents page                             www.cambridgeinternational.org/igcse                  17
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs (continued)                      Notes and examples
+
+C2.6 Inequalities                                     When representing and interpreting inequalities on
+                                                      a number line:
+Represent and interpret inequalities, including on a
+number line.                                          · open circles should be used to represent strict
+                                                           inequalities (<, >)
+
+                                                      · closed circles should be used to represent
+                                                           inclusive inequalities (, )
+
+                                                      e.g. - 3  x < 1
+
+                                                                                   x
+                                                      -3 -2 -1 0 1
+
+C2.7 Sequences                                        Notes and examples
+                                                      e.g. write the next two terms in this sequence:
+1 Continue a given number sequence or pattern.        1, 3, 6, 10, 15, ... , ...
+
+2Recognise patterns in sequences, including the       e.g. find the nth term of 2, 5, 10, 17
+   term-to-term rule, and relationships between
+   different sequences.
+
+3Find and use the nth term of the following
+   sequences:
+   (a) linear
+   (b) simple quadratic
+   (c) simple cubic.
+
+C2.8 Extended content only.                           Notes and examples
+
+C2.9 Graphs in practical situations                   e.g. interpret the gradient of a straight-line graph as
+1Use and interpret graphs in practical situations     a rate of change.
+
+   including travel graphs and conversion graphs.     e.g. draw a distance-time graph to represent a
+2 Draw graphs from given data.                        journey.
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                     18
+                              Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs (continued)                        Notes and examples
+                                                        e.g. find the intersection of a line and a curve.
+C2.10 Graphs of functions
+
+1Construct tables of values, and draw, recognise
+   and interpret graphs for functions of the following
+   forms:
+
+   · ax + b
+   · ± x2 + ax + b
+   · xa (x  0)
+where a and b are integer constants.
+
+2Solve associated equations graphically, including
+   finding and interpreting roots by graphical
+   methods.
+
+C2.11 Sketching curves                                  Notes and examples
+
+Recognise, sketch and interpret graphs of the           Knowledge of symmetry and roots is required.
+following functions:                                    Knowledge of turning points is not required.
+(a) linear
+(b) quadratic.
+
+C2.12 Extended content only.
+C2.13 Extended content only.
+
+Back to contents page                                   www.cambridgeinternational.org/igcse               19
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+3 Coordinate geometry                                 Notes and examples
+
+C3.1 Coordinates                                      Notes and examples
+Use and interpret Cartesian coordinates in            Equations will be given in the form y = mx + c
+two dimensions.                                       (e.g. y = -2x + 5), unless a table of values is given.
+C3.2 Drawing linear graphs
+Draw straight-line graphs for linear equations.       Notes and examples
+                                                      From a grid only.
+C3.3 Gradient of linear graphs
+Find the gradient of a straight line.                 Notes and examples
+C3.4 Extended content only.                           Questions may:
+C3.5 Equations of linear graphs                       · use and request lines in the forms
+Interpret and obtain the equation of a straight-line
+graph in the form y = mx + c.                             y = mx + c
+                                                          x = k
+C3.6 Parallel lines                                   · involve finding the equation when the graph is
+Find the gradient and equation of a straight line          given
+parallel to a given line.                             · ask for the gradient or y-intercept of a graph
+C3.7 Extended content only.                                from an equation, e.g. find the gradient and
+                                                          y-intercept of the graph with the equation
+                                                          y = 6x + 3.
+                                                      Candidates are expected to give equations of a line
+                                                      in a fully simplified form.
+
+                                                      Notes and examples
+                                                      e.g. find the equation of the line parallel to
+                                                      y = 4x - 1 that passes through (1, -3).
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                    20
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry                                    Notes and examples
+
+C4.1 Geometrical terms                        Candidates are not expected to show that two
+                                              shapes are congruent.
+1Use and interpret the following geometrical
+   terms:                                     Includes the following terms:
+   · point                                    Triangles:
+   · vertex                                   · equilateral
+   · line                                     · isosceles
+   · parallel                                 · scalene
+   · perpendicular                            · right-angled.
+   · bearing                                  Quadrilaterals:
+   · right angle                              · square
+   · acute, obtuse and reflex angles          · rectangle
+   · interior and exterior angles             · kite
+   · similar                                  · rhombus
+   · congruent                                · parallelogram
+   · scale factor.                            · trapezium.
+                                              Polygons:
+2Use and interpret the vocabulary of:         · regular and irregular polygons
+   · triangles                                · pentagon
+   · special quadrilaterals                   · hexagon
+   · polygons                                 · octagon
+   · nets                                     · decagon.
+   · simple solids.
+
+                                                                                continued
+
+Back to contents page                         www.cambridgeinternational.org/igcse          21
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry (continued)                               Notes and examples
+
+C4.1 Geometrical terms (continued)                   Simple solids:
+                                                     · cube
+3 Use and interpret the vocabulary of a circle.      · cuboid
+                                                     · prism
+C4.2 Geometrical constructions                       · cylinder
+1 Measure and draw lines and angles.                 · pyramid
+2Construct a triangle, given the lengths of all      · cone
+                                                     · sphere (term `hemisphere' not required)
+   sides, using a ruler and pair of compasses only.  · face
+3 Draw, use and interpret nets.                      · surface
+                                                     · edge.
+                                                     Includes the following terms:
+                                                     · centre
+                                                     · radius (plural radii)
+                                                     · diameter
+                                                     · circumference
+                                                     · semicircle
+                                                     · chord
+                                                     · tangent
+                                                     · arc
+                                                     · sector
+                                                     · segment.
+
+                                                     Notes and examples
+
+                                                     A ruler should be used for all straight edges.
+                                                     Constructions of perpendicular bisectors and angle
+                                                     bisectors are not required.
+                                                     e.g. construct a rhombus by drawing two triangles.
+                                                     Construction arcs must be shown.
+                                                     Examples include:
+                                                     · draw nets of cubes, cuboids, prisms and
+
+                                                          pyramids
+                                                     · use measurements from nets to calculate
+
+                                                          volumes and surface areas.
+
+Back to contents page                                www.cambridgeinternational.org/igcse                22
+                                      Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry (continued)                                    Notes and examples
+
+C4.3 Scale drawings                                       A ruler must be used for all straight edges.
+1 Draw and interpret scale drawings.
+2 Use and interpret three-figure bearings.                Bearings are measured clockwise from north
+                                                          (000° to 360°).
+                                                          e.g. find the bearing of A from B if the bearing of B
+                                                          from A is 025°.
+
+                                                          Includes an understanding of the terms north, east,
+                                                          south and west.
+                                                          e.g. point D is due east of point C.
+
+C4.4 Similarity                                           Notes and examples
+Calculate lengths of similar shapes.
+
+C4.5 Symmetry                                             Notes and examples
+
+Recognise line symmetry and order of rotational           Includes properties of triangles, quadrilaterals and
+symmetry in two dimensions.                               polygons directly related to their symmetries.
+
+C4.6 Angles                                               Notes and examples
+                                                          Knowledge of three-letter notation for angles is
+1Calculate unknown angles and give simple                 required, e.g. angle ABC. Candidates are expected
+   explanations using the following geometrical           to use the correct geometrical terminology when
+   properties:                                            giving reasons for answers.
+   · sum of angles at a point = 360°
+   · sum of angles at a point on a straight line = 180°   Includes exterior and interior angles, and angle
+   · vertically opposite angles are equal                 sum.
+   · angle sum of a triangle = 180° and angle sum
+      of a quadrilateral = 360°.
+
+2Calculate unknown angles and give geometric
+   explanations for angles formed within parallel lines:
+   · corresponding angles are equal
+   · alternate angles are equal
+   · co-interior angles sum to 180° (supplementary).
+
+3Know and use angle properties of regular
+   polygons.
+
+Back to contents page                                     www.cambridgeinternational.org/igcse                   23
+                             Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry (continued)                                  Notes and examples
+
+C4.7 Circle theorems                                    Candidates will be expected to use the geometrical
+                                                        properties listed in the syllabus when giving
+Calculate unknown angles and give explanations          reasons for answers.
+using the following geometrical properties of circles:
+· angle in a semicircle = 90°
+· angle between tangent and radius = 90°.
+
+C4.8 Extended content only.
+
+Back to contents page                                   www.cambridgeinternational.org/igcse                24
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+5 Mensuration                                            Notes and examples
+
+C5.1 Units of measure                                    Units include:
+                                                         · mm, cm, m, km
+Use metric units of mass, length, area, volume           · mm2, cm2, m2, km2
+and capacity in practical situations and convert         · mm3, cm3, m3
+quantities into larger or smaller units.                 · ml, l
+                                                         · g, kg.
+
+                                                         Conversion between units includes:
+                                                         · between different units of area, e.g. cm2  m2
+                                                         · between units of volume and capacity,
+
+                                                              e.g. m3  litres.
+
+C5.2 Area and perimeter                                  Notes and examples
+
+Carry out calculations involving the perimeter and       Except for area of a triangle, formulas are not
+area of a rectangle, triangle, parallelogram and         given.
+trapezium.
+
+C5.3 Circles, arcs and sectors                           Notes and examples
+
+1Carry out calculations involving the                    Answers may be asked for in terms of .
+   circumference and area of a circle.                   Formulas are given in the List of formulas.
+
+2Carry out calculations involving arc length and
+   sector area as fractions of the circumference and
+   area of a circle, where the sector angle is a factor
+   of 360°.
+
+C5.4 Surface area and volume                             Notes and examples
+
+Carry out calculations and solve problems involving      Answers may be asked for in terms of .
+the surface area and volume of a:                        The following formulas are given in the List of
+· cuboid                                                 formulas:
+· prism                                                  · curved surface area of a cylinder
+· cylinder                                               · curved surface area of a cone
+· sphere                                                 · surface area of a sphere
+· pyramid                                                · volume of a prism
+· cone.                                                  · volume of a pyramid
+                                                         · volume of a cylinder
+                                                         · volume of a cone
+                                                         · volume of a sphere.
+
+                                                         The term prism refers to any solid with a uniform
+                                                         cross-section, e.g. a cylindrical sector.
+
+Back to contents page                                    www.cambridgeinternational.org/igcse               25
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+5 Mensuration (continued)                   Notes and examples
+                                            Answers may be asked for in terms of .
+C5.5 Compound shapes and parts of shapes
+                                            e.g. find the volume of half of a sphere.
+1Carry out calculations and solve problems
+   involving perimeters and areas of:
+   · compound shapes
+   · parts of shapes.
+
+2Carry out calculations and solve problems
+   involving surface areas and volumes of:
+   · compound solids
+   · parts of solids.
+
+Back to contents page                       www.cambridgeinternational.org/igcse       26
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+6 Trigonometry                                        Notes and examples
+
+C6.1 Pythagoras' theorem                              Angles will be given in degrees and answers should
+Know and use Pythagoras' theorem.                     be written in degrees, with decimals correct to one
+                                                      decimal place.
+C6.2 Right-angled triangles                           Knowledge of bearings may be required.
+1Know and use the sine, cosine and tangent
+
+   ratios for acute angles in calculations involving
+   sides and angles of a right-angled triangle.
+2Solve problems in two dimensions using
+   Pythagoras' theorem and trigonometry.
+
+C6.3 Extended content only.
+
+C6.4 Extended content only.
+
+C6.5 Extended content only.
+
+C6.6 Extended content only.
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                 27
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+7 Transformations and vectors                       Notes and examples
+                                                    Questions will not involve combinations of
+C7.1 Transformations                                transformations. A ruler must be used for all straight
+Recognise, describe and draw the following          edges.
+transformations:
+1Reflection of a shape in a vertical or horizontal  Positive and fractional scale factors only.
+
+   line.
+2Rotation of a shape about the origin, vertices
+
+   or midpoints of edges of the shape, through
+   multiples of 90°.
+3Enlargement of a shape from a centre by a scale
+  factor. J N
+
+                                           KxO
+4 Translation of a shape by a vector K O.
+
+                                            y
+                                           LP
+
+C7.2 Extended content only.
+
+C7.3 Extended content only.
+
+C7.4 Extended content only.
+
+Back to contents page                               www.cambridgeinternational.org/igcse                    28
+                             Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+8 Probability                                        Notes and examples
+
+C8.1 Introduction to probability                     Probability notation is not required.
+1Understand and use the probability scale from       Probabilities should be given as a fraction, decimal
+                                                     or percentage. Problems may require using
+   0 to 1.                                           information from tables, graphs or Venn diagrams
+                                                     (limited to two sets).
+2Calculate the probability of a single event.
+3Understand that the probability of an event         e.g. The probability that a counter is blue is 0.8.
+                                                     What is the probability that it is not blue?
+   not occurring = 1 - the probability of the event
+   occurring.                                        Notes and examples
+
+C8.2 Relative and expected frequencies               e.g. use results of experiments with a spinner to
+1Understand relative frequency as an estimate of     estimate the probability of a given outcome.
+                                                     e.g. use probability to estimate an expected value
+   probability.                                      from a population.
+2 Calculate expected frequencies.                    Includes understanding what is meant by fair, bias
+                                                     and random.
+
+C8.3 Probability of combined events                  Notes and examples
+                                                     Combined events will only be with replacement.
+Calculate the probability of combined events using,
+where appropriate:                                   Venn diagrams will be limited to two sets.
+· sample space diagrams                              In tree diagrams, outcomes will be written at the
+· Venn diagrams                                      end of the branches and probabilities by the side of
+· tree diagrams.                                     the branches.
+
+C8.4 Extended content only.
+
+Back to contents page                                www.cambridgeinternational.org/igcse                  29
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+9 Statistics                                      Notes and examples
+                                                  e.g. tally tables, two-way tables.
+C9.1 Classifying statistical data
+Classify and tabulate statistical data.           Notes and examples
+
+C9.2 Interpreting statistical data                e.g. compare averages and ranges between two
+1Read, interpret and draw inferences from tables  data sets.
+
+   and statistical diagrams.                      Notes and examples
+2Compare sets of data using tables, graphs and    Data may be in a list or frequency table, but will not
+                                                  be grouped.
+   statistical measures.
+3Appreciate restrictions on drawing conclusions   Notes and examples
+
+   from given data.                               Includes composite (stacked) and dual (side-by-
+                                                  side) bar charts.
+C9.3 Averages and range                           Stem-and-leaf diagrams should have ordered data
+Calculate the mean, median, mode and range        with a key.
+for individual data and distinguish between the
+purposes for which these are used.
+
+C9.4 Statistical charts and diagrams
+Draw and interpret:
+(a) bar charts
+(b) pie charts
+(c) pictograms
+(d) stem-and-leaf diagrams
+(e) simple frequency distributions.
+
+Back to contents page                             www.cambridgeinternational.org/igcse                    30
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+9 Statistics (continued)                            Notes and examples
+
+C9.5 Scatter diagrams                               Plotted points should be clearly marked, for
+1 Draw and interpret scatter diagrams.              example as small crosses (×).
+2Understand what is meant by positive, negative
+                                                    A line of best fit:
+   and zero correlation.                            · should be a single ruled line drawn by
+3Draw by eye, interpret and use a straight line of
+                                                         inspection
+   best fit.                                        · should extend across the full data set
+                                                    · does not need to coincide exactly with any of
+C9.6 Extended content only.
+C9.7 Extended content only.                              the points but there should be a roughly even
+                                                         distribution of points either side of the line over
+                                                         its entire length.
+
+Back to contents page                               www.cambridgeinternational.org/igcse                      31
+Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+       Extended subject content                             Notes and examples
+
+          1 Number                                          Example tasks include:
+
+             E1.1 Types of number                           · convert between numbers and words, e.g.
+             Identify and use:                                   six billion is 6000000000
+             · natural numbers                                   10007 is ten thousand and seven
+             · integers (positive, zero and negative)
+             · prime numbers                                · express 72 as a product of its prime factors
+             · square numbers                               · find the highest common factor (HCF) of two
+             · cube numbers
+             · common factors                                    numbers
+             · common multiples                             · find the lowest common multiple (LCM) of two
+             · rational and irrational numbers
+             · reciprocals.                                      numbers.
+
+             E1.2 Sets                                      Notes and examples
+             Understand and use set language, notation and
+             Venn diagrams to describe sets and represent   Venn diagrams are limited to two or three sets.
+             relationships between sets.
+                                                            The following set notation will be used:
+             E1.3 Powers and roots
+             Calculate with the following:                  · n(A) Number of elements in set A
+             · squares
+             · square roots                                 ·    "... is an element of ..."
+             · cubes
+             · cube roots                                   ·    "... is not an element of ..."
+             · other powers and roots of numbers.
+                                                            · A  Complement of set A
+Back to contents page
+                                                            ·    The empty set
+
+                                                            ·    Universal set
+
+                                                            · A  B A is a subset of B
+
+                                                            · A  B A is not a subset of B
+
+                                                            · A  B Union of A and B
+
+                                                            · A  B Intersection of A and B.
+
+                                                            Example definition of sets:
+                                                            A = {x: x is a natural number}
+                                                            B = {(x, y): y = mx + c}
+                                                            C = {x: a  x  b}
+                                                            D = {a, b, c, ...}.
+
+                                                            Notes and examples
+
+                                                            Includes recall of squares and their corresponding
+                                                            roots from 1 to 15, and recall of cubes and their
+                                                            corresponding roots of 1, 2, 3, 4, 5 and 10, e.g.:
+                                                            · Write down the value of 169 .
+                                                            · Work out 52 # 3 8 .
+
+                                                                 www.cambridgeinternational.org/igcse           32
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                                 Notes and examples
+
+E1.4 Fractions, decimals and percentages             Candidates are expected to be able to write
+                                                     fractions in their simplest form.
+1Use the language and notation of the following in   Recurring decimal notation is required, e.g.
+   appropriate contexts:                             · 0.17o =0.1777f
+   · proper fractions
+   · improper fractions                                  0.12o 3o =0.1232323f
+   · mixed numbers                                   · 0.123 =0.123123f
+   · decimals
+   · percentages.                                    Includes converting between recurring decimals
+                                                     and fractions and vice versa,
+2Recognise equivalence and convert between           e.g. write 0.17o as a fraction.
+   these forms.
+
+E1.5 Ordering                                        Notes and examples
+
+Order quantities by magnitude and demonstrate
+familiarity with the symbols =, , >, < ,  and .
+
+E1.6 The four operations                             Notes and examples
+Use the four operations for calculations with
+integers, fractions and decimals, including correct  Includes:
+ordering of operations and use of brackets.          · negative numbers
+                                                     · improper fractions
+E1.7 Indices I                                       · mixed numbers
+1Understand and use indices (positive, zero,         · practical situations, e.g. temperature changes.
+
+   negative, and fractional).                        Notes and examples
+
+2 Understand and use the rules of indices.           Examples include:
+
+                                                                  1
+
+                                                     · 62 = 6
+                                                     1 · 164 =4 16
+                                                     · find the value of 7-2 1 , 812 , 8- 32 .
+                                                     e.g. find the value of 2-3 × 24, (23)2, 23 ÷ 24.
+
+E1.8 Standard form                                   Notes and examples
+
+1Use the standard form A × 10n where n is a
+  positive or negative integer and 1  A < 10.
+
+2 Convert numbers into and out of standard form.
+3 Calculate with values in standard form.
+
+Back to contents page                                www.cambridgeinternational.org/igcse               33
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                               Notes and examples
+
+E1.9 Estimation                                    Includes decimal places and significant figures.
+1 Round values to a specified degree of accuracy.  e.g. write 5764 correct to the nearest thousand.
+2Make estimates for calculations involving         e.g. by writing each number correct to 1 significant
+                                                   figure, estimate the value of
+   numbers, quantities and measurements.
+                                                        41.3
+3Round answers to a reasonable degree of           9.79 # 0.765 .
+   accuracy in the context of a given problem.
+
+E1.10 Limits of accuracy                           Notes and examples
+1Give upper and lower bounds for data rounded
+                                                   e.g. write down the upper bound of a length
+   to a specified accuracy.                        measured correct to the nearest metre.
+2Find upper and lower bounds of the results of     Example calculations include:
+                                                   · calculate the upper bound of the perimeter
+   calculations which have used data rounded to a
+   specified accuracy.                                  or the area of a rectangle given dimensions
+                                                        measured to the nearest centimetre
+E1.11 Ratio and proportion                         · find the lower bound of the speed given
+Understand and use ratio and proportion to:             rounded values of distance and time.
+· give ratios in their simplest form
+· divide a quantity in a given ratio               Notes and examples
+· use proportional reasoning and ratios in
+                                                   e.g. 20:30:40 in its simplest form is 2:3:4.
+     context.
+                                                   e.g. adapt recipes; use map scales; determine best
+                                                   value.
+
+Back to contents page                              www.cambridgeinternational.org/igcse                  34
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                                Notes and examples
+
+E1.12 Rates                                         e.g. calculate with:
+1 Use common measures of rate.                      · hourly rates of pay
+                                                    · exchange rates between currencies
+2 Apply other measures of rate.                     · flow rates
+                                                    · fuel consumption.
+3 Solve problems involving average speed.
+                                                    e.g. calculate with:
+                                                    · pressure
+                                                    · density
+                                                    · population density.
+                                                    Required formulas will be given in the question.
+
+                                                    Knowledge of speed/distance/time formula is
+                                                    required.
+                                                    e.g. A cyclist travels 45km in 3 hours 45 minutes.
+                                                    What is their average speed?
+                                                    Notation used will be, e.g. m/s (metres per second),
+                                                    g/cm3 (grams per cubic centimetre).
+
+E1.13 Percentages                                   Notes and examples
+1 Calculate a given percentage of a quantity.
+2 Express one quantity as a percentage of another.  Problems may include repeated percentage
+3 Calculate percentage increase or decrease.        change.
+4 Calculate with simple and compound interest.      Formulas are not given.
+                                                    e.g. find the cost price given the selling price and
+5 Calculate using reverse percentages.              the percentage profit.
+                                                    Percentage calculations may include:
+                                                    · deposit
+                                                    · discount
+                                                    · profit and loss (as an amount or a percentage)
+                                                    · earnings
+                                                    · percentages over 100%.
+
+E1.14 Using a calculator                            Notes and examples
+1 Use a calculator efficiently.
+2 Enter values appropriately on a calculator.       e.g. know not to round values within a calculation
+3 Interpret the calculator display appropriately.   and to only round the final answer.
+
+                                                    e.g. enter 2 hours 30 minutes as 2.5 hours or
+                                                    2° 30' 0''.
+
+                                                    e.g. in money 4.8 means $4.80; in time 3.25 means
+                                                    3 hours 15 minutes.
+
+Back to contents page                               www.cambridgeinternational.org/igcse                  35
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+1 Number (continued)                                 Notes and examples
+                                                     1 year = 365 days.
+E1.15 Time
+1Calculate with time: seconds (s), minutes (min),    In the 24-hour clock, for example, 3.15 a.m. will be
+                                                     denoted by 0315 and 3.15 p.m. by 1515.
+   hours (h), days, weeks, months, years, including  Includes problems involving time zones, local times
+   the relationship between units.                   and time differences.
+2Calculate times in terms of the 24-hour and
+   12-hour clock.                                    Notes and examples
+3 Read clocks and timetables.
+
+E1.16 Money
+1 Calculate with money.
+2 Convert from one currency to another.
+
+E1.17 Exponential growth and decay                   Notes and examples
+Use exponential growth and decay.
+                                                     e.g. depreciation, population change.
+                                                     Knowledge of e is not required.
+
+E1.18 Surds                                          Notes and examples
+1Understand and use surds, including simplifying
+                                                     Examples include:
+   expressions.
+                                                     · 20 = 2 5
+2 Rationalise the denominator.
+                                                        200 - 32 = 6 2 .
+
+                                                     Examples include:
+
+                                                     ·  10  =2 5
+
+                                                        5
+
+                                                            1     1+ 3
+                                                        -1+ 3 = 2 .
+
+Back to contents page                                             www.cambridgeinternational.org/igcse     36
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs                              Notes and examples
+
+E2.1 Introduction to algebra
+
+1Know that letters can be used to represent
+   generalised numbers.
+
+2Substitute numbers into expressions and
+   formulas.
+
+E2.2 Algebraic manipulation                       Notes and examples
+
+1 Simplify expressions by collecting like terms.  Simplify means give the answer in its simplest form,
+                                                  e.g. 2a2 + 3ab - 1 + 5a2 - 9ab + 4 = 7a2 - 6ab + 3.
+2 Expand products of algebraic expressions.
+                                                  e.g. expand 3x(2x - 4y), (3x + y)(x - 4y).
+3 Factorise by extracting common factors.         Includes products of more than two brackets,
+4 Factorise expressions of the form:              e.g. expand (x - 2)(x + 3)(2x + 1).
+                                                  Factorise means factorise fully,
+   · ax + bx + kay + kby                          e.g. 9x2 + 15xy = 3x(3x + 5y).
+   · a2x2 - b2y2
+   · a2 + 2ab + b2
+   · ax2 + bx + c
+   · ax3 + bx2 + cx.
+5Complete the square for expressions in the form
+  ax2 + bx + c.
+
+E2.3 Algebraic fractions                          Notes and examples
+1 Manipulate algebraic fractions.
+                                                  Examples include:
+2 Factorise and simplify rational expressions.    · x+x-4
+
+                                                      3 2
+                                                  · 2x - 3(x -5)
+
+                                                       3 2
+                                                  · 3a × 9a
+
+                                                       4 10
+                                                  · 3a ÷ 9a
+
+                                                       4 10
+                                                  · 1 +x+1.
+
+                                                      x-2 x-3
+
+                                                  e.g. 2x2 - 2x  .
+
+                                                  x - 5x + 6
+
+Back to contents page                                            www.cambridgeinternational.org/igcse   37
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs (continued)                  Notes and examples
+
+E2.4 Indices II                                   e.g. solve:
+1Understand and use indices (positive, zero,      · 32x = 2
+                                                  · 5x + 1 = 25x.
+   negative and fractional).                      e.g. simplify:
+                                                  · 3x-4 # 2 1 x2
+2Understand and use the rules of indices.
+                                                               3
+
+                                                       2 1 x2 ' 2x- 2
+                                                       5
+                                                      J 5N3
+                                                  ·· KK2x3 OO .
+                                                      LP
+                                                  Knowledge of logarithms is not required.
+
+E2.5 Equations                                    Notes and examples
+1 Construct expressions, equations and formulas.
+                                                  e.g. write an expression for the product of two
+2Solve linear equations in one unknown.           consecutive even numbers.
+                                                  Includes constructing simultaneous equations.
+3Solve fractional equations with numerical and    Examples include:
+   linear algebraic denominators.                 · 3x + 4 = 10
+                                                  · 5 - 2x = 3(x + 7).
+4Solve simultaneous linear equations in two       Examples include:
+   unknowns.                                      · x =4
+
+5Solve simultaneous equations, involving one          2x + 1
+   linear and one non-linear.                     · 2 x + 2 + 3 2x - 1 = 1
+                                                  · x x + 2 = 3 x - 6 .
+6Solve quadratic equations by factorisation,
+   completing the square and by use of the        With powers no higher than two.
+   quadratic formula.
+                                                  Includes writing a quadratic expression in
+7Change the subject of formulas.                  completed square form.
+                                                  Candidates may be expected to give solutions in
+                                                  surd form.
+                                                  The quadratic formula is given in the List of
+                                                  formulas.
+                                                  e.g. change the subject of a formula where:
+                                                  · the subject appears twice
+                                                  · there is a power or root of the subject.
+
+Back to contents page                             www.cambridgeinternational.org/igcse             38
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs (continued)                       Notes and examples
+
+E2.6 Inequalities                                      When representing and interpreting inequalities on
+                                                       a number line:
+1Represent and interpret inequalities, including on
+   a number line.                                      · open circles should be used to represent strict
+                                                            inequalities (<, >)
+
+                                                       · closed circles should be used to represent
+                                                            inclusive inequalities (, ).
+
+                                                       e.g. - 3  x < 1
+
+                                                                                    x
+                                                       -3 -2 -1 0 1
+
+2 Construct, solve and interpret linear inequalities.  Examples include:
+3Represent and interpret linear inequalities in two    · 3x < 2x + 4
+                                                       · -3  3x - 2 < 7 .
+   variables graphically.
+                                                       The following conventions should be used:
+4 List inequalities that define a given region.
+                                                       · broken lines should be used to represent strict
+                                                            inequalities (<, >)
+
+                                                       · solid lines should be used to represent inclusive
+                                                            inequalities (, )
+
+                                                       · shading should be used to represent unwanted
+
+                                                             regions (unless otherwise directed in the
+
+                                                             question).
+
+                                                       e.g.
+
+                                                             y x<1         y
+
+                                                             2             2
+
+                                                             1 1 y1
+
+                                                             0 12 x 0 12 x
+
+                                                       Linear programming problems are not included.
+
+E2.7 Sequences                                         Notes and examples
+
+1 Continue a given number sequence or pattern.         Subscript notation may be used, e.g. Tn is the nth
+                                                       term of sequence T.
+2Recognise patterns in sequences, including the        Includes linear, quadratic, cubic and exponential
+   term-to-term rule, and relationships between        sequences and simple combinations of these.
+   different sequences.
+
+3 Find and use the nth term of sequences.
+
+Back to contents page                                                    www.cambridgeinternational.org/igcse  39
+                                                              Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs (continued)                                                  Notes and examples
+
+E2.8 Proportion                                                                   Includes linear, square, square root, cube and cube
+                                                                                  root proportion.
+Express direct and inverse proportion in algebraic                                Knowledge of proportional symbol () is required.
+terms and use this form of expression to find
+unknown quantities.
+
+E2.9 Graphs in practical situations                                               Notes and examples
+                                                                                  Includes estimation and interpretation of the
+1Use and interpret graphs in practical situations                                 gradient of a tangent at a point.
+   including travel graphs and conversion graphs.
+                                                                                  Areas will involve linear sections of the graph only.
+2Draw graphs from given data.
+
+3Apply the idea of rate of change to simple
+   kinematics involving distance-time and
+   speed-time graphs, acceleration and
+   deceleration.
+
+4Calculate distance travelled as area under a
+   speed-time graph.
+
+E2.10 Graphs of functions                                                         Notes and examples
+                                                                                  Examples include:
+1Construct tables of values, and draw, recognise                                  · y = x3 + x - 4
+   and interpret graphs for functions of the following                            · y = 2x + x23
+   forms:                                                                         · y = 41 × 2x.
+
+· axn (includes sums of no more than three of                                     e.g. finding the intersection of a line and a curve.
+
+these)
+
+· abx + c
+
+w here  n              =  -2,  -1,  - 21 ,  0,  1  ,  1,  2,  3;  a  and  c  are
+                                                2
+
+ rational numbers; and b is a positive integer.
+
+2Solve associated equations graphically, including
+   finding and interpreting roots by graphical
+   methods.
+
+3Draw and interpret graphs representing
+   exponential growth and decay problems.
+
+Back to contents page                                                             www.cambridgeinternational.org/igcse                   40
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs (continued)                      Notes and examples
+
+E2.11 Sketching curves                                Functions will be equivalent to:
+
+Recognise, sketch and interpret graphs of the         · ax + by = c
+following functions:                                  · y = ax2 + bx + c
+(a) linear                                            · y = ax3 + b
+(b) quadratic                                         · y = ax3 + bx2 + cx
+(c) cubic                                             · y = xa + b
+(d) reciprocal
+(e) exponential.                                          y = arx + b
+                                                      where a, b and c are rational numbers and r is a
+                                                      rational, positive number.
+
+                                                      Knowledge of turning points, roots and symmetry is
+                                                      required.
+
+                                                      Knowledge of vertical and horizontal asymptotes is
+                                                      required.
+
+                                                      Finding turning points of quadratics by completing
+                                                      the square is required.
+
+E2.12 Differentiation                                 Notes and examples
+
+1Estimate gradients of curves by drawing              dy notation will be expected.
+   tangents.                                          dx
+
+2Use the derivatives of functions of the form axn,    Maximum and minimum points may be identified by:
+  where a is a rational constant and n is a positive  · an accurate sketch
+   integer or zero, and simple sums of not more       · use of the second differential
+   than three of these.                               · inspecting the gradient either side of a turning
+
+3Apply differentiation to gradients and stationary         point.
+   points (turning points).                           Candidates are not expected to identify points of
+                                                      inflection.
+4Discriminate between maxima and minima by
+   any method.
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                41
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+2 Algebra and graphs (continued)                Notes and examples
+
+E2.13 Functions                                 Examples include:
+                                                · f(x) = 3x - 5
+1Understand functions, domain and range and     · g(x) = 3(x + 4) 5
+   use function notation.                       · h(x) = 2x2 + 3.
+
+2Understand and find inverse functions f-1(x).  e.g. f(x) = 3 x + 2 and g(x) = (3x + 5)2. Find fg(x).
+                                                Give your answer as a fraction in its simplest form.
+3Form composite functions as defined by
+  gf(x) = g(f(x)).
+
+                                                Candidates are not expected to find the domains
+                                                and ranges of composite functions.
+
+                                                This topic may include mapping diagrams.
+
+Back to contents page                           www.cambridgeinternational.org/igcse                   42
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+3 Coordinate geometry                                 Notes and examples
+
+E3.1 Coordinates                                      Notes and examples
+Use and interpret Cartesian coordinates in two        Examples include:
+dimensions.                                           · y = -2x + 5
+                                                      · y = 7 - 4x
+E3.2 Drawing linear graphs                            · 3x + 2y = 5.
+Draw straight-line graphs for linear equations.
+                                                      Notes and examples
+E3.3 Gradient of linear graphs
+1 Find the gradient of a straight line.               Notes and examples
+2Calculate the gradient of a straight line from the
+                                                      Notes and examples
+   coordinates of two points on it.                   Questions may:
+                                                      · use and request lines in different forms, e.g.
+E3.4 Length and midpoint
+1 Calculate the length of a line segment.                 ax + by = c
+2Find the coordinates of the midpoint of a line           y = mx + c
+                                                          x = k
+   segment.                                           · involve finding the equation when the graph is
+                                                           given
+E3.5 Equations of linear graphs                       · ask for the gradient or y-intercept of a graph
+Interpret and obtain the equation of a straight-line       from an equation, e.g. find the gradient and
+graph.                                                    y-intercept of the graph with equation
+                                                          5x + 4y = 8.
+                                                      Candidates are expected to give equations of a line
+                                                      in a fully simplified form.
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                 43
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+3 Coordinate geometry (continued)
+
+E3.6 Parallel lines                                Notes and examples
+
+Find the gradient and equation of a straight line  e.g. find the equation of the line parallel to
+parallel to a given line.                          y = 4x - 1 that passes through (1, -3).
+
+E3.7 Perpendicular lines                           Notes and examples
+
+Find the gradient and equation of a straight line  Examples include:
+perpendicular to a given line.                     · find the gradient of a line perpendicular to
+
+                                                       2y = 3x + 1
+                                                   · find the equation of the perpendicular bisector
+
+                                                       of the line joining the points (-3, 8) and (9, -2).
+
+Back to contents page                              www.cambridgeinternational.org/igcse                     44
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry                                    Notes and examples
+
+E4.1 Geometrical terms                        Candidates are not expected to show that two
+                                              shapes are congruent.
+1Use and interpret the following geometrical
+   terms:                                     Includes the following terms.
+   · point                                    Triangles:
+   · vertex                                   · equilateral
+   · line                                     · isosceles
+   · plane                                    · scalene
+   · parallel                                 · right-angled.
+   · perpendicular
+   · perpendicular bisector                   Quadrilaterals:
+   · bearing                                  · square
+   · right angle                              · rectangle
+   · acute, obtuse and reflex angles          · kite
+   · interior and exterior angles             · rhombus
+   · similar                                  · parallelogram
+   · congruent                                · trapezium.
+   · scale factor.
+
+2 Use and interpret the vocabulary of:
+   · triangles
+   · special quadrilaterals
+   · polygons
+   · nets
+   · solids.
+
+                                                                             continued
+
+Back to contents page                         www.cambridgeinternational.org/igcse          45
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry (continued)                           Notes and examples
+
+E4.1 Geometrical terms (continued)               Polygons:
+                                                 · regular and irregular polygons
+3 Use and interpret the vocabulary of a circle.  · pentagon
+                                                 · hexagon
+                                                 · octagon
+                                                 · decagon.
+                                                 Solids:
+                                                 · cube
+                                                 · cuboid
+                                                 · prism
+                                                 · cylinder
+                                                 · pyramid
+                                                 · cone
+                                                 · sphere
+                                                 · hemisphere
+                                                 · frustum
+                                                 · face
+                                                 · surface
+                                                 · edge.
+                                                 Includes the following terms:
+                                                 · centre
+                                                 · radius (plural radii)
+                                                 · diameter
+                                                 · circumference
+                                                 · semicircle
+                                                 · chord
+                                                 · tangent
+                                                 · major and minor arc
+                                                 · sector
+                                                 · segment.
+
+Back to contents page                            www.cambridgeinternational.org/igcse  46
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry (continued)                               Notes and examples
+
+E4.2 Geometrical constructions                       A ruler should be used for all straight edges.
+1 Measure and draw lines and angles.                 Constructions of perpendicular bisectors and angle
+                                                     bisectors are not required.
+2Construct a triangle, given the lengths of all
+   sides, using a ruler and pair of compasses only.  e.g. construct a rhombus by drawing two triangles.
+                                                     Construction arcs must be shown.
+3 Draw, use and interpret nets.
+                                                     Examples include:
+E4.3 Scale drawings
+1 Draw and interpret scale drawings.                 · draw nets of cubes, cuboids, prisms and
+2 Use and interpret three-figure bearings.                pyramids
+
+                                                     · use measurements from nets to calculate
+                                                          volumes and surface areas.
+
+                                                     Notes and examples
+
+                                                     A ruler must be used for all straight edges.
+
+                                                     Bearings are measured clockwise from north
+                                                     (000° to 360°).
+                                                     e.g. find the bearing of A from B if the bearing of B
+                                                     from A is 025°.
+                                                     Includes an understanding of the terms north, east,
+                                                     south and west.
+                                                     e.g. point D is due east of point C.
+
+E4.4 Similarity                                      Notes and examples
+
+1 Calculate lengths of similar shapes.               Includes use of scale factor, e.g.
+2Use the relationships between lengths and areas
+                                                     Volume of A `Length of Aj   3
+   of similar shapes and lengths, surface areas and
+   volumes of similar solids.                        Volume of B =  `Length of Bj3.
+
+3Solve problems and give simple explanations         Includes showing that two triangles are similar
+   involving similarity.                             using geometric reasons.
+
+E4.5 Symmetry                                        Notes and examples
+
+1Recognise line symmetry and order of rotational     Includes properties of triangles, quadrilaterals and
+   symmetry in two dimensions.                       polygons directly related to their symmetries.
+                                                     e.g. identify planes and axes of symmetry.
+2Recognise symmetry properties of prisms,
+   cylinders, pyramids and cones.
+
+Back to contents page                                               www.cambridgeinternational.org/igcse    47
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+4 Geometry (continued)                                    Notes and examples
+                                                          Knowledge of 3-letter notation for angles is
+E4.6 Angles                                               required, e.g. angle ABC. Candidates are expected
+                                                          to use the correct geometrical terminology when
+1Calculate unknown angles and give simple                 giving reasons for answers.
+   explanations using the following geometrical
+   properties:                                            Includes exterior and interior angles, and angle
+   · sum of angles at a point = 360°                      sum.
+   · sum of angles at a point on a straight line = 180°
+   · vertically opposite angles are equal
+   · angle sum of a triangle = 180° and angle sum
+      of a quadrilateral = 360°.
+
+2Calculate unknown angles and give geometric
+   explanations for angles formed within parallel lines:
+   · corresponding angles are equal
+   · alternate angles are equal
+   · co-interior angles sum to 180° (supplementary).
+
+3Know and use angle properties of regular and
+   irregular polygons.
+
+E4.7 Circle theorems I                                    Notes and examples
+
+Calculate unknown angles and give explanations            Candidates are expected to use the geometrical
+using the following geometrical properties of circles:    properties listed in the syllabus when giving
+· angle in a semicircle = 90°                             reasons for answers.
+· angle between tangent and radius = 90°
+· angle at the centre is twice the angle at the
+
+     circumference
+· angles in the same segment are equal
+· opposite angles of a cyclic quadrilateral sum to
+
+     180° (supplementary)
+· alternate segment theorem.
+
+E4.8 Circle theorems II                                   Notes and examples
+
+Use the following symmetry properties of circles:         Candidates are expected to use the geometrical
+                                                          properties listed in the syllabus when giving
+· equal chords are equidistant from the centre            reasons for answers.
+· the perpendicular bisector of a chord passes
+
+     through the centre
+· tangents from an external point are equal in
+
+     length.
+
+Back to contents page                                     www.cambridgeinternational.org/igcse               48
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+5 Mensuration                                         Notes and examples
+
+E5.1 Units of measure                                 Units include:
+Use metric units of mass, length, area, volume        · mm, cm, m, km
+and capacity in practical situations and convert      · mm2, cm2, m2, km2
+quantities into larger or smaller units.              · mm3, cm3, m3
+                                                      · ml, l
+E5.2 Area and perimeter                               · g, kg.
+Carry out calculations involving the perimeter and    Conversion between units includes:
+area of a rectangle, triangle, parallelogram and      · between different units of area, e.g. cm2  m2
+trapezium.                                            · between units of volume and capacity,
+
+                                                           e.g. m3  litres.
+
+                                                      Notes and examples
+
+                                                      Except for the area of a triangle, formulas are not
+                                                      given.
+
+E5.3 Circles, arcs and sectors                        Notes and examples
+
+1Carry out calculations involving the                 Answers may be asked for in terms of .
+   circumference and area of a circle.                Formulas are given in the List of formulas.
+                                                      Includes minor and major sectors.
+2Carry out calculations involving arc length and
+   sector area as fractions of the circumference and
+   area of a circle.
+
+E5.4 Surface area and volume                          Notes and examples
+
+Carry out calculations and solve problems involving   Answers may be asked for in terms of .
+the surface area and volume of a:                     The following formulas are given in the List of
+· cuboid                                              formulas:
+· prism                                               · curved surface area of a cylinder
+· cylinder                                            · curved surface area of a cone
+· sphere                                              · surface area of a sphere
+· pyramid                                             · volume of a prism
+· cone.                                               · volume of a pyramid
+                                                      · volume of a cylinder
+                                                      · volume of a cone
+                                                      · volume of a sphere.
+
+                                                      The term prism refers to any solid with a uniform
+                                                      cross-section, e.g. a cylindrical sector.
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                 49
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+5 Mensuration (continued)                   Notes and examples
+                                            Answers may be asked for in terms of .
+E5.5 Compound shapes and parts of shapes
+                                            e.g. find the surface area and volume of a frustum.
+1Carry out calculations and solve problems
+   involving perimeters and areas of:
+   · compound shapes
+   · parts of shapes.
+
+2Carry out calculations and solve problems
+   involving surface areas and volumes of:
+   · compound solids
+   · parts of solids.
+
+Back to contents page                       www.cambridgeinternational.org/igcse                 50
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+6 Trigonometry                                            Notes and examples
+
+E6.1 Pythagoras' theorem
+Know and use Pythagoras' theorem.
+
+E6.2 Right-angled triangles                               Notes and examples
+
+1Know and use the sine, cosine and tangent                Angles will be given in degrees and answers should
+   ratios for acute angles in calculations involving      be written in degrees, with decimals correct to one
+   sides and angles of a right-angled triangle.           decimal place.
+
+2Solve problems in two dimensions using                   Knowledge of bearings may be required.
+   Pythagoras' theorem and trigonometry.
+
+3Know that the perpendicular distance from a
+   point to a line is the shortest distance to the line.
+
+4Carry out calculations involving angles of
+   elevation and depression.
+
+E6.3 Exact trigonometric values                           Notes and examples
+
+Know the exact values of:
+1 sinx and cosx for x = 0°, 30°, 45°, 60° and 90°.
+2 tanx for x = 0°, 30°, 45° and 60°.
+
+E6.4 Trigonometric functions                              Notes and examples
+
+1Recognise, sketch and interpret the following            e.g. solve:
+  graphs for 0°  x  360°:                                                 3
+   · y = sinx
+   · y = cosx                                             · sinx = 2 for 0°  x  360°
+   · y = tanx.                                            · 2cosx + 1 = 0 for 0°  x  360°.
+
+2Solve trigonometric equations involving sinx,
+  cosx or tanx, for 0°  x  360°.
+
+Back to contents page                                     www.cambridgeinternational.org/igcse                 51
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+6 Trigonometry (continued)                         Notes and examples
+
+E6.5 Non-right-angled triangles                    Includes problems involving obtuse angles and the
+                                                   ambiguous case.
+1Use the sine and cosine rules in calculations
+   involving lengths and angles for any triangle.  The sine and cosine rules and the formula for area
+                                                   of a triangle are given in the List of formulas.
+2Use the formula
+
+                                    1
+
+  area of triangle = 2 absinC.
+
+E6.6Pythagoras' theorem and trigonometry           Notes and examples
+          in 3D
+
+Carry out calculations and solve problems in
+three dimensions using Pythagoras' theorem
+and trigonometry, including calculating the angle
+between a line and a plane.
+
+Back to contents page                              www.cambridgeinternational.org/igcse                52
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+7 Transformations and vectors                        Notes and examples
+                                                     Questions may involve combinations of
+E7.1 Transformations                                 transformations. A ruler must be used for all straight
+                                                     edges.
+Recognise, describe and draw the following
+transformations:                                     Positive, fractional and negative scale factors may
+1 Reflection of a shape in a straight line.          be used.
+2Rotation of a shape about a centre through
+                                                     Notes and examples
+   multiples of 90°.                                 Vectors will be printed as AB or a.
+3Enlargement of a shape from a centre by a scale
+
+  factor. J N
+                                           KxO
+
+4 Translation of a shape by a vector K O.
+                                            y
+                                           LP
+
+E7.2 Vectors in two dimensions
+
+1Describe a translation using a vector represented
+      JN
+      KxO
+
+by K O, AB or a.
+       y
+      LP
+
+2 Add and subtract vectors.
+3 Multiply a vector by a scalar.
+
+E7.3 Magnitude of a vector                           Notes and examples
+                                           JN
+                                           KxO       The magnitudes of vectors will be denoted by
+                                                     modulus signs, e.g.
+Calculate the magnitude of a vector K O as           · a is the magnitude of a
+                                            y        · AB is the magnitude of AB .
+                                           LP
+                                                     Notes and examples
+   x2 +y2 .
+                                                     Examples include:
+E7.4 Vector geometry                                 · show that vectors are parallel
+1 Represent vectors by directed line segments.       · show that 3 points are collinear
+2 Use position vectors.                              · solve vector problems involving ratio and
+3Use the sum and difference of two or more
+                                                          similarity.
+   vectors to express given vectors in terms of two
+   coplanar vectors.
+4Use vectors to reason and to solve geometric
+   problems.
+
+Back to contents page                                www.cambridgeinternational.org/igcse                    53
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+8 Probability                                        Notes and examples
+                                                     P(A) is the probability of A
+E8.1 Introduction to probability                     P(A) is the probability of not A
+1Understand and use the probability scale from
+                                                     Probabilities should be given as a fraction, decimal
+   0 to 1.                                           or percentage.
+2 Understand and use probability notation.           Problems may require using information from
+                                                     tables, graphs or Venn diagrams.
+3 Calculate the probability of a single event.       e.g. P(B) = 0.8, find P(B)
+
+4Understand that the probability of an event
+   not occurring = 1 - the probability of the event
+   occurring.
+
+E8.2 Relative and expected frequencies               Notes and examples
+
+1Understand relative frequency as an estimate of     e.g. use results of experiments with a spinner to
+   probability.                                      estimate the probability of a given outcome.
+
+2 Calculate expected frequencies.                    e.g. use probability to estimate an expected value
+                                                     from a population.
+
+                                                     Includes understanding what is meant by fair, bias
+                                                     and random.
+
+E8.3 Probability of combined events                  Notes and examples
+
+Calculate the probability of combined events using,  Combined events could be with or without
+where appropriate:                                   replacement.
+· sample space diagrams
+· Venn diagrams                                      The notation P(A  B) and P(A  B) may be used
+                                                     in the context of Venn diagrams.
+· tree diagrams.                                     On tree diagrams outcomes will be written at the
+                                                     end of branches and probabilities by the side of the
+                                                     branches.
+
+E8.4 Conditional probability                         Notes and examples
+
+Calculate conditional probability using Venn         Knowledge of notation, P(A|B), and formulas
+diagrams, tree diagrams and tables.                  relating to conditional probability is not required.
+
+Back to contents page                                www.cambridgeinternational.org/igcse                  54
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+9 Statistics                                          Notes and examples
+                                                      e.g. tally tables, two-way tables.
+E9.1 Classifying statistical data
+Classify and tabulate statistical data.
+
+E9.2 Interpreting statistical data                    Notes and examples
+
+1Read, interpret and draw inferences from tables      e.g. compare averages and measures of spread
+   and statistical diagrams.                          between two data sets.
+
+2Compare sets of data using tables, graphs and
+   statistical measures.
+
+3Appreciate restrictions on drawing conclusions
+   from given data.
+
+E9.3 Averages and measures of spread                  Notes and examples
+
+1Calculate the mean, median, mode, quartiles,
+   range and interquartile range for individual data
+   and distinguish between the purposes for which
+   these are used.
+
+2Calculate an estimate of the mean for grouped
+   discrete or grouped continuous data.
+
+3Identify the modal class from a grouped
+   frequency distribution.
+
+E9.4 Statistical charts and diagrams                  Notes and examples
+
+Draw and interpret:                                   Includes composite (stacked) and dual (side-by-
+(a) bar charts                                        side) bar charts.
+(b) pie charts
+(c) pictograms                                        Stem-and-leaf diagrams should have ordered data
+(d) stem-and-leaf diagrams                            with a key.
+(e) simple frequency distributions.
+
+Back to contents page                                 www.cambridgeinternational.org/igcse             55
+                                     Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Subject content
+
+9 Statistics (continued)                              Notes and examples
+
+E9.5 Scatter diagrams                                 Plotted points should be clearly marked, for
+1 Draw and interpret scatter diagrams.                example as small crosses (×).
+2Understand what is meant by positive, negative
+                                                      A line of best fit:
+   and zero correlation.                              · should be a single ruled line drawn by
+3Draw by eye, interpret and use a straight line of
+                                                           inspection
+   best fit.                                          · should extend across the full data set
+                                                      · does not need to coincide exactly with any of
+E9.6 Cumulative frequency diagrams
+1Draw and interpret cumulative frequency tables            the points but there should be a roughly even
+                                                           distribution of points either side of the line over
+   and diagrams.                                           its entire length.
+2Estimate and interpret the median, percentiles,
+                                                      Notes and examples
+   quartiles and interquartile range from cumulative
+   frequency diagrams.                                Plotted points on a cumulative frequency diagram
+                                                      should be clearly marked, for example as small
+                                                      crosses (×), and be joined with a smooth curve.
+
+E9.7 Histograms                                       Notes and examples
+1 Draw and interpret histograms.
+2 Calculate with frequency density.                   On histograms, the vertical axis is labelled
+                                                      `Frequency density'.
+                                                      Frequency density is defined as
+                                                      frequency density = frequency ÷ class width.
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                      56
+                                                                             Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027.
+
+4 Details of the assessment
+
+All candidates take two components.
+
+Candidates who have studied the Core subject content, or who are expected to achieve a grade D or below,
+should be entered for Paper 1 and Paper 3. These candidates will be eligible for grades C to G.
+
+Candidates who have studied the Extended subject content and who are expected to achieve a grade C or
+above should be entered for Paper 2 and Paper 4. These candidates will be eligible for grades A* to E.
+
+All papers assess AO1 Knowledge and understanding of mathematical techniques and AO2 Analyse, interpret
+and communicate mathematically.
+
+All papers consist of structured and unstructured questions. Structured questions contain parts, e.g. (a), (b),
+(c)(i), etc., and unstructured questions do not.
+
+Questions may assess more than one topic from the subject content.
+
+For all papers, candidates write their answers on the question paper. They must show all necessary working in
+the spaces provided.
+
+Additional materials for exams
+
+For both Core and Extended papers, candidates should have the following geometrical instruments:
+· a pair of compasses
+· a protractor
+· a ruler.
+
+Tracing paper may be used as an additional material for all four papers. Candidates cannot bring their own
+tracing paper but may request it during the examination.
+
+Candidates should have a scientific calculator for Papers 3 and 4; one with trigonometric functions is strongly
+recommended. Algebraic or graphical calculators are not permitted. Please see the Cambridge Handbook
+at www.cambridgeinternational.org/eoguide for guidance on use of calculators in the examinations.
+Calculators are not allowed for Paper 1 and Paper 2.
+
+The Additional materials list for exams is updated before each series. You can view the list for the relevant
+series and year on our website in the Phase 4 - Before the exams section of the Cambridge Exams Officer's
+Guide at www.cambridgeinternational.org/eoguide
+
+Back to contents page  www.cambridgeinternational.org/igcse  57
+                                          Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Details of the assessment
+
+Core assessment
+
+Paper 1 Non-calculator (Core)
+
+Written paper, 1 hour 30 minutes, 80 marks
+Use of a calculator is not allowed.
+Candidates answer all questions.
+This paper consists of questions based on the Core subject content, except for C1.14 Using a calculator.
+This paper will be weighted at 50% of the total qualification.
+This is a compulsory component for Core candidates.
+This written paper is an externally set assessment, marked by Cambridge.
+
+Paper 3 Calculator (Core)
+
+Written paper, 1 hour 30 minutes, 80 marks
+A scientific calculator is required.
+Candidates answer all questions.
+This paper consists of questions based on the Core subject content.
+Candidates should give non-exact numerical answers correct to 3 significant figures, or 1 decimal place for
+angles in degrees, unless a different level of accuracy is specified in the question.
+To earn accuracy marks, candidates should avoid rounding figures until they have their final answer. Where
+candidates need to use a final answer in later parts of the question, they should use the value of the final
+answer before it was rounded.
+Candidates should use the value of  from their calculator or the value of 3.142.
+This paper will be weighted at 50% of the total qualification.
+This is a compulsory component for Core candidates.
+This written paper is an externally set assessment, marked by Cambridge.
+
+Back to contents page  www.cambridgeinternational.org/igcse  58
+                                          Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Details of the assessment
+
+Extended assessment
+
+Paper 2 Non-calculator (Extended)
+
+Written paper, 2 hours, 100 marks
+Use of a calculator is not allowed.
+Candidates answer all questions.
+This paper consists of questions based on the Extended subject content, except for E1.14 Using a calculator.
+This paper will be weighted at 50% of the total qualification.
+This is a compulsory component for Extended candidates.
+This written paper is an externally set assessment, marked by Cambridge.
+
+Paper 4 Calculator (Extended)
+
+Written paper, 2 hours, 100 marks
+A scientific calculator is required.
+Candidates answer all questions.
+This paper consists of questions based on the Extended subject content.
+Candidates should give non-exact numerical answers correct to 3 significant figures, or 1 decimal place for
+angles in degrees, unless a different level of accuracy is specified in the question.
+To earn accuracy marks, candidates should avoid rounding figures until they have their final answer. Where
+candidates need to use a final answer in later parts of the question, they should use the value of the final
+answer before it was rounded.
+Candidates should use the value of  from their calculator or the value of 3.142.
+This paper will be weighted at 50% of the total qualification.
+This is a compulsory component for Extended candidates.
+This written paper is an externally set assessment, marked by Cambridge.
+
+Back to contents page  www.cambridgeinternational.org/igcse  59
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Details of the assessment
+
+List of formulas - Core (Paper 1 and Paper 3)
+
+This list of formulas will be included on page 2 of Paper 1 and Paper 3.
+
+Area, A, of triangle, base b, height h.                                        1
+                                                                          A = 2 bh
+
+Area, A, of circle of radius r.                                           A = r2
+
+Circumference, C, of circle of radius r.                                  C = 2r
+
+Curved surface area, A, of cylinder of radius r, height h.                A = 2rh
+
+Curved surface area, A, of cone of radius r, sloping edge l.              A = rl
+Surface area, A, of sphere of radius r.                                   A = 4r2
+
+Volume, V, of prism, cross-sectional area A, length l.                    V = Al
+Volume, V, of pyramid, base area A, height h.                                  1
+Volume, V, of cylinder of radius r, height h.
+Volume, V, of cone of radius r, height h.                                 V = 3 Ah
+Volume, V, of sphere of radius r.                                         V = r2h
+                                                                          V = 13 r2h
+                                                                          V = 43 r3
+
+Back to contents page                                                     www.cambridgeinternational.org/igcse  60
+                             Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Details of the assessment
+
+List of formulas - Extended (Paper 2 and Paper 4)
+
+This list of formulas will be included on page 2 of Paper 2 and Paper 4.
+
+Area, A, of triangle, base b, height h.                            1
+                                                              A = 2 bh
+
+Area, A, of circle of radius r.                               A = r2
+
+Circumference, C, of circle of radius r.                      C = 2r
+
+Curved surface area, A, of cylinder of radius r, height h.    A = 2rrh
+
+Curved surface area, A, of cone of radius r, sloping edge l.  A = rrl
+Surface area, A, of sphere of radius r.                       A = 4rr2
+
+Volume, V, of prism, cross-sectional area A, length l.        V = Al
+                                                                   1
+Volume, V, of pyramid, base area A, height h.
+                                                              V = 3 Ah
+Volume, V, of cylinder of radius r, height h.                 V = rr2h
+                                                              V = 13 rr2h
+Volume, V, of cone of radius r, height h.                     V = 43 rr3
+                                                              x = - b ! b2 - 4ac
+Volume, V, of sphere of radius r.
+                                                                           2a
+For the equation          ax2 + bx + c = 0, where a  0
+                                                              a sinA = b sinB = c sinC
+For the triangle shown,                                       a2 = b2 + c2 - 2bc cos A
+             A
+                                                                       1
+   c                      b                                   Area = 2 ab sin C
+
+B                      a                   C
+
+Back to contents page                                         www.cambridgeinternational.org/igcse  61
+                                          Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Details of the assessment
+
+Mathematical conventions
+
+Mathematics is a universal language where there are some similarities and differences around the world. The
+guidance below outlines the conventions used in Cambridge examinations and we encourage candidates to
+follow these conventions.
+
+Working with graphs
+
+· A plot of a graph should have points clearly marked, for example as small crosses (×), and must:
+     - be drawn on graph or squared paper
+     - cover a given range of values by calculating the coordinates of points and connecting them
+          appropriately (where values are given, it will include enough points to determine a curve; where a table
+          of values is not provided, the candidate must decide on the appropriate number of points required to
+          determine the curve)
+     - have each point plotted to an accuracy of within half of the smallest square on the grid.
+
+· A sketch of a graph does not have to be accurate or to scale, nor does it need to be on graph or squared
+     paper, but it must:
+     - be drawn freehand
+     - show the most important features, e.g. x-intercepts, y-intercepts, turning points, symmetry, with
+          coordinates or values marked on the axes, where appropriate
+     - have labelled axes, e.g. with x and y
+     - interact with the axes appropriately, e.g. by intersecting or by tending towards
+     - fall within the correct quadrants
+     - show the correct long-term behaviour.
+
+· Graphs should extend as far as possible across any given grid, within any constraints of the domain.
+· Where graphs of functions are:
+
+     - linear, they should be ruled
+     - non-linear, the points should be joined with a smooth curve.
+· A tangent to a curve should touch the curve at the required point and be in contact with the curve for the
+     minimum possible distance. It should not cross the curve at the point where it is a tangent.
+· Values should be read off a graph to an accuracy of within half of the smallest square on the grid.
+
+Communicating mathematically
+
+· If candidates are asked to show their working, they cannot gain full marks without clearly communicating
+     their method, even if their final answer is correct.
+                                                                                                                1
+
+· A numerical answer should not be given as a combination of fractions and decimals, e.g. 0.2 is not
+     acceptable.
+
+Back to contents page  www.cambridgeinternational.org/igcse  62
+                                          Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Details of the assessment
+
+Accuracy
+
+· Answers are expected to be given in their simplest form unless the question states otherwise.
+· Where a question asks for `exact values' the answer may need to be given in terms of  or in surd form,
+
+     depending on the question.
+· Where answers are not exact values, they should be given to three significant figures unless a different
+
+     accuracy is defined in the question.
+· Answers that are exact to four or five significant figures should not be rounded unless the question states
+
+     otherwise.
+· In order to obtain an answer correct to an appropriate degree of accuracy, a higher degree of accuracy will
+
+     often be needed within the working.
+· If a question asks to prove or show a given answer to a specified degree of accuracy, candidates must
+
+     show full working, intermediate answers and the final answer to at least one degree of accuracy more than
+     that asked for.
+
+Back to contents page  www.cambridgeinternational.org/igcse  63
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. Details of the assessment
+
+Command words
+
+Command words and their meanings help candidates know what is expected from them in the exams. The
+table below includes command words used in the assessment for this syllabus. The use of the command word
+will relate to the subject context.
+
+Command word           What it means
+Calculate              work out from given facts, figures or information
+Construct              make an accurate drawing
+Determine              establish with certainty
+Describe               state the points of a topic / give characteristics and main features
+Explain                set out purposes or reasons / make the relationships between things clear / say why
+                       and/or how and support with relevant evidence
+Give                   produce an answer from a given source or recall/memory
+Plot                   mark point(s) on a graph
+Show (that)            provide structured evidence that leads to a given result
+Sketch                 make a simple freehand drawing showing the key features
+State                  express in clear terms
+Work out               calculate from given facts, figures or information with or without the use of a calculator
+Write                  give an answer in a specific form
+Write down             give an answer without significant working
+
+Back to contents page  www.cambridgeinternational.org/igcse                                                        64
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027.
+
+5 What else you need to know
+
+This section is an overview of other information you need to know about this syllabus. It will help to share the
+administrative information with your exams officer so they know when you will need their support. Find more
+information about our administrative processes at www.cambridgeinternational.org/eoguide
+
+Before you start
+
+Previous study
+
+We recommend that learners starting this course should have studied a mathematics curriculum such as the
+Cambridge Lower Secondary programme or equivalent national educational framework.
+
+Guided learning hours
+
+We design Cambridge IGCSE syllabuses to require about 130 guided learning hours for each subject. This is
+for guidance only. The number of hours a learner needs to achieve the qualification may vary according to each
+school and the learners' previous experience of the subject.
+
+Availability and timetables
+
+All Cambridge schools are allocated to one of six administrative zones. Each zone has a specific timetable.
+
+You can view the timetable for your administrative zone at www.cambridgeinternational.org/timetables
+
+You can enter candidates in the June and November exam series. If your school is in India, you can also enter
+your candidates in the March exam series.
+
+Check you are using the syllabus for the year the candidate is taking the exam.
+
+Private candidates can enter for this syllabus. For more information, please refer to the Cambridge Guide to
+Making Entries.
+
+Combining with other syllabuses
+
+Candidates can take this syllabus alongside other Cambridge International syllabuses in a single exam series.
+The only exceptions are:
+· Cambridge IGCSE (9-1) Mathematics (0980)
+· Cambridge IGCSE International Mathematics (0607)
+· Cambridge O Level Mathematics (4024)
+· syllabuses with the same title at the same level.
+
+Cambridge IGCSE, Cambridge IGCSE (9-1) and Cambridge O Level syllabuses are at the same level.
+
+Group awards: Cambridge ICE
+
+Cambridge ICE (International Certificate of Education) is a group award for Cambridge IGCSE. It allows schools
+to offer a broad and balanced curriculum by recognising the achievements of learners who pass exams in a
+range of different subjects.
+
+Learn more about Cambridge ICE at www.cambridgeinternational.org/cambridgeice
+
+Back to contents page  www.cambridgeinternational.org/igcse                                                       65
+                                      Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. What else you need to know
+
+Making entries
+
+Exams officers are responsible for submitting entries to Cambridge International. We encourage them to work
+closely with you to make sure they enter the right number of candidates for the right combination of syllabus
+components. Entry option codes and instructions for submitting entries are in the Cambridge Guide to Making
+Entries. Your exams officer has a copy of this guide.
+
+Exam administration
+
+To keep our exams secure, we produce question papers for different areas of the world, known as
+administrative zones. We allocate all Cambridge schools to an administrative zone determined by their location.
+Each zone has a specific timetable. Some of our syllabuses offer candidates different assessment options. An
+entry option code is used to identify the components the candidate will take relevant to the administrative zone
+and the available assessment options.
+
+Support for exams officers
+
+We know how important exams officers are to the successful running of exams. We provide them with the
+support they need to make your entries on time. Your exams officer will find this support, and guidance for all
+other phases of the Cambridge Exams Cycle, at www.cambridgeinternational.org/eoguide
+
+Retakes
+
+Candidates can retake the whole qualification as many times as they want to. Information on retake entries is at
+www.cambridgeinternational.org/retakes
+
+Language
+
+This syllabus and the related assessment materials are available in English only.
+
+Accessibility and equality
+
+Syllabus and assessment design
+
+Cambridge International works to avoid direct or indirect discrimination. We develop and design syllabuses and
+assessment materials to maximise inclusivity for candidates of all national, cultural or social backgrounds and
+candidates with protected characteristics; these protected characteristics include special educational needs
+and disability, religion and belief, and characteristics related to gender and identity. In addition, the language
+and layout used are designed to make our materials as accessible as possible. This gives all candidates the
+fairest possible opportunity to demonstrate their knowledge, skills and understanding and helps to minimise the
+requirement to make reasonable adjustments during the assessment process.
+
+Access arrangements
+
+Access arrangements (including modified papers) are the principal way in which Cambridge International
+complies with our duty, as guided by the UK Equality Act (2010), to make `reasonable adjustments' for
+candidates with special educational needs (SEN), disability, illness or injury. Where a candidate would otherwise
+be at a substantial disadvantage in comparison to a candidate with no SEN, disability, illness or injury, we
+may be able to agree pre-examination access arrangements. These arrangements help a candidate by
+minimising accessibility barriers and maximising their opportunity to demonstrate their knowledge, skills and
+understanding in an assessment.
+
+Back to contents page  www.cambridgeinternational.org/igcse  66
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. What else you need to know
+
+Important:
+· Requested access arrangements should be based on evidence of the candidate's barrier to assessment
+
+     and should also reflect their normal way of working at school; this is in line with the Cambridge Handbook
+     www.cambridgeinternational.org/eoguide
+· For Cambridge International to approve an access arrangement, we will need to agree that it constitutes
+     a reasonable adjustment, involves reasonable cost and timeframe and does not affect the security and
+     integrity of the assessment.
+· Availability of access arrangements should be checked by centres at the start of the course. Details of our
+     standard access arrangements and modified question papers are available in the Cambridge Handbook
+     www.cambridgeinternational.org/eoguide
+· Please contact us at the start of the course to find out if we are able to approve an arrangement that is not
+     included in the list of standard access arrangements.
+· Candidates who cannot access parts of the assessment may be able to receive an award based on the
+     parts they have completed.
+
+After the exam
+
+Grading and reporting
+
+Grades A*, A, B, C, D, E, F or G indicate the standard a candidate achieved at Cambridge IGCSE.
+
+A* is the highest and G is the lowest. `Ungraded' means that the candidate's performance did not meet the
+standard required for grade G. `Ungraded' is reported on the statement of results but not on the certificate.
+In specific circumstances your candidates may see one of the following letters on their statement of results:
+· Q (PENDING)
+· X (NO RESULT).
+These letters do not appear on the certificate.
+On the statement of results and certificates, Cambridge IGCSE is shown as INTERNATIONAL GENERAL
+CERTIFICATE OF SECONDARY EDUCATION (IGCSE).
+
+How students and teachers can use the grades
+
+Assessment at Cambridge IGCSE has two purposes:
+1 to measure learning and achievement
+
+     The assessment confirms achievement and performance in relation to the knowledge, understanding and
+     skills specified in the syllabus, to the levels described in the grade descriptions.
+2 to show likely future success
+     The outcomes help predict which students are well prepared for a particular course or career and/or which
+     students are more likely to be successful.
+     The outcomes help students choose the most suitable course or career.
+
+Grade descriptions
+
+Grade descriptions are provided to give an indication of the standards of achievement candidates awarded
+particular grades are likely to show. Weakness in one aspect of the examination may be balanced by a better
+performance in some other aspect.
+Grade descriptions for Cambridge IGCSE Mathematics will be published after the first assessment of the
+syllabus in 2025.
+
+Back to contents page  www.cambridgeinternational.org/igcse                                                      67
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. What else you need to know
+
+Changes to this syllabus for 2025, 2026 and 2027
+
+This syllabus is version 3, published May 2024.
+You must read the whole syllabus before planning your teaching programme.
+Changes to version 3 of the syllabus, published May 2024.
+
+Changes to syllabus content · Alignment of text on pages 41-56 has been adjusted.
+
+Changes to version 2 of the syllabus, published February 2024.
+
+Changes to syllabus content  · The term prism has been clarified in C5.4 and E5.4 in the notes and
+                                  guidance.
+
+                             · Drawing graphs in E2.11 has been clarified to define the
+                                  expectations for reciprocal and exponential graphs.
+
+                             · Guidance has been updated to include the term random in C8.2.2
+                                  and E8.2.2
+
+Changes to version 1 of the syllabus, published September 2022.
+
+Changes to syllabus content  · The wording of the learning outcomes has been updated and
+                                  additional notes and examples included, to clarify the depth of
+                                  teaching.
+
+                             · The subject content has been refreshed and updated, with
+                                  some topics and learning outcomes added and some removed.
+                                  Significant changes to content have been summarised below.
+
+                             · No new topics have been added to the Core subject content.
+                             · Content removed from the Core subject content:
+
+                                  - adding and subtracting vectors
+                                  - multiplying a vector by a scalar
+                                  - data collection (it is expected that data collection will be part of
+
+                                       a course based on this syllabus, although it will not be assessed
+                                       in an examination).
+                             · Content added to the Core subject content:
+                                  - inequalities
+                                  - recall of certain squares, cubes and roots
+
+                                                                                                              continued
+
+Back to contents page                                            www.cambridgeinternational.org/igcse                    68
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. What else you need to know
+
+Changes to syllabus content  · Content removed from the Extended subject content:
+(continued)                       - proper subsets
+                                  - linear programming
+                                  - congruence criteria (knowledge of congruence itself is still in the
+                                       syllabus)
+                                  - data collection (it is expected that data collection will be part of
+                                       a course based on this syllabus, although it will not be assessed
+                                       in an examination)
+                                  - box-and-whisker plots
+
+                             · Content added to the Extended subject content:
+                                  - recall of certain squares, cubes and roots
+                                  - surds
+                                  - graphs of functions in the form axn now include values of n of
+                                      -12 and 12
+                                  - domain and range
+                                  - exact trigonometric values
+
+                             · Other content has been clarified within topics; you are advised to
+                                  read the subject content in the syllabus carefully for details.
+
+                             · The teaching time has not changed.
+                             · The Details of the assessment section includes:
+
+                                  - the List of formulas that is provided in the examinations
+                                  - mathematical conventions.
+                             · The wording of the learner attributes has been updated to improve
+                                  the clarity of wording.
+                             · The wording of the aims has been updated to improve the clarity of
+                                  wording but the meaning is the same.
+                             · The wording of the assessment objectives (AOs) has been updated.
+                                  There are no changes to the knowledge and skills being assessed
+                                  for each AO.
+
+Back to contents page        www.cambridgeinternational.org/igcse                                         69
+                       Cambridge IGCSE Mathematics 0580 syllabus for 2025, 2026 and 2027. What else you need to know
+
+Changes to assessment  · A non-calculator assessment has been introduced at each tier to
+(including changes to       build candidates' confidence in working mathematically without a
+specimen papers)            calculator.
+
+                       · The examination papers have been rebalanced to provide improved
+                            accessibility and a better candidate experience. The marks,
+                            durations and weightings are the same for both papers in a tier.
+
+                       · All examination papers will:
+                            - include the List of formulas on page 2
+                            - include a mixture of structured and unstructured questions
+                            - have questions that are the same standard as in the existing
+                                 assessment.
+
+                       · Changes to Paper 1 (Core)
+                            - this is now a non-calculator paper, calculators are not allowed
+                                 in the exam
+                            - number of marks increased to 80 marks
+                            - duration has changed to 1 hour 30 minutes
+                            - weighting has changed to 50%
+
+                       · Changes to Paper 2 (Extended)
+                            - this is now a non-calculator paper, calculators are not allowed
+                                 in the exam
+                            - number of marks increased to 100 marks
+                            - duration has changed to 2 hours
+                            - weighting has changed to 50%
+
+                       · Changes to Paper 3 (Core)
+                            - number of marks decreased to 80 marks
+                            - duration has changed to 1 hour 30 minutes
+                            - weighting has changed to 50%
+
+                       · Calculators are still allowed in Paper 3.
+                       · Changes to Paper 4 (Extended)
+
+                            - number of marks decreased to 100 marks
+                            - duration has changed to 2 hours
+                            - weighting has changed to 50%
+                       · Calculators are still allowed in Paper 4.
+                       · The specimen assessment materials have been updated to reflect
+                            the changes to the assessment.
+
+In addition to reading the syllabus, you should refer to the updated specimen assessment materials. The
+specimen papers will help your students become familiar with exam requirements and command words in
+questions. The specimen mark schemes show how students should answer questions to meet the assessment
+objectives.
+
+Any textbooks endorsed to support the syllabus for examination from 2025 are suitable for use
+with this syllabus.
+
+Back to contents page  www.cambridgeinternational.org/igcse                                              70
+School feedback: `While studying Cambridge IGCSE and Cambridge International A Levels, students
+broaden their horizons through a global perspective and develop a lasting passion for learning.'
+
+Feedback from: Zhai Xiaoning, Deputy Principal, The High School Affiliated to Renmin University of China
+
+We are committed to making our documents accessible in accordance with the WCAG 2.1 Standard. We are always looking to improve
+the accessibility of our documents. If you find any problems or you think we are not meeting accessibility requirements, contact us at
+info@cambridgeinternational.org with the subject heading: Digital accessibility. If you need this document in a different format, contact
+us and supply your name, email address and requirements and we will respond within 15 working days.
+
+Cambridge Assessment International Education, The Triangle Building, Shaftesbury Road, Cambridge, CB2 8EA, United Kingdom
+
+t: +44 (0)1223 553554  email: info@cambridgeinternational.org  www.cambridgeinternational.org
+
+© Cambridge University Press & Assessment September 2022
+

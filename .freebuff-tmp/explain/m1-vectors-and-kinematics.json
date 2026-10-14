@@ -1,0 +1,5 @@
+{
+  "1": "The unit vectors i and j separate the two directions, so the magnitude follows from Pythagoras on the components. Writing vectors this way makes addition and subtraction component by component.",
+  "2": "The constant-acceleration formulae come from integrating acceleration to get velocity and velocity to get displacement. They apply only while the acceleration is constant, so check that before using them.",
+  "3": "Gradient on a displacement–time graph is velocity, because velocity is the rate of change of displacement. On a velocity–time graph the area under the line is the displacement, which is why the same graph gives both quantities."
+}

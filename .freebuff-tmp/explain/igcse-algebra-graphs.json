@@ -1,0 +1,10 @@
+{
+  "1": "On a distance–time graph the gradient is speed because speed is distance per unit time. A conversion graph works the same way: its gradient is the rate that converts one unit into the other.",
+  "2": "Each table row gives one point on the curve, and joining enough points shows the shape. The restriction x ≠ 0 for y = a/x is needed because division by zero is undefined.",
+  "3": "A quadratic is symmetrical about a vertical line through its turning point, so the intercepts on either side of that line match. Marking the intercepts and the symmetry fixes the shape of the sketch.",
+  "4": "Gradient is rise over run, the change in y per unit change in x. It is the same between any two points on a straight line.",
+  "5": "In y = mx + c, m sets how steeply the line rises and c sets where it crosses the y-axis. Two lines with the same m and different c never meet, which is why they are parallel.",
+  "6": "A 90-degree turn swaps the rise and the run and changes the sign of one of them, so perpendicular gradients multiply to −1. Rewriting the line as y = mx + c makes its gradient easy to read.",
+  "7": "The length formula is Pythagoras on the horizontal and vertical differences. The midpoint averages the coordinates, so it lies halfway along the line.",
+  "8": "The power rule gives the gradient of the curve at each x. At a stationary point the gradient is zero, so solving dy/dx = 0 finds the turning points."
+}

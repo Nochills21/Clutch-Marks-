@@ -1,0 +1,6 @@
+{
+  "1": "A continuous function that changes sign on an interval must cross zero somewhere in it. The sign change guarantees a root but does not say how many roots there are.",
+  "2": "Rearranging f(x) = 0 into x = g(x) lets you repeatedly apply g. Each application gives a new estimate, which approaches the root if the iteration converges.",
+  "3": "The iteration converges when successive values settle towards a fixed value. If they diverge or oscillate, the chosen rearrangement is unsuitable and another form should be tried.",
+  "4": "The accuracy requested depends on the question, so round only at the end. A sign change over a small interval around the answer confirms the root to that accuracy."
+}

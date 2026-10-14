@@ -29,20 +29,22 @@ import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import type { Tables } from "@/integrations/supabase/types";
 
 export default function TopicNotes() {
   const { slug: subject, level, topic } = useParams<{ slug: string; level: string; topic: string }>();
   const { role } = useAuth();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [subjectMeta, setSubjectMeta] = useState<any>(null);
-  const [subjectLevel, setSubjectLevel] = useState<any>(null);
+  const [subjectMeta, setSubjectMeta] = useState<Tables<"subjects"> | null>(null);
+  const [subjectLevel, setSubjectLevel] = useState<Tables<"subject_levels"> | null>(null);
   const [topicTitle, setTopicTitle] = useState<string | null>(null);
   const [topicId, setTopicId] = useState<string | null>(null);
   const topicSlug = slugifyTopicName(topic ?? "");
-  const [lessons, setLessons] = useState<any[]>([]);
-  const [materials, setMaterials] = useState<any[]>([]);
-  const [quizzes, setQuizzes] = useState<any[]>([]);
+  const [lessons, setLessons] = useState<Pick<Tables<"lessons">, "id" | "title" | "content">[]>([]);
+  const [materials, setMaterials] = useState<Pick<Tables<"study_materials">, "id" | "title" | "content" | "material_type" | "file_url" | "preview_url" | "page_count" | "source_range">[]>([]);
+  // `questions` is not a column; it is only present if a caller embeds it.
+  const [quizzes, setQuizzes] = useState<(Pick<Tables<"quizzes">, "id" | "title" | "exam_type" | "is_published"> & { questions?: unknown[] | null })[]>([]);
   const [masteryRows, setMasteryRows] = useState<{ state: string }[] | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const bumpRevision = () => setReloadKey((k) => k + 1);

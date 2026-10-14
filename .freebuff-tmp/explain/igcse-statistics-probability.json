@@ -1,0 +1,6 @@
+{
+  "1": "Probability measures the share of outcomes that happen. Zero means impossible and one means certain, so every probability lies between them.",
+  "2": "Relative frequency is observed data from trials. As the number of trials grows it settles near the probability, and expected frequency is the probability times the number of trials.",
+  "3": "With replacement, each trial is unaffected by the last, so probabilities along a path multiply. A sample space or tree diagram lists every outcome so none is missed.",
+  "4": "Conditional probability restricts the sample space to the group named in the question, which changes the denominator. Choosing the right group is the key step."
+}

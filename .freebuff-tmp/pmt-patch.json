@@ -1,0 +1,30 @@
+[
+  {
+    "old": "const LIMIT = Number((argv.find((a) => a.startsWith(\"--limit=\")) || \"--limit=100000\").split(\"=\")[1]);",
+    "new": "const LIMIT = Number((argv.find((a) => a.startsWith(\"--limit=\")) || \"--limit=100000\").split(\"=\")[1]);\n// The `past-papers` bucket sits on the project's 1 GB storage allowance and is\n// already ~410 MB, so a bulk run has to stop on bytes, not on pair count — the\n// ~2,100 pairs PMT publishes are roughly 3 GB. Newest sessions first, so\n// whatever the budget buys is the most useful part of the archive.\nconst BUDGET_MB = Number((argv.find((a) => a.startsWith(\"--budget-mb=\")) || \"--budget-mb=450\").split(\"=\")[1]);"
+  },
+  {
+    "old": "  ...[[1, \"AS\"], [2, \"A2\"], [3, \"A2\"]].map(([n, level]) => ({\n    id: `9709-p${n}`,\n    page: `https://www.physicsandmathstutor.com/a-level-maths-papers/cie-p${n}/`,\n    subject_slug: \"mathematics\",\n    level,\n    code: \"9709\",\n    paper_number: `Paper ${n}`,\n    title:\n      n === 1\n        ? \"Cambridge International AS Level Mathematics 9709 — Paper 1: Pure Mathematics 1\"\n        : `Cambridge International A Level Mathematics 9709 — Paper ${n}: Pure Mathematics ${n}`,\n  })),",
+    "new": "  // 9709 components, under the names the board itself uses: Paper 1 Pure 1\n  // (AS), 2/3 Pure 2/3 (A2), 4 Mechanics, 5/6 Probability & Statistics 1/2.\n  ...[\n    [1, \"AS\", \"Pure Mathematics 1\"],\n    [2, \"A2\", \"Pure Mathematics 2\"],\n    [3, \"A2\", \"Pure Mathematics 3\"],\n    [4, \"A2\", \"Mechanics\"],\n    [5, \"A2\", \"Probability & Statistics 1\"],\n    [6, \"A2\", \"Probability & Statistics 2\"],\n  ].map(([n, level, name]) => ({\n    id: `9709-p${n}`,\n    page: `https://www.physicsandmathstutor.com/a-level-maths-papers/cie-paper-${n}/`,\n    subject_slug: \"mathematics\",\n    level,\n    code: \"9709\",\n    paper_number: `Paper ${n}`,\n    title: `Cambridge International ${level === \"AS\" ? \"AS\" : \"A\"} Level Mathematics 9709 — Paper ${n}: ${name}`,\n  })),"
+  },
+  {
+    "old": "  const fresh = pairs.filter(\n    (p) => !existingKeys.has(`${p.subject_slug}|${p.level}|${p.title}|${p.session ?? \"\"}|${p.year ?? \"\"}`),\n  );\n  log(`pairs on PMT: ${pairs.length}, of which new: ${fresh.length}, page errors: ${pageErrors.length}`);",
+    "new": "  // Newest first, and one row per paper-sitting: an index page lists several\n  // variants of the same session and they key the same, so without this the\n  // queue would insert duplicate rows sharing one storage path.\n  const seen = new Set();\n  const fresh = [];\n  for (const p of [...pairs].sort((a, b) => (b.year ?? 0) - (a.year ?? 0))) {\n    const key = `${p.subject_slug}|${p.level}|${p.title}|${p.session ?? \"\"}|${p.year ?? \"\"}`;\n    if (existingKeys.has(key) || seen.has(key)) continue;\n    seen.add(key);\n    fresh.push(p);\n  }\n  log(`pairs on PMT: ${pairs.length}, of which new: ${fresh.length}, page errors: ${pageErrors.length}`);"
+  },
+  {
+    "old": "  let uploaded = 0;\n  let inserted = 0;\n  const ingested = []; // for reconciling the harvest's candidate rows\n\n  for (const p of queue) {",
+    "new": "  let uploaded = 0;\n  let inserted = 0;\n  let bytes = 0;\n  const ingested = []; // for reconciling the harvest's candidate rows\n\n  for (const p of queue) {\n    if (bytes >= BUDGET_MB * 1024 * 1024) {\n      log(`storage budget reached (${(bytes / 1048576).toFixed(0)} MB of ${BUDGET_MB} MB) — stopping; re-run later to continue`);\n      break;\n    }"
+  },
+  {
+    "old": "        if (up.error) throw new Error(`upload ${dest}: ${up.error.message}`);\n        uploaded += 1;",
+    "new": "        if (up.error) throw new Error(`upload ${dest}: ${up.error.message}`);\n        uploaded += 1;\n        bytes += res.body.length;"
+  },
+  {
+    "old": "    log(`  ✓ ${p.subject_slug}/${p.level} ${p.session ?? \"?\"} ${p.year ?? \"?\"} — ${p.title}`);",
+    "new": "    log(`  ✓ ${p.subject_slug}/${p.level} ${p.session ?? \"?\"} ${p.year ?? \"?\"} — ${p.title} · ${(bytes / 1048576).toFixed(0)} MB this run`);"
+  },
+  {
+    "old": "    log(`dry run: would fetch ${queue.length} pair(s) = ${queue.length * 2} PDFs`);",
+    "new": "    log(`dry run: would fetch ${queue.length} pair(s) = ${queue.length * 2} PDFs (budget ${BUDGET_MB} MB)`);"
+  }
+]

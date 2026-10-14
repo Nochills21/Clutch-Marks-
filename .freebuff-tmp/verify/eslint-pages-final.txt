@@ -1,0 +1,13 @@
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx
+  141:6  warning  React Hook useMemo has an unnecessary dependency: 'FREE_PREVIEW_LIMIT'. Either exclude it or remove the dependency array. Outer scope values like 'FREE_PREVIEW_LIMIT' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+  154:6  warning  React Hook useMemo has a missing dependency: 'prefsLoaded'. Either include it or remove the dependency array                                                                                                                                            react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\ProgressPage.tsx
+  203:6  warning  React Hook useMemo has a missing dependency: 'topics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx
+  93:37  warning  React Hook useEffect has a missing dependency: 'loadPlans'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 4 problems (0 errors, 4 warnings)
+

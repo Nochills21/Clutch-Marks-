@@ -1,0 +1,7 @@
+{
+  "1": "A curve's gradient changes from point to point, so it is defined as the limit of the gradient of a chord as its second point approaches the first. dy/dx is that limit, and it is the gradient at a single point.",
+  "2": "The power rule n xⁿ⁻¹ comes from that limit applied to xⁿ. Constants have zero gradient, and a sum differentiates term by term because the limit of a sum is the sum of the limits.",
+  "3": "A tangent touches the curve with the same gradient as the curve at that point. A normal is perpendicular to the tangent, so its gradient is −1 divided by the tangent gradient, which is why the normal uses the negative reciprocal.",
+  "4": "At a turning point the tangent is horizontal, so dy/dx = 0. The second derivative tells you the type: if d²y/dx² is positive the gradient is increasing through that point, so it must have been negative before and positive after, giving a minimum.",
+  "5": "The derivative is the gradient, so its sign says which way the curve is travelling. Positive means increasing and negative means decreasing, and a change of sign marks a turning point."
+}

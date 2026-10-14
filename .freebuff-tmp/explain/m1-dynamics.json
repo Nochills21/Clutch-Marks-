@@ -1,0 +1,8 @@
+{
+  "1": "F = ma follows from the definition of the resultant force. Resolving forces into components first lets you apply the equation one direction at a time, since each component produces acceleration only in its own direction.",
+  "2": "A light string transmits the same tension on both sides of a smooth pulley. Each particle gets its own equation of motion, and the shared string links their accelerations, so solving them together gives the answer.",
+  "3": "Weight splits into one component along the plane and one perpendicular to it. The perpendicular part is balanced by the normal reaction, which leaves mg sin θ acting down the plane.",
+  "4": "Friction opposes motion and reaches its maximum value μR when the particle is about to slide. The normal reaction R is the force perpendicular to the surface, so it depends on the component of weight into the surface.",
+  "5": "Impulse is the change in momentum because Newton's second law written as F = m dv/dt integrates to impulse = mv − mu. The impulse of a force over time equals the change in momentum it causes.",
+  "6": "Momentum is conserved for two particles together because the forces between them are equal and opposite and cancel. Choosing one direction as positive keeps the signs of the velocities consistent."
+}

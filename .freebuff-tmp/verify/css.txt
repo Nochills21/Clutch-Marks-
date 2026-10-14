@@ -1,0 +1,1 @@
+[check:css] 218 source files · 1394 CSS classes · every class resolves (indirect pass skipped: Cannot read properties of undefined (reading '__isOptionsFunction'))

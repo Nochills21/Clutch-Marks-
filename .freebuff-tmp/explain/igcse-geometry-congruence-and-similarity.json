@@ -1,0 +1,7 @@
+{
+  "1": "Congruent shapes match exactly, while similar shapes match in angle and proportion. Similar shapes differ only by a scale factor.",
+  "2": "A scale factor is the ratio of a pair of corresponding lengths. Once you have it, every other length in the shape follows by multiplication.",
+  "3": "Area is two-dimensional, so a length scale factor k gives k² for area. Volume is three-dimensional, so it gives k³, which is why doubling the sides multiplies the volume by eight.",
+  "4": "A mirror line splits a shape into two identical halves, so each point on one side has a matching point on the other. Counting the mirror lines gives the number of symmetries.",
+  "5": "The order of rotational symmetry counts how many times a shape fits onto itself in one full turn. A shape with no rotation fit has order 1."
+}

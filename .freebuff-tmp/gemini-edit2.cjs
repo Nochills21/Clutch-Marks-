@@ -1,0 +1,11 @@
+const fs = require("fs");
+const p = "supabase/functions/ai-correction/index.ts";
+const src = fs.readFileSync(p, "utf8");
+const crlf = src.includes("\r\n");
+let t = src.replace(/\r\n/g, "\n");
+const a = "    // Workers AI's free daily neuron allocation running out (429) is capacity,\n    // not a broken script — say so, and say the marking can be retried.";
+const b = "    // A 429 is capacity, not a broken script: Workers AI's free daily neuron\n    // allocation running out, or a Gemini rate limit. Say so; marking can be retried.";
+if (t.split(a).length !== 2) throw new Error("comment anchor not unique");
+t = t.replace(a, () => b);
+fs.writeFileSync(p, crlf ? t.replace(/\n/g, "\r\n") : t);
+console.log("ok crlf=" + crlf);

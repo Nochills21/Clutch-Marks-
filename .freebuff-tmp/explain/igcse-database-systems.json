@@ -1,0 +1,6 @@
+{
+  "1": "A database stores each fact once in a table and links related tables through keys. Splitting data this way avoids repeating the same information in many places.",
+  "2": "A primary key uniquely identifies each record, and a foreign key links one table to another. Without a unique key, records cannot be reliably found or related.",
+  "3": "SQL reads, filters and changes data using the structure of the tables, without a program needing to loop through records. The query states what is wanted, not how to find it.",
+  "4": "Validation rejects bad data as it is entered, and verification checks that data was copied correctly. Each addresses a different kind of error, so both are needed."
+}

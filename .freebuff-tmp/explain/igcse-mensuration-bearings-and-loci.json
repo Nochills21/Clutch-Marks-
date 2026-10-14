@@ -1,0 +1,8 @@
+{
+  "1": "Accurate drawing depends on a straight edge and a sharp pencil, because small errors in a drawing become large errors when you scale them up.",
+  "2": "Two arcs drawn from the ends of a side meet at the third vertex, because every point on each arc is the correct distance from one end. Keeping the compass setting fixed keeps the arcs correct.",
+  "3": "A net is a flat pattern that folds into a solid. Its shapes and lengths give the surface area, since each face of the solid appears once in the net.",
+  "4": "A scale such as 1:50 means one unit on the drawing stands for 50 units in reality. Lengths are multiplied or divided by the scale, while angles do not change.",
+  "5": "A bearing is measured clockwise from north, and three figures make every direction unambiguous, so 045 and 45 cannot be confused. The angle is taken from the north line at the starting point.",
+  "6": "A locus is the set of all points that satisfy a rule. Drawing it shows where those points lie, which is why the construction is the answer rather than a calculation."
+}

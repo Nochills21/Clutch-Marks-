@@ -1,0 +1,1 @@
+select t.id, t.slug, sl.level::text as lvl, s.name, (select count(*) from study_materials m where m.topic_id=t.id and m.material_type='notes') as notes_rows from topics t join subject_levels sl on sl.id=t.subject_level_id join subjects s on s.id=sl.subject_id where t.slug in ('thermal-physics','electric-fields-and-capacitance','circular-motion-and-shm') order by t.slug;

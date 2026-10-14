@@ -1,0 +1,6 @@
+{
+  "1": "A set is defined by which objects belong to it. The symbols state membership and relationships exactly, so an answer can be checked against the definition.",
+  "2": "Overlapping regions show elements that belong to both sets. Filling in the intersection first and then the outer regions avoids counting the shared elements twice.",
+  "3": "The universal set holds every element under consideration, so elements outside both sets are the total minus the union. Subtracting from the total is the reliable way to find them.",
+  "4": "All the regions together must add up to the total given in the question. Checking that sum catches a missing or double-counted region."
+}

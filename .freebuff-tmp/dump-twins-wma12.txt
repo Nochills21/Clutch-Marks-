@@ -1,0 +1,56 @@
+=== wma12-p2-b005.json Q138  [WMA12 4.1]
+Find the exact value of \(\int_0^2 (3x^2 + 2x + 1) dx\). [WMA12 P2, 3 marks]
+  0: 10
+  1: 12
+  2: 8
+  3: 14   <-- KEY
+EXP: Integrate term by term with the power rule: \(\int (3x^2 + 2x + 1) dx = x^3 + x^2 + x\) M1 [1]. Apply the limits: \(\left[x^3 + x^2 + x\right]_0^2\) M1 [1]. At the upper limit: \(8 + 4 + 2 = 14\); at the lower limit 0 the expression is 0. The exact value is 14 A1 [1].
+
+=== wma12-p2-b005.json Q144  [WMA12 6.2]
+The third term of a geometric progression is 16 and the sixth term is 128. Find the common ratio r. [WMA12 P2, 3 marks]
+  0: 3
+  1: 2   <-- KEY
+  2: 4
+  3: 1.5
+EXP: Write the given terms with the standard form \(ar^{n-1}\): \(ar^2 = 16\) and \(ar^5 = 128\) M1 [1]. Dividing the second equation by the first cancels a: \(r^3 = \frac{128}{16} = 8\) M1 [1]. Taking the cube root gives exactly \(r = 2\) A1 [1].
+
+=== wma12-p2-b005.json Q145  [WMA12 6.3]
+A geometric progression has first term 20 and sum to infinity 50. Find the common ratio r. [WMA12 P2, 2 marks]
+  0: 0.75
+  1: 0.5
+  2: 0.25
+  3: 0.6   <-- KEY
+EXP: Use the sum to infinity formula \(S_\infty = \frac{a}{1 - r}\) M1 [1]. Substitute \(a = 20\) and \(S_\infty = 50\): \(50 = \frac{20}{1 - r}\), so \(1 - r = 0.4\) and \(r = 0.6\) A1 [1].
+
+=== wma12-p2-b007.json Q171  [WMA12 2.1]
+Find the coefficient of \(x^2\) in the binomial expansion of \((2 + x)^6\). State the exact integer value. [WMA12 P2, 3 marks]
+  0: 160
+  1: 80
+  2: 240   <-- KEY
+  3: 320
+EXP: Use the general term formula \(\binom{n}{r} a^{n-r} b^r\) M1 [1]. For \(x^2\) take \(n = 6\), \(r = 2\), \(a = 2\) and \(b = 1\): \(\binom{6}{2}(2)^{4}(x)^2\) M1 [1]. Calculate \(\binom{6}{2} = 15\) and \(2^4 = 16\); multiplying gives \(15 \times 16 = 240\), so the exact coefficient is 240 A1 [1].
+
+=== wma12-p2-b008.json Q184  [WMA12 4.2]
+Find the area of the finite region bounded by the curve \(y = x^2 - 4x\), the x-axis and the line \(x = 2\). State the exact value. [WMA12 P2, 4 marks]
+  0: \(\frac{32}{3}\)
+  1: \(\frac{16}{3}\)   <-- KEY
+  2: \(8\)
+  3: \(\frac{64}{3}\)
+EXP: Find where the curve meets the x-axis: \(x(x - 4) = 0\), so the roots are 0 and 4 and the curve lies below the axis on this interval M1 [1]. The region asked for stops at \(x = 2\), so set up \(\int_0^2 (4x - x^2) dx\) M1 [1]. Integrate: \(\left[2x^2 - \frac{x^3}{3}\right]_0^2 = 8 - \frac{8}{3}\) M1 [1]. This gives \(\frac{24 - 8}{3} = \frac{16}{3}\) A1 [1].
+
+=== wma12-p2-b008.json Q192  [WMA12 6.3]
+A geometric progression has first term 9 and sum to infinity 12. Find the common ratio r. [WMA12 P2, 2 marks]
+  0: 0.75
+  1: 0.5
+  2: 0.25   <-- KEY
+  3: 0.6
+EXP: Use the sum to infinity formula \(S_\infty = \frac{a}{1 - r}\) M1 [1]. Substitute \(a = 9\) and \(S_\infty = 12\): \(12 = \frac{9}{1 - r}\), so \(1 - r = 0.75\) and \(r = 0.25\) A1 [1].
+
+=== wma12-p2-b008.json Q195  [WMA12 1.1]
+Find the remainder when \(f(x) = x^3 - 5x^2 + 2x + 8\) is divided by \((x - 3)\). [WMA12 P2, 2 marks]
+  0: 0
+  1: 4
+  2: -4   <-- KEY
+  3: 2
+EXP: Use the remainder theorem: the remainder when \(f(x)\) is divided by \((x - a)\) is \(f(a)\) M1 [1]. Substitute \(x = 3\): \(f(3) = 3^3 - 5(3^2) + 2(3) + 8\) M1 [1]. Simplify: \(27 - 45 + 6 + 8 = -4\) A1 [1]. The exact remainder is -4.
+

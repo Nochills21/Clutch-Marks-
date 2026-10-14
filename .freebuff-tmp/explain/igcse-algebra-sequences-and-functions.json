@@ -1,0 +1,7 @@
+{
+  "1": "A term-to-term rule says how each term follows from the one before. Applying it repeatedly extends the pattern, which is only valid if the rule holds for every step.",
+  "2": "An nth term formula gives any term directly. Substituting n = 1, 2 and 3 checks that the formula reproduces the given terms, so the pattern is confirmed before you use it.",
+  "3": "A function gives one output for each input, so f(a) has a single value. Substituting a for x is the whole operation, which is why the notation stays simple.",
+  "4": "gf(x) means g applied to the output of f, so f is applied first. Changing the order usually changes the answer, because the two operations do not commute.",
+  "5": "The inverse undoes f, so applying f then f⁻¹ returns the original input. Swapping x and y and rearranging is the algebraic way to reverse each step."
+}

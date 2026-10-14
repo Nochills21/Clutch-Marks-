@@ -1,0 +1,7 @@
+{
+  "1": "Speed ignores direction, while velocity includes it, so a change of direction changes velocity even at constant speed. Acceleration is the rate of change of velocity, which is why it can come from a change in direction as well as speed.",
+  "2": "On a distance–time graph the gradient is speed, and on a velocity–time graph the gradient is acceleration. The area under a velocity–time graph gives the displacement, because it multiplies velocity by time. It equals the distance travelled only while the velocity does not change direction.",
+  "3": "Mass measures the amount of matter and does not change with location. Weight is the gravitational pull on that mass, so it changes with the field strength, which is why the two must not be confused.",
+  "4": "Forces are vectors, so opposite forces subtract and a resultant of zero means balanced forces. Only the resultant force changes an object's motion, so the net effect is what the question asks for.",
+  "5": "Momentum is mass times velocity, and in a collision with no external forces the total momentum before equals the total afterwards. This follows from Newton's third law, because the forces between the objects are equal and opposite."
+}

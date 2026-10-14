@@ -1,0 +1,1 @@
+HTTP 201 {"id":"8ce476c8-7c9f-4c1e-82f5-9f564cc85cde","slug":"ai-correction","name":"ai-correction","status":"ACTIVE","version":23,"created_at":1791130849220,"updated_at":1791971333551,"verify_jwt":true,"import_map":false,"entrypoint_path":"file:///tmp/user_fn_zzliiazovezhxbmfeqco_8ce476c8-7c9f-4c1e-82f5-9f5

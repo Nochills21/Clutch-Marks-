@@ -1,0 +1,13 @@
+PASS  planless student is refused with 403 plan_required — HTTP 403 code=plan_required
+PASS  subscriber cannot mark another account's upload — HTTP 403 Unsupported answer file location.
+PASS  a past paper with a mark scheme is on file to anchor the marking to — Computer Science 9618 — Paper 2: Fundamental Problem-solving and Programming May/June 2025
+FAIL  subscriber's own PDF script is marked (PDF text path) — HTTP 502 source=- model=- marks=- err=The AI marker could not finish marking that script. Nothing was lost — please try again, a
+FAIL  marking was grounded on the paper's published mark scheme — mark_scheme=null
+FAIL  subscriber's photo of a script is marked (vision path) — HTTP 502 model=- err=The AI marker could not finish marking that script. Nothing was lost — please try again, and report it on the feedback page if it keeps happening.
+PASS  admin is allowed without a subscription — HTTP 200 err= debug=
+FAIL  correction persisted with source + answer_files — rows=0 source=-
+FAIL  audit trail written for paper_correction — rows=0
+
+fixtures removed
+
+4/9 checks passed

@@ -1,0 +1,9 @@
+{
+  "1": "Current is the rate of flow of charge, and potential difference is the energy transferred per unit charge. Both definitions follow from charge and energy, so the units make sense.",
+  "2": "Ohm's law holds only if the temperature is constant, because resistance changes with temperature in many conductors. Non-ohmic components give curved current–potential difference graphs.",
+  "3": "In series, the same current flows through each component, so resistances add. In parallel the voltage is shared equally, so the current divides, and the reciprocal rule follows.",
+  "4": "Resistance depends on length, cross-sectional area and the material's resistivity. Current in terms of charge carriers, n q v A, shows how drift velocity links the microscopic and macroscopic pictures.",
+  "5": "Two resistors in series carry the same current, so the voltage divides in the ratio of their resistances. Changing one resistance changes the output voltage, which is the basis of sensors.",
+  "6": "The e.m.f. is the energy supplied per unit charge, and some of it is lost across the internal resistance. The terminal voltage is therefore the e.m.f. minus I times r.",
+  "7": "A thermistor's resistance falls as temperature rises because more thermal energy frees more charge carriers in the semiconductor. A light-dependent resistor works the same way, with light supplying the energy."
+}

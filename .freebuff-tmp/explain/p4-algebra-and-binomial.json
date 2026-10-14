@@ -1,0 +1,7 @@
+{
+  "1": "Partial fractions reverse the process of adding fractions. Each distinct linear factor gives one simpler term, and the constants come from substituting values that make the other terms vanish.",
+  "2": "Each power of a repeated factor could contribute, so each power gets its own term. Leaving out one of them gives too few unknowns to solve.",
+  "3": "Dividing first makes the remainder have a lower degree than the denominator, which is the condition for partial fractions to apply. The quotient is then a polynomial that is integrated or expanded separately.",
+  "4": "The binomial series for (1 + x)^n is valid for |x| < 1 and has coefficients given by the binomial coefficients. The series converges only inside that range, so the range must be stated.",
+  "5": "Partial fractions split the rational function into terms whose expansions are known. The range of validity for the whole expansion is the smallest range among the parts."
+}

@@ -1,0 +1,7 @@
+{
+  "1": "Secant, cosecant and cotangent are the reciprocals of cosine, sine and tangent. Their graphs come from the reciprocals of the parent graphs, so asymptotes appear where the parent is zero.",
+  "2": "The identities sec²θ = 1 + tan²θ and cosec²θ = 1 + cot²θ come from dividing sin²θ + cos²θ = 1 by cos²θ and by sin²θ. They let you rewrite one function in terms of another.",
+  "3": "Inverse trig functions need restricted ranges so that each input gives one output. The ranges stated are the principal values, and the answer must lie within them.",
+  "4": "The double-angle and compound-angle formulae come from the addition formulae. They let you find exact values of angles built from known ones, such as 15 degrees.",
+  "5": "Combining a cos θ + b sin θ into one wave R sin(θ + α) or R cos(θ − α) comes from expanding the compound angle and matching coefficients. The amplitude R is then the square root of a² + b²."
+}

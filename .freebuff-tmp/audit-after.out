@@ -1,0 +1,30 @@
+Read-only report saved: C:\Users\zaidt\Downloads\top-67-master\.freebuff\content-quality-report.json
+{
+  "totals": {
+    "topics": 100,
+    "materials": 339,
+    "notes": 139,
+    "quizzes": 228,
+    "questions": 2208,
+    "decks": 127,
+    "cards": 1036
+  },
+  "notes": {
+    "below1000": 39,
+    "below1600": 39,
+    "htmlErrors": 0,
+    "missingContent": 0
+  },
+  "questions": {
+    "notesRecall": 0,
+    "shortExplanations": 417,
+    "duplicateStems": 0,
+    "fixedAnswerQuizzes": 0,
+    "optionsOver180": 0,
+    "tinyOptions": 246
+  },
+  "flashcards": {
+    "shortOrGeneric": 286,
+    "duplicateFronts": 0
+  }
+}

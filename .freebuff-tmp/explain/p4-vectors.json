@@ -1,0 +1,7 @@
+{
+  "1": "The magnitude in three dimensions is Pythagoras extended by the third component. Writing a vector in unit-vector form makes its components explicit.",
+  "2": "The vector from A to B is the difference of the position vectors, because you travel from the origin to A and then across to B. The distance formula is the magnitude of that vector.",
+  "3": "A point on the line plus any multiple of the direction vector gives every point on the line, so t parametrises the line. Two points on the line give the direction.",
+  "4": "The scalar product links the components with the angle between the vectors. If the product is zero the vectors are perpendicular, provided neither is the zero vector.",
+  "5": "Parallel lines have proportional direction vectors. In three dimensions two lines can be neither parallel nor intersecting, and such lines are called skew."
+}

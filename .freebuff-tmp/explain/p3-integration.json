@@ -1,0 +1,7 @@
+{
+  "1": "Each standard integral is the reverse of a standard derivative, so knowing the derivatives gives the integrals. Recognising the pattern is the skill being tested.",
+  "2": "The chain rule gives d/dx ln|f(x)| = f′(x)/f(x), so integrating f′(x)/f(x) reverses it to ln|f(x)| plus a constant.",
+  "3": "Differentiating [f(x)]^(n+1)/(n+1) gives f′(x)[f(x)]ⁿ by the chain rule, so the integral follows by reversal. The restriction n ≠ −1 is the case covered by the logarithm rule.",
+  "4": "Powers of sine and cosine do not integrate directly. Identities rewrite them as sums of simpler trigonometric terms, which can be integrated.",
+  "5": "Integration loses the constant, so a point on the curve selects the particular solution. Substituting the point into the integral fixes c."
+}

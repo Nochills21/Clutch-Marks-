@@ -7,6 +7,15 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+// Row shape read from `questions` with the service-role client (untyped).
+interface QuizQuestion {
+  id: string;
+  question_text: string | null;
+  options: unknown;
+  correct_option: number;
+  explanation: string | null;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
@@ -83,7 +92,7 @@ serve(async (req) => {
 
     if (!questions || questions.length === 0) throw new Error("No questions found");
 
-    const wrong = questions.filter((q: any) => {
+    const wrong = (questions as QuizQuestion[]).filter((q) => {
       const sel = answers[q.id];
       return typeof sel !== "number" || sel !== q.correct_option;
     });
@@ -101,7 +110,7 @@ serve(async (req) => {
     }
 
     const questionDetails = wrong
-      .map((q: any, i: number) => {
+      .map((q, i: number) => {
         const options = Array.isArray(q.options) ? q.options : [];
         const sel = answers[q.id];
         return `Question: "${q.question_text || `Question ${i + 1}`}"
@@ -111,7 +120,7 @@ Mark scheme/explanation: "${q.explanation || "No mark scheme provided"}"`;
       })
       .join("\n\n");
 
-    const topicName = (quiz as any).topics?.name ?? null;
+    const topicName = (quiz.topics as { name?: string | null } | null)?.name ?? null;
 
     const prompt = `You are an IGCSE Business Studies tutor. A student just completed the quiz "${quiz.title}"${topicName ? ` on the topic "${topicName}"` : ""}.
 

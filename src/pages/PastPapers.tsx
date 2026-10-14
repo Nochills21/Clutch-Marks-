@@ -30,7 +30,7 @@ import {
 } from "@/lib/pastPaperFiles";
 import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download, Wand2 } from "lucide-react";
 import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
-import { MarkPaperDialog } from "@/components/MarkPaperDialog";
+import { MarkPaperDialog, type MarkablePaper } from "@/components/MarkPaperDialog";
 import { QueryError } from "@/components/QueryError";
 import { loadFailureMessage } from "@/lib/net";
 
@@ -86,7 +86,7 @@ export default function PastPapers() {
   const [practicePaper, setPracticePaper] = useState<PracticePaper | null>(null);
   // The paper whose row the student tapped “Submit for marking” on — the
   // marking is scoped to that paper's own mark scheme.
-  const [markPaper, setMarkPaper] = useState<any | null>(null);
+  const [markPaper, setMarkPaper] = useState<MarkablePaper | null>(null);
 
   const { data: topics, error: topicsError } = useQuery({
     queryKey: ["topics"],

@@ -1,0 +1,3 @@
+select t.id, t.slug, (select count(*) from study_materials m where m.topic_id=t.id and m.material_type='notes') as notes_rows,
+ (select count(*) from syllabus_statements ss where ss.topic_id=t.id and ss.code in ('1.1','2.1','10.2','8.2','7.1','4.1','12.3','6.1')) as stmts
+from topics t where t.id::text in ('95591ce6-a270-4b09-b12e-bd4ec21ca1a0','f5ce9e1c-9c8f-46d2-95bd-ac9687b6ea07','372710b0-fcac-4f55-af62-67b9bec5940c','f52cc259-2b6e-4aca-818b-56556bf68950','1bdc4fd6-0627-40d3-a8e4-bbe5827c51e0','3bad18f7-9041-4bd4-a193-e0da6c10b770','ced121cb-433c-4a2a-bc15-d33098a610eb','f0bd23ea-3593-4a9c-a1a3-9a080043db6e');

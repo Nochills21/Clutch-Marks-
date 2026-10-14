@@ -1,0 +1,32 @@
+<h2>Hardware and Logic Gates</h2>
+<h3>Logic Gates</h3>
+<table border="1" cellpadding="6">
+<tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+</table>
+<p>NOT inverts; NAND is 'AND then NOT'; XOR outputs 1 when inputs differ.</p>
+<h3>Boolean Algebra Laws</h3>
+<ul>
+<li>De Morgan: (A·B)′ = A′ + B′; (A + B)′ = A′ · B′</li>
+<li>Distribution: A·(B + C) = A·B + A·C</li>
+<li>Absorption: A + A·B = A</li>
+</ul>
+<p><strong>Example:</strong> simplify A + A′B = (A + A′)(A + B) = A + B.</p>
+<h3>Constructing Circuits</h3>
+<p>Truth table → Boolean expression → gates. A half adder: S = A XOR B, C = A AND B.</p>
+<h3>Flip-Flops (Bistables)</h3>
+<ul>
+<li><strong>SR latch</strong>: set/reset, invalid state S=R=1</li>
+<li><strong>JK</strong>: like SR but J=K=1 toggles</li>
+<li>Clock signals synchronise state changes</li>
+</ul>
+<h3>Von Neumann Model</h3>
+<p>CPU (ALU, control unit, registers: PC, MAR, MDR, ACC) + memory + I/O, sharing one bus system; instructions fetched–decoded–executed in cycles.</p>
+<p><strong>Exam tips:</strong> write truth tables fully; simplify before drawing circuits to save gates, and name the law you use.</p>
+<h3>Worked example</h3>
+<p>Check A + A̅B = A + B: with A = 0 and B = 1, the left side is 0 + 1 = 1, matching the right side. A half adder has sum = A XOR B and carry = A AND B. For a JK flip-flop with J = K = 1, the output toggles on each clock pulse.</p>
+<h3>Common mistakes</h3>
+<ul><li>Drawing a NAND or NOR gate with the wrong output inversion.</li><li>Simplifying a Boolean expression without naming the law used.</li></ul>

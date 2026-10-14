@@ -1,0 +1,7 @@
+{
+  "1": "The gradient is rise over run. It is the same for any two points on a straight line, and it measures how much y changes for each unit of x.",
+  "2": "A line is fixed by one point and its gradient. The form y − y₁ = m(x − x₁) makes every point (x, y) on the line satisfy the same gradient condition.",
+  "3": "Parallel lines have equal gradients. Perpendicular lines have gradients whose product is −1, because a quarter turn swaps the rise and the run and changes the sign of one of them.",
+  "4": "The midpoint averages the coordinates. The length comes from Pythagoras applied to the horizontal and vertical differences between the points.",
+  "5": "A point where two lines meet satisfies both equations, so solving them simultaneously finds it. Substituting the point back into both equations catches arithmetic slips."
+}

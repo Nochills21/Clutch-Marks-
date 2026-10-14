@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Circular Measure — Clutch Marks revision note (draft)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ivory: #FBF9F4;
+    --paper: #FFFFFF;
+    --ink: #14161C;
+    --ink-soft: #4A4F5C;
+    --gold: #8A6524;
+    --gold-soft: #C9A86A;
+    --gold-tint: #F6F0E3;
+    --hairline: rgba(20, 22, 28, 0.09);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--ivory); color: var(--ink); }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 56px 28px 80px; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  header.hero { padding-bottom: 28px; }
+  h1 {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif; font-weight: 500;
+    font-size: 44px; line-height: 1.1; letter-spacing: -0.015em; margin: 14px 0 0;
+  }
+  .rule {
+    height: 1px; margin: 26px 0 22px;
+    background: linear-gradient(90deg, transparent, rgba(138, 101, 36, 0.55), transparent);
+  }
+  .syllabus {
+    font-size: 14.5px; color: var(--ink-soft); margin: 0;
+  }
+  .syllabus strong { color: var(--ink); font-weight: 600; }
+
+  section.block {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    padding: 26px 28px;
+    margin-top: 18px;
+    box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 1px 3px rgba(20, 22, 28, 0.03);
+  }
+  .section-no {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+  }
+  h2 {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif; font-weight: 500;
+    font-size: 24px; line-height: 1.25; letter-spacing: -0.01em; margin: 6px 0 10px;
+  }
+  p { margin: 10px 0; }
+  ul { margin: 10px 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  li::marker { color: var(--gold); }
+
+  /* A formula sits on its own line, framed like a plate in a book. */
+  .formula {
+    display: block; margin: 14px 0; padding: 14px 18px;
+    background: var(--gold-tint); border-radius: 10px;
+    font-family: 'Fraunces', Georgia, serif; font-size: 19px; color: var(--ink);
+    text-align: center; letter-spacing: 0.01em;
+  }
+
+  /* Worked examples: a gold rule on the left, quieter text. */
+  .example {
+    margin: 14px 0; padding: 12px 16px 12px 18px;
+    border-left: 2px solid var(--gold-soft);
+    background: var(--ivory); border-radius: 0 10px 10px 0;
+    color: var(--ink-soft); font-size: 15px;
+  }
+  .example strong { color: var(--gold); font-weight: 600; letter-spacing: 0.02em; }
+
+  .exam {
+    margin-top: 18px; padding: 26px 28px; background: var(--ink); color: #F3EEE3;
+    border-radius: 14px;
+  }
+  .exam .section-no { color: var(--gold-soft); }
+  .exam h2 { color: #FBF9F4; }
+  .exam li::marker { color: var(--gold-soft); }
+
+  footer.foot {
+    margin-top: 36px; text-align: center; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  footer.foot span { color: var(--gold); }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="hero">
+    <div class="eyebrow">AS Mathematics &middot; Edexcel IAL Pure Mathematics 1 (WMA11)</div>
+    <h1>Circular Measure</h1>
+    <div class="rule"></div>
+    <p class="syllabus"><strong>Syllabus:</strong> Pearson Edexcel International AS Mathematics, Pure Mathematics 1 (WMA11): radian measure, arc length and sector area.</p>
+  </header>
+
+  <section class="block">
+    <div class="section-no">Section 1</div>
+    <h2>Radians</h2>
+    <p>One radian is the angle at the centre of a circle subtended by an arc whose length equals the radius. The full circumference is 2&pi;r, so a full turn is 2&pi; radians and &pi; radians = 180&deg;.</p>
+    <ul>
+      <li>Degrees to radians: multiply by &pi;/180. Example: 150&deg; = 150&pi;/180 = 5&pi;/6 &approx; 2.618 rad.</li>
+      <li>Radians to degrees: multiply by 180/&pi;. Example: 1.5 rad = 1.5 &times; 180/&pi; &approx; 85.9&deg;.</li>
+    </ul>
+    <p>Learn the common values: 30&deg; = &pi;/6, 45&deg; = &pi;/4, 60&deg; = &pi;/3, 90&deg; = &pi;/2, 180&deg; = &pi;, 360&deg; = 2&pi;.</p>
+  </section>
+
+  <section class="block">
+    <div class="section-no">Section 2</div>
+    <h2>Arc length</h2>
+    <p>For an angle &theta; in radians, the arc length is:</p>
+    <span class="formula">s = r&theta;</span>
+    <div class="example"><strong>Example.</strong> r = 6 cm, &theta; = &pi;/3. Then s = 6 &times; &pi;/3 = 2&pi; &approx; 6.28 cm.</div>
+    <p><strong>Perimeter of a sector:</strong> P = 2r + r&theta; (two radii plus the arc).</p>
+    <div class="example"><strong>Example.</strong> r = 8 cm, &theta; = 0.7 rad. The arc is 5.6 cm, so P = 16 + 5.6 = 21.6 cm.</div>
+  </section>
+
+  <section class="block">
+    <div class="section-no">Section 3</div>
+    <h2>Sector area</h2>
+    <span class="formula">A = &frac12;r&sup2;&theta;</span>
+    <div class="example"><strong>Example.</strong> r = 10 cm, &theta; = &pi;/3. A = &frac12; &times; 100 &times; &pi;/3 = 50&pi;/3 &approx; 52.4 cm&sup2;.</div>
+    <div class="example"><strong>Example.</strong> r = 5, &theta; = 1.2. A = &frac12; &times; 25 &times; 1.2 = 15.</div>
+  </section>
+
+  <section class="block">
+    <div class="section-no">Section 4</div>
+    <h2>Segment area</h2>
+    <p>A segment is the region between an arc and its chord. The triangle formed by the two radii and the chord has area &frac12;r&sup2; sin&theta;, so the segment area is:</p>
+    <span class="formula">A = &frac12;r&sup2;(&theta; &minus; sin&theta;)</span>
+    <div class="example"><strong>Example.</strong> r = 2, &theta; = &pi;/2. A = &frac12; &times; 4 &times; (&pi;/2 &minus; 1) = &pi; &minus; 2 &approx; 1.14.</div>
+    <p><strong>Chord length:</strong> the chord is 2r sin(&theta;/2). For r = 4, &theta; = &pi;/2 the chord is 8 sin(&pi;/4) = 4&radic;2 &approx; 5.66.</p>
+  </section>
+
+  <section class="block">
+    <div class="section-no">Section 5</div>
+    <h2>Working backwards</h2>
+    <ul>
+      <li>&theta; = s/r (&theta; must be in radians)</li>
+      <li>&theta; = 2A/r&sup2; (&theta; in radians)</li>
+    </ul>
+    <div class="example"><strong>Example.</strong> an arc of length 12 cm on a circle of radius 4 cm gives &theta; = 12/4 = 3 rad &approx; 171.9&deg;.</div>
+  </section>
+
+  <section class="block">
+    <div class="section-no">Section 6</div>
+    <h2>Major and minor sectors</h2>
+    <p>If the given angle &theta; belongs to the minor sector, the major sector has angle 2&pi; &minus; &theta;, so its area is:</p>
+    <span class="formula">&frac12;r&sup2;(2&pi; &minus; &theta;)</span>
+    <div class="example"><strong>Example.</strong> r = 3, &theta; = 1 rad. Major sector area = &frac12; &times; 9 &times; (2&pi; &minus; 1) = 9&pi; &minus; 4.5 &approx; 23.8.</div>
+  </section>
+
+  <section class="exam">
+    <div class="section-no">Exam technique</div>
+    <h2>Before you calculate</h2>
+    <ul>
+      <li>Convert every angle to radians before using s = r&theta; or A = &frac12;r&sup2;&theta;. Mixing degrees in gives wrong answers.</li>
+      <li>Put the calculator in radian mode for any trigonometry inside a circular-measure question.</li>
+      <li>Sketch the figure and mark r and &theta; first, and check whether the question asks for the minor or the major sector.</li>
+    </ul>
+  </section>
+
+  <footer class="foot">Clutch Marks &middot; <span>Revision note</span> &middot; draft, not yet published</footer>
+</main>
+</body>
+</html>

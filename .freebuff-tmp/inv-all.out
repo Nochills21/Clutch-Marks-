@@ -1,0 +1,1002 @@
+[
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "abstract-data-types",
+    "notes_chars": 1614,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "computational-thinking-and-problem-solving",
+    "notes_chars": 1662,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "data-types-and-file-organisation",
+    "notes_chars": 1789,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "databases-and-data-definition",
+    "notes_chars": 1714,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "networks-and-the-internet",
+    "notes_chars": 1730,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "programming-paradigms-and-low-level",
+    "notes_chars": 1939,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "simulation-sensors-and-real-data",
+    "notes_chars": 1678,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 0
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "A2",
+    "slug": "web-technologies-and-security",
+    "notes_chars": 1787,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "communication-and-networking",
+    "notes_chars": 1559,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "data-structures",
+    "notes_chars": 1345,
+    "linked_exam": 5,
+    "all_qs": 23,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "databases",
+    "notes_chars": 1491,
+    "linked_exam": 5,
+    "all_qs": 23,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "ethics-and-ai",
+    "notes_chars": 1462,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "hardware-and-logic-gates",
+    "notes_chars": 10948,
+    "linked_exam": 11,
+    "all_qs": 36,
+    "flashcards": 22,
+    "stmts": 3
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "information-representation",
+    "notes_chars": 1653,
+    "linked_exam": 5,
+    "all_qs": 26,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "processor-fundamentals",
+    "notes_chars": 1587,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "programming-and-algorithms",
+    "notes_chars": 1541,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 10,
+    "stmts": 8
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "AS",
+    "slug": "system-software-and-security",
+    "notes_chars": 1511,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 6
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "algorithms-programming",
+    "notes_chars": 1959,
+    "linked_exam": 7,
+    "all_qs": 35,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "data-representation",
+    "notes_chars": 1790,
+    "linked_exam": 7,
+    "all_qs": 41,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "database-systems",
+    "notes_chars": 1446,
+    "linked_exam": 7,
+    "all_qs": 35,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "ethics-security-impact",
+    "notes_chars": 4906,
+    "linked_exam": 5,
+    "all_qs": 35,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "hardware-architecture",
+    "notes_chars": 2089,
+    "linked_exam": 7,
+    "all_qs": 41,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "logic-gates-boolean-logic",
+    "notes_chars": 2658,
+    "linked_exam": 7,
+    "all_qs": 29,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "networking-communication",
+    "notes_chars": 1652,
+    "linked_exam": 7,
+    "all_qs": 45,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "operating-systems",
+    "notes_chars": 1448,
+    "linked_exam": 3,
+    "all_qs": 35,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "programming-concepts",
+    "notes_chars": 1622,
+    "linked_exam": 7,
+    "all_qs": 46,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "robotics-ai",
+    "notes_chars": 1619,
+    "linked_exam": 7,
+    "all_qs": 36,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Computer Science",
+    "lvl": "OL",
+    "slug": "web-technologies",
+    "notes_chars": 1720,
+    "linked_exam": 7,
+    "all_qs": 37,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "binomial-distribution",
+    "notes_chars": 1536,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 0
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "complex-numbers",
+    "notes_chars": 1302,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 9,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "continuous-random-variables",
+    "notes_chars": 1558,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "differentiation-ii",
+    "notes_chars": 1036,
+    "linked_exam": 5,
+    "all_qs": 23,
+    "flashcards": 9,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "further-algebra",
+    "notes_chars": 1316,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 7,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "further-trigonometry",
+    "notes_chars": 1006,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 7,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "hypothesis-testing",
+    "notes_chars": 1839,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "integration-ii",
+    "notes_chars": 1119,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 8,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "measures-of-variation-and-standard-deviation",
+    "notes_chars": 1531,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 7,
+    "stmts": 0
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "numerical-measures-of-central-tendency",
+    "notes_chars": 1661,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "permutations-and-combinations",
+    "notes_chars": 1978,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "poisson-distribution",
+    "notes_chars": 1382,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 9,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "probability",
+    "notes_chars": 1608,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "probability-distributions",
+    "notes_chars": 1573,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "sampling-and-estimation",
+    "notes_chars": 1709,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 9,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "the-normal-distribution",
+    "notes_chars": 1826,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "A2",
+    "slug": "vectors",
+    "notes_chars": 1168,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 8,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "circular-measure",
+    "notes_chars": 2629,
+    "linked_exam": 5,
+    "all_qs": 21,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "coordinate-geometry",
+    "notes_chars": 1119,
+    "linked_exam": 5,
+    "all_qs": 23,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "differentiation",
+    "notes_chars": 1150,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "functions",
+    "notes_chars": 1425,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "integration",
+    "notes_chars": 1029,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "quadratics",
+    "notes_chars": 1798,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "sequences-and-series",
+    "notes_chars": 1010,
+    "linked_exam": 5,
+    "all_qs": 23,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "AS",
+    "slug": "trigonometry",
+    "notes_chars": 1273,
+    "linked_exam": 5,
+    "all_qs": 24,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "algebra-equations",
+    "notes_chars": 1274,
+    "linked_exam": 5,
+    "all_qs": 29,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "algebra-graphs",
+    "notes_chars": 1320,
+    "linked_exam": 7,
+    "all_qs": 50,
+    "flashcards": 10,
+    "stmts": 11
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "algebra-inequalities",
+    "notes_chars": 1207,
+    "linked_exam": 7,
+    "all_qs": 30,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "algebra-sequences-and-functions",
+    "notes_chars": 1179,
+    "linked_exam": 7,
+    "all_qs": 30,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "algebra-simplifying-and-expanding",
+    "notes_chars": 1344,
+    "linked_exam": 7,
+    "all_qs": 35,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "geometry-angles-and-polygons",
+    "notes_chars": 1420,
+    "linked_exam": 7,
+    "all_qs": 37,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "geometry-congruence-and-similarity",
+    "notes_chars": 1224,
+    "linked_exam": 7,
+    "all_qs": 32,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "mensuration-area-and-volume",
+    "notes_chars": 1207,
+    "linked_exam": 7,
+    "all_qs": 37,
+    "flashcards": 10,
+    "stmts": 5
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "mensuration-bearings-and-loci",
+    "notes_chars": 1495,
+    "linked_exam": 7,
+    "all_qs": 31,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "number-arithmetic-and-place-value",
+    "notes_chars": 1647,
+    "linked_exam": 7,
+    "all_qs": 51,
+    "flashcards": 10,
+    "stmts": 8
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "number-fractions-decimals-and-percentages",
+    "notes_chars": 1388,
+    "linked_exam": 7,
+    "all_qs": 37,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "number-indices-and-standard-form",
+    "notes_chars": 2112,
+    "linked_exam": 7,
+    "all_qs": 39,
+    "flashcards": 10,
+    "stmts": 5
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "number-ratio-rate-and-proportion",
+    "notes_chars": 1400,
+    "linked_exam": 7,
+    "all_qs": 37,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "number-sets",
+    "notes_chars": 1178,
+    "linked_exam": 7,
+    "all_qs": 31,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "scatter-diagrams-and-correlation",
+    "notes_chars": 1546,
+    "linked_exam": 7,
+    "all_qs": 31,
+    "flashcards": 10,
+    "stmts": 1
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "statistics-data-handling",
+    "notes_chars": 1354,
+    "linked_exam": 7,
+    "all_qs": 41,
+    "flashcards": 10,
+    "stmts": 6
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "statistics-probability",
+    "notes_chars": 1327,
+    "linked_exam": 10,
+    "all_qs": 40,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "transformations-and-vectors",
+    "notes_chars": 1412,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "trigonometry-right-angled-triangles",
+    "notes_chars": 1447,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Mathematics",
+    "lvl": "OL",
+    "slug": "trigonometry-sine-and-cosine-rules",
+    "notes_chars": 1584,
+    "linked_exam": 5,
+    "all_qs": 25,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "astronomy-and-cosmology",
+    "notes_chars": 1642,
+    "linked_exam": 6,
+    "all_qs": 29,
+    "flashcards": 11,
+    "stmts": 3
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "circular-motion-and-shm",
+    "notes_chars": 2392,
+    "linked_exam": 6,
+    "all_qs": 30,
+    "flashcards": 10,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "electric-fields-and-capacitance",
+    "notes_chars": 2107,
+    "linked_exam": 6,
+    "all_qs": 27,
+    "flashcards": 12,
+    "stmts": 8
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "magnetic-fields-and-electromagnetism",
+    "notes_chars": 3125,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 10,
+    "stmts": 7
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "nuclear-physics",
+    "notes_chars": 2360,
+    "linked_exam": 6,
+    "all_qs": 29,
+    "flashcards": 11,
+    "stmts": 3
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "oscillations-and-waves-ii",
+    "notes_chars": 3207,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 10,
+    "stmts": 3
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "quantum-physics",
+    "notes_chars": 2406,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 10,
+    "stmts": 4
+  },
+  {
+    "subject": "Physics",
+    "lvl": "A2",
+    "slug": "thermal-physics",
+    "notes_chars": 2432,
+    "linked_exam": 6,
+    "all_qs": 30,
+    "flashcards": 10,
+    "stmts": 8
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "dynamics",
+    "notes_chars": 2167,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 12,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "electricity-d-c-circuits",
+    "notes_chars": 1890,
+    "linked_exam": 6,
+    "all_qs": 30,
+    "flashcards": 12,
+    "stmts": 6
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "forces-and-equilibrium",
+    "notes_chars": 1739,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 12,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "kinematics",
+    "notes_chars": 2691,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 12,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "materials-deformation",
+    "notes_chars": 1625,
+    "linked_exam": 6,
+    "all_qs": 29,
+    "flashcards": 11,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "motion-in-a-circle-and-gravity",
+    "notes_chars": 1668,
+    "linked_exam": 6,
+    "all_qs": 29,
+    "flashcards": 11,
+    "stmts": 4
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "superposition",
+    "notes_chars": 1717,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 11,
+    "stmts": 4
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "waves",
+    "notes_chars": 1751,
+    "linked_exam": 6,
+    "all_qs": 31,
+    "flashcards": 12,
+    "stmts": 5
+  },
+  {
+    "subject": "Physics",
+    "lvl": "AS",
+    "slug": "work-energy-and-power",
+    "notes_chars": 1729,
+    "linked_exam": 6,
+    "all_qs": 30,
+    "flashcards": 11,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "earth-space",
+    "notes_chars": 1525,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 6,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "electricity-circuits",
+    "notes_chars": 1710,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 6,
+    "stmts": 3
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "energy-work-power",
+    "notes_chars": 1411,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 5,
+    "stmts": 1
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "forces-motion",
+    "notes_chars": 1710,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 6,
+    "stmts": 4
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "magnetism-electromagnetism",
+    "notes_chars": 1625,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 5,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "measurement-units",
+    "notes_chars": 1748,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 5,
+    "stmts": 1
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "nuclear-physics",
+    "notes_chars": 1970,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 6,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "pressure-density",
+    "notes_chars": 1072,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 5,
+    "stmts": 2
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "thermal-physics",
+    "notes_chars": 1913,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 6,
+    "stmts": 3
+  },
+  {
+    "subject": "Physics",
+    "lvl": "OL",
+    "slug": "waves-sound",
+    "notes_chars": 1551,
+    "linked_exam": 0,
+    "all_qs": 25,
+    "flashcards": 6,
+    "stmts": 4
+  }
+]

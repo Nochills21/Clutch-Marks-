@@ -1,0 +1,469 @@
+{
+  "flagged_rows": 49,
+  "updates": [
+    {
+      "id": "edba7bc0-257d-4c02-929d-2b8623018718",
+      "slug": "abstract-data-types",
+      "sort_order": 4,
+      "old_front": "in-order traversal",
+      "old_back": "outputs keys in ascending order. A degenerate (linear) tree from sorted input degrades to O(n).",
+      "front": "In-order traversal of a binary search tree",
+      "back": "Visits the left subtree, the node, then the right subtree. For a BST this outputs keys in ascending order. A tree built from already-sorted input becomes a linear chain, so search degrades to O(n)."
+    },
+    {
+      "id": "e6378f5e-f07f-40c9-b261-4ddec5abc9ef",
+      "slug": "algebra-inequalities",
+      "sort_order": 4,
+      "old_front": "reverse the sign",
+      "old_back": "when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3.",
+      "front": "Multiplying or dividing by a negative",
+      "back": "Reverse the inequality sign: −2x ≥ 6 ⇒ x ≤ −3."
+    },
+    {
+      "id": "f8f5352a-a45b-49ff-86b1-341a1d99348a",
+      "slug": "communication-and-networking",
+      "sort_order": 0,
+      "old_front": "Transmission",
+      "old_back": "Serial : one bit at a time — cheaper, reliable over distance",
+      "front": "Serial transmission",
+      "back": "One bit at a time: cheaper, and reliable over long distances."
+    },
+    {
+      "id": "201fb0ad-f32b-43bb-8654-703ff8994317",
+      "slug": "communication-and-networking",
+      "sort_order": 5,
+      "old_front": "Serial",
+      "old_back": "one bit at a time — cheaper, reliable over distance",
+      "front": "Parallel transmission",
+      "back": "Several bits simultaneously: fast over short distances, but suffers skew and crosstalk over long runs."
+    },
+    {
+      "id": "19fd2031-ca3d-4b80-8d73-e01ad7925692",
+      "slug": "complex-numbers",
+      "sort_order": 4,
+      "old_front": "de Moivre and Roots",
+      "old_back": "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ).",
+      "front": "De Moivre's theorem",
+      "back": "[r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ). Use it for powers, and for nth roots by adding 2πk to the argument."
+    },
+    {
+      "id": "ffcf18b9-332c-4933-83b5-c64a1e63b788",
+      "slug": "computational-thinking-and-problem-solving",
+      "sort_order": 5,
+      "old_front": "base case",
+      "old_back": "that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow. Any recursion can be rewritten with a loop and explicit stack.",
+      "front": "Recursion: the base case",
+      "back": "The condition that stops the recursion. Recursion suits trees and divide-and-conquer, but each call uses stack space, so deep recursion can overflow. Any recursion can be rewritten as a loop with an explicit stack."
+    },
+    {
+      "id": "0db46f25-abce-4f02-9f39-b66304ee6f81",
+      "slug": "data-structures",
+      "sort_order": 5,
+      "old_front": "Complexity",
+      "old_back": "Operation Array Linked List Hash",
+      "front": "Complexity of the core structures",
+      "back": "Access by index: array O(1), linked list O(n). Search: array O(n), linked list O(n), hash O(1) average. Insert/delete: array O(n), linked list O(1) at a known position, hash O(1) average."
+    },
+    {
+      "id": "83d03433-1a05-4338-a25d-15ebc1e28528",
+      "slug": "data-types-and-file-organisation",
+      "sort_order": 4,
+      "old_front": "enumerated type",
+      "old_back": "lists named values in order: TYPE Months = (Jan, Feb, Mar ...). Internally each value is an integer index starting at 0.",
+      "front": "Enumerated type",
+      "back": "A list of named values in order, e.g. TYPE Months = (Jan, Feb, Mar ...). Internally each value is stored as an integer index starting at 0."
+    },
+    {
+      "id": "e01b1e6d-9e6d-48af-8c4d-f8c59dd2a86c",
+      "slug": "database-systems",
+      "sort_order": 2,
+      "old_front": "SQL",
+      "old_back": "SELECT Title, Year FROM Films",
+      "front": "Write a SELECT query",
+      "back": "SELECT Title, Year FROM Films; lists only the fields you need from one table. Add WHERE to filter rows and ORDER BY to sort them."
+    },
+    {
+      "id": "af7dc217-61e5-4ad5-b82b-b1ce9c25c9ba",
+      "slug": "databases",
+      "sort_order": 1,
+      "old_front": "Normalisation",
+      "old_back": "1NF : atomic values, no repeating groups",
+      "front": "Why normalise?",
+      "back": "Normalisation splits tables until each non-key attribute depends only on the key. This removes repeated data and the update anomalies it causes."
+    },
+    {
+      "id": "e3a6cb93-118b-47b7-8e60-186d961261d1",
+      "slug": "databases",
+      "sort_order": 2,
+      "old_front": "SQL",
+      "old_back": "SELECT name, grade FROM students",
+      "front": "Select with a condition",
+      "back": "SELECT name, grade FROM student WHERE grade >= 'A' ORDER BY name; WHERE filters the rows and ORDER BY sorts them."
+    },
+    {
+      "id": "df9b7fd9-9fe3-468b-89d5-48cc0e7fb141",
+      "slug": "databases",
+      "sort_order": 4,
+      "old_front": "1NF",
+      "old_back": "atomic values, no repeating groups",
+      "front": "First normal form (1NF)",
+      "back": "Every value is atomic (single and indivisible), and there are no repeating groups."
+    },
+    {
+      "id": "2ed513eb-1600-4d13-a5a0-69ce78744566",
+      "slug": "databases",
+      "sort_order": 5,
+      "old_front": "2NF",
+      "old_back": "1NF + no partial dependency on a composite key",
+      "front": "Second normal form (2NF)",
+      "back": "1NF, plus no partial dependency: every non-key attribute depends on the whole composite key, not on part of it."
+    },
+    {
+      "id": "f4199778-9242-4170-9f35-00cc1e15df60",
+      "slug": "databases-and-data-definition",
+      "sort_order": 4,
+      "old_front": "primary key",
+      "old_back": "uniquely identifies each row; a",
+      "front": "Primary key",
+      "back": "Uniquely identifies each row in its table. It cannot be NULL or duplicated."
+    },
+    {
+      "id": "bc4fe44d-45c5-4dad-a288-3fdb427e445e",
+      "slug": "databases-and-data-definition",
+      "sort_order": 5,
+      "old_front": "foreign key",
+      "old_back": "references a primary key in another table, creating the relationship. A composite key uses two or more columns together.",
+      "front": "Foreign key",
+      "back": "References the primary key of another table, creating the relationship between the two tables."
+    },
+    {
+      "id": "a135f7ae-2fe2-47d4-aa47-1a3e90b05a7d",
+      "slug": "differentiation",
+      "sort_order": 3,
+      "old_front": "Stationary Points",
+      "old_back": "Set dy/dx = 0, then classify with the second derivative:",
+      "front": "Stationary points",
+      "back": "Set dy/dx = 0, then classify with the second derivative: d²y/dx² > 0 gives a minimum, d²y/dx² < 0 a maximum, and d²y/dx² = 0 means test either side of the point."
+    },
+    {
+      "id": "a7d9b5ca-6ea9-430f-953e-1b217ef557ab",
+      "slug": "differentiation-ii",
+      "sort_order": 1,
+      "old_front": "Standard Derivatives",
+      "old_back": "sin x → cos x; cos x → −sin x; tan x → sec²x",
+      "front": "Standard derivatives",
+      "back": "sin x → cos x; cos x → −sin x; tan x → sec²x; eˣ → eˣ; ln x → 1/x."
+    },
+    {
+      "id": "70a59f92-90a5-4293-9fc1-8ec7d6bae022",
+      "slug": "dynamics",
+      "sort_order": 4,
+      "old_front": "different bodies.\nExample",
+      "old_back": "a 2 kg mass with a 10 N resultant accelerates at 5 m s⁻².",
+      "front": "Newton's third law",
+      "back": "Forces occur in pairs: equal in magnitude, opposite in direction, and acting on different bodies."
+    },
+    {
+      "id": "c5fb3def-fa46-4602-b71a-7024dcbe4ec0",
+      "slug": "electricity-d-c-circuits",
+      "sort_order": 3,
+      "old_front": "Series and Parallel",
+      "old_back": "Series: same current, R_total = R₁ + R₂ + …",
+      "front": "Series and parallel",
+      "back": "Series: same current, R_total = R₁ + R₂ + … . Parallel: same voltage across each branch, and 1/R_total = 1/R₁ + 1/R₂ + … ."
+    },
+    {
+      "id": "c5c4d4c0-ed57-49d3-8dad-b553312cf7be",
+      "slug": "forces-and-equilibrium",
+      "sort_order": 5,
+      "old_front": "every",
+      "old_back": "direction and the resultant moment is zero.",
+      "front": "Equilibrium",
+      "back": "A body is in equilibrium when the resultant force is zero in every direction and the resultant moment is zero."
+    },
+    {
+      "id": "db20144b-3adc-4fac-921c-8434af9894c0",
+      "slug": "functions",
+      "sort_order": 3,
+      "old_front": "domain",
+      "old_back": "to exactly one output in the",
+      "front": "Definition of a function",
+      "back": "A function maps each input in the domain to exactly one output in the range."
+    },
+    {
+      "id": "9838a33e-1715-44eb-8cde-bac971146994",
+      "slug": "functions",
+      "sort_order": 4,
+      "old_front": "one-one",
+      "old_back": "If not, restrict the domain (e.g. f(x) = x² for x ≥ 0 has f⁻¹(x) = √x). Graphically, y = f⁻¹(x) is the reflection of y = f(x) in the line y = x, and the range of f becomes the domain of f⁻¹.",
+      "front": "One-one functions and inverses",
+      "back": "A function has an inverse only if it is one-one. If not, restrict the domain (e.g. f(x) = x² for x ≥ 0 gives f⁻¹(x) = √x). The graph of f⁻¹ is the reflection of f in y = x, and the range of f becomes the domain of f⁻¹."
+    },
+    {
+      "id": "f1231eeb-c19e-46da-80e8-ed9f796a044c",
+      "slug": "further-algebra",
+      "sort_order": 3,
+      "old_front": "factor",
+      "old_back": "that is the factor theorem. Divide out fully to reduce a cubic to a quadratic and factorise completely.",
+      "front": "Factor theorem",
+      "back": "If p(a) = 0, then (x − a) is a factor of p(x). Divide out fully to reduce a cubic to a quadratic, then factorise completely."
+    },
+    {
+      "id": "7827ff21-cc0a-4df3-945d-16675d2e3e7c",
+      "slug": "further-trigonometry",
+      "sort_order": 1,
+      "old_front": "Double Angles",
+      "old_back": "cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A",
+      "front": "Double-angle formulae",
+      "back": "cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A; sin 2A = 2 sin A cos A."
+    },
+    {
+      "id": "fdcec10e-3f0b-4e70-acee-1d643c40b0a3",
+      "slug": "hardware-and-logic-gates",
+      "sort_order": 3,
+      "old_front": "Flip-Flops (Bistables)",
+      "old_back": "SR latch : set/reset, invalid state S=R=1",
+      "front": "SR flip-flop",
+      "back": "A bistable latch with set and reset inputs. The invalid state is S = R = 1."
+    },
+    {
+      "id": "1a9277d6-64bc-43dc-a404-e0b9684cfffd",
+      "slug": "hardware-architecture",
+      "sort_order": 1,
+      "old_front": "Registers",
+      "old_back": "PC address of next instruction",
+      "front": "Program counter (PC)",
+      "back": "Holds the address of the next instruction to be fetched."
+    },
+    {
+      "id": "e5933df6-43ff-456c-810e-fb55c65bca9e",
+      "slug": "information-representation",
+      "sort_order": 2,
+      "old_front": "Text",
+      "old_back": "ASCII : 7 bits, 128 characters, English only",
+      "front": "Character encoding",
+      "back": "ASCII uses 7 bits for 128 characters, English only. Unicode covers universal scripts; UTF-8 is variable-width (1–4 bytes)."
+    },
+    {
+      "id": "caa41284-8ba9-4d50-8b2a-6eb4236313eb",
+      "slug": "information-representation",
+      "sort_order": 5,
+      "old_front": "ASCII",
+      "old_back": "7 bits, 128 characters, English only",
+      "front": "ASCII",
+      "back": "7 bits per character, giving 128 characters, English only."
+    },
+    {
+      "id": "dbcee12e-f9cb-4ef4-aab0-b1eccdbf9cc2",
+      "slug": "kinematics",
+      "sort_order": 1,
+      "old_front": "Graphs",
+      "old_back": "Gradient of a displacement–time graph = velocity",
+      "front": "Displacement–time graph",
+      "back": "The gradient of a displacement–time graph gives velocity."
+    },
+    {
+      "id": "7f0ec7d8-161c-4354-aead-bf855fb016d3",
+      "slug": "kinematics",
+      "sort_order": 5,
+      "old_front": "Velocity",
+      "old_back": "v: rate of change of displacement, v = ds/dt",
+      "front": "Velocity",
+      "back": "v is the rate of change of displacement: v = ds/dt."
+    },
+    {
+      "id": "f0c8ebf6-42b0-40c5-a87e-98dd64a58dd9",
+      "slug": "materials-deformation",
+      "sort_order": 2,
+      "old_front": "Force–Extension Graphs",
+      "old_back": "Gradient of the linear region = k",
+      "front": "Force–extension graph gradient",
+      "back": "In the linear region the gradient is k, the spring constant, so F = kx up to the limit of proportionality."
+    },
+    {
+      "id": "de2db7ed-e283-48f3-99c3-50fc22066a31",
+      "slug": "motion-in-a-circle-and-gravity",
+      "sort_order": 4,
+      "old_front": "slower but have longer",
+      "old_back": "periods (Kepler's third law: T² ∝ r³).",
+      "front": "Orbital period and radius",
+      "back": "Planets further from the Sun orbit more slowly and have longer periods (Kepler's third law: T² ∝ r³)."
+    },
+    {
+      "id": "c6ce66b5-4418-4ac4-9d71-274c71c655c6",
+      "slug": "nuclear-physics",
+      "sort_order": 1,
+      "old_front": "Radioactive Decay",
+      "old_back": "Type What changes Stopped by",
+      "front": "Types of radioactive decay",
+      "back": "Alpha: Z − 2, A − 4; stopped by paper. Beta-minus: Z + 1, A unchanged; stopped by a few millimetres of aluminium. Gamma: no change to Z or A; stopped by thick lead."
+    },
+    {
+      "id": "7ac35fbb-97ff-47b8-9cc8-49e63f0b3615",
+      "slug": "oscillations-and-waves-ii",
+      "sort_order": 2,
+      "old_front": "Superposition Applications",
+      "old_back": "Young's double slit: x = λD/a — evidence light is a wave",
+      "front": "Young's double slit",
+      "back": "Fringe spacing x = λD/a, where D is the screen distance and a the slit separation. The pattern is evidence that light is a wave."
+    },
+    {
+      "id": "ca54443d-9174-43bf-bb34-0e7f141cee77",
+      "slug": "permutations-and-combinations",
+      "sort_order": 1,
+      "old_front": "Permutations — Order Matters",
+      "old_back": "The number of ways of arranging r objects from n distinct objects is",
+      "front": "Permutations: order matters",
+      "back": "Arranging r objects from n distinct objects: ⁿPᵣ = n!/(n − r)!"
+    },
+    {
+      "id": "55ed49ea-b480-4025-a218-767359f5098d",
+      "slug": "permutations-and-combinations",
+      "sort_order": 2,
+      "old_front": "Combinations — Order Irrelevant",
+      "old_back": "The number of ways of choosing r objects from n is",
+      "front": "Combinations: order irrelevant",
+      "back": "Choosing r objects from n distinct objects: ⁿCᵣ = n!/(r!(n − r)!)"
+    },
+    {
+      "id": "d8cff297-22d4-4f43-adff-c85b3e00cb67",
+      "slug": "poisson-distribution",
+      "sort_order": 2,
+      "old_front": "Mean and Variance",
+      "old_back": "The defining signature of the Poisson:",
+      "front": "Poisson mean and variance",
+      "back": "E(X) = λ and Var(X) = λ, so the mean and variance are equal. If a question gives a mean m, then λ = m."
+    },
+    {
+      "id": "0b550003-a276-4c98-b04e-cf6f26334660",
+      "slug": "processor-fundamentals",
+      "sort_order": 0,
+      "old_front": "The FDE Cycle",
+      "old_back": "Fetch : PC → MAR; read memory → MDR; instruction → CIR; PC increments",
+      "front": "Fetch–decode–execute cycle",
+      "back": "Fetch: PC → MAR; read memory → MDR; instruction → CIR; PC increments. Decode: the control unit interprets the opcode. Execute: the ALU or registers act, results are stored, and a jump may overwrite the PC."
+    },
+    {
+      "id": "11fb7db9-18ed-497e-b555-f325804429bb",
+      "slug": "processor-fundamentals",
+      "sort_order": 1,
+      "old_front": "Registers",
+      "old_back": "PC address of next instruction",
+      "front": "Program counter (PC)",
+      "back": "Holds the address of the next instruction to be fetched."
+    },
+    {
+      "id": "8f071a03-0b2d-4d1d-b0ba-463a4ce03526",
+      "slug": "processor-fundamentals",
+      "sort_order": 5,
+      "old_front": "Fetch",
+      "old_back": "PC → MAR; read memory → MDR; instruction → CIR; PC increments",
+      "front": "Why the PC increments during fetch",
+      "back": "So that it holds the address of the next instruction, unless a jump overwrites it during execute."
+    },
+    {
+      "id": "155a7eab-0215-448f-ba8b-86efd32c05d4",
+      "slug": "programming-and-algorithms",
+      "sort_order": 3,
+      "old_front": "Sorting",
+      "old_back": "Algorithm Best Average Idea",
+      "front": "Sorting algorithms compared",
+      "back": "Bubble: best O(n), average O(n²), swaps neighbours. Insertion: best O(n), average O(n²), inserts into a sorted prefix. Merge: O(n log n) in both cases, divides and merges."
+    },
+    {
+      "id": "309f341a-f0d6-486b-b61c-a42ee926f982",
+      "slug": "programming-and-algorithms",
+      "sort_order": 5,
+      "old_front": "Top-down (stepwise refinement)",
+      "old_back": "decompose into modules — planned structure",
+      "front": "Top-down design",
+      "back": "Decompose the problem into modules, planning the structure before coding each part (stepwise refinement)."
+    },
+    {
+      "id": "4586b7d8-66c0-47f9-b6b0-65b85fbfec08",
+      "slug": "programming-concepts",
+      "sort_order": 1,
+      "old_front": "Selection and iteration",
+      "old_back": "OTHERWISE : OUTPUT \"keep going\"",
+      "front": "CASE and OTHERWISE",
+      "back": "OTHERWISE is the default branch of a CASE statement, e.g. CASE OF grade / \"A\": OUTPUT \"excellent\" / OTHERWISE: OUTPUT \"keep going\" / ENDCASE."
+    },
+    {
+      "id": "77d535f4-7f83-42db-a7c9-cb71ebc7b506",
+      "slug": "quadratics",
+      "sort_order": 1,
+      "old_front": "The Discriminant",
+      "old_back": "Δ = b² − 4ac decides how the curve meets the x-axis:",
+      "front": "The discriminant",
+      "back": "Δ = b² − 4ac. Δ > 0: two real roots (crosses the x-axis twice). Δ = 0: one repeated root (touches). Δ < 0: no real roots."
+    },
+    {
+      "id": "35b0a29a-46c2-4030-9c1c-336c08a64584",
+      "slug": "sampling-and-estimation",
+      "sort_order": 2,
+      "old_front": "Distribution of the Sample Mean",
+      "old_back": "For a sample of size n from a population with mean μ and variance σ²:",
+      "front": "Distribution of the sample mean",
+      "back": "For a sample of size n from a population with mean μ and variance σ², the sample mean has mean μ and variance σ²/n. For large n it is approximately normal (Central Limit Theorem)."
+    },
+    {
+      "id": "b5edefbf-aa59-4aa2-8a96-0d05f6ece3b9",
+      "slug": "simulation-sensors-and-real-data",
+      "sort_order": 4,
+      "old_front": "analogue",
+      "old_back": "signals varying continuously; computers need",
+      "front": "Analogue signals",
+      "back": "Sensors output analogue signals, which vary continuously. Computers need digital values, so an ADC (analogue-to-digital converter) samples the signal. A DAC converts digital output back to analogue for actuators or speakers."
+    },
+    {
+      "id": "e3e67718-9bd3-4863-bc57-248bd3e7d764",
+      "slug": "web-technologies",
+      "sort_order": 0,
+      "old_front": "HTML",
+      "old_back": "<head><title>Page</title></head>",
+      "front": "HTML",
+      "back": "Defines a page's structure using tags, e.g. <title>Page</title> inside <head>."
+    },
+    {
+      "id": "4801c3cc-4961-45d6-ad1b-fc625bb828cf",
+      "slug": "web-technologies",
+      "sort_order": 1,
+      "old_front": "CSS",
+      "old_back": "p { color: red; font-size: 14px; }",
+      "front": "CSS",
+      "back": "Styles the page, e.g. p { color: red; font-size: 14px; } sets the colour and size of every paragraph."
+    },
+    {
+      "id": "110f5ee0-cd4e-48ec-9557-f6ab7eaea2b5",
+      "slug": "work-energy-and-power",
+      "sort_order": 1,
+      "old_front": "Energy Forms",
+      "old_back": "Gravitational PE: Ep = mgh",
+      "front": "Gravitational potential energy",
+      "back": "Ep = mgh, where h is the height gained above a reference level."
+    }
+  ],
+  "inserts": [
+    {
+      "set_id": "056e492d-c0f3-49c8-9a02-be16b1fafeec",
+      "slug": "trigonometry",
+      "sort_order": 3,
+      "front": "Exact values",
+      "back": "sin 30° = 1/2, cos 30° = √3/2, tan 30° = √3/3. At 45°, sin = cos = √2/2 and tan = 1. At 60°, sin = √3/2, cos = 1/2 and tan = √3."
+    },
+    {
+      "set_id": "056e492d-c0f3-49c8-9a02-be16b1fafeec",
+      "slug": "trigonometry",
+      "sort_order": 4,
+      "front": "Key identities",
+      "back": "sin²θ + cos²θ = 1; tan θ = sin θ / cos θ; sec²θ = 1 + tan²θ."
+    },
+    {
+      "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
+      "slug": "sequences-and-series",
+      "sort_order": 3,
+      "front": "Sums of AP and GP",
+      "back": "AP: Sₙ = n/2 [2a + (n − 1)d]. GP: Sₙ = a(1 − rⁿ)/(1 − r). The sum to infinity S∞ = a/(1 − r) exists only when |r| < 1."
+    }
+  ]
+}

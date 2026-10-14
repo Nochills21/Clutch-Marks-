@@ -1,0 +1,52 @@
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\LessonNotes.tsx
+  33:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx
+   30:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   31:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   33:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   78:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   79:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   83:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  123:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  128:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  133:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\PastPapers.tsx
+  89:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\ProgressPage.tsx
+  131:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  139:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  140:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  145:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Quizzes.tsx
+   72:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   73:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  138:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  310:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  614:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx
+   72:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   83:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   83:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  163:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  170:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicPapers.tsx
+  52:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  53:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicQuiz.tsx
+   69:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  226:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  235:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  235:84  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 33 problems (33 errors, 0 warnings)
+

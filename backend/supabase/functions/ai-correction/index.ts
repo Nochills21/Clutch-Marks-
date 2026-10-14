@@ -499,12 +499,12 @@ export async function handler(req: Request): Promise<Response> {
 
     const answerFiles: AnswerFile[] = (Array.isArray(body.answerFiles) ? body.answerFiles : [])
       .slice(0, MAX_ANSWER_FILES)
-      .filter((f: any) => f && typeof f === "object")
-      .map((f: any) => ({
+      .filter((f: unknown): f is Record<string, unknown> => Boolean(f) && typeof f === "object")
+      .map((f) => ({
         bucket: String(f.bucket ?? ""),
         path: String(f.path ?? ""),
-        name: f.name ?? null,
-        mimeType: f.mimeType ?? null,
+        name: typeof f.name === "string" ? f.name : null,
+        mimeType: typeof f.mimeType === "string" ? f.mimeType : null,
       }));
 
     const hasTyped = typeof rawPaper === "string"
@@ -623,7 +623,7 @@ Mark scheme style:
 
     const typedText = hasTyped
       ? (Array.isArray(rawPaper)
-        ? rawPaper.map((p: any) =>
+        ? rawPaper.map((p: { question?: string; idx?: number; answer?: string; text?: string }) =>
           `Q: ${p.question || "Question " + (p.idx ?? "")}\nStudent answer: ${p.answer || p.text || ""}`
         ).join("\n\n---\n\n")
         : String(rawPaper))
@@ -734,7 +734,7 @@ Mark scheme style:
 
     const auditRef = crypto.randomUUID();
 
-    const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+    const corrected: CorrectedPaper[] = parsed.map((raw: Record<string, unknown> | null | undefined, idx: number) => {
       const marksEarned = Number(raw?.marks_earned ?? 0) || 0;
       const totalMarks = Number(raw?.total_marks ?? 0) || 0;
       return {

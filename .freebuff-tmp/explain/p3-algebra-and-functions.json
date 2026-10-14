@@ -1,0 +1,7 @@
+{
+  "1": "Only common factors can be cancelled, never terms that are added. Adding fractions needs a common denominator because the parts must be the same size before they can be combined.",
+  "2": "A function gives exactly one output for each input in its domain. The domain excludes values that would cause division by zero or a negative root, and the range is the set of outputs that results.",
+  "3": "In fg(x) the inner function g is evaluated first and its output is the input of f. The order matters because the two operations do not commute in general.",
+  "4": "The modulus |x| is never negative, so |expression| = k splits into two cases, expression = k and expression = −k. Each solution must be checked against the case that produced it.",
+  "5": "A transformation changes the graph in a predictable way, so combining them in the order stated gives the correct image. Applying them in a different order can give a different graph."
+}

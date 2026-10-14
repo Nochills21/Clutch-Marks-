@@ -128,7 +128,7 @@ export default function ProgressPage() {
       const completed = new Set((progressRes.data ?? []).map((p) => p.lesson_id));
       setTopics((topicsRes.data ?? []).map((t) => {
         const topicAttempts = attempts.filter((a) => quizTopic.get(a.quiz_id) === t.id);
-        const totalPct = topicAttempts.reduce((s: number, a: any) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0);
+        const totalPct = topicAttempts.reduce((s: number, a) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0);
         const topicLessons = lessons.filter((l) => l.topic_id === t.id);
 
         // Practice + bookmark weak signals attributed to this topic.
@@ -136,13 +136,13 @@ export default function ProgressPage() {
         let practiceTotal = 0;
         let bookmarked = 0;
         for (const q of quizzesRes.data ?? []) {
-          if ((q as any).topic_id !== t.id) continue;
-          const pq = practiceQ.get((q as any).id);
+          if (q.topic_id !== t.id) continue;
+          const pq = practiceQ.get(q.id);
           if (pq) {
             practiceTotal += pq.attempts;
             if (!pq.last_correct) practiceIncorrect += 1;
           }
-          if (bookmarkedIds.has((q as any).id)) bookmarked += 1;
+          if (bookmarkedIds.has(q.id)) bookmarked += 1;
         }
 
         return {

@@ -1,0 +1,148 @@
+backend/supabase/functions/ai-correction/index.ts:502 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/ai-correction/index.ts:503 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/ai-correction/index.ts:626 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/ai-correction/index.ts:737 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/generate-questions/index.ts:62 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/generate-questions/index.ts:129 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/generate-questions/index.ts:136 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/generate-questions/index.ts:160 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/quiz-feedback/index.ts:86 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/quiz-feedback/index.ts:104 E ANY Unexpected any. Specify a different type.
+backend/supabase/functions/quiz-feedback/index.ts:114 E ANY Unexpected any. Specify a different type.
+frontend/src/components/FileVersionHistory.tsx:71 E ANY Unexpected any. Specify a different type.
+frontend/src/components/PreviewLimit.tsx:15 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/PreviewLimit.tsx:22 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/PreviewLimit.tsx:69 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/PreviewLimit.tsx:69 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/admin/ContentEditor.tsx:39 E ANY Unexpected any. Specify a different type.
+frontend/src/components/admin/ContentEditor.tsx:67 W DEPS React Hook useEffect has a missing dependency: 'loadRevision
+frontend/src/components/dashboards/ParentDashboard.tsx:32 E ANY Unexpected any. Specify a different type.
+frontend/src/components/dashboards/ParentDashboard.tsx:32 E ANY Unexpected any. Specify a different type.
+frontend/src/components/dashboards/ParentDashboard.tsx:194 E ANY Unexpected any. Specify a different type.
+frontend/src/components/dashboards/StudentDashboard.tsx:121 W DEPS React Hook useEffect has a missing dependency: 'pickedIds'. 
+frontend/src/components/practice/QuestionBankParts.tsx:117 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/ui/badge.tsx:29 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/ui/button.tsx:47 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/ui/form.tsx:129 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/ui/navigation-menu.tsx:111 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/ui/sidebar.tsx:636 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/ui/sonner.tsx:27 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/components/ui/toggle.tsx:37 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/lib/auth.tsx:33 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/lib/auth.tsx:53 W REFRESH Fast refresh only works when a file only exports components.
+frontend/src/lib/auth.tsx:57 W REFRESH Fast refresh only works when a file only exports components.
+src/main.tsx:15 W REFRESH Fast refresh only works when a file has exports. Move your c
+src/pages/Flashcards.tsx:237 W DEPS React Hook useMemo has an unnecessary dependency: 'FREE_PREV
+src/pages/LessonNotes.tsx:33 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:30 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:31 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:33 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:34 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:78 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:79 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:83 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:123 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:128 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:133 E ANY Unexpected any. Specify a different type.
+src/pages/Lessons.tsx:140 W DEPS React Hook useMemo has an unnecessary dependency: 'FREE_PREV
+src/pages/Lessons.tsx:153 W DEPS React Hook useMemo has a missing dependency: 'prefsLoaded'. 
+src/pages/Notes.tsx:41 W REFRESH Fast refresh only works when a file only exports components.
+src/pages/Notes.tsx:46 W REFRESH Fast refresh only works when a file only exports components.
+src/pages/Notes.tsx:71 W REFRESH Fast refresh only works when a file only exports components.
+src/pages/Notes.tsx:123 W REFRESH Fast refresh only works when a file only exports components.
+src/pages/PastPapers.tsx:89 E ANY Unexpected any. Specify a different type.
+src/pages/Practice.tsx:207 W DEPS React Hook useEffect has a missing dependency: 'loadReviewQu
+src/pages/Practice.tsx:269 W DEPS React Hook useEffect has a missing dependency: 'toast'. Eith
+src/pages/Practice.tsx:375 E ANY Unexpected any. Specify a different type.
+src/pages/Practice.tsx:404 E ANY Unexpected any. Specify a different type.
+src/pages/Practice.tsx:423 W DEPS React Hook useMemo has an unnecessary dependency: 'pickedIds
+src/pages/Practice.tsx:428 W DEPS React Hook useMemo has an unnecessary dependency: 'pickedIds
+src/pages/Practice.tsx:436 W DEPS React Hook useMemo has a missing dependency: 'filtering'. Ei
+src/pages/Pricing.tsx:205 E ANY Unexpected any. Specify a different type.
+src/pages/ProgressPage.tsx:131 E ANY Unexpected any. Specify a different type.
+src/pages/ProgressPage.tsx:139 E ANY Unexpected any. Specify a different type.
+src/pages/ProgressPage.tsx:140 E ANY Unexpected any. Specify a different type.
+src/pages/ProgressPage.tsx:145 E ANY Unexpected any. Specify a different type.
+src/pages/ProgressPage.tsx:203 W DEPS React Hook useMemo has a missing dependency: 'topics'. Eithe
+src/pages/Quizzes.tsx:72 E ANY Unexpected any. Specify a different type.
+src/pages/Quizzes.tsx:73 E ANY Unexpected any. Specify a different type.
+src/pages/Quizzes.tsx:138 E ANY Unexpected any. Specify a different type.
+src/pages/Quizzes.tsx:310 E ANY Unexpected any. Specify a different type.
+src/pages/Quizzes.tsx:614 E ANY Unexpected any. Specify a different type.
+src/pages/StudyPlanner.tsx:72 E ANY Unexpected any. Specify a different type.
+src/pages/StudyPlanner.tsx:83 E ANY Unexpected any. Specify a different type.
+src/pages/StudyPlanner.tsx:83 E ANY Unexpected any. Specify a different type.
+src/pages/StudyPlanner.tsx:93 W DEPS React Hook useEffect has a missing dependency: 'loadPlans'. 
+src/pages/StudyPlanner.tsx:163 E ANY Unexpected any. Specify a different type.
+src/pages/StudyPlanner.tsx:170 E ANY Unexpected any. Specify a different type.
+src/pages/Subject.tsx:58 E ANY Unexpected any. Specify a different type.
+src/pages/Subject.tsx:59 E ANY Unexpected any. Specify a different type.
+src/pages/Subject.tsx:60 E ANY Unexpected any. Specify a different type.
+src/pages/Subject.tsx:61 E ANY Unexpected any. Specify a different type.
+src/pages/Subject.tsx:62 E ANY Unexpected any. Specify a different type.
+src/pages/Subject.tsx:63 E ANY Unexpected any. Specify a different type.
+src/pages/TopicNotes.tsx:38 E ANY Unexpected any. Specify a different type.
+src/pages/TopicNotes.tsx:39 E ANY Unexpected any. Specify a different type.
+src/pages/TopicNotes.tsx:43 E ANY Unexpected any. Specify a different type.
+src/pages/TopicNotes.tsx:44 E ANY Unexpected any. Specify a different type.
+src/pages/TopicNotes.tsx:45 E ANY Unexpected any. Specify a different type.
+src/pages/TopicPapers.tsx:52 E ANY Unexpected any. Specify a different type.
+src/pages/TopicPapers.tsx:53 E ANY Unexpected any. Specify a different type.
+src/pages/TopicQuiz.tsx:69 E ANY Unexpected any. Specify a different type.
+src/pages/TopicQuiz.tsx:70 E ANY Unexpected any. Specify a different type.
+src/pages/TopicQuiz.tsx:226 E ANY Unexpected any. Specify a different type.
+src/pages/TopicQuiz.tsx:235 E ANY Unexpected any. Specify a different type.
+src/pages/TopicQuiz.tsx:235 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminAnnouncements.tsx:36 W DEPS React Hook useEffect has a missing dependency: 'load'. Eithe
+src/pages/admin/AdminFlashcards.tsx:20 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminFlashcards.tsx:21 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminFlashcards.tsx:23 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminFlashcards.tsx:28 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminFlashcards.tsx:31 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminFlashcards.tsx:53 W DEPS React Hook useEffect has a missing dependency: 'load'. Eithe
+src/pages/admin/AdminGradeBook.tsx:309 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminLessons.tsx:38 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminLessons.tsx:40 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminLessons.tsx:61 W DEPS React Hook useEffect has a missing dependency: 'load'. Eithe
+src/pages/admin/AdminPastPapers.tsx:80 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminPastPapers.tsx:208 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminPastPapers.tsx:246 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminPastPapers.tsx:252 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminPastPapers.tsx:300 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminPayments.tsx:39 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminPayments.tsx:62 W DEPS React Hook useEffect has a missing dependency: 'load'. Eithe
+src/pages/admin/AdminQuestionBank.tsx:16 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuestionBank.tsx:17 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuestionBank.tsx:18 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuizzes.tsx:23 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuizzes.tsx:24 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuizzes.tsx:26 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuizzes.tsx:36 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuizzes.tsx:62 W DEPS React Hook useEffect has a missing dependency: 'load'. Eithe
+src/pages/admin/AdminQuizzes.tsx:100 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminQuizzes.tsx:289 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminSubjects.tsx:152 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminSubjects.tsx:152 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminSubjects.tsx:153 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminSubjects.tsx:153 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminSubmissions.tsx:50 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminSubmissions.tsx:142 W DEPS React Hook useEffect has a missing dependency: 'loadData'. E
+src/pages/admin/AdminTopics.tsx:20 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminTopics.tsx:23 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminUsers.tsx:163 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminUsers.tsx:169 W DEPS React Hook useEffect has a missing dependency: 'load'. Eithe
+src/pages/admin/AdminUsers.tsx:242 E ANY Unexpected any. Specify a different type.
+src/pages/admin/AdminUsers.tsx:292 E ANY Unexpected any. Specify a different type.
+supabase/functions/ai-correction/index.ts:180 E ANY Unexpected any. Specify a different type.
+supabase/functions/ai-correction/index.ts:234 E ANY Unexpected any. Specify a different type.
+supabase/functions/ai-correction/index.ts:623 E ANY Unexpected any. Specify a different type.
+supabase/functions/ai-correction/index.ts:624 E ANY Unexpected any. Specify a different type.
+supabase/functions/ai-correction/index.ts:747 E ANY Unexpected any. Specify a different type.
+supabase/functions/ai-correction/index.ts:869 E ANY Unexpected any. Specify a different type.
+supabase/functions/generate-questions/index.ts:73 E ANY Unexpected any. Specify a different type.
+supabase/functions/generate-questions/index.ts:151 E ANY Unexpected any. Specify a different type.
+supabase/functions/generate-questions/index.ts:158 E ANY Unexpected any. Specify a different type.
+supabase/functions/generate-questions/index.ts:182 E ANY Unexpected any. Specify a different type.
+supabase/functions/quiz-feedback/index.ts:86 E ANY Unexpected any. Specify a different type.
+supabase/functions/quiz-feedback/index.ts:104 E ANY Unexpected any. Specify a different type.
+supabase/functions/quiz-feedback/index.ts:114 E ANY Unexpected any. Specify a different type.

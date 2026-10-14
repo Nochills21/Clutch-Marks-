@@ -1,0 +1,1 @@
+select t.slug, ss.code, ss.title from syllabus_statements ss join topics t on t.id=ss.topic_id join subject_levels sl on sl.id=t.subject_level_id join subjects s on s.id=sl.subject_id where s.name ilike '%physics%' and sl.level::text ilike '%a2%' order by t.sort_order nulls last, t.slug, ss.sort_order;

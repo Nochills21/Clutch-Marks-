@@ -1,0 +1,7 @@
+{
+  "1": "Angles on a straight line sum to 180 degrees, angles at a point sum to 360, vertically opposite angles are equal, and a triangle's angles sum to 180. Each fact is a reason you can quote in a proof-style answer.",
+  "2": "Alternate, corresponding and co-interior angles come from a transversal crossing parallel lines. Co-interior angles lie on the same side, so they add to 180 degrees.",
+  "3": "Splitting an n-sided polygon into triangles from one vertex gives n − 2 triangles, so the interior angles add to (n − 2) × 180. A regular polygon shares this equally, and each exterior angle is 360 divided by n.",
+  "4": "The angle at the centre is twice the angle at the circumference on the same arc. An angle in a semicircle is always 90 degrees, a result that follows from this rule.",
+  "5": "The alternate segment theorem links a tangent to a chord: the angle between them equals the angle in the segment on the other side. Quoting the theorem by name is what earns the mark."
+}

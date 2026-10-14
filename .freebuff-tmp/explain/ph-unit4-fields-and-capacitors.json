@@ -1,0 +1,7 @@
+{
+  "1": "Electric field strength is force per unit charge. The inverse square law follows because the field spreads over a sphere of area 4πr², so its strength falls off with the square of distance.",
+  "2": "Potential is the energy per unit charge at a point, and between parallel plates the field is uniform, so the potential changes linearly with distance. This gives E = V/d.",
+  "3": "Field lines show the direction of the force on a positive charge, starting on positive charges and ending on negative ones. Equipotentials are always perpendicular to field lines, because no work is done moving along one.",
+  "4": "The rate at which a capacitor loses charge is proportional to the charge left, so the decay is exponential. The time constant RC is the time for the charge to fall to about 37 percent of its starting value.",
+  "5": "The voltage falls to V₀/e after one time constant, which gives a direct method of finding RC from the graph. The curve is steep at first because the current is greatest when the charge is greatest."
+}

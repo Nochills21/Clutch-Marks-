@@ -1,0 +1,1 @@
+select m.id, m.title, m.file_url, m.preview_url, m.page_count, m.source_range, left(m.content,200) as c from public.study_materials m where m.id in ('aeea4b47-1fd5-4694-b62c-281cac5c10ce','01c2ff35-5ae0-49bd-b5d4-0a22ae5215be','99e6559d-e675-4258-9bc2-2149a0b50b82');

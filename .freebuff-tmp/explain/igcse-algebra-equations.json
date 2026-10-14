@@ -1,0 +1,8 @@
+{
+  "1": "Doing the same operation to both sides keeps the equation true. You undo operations in reverse order because the last operation applied to x is the first one to undo.",
+  "2": "Substitution checks the answer against the original equation, catching slips without relying on memory. Brackets come off first, or the order of operations would undo the wrong step.",
+  "3": "Multiplying every term by the lowest common denominator removes the fractions and keeps the balance. Choosing the lowest one keeps the numbers small.",
+  "4": "Moving letter terms to one side and numbers to the other is the same balancing rule applied twice. Pick the side where the letter term will stay positive to avoid sign errors.",
+  "5": "Defining the unknown first makes the relationship in the question clear enough to write as an equation. The answer must match the quantity asked for, which may be a total rather than one part.",
+  "6": "Squaring loses the sign, so x² = 49 has both x = 7 and x = −7. Context such as a length being positive removes one of them, so read the question before choosing."
+}

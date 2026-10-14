@@ -1,0 +1,43 @@
+{
+  "Q102": {
+    "correct_option": 0,
+    "question_text": "Given that \\((x - 2)\\) is a factor of \\(f(x) = x^3 + kx^2 - 4x + 12\\), find the exact value of k. [WMA12 P2, 3 marks]",
+    "explanation": "By the factor theorem, if \\((x - 2)\\) is a factor then \\(f(2) = 0\\) M1 [1]. Substitute \\(x = 2\\) into the polynomial: \\(8 + 4k - 8 + 12 = 0\\) M1 [1]. Simplify to \\(4k + 12 = 0\\), so the exact value of k is -3 A1 [1]."
+  },
+  "Q110": {
+    "correct_option": 0,
+    "question_text": "Solve the equation \\(9^{x-1} = 2^{2x}\\). Give your answer to 3 significant figures. [WMA12 P2, 4 marks]",
+    "explanation": "Take logarithms of both sides: \\(\\log(9^{x-1}) = \\log(2^{2x})\\) M1 [1]. Bring the exponents to the front: \\((x - 1)\\log 9 = 2x \\log 2\\) M1 [1]. Rearrange to collect the x terms: \\(x(\\log 9 - \\log 4) = \\log 9\\), so \\(x = \\frac{\\log 9}{\\log 2.25} \\approx \\frac{0.95424}{0.35218} \\approx 2.7095\\) M1 [1]. To 3 significant figures, \\(x = 2.71\\) A1 [1]."
+  },
+  "Q114": {
+    "correct_option": 0,
+    "options": [
+      "\\(\\frac{9}{2}\\)",
+      "\\(\\frac{27}{2}\\)",
+      "\\(\\frac{9}{4}\\)",
+      "\\(\\frac{27}{4}\\)"
+    ],
+    "explanation": "Find the roots where the curve meets the x-axis: \\(x(3 - x) = 0\\), so \\(x = 0\\) and \\(x = 3\\) M1 [1]. Set up the definite integral for the area: \\(\\int_0^3 (3x - x^2) dx\\) M1 [1]. Integrate using the power rule: \\([1.5x^2 - \\frac{x^3}{3}]_0^3\\) M1 [1]. Substitute the upper limit 3: \\(1.5(9) - \\frac{27}{3} = 13.5 - 9 = 4.5\\), and \\(4.5 = \\frac{9}{2}\\). The exact area is \\(\\frac{9}{2}\\) A1 [1]."
+  },
+  "Q116": {
+    "correct_option": 1,
+    "explanation": "Find the strip width \\(h = \\frac{2 - 0}{2} = 1.0\\) M1 [1]. The ordinates at \\(x_0 = 0, x_1 = 1, x_2 = 2\\) give \\(y_0 = 2^0 = 1\\), \\(y_1 = 2^1 = 2\\), \\(y_2 = 2^2 = 4\\) M1 [1]. Apply the trapezoidal rule: \\(\\frac{h}{2}(y_0 + y_2 + 2y_1) = \\frac{1.0}{2}(1 + 4 + 2(2)) = 0.5(9)\\) M1 [1]. The estimate is 4.50 A1 [1]."
+  },
+  "Q118": {
+    "correct_option": 0,
+    "explanation": "Let \\(Y = x - 45^\\circ\\), so the range for Y is \\(-45^\\circ \\leq Y < 315^\\circ\\) M1 [1]. Solve \\(\\cos Y = \\frac{1}{\\sqrt{2}}\\): the solutions are \\(Y = 45^\\circ\\) and \\(Y = -45^\\circ\\) (the value \\(315^\\circ\\) lies outside the range) M1 [1]. Converting back with \\(x = Y + 45^\\circ\\) gives \\(x = 90^\\circ\\) and \\(x = 0^\\circ\\) M1 [1]. The solutions in range are \\(0^\\circ, 90^\\circ\\) A1 [1]."
+  },
+  "Q120": {
+    "correct_option": 2,
+    "explanation": "We have \\(ar = -4\\) and \\(\\frac{a}{1 - r} = 9\\) M1 [1]. From \\(ar = -4\\), \\(r = -\\frac{4}{a}\\), so the sum condition becomes \\(\\frac{a}{1 + \\frac{4}{a}} = \\frac{a^2}{a + 4} = 9\\) M1 [1]. This gives \\(a^2 = 9a + 36\\), that is \\(a^2 - 9a - 36 = 0\\), which factorises as \\((a - 12)(a + 3) = 0\\) M1 [1]. The root \\(a = -3\\) gives \\(r = \\frac{4}{3}\\), for which the series does not converge, so \\(a = 12\\) A1 [1]."
+  },
+  "Q121": {
+    "correct_option": 0,
+    "question_text": "An arithmetic progression has first term 33 and common difference -3. Find the sum of the first 15 terms. [WMA12 P2, 2 marks]",
+    "explanation": "Use the sum formula for an arithmetic progression: \\(S_n = \\frac{n}{2}[2a + (n-1)d]\\) M1 [1]. Substitute \\(n = 15, a = 33, d = -3\\): \\(S_{15} = \\frac{15}{2}[2(33) + (15 - 1)(-3)] = \\frac{15}{2}[66 - 42]\\) M1 [1]. This gives \\(S_{15} = \\frac{15}{2}(24) = 180\\) A1 [1]."
+  },
+  "Q125": {
+    "correct_option": 2,
+    "explanation": "Use the general term formula \\(\\binom{n}{r} a^{n-r} (bx)^r\\) M1 [1]. For \\(x^2\\), \\(n = 5, r = 2, a = 3, b = -2\\), so the term is \\(\\binom{5}{2}(3)^3(-2x)^2 = 10(27)(4x^2)\\) M1 [1]. Calculate the product: \\(10 \\times 27 \\times 4 = 1080\\). The exact coefficient is 1080 A1 [1]."
+  }
+}

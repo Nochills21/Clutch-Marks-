@@ -1,0 +1,1 @@
+select t.slug, string_agg(ss.code||' '||left(ss.title,50), ' ; ' order by ss.code) as stmts from topics t join subject_levels sl on sl.id=t.subject_level_id join subjects s on s.id=sl.subject_id join syllabus_statements ss on ss.topic_id=t.id where s.name ilike '%physics%' and sl.level::text ilike '%a2%' group by t.slug order by t.slug;

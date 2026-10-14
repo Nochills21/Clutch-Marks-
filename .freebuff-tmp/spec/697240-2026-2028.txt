@@ -1,0 +1,2669 @@
+  Syllabus
+  Cambridge IGCSETM (9-1)
+  Physics 0972
+
+      Use this syllabus for exams in 2026, 2027 and 2028.
+      Exams are available in the June and November series.
+      This syllabus is not available in all administrative zones.
+      Please check the syllabus page at www.cambridgeinternational.org/0972 to see if this syllabus is
+      available in your administrative zone
+
+Version 2
+
+For the purposes of screen readers, any mention in this document of Cambridge IGCSE
+refers to Cambridge International General Certificate of Secondary Education.
+Why choose Cambridge International?
+
+Cambridge International prepares school students for life, helping them develop an informed curiosity and a
+lasting passion for learning. We are part of the University of Cambridge.
+Our Cambridge Pathway gives students a clear path for educational success from age 5 to 19. Schools can
+shape the curriculum around how they want students to learn - with a wide range of subjects and flexible ways
+to offer them. It helps students discover new abilities and a wider world, and gives them the skills they need for
+life, so they can achieve at school, university and work.
+Our programmes and qualifications set the global standard for international education. They are created by
+subject experts, are rooted in academic rigour and reflect the latest educational research. They provide a
+strong platform for learners to progress from one stage to the next, and are well supported by teaching and
+learning resources. Learn more about our research at www.cambridgeassessment.org.uk/our-research/
+We believe education works best when curriculum, teaching, learning and assessment are closely aligned.
+Our programmes develop deep knowledge, conceptual understanding and higher-order thinking skills, to
+prepare students for their future. Together with schools, we develop Cambridge learners who are confident,
+responsible, reflective, innovative and engaged - equipped for success in the modern world.
+Every year, nearly a million Cambridge students from 10000 schools in 160 countries prepare for their future
+with the Cambridge Pathway.
+
+School feedback: `We think the Cambridge curriculum is superb preparation for university.'
+
+Feedback from: Christoph Guttentag, Dean of Undergraduate Admissions, Duke University, USA
+
+  Quality management
+  Cambridge International is committed to providing exceptional quality. In line with this commitment, our
+  quality management system for the provision of international education programmes and qualifications
+  for students aged 5 to 19 is independently certified as meeting the internationally recognised standard,
+  ISO 9001:2015. Learn more at www.cambridgeinternational.org/about-us/our-standards/
+
+©Cambridge University Press & Assessment September 2023
+Cambridge Assessment International Education is part of Cambridge University Press & Assessment. Cambridge University Press &
+Assessment is a department of the University of Cambridge.
+Cambridge University Press & Assessment retains the copyright on all its publications. Registered centres are permitted to copy
+material from this booklet for their own internal use. However, we cannot give permission to centres to photocopy any material that is
+acknowledged to a third party even for internal use within a centre.
+Contents
+
+Why choose Cambridge International?......................................................................... 2
+
+1 Why choose this syllabus? ......................................................................................... 4
+
+2 Syllabus overview ........................................................................................................ 7
+
+Aims                                                             7
+
+Content overview                                                 8
+
+Assessment overview                                              9
+
+Assessment objectives                                            10
+
+3 Subject content ..........................................................................................................12
+
+4 Details of the assessment ........................................................................................ 42
+
+Core assessment                                                  42
+
+Extended assessment                                              42
+
+Practical assessment                                             43
+
+Language of measurement                                          45
+
+Apparatus                                                        46
+
+Safety in the laboratory                                         48
+
+Electrical symbols                                               49
+
+Symbols and units for physical quantities                        50
+
+Mathematical requirements                                        52
+
+Presentation of data                                             53
+
+Conventions (e.g. signs, symbols, terminology and nomenclature)  54
+
+Command words                                                    55
+
+5 What else you need to know .................................................................................... 56
+
+Before you start                                                 56
+
+Making entries                                                   57
+
+Accessibility and equality                                       57
+
+After the exam                                                   58
+
+How students and teachers can use the grades                     59
+
+Changes to this syllabus for 2026, 2027 and 2028                 60
+
+Important: Changes to this syllabus
+
+The latest syllabus is version 2, published December 2025. There are no significant changes
+which affect teaching.
+
+Any textbooks endorsed to support the syllabus for examination from 2023 are still suitable for use with this
+syllabus.
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028.
+
+1 Why choose this syllabus?
+
+Key benefits
+
+Cambridge IGCSE is the world's most popular international
+qualification for 14 to 16 year olds, although it can be taken by
+students of other ages. It is tried, tested and trusted.
+
+Students can choose from 70 subjects in any combination - it is    Cambridge
+taught by over 5000 schools in 150 countries.                        learner
+
+Our programmes promote a thorough knowledge and
+understanding of a subject and help to develop the skills
+learners need for their next steps in education or employment.
+
+Cambridge IGCSE (9-1) Physics develops a set of
+transferable skills including handling data, practical problem-
+solving and applying the scientific method. Learners develop
+relevant attitudes, such as concern for accuracy and precision,
+objectivity, integrity, enquiry, initiative and inventiveness. They acquire the essential scientific skills required for
+progression to further studies or employment.
+
+Our approach in Cambridge IGCSE (9-1) Physics encourages learners to be:
+
+confident, interested in learning about science, questioning ideas and using scientific language to
+communicate their views and opinions
+
+responsible, working methodically and safely when working alone or collaboratively with others
+
+reflective, learning from their experiences and interested in scientific issues that affect the individual, the
+community and the environment
+
+innovative, solving unfamiliar problems confidently and creatively
+
+engaged, keen to develop scientific skills, curious about scientific principles and their application in the world.
+
+School feedback: `The strength of Cambridge IGCSE qualifications is internationally
+recognised and has provided an international pathway for our students to continue their studies
+around the world.'
+
+Feedback from: Gary Tan, Head of Schools and CEO, Raffles Group of Schools, Indonesia
+
+Back to contents page                                              www.cambridgeinternational.org/igcse                   4
+                                        Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Why choose this syllabus?
+
+International recognition and acceptance
+
+Our expertise in curriculum, teaching and learning, and assessment is the basis for the recognition of our
+programmes and qualifications around the world. The combination of knowledge and skills in Cambridge
+IGCSE (9-1) Physics gives learners a solid foundation for further study. Candidates who achieve grades 9 to 4
+are well prepared to follow a wide range of courses including Cambridge International AS & A Level Physics.
+
+Cambridge IGCSEs are accepted and valued by leading universities and employers around the world as
+evidence of academic achievement. Cambridge students can be confident that their qualifications will be
+understood and valued throughout their education and career, in their home country and internationally.
+Many universities require a combination of Cambridge International AS & A Levels and Cambridge IGCSEs or
+equivalent to meet their entry requirements.
+
+UK ENIC, the national agency in the UK for the recognition and comparison of international qualifications and
+skills, has carried out an independent benchmarking study of Cambridge IGCSE and found it to be comparable
+to the standard of the GCSE in the UK. This means students can be confident that their Cambridge IGCSE
+qualifications are accepted as equivalent to UK GCSEs by leading universities worldwide.
+
+Learn more at www.cambridgeinternational.org/recognition
+
+School feedback: `Cambridge IGCSE is one of the most sought-after and recognised
+qualifications in the world. It is very popular in Egypt because it provides the perfect
+preparation for success at advanced level programmes.'
+
+Feedback from: Managing Director of British School of Egypt BSE
+
+Back to contents page  www.cambridgeinternational.org/igcse                               5
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Why choose this syllabus?
+
+Supporting teachers
+
+We believe education is most effective when curriculum, teaching and learning, and assessment are closely
+aligned. We provide a wide range of resources, detailed guidance, innovative training and targeted professional
+development so that you can give your students the best possible preparation for Cambridge IGCSE. To find
+out which resources are available for each syllabus go to our School Support Hub.
+
+The School Support Hub is our secure online site for Cambridge teachers where you can find the resources
+you need to deliver our programmes. You can also keep up to date with your subject and the global Cambridge
+community through our online discussion forums.
+
+Find out more at www.cambridgeinternational.org/support
+
+Support for Cambridge IGCSE
+
+Planning and           Teaching and          Learning and revision  Results
+preparation            assessment            · Example candidate    · Candidate Results
+· Syllabuses
+· Schemes of work      · Endorsed resources       responses              Service
+· Specimen Question                          · Past papers and      · Principal examiner
+                       · Online forums
+     Papers and Mark                              mark schemes           reports for teachers
+     Schemes           · Support for         · Specimen paper       · Results Analysis
+· Teacher guides            coursework
+                            and speaking          answers
+                            components       · Test Maker
+
+                       · Resource Plus
+
+                       · Everyday Science
+
+Sign up for email notifications about changes to syllabuses, including new and revised products and services,
+at www.cambridgeinternational.org/syllabusupdates
+
+Syllabuses and specimen materials represent the final authority on the content and structure of all of our
+assessments.
+
+Professional development
+
+Find the next step on your professional development journey.
+· Introductory Professional Development - An introduction to Cambridge programmes and qualifications.
+· Extension Professional Development - Develop your understanding of Cambridge programmes and
+
+     qualifications to build confidence in your delivery.
+· Enrichment Professional Development - Transform your approach to teaching with our Enrichment
+
+     workshops.
+· Cambridge Professional Development Qualifications (PDQs) - Practice-based programmes that transform
+
+     professional learning for practising teachers. Available at Certificate and Diploma level.
+
+Find out more at:
+www.cambridgeinternational.org/support-and-training-for-schools/professional-development/
+
+Supporting exams officers
+
+We provide comprehensive support and guidance for all Cambridge exams officers.
+Find out more at: www.cambridgeinternational.org/eoguide
+
+Back to contents page                        www.cambridgeinternational.org/igcse                                6
+                                                                             Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028.
+
+2 Syllabus overview
+
+Aims
+
+The aims describe the purposes of a course based on this syllabus.
+You can deliver some of the aims using suitable local, international or historical examples and applications, or
+through collaborative practical work.
+The aims are to enable students to:
+· acquire scientific knowledge and understanding of scientific theories and practice
+· develop a range of experimental skills, including handling variables and working safely
+· use scientific data and evidence to solve problems and discuss the limitations of scientific methods
+· communicate effectively and clearly, using scientific terminology, notation and conventions
+· understand that the application of scientific knowledge can benefit people and the environment
+· enjoy science and develop an informed interest in scientific matters which support further study.
+
+Cambridge Assessment International Education is an education organisation and politically
+neutral. The contents of this syllabus, examination papers and associated materials do not endorse
+any political view. We endeavour to treat all aspects of the exam process neutrally.
+
+Back to contents page  www.cambridgeinternational.org/igcse                                         7
+                                                    Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Syllabus overview
+
+Content overview
+
+Candidates study the following topics:
+1 Motion, forces and energy
+2 Thermal physics
+3 Waves
+4 Electricity and magnetism
+5 Nuclear physics
+6 Space physics
+
+Back to contents page  www.cambridgeinternational.org/igcse  8
+                                   Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Syllabus overview
+
+Assessment overview
+
+All candidates take three papers.
+
+Candidates who have studied the Core syllabus content, or who are expected to achieve a grade 3 or below,
+should be entered for Paper 1, Paper 3 and either Paper 5 or Paper 6. These candidates will be eligible for
+grades 5 to 1.
+
+Candidates who have studied the Extended syllabus content (Core and Supplement), and who are expected
+to achieve a grade 4 or above, should be entered for Paper 2, Paper 4 and either Paper 5 or Paper 6. These
+candidates will be eligible for grades 9 to 1.
+
+Core assessment
+
+Core candidates take Paper 1 and Paper 3. The questions are based on the Core subject content only:
+
+Paper 1: Multiple Choice (Core)                                  Paper 3: Theory (Core)
+
+45 minutes                                                       1 hour 15 minutes
+
+40 marks                                     30%                 80 marks                               50%
+
+40 four-option multiple-choice questions                         Short-answer and structured questions
+
+Externally assessed                                              Externally assessed
+
+Extended assessment
+
+Extended candidates take Paper 2 and Paper 4. The questions are based on the Core and Supplement subject
+content:
+
+Paper 2: Multiple Choice (Extended)                              Paper 4: Theory (Extended)
+
+45 minutes                                                       1 hour 15 minutes
+
+40 marks                                     30%                 80 marks                               50%
+
+40 four-option multiple-choice questions                         Short-answer and structured questions
+
+Externally assessed                                              Externally assessed
+
+Practical assessment
+
+All candidates take one practical paper from a choice of two:
+
+Paper 5: Practical Test                                          Paper 6: Alternative to Practical
+
+1 hour 15 minutes                                                1 hour
+
+40 marks                                     20%                 40 marks                               20%
+
+Questions will be based on the experimental       OR Questions will be based on the experimental
+skills in Section 4                                       skills in Section 4
+
+Externally assessed                                              Externally assessed
+
+Information on availability is in the Before you start section.
+
+Back to contents page                                                      www.cambridgeinternational.org/igcse  9
+                                                    Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Syllabus overview
+
+Assessment objectives
+
+The assessment objectives (AOs) are:
+
+AO1 Knowledge with understanding
+Candidates should be able to demonstrate knowledge and understanding of:
+· scientific phenomena, facts, laws, definitions, concepts and theories
+· scientific vocabulary, terminology and conventions (including symbols, quantities and units)
+· scientific instruments and apparatus, including techniques of operation and aspects of safety
+· scientific and technological applications with their social, economic and environmental implications.
+
+Subject content defines the factual material that candidates may be required to recall and explain.
+
+Candidates will also be asked questions which require them to apply this material to unfamiliar contexts and to
+apply knowledge from one area of the syllabus to another.
+
+AO2 Handling information and problem-solving
+Candidates should be able, in words or using other written forms of presentation (i.e. symbolic, graphical and
+numerical), to:
+· locate, select, organise and present information from a variety of sources
+· translate information from one form to another
+· manipulate numerical and other data
+· use information to identify patterns, report trends and form conclusions
+· present reasoned explanations for phenomena, patterns and relationships
+· make predictions based on relationships and patterns
+· solve problems, including some of a quantitative nature.
+
+Questions testing these skills may be based on information that is unfamiliar to candidates, requiring them to
+apply the principles and concepts from the syllabus to a new situation, in a logical, deductive way.
+
+AO3 Experimental skills and investigations
+Candidates should be able to:
+· demonstrate knowledge of how to select and safely use techniques, apparatus and materials (including
+
+     following a sequence of instructions where appropriate)
+· plan experiments and investigations
+· make and record observations, measurements and estimates
+· interpret and evaluate experimental observations and data
+· evaluate methods and suggest possible improvements.
+
+Back to contents page  www.cambridgeinternational.org/igcse  10
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Syllabus overview
+
+Weighting for assessment objectives
+
+The approximate weightings allocated to each of the assessment objectives (AOs) are summarised below.
+
+Assessment objectives as a percentage of the qualification
+
+Assessment objective                          Weighting in IGCSE %
+
+AO1 Knowledge with understanding                            50
+
+AO2 Handling information and problem-solving                30
+
+AO3 Experimental skills and investigations                  20
+
+Total                                                       100
+
+Assessment objectives as a percentage of each component
+
+Assessment objective                               Weighting in components %
+
+                                              Papers 1 and 2 Papers 3 and 4 Papers 5 and 6
+
+AO1 Knowledge with understanding              63                 63           0
+
+AO2 Handling information and problem-solving  37                 37           0
+
+AO3 Experimental skills and investigations    0                  0            100
+
+Total                                         100                100          100
+
+Back to contents page                                            www.cambridgeinternational.org/igcse  11
+                                                          Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028.
+
+3 Subject content
+
+This syllabus gives you the flexibility to design a course that will interest, challenge and engage your learners.
+Where appropriate you are responsible for selecting resources and examples to support your learners'
+study. These should be appropriate for the learners' age, cultural background and learning context as well as
+complying with your school policies and local legal requirements.
+
+All candidates should be taught the Core subject content. Candidates who are only taught the Core subject
+content can achieve a maximum of grade 5. Candidates aiming for grades 9 to 4 should be taught the
+Extended subject content. The Extended subject content includes both the Core and the Supplement.
+
+Scientific subjects are, by their nature, experimental. Learners should pursue a fully integrated course which
+allows them to develop their experimental skills by doing practical work and investigations.
+
+Practical work helps students to:
+
+· use equipment and materials accurately and safely
+· develop observational and problem-solving skills
+· develop a deeper understanding of the syllabus topics and the scientific approach
+· appreciate how scientific theories are developed and tested
+· transfer the experimental skills acquired to unfamiliar contexts
+· develop positive scientific attitudes such as objectivity, integrity, cooperation, enquiry and inventiveness
+· develop an interest and enjoyment in science.
+
+1 Motion, forces and energy
+
+1.1 Physical quantities and measurement techniques
+
+Core                                                      Supplement
+
+1Describe the use of rulers and measuring                 4Understand that a scalar quantity has
+     cylinders to find a length or a volume                    magnitude (size) only and that a vector quantity
+                                                               has magnitude and direction
+2Describe how to measure a variety of time
+     intervals using clocks and digital timers            5Know that the following quantities are scalars:
+                                                               distance, speed, time, mass, energy and
+3Determine an average value for a small distance               temperature
+     and for a short interval of time by measuring
+     multiples (including the period of oscillation of a  6Know that the following quantities are
+     pendulum)                                                 vectors: force, weight, velocity, acceleration,
+                                                               momentum, electric field strength and
+                                                               gravitational field strength
+
+                                                          7Determine, by calculation or graphically, the
+                                                               resultant of two vectors at right angles, limited
+                                                               to forces or velocities only
+
+Back to contents page                                     www.cambridgeinternational.org/igcse                      12
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+1.2 Motion                                             Supplement
+
+Core                                                   9Define acceleration as change in velocity per
+1Define speed as distance travelled per unit                unit time; recall and use the equation
+                                                            a = v
+     time; recall and use the equation                            t
+     v= s
+                                                       10Determine from given data or the shape of a
+           t                                                speed-time graph when an object is moving
+2Define velocity as speed in a given direction              with:
+3Recall and use the equation                                (a) constant acceleration
+                                                            (b) changing acceleration
+     average speed = total distance travelled
+                                 total time taken      11Calculate acceleration from the gradient of a
+                                                            speed-time graph
+4Sketch, plot and interpret distance-time and
+     speed-time graphs                                 12Know that a deceleration is a negative
+                                                            acceleration and use this in calculations
+5Determine, qualitatively, from given data or the
+     shape of a distance-time graph or speed-time      13Describe the motion of objects falling in a
+     graph when an object is:                               uniform gravitational field with and without air/
+                                                            liquid resistance, including reference to terminal
+     (a) at rest                                            velocity
+     (b) moving with constant speed
+     (c) accelerating
+     (d) decelerating
+6Calculate speed from the gradient of a straight-
+     line section of a distance-time graph
+7Calculate the area under a speed-time graph to
+     determine the distance travelled for motion with
+     constant speed or constant acceleration
+
+8State that the acceleration of free fall g for
+     an object near to the surface of the Earth is
+     approximately constant and is approximately
+     9.8m/s2
+
+1.3 Mass and weight                                    Supplement
+
+Core                                                   5Describe, and use the concept of, weight as
+1State that mass is a measure of the quantity               the effect of a gravitational field on a mass
+
+     of matter in an object at rest relative to the
+     observer
+2State that weight is a gravitational force on an
+     object that has mass
+3Define gravitational field strength as force per
+     unit mass; recall and use the equation
+     g = W
+
+          m
+and know that this is equivalent to the
+
+     acceleration of free fall
+4Know that weights (and masses) may be
+
+     compared using a balance
+
+Back to contents page                                  www.cambridgeinternational.org/igcse                     13
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+1.4 Density                                              Supplement
+
+Core                                                     4Determine whether one liquid will float on
+1Define density as mass per unit volume; recall               another liquid based on density data given that
+                                                              the liquids do not mix
+     and use the equation
+     = m
+
+          V
+2Describe how to determine the density of a
+
+     liquid, of a regularly shaped solid and of an
+     irregularly shaped solid which sinks in a liquid
+     (volume by displacement), including appropriate
+     calculations
+3Determine whether an object floats based on
+     density data
+
+1.5 Forces                                               Supplement
+                                                         9Define the spring constant as force per unit
+1.5.1 Effects of forces
+                                                              extension; recall and use the equation
+Core                                                          k= F
+1Know that forces may produce changes in the
+                                                                   x
+     size and shape of an object                         10Define and use the term `limit of proportionality'
+
+2Sketch, plot and interpret load-extension                    for a load-extension graph and identify this
+     graphs for an elastic solid and describe the             point on the graph (an understanding of the
+     associated experimental procedures                       elastic limit is not required)
+                                                         11Recall and use the equation F = ma and know
+3Determine the resultant of two or more forces                that the force and the acceleration are in the
+     acting along the same straight line                      same direction
+
+4Know that an object either remains at rest or           12Describe, qualitatively, motion in a circular path
+     continues in a straight line at constant speed           due to a force perpendicular to the motion as:
+     unless acted on by a resultant force
+                                                              (a)speed increases if force increases, with
+5State that a resultant force may change the                       mass and radius constant
+     velocity of an object by changing its direction of
+     motion or its speed                                      (b)radius decreases if force increases, with
+                                                                   mass and speed constant
+
+                                                              (c)an increased mass requires an increased
+                                                                   force to keep speed and radius constant
+                                                                    mv2
+
+                                                              ( F = r is not required)
+                                                                                                               continued
+
+Back to contents page                                    www.cambridgeinternational.org/igcse                             14
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+1.5 Forces continued                                      Supplement
+
+1.5.1 Effects of forces continued
+
+Core
+6Describe solid friction as the force between two
+
+     surfaces that may impede motion and produce
+     heating
+7Know that friction (drag) acts on an object
+     moving through a liquid
+8Know that friction (drag) acts on an object
+     moving through a gas (e.g. air resistance)
+
+1.5.2 Turning effect of forces                            Supplement
+
+Core                                                      5Apply the principle of moments to other
+1Describe the moment of a force as a measure                   situations, including those with more than one
+                                                               force each side of the pivot
+     of its turning effect and give everyday examples
+2Define the moment of a force as                          6Describe an experiment to demonstrate that
+                                                               there is no resultant moment on an object in
+     moment = force × perpendicular distance from              equilibrium
+     the pivot; recall and use this equation
+3Apply the principle of moments to situations
+     with one force each side of the pivot, including
+     balancing of a beam
+4State that, when there is no resultant force and
+     no resultant moment, an object is in equilibrium
+
+1.5.3 Centre of gravity                                   Supplement
+
+Core
+1State what is meant by centre of gravity
+2Describe an experiment to determine the
+
+     position of the centre of gravity of an irregularly
+     shaped plane lamina
+3Describe, qualitatively, the effect of the position
+     of the centre of gravity on the stability of simple
+     objects
+
+Back to contents page                                                 www.cambridgeinternational.org/igcse     15
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+1.6 Momentum                                               Supplement
+Core
+                                                           1Define momentum as mass × velocity; recall
+                                                                and use the equation
+
+                                                                p = mv
+
+                                                           2Define impulse as force × time for which force
+                                                                acts; recall and use the equation
+
+                                                                impulse = Ft = (mv)
+
+                                                           3Apply the principle of the conservation of
+                                                                momentum to solve simple problems in one
+                                                                dimension
+
+                                                           4Define resultant force as the change in
+                                                                momentum per unit time; recall and use the
+                                                                equation
+                                                                F = p
+                                                                      t
+
+1.7 Energy, work and power                                 Supplement
+1.7.1Energy
+Core                                                       4Recall and use the equation for kinetic energy
+1State that energy may be stored as kinetic,                   Ek = 12 mv2
+
+     gravitational potential, chemical, elastic (strain),  5Recall and use the equation for the change in
+     nuclear, electrostatic and internal (thermal)              gravitational potential energy
+2Describe how energy is transferred between                     Ep = mgh
+     stores during events and processes, including
+     examples of transfer by forces (mechanical            6Know the principle of the conservation of
+     work done), electrical currents (electrical work           energy and apply this principle to complex
+     done), heating, and by electromagnetic, sound              examples involving multiple stages, including
+     and other waves                                            the interpretation of Sankey diagrams
+
+3Know the principle of the conservation of
+     energy and apply this principle to simple
+     examples including the interpretation of simple
+     flow diagrams
+
+Back to contents page                                      www.cambridgeinternational.org/igcse                16
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+1.7 Energy, work and power continued                     Supplement
+
+1.7.2Work
+
+Core
+1Understand that mechanical or electrical work
+
+     done is equal to the energy transferred
+2Recall and use the equation for mechanical
+
+     working
+     W = Fd = E
+
+1.7.3 Energy resources                                   Supplement
+                                                         4Know that radiation from the Sun is the main
+Core
+1Describe how useful energy may be obtained,                  source of energy for all our energy resources
+                                                              except geothermal, nuclear and tidal
+     or electrical power generated, from:
+     (a) chemical energy stored in fossil fuels          5Know that energy is released by nuclear fusion
+     (b) chemical energy stored in biofuels                   in the Sun
+     (c)water, including the energy stored in waves,
+                                                         6Know that research is being carried out to
+          in tides and in water behind hydroelectric          investigate how energy released by nuclear
+          dams                                                fusion can be used to produce electrical energy
+     (d) geothermal resources                                 on a large scale
+     (e) nuclear fuel
+     (f)light from the Sun to generate electrical        7Define efficiency as:
+          power (solar cells)                                 (a)
+     (g)infrared and other electromagnetic waves              (%) efficiency = (useful energy output) (× 100%)
+          from the Sun to heat water (solar panels)                                  (total energy input)
+          and be the source of wind energy                    (b)
+including references to a boiler, turbine and                 (%) efficiency = (useful power output) (× 100%)
+     generator where they are used                                                   (total power input)
+2Describe advantages and disadvantages                        recall and use these equations
+     of each method in terms of renewability,
+     availability, reliability, scale and environmental
+     impact
+
+3Understand, qualitatively, the concept of
+     efficiency of energy transfer
+
+Back to contents page                                                www.cambridgeinternational.org/igcse       17
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+1.7 Energy, work and power continued                   Supplement
+
+1.7.4Power
+
+Core
+1Define power as work done per unit time and
+
+     also as energy transferred per unit time; recall
+     and use the equations
+     (a) P = W
+
+                 t
+     (b) P = E
+
+                 t
+
+1.8 Pressure                                           Supplement
+
+Core                                                   4Recall and use the equation for the change in
+1Define pressure as force per unit area; recall             pressure beneath the surface of a liquid
+                                                            p = gh
+     and use the equation
+     p= F
+
+           A
+2Describe how pressure varies with force and
+
+     area in the context of everyday examples
+3Describe, qualitatively, how the pressure
+
+     beneath the surface of a liquid changes with
+     depth and density of the liquid
+
+2 Thermal physics                                      Supplement
+
+2.1 Kinetic particle model of matter
+
+2.1.1 States of matter
+
+Core
+1Know the distinguishing properties of solids,
+
+     liquids and gases
+2Know the terms for the changes in state
+
+     between solids, liquids and gases (gas to solid
+     and solid to gas transfers are not required)
+
+Back to contents page                                              www.cambridgeinternational.org/igcse  18
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+2.1 Kinetic particle model of matter continued          Supplement
+                                                        6Know that the forces and distances between
+2.1.2 Particle model
+                                                             particles (atoms, molecules, ions and electrons)
+Core                                                         and the motion of the particles affects the
+1Describe the particle structure of solids,                  properties of solids, liquids and gases
+
+     liquids and gases in terms of the arrangement,     7Describe the pressure and the changes in
+     separation and motion of the particles and              pressure of a gas in terms of the forces exerted
+     represent these states using simple particle            by particles colliding with surfaces, creating a
+     diagrams                                                force per unit area
+2Describe the relationship between the motion
+     of particles and temperature, including the idea   8Know that microscopic particles may be moved
+     that there is a lowest possible temperature             by collisions with light fast-moving molecules
+     (-273°C), known as absolute zero, where the             and correctly use the terms atoms or molecules
+     particles have least kinetic energy                     as distinct from microscopic particles
+3Describe the pressure and the changes in
+     pressure of a gas in terms of the motion of its
+     particles and their collisions with a surface
+
+4Know that the random motion of microscopic
+     particles in a suspension is evidence for the
+     kinetic particle model of matter
+
+5Describe and explain this motion (sometimes
+     known as Brownian motion) in terms of random
+     collisions between the microscopic particles
+     in a suspension and the particles of the gas or
+     liquid
+
+2.1.3 Gases and the absolute scale of temperature
+
+Core                                                    Supplement
+1Describe qualitatively, in terms of particles, the     3 Recall and use the equation
+
+     effect on the pressure of a fixed mass of gas of:       pV = constant
+                                                        for a fixed mass of gas at constant temperature,
+     (a)a change of temperature at constant
+          volume                                             including a graphical representation of this
+                                                             relationship
+     (b)a change of volume at constant
+          temperature
+
+2Convert temperatures between kelvin and
+     degrees Celsius; recall and use the equation
+
+     T (in K) =  (in °C) + 273
+
+Back to contents page                                   www.cambridgeinternational.org/igcse                   19
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+2.2 Thermal properties and temperature
+
+2.2.1 Thermal expansion of solids, liquids and gases
+
+Core                                                  Supplement
+1Describe, qualitatively, the thermal expansion of
+                                                      3Explain, in terms of the motion and
+     solids, liquids and gases at constant pressure        arrangement of particles, the relative order of
+                                                           magnitudes of the expansion of solids, liquids
+2Describe some of the everyday applications                and gases as their temperatures rise
+     and consequences of thermal expansion
+
+2.2.2 Specific heat capacity                          Supplement
+
+Core                                                  2Describe an increase in temperature of an
+1Know that a rise in the temperature of an object          object in terms of an increase in the average
+                                                           kinetic energies of all of the particles in the
+     increases its internal energy                         object
+
+                                                      3Define specific heat capacity as the energy
+                                                           required per unit mass per unit temperature
+                                                           increase; recall and use the equation
+                                                           c = E
+                                                                 m
+
+                                                      4Describe experiments to measure the specific
+                                                           heat capacity of a solid and a liquid
+
+2.2.3 Melting, boiling and evaporation                Supplement
+                                                      6Describe the differences between boiling and
+Core
+1Describe melting and boiling in terms of energy           evaporation
+
+     input without a change in temperature            7Describe how temperature, surface area and air
+2Know the melting and boiling temperatures for             movement over a surface affect evaporation
+
+     water at standard atmospheric pressure           8Explain the cooling of an object in contact with
+3Describe condensation and solidification in               an evaporating liquid
+
+     terms of particles
+4Describe evaporation in terms of the escape of
+
+     more-energetic particles from the surface of a
+     liquid
+5Know that evaporation causes cooling of a
+     liquid
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                  20
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+2.3 Transfer of thermal energy                        Supplement
+
+2.3.1Conduction                                       2Describe thermal conduction in all solids in
+                                                           terms of atomic or molecular lattice vibrations
+Core                                                       and also in terms of the movement of free
+1Describe experiments to demonstrate the                   (delocalised) electrons in metallic conductors
+
+     properties of good thermal conductors and bad    3Describe, in terms of particles, why thermal
+     thermal conductors (thermal insulators)               conduction is bad in gases and most liquids
+
+                                                      4Know that there are many solids that conduct
+                                                           thermal energy better than thermal insulators
+                                                           but do so less well than good thermal
+                                                           conductors
+
+2.3.2Convection                                       Supplement
+
+Core
+1Know that convection is an important method
+
+     of thermal energy transfer in liquids and gases
+2Explain convection in liquids and gases in terms
+
+     of density changes and describe experiments
+     to illustrate convection
+
+2.3.3Radiation                                        Supplement
+
+Core                                                  4Know that for an object to be at a constant
+1Know that thermal radiation is infrared radiation         temperature it needs to transfer energy away
+                                                           from the object at the same rate that it receives
+     and that all objects emit this radiation              energy
+2Know that thermal energy transfer by thermal
+                                                      5Know what happens to an object if the rate at
+     radiation does not require a medium                   which it receives energy is less or more than
+                                                           the rate at which it transfers energy away from
+3Describe the effect of surface colour (black              the object
+     or white) and texture (dull or shiny) on the
+     emission, absorption and reflection of infrared  6Know how the temperature of the Earth is
+     radiation                                             affected by factors controlling the balance
+                                                           between incoming radiation and radiation
+                                                           emitted from the Earth's surface
+                                                                                                            continued
+
+Back to contents page                                             www.cambridgeinternational.org/igcse                 21
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+2.3 Transfer of thermal energy continued               Supplement
+2.3.3 Radiation continued
+Core                                                   7Describe experiments to distinguish between
+                                                            good and bad emitters of infrared radiation
+
+                                                       8Describe experiments to distinguish between
+                                                            good and bad absorbers of infrared radiation
+
+                                                       9Describe how the rate of emission of radiation
+                                                            depends on the surface temperature and
+                                                            surface area of an object
+
+2.3.4 Consequences of thermal energy transfer          Supplement
+                                                       2Explain some of the complex applications and
+Core
+1Explain some of the basic everyday applications            consequences of conduction, convection and
+                                                            radiation where more than one type of thermal
+     and consequences of conduction, convection             energy transfer is significant, including:
+     and radiation, including:
+                                                            (a) a fire burning wood or coal
+     (a)heating objects such as kitchen pans                (b) a radiator in a car
+     (b) heating a room by convection
+
+3 Waves                                                Supplement
+
+3.1 General properties of waves                                    continued
+
+Core
+1Know that waves transfer energy without
+
+     transferring matter
+2Describe what is meant by wave motion as
+
+     illustrated by vibrations in ropes and springs,
+     and by experiments using water waves
+3Describe the features of a wave in terms of
+     wavefront, wavelength, frequency, crest (peak),
+     trough, amplitude and wave speed
+4Recall and use the equation for wave speed
+     v = f
+5Know that for a transverse wave, the
+     direction of vibration is at right angles to the
+     direction of propagation and understand that
+     electromagnetic radiation, water waves and
+     seismic S-waves (secondary) can be modelled
+     as transverse
+
+Back to contents page                                              www.cambridgeinternational.org/igcse    22
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+3.1 General properties of waves continued                 Supplement
+
+Core                                                      9Describe how wavelength and gap size affects
+6Know that for a longitudinal wave, the direction              diffraction through a gap
+
+     of vibration is parallel to the direction of         10Describe how wavelength affects diffraction at
+     propagation and understand that sound waves               an edge
+     and seismic P-waves (primary) can be modelled
+     as longitudinal
+7 Describe how waves can undergo:
+     (a) reflection at a plane surface
+     (b) refraction due to a change of speed
+     (c) diffraction through a narrow gap
+8 Describe the use of a ripple tank to show:
+     (a) reflection at a plane surface
+     (b)refraction due to a change in speed caused
+
+          by a change in depth
+     (c) diffraction due to a gap
+     (d) diffraction due to an edge
+
+3.2 Light                                                 Supplement
+
+3.2.1 Reflection of light                                 4Use simple constructions, measurements and
+                                                               calculations for reflection by plane mirrors
+Core
+1Define and use the terms normal, angle of
+
+     incidence and angle of reflection
+2Describe the formation of an optical image by
+
+     a plane mirror and give its characteristics, i.e.
+     same size, same distance from mirror, virtual
+3State that for reflection, the angle of incidence
+     is equal to the angle of reflection; recall and use
+     this relationship
+
+Back to contents page                                     www.cambridgeinternational.org/igcse               23
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+3.2 Light continued                                   Supplement
+
+3.2.2 Refraction of light                             6Define refractive index, n, as the ratio of the
+                                                           speeds of a wave in two different regions
+Core
+1Define and use the terms normal, angle of            7 Recall and use the equation
+                                                           n = sini
+     incidence and angle of refraction                           sinr
+2Describe an experiment to show refraction of
+                                                      8 Recall and use the equation
+     light by transparent blocks of different shapes       n= 1
+3Describe the passage of light through a                        sinc
+
+     transparent material (limited to the boundaries  9Describe the use of optical fibres, particularly in
+     between two mediums only)                             telecommunications
+4State the meaning of critical angle
+
+5Describe internal reflection and total internal
+     reflection using both experimental and everyday
+     examples
+
+3.2.3 Thin lenses                                     Supplement
+
+Core                                                  6Draw and use ray diagrams for the formation of
+1Describe the action of thin converging and thin           a virtual image by a converging lens
+
+     diverging lenses on a parallel beam of light     7Describe the use of a single lens as a
+2Define and use the terms focal length, principal          magnifying glass
+
+     axis and principal focus (focal point)           8Describe the use of converging and diverging
+3Draw and use ray diagrams for the formation of            lenses to correct long-sightedness and short-
+                                                           sightedness
+     a real image by a converging lens
+4Describe the characteristics of an image using
+
+     the terms enlarged/same size/diminished,
+     upright/inverted and real/virtual
+5Know that a virtual image is formed when
+     diverging rays are extrapolated backwards and
+     does not form a visible projection on a screen
+
+3.2.4 Dispersion of light                             Supplement
+
+Core                                                  3Recall that visible light of a single frequency is
+1Describe the dispersion of light as illustrated by        described as monochromatic
+
+     the refraction of white light by a glass prism
+2Know the traditional seven colours of the visible
+
+     spectrum in order of frequency and in order of
+     wavelength
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                  24
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+3.3 Electromagnetic spectrum                              Supplement
+                                                          6Know that the speed of electromagnetic
+Core
+1Know the main regions of the electromagnetic                  waves in a vacuum is 3.0 × 108m/s and is
+                                                               approximately the same in air
+     spectrum in order of frequency and in order of
+     wavelength                                                                                                 continued
+2Know that all electromagnetic waves travel at
+     the same high speed in a vacuum
+
+3Describe typical uses of the different regions of
+     the electromagnetic spectrum including:
+     (a)radio waves; radio and television
+          transmissions, astronomy, radio frequency
+          identification (RFID)
+     (b)microwaves; satellite television, mobile
+          phones (cell phones), microwave ovens
+     (c)infrared; electric grills, short range
+          communications such as remote controllers
+          for televisions, intruder alarms, thermal
+          imaging, optical fibres
+     (d)visible light; vision, photography, illumination
+     (e)ultraviolet; security marking, detecting fake
+          bank notes, sterilising water
+     (f)X-rays; medical scanning, security scanners
+     (g)gamma rays; sterilising food and medical
+          equipment, detection of cancer and its
+          treatment
+
+4Describe the harmful effects on people
+     of excessive exposure to electromagnetic
+     radiation, including:
+
+     (a) microwaves; internal heating of body cells
+     (b) infrared; skin burns
+     (c)ultraviolet; damage to surface cells and
+
+          eyes, leading to skin cancer and eye
+          conditions
+     (d)X-rays and gamma rays; mutation or
+          damage to cells in the body
+
+Back to contents page                                     www.cambridgeinternational.org/igcse                             25
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+3.3 Electromagnetic spectrum continued                  Supplement
+
+Core                                                    7Know that many important systems of
+5Know that communication with artificial                     communications rely on electromagnetic
+                                                             radiation including:
+     satellites is mainly by microwaves:
+                                                             (a)mobile phones (cell phones) and wireless
+     (a)some satellite phones use low orbit artificial            internet use microwaves because
+          satellites                                              microwaves can penetrate some walls and
+                                                                  only require a short aerial for transmission
+     (b)some satellite phones and direct broadcast                and reception
+          satellite television use geostationary
+          satellites                                         (b)Bluetooth uses radio waves because radio
+                                                                  waves pass through walls but the signal is
+                                                                  weakened on doing so
+
+                                                             (c)optical fibres (visible light or infrared) are
+                                                                  used for cable television and high-speed
+                                                                  broadband because glass is transparent to
+                                                                  visible light and some infrared; visible light
+                                                                  and short wavelength infrared can carry
+                                                                  high rates of data
+
+                                                        8Know the difference between a digital and
+                                                             analogue signal
+
+                                                        9Know that a sound can be transmitted as a
+                                                             digital or analogue signal
+
+                                                        10Explain the benefits of digital signalling
+                                                             including increased rate of transmission of data
+                                                             and increased range due to accurate signal
+                                                             regeneration
+
+3.4 Sound                                               Supplement
+
+Core                                                    10 Describe compression and rarefaction
+1Describe the production of sound by vibrating
+                                                        11Know that, in general, sound travels faster in
+     sources                                                 solids than in liquids and faster in liquids than in
+2Describe the longitudinal nature of sound                   gases
+                                                                                                              continued
+     waves
+3State the approximate range of frequencies
+
+     audible to humans as 20Hz to 20000Hz
+4Know that a medium is needed to transmit
+
+     sound waves
+5Know that the speed of sound in air is
+
+     approximately 330-350m/s
+
+Back to contents page                                   www.cambridgeinternational.org/igcse                             26
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+3.4 Sound continued                                     Supplement
+
+Core                                                    12Describe the uses of ultrasound in non-
+6Describe a method involving a measurement of                destructive testing of materials, medical
+                                                             scanning of soft tissue and sonar including
+     distance and time for determining the speed of          calculation of depth or distance from time and
+     sound in air                                            wave speed
+7Describe how changes in amplitude and
+     frequency affect the loudness and pitch of
+     sound waves
+8Describe an echo as the reflection of sound
+     waves
+9Define ultrasound as sound with a frequency
+     higher than 20kHz
+
+4 Electricity and magnetism                             Supplement
+                                                        10Explain that magnetic forces are due to
+4.1 Simple phenomena of magnetism
+                                                             interactions between magnetic fields
+Core
+1Describe the forces between magnetic poles             11Know that the relative strength of a magnetic
+                                                             field is represented by the spacing of the
+     and between magnets and magnetic materials,             magnetic field lines
+     including the use of the terms north pole
+     (N pole), south pole (S pole), attraction and
+     repulsion, magnetised and unmagnetised
+2 Describe induced magnetism
+3State the differences between the properties
+     of temporary magnets (made of soft iron) and
+     the properties of permanent magnets (made of
+     steel
+4State the difference between magnetic and
+     non-magnetic materials
+5Describe a magnetic field as a region in which a
+     magnetic pole experiences a force
+6Draw the pattern and direction of magnetic field
+     lines around a bar magnet
+
+7State that the direction of a magnetic field at a
+     point is the direction of the force on the N pole
+     of a magnet at that point
+
+8Describe the plotting of magnetic field lines
+     with a compass or iron filings and the use of
+     a compass to determine the direction of the
+     magnetic field
+
+9Describe the uses of permanent magnets and
+     electromagnets
+
+Back to contents page                                   www.cambridgeinternational.org/igcse                 27
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+4.2 Electrical quantities                             Supplement
+                                                      7 State that charge is measured in coulombs
+4.2.1 Electric charge
+                                                      8Describe an electric field as a region in which
+Core                                                       an electric charge experiences a force
+1 State that there are positive and negative
+                                                      9State that the direction of an electric field at a
+     charges                                               point is the direction of the force on a positive
+2State that positive charges repel other positive          charge at that point
+
+     charges, negative charges repel other negative   10Describe simple electric field patterns, including
+     charges, but positive charges attract negative        the direction of the field:
+     charges                                               (a) around a point charge
+3Describe simple experiments to show the                   (b) around a charged conducting sphere
+     production of electrostatic charges by friction       (c)between two oppositely charged parallel
+     and to show the detection of electrostatic                 conducting plates (end effects will not be
+     charges                                                    examined)
+4Explain that charging of solids by friction
+     involves only a transfer of negative charge
+     (electrons)
+
+5Describe an experiment to distinguish between
+     electrical conductors and insulators
+
+6Recall and use a simple electron model to
+     explain the difference between electrical
+     conductors and insulators and give typical
+     examples
+
+4.2.2 Electric current                                Supplement
+                                                      5Define electric current as the charge passing a
+Core
+1Know that electric current is related to the flow         point per unit time; recall and use the equation
+                                                           I= Q
+     of charge
+                                                                t
+2Describe the use of ammeters (analogue and
+     digital) with different ranges                   6State that conventional current is from positive
+                                                           to negative and that the flow of free electrons is
+3Describe electrical conduction in metals in               from negative to positive
+     terms of the movement of free electrons
+
+4Know the difference between direct current
+     (d.c.) and alternating current (a.c.)
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                     28
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+4.2 Electrical quantities continued
+
+4.2.3 Electromotive force and potential difference
+
+Core                                                     Supplement
+                                                         6 Recall and use the equation for e.m.f.
+1Define electromotive force (e.m.f.) as the
+     electrical work done by a source in moving a             E= W
+     unit charge around a complete circuit                          Q
+
+2Know that e.m.f. is measured in volts (V)               7 Recall and use the equation for p.d.
+                                                              V= W
+3Define potential difference (p.d.) as the work                     Q
+     done by a unit charge passing through a
+     component
+
+4Know that the p.d. between two points is
+     measured in volts (V)
+
+5Describe the use of voltmeters (analogue and
+     digital) with different ranges
+
+4.2.4Resistance                                          Supplement
+                                                         4Sketch and explain the current-voltage graphs
+Core
+1Recall and use the equation for resistance                   for a resistor of constant resistance, a filament
+                                                              lamp and a diode
+     R= V
+            I                                            5Recall and use the following relationship for a
+                                                              metallic electrical conductor:
+2Describe an experiment to determine resistance               (a) resistance is directly proportional to length
+     using a voltmeter and an ammeter and do the              (b)resistance is inversely proportional to
+     appropriate calculations                                      cross-sectional area
+
+3State, qualitatively, the relationship of the
+     resistance of a metallic wire to its length and to
+     its cross-sectional area
+
+4.2.5 Electrical energy and electrical power             Supplement
+
+Core
+1Understand that electric circuits transfer energy
+
+     from a source of electrical energy, such as an
+     electrical cell or mains supply, to the circuit
+     components and then into the surroundings
+2 Recall and use the equation for electrical power
+     P = IV
+3Recall and use the equation for electrical
+     energy
+     E = IVt
+4Define the kilowatt-hour (kWh) and calculate
+     the cost of using electrical appliances where
+     the energy unit is the kWh
+
+Back to contents page                                                www.cambridgeinternational.org/igcse        29
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+4.3 Electric circuits                                    Supplement
+
+4.3.1 Circuit diagrams and circuit components            2Draw and interpret circuit diagrams containing
+                                                              diodes and light-emitting diodes (LEDs) and
+Core                                                          know how these components behave in the
+1Draw and interpret circuit diagrams containing               circuit
+
+     cells, batteries, power supplies, generators,
+     potential dividers, switches, resistors (fixed and
+     variable), heaters, thermistors (NTC only), light-
+     dependent resistors (LDRs), lamps, motors,
+     bells, ammeters, voltmeters, magnetising coils,
+     transformers, fuses and relays and know how
+     these components behave in the circuit
+
+4.3.2 Series and parallel circuits                       Supplement
+Core                                                     8 Recall and use in calculations, the fact that:
+1Know that the current at every point in a series
+                                                              (a)the sum of the currents entering a junction
+     circuit is the same                                             in a parallel circuit is equal to the sum of
+                                                                     the currents that leave the junction
+2Know how to construct and use series and
+     parallel circuits                                        (b)the total p.d. across the components in
+                                                                     a series circuit is equal to the sum of the
+3Calculate the combined e.m.f. of several                            individual p.d.s across each component
+     sources in series
+                                                              (c)the p.d. across an arrangement of parallel
+4Calculate the combined resistance of two or                         resistances is the same as the p.d. across
+     more resistors in series                                        one branch in the arrangement of the
+                                                                     parallel resistances
+5State that, for a parallel circuit, the current from
+     the source is larger than the current in each       9Explain that the sum of the currents into a
+     branch                                                   junction is the same as the sum of the currents
+                                                              out of the junction
+6State that the combined resistance of two
+     resistors in parallel is less than that of either   10Calculate the combined resistance of two
+     resistor by itself                                       resistors in parallel
+
+7State the advantages of connecting lamps in
+     parallel in a lighting circuit
+
+Back to contents page                                    www.cambridgeinternational.org/igcse                      30
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+4.3 Electric circuits continued                           Supplement
+                                                          2Describe the action of a variable potential
+4.3.3 Action and use of circuit components
+                                                               divider
+Core
+1Know that the p.d. across an electrical                  3Recall and use the equation for two resistors
+                                                               used as a potential divider
+     conductor increases as its resistance increases           R1 = V1
+     for a constant current                                    R2 V2
+
+4.4 Electrical safety                                     Supplement
+
+Core
+1 State the hazards of:
+
+     (a) damaged insulation
+     (b) overheating cables
+     (c) damp conditions
+     (d)excess current from overloading of plugs,
+
+          extension leads, single and multiple sockets
+     when using a mains supply
+2Know that a mains circuit consists of a live wire
+     (line wire), a neutral wire and an earth wire and
+     explain why a switch must be connected to the
+     live wire for the circuit to be switched off safely
+3Explain the use and operation of trip switches
+     and fuses and choose appropriate fuse ratings
+     and trip switch settings
+4Explain why the outer casing of an electrical
+     appliance must be either non-conducting
+     (double-insulated) or earthed
+5State that a fuse without an earth wire protects
+     the circuit and the cabling for a double-
+     insulated appliance
+
+Back to contents page                                                 www.cambridgeinternational.org/igcse  31
+                          Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+4.5 Electromagnetic effects                              Supplement
+                                                         4Know that the direction of an induced e.m.f.
+4.5.1 Electromagnetic induction
+                                                              opposes the change causing it
+Core
+1Know that a conductor moving across a                   5State and use the relative directions of force,
+                                                              field and induced current
+     magnetic field or a changing magnetic field
+     linking with a conductor can induce an e.m.f. in
+     the conductor
+2Describe an experiment to demonstrate
+     electromagnetic induction
+3State the factors affecting the magnitude of an
+     induced e.m.f.
+
+4.5.2 The a.c. generator                                 Supplement
+Core
+                                                         1Describe a simple form of a.c. generator
+                                                              (rotating coil or rotating magnet) and the use of
+                                                              slip rings and brushes where needed
+
+                                                         2Sketch and interpret graphs of e.m.f. against
+                                                              time for simple a.c. generators and relate the
+                                                              position of the generator coil to the peaks,
+                                                              troughs and zeros of the e.m.f.
+
+4.5.3 Magnetic effect of a current                       Supplement
+                                                         4State the qualitative variation of the strength of
+Core
+1Describe the pattern and direction of the                    the magnetic field around straight wires and
+                                                              solenoids
+     magnetic field due to currents in straight wires
+     and in solenoids                                    5Describe the effect on the magnetic field
+2Describe an experiment to identify the pattern               around straight wires and solenoids of
+     of the magnetic field (including direction) due to       changing the magnitude and direction of the
+     currents in straight wires and in solenoids              current
+3Describe how the magnetic effect of a current
+     is used in relays and loudspeakers and give
+     examples of their application
+
+Back to contents page                                    www.cambridgeinternational.org/igcse                    32
+                               Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+4.5 Electromagnetic effects continued                    Supplement
+                                                         2Recall and use the relative directions of force,
+4.5.4 Force on a current-carrying conductor
+                                                              magnetic field and current
+Core
+1Describe an experiment to show that a force             3Determine the direction of the force on beams
+                                                              of charged particles in a magnetic field
+     acts on a current-carrying conductor in a
+     magnetic field, including the effect of reversing:
+     (a) the current
+     (b) the direction of the field
+
+4.5.5 The d.c. motor                                     Supplement
+
+Core                                                     2Describe the operation of an electric motor,
+1Know that a current-carrying coil in a magnetic              including the action of a split-ring commutator
+                                                              and brushes
+     field may experience a turning effect and that
+     the turning effect is increased by increasing:
+     (a) the number of turns on the coil
+     (b) the current
+     (c) the strength of the magnetic field
+
+4.5.6 The transformer
+
+Core                                                     Supplement
+                                                         6Explain the principle of operation of a simple
+1Describe the construction of a simple
+     transformer with a soft-iron core, as used for           iron-cored transformer
+     voltage transformations
+                                                         7Recall and use the equation for 100% efficiency
+2Use the terms primary, secondary, step-up and                in a transformer
+     step-down                                                IpVp = IsVs
+                                                              where p and s refer to primary and secondary
+3 Recall and use the equation
+                                                         8 Recall and use the equation
+Vp Np                                                         P = I2R
+V =N
+      s                s                                 to explain why power losses in cables are
+                                                              smaller when the voltage is greater
+where p and s refer to primary and secondary
+
+4Describe the use of transformers in high-
+     voltage transmission of electricity
+
+5State the advantages of high-voltage
+     transmission
+
+Back to contents page                                    www.cambridgeinternational.org/igcse                  33
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+5 Nuclear physics                                   Supplement
+
+5.1 The nuclear model of the atom                   3Describe how the scattering of alpha ()
+5.1.1 The atom                                           particles by a sheet of thin metal supports
+Core                                                     the nuclear model of the atom, by providing
+1Describe the structure of an atom in terms of           evidence for:
+
+     a positively charged nucleus and negatively         (a)a very small nucleus surrounded by mostly
+     charged electrons in orbit around the nucleus            empty space
+
+2Know how atoms may form positive ions                   (b)a nucleus containing most of the mass of
+     by losing electrons or form negative ions by             the atom
+     gaining electrons
+                                                         (c) a nucleus that is positively charged
+
+5.1.2 The nucleus                                   Supplement
+Core
+1Describe the composition of the nucleus in         6Describe the processes of nuclear fission
+                                                         and nuclear fusion as the splitting or joining
+     terms of protons and neutrons                       of nuclei, to include the nuclide equation and
+                                                         qualitative description of mass and energy
+2State the relative charges of protons, neutrons         changes without values
+     and electrons as +1, 0 and -1 respectively
+                                                    7Know the relationship between the proton
+3Define the terms proton number (atomic                  number and the relative charge on a nucleus
+     number) Z and nucleon number (mass number)
+     A and be able to calculate the number of       8Know the relationship between the nucleon
+     neutrons in a nucleus                               number and the relative mass of a nucleus
+
+4Use the nuclide notation ZAX
+5Explain what is meant by an isotope and state
+
+     that an element may have more than one
+     isotope
+
+Back to contents page                               www.cambridgeinternational.org/igcse                 34
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+5.2 Radioactivity                                     Supplement
+
+5.2.1 Detection of radioactivity                      5Use measurements of background radiation to
+                                                           determine a corrected count rate
+Core
+1 Know what is meant by background radiation
+2Know the sources that make a significant
+
+     contribution to background radiation including:
+     (a) radon gas (in the air)
+     (b) rocks and buildings
+     (c) food and drink
+     (d) cosmic rays
+3Know that ionising nuclear radiation can be
+     measured using a detector connected to a
+     counter
+4Use count rate measured in counts/s or
+     counts/minute
+
+5.2.2 The three types of nuclear emission             Supplement
+
+Core                                                  3Describe the deflection of -particles,
+                                                          -particles and -radiation in electric fields and
+1Describe the emission of radiation from a                 magnetic fields
+     nucleus as spontaneous and random in
+     direction                                        4Explain their relative ionising effects with
+                                                           reference to:
+2Identify alpha (), beta () and gamma ()                   (a) kinetic energy
+     emissions from the nucleus by recalling:              (b) electric charge
+
+     (a) their nature
+
+     (b) their relative ionising effects
+    (c)their relative penetrating abilities (+ are
+
+         not included, -particles will be taken to
+         refer to -)
+
+Back to contents page                                 www.cambridgeinternational.org/igcse                  35
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+5.2 Radioactivity continued                              Supplement
+                                                         3Know that isotopes of an element may be
+5.2.3 Radioactive decay
+                                                              radioactive due to an excess of neutrons in the
+Core                                                          nucleus and/or the nucleus being too heavy
+1Know that radioactive decay is a change in an
+                                                         4Describe the effect of -decay, -decay and
+     unstable nucleus that can result in the emission        -emissions on the nucleus, including an
+    of -particles or -particles and/or -radiation             increase in stability and a reduction in the
+     and know that these changes are spontaneous              number of excess neutrons; the following
+     and random                                               change in the nucleus occurs during
+2State that during -decay or -decay, the                     -emission
+     nucleus changes to that of a different element           neutron  proton + electron
+
+                                                         5Use decay equations, using nuclide notation,
+                                                             to show the emission of -particles, -particles
+                                                             and -radiation
+
+5.2.4Half-life                                           Supplement
+                                                         2Calculate half-life from data or decay curves
+Core
+                                                              from which background radiation has not been
+1Define the half-life of a particular isotope as              subtracted
+     the time taken for half the nuclei of that isotope
+     in any sample to decay; recall and use this         3Explain how the type of radiation emitted and
+     definition in simple calculations, which might           the half-life of an isotope determine which
+     involve information in tables or decay curves            isotope is used for applications including:
+     (calculations will not include background                (a)household fire (smoke) alarms
+     radiation)                                               (b)irradiating food to kill bacteria
+                                                              (c) sterilisation of equipment using gamma rays
+                                                              (d)measuring and controlling thicknesses of
+                                                                   materials with the choice of radiations used
+                                                                   linked to penetration and absorption
+                                                              (e)diagnosis and treatment of cancer using
+                                                                   gamma rays
+
+Back to contents page                                    www.cambridgeinternational.org/igcse                    36
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+5.2 Radioactivity continued                             Supplement
+
+5.2.5 Safety precautions                                3Explain safety precautions for all ionising
+                                                             radiation in terms of reducing exposure time,
+Core                                                         increasing distance between source and living
+1State the effects of ionising nuclear radiations            tissue and using shielding to absorb radiation
+
+     on living things, including cell death, mutations
+     and cancer
+2Describe how radioactive materials are moved,
+     used and stored in a safe way
+
+6 Space physics                                         Supplement
+
+6.1 The Earth and the Solar System                      4 Define average orbital speed from the equation
+                                                             v = 2r
+6.1.1 The Earth                                                     T
+
+Core                                                    where r is the average radius of the orbit and T
+1Know that the Earth is a planet that rotates on             is the orbital period; recall and use this equation
+
+     its axis, which is tilted, once in approximately
+     24 hours, and use this to explain observations
+     of the apparent daily motion of the Sun and the
+     periodic cycle of day and night
+2Know that the Earth orbits the Sun once in
+     approximately 365 days and use this to explain
+     the periodic nature of the seasons
+
+3Know that it takes approximately one month
+     for the Moon to orbit the Earth and use this to
+     explain the periodic nature of the Moon's cycle
+     of phases
+
+Back to contents page                                   www.cambridgeinternational.org/igcse                      37
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+6.1 The Earth and the Solar System continued            Supplement
+                                                        7Know that planets, minor planets and comets
+6.1.2 The Solar System
+                                                             have elliptical orbits, and recall that the Sun is
+Core                                                         not at the centre of the elliptical orbit, except
+1 Describe the Solar System as containing:                   when the orbit is approximately circular
+
+     (a) one star, the Sun                              8Analyse and interpret planetary data about
+     (b)the eight named planets and know their               orbital distance, orbital duration, density,
+                                                             surface temperature and uniform gravitational
+          order from the Sun                                 field strength at the planet's surface
+     (c)minor planets that orbit the Sun, including
+                                                                                                              continued
+          dwarf planets such as Pluto and asteroids
+          in the asteroid belt
+     (d) moons, that orbit the planets
+     (e)smaller Solar System bodies, including
+          comets and natural satellites
+
+2Know that, in comparison to each other, the
+     four planets nearest the Sun are rocky and
+     small and the four planets furthest from the
+     Sun are gaseous and large, and explain this
+     difference by referring to an accretion model for
+     Solar System formation, to include:
+     (a) the model's dependence on gravity
+     (b)the presence of many elements in
+          interstellar clouds of gas and dust
+     (c)the rotation of material in the cloud and the
+          formation of an accretion disc
+
+Back to contents page                                   www.cambridgeinternational.org/igcse                             38
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+6.1 The Earth and the Solar System continued             Supplement
+
+6.1.2 The Solar System continued                         9Know that the strength of the Sun's gravitational
+                                                              field decreases and that the orbital speeds of
+Core                                                          the planets decrease as the distance from the
+3Know that the strength of the gravitational field            Sun increases
+
+     (a)at the surface of a planet depends on the        10Know that an object in an elliptical orbit travels
+          mass of the planet                                  faster when closer to the Sun and explain this
+                                                              using the conservation of energy
+     (b)around a planet decreases as the distance
+          from the planet increases
+
+4Calculate the time it takes light to travel a
+     significant distance such as between objects in
+     the Solar System
+
+5Know that the Sun contains most of the mass
+     of the Solar System and this explains why the
+     planets orbit the Sun
+
+6Know that the force that keeps an object
+     in orbit around the Sun is the gravitational
+     attraction of the Sun
+
+6.2 Stars and the Universe                               Supplement
+
+6.2.1 The Sun as a star                                  2Know that stars are powered by nuclear
+                                                              reactions that release energy and that in stable
+Core                                                          stars the nuclear reactions involve the fusion of
+1Know that the Sun is a star of medium size,                  hydrogen into helium
+
+     consisting mostly of hydrogen and helium,
+     and that it radiates most of its energy in the
+     infrared, visible light and ultraviolet regions of
+     the electromagnetic spectrum
+
+Back to contents page                                    www.cambridgeinternational.org/igcse                    39
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+6.2 Stars and the Universe continued                   Supplement
+
+6.2.2Stars                                             2 Know that one light-year is equal to 9.5 × 1015m
+                                                       3 Describe the life cycle of a star:
+Core
+1 State that:                                               (a)a star is formed from interstellar clouds of
+                                                                 gas and dust that contain hydrogen
+     (a)galaxies are each made up of many billions
+          of stars                                          (b)a protostar is an interstellar cloud collapsing
+                                                                 and increasing in temperature as a result of
+     (b)the Sun is a star in the galaxy known as the             its internal gravitational attraction
+          Milky Way
+                                                            (c)a protostar becomes a stable star when
+     (c)other stars that make up the Milky Way are               the inward force of gravitational attraction
+          much further away from the Earth than the              is balanced by an outward force due to the
+          Sun is from the Earth                                  high temperature in the centre of the star
+
+     (d)astronomical distances can be measured              (d)all stars eventually run out of hydrogen as
+          in light-years, where one light-year is the            fuel for the nuclear reaction
+          distance travelled in (the vacuum of) space
+          by light in one year                              (e)most stars expand to form red giants and
+                                                                 more massive stars expand to form red
+                                                                 supergiants when most of the hydrogen in
+                                                                 the centre of the star has been converted to
+                                                                 helium
+
+                                                            (f)a red giant from a less massive star forms a
+                                                                 planetary nebula with a white dwarf star at
+                                                                 its centre
+
+                                                            (g)a red supergiant explodes as a supernova,
+                                                                 forming a nebula containing hydrogen and
+                                                                 new heavier elements, leaving behind a
+                                                                 neutron star or a black hole at its centre
+
+                                                            (h)the nebula from a supernova may form new
+                                                                 stars with orbiting planets
+
+Back to contents page                                  www.cambridgeinternational.org/igcse                     40
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Subject content
+
+6.2 Stars and the Universe continued                 Supplement
+
+6.2.3 The Universe                                   5Know that microwave radiation of a specific
+                                                          frequency is observed at all points in space
+Core                                                      around us and is known as cosmic microwave
+1Know that the Milky Way is one of many billions          background radiation (CMBR)
+
+     of galaxies making up the Universe and that     6Explain that the CMBR was produced shortly
+     the diameter of the Milky Way is approximately       after the Universe was formed and that
+     100000 light-years                                   this radiation has been expanded into the
+2Describe redshift as an increase in the                  microwave region of the electromagnetic
+     observed wavelength of electromagnetic               spectrum as the Universe expanded
+     radiation emitted from receding stars and
+     galaxies                                        7Know that the speed v at which a galaxy is
+3Know that the light emitted from distant                 moving away from the Earth can be found
+     galaxies appears redshifted in comparison with       from the change in wavelength of the galaxy's
+     light emitted on the Earth                           starlight due to redshift
+4Know that redshift in the light from distant
+     galaxies is evidence that the Universe is       8Know that the distance d of a far galaxy can be
+     expanding and supports the Big Bang Theory           determined using the brightness of a supernova
+                                                          in that galaxy
+
+                                                     9Define the Hubble constant H0 as the ratio of
+                                                          the speed at which the galaxy is moving away
+                                                          from the Earth to its distance from the Earth;
+                                                          recall and use the equation
+                                                                 v
+                                                          H0 =
+                                                                 d
+
+                                                     10Know that the current estimate for H0 is
+                                                          2.2 × 10-18 per second
+
+                                                     11 Know that the equation
+                                                          d= 1
+                                                          v H0
+
+                                                     represents an estimate for the age of the
+                                                          Universe and that this is evidence for the idea
+                                                          that all the matter in the Universe was present
+                                                          at a single point
+
+Back to contents page                                www.cambridgeinternational.org/igcse                  41
+                                                  Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028.
+
+4 Details of the assessment
+
+All candidates take three papers.
+
+Candidates who have studied the Core subject content, or who are expected to achieve a grade 3 or below
+should be entered for Paper 1, Paper 3 and either Paper 5 or Paper 6. These candidates will be eligible for
+grades 5 to 1.
+
+Candidates who have studied the Extended subject content (Core and Supplement), and who are expected
+to achieve a grade 4 or above should be entered for Paper 2, Paper 4 and either Paper 5 or Paper 6. These
+candidates will be eligible for grades 9 to 1.
+
+Core assessment
+
+Core candidates take the following papers. The questions are based on the Core subject content only.
+
+Paper 1: Multiple Choice (Core)                        Paper 3: Theory (Core)
+
+45 minutes                                        AND  1 hour 15 minutes
+40 marks                                               80 marks
+40 compulsory multiple-choice items of the four-       Compulsory short-answer and structured
+choice type.                                           questions
+This paper tests assessment objectives AO1 and         This paper tests assessment objectives AO1 and
+AO2                                                    AO2
+This paper assesses grades 5 to 1                      This paper assesses grades 5 to 1
+Externally assessed                                    Externally assessed
+
+Extended assessment
+
+Extended candidates take the following papers. The questions are based on the Core and Supplement subject
+content.
+
+Paper 2: Multiple Choice (Extended)                    Paper 4: Theory (Extended)
+
+45 minutes                                        AND  1 hour 15 minutes
+40 marks                                               80 marks
+40 compulsory multiple-choice items of the four-       Compulsory short-answer and structured
+choice type                                            questions
+This paper tests assessment objectives AO1 and         This paper tests assessment objectives AO1 and
+AO2                                                    AO2
+This paper assesses grades 9 to 1                      This paper assesses grades 9 to 1
+Externally assessed                                    Externally assessed
+
+Back to contents page                                  www.cambridgeinternational.org/igcse                  42
+                         Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Practical assessment
+
+All candidates take one practical paper from a choice of two.
+
+Paper 5: Practical Test                                        Paper 6: Alternative to Practical
+
+1 hour 15 minutes                                         1 hour
+40 marks                                                  40 marks
+All items are compulsory                                  All items are compulsory
+This paper tests assessment objective AO3         OR This paper tests assessment objective AO3
+Candidates will be required to do experiments in          Candidates will not be required to do
+a laboratory as part of this test                         experiments as part of this test
+Externally assessed                                       Externally assessed
+
+Questions in the practical papers are structured to assess performance across the full grade range.
+
+The Practical Test and Alternative to Practical:
+
+· require the same experimental skills to be developed and learned
+· require an understanding of the same experimental contexts
+· test the same assessment objective, AO3.
+
+Candidates are expected to be familiar with and may be asked questions using the following experimental
+contexts:
+
+· measurement of physical quantities such as length, volume or force
+· measurement of small distances or short intervals of time
+· determining a derived quantity such as the extension per unit load for a spring, the value of a known
+
+     resistance or the acceleration of an object
+· testing and identifying the relationship between two variables such as between the potential difference
+
+     across a wire and its length
+· comparing measured quantities such as angles of reflection
+· comparing derived quantities such as density
+· cooling and heating, including measurement of temperature
+· experiments using springs and balances
+· timing motion or oscillations
+· electric circuits, including the connection and reconnection of these circuits, and the measurement of
+
+     current and potential difference
+· optics experiments using equipment such as optics pins, mirrors, prisms, lenses, glass or Perspex blocks
+
+     (both rectangular and semicircular), including the use of transparent, translucent and opaque substances to
+     investigate the transmission of light
+· procedures using simple apparatus, in situations where the method may not be familiar to the candidate.
+
+Back to contents page                                          www.cambridgeinternational.org/igcse               43
+                                         Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Candidates may be required to do the following:
+· demonstrate knowledge of how to select and safely use techniques, apparatus and materials
+
+     (including following a sequence of instructions where appropriate):
+     - identify apparatus from diagrams or descriptions
+     - draw, complete or label diagrams of apparatus
+     - use, or explain the use of, common techniques, apparatus and materials
+     - select the most appropriate apparatus or method for the task and justify the choice made
+     - describe and explain hazards and identify safety precautions
+     - describe and explain techniques used to ensure the accuracy of observations and data
+
+· plan experiments and investigations:
+     - identify the independent variable and dependent variable
+     - describe how and explain why variables should be controlled
+     - suggest an appropriate number and range of values for the independent variable
+     - suggest the most appropriate apparatus or technique and justify the choice made
+     - describe experimental procedures
+     - identify risks and suggest appropriate safety precautions
+     - describe how to record the results of an experiment
+     - describe how to process the results of an experiment to form a conclusion or to evaluate a prediction
+     - make reasoned predictions of expected results
+
+· make and record observations, measurements and estimates:
+     - take readings from apparatus (analogue and digital) or from diagrams of apparatus
+     - take readings with appropriate precision, reading to the nearest half-scale division where required
+     - correct for zero errors where required
+     - make observations, measurements or estimates that are in agreement with expected results or values
+     - take sufficient observations or measurements to be reliable
+     - repeat observations or measurements where appropriate
+     - record qualitative observations from tests
+     - record observations and measurements systematically, for example in a suitable table, to an
+          appropriate degree of precision and using appropriate units
+
+· interpret and evaluate experimental observations and data:
+     - process data, including for use in further calculations or for graph plotting, using a calculator as
+          appropriate
+     - present data graphically, including the use of best-fit lines where appropriate
+     - analyse and interpret observations and data, including data presented graphically
+     - use interpolation and extrapolation graphically to determine a gradient or intercept
+     - form conclusions justified by reference to observations and data and with appropriate explanation
+     - evaluate the quality of observations and data, identifying any anomalous results and taking appropriate
+          action
+     - comment on and explain whether results are equal within the limits of experimental accuracy (assumed
+          to be ± 10% at this level of study)
+
+Back to contents page  www.cambridgeinternational.org/igcse  44
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+· evaluate methods and suggest possible improvements:
+     - evaluate experimental arrangements, methods and techniques, including the control of variables
+     - identify sources of error, including measurement error, random error and systematic error
+     - identify possible causes of uncertainty in data or in a conclusion
+     - suggest possible improvements to the apparatus, experimental arrangements, methods or techniques
+
+Language of measurement
+
+The following definitions have been taken or adapted from The Language of Measurement (2010), a guide from
+the Association for Science Education (ASE).
+www.ase.org.uk
+
+The definitions in the table below should be used by teachers during the course to encourage students to use
+the terminology correctly and consistently.
+
+Candidates will not be required to recall the specific definition of these terms in the examinations.
+
+true value                       the value that would be obtained in an ideal measurement
+measurement error
+accuracy                         the difference between a measured value and the true value of a quantity
+precision
+repeatability                    a measurement result is described as accurate if it is close to the true
+                                 value
+reproducibility
+                                 how close the measured values of a quantity are to each other
+validity of experimental design
+                                 a measurement is repeatable if the same or similar result is obtained
+range                            when the measurement is repeated under the same conditions, using the
+anomaly                          same method, within the same experiment
+
+independent variable             a measurement is reproducible if the same or similar result is obtained
+                                 when the measurement is made under either different conditions or by a
+dependent variable               different method or in a different experiment
+
+                                 an experiment is valid if the experiment tests what it says it will test.
+                                 The experiment must be a fair test where only the independent variable
+                                 and dependent variable may change, and controlled variables are kept
+                                 constant
+
+                                 the maximum and minimum value of the independent or dependent
+                                 variables
+
+                                 an anomaly is a value in a set of results that appears to be outside the
+                                 general pattern of the results, i.e. an extreme value that is either very high
+                                 or very low in comparison to others
+
+                                 independent variables are the variables that are changed in a scientific
+                                 experiment by the scientist. Changing an independent variable may cause
+                                 a change in the dependent variable
+
+                                 dependent variables are the variables that are observed or measured
+                                 in a scientific experiment. Dependent variables may change based on
+                                 changes made to the independent variables
+
+Back to contents page            www.cambridgeinternational.org/igcse                                            45
+                                         Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Apparatus
+
+These lists give items that candidates should be familiar with using, whether they are taking the Practical Test or
+the Alternative to Practical.
+
+These items should be available for use in the Practical Test. These lists are not exhaustive and we may also
+require other items to be sourced for specific examinations. The Confidential Instructions we send before the
+Practical Test will give the detailed requirements for the examination.
+
+Every effort is made to minimise the cost to and resources required by centres. Experiments will be designed
+around basic apparatus and materials which should be available in most school laboratories or are easily
+obtainable.
+
+Appropriate safety equipment must be provided to students and should at least include eye protection.
+
+The following suggested equipment has been categorised, but equipment can be used in any topic.
+
+General
+
+· adhesive putty (e.g. Patafix, Blu Tack®)
+· adhesive tape (e.g. Sellotape®)
+· card
+· dropping pipette (2.5cm3) or small plastic syringe (e.g. 5cm3)
+· ruler, 30cm, graduated in mm
+· S-hook
+· scissors
+· set square
+· string
+· thread
+· top-pan (electronic) balance to measure up to 500g, with precision of at least 0.1g
+· tracing paper
+· wooden board, rigid, 150cm × 20cm × 1.5cm
+
+Mechanics
+
+· expendable steel springs, with spring constant of approx. 0.25N/cm
+· force meter, with maximum reading or full scale deflection of between 1.0N and 3.0N
+· G-clamp
+· glass ball (marble), ball bearing (approx. 10mm in diameter) and table tennis ball
+· half-metre ruler, graduated in mm
+· masses, 10 × 10g, 10 × 100g, including holders
+· metre ruler, graduated in mm
+· modelling clay (e.g. Plasticine®)
+· pendulum bob
+· pivots (e.g. 15cm nails, triangular wooden blocks)
+· retort stand, boss and clamp
+· stop-watch, reading to 0.1s or better
+
+Back to contents page  www.cambridgeinternational.org/igcse  46
+                                         Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Thermal physics
+
+· beakers, glass (borosilicate), 100cm3, 250cm3, 400cm3
+· boiling tube, approx. 150mm × 25mm
+· measuring cylinders, constant diameter, 50cm3, 100cm3, 250cm3
+· plastic or polystyrene cup, approx. 200cm3
+· thermometer, -10°C to +110°C, with 1°C graduations
+
+Optics
+
+· converging lens, spherical, +10D (f = 10cm)
+· converging lens, spherical, +6.7D (f = 15cm)
+· diverging lens, spherical, -6.7D (f = -15cm)
+· lens holders
+· glass or Perspex 60° prism
+· glass or Perspex blocks, rectangular and semicircular
+· optics pins, minimum length 75mm
+· plane mirror, approx. 75mm × 25mm
+· pin board
+· protractor
+
+Electricity
+
+Candidates or centres may need to join components, meters and cells together to make circuits. Connectors
+used will be 3.5mm or 4mm in diameter.
+· ammeter, with full-scale deflection 1A or 1.5A and precision of at least 0.05A (analogue, dedicated digital
+
+     or multimeter)
+· voltmeter, with full-scale deflection 5V and precision of at least 0.1V (analogue, dedicated digital or
+
+     multimeter)
+· cells, 1.5V and holders to enable several cells to be joined
+· connecting leads, 3.5mm or 4mm connectors
+· crocodile clips
+· d.c. power supply, variable to 12V
+· diodes
+· filament lamps, low voltage (e.g. 2.5V) and holders
+· filament lamp, 12V, 24W and holder
+· LDRs (suitable for use in 1-5V circuits)
+· push switch
+· selection of resistors, values within range 5-50 , power rating of 1-2W
+· thermistors (NTC only)
+· wire, constantan (eureka), 0.38mm diameter (28 swg), 0.32mm diameter (30 swg)
+· wire, nichrome, 0.38mm diameter (28 swg), 0.32mm diameter (30 swg)
+
+Back to contents page  www.cambridgeinternational.org/igcse  47
+                                         Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Safety in the laboratory
+
+Teachers should make sure that they do not contravene any school, education authority or government
+regulations. Responsibility for safety matters rests with centres.
+
+Further information can be found from the following UK associations, publications and regulations.
+
+Associations
+
+CLEAPSS is an advisory service providing support in practical science and technology.
+www.cleapss.org.uk
+
+Publications
+
+CLEAPSS Laboratory Handbook, updated 2015 (available to CLEAPSS members only)
+CLEAPSS Hazcards, 2019 update of 2016 edition (available to CLEAPSS members only)
+
+UK regulations
+
+Control of Substances Hazardous to Health Regulations (COSHH) 2002 and subsequent amendment in 2004
+www.legislation.gov.uk/uksi/2002/2677/contents/made
+www.legislation.gov.uk/uksi/2004/3386/contents/made
+A brief guide may be found at www.hse.gov.uk/pubns/indg136.pdf
+
+Back to contents page  www.cambridgeinternational.org/igcse  48
+                                     Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Electrical symbols                         switch
+                                           earth or ground
+ cell
+ battery of cells
+
+                                 or
+
+power supply                         +  -  junction of
+d.c. power supply                          conductors
+a.c. power supply
+fixed resistor                             lamp
+variable resistor
+                                           motor                 M
+thermistor
+light-dependent                            generator             G
+resistor
+heater                                     ammeter               A
+potential divider
+                                           voltmeter             V
+transformer
+                                           diode
+magnetising coil
+                                           light-emitting diode
+                                           fuse
+
+                                           relay coil
+
+                                           electric bell
+
+Back to contents page                                  www.cambridgeinternational.org/igcse  49
+                             Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Symbols and units for physical quantities
+
+Candidates should be able to give the symbols for the following physical quantities and, where indicated, state
+the units in which they are measured. The list for the Extended syllabus content includes both the Core and the
+Supplement.
+
+All candidates should be able to use the following multipliers: M mega, k kilo, c centi, m milli
+
+Extended candidates should also be able to use the following multipliers: G giga, µ micro, n nano
+
+                          Core                                          Supplement
+
+Quantity               Usual          Usual unit       Quantity         Usual       Usual unit
+                       symbol                                           symbol
+length
+area                   l, h, d, s, x  km, m, cm, mm
+volume                 A              m2, cm2
+weight                 V              m3, cm3, dm3
+mass
+time                   W              N
+density
+speed                  m, M           kg, g            mass             m, M        mg
+acceleration                                           time             t
+acceleration of        t              h, min, s                                     ms, s
+free fall
+force                                 g/cm3, kg/m3
+gravitational field
+strength               u, v           km/h, m/s, cm/s
+
+                       a              m/s2
+
+                       g              m/s2
+
+                       F              N
+
+                       g              N/kg
+
+                                                       spring constant  k           N/m, N/cm
+                                                                                    kg m/s
+                                                       momentum         p           N s
+
+                                                       impulse
+
+moment of a force                     N m
+                                      J, kJ, MJ
+work done              W              J, kJ, MJ, kWh
+                                      W, kW, MW
+energy                 E              N/m2, N/cm2
+                                      °C, K
+power                  P
+
+pressure               p                               pressure         p           Pa
+
+temperature            , T
+
+Back to contents page                                            www.cambridgeinternational.org/igcse            50
+                          Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+                         Core                                      Supplement
+
+Quantity               Usual   Usual unit        Quantity          Usual       Usual unit
+                       symbol                                      symbol
+                                                 specific heat
+                                                 capacity          c           J/(g°C), J/(kg°C)
+
+frequency              f       Hz, kHz
+                               m, cm
+wavelength                     m, cm             wavelength                    nm
+                               degree (°)
+focal length           f       degree (°)
+                               degree (°)
+angle of incidence i           degree (°)
+
+angle of reflection r          V, mV, kV
+
+angle of refraction r          A, mA
+                               V
+critical angle         c       
+
+                               counts/s,         refractive index  n
+                               counts/min
+potential difference/ V        s, min, h, days,
+voltage                        weeks, years
+
+current                I
+
+e.m.f.                 E
+
+resistance             R
+
+                                                 charge            Q           C
+
+count rate
+half-life
+
+                                                 Hubble constant   H0          s-1
+
+Back to contents page                                              www.cambridgeinternational.org/igcse  51
+                                         Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Mathematical requirements
+
+It is expected that these requirements will be covered as part of a mathematics curriculum at this level of study.
+
+Calculators may be used in all parts of the examination.
+
+Numerical answers should be written as decimals (or percentages if appropriate).
+
+Number
+
+· add, subtract, multiply and divide
+· use decimals, fractions, percentages, ratios and reciprocals
+· convert between decimals, fractions and percentages
+· understand and use the symbols: =, <, >
+· understand the meaning of sum, difference and product
+· use standard form (scientific notation)
+· understand that only the final answer in a calculation should be rounded
+· use decimal places and significant figures appropriately
+· make approximations and estimates to obtain reasonable answers
+
+Algebra
+
+· use positive, whole number indices in algebraic expressions
+· substitute values of quantities into equations, using consistent units
+· solve simple algebraic equations for any one term when the other terms are known
+· recognise and use direct and inverse proportion
+· set up simple algebraic equations as mathematical models of physical situations and to represent
+
+     information given in words
+· use  (delta) in algebraic expressions and equations to represent changes in a variable
+
+Geometry and trigonometry
+
+· understand the meaning of angle, curve, circle, radius, diameter, circumference, square, parallelogram,
+     rectangle and diagonal
+
+· recall and use the equation for the circumference of a circle
+· recall and use the equations for the area of a rectangle, area of a triangle and area of a circle
+· recall and use the equations for the volume of a rectangular block and volume of a cylinder
+· use scale diagrams
+· apply Pythagoras' theorem to the calculation of a side of a right-angled triangle
+· understand that a right angle is 90° and that the sum of the angles on a straight line is 180°
+· use trigonometric functions (sine, cosine, tangent and their inverses)*
+· use mathematical instruments (ruler, compasses, protractor, set square)
+· recognise and use the points of the compass (N, S, E, W) and clockwise and anticlockwise directions
+· convert between metric units, e.g. cm3 and m3; mg, g and kg
+
+* Extended candidates only
+
+Back to contents page  www.cambridgeinternational.org/igcse  52
+                                         Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Graphs, charts and statistics
+
+· draw graphs and charts from data
+· interpret graphs and charts, including interpolation and extrapolation of data
+· determine the gradient (slope) of a line on a graph, including* by drawing a tangent to a curved line
+· determine the intercept of the line on a graph, extending the line graphically (extrapolating) where
+
+     appropriate
+· select suitable scales and axes for graphs
+· understand that y = mx + c represents a linear relationship
+· recognise direct proportionality from a graph
+· calculate and use the average (mean) for a set of data
+
+* Extended candidates only
+
+Presentation of data
+
+Taking readings
+
+· Data values should be read from an instrument to an accuracy of one half of one of the smallest divisions
+     on the scale.
+
+· Interpolation between scale divisions should be to an accuracy of one half of a division. That is, where a
+     reading lies between two scale marks, it should be interpolated to the nearest half division.
+
+Recording readings
+
+· Data should be recorded so as to reflect the precision of the measuring instrument, i.e. the smallest
+     difference that can reliably be detected on the measuring instrument scale should be reflected by the
+     number of decimal places and unit given in the measurement.
+
+· A measurement or calculated quantity must be accompanied by a correct unit, where appropriate.
+· Each column of a table should be headed with the name or symbol of the measured or calculated quantity
+
+     and the appropriate unit, e.g. time/s. The solidus (/) is to be used for separating the quantity and the unit in
+     tables, graphs and charts.
+· Units should not be included with data in the body of a table.
+· Each reading should be repeated, where appropriate, and recorded.
+· The number of significant figures given for measured quantities should be appropriate to the measuring
+     instrument used.
+· The number of significant figures given for calculated quantities should be the same as the least number of
+     significant figures in the raw data used in that specific calculation.
+· A ratio should be expressed as x:y.
+
+Drawing and analysing graphs
+
+· The column headings of a table can be directly transferred to the axes of a constructed graph.
+· A graph should be drawn with a sharp pencil.
+· The axes should be labelled with the name or symbol of the measured or calculated quantity and the
+
+     appropriate unit, e.g. time/s.
+
+Back to contents page  www.cambridgeinternational.org/igcse  53
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+· Unless instructed otherwise, the scales for the axes should allow more than half of the graph grid to be
+     used in both directions, and be based on sensible ratios, e.g. 2cm on the graph grid representing 1, 2 or 5
+     units of the variable (or 10, 20 or 50, etc.)
+
+· Points on the graph should be clearly marked as plus signs (+), crosses (×) or encircled dots () of
+     appropriate size.
+
+· Each data point should be plotted to an accuracy of one half of one of the smallest squares on the grid.
+· A best-fit line (trend line) should be a single, thin, smooth, straight line or curve, drawn by inspection. The
+
+     line does not need to coincide exactly with any of the points; where there is scatter evident in the data,
+     examiners would expect a roughly even distribution of points either side of the line over its entire length.
+     Points that are clearly anomalous and identified by the candidate should be ignored when drawing the best-
+     fit line.
+· Candidates should be able to take readings from the graph by extrapolation or interpolation.
+· Data values should be read from a line on a graph to an accuracy of one half of one of the smallest squares
+     on the grid. The same accuracy should be used in reading off an intercept.
+· The gradient of a straight line should be taken using a triangle whose hypotenuse extends over at least half
+     the length of the candidate's best-fit line, and this triangle should be marked on the graph.
+· Calculation of the gradient should be to two or three significant figures.
+· When the gradient or intercept of a graph is used in subsequent calculations, it will be assumed to have
+     units consistent with the graph axes.
+
+Conventions (e.g. signs, symbols, terminology and nomenclature)
+
+Candidates are expected to be familiar with the nomenclature used in the syllabus. The syllabus and question
+papers conform with accepted international practice. In particular, the following document, produced by the
+Association for Science Education (ASE), should be used as a guideline.
+
+Signs, Symbols and Systematics: The ASE Companion to 16-19 Science (2000).
+
+Decimal markers
+
+In accordance with current ASE convention, decimal markers in examination papers will be a single dot on the
+line. Candidates are expected to follow this convention in their answers.
+
+Numbers
+
+Numbers from 1000 to 9999 will be printed without commas or spaces. Numbers greater than or equal to
+10000 will be printed without commas. A space will be left between each group of three digits, e.g. 4256789.
+
+Units
+
+To avoid any confusion concerning the symbol for litre, the equivalent quantity, the cubic decimetre (dm3) will be
+used in place of l or litre.
+
+In practical work, candidates will be expected to use SI units or, where appropriate, units approved by the BIPM
+for use with the SI (e.g. minute). A list of SI units and units approved for use with the SI may be found in the SI
+brochure at www.bipm.org. The use of imperial/customary units such as the inch and degree Fahrenheit are
+not acceptable and should be discouraged.
+
+In all examinations, where data is supplied for use in questions, candidates will be expected to use units that
+are consistent with the units supplied and should not attempt conversion to other systems of units unless this is
+a requirement of the question.
+
+Back to contents page  www.cambridgeinternational.org/igcse                                                          54
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. Details of the assessment
+
+Command words
+
+Command words and their meanings help candidates know what is expected from them in the exams. The
+table below includes command words used in the assessment for this syllabus. The use of the command word
+will relate to the subject context.
+
+Command word           What it means
+Calculate              work out from given facts, figures or information
+Comment                give an informed opinion
+Compare                identify/comment on similarities and/or differences
+Deduce                 conclude from available information
+Define                 give precise meaning
+Describe               state the points of a topic / give characteristics and main features
+Determine              establish an answer using the information available
+Explain                set out purposes or reasons / make the relationships between things clear / say why
+                       and/or how and support with relevant evidence
+Give                   produce an answer from a given source or recall/memory
+Identify               name/select/recognise
+Justify                support a case with evidence/argument
+Predict                suggest what may happen based on available information
+Sketch                 make a simple freehand drawing showing the key features, taking care over
+                       proportions
+State                  express in clear terms
+Suggest                apply knowledge and understanding to situations where there are a range of valid
+                       responses in order to make proposals / put forward considerations
+
+Back to contents page  www.cambridgeinternational.org/igcse                                                 55
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028.
+
+5 What else you need to know
+
+This section is an overview of other information you need to know about this syllabus. It will help to share the
+administrative information with your exams officer so they know when you will need their support. Find more
+information about our administrative processes at www.cambridgeinternational.org/eoguide
+
+Before you start
+
+Previous study
+
+We recommend that learners starting this course should have studied a broad curriculum such as the
+Cambridge Lower Secondary programme or equivalent national educational framework.
+
+Guided learning hours
+
+We design Cambridge IGCSE syllabuses to require about 130 guided learning hours for each subject. This is
+for guidance only. The number of hours a learner needs to achieve the qualification may vary according to each
+school and the learners' previous experience of the subject.
+
+Availability and timetables
+
+All Cambridge schools are allocated to one of six administrative zones. Each zone has a specific timetable.
+Find your administrative zone at www.cambridgeinternational.org/adminzone. This syllabus is
+not available in all administrative zones. To find out about availability check the syllabus page at
+www.cambridgeinternational.org/0972
+
+You can view the timetable for your administrative zone at www.cambridgeinternational.org/timetables
+
+You can enter candidates in the June and November exam series.
+
+Check you are using the syllabus for the year the candidate is taking the exam.
+
+Private candidates can enter for this syllabus. For more information, please refer to the Cambridge Guide to
+Making Entries.
+
+Combining with other syllabuses
+
+Candidates can take this syllabus alongside other Cambridge International syllabuses in a single exam series.
+The only exceptions are:
+· Cambridge O Level Physics (5054)
+· Cambridge IGCSE Physics (0625)
+· Cambridge IGCSE Physical Science (0652)
+· Cambridge IGCSE Combined Science (0653)
+· Cambridge IGCSE Co-ordinated Sciences (Double Award) (0654)
+· Cambridge IGCSE (9-1) Co-ordinated Sciences (Double Award) (0973)
+· Cambridge O Level Combined Science (5129)
+· syllabuses with the same title at the same level.
+
+Cambridge IGCSE, Cambridge IGCSE (9-1) and Cambridge O Level syllabuses are at the same level.
+
+Back to contents page  www.cambridgeinternational.org/igcse                                                       56
+                                      Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. What else you need to know
+
+Making entries
+
+Exams officers are responsible for submitting entries to Cambridge International. We encourage them to work
+closely with you to make sure they enter the right number of candidates for the right combination of syllabus
+components. Entry option codes and instructions for submitting entries are in the Cambridge Guide to Making
+Entries. Your exams officer has access to this guide.
+
+Exam administration
+
+To keep our exams secure, we produce question papers for different areas of the world, known as
+administrative zones. We allocate all Cambridge schools to an administrative zone determined by their location.
+Each zone has a specific timetable.
+
+Some of our syllabuses offer candidates different assessment options. An entry option code is used to identify
+the components the candidate will take relevant to the administrative zone and the available assessment
+options.
+
+Support for exams officers
+
+We know how important exams officers are to the successful running of exams. We provide them with the
+support they need to make entries on time. Your exams officer will find this support, and guidance for all other
+phases of the Cambridge Exams Cycle, at www.cambridgeinternational.org/eoguide
+
+Retakes
+
+Candidates can retake the whole qualification as many times as they want to. Information on retake entries is at
+www.cambridgeinternational.org/retakes
+
+Language
+
+This syllabus and the related assessment materials are available in English only.
+
+Accessibility and equality
+
+Syllabus and assessment design
+
+At Cambridge International, we work to avoid direct or indirect discrimination in our syllabuses and assessment
+materials. We aim to maximise inclusivity for candidates of all national, cultural or social backgrounds and
+candidates with protected characteristics, which include special educational needs and disability, religion and
+belief, and characteristics related to gender and identity. We also aim to make our materials as accessible as
+possible by using accessible language and applying accessible design principles. This gives all candidates the
+fairest possible opportunity to demonstrate their knowledge, skills and understanding and helps to minimise the
+requirement to make reasonable adjustments during the assessment process.
+
+Access arrangements
+
+Access arrangements (including modified papers) are the principal way in which Cambridge International
+complies with our duty, as guided by the UK Equality Act (2010), to make `reasonable adjustments' for
+candidates with special educational needs (SEN), disability, illness or injury. Where a candidate would otherwise
+be at a substantial disadvantage in comparison to a candidate with no SEN, disability, illness or injury, we
+may be able to agree pre-examination access arrangements. These arrangements help a candidate by
+minimising accessibility barriers and maximising their opportunity to demonstrate their knowledge, skills and
+understanding in an assessment.
+
+Back to contents page  www.cambridgeinternational.org/igcse  57
+                                      Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. What else you need to know
+
+Important:
+Requested access arrangements should be based on evidence of the candidate's barrier to assessment
+and should also reflect their normal way of working at school. This is explained in the Cambridge Handbook
+www.cambridgeinternational.org/eoguide
+· For Cambridge International to approve an access arrangement, we will need to agree that it constitutes
+
+     a reasonable adjustment, involves reasonable cost and timeframe and does not affect the security and
+     integrity of the assessment.
+· Availability of access arrangements should be checked by centres at the start of the course. Details of our
+     standard access arrangements and modified question papers are available in the Cambridge Handbook
+     www.cambridgeinternational.org/eoguide
+· Please contact us at the start of the course to find out if we are able to approve an arrangement that is not
+     included in the list of standard access arrangements.
+· Candidates who cannot access parts of the assessment may be able to receive an award based on the
+     parts they have completed.
+
+After the exam
+
+Grading and reporting
+
+Grades 9, 8, 7, 6, 5, 4, 3, 2 or 1 indicate the standard a candidate achieved at Cambridge IGCSE (9-1).
+
+9 is the highest and 1 is the lowest. `Ungraded' means that the candidate's performance did not meet the
+standard required for grade 1. `Ungraded' is reported on the statement of results but not on the certificate.
+
+In specific circumstances your candidates may see one of the following letters on their statement of results:
+· Q (PENDING)
+· X (NO RESULT).
+These letters do not appear on the certificate.
+
+On the statement of results and certificates, Cambridge IGCSE is shown as INTERNATIONAL GENERAL
+CERTIFICATE OF SECONDARY EDUCATION (IGCSE).
+
+Back to contents page  www.cambridgeinternational.org/igcse  58
+                                      Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. What else you need to know
+
+How students and teachers can use the grades
+
+Assessment at Cambridge IGCSE has two purposes:
+1 to measure learning and achievement
+
+     The assessment confirms achievement and performance in relation to the knowledge, understanding and
+     skills specified in the syllabus.
+2 to show likely future success
+     The outcomes help predict which students are well prepared for a particular course or career and/or which
+     students are more likely to be successful.
+     The outcomes help students choose the most suitable course or career.
+
+Back to contents page  www.cambridgeinternational.org/igcse  59
+                       Cambridge IGCSE (9-1) Physics 0972 syllabus for 2026, 2027 and 2028. What else you need to know
+
+Changes to this syllabus for 2026, 2027 and 2028
+
+The syllabus has been updated. This is version 2, published December 2025.
+
+You must read the whole syllabus before planning your teaching programme. We review our
+syllabuses regularly to make sure they continue to meet the needs of our schools. In updating this syllabus, we
+have made it easier for teachers and students to understand, keeping the familiar features that teachers and
+schools value.
+
+There are no significant changes which affect teaching.
+
+Changes to version 2 of the syllabus, published December 2025
+
+Other changes          · The weblink on page 56 has been updated.
+
+Any textbooks endorsed to support the syllabus for examination from 2023 are still suitable for
+use with this syllabus.
+
+You should take account of the changes described above when using these textbooks.
+
+Back to contents page  www.cambridgeinternational.org/igcse                                                      60
+School feedback: `While studying Cambridge IGCSE and Cambridge International A Levels, students
+broaden their horizons through a global perspective and develop a lasting passion for learning.'
+
+Feedback from: Zhai Xiaoning, Deputy Principal, The High School Affiliated to Renmin University of China
+
+We are committed to making our documents accessible in accordance with the WCAG 2.1 Standard. We are always looking to improve
+the accessibility of our documents. If you find any problems or you think we are not meeting accessibility requirements, contact us at
+info@cambridgeinternational.org with the subject heading: Digital accessibility. If you need this document in a different format, contact
+us and supply your name, email address and requirements and we will respond within 15 working days.
+
+Cambridge Assessment International Education, The Triangle Building, Shaftesbury Road, Cambridge, CB2 8EA, United Kingdom
+
+t: +44 (0)1223 553554  email: info@cambridgeinternational.org  www.cambridgeinternational.org
+
+© Cambridge University Press & Assessment September 2023
+

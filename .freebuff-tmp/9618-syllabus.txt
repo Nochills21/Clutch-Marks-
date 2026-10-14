@@ -1,0 +1,2032 @@
+  Syllabus
+  Cambridge International
+  AS & A Level
+  Computer Science 9618
+
+      Use this syllabus for exams in 2026.
+      Exams are available in the June and November series.
+
+Version 2
+
+For the purposes of screen readers, any mention in this document of Cambridge IGCSE
+refers to Cambridge International General Certificate of Secondary Education.
+Why choose Cambridge International?
+
+Cambridge International prepares school students for life, helping them develop an informed curiosity and a
+lasting passion for learning. We are part of the University of Cambridge.
+
+Our Cambridge Pathway gives students a clear path for educational success from age 5 to 19. Schools can
+shape the curriculum around how they want students to learn - with a wide range of subjects and flexible ways
+to offer them. It helps students discover new abilities and a wider world, and gives them the skills they need for
+life, so they can achieve at school, university and work.
+
+Our programmes and qualifications set the global standard for international education. They are created by
+subject experts, are rooted in academic rigour and reflect the latest educational research. They provide a
+strong platform for students to progress from one stage to the next, and are well supported by teaching and
+learning resources. Learn more about our research at www.cambridgeassessment.org.uk/our-research/
+
+We review all our syllabuses regularly, so they reflect the latest research evidence and professional teaching
+practice - and take account of the different national contexts in which they are taught.
+
+We consult with teachers to help us design each syllabus around the needs of their learners. Consulting with
+leading universities has helped us make sure our syllabuses encourage students to master the key concepts in
+the subject and develop the skills necessary for success in higher education.
+
+We believe education works best when curriculum, teaching, learning and assessment are closely aligned.
+Our programmes develop deep knowledge, conceptual understanding and higher-order thinking skills, to
+prepare students for their future. Together with schools, we develop Cambridge learners who are confident,
+responsible, reflective, innovative and engaged - equipped for success in the modern world.
+
+Every year, nearly a million Cambridge students from 10000 schools in 160 countries prepare for their future
+with the Cambridge Pathway.
+
+School feedback: `We think the Cambridge curriculum is superb preparation for university.'
+
+Feedback from: Christoph Guttentag, Dean of Undergraduate Admissions, Duke University, USA
+
+  Quality management
+  Cambridge International is committed to providing exceptional quality. In line with this commitment, our
+  quality management system for the provision of international education programmes and qualifications
+  programmes for students aged 5 to 19 is independently certified as meeting the internationally recognised
+  standard, ISO 9001:2015. Learn more at www.cambridgeinternational.org/about-us/our-standards/
+
+©Cambridge University Press & Assessment September 2023
+Cambridge Assessment International Education is part of Cambridge University Press & Assessment. Cambridge University Press &
+Assessment is a department of the University of Cambridge.
+Cambridge University Press & Assessment retains the copyright on all its publications. Registered centres are permitted to copy
+material from this booklet for their own internal use. However, we cannot give permission to centres to photocopy any material that is
+acknowledged to a third party even for internal use within a centre.
+Contents
+
+Why choose Cambridge International?......................................................................... 2
+
+1 Why choose this syllabus? ......................................................................................... 4
+
+2 Syllabus overview ........................................................................................................ 8
+
+Aims                                                            8
+
+Content overview                                                9
+
+Assessment overview                                             11
+
+Assessment objectives                                           13
+
+3 Subject content ..........................................................................................................14
+
+AS content                                                      14
+
+A Level content                                                 32
+
+Teacher guidance                                                39
+
+4 Details of the assessment ........................................................................................ 40
+
+Submission of Paper 4 Practical                                 40
+
+Command words                                                   41
+
+5 What else you need to know .................................................................................... 43
+
+Before you start                                                43
+
+Making entries                                                  44
+
+Accessibility and equality                                      44
+
+After the exam                                                  45
+
+How students, teachers and higher education can use the grades  47
+
+Changes to this syllabus for 2026                               48
+
+Important: Changes to this syllabus
+For information about changes to this syllabus for 2026, go to page 48.
+The latest syllabus is version 2, published December 2025. There are no significant changes which affect
+teaching.
+Any textbooks endorsed to support the syllabus for examination from 2021 are still suitable for use with this
+syllabus.
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026.
+
+1 Why choose this syllabus?
+
+Key benefits                                                       Cambridge
+                                                                     learner
+The best motivation for a student is a real passion for the
+subject they are learning. By offering students a variety of
+Cambridge International AS & A Levels, you can give them the
+greatest chance of finding the path of education they most
+want to follow. With over 50 subjects to choose from, students
+can select the ones they love and that they are best at, which
+helps motivate them throughout their studies.
+
+Following a Cambridge International AS & A Level programme
+helps students develop abilities which universities value highly,
+including:
+
+· a deep understanding of their subjects
+· higher order thinking skills - analysis, critical thinking,
+
+     problem solving
+· presenting ordered and coherent arguments
+· independent learning and research.
+
+Cambridge International AS & A Level Computer Science encourages learners to meet the needs of
+Higher Education courses in computer science as well as twenty-first century digital employers. It encourages
+learners to think creatively, through applying practical programming solutions, demonstrating that they are
+effective users of technology.
+
+Our approach in Cambridge International AS & A Level Computer Science encourages learners to be:
+confident, using a range of technology and programming paradigms
+responsible, using technology ethically
+reflective, as programmers, improving their own programming solution
+innovative, creating efficient solutions to problems
+engaged, in technology, how it is built and how software solutions are developed.
+
+School feedback: `Cambridge students develop a deep understanding of subjects and
+independent thinking skills.'
+
+Feedback from: Principal, Rockledge High School, USA
+
+Back to contents page                                              www.cambridgeinternational.org/alevel       4
+                            Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Why choose this syllabus?
+
+Key concepts
+
+Key concepts are essential ideas that help students develop a deep understanding of their subject and make
+links between different aspects. Key concepts may open up new ways of thinking about, understanding or
+interpreting the important things to be learned.
+
+Good teaching and learning will incorporate and reinforce a subject's key concepts to help students gain:
+
+· a greater depth as well as breadth of subject knowledge
+· confidence, especially in applying knowledge and skills in new situations
+· the vocabulary to discuss their subject conceptually and show how different aspects link together
+· a level of mastery of their subject to help them enter higher education.
+
+The key concepts identified below, carefully introduced and developed, will help to underpin the course you will
+teach. You may identify additional key concepts which will also enrich teaching and learning.
+
+The key concepts for Cambridge International AS & A Level Computer Science are:
+
+· Computational thinking
+     Computational thinking is a set of fundamental skills that help produce a solution to a problem. Skills such
+     as abstraction, decomposition and algorithmic thinking are used to study a problem and design a solution
+     that can be implemented. This may involve using a range of technologies and programming languages.
+
+· Programming paradigms
+     A programming paradigm is a way of thinking about or approaching problems. There are many different
+     programming styles that can be used, which are suited to unique functions, tools and specific situations.
+     An understanding of programming paradigms is essential to ensure they are used appropriately, when
+     designing and building programs.
+
+· Communication
+     Communication is a core requirement of computer systems. It includes the ability to transfer data from one
+     device or component to another and an understanding of the rules and methods that are used in this data
+     transfer. Communication could range from the internal transfer of data within a computer system, to the
+     transfer of a video across the internet.
+
+· Computer architecture and hardware
+     Computer architecture is the design of the internal operation of a computer system. It includes the rules that
+     dictate how components and data are organised, how data are communicated between components, to
+     allow hardware to function. There is a range of architectures, with different components and rules, that are
+     appropriate for different scenarios.
+     All computers comprise of a combination of hardware components, ranging from internal components,
+     such as the Central Processing Unit (CPU) and main memory, to peripherals. To produce effective
+     and efficient programs to run on hardware, it is important to understand how the components work
+     independently and together to produce a system that can be used. Hardware needs software to be able
+     to perform a task. Software allows hardware to become functional. This enables the user to communicate
+     with the hardware to perform tasks.
+
+· Data representation and structures
+     Computers use binary and understanding how a binary number can be interpreted in many different ways
+     is important. Programming requires an understanding of how data can be organised for efficient access
+     and/or transfer.
+
+Back to contents page  www.cambridgeinternational.org/alevel  5
+                            Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Why choose this syllabus?
+
+International recognition and acceptance
+
+Our expertise in curriculum, teaching and learning, and assessment is the basis for the recognition of
+our programmes and qualifications around the world. Every year thousands of students with Cambridge
+International AS & A Levels gain places at leading universities worldwide. Our programmes and qualifications
+are valued by top universities around the world including those in the UK, US (including Ivy League universities),
+Europe, Australia, Canada and New Zealand.
+
+UK ENIC, the national agency in the UK for the recognition and comparison of international qualifications and
+skills, has carried out an independent benchmarking study of Cambridge International AS & A Level and found
+it to be comparable to the standard of AS & A Level in the UK. This means students can be confident that their
+Cambridge International AS & A Level qualifications are accepted as equivalent, grade for grade, to UK AS & A
+Levels by leading universities worldwide.
+
+Cambridge International AS Level Computer Science makes up the first half of the Cambridge International
+A Level course in Computer Science and provides a foundation for the study of Computer Science at
+Cambridge International A Level. The AS Level can also be delivered as a standalone qualification. Depending
+on local university entrance requirements, students may be able to use it to progress directly to university
+courses in Computer Science or some other subjects. It is also suitable as part of a course of general
+education.
+
+Cambridge International A Level Computer Science provides a foundation for the study of Computer Science or
+related courses in higher education. Equally it is suitable as part of a course of general education.
+
+For more information about the relationship between the Cambridge International AS Level and Cambridge
+International A Level see the `Assessment overview' section of the Syllabus overview.
+
+We recommend learners check the Cambridge recognition database and university websites to find the most
+up-to-date entry requirements for courses they wish to study.
+
+Learn more at www.cambridgeinternational.org/recognition
+
+Back to contents page  www.cambridgeinternational.org/alevel  6
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Why choose this syllabus?
+
+Supporting teachers
+
+We believe education is most effective when curriculum, teaching and learning, and assessment are closely
+aligned. We provide a wide range of resources, detailed guidance, innovative training and targeted professional
+development so that you can give your students the best possible preparation for Cambridge International
+AS & A Level. To find out which resources are available for each syllabus go to
+www.cambridgeinternational.org/support
+
+The School Support Hub is our secure online site for Cambridge teachers where you can find the resources
+you need to deliver our programmes. You can also keep up to date with your subject and the global Cambridge
+community through our online discussion forums.
+
+Find out more at www.cambridgeinternational.org/support
+
+Support for Cambridge International AS & A Level
+
+Planning and           Teaching and               Learning and revision  Results
+preparation            assessment
+· Syllabuses           · Endorsed resources       · Example candidate    · Candidate Results
+· Schemes of work      · Online forums                 responses              Service
+· Specimen Question
+                                                  · Past papers and      · Principal examiner
+     Papers and Mark                                   mark schemes           reports for teachers
+     Schemes
+· Teacher guides
+
+Sign up for email notifications about changes to syllabuses, including new and revised products and services,
+at www.cambridgeinternational.org/syllabusupdates
+
+Syllabuses and specimen materials represent the final authority on the content and structure of all of our
+assessments.
+
+Professional development
+
+Find the next step on your professional development journey.
+· Introductory Professional Development - An introduction to Cambridge programmes and qualifications.
+· Extension Professional Development - Develop your understanding of Cambridge programmes and
+
+     qualifications to build confidence in your delivery.
+· Enrichment Professional Development - Transform your approach to teaching with our Enrichment
+
+     workshops.
+· Cambridge Professional Development Qualifications (PDQs) - Practice-based programmes that transform
+
+     professional learning for practising teachers. Available at Certificate and Diploma level.
+
+Find out more at:
+www.cambridgeinternational.org/support-and-training-for-schools/professional-development/
+
+Supporting exams officers
+
+We provide comprehensive support and guidance for all Cambridge exams officers.
+Find out more at: www.cambridgeinternational.org/eoguide
+
+Back to contents page                             www.cambridgeinternational.org/alevel                          7
+                                                                 Cambridge International AS & A Level Computer Science 9618 syllabus for 2026.
+
+2 Syllabus overview
+
+Aims
+
+The aims describe the purposes of a course based on this syllabus.
+The aims of this course are to enable students to develop:
+· computational thinking skills
+· an understanding of the main principles of solving problems using computers
+· an understanding of the component parts of computer systems and how they interrelate, including
+
+     software, data, hardware, communication and people
+· an understanding of the different methods of communication and the functionality of networks and the
+
+     internet
+· the skills necessary to apply this understanding to develop computer based solutions to problems.
+
+Cambridge Assessment International Education is an education organisation and politically
+neutral. The contents of this syllabus, examination papers and associated materials do not endorse any
+political view. We endeavour to treat all aspects of the exam process neutrally.
+
+Back to contents page  www.cambridgeinternational.org/alevel                                            8
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Syllabus overview
+
+Content overview                        1.1 Data Representation
+                                        1.2 Multimedia - Graphics, Sound
+AS Level content                        1.3 Compression
+
+1 Information representation
+
+2 Communication                         2.1 Networks including the internet
+
+3 Hardware                              3.1 Computers and their components
+                                        3.2 Logic Gates and Logic Circuits
+
+4 Processor Fundamentals                4.1 Central Processing Unit (CPU) Architecture
+                                        4.2 Assembly Language
+                                        4.3 Bit manipulation
+
+5 System Software                       5.1 Operating Systems
+                                        5.2 Language Translators
+
+6 Security, privacy and data integrity  6.1 Data Security
+                                        6.2 Data Integrity
+
+7 Ethics and Ownership                  7.1 Ethics and Ownership
+
+8 Databases                             8.1 Database Concepts
+                                        8.2 Database Management Systems (DBMS)
+                                        8.3Data Definition Language (DDL) and Data
+
+                                              Manipulation Language (DML)
+
+9 Algorithm Design and Problem-solving  9.1 Computational Thinking Skills
+                                        9.2 Algorithms
+
+10 Data Types and Structures            10.1 Data Types and Records
+                                        10.2 Arrays
+                                        10.3 Files
+                                        10.4 Introduction to Abstract Data Types (ADT)
+
+11 Programming                          11.1 Programming Basics
+                                        11.2 Constructs
+                                        11.3 Structured Programming
+
+12 Software Development                 12.1 Program Development Life cycle
+                                        12.2 Program Design
+                                        12.3 Program Testing and Maintenance
+
+Back to contents page                                       www.cambridgeinternational.org/alevel  9
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Syllabus overview
+
+A Level content                   13.1 User-defined data types
+                                  13.2 File organisation and access
+13 Data Representation            13.3Floating-point numbers, representation and
+
+14 Communication and internet           manipulation
+     technologies
+                                  14.1 Protocols
+15 Hardware and Virtual Machines  14.2 Circuit switching, packet switching
+
+16 System Software                15.1 Processors, Parallel Processing and Virtual Machines
+                                  15.2 Boolean Algebra and Logic Circuits
+17 Security
+                                  16.1 Purposes of an Operating System (OS)
+18 Artificial Intelligence (AI)   16.2 Translation Software
+19 Computational thinking and
+                                  17.1Encryption, Encryption Protocols and Digital
+     Problem-solving                    certificates
+20 Further Programming
+                                  18.1 Artificial Intelligence
+
+                                  19.1 Algorithms
+                                  19.2 Recursion
+
+                                  20.1 Programming Paradigms
+                                  20.2 File Processing and Exception Handling
+
+School feedback: `Cambridge International AS & A Levels prepare students well for university
+because they've learnt to go into a subject in considerable depth. There's that ability to really
+understand the depth and richness and the detail of a subject. It's a wonderful preparation for
+what they are going to face at university.'
+
+Feedback from: US Higher Education Advisory Council
+
+Back to contents page             www.cambridgeinternational.org/alevel                            10
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Syllabus overview
+
+Assessment overview
+
+At AS Level candidates take papers 1 and 2. At A Level candidates take all four papers. Calculators must not
+be used in any paper.
+
+Paper 1                                              Paper 3
+
+Theory Fundamentals    1 hour 30 minutes             Advanced Theory     1 hour 30 minutes
+
+75 marks                                             75 marks
+
+Paper 1 will assess sections 1 to 8 of the           Paper 3 will assess sections 13 to 20 of the
+syllabus content.                                    syllabus content.
+
+Written paper.                                       Written paper.
+
+Externally assessed. Candidates answer all           Externally assessed. Candidates answer all
+questions.                                           questions.
+
+50% of the AS Level                                  25% of the A Level
+
+25% of the A Level
+
+Paper 2                                              Paper 4
+
+Fundamental Problem-solving and             2 hours  Practical           2 hours 30 minutes
+Programming Skills
+                                                     75 marks
+
+75 marks                                             Paper 4 will assess sections 19 to 20 of the
+                                                     syllabus content, except for low-level and
+Paper 2 will assess sections 9 to 12 of the          declarative programming.
+syllabus content.
+
+Candidates will need to write answers in             Candidates will submit complete program code
+pseudocode.                                          and evidence of testing.
+
+Written paper.                                       Candidates will be required to use either Java
+                                                     (console mode), Visual Basic* (console mode) or
+Externally assessed. Candidates answer all           Python (console mode) programming languages.
+questions.
+
+50% of the AS Level                                  Externally assessed. Candidates answer all
+                                                     questions on a computer without internet or
+25% of the A Level                                   email facility.
+
+                                                     25% of the A Level
+
+Information on availability is in the Before you start section.
+
+*Visual Basic in this syllabus refers to any .Net versions of the Visual Basic programming language. Candidates
+ are asked to use one of these versions of the software and not Visual Basic 6.0 or earlier versions of this
+ programming language.
+
+Check the samples database at www.cambridgeinternational.org/samples for submission information,
+forms and deadlines for Component 4.
+
+Back to contents page                                           www.cambridgeinternational.org/alevel            11
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Syllabus overview
+
+There are three routes for Cambridge International AS & A Level Computer Science:
+
+Route                               Paper 1  Paper 2  Paper 3  Paper 4
+
+1 AS Level only
+
+(Candidates take all AS             yes      yes      no       no
+
+components in the same exam
+
+series)
+
+2 A Level (staged over two years)
+
+Year 1 AS Level*                    yes      yes      no       no
+
+Year 2 Complete the A Level         no       no       yes      yes
+
+3 A Level
+
+(Candidates take all components in  yes      yes      yes      yes
+
+the same exam series)
+
+* Candidates carry forward their AS Level result subject to the rules and time limits described in the Cambridge
+Handbook. See Making entries for more information on carry forward of results.
+
+Candidates following an AS Level route are eligible for grades a-e. Candidates following an A Level route are
+eligible for grades A*-E.
+
+Back to contents page                                 www.cambridgeinternational.org/alevel                       12
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Syllabus overview
+
+Assessment objectives
+
+The assessment objectives (AOs) are:
+
+AO1
+
+Demonstrate knowledge and understanding of the principles and concepts of computer science, including
+abstraction, logic, algorithms and data representation.
+
+AO2
+
+Apply knowledge and understanding of the principles and concepts of computer science, including to analyse
+problems in computational terms.
+
+AO3
+Design, program and evaluate computer systems to solve problems, making reasoned judgements about
+these.
+
+Weighting for assessment objectives
+
+The approximate weightings allocated to each of the assessment objectives (AOs) are summarised below.
+
+Assessment objectives as a percentage of each qualification
+
+Assessment objective                  Weighting in AS Level %  Weighting in A Level %
+                                                                             30
+AO1                                            30                            30
+                                                                             40
+AO2                                            40                            100
+
+AO3                                            30
+
+Total                                          100
+
+Assessment objectives as a percentage of each component
+
+Assessment objective                           Weighting in components %
+
+                                      Paper 1  Paper 2         Paper 3    Paper 4
+                                                                              0
+AO1                                   60            0          60             0
+
+AO2                                   40            40         40            100
+                                                                             100
+AO3                                   0             60         0
+
+Total                                 100           100        100
+
+Back to contents page                                          www.cambridgeinternational.org/alevel        13
+                               Cambridge International AS & A Level Computer Science 9618 syllabus for 2026.
+
+3 Subject content
+
+This syllabus gives you the flexibility to design a course that will interest, challenge and engage your learners.
+Where appropriate you are responsible for selecting resources and examples to support your learners'
+study. These should be appropriate for the learners' age, cultural background and learning context as well as
+complying with your school policies and local legal requirements.
+
+AS content
+
+Computational thinking is developed using a structured approach that includes the use of programming and
+problem-solving skills to provide solutions to real life problems. It requires the manipulation and storage of
+different types of data and the communication of solutions over networks.
+
+Computational thinking is supported by developing an understanding of how computer architecture, hardware,
+systems software, security measures and communication systems, provide the infrastructure required in
+an efficient and ethical way. The syllabus supports opportunities for students to apply their skills in practical
+contexts that are required in the digital industry.
+
+1  Information representation
+
+1.1 Data Representation
+
+Candidates should be able to:                          Notes and guidance
+                                                       Understand the difference between and use:
+Show understanding of binary magnitudes and the        · kibi and kilo
+difference between binary prefixes and decimal         · mebi and mega
+prefixes                                               · gibi and giga
+                                                       · tebi and tera
+Show understanding of different number systems
+                                                       Use the binary, denary, hexadecimal number
+Perform binary addition and subtraction                bases and Binary Coded Decimal (BCD) and one's
+                                                       and two's complement representation for binary
+Describe practical applications where Binary Coded     numbers
+Decimal (BCD) and Hexadecimal are used                 Convert an integer value from one number base/
+Show understanding of and be able to represent         representation to another
+character data in its internal binary form, depending
+on the character set used                              Using positive and negative binary integers
+                                                       Show understanding of how overflow can occur
+
+                                                       Students are expected to be familiar with ASCII
+                                                       (American Standard Code for Information
+                                                       Interchange), extended ASCII and Unicode.
+                                                       Students will not be expected to memorise any
+                                                       particular character codes
+
+Back to contents page                                  www.cambridgeinternational.org/alevel                        14
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+1.2 Multimedia                                        Notes and guidance
+Graphics                                              Use and understand the terms: pixel, file header,
+                                                      image resolution, screen resolution, colour depth/
+Candidates should be able to:                         bit depth
+Show understanding of how data for a bitmapped
+image are encoded                                     Use the terms: image resolution, colour depth /
+                                                      bit depth
+Perform calculations to estimate the file size for a
+bitmap image                                          Use the terms: drawing object, property, drawing list
+
+Show understanding of the effects of changing
+elements of a bitmap image on the image quality
+and file size
+
+Show understanding of how data for a vector
+graphic are encoded
+
+Justify the use of a bitmap image or a vector
+graphic for a given task
+
+Sound                                                 Notes and guidance
+                                                      Use the terms: sampling, sampling rate, sampling
+Candidates should be able to:                         resolution, analogue and digital data
+Show understanding of how sound is represented
+and encoded                                           Including the impact on file size and accuracy
+
+Show understanding of the impact of changing the
+sampling rate and resolution
+
+1.3 Compression                                       Notes and guidance
+                                                      Including the use of run-length encoding (RLE)
+Candidates should be able to:
+Show understanding of the need for and examples
+of the use of compression
+
+Show understanding of lossy and lossless
+compression and justify the use of a method in a
+given situation
+
+Show understanding of how a text file, bitmap
+image, vector graphic and sound file can be
+compressed
+
+Back to contents page                                 www.cambridgeinternational.org/alevel                  15
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+2  Communication
+
+2.1 Networks including the internet
+
+Candidates should be able to:                         Notes and guidance
+Show understanding of the purpose and benefits of
+networking devices                                    Roles of the different computers within the network
+                                                      and subnetwork models
+Show understanding of the characteristics of a LAN    Benefits and drawbacks of each model
+(local area network) and a WAN (wide area network)    Justify the use of a model for a given situation
+
+Explain the client-server and peer-to-peer models of  Understand how packets are transmitted between
+networked computers                                   two hosts for a given topology
+                                                      Justify the use of a topology for a given situation
+Show understanding of thin-client and thick-client    Including the use of public and private clouds
+and the differences between them                      Benefits and drawbacks of cloud computing
+Show understanding of the bus, star, mesh and         Describe the characteristics of copper cable,
+hybrid topologies                                     fibre-optic cable, radio waves (including WiFi),
+                                                      microwaves, satellites
+Show understanding of cloud computing                 Including switch, server, Network Interface Card
+                                                      (NIC), Wireless Network Interface Card (WNIC),
+Show understanding of the differences between         Wireless Access Points (WAP), cables, bridge,
+and implications of the use of wireless and wired     repeater
+networks
+Describe the hardware that is used to support a       Including Carrier Sense Multiple Access/Collision
+LAN                                                   Detection (CSMA/CD)
+                                                      Methods of bit streaming, i.e. real-time and
+Describe the role and function of a router in a       on-demand
+network                                               Importance of bit rates broadband speed on bit
+Show understanding of Ethernet and how collisions     streaming
+are detected and avoided
+Show understanding of bit streaming                   Including modems, PSTN (Public Switched
+                                                      Telephone Network), dedicated lines, cell phone
+Show understanding of the differences between the     network
+World Wide Web (WWW) and the internet
+
+Describe the hardware that is used to support the
+internet
+
+Back to contents page                                 www.cambridgeinternational.org/alevel                16
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+2.1 Networks including the internet continued        Including:
+Explain the use of IP addresses in the transmission
+of data over the internet                            · format of an IP address including IPv4 and IPv6
+                                                     · use of subnetting in a network
+Explain how a Uniform Resource Locator (URL) is      · how an IP address is associated with a device
+used to locate a resource on the World Wide Web
+(WWW) and the role of the Domain Name Service             on a network
+(DNS)                                                · difference between a public IP address and
+
+                                                          a private IP address and the implications for
+                                                          security
+                                                     · difference between a static IP address and a
+                                                          dynamic IP address
+
+3  Hardware
+
+3.1 Computers and their components
+
+Candidates should be able to:                        Notes and guidance
+Show understanding of the need for input, output,
+primary memory and secondary (including              Including: benefits and drawbacks of embedded
+removable) storage                                   systems
+                                                     Including: Laser printer, 3D printer, microphone,
+Show understanding of embedded systems               speakers, magnetic hard disk, solid state (flash)
+                                                     memory, optical disc reader/writer, touchscreen,
+Describe the principal operations of hardware        virtual reality headset
+devices
+                                                     Including their use in a range of devices and
+Show understanding of the use of buffers             systems
+                                                     Including the use of SRAM and DRAM in a range of
+Explain the differences between Random Access        devices and systems and the reasons for using one
+Memory (RAM) and Read Only Memory (ROM)              instead of the other depending on the device and its
+                                                     use
+Explain the differences between Static RAM (SRAM)
+and Dynamic RAM (DRAM)                               Including:
+                                                     · difference between monitoring and control
+Explain the difference between Programmable ROM      · use of sensors (including temperature, pressure,
+(PROM), Erasable Programmable ROM (EPROM)
+and Electrically Erasable Programmable ROM                infra-red, sound) and actuators
+(EEPROM)                                             · importance of feedback
+
+Show an understanding of monitoring and control
+systems
+
+Back to contents page                                www.cambridgeinternational.org/alevel                 17
+                              Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+3.2 Logic Gates and Logic Circuits                     Notes and guidance
+
+Candidates should be able to:
+Use the following logic gate symbols:
+
+NOT                      AND           OR
+
+NAND                     NOR  XOR
+
+Understand and define the functions of :               All gates except the NOT gate will have two inputs
+NOT, AND, OR, NAND, NOR and XOR (EOR) gates            only.
+
+Construct the truth table for each of the logic gates  From:
+above                                                  · a problem statement
+                                                       · a logic expression
+Construct a logic circuit                              · a truth table
+                                                       From:
+Construct a truth table                                · a problem statement
+                                                       · a logic circuit
+Construct a logic expression                           · a logic expression
+                                                       From:
+                                                       · a problem statement
+                                                       · a logic circuit
+                                                       · a truth table
+
+Back to contents page                                  www.cambridgeinternational.org/alevel               18
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+4  Processor Fundamentals
+
+4.1 Central Processing Unit (CPU) Architecture
+
+Candidates should be able to:                         Notes and guidance
+Show understanding of the basic Von Neumann
+model for a computer system and the stored            Special purpose registers including:
+program concept                                       · Program Counter (PC)
+Show understanding of the purpose and role of         · Memory Data Register (MDR)
+registers, including the difference between general   · Memory Address Register (MAR)
+purpose and special purpose registers                 · The Accumulator (ACC)
+                                                      · Index Register (IX)
+Show understanding of the purpose and roles of the    · Current Instruction Register (CIR)
+Arithmetic and Logic Unit (ALU), Control Unit (CU)    · Status Register
+and system clock, Immediate Access Store (IAS)
+Show understanding of how data are transferred        Including:
+between various components of the computer            · processor type and number of cores
+system using the address bus, data bus and control    · the bus width
+bus                                                   · clock speed
+Show understanding of how factors contribute to       · cache memory
+the performance of the computer system                Including connection to:
+                                                      · Universal Serial Bus (USB)
+Understand how different ports provide connection     · High Definition Multimedia Interface (HDMI)
+to peripheral devices                                 · Video Graphics Array (VGA)
+                                                      Describe and use `register transfer' notation to
+Describe the stages of the Fetch-Execute (F-E) cycle  describe the F-E cycle
+                                                      Including:
+Show understanding of the purpose of interrupts       · possible causes of interrupts
+                                                      · applications of interrupts
+                                                      · use of an Interrupt Service handling Routine
+
+                                                           (ISR)
+                                                      · when interrupts are detected during the fetch-
+
+                                                           execute cycle
+                                                      · how interrupts are handled
+
+Back to contents page                                 www.cambridgeinternational.org/alevel             19
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+4.2 Assembly Language                               Notes and guidance
+Candidates should be able to:
+Show understanding of the relationship between      Apply the two-pass assembler process to a given
+assembly language and machine code                  simple assembly language program
+Describe the different stages of the assembly
+process for a two-pass assembler                    Including the following groups:
+Trace a given simple assembly language program      · Data movement
+Show understanding that a set of instructions are   · Input and output of data
+grouped                                             · Arithmetic operations
+                                                    · Unconditional and conditional instructions
+Show understanding of and be able to use different  · Compare instructions
+modes of addressing                                 Including immediate, direct, indirect, indexed,
+                                                    relative
+
+Back to contents page                               www.cambridgeinternational.org/alevel            20
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+The following table is an example of an instruction set:
+
+Instruction                                                  Explanation
+
+Opcode                 Operand
+
+LDM #n                          Immediate addressing. Load the number n to ACC
+
+LDD <address>                   Direct addressing. Load the contents of the location at the given address
+LDI <address>                   to ACC
+LDX <address>
+LDR #n                          Indirect addressing. The address to be used is at the given address.
+                                Load the contents of this second address to ACC
+
+                                Indexed addressing. Form the address from <address> + the contents of
+                                the index register. Copy the contents of this calculated address to ACC
+
+                                Immediate addressing. Load the number n to IX
+
+MOV <register> Move the contents of the accumulator to the given register (IX)
+
+STO <address>                   Store the contents of ACC at the given address
+
+ADD <address>                   Add the contents of the given address to the ACC
+
+ADD #n/Bn/&n                    Add the number n to the ACC
+
+SUB <address>                   Subtract the contents of the given address from the ACC
+
+SUB #n/Bn/&n                    Subtract the number n from the ACC
+
+INC <register> Add 1 to the contents of the register (ACC or IX)
+
+DEC <register> Subtract 1 from the contents of the register (ACC or IX)
+
+JMP <address>                   Jump to the given address
+
+CMP <address>                   Compare the contents of ACC with the contents of <address>
+
+CMP #n                          Compare the contents of ACC with number n
+
+CMI <address>                   Indirect addressing. The address to be used is at the given address.
+JPE <address>                   Compare the contents of ACC with the contents of this second address
+
+                                Following a compare instruction, jump to <address> if the compare was
+                                True
+
+JPN <address>                   Following a compare instruction, jump to <address> if the compare was
+ IN                             False
+
+                                Key in a character and store its ASCII value in ACC
+
+OUT                             Output to the screen the character whose ASCII value is stored in ACC
+
+END                             Return control to the operating system
+
+All questions will assume there is only one general purpose register available (Accumulator)
+ACC denotes Accumulator
+IX denotes Index Register
+<address> can be an absolute or symbolic address
+# denotes a denary number, e.g. #123
+B denotes a binary number, e.g. B01001010
+& denotes a hexadecimal number, e.g. &4A
+
+Back to contents page                                               www.cambridgeinternational.org/alevel  21
+                               Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+4.3 Bit manipulation                               Notes and guidance
+Candidates should be able to:                      Logical, arithmetic and cyclic
+Show understanding of and perform binary shifts    Left shift, right shift
+
+Show understanding of how bit manipulation can be  Carry out bit manipulation operations
+used to monitor/control a device                   Test and set a bit (using bit masking)
+
+                       Instruction
+
+Label                  Opcode  Operand                           Explanation
+
+                       AND #n / Bn / &n Bitwise AND operation of the contents of ACC with the
+                                                     operand
+
+                       AND <address>    Bitwise AND operation of the contents of ACC with the
+                                        contents of <address>
+
+                       XOR #n / Bn / &n Bitwise XOR operation of the contents of ACC with the
+                                                     operand
+
+                       XOR <address>    Bitwise XOR operation of the contents of ACC with the
+                                        contents of <address>
+
+                       OR #n / Bn / &n Bitwise OR operation of the contents of ACC with the
+                                                   operand
+
+                       OR <address>     Bitwise OR operation of the contents of ACC with the
+                                        contents of <address>
+
+                       LSL #n           Bits in ACC are shifted logically n places to the left. Zeros are
+                                        introduced on the right hand end
+
+                       LSR #n           Bits in ACC are shifted logically n places to the right. Zeros
+                                        are introduced on the left hand end
+
+<label>:               <opcode> <operand> Labels an instruction
+
+<label>:                       <data>   Gives a symbolic address <label> to the memory location
+                                        with contents <data>
+
+All questions will assume there is only one general purpose register available (Accumulator)
+ACC denotes Accumulator
+IX denotes Index Register
+<address> can be an absolute or symbolic address
+# denotes a denary number, e.g. #123
+B denotes a binary number, e.g. B01001010
+& denotes a hexadecimal number, e.g. &4A
+
+Back to contents page                                            www.cambridgeinternational.org/alevel     22
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+5  System Software
+
+5.1 Operating Systems
+
+Candidates should be able to:                         Notes and guidance
+Explain why a computer system requires an
+Operating System (OS)                                 Including memory management, file management,
+                                                      security management, hardware management
+Explain the key management tasks carried out by       (input/output/peripherals), process management
+the Operating System
+                                                      Including disk formatter, virus checker,
+Show understanding of the need for typical utility    defragmentation software, disk contents analysis/
+software provided with an Operating System            disk repair software, file compression, back-up
+                                                      software
+Show understanding of program libraries
+                                                      Including:
+                                                      · software under development is often
+
+                                                           constructed using existing code from program
+                                                           libraries
+                                                      · the benefits to the developer of software
+                                                           constructed using library files, including
+                                                           Dynamic Link Library (DLL) files
+
+5.2 Language Translators                              Notes and guidance
+
+Candidates should be able to:                         Including:
+Show understanding of the need for:                   · for coding, including context-sensitive prompts
+                                                      · for initial error detection, including dynamic
+· assembler software for the translation of an
+     assembly language program                             syntax checks
+                                                      · for presentation, including prettyprint, expand
+· a compiler for the translation of a high-level
+     language program                                      and collapse code blocks
+                                                      · for debugging, including single stepping,
+· an interpreter for translation and execution of a
+     high-level language program                           breakpoints, i.e. variables, expressions, report
+                                                           window
+Explain the benefits and drawbacks of using either a
+compiler or interpreter and justify the use of each
+
+Show awareness that high-level language programs
+may be partially compiled and partially interpreted,
+such as Java (console mode)
+
+Describe features found in a typical Integrated
+Development Environment (IDE)
+
+Back to contents page                                 www.cambridgeinternational.org/alevel                  23
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+6  Security, privacy and data integrity
+
+6.1 Data Security
+
+Candidates should be able to:                        Notes and guidance
+Explain the difference between the terms security,
+privacy and integrity of data                        Including user accounts, passwords, authentication
+                                                     techniques such as digital signatures and
+Show appreciation of the need for both the security  biometrics, firewall, anti-virus software, anti-
+of data and the security of the computer system      spyware, encryption
+                                                     Including malware (virus, spyware), hackers,
+Describe security measures designed to protect       phishing, pharming
+computer systems, ranging from the stand-alone
+PC to a network of computers                         Including encryption, access rights
+
+Show understanding of the threats to computer and
+data security posed by networks and the internet
+
+Describe methods that can be used to restrict the
+risks posed by threats
+
+Describe security methods designed to protect the
+security of data
+
+6.2 Data Integrity                                   Notes and guidance
+Candidates should be able to:
+Describe how data validation and data verification   Including range check, format check, length check,
+help protect the integrity of data                   presence check, existence check, limit check,
+Describe and use methods of data validation          check digit
+                                                     During data entry including visual check, double
+Describe and use methods of data verification        entry
+during data entry and data transfer                  During data transfer including parity check (byte and
+                                                     block), checksum
+
+Back to contents page                                www.cambridgeinternational.org/alevel                  24
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+7  Ethics and Ownership
+
+7.1 Ethics and Ownership
+
+Candidates should be able to:                            Notes and guidance
+                                                         Understand the importance of joining a professional
+Show understanding of the need for and purpose of        ethical body including BCS (British Computer
+ethics as a computing professional                       Society), IEEE (Institute of Electrical and Electronic
+                                                         Engineers)
+Show understanding of the need to act ethically and
+the impact of acting ethically or unethically for a      Licences to include free Software Foundation, the
+given situation                                          Open Source Initiative, shareware and commercial
+                                                         software
+Show understanding of the need for copyright             Understand the impact of AI including social,
+legislation                                              economic and environmental issues
+                                                         Understand the applications of AI
+Show understanding of the different types of
+software licencing and justify the use of a licence for
+a given situation
+
+Show understanding of Artificial Intelligence (AI)
+
+8  Databases
+
+8.1 Database Concepts
+
+Candidates should be able to:                            Notes and guidance
+Show understanding of the limitations of using a file-
+based approach for the storage and retrieval of data     Including entity, table, record, field, tuple, attribute,
+                                                         primary key, candidate key, secondary key, foreign
+Describe the features of a relational database that      key, relationship (one-to-many, one-to-one, many-
+address the limitations of a file-based approach         to-many), referential integrity, indexing
+
+Show understanding of and use the terminology            First Normal Form (1NF),
+associated with a relational database model              Second Normal Form (2NF) and
+                                                         Third Normal Form (3NF)
+Use an entity-relationship (E-R) diagram to
+document a database design
+
+Show understanding of the normalisation process
+
+Explain why a given set of database tables are, or
+are not, in 3NF
+
+Produce a normalised database design for a
+description of a database, a given set of data, or a
+given set of tables
+
+Back to contents page                                    www.cambridgeinternational.org/alevel                      25
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+8.2 Database Management Systems (DBMS)               Notes and guidance
+Candidates should be able to:                        Including:
+Show understanding of the features provided by
+a Database Management System (DBMS) that             · data management, including maintaining a data
+address the issues of a file based approach               dictionary
+
+Show understanding of how software tools found       · data modelling
+within a DBMS are used in practice                   · logical schema
+                                                     · data integrity
+                                                     · data security, including backup procedures and
+
+                                                          the use of access rights to individuals / groups
+                                                          of users
+
+                                                     Including the use and purpose of:
+
+                                                     · developer interface
+                                                     · query processor
+
+8.3 Data Definition Language (DDL) and Data Manipulation Language (DML)
+
+Candidates should be able to:                        Notes and guidance
+Show understanding that the DBMS carries out
+all creation/modification of the database structure  Understand a given SQL statement
+using its Data Definition Language (DDL)
+                                                     Create a database (CREATE DATABASE)
+Show understanding that the DBMS carries out all     Create a table definition (CREATE TABLE), including
+queries and maintenance of data using its DML        the creation of attributes with appropriate data
+                                                     types:
+Show understanding that the industry standard for    · CHARACTER
+both DDL and DML is Structured Query Language        · VARCHAR(n)
+(SQL)                                                · BOOLEAN
+                                                     · INTEGER
+Understand given SQL (DDL) statements and be         · REAL
+able to write simple SQL (DDL) statements using a    · DATE
+sub-set of statements                                · TIME
+                                                     change a table definition (ALTER TABLE)
+                                                     add a primary key to a table (PRIMARY KEY (field))
+                                                     add a foreign key to a table (FOREIGN KEY (field)
+                                                     REFERENCES Table (Field))
+
+Back to contents page                                www.cambridgeinternational.org/alevel                  26
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+8.3 Data Definition Language (DDL) and Data Manipulation Language (DML) continued
+
+Write an SQL script to query or modify data (DML)      Queries including SELECT... FROM, WHERE,
+which are stored in (at most two) database tables      ORDER BY, GROUP BY, INNER JOIN, SUM,
+                                                       COUNT, AVG
+
+                                                       Data maintenance including. INSERT INTO, DELETE
+                                                       FROM, UPDATE
+
+9  Algorithm Design and Problem-solving
+
+Refer to Pseudocode Guide www.cambridgeinternational.org/support
+
+9.1 Computational Thinking Skills
+
+Candidates should be able to:                          Notes and guidance
+Show an understanding of abstraction                   Need for and benefits of using abstraction
+                                                       Describe the purpose of abstraction
+Describe and use decomposition                         Produce an abstract model of a system by only
+                                                       including essential details
+
+                                                       Break down problems into sub-problems leading
+                                                       to the concept of a program module (procedure /
+                                                       function)
+
+9.2 Algorithms                                         Notes and guidance
+
+Candidates should be able to:
+Show understanding that an algorithm is a solution to
+a problem expressed as a sequence of defined steps
+
+Use suitable identifier names for the representation
+of data used by a problem and represent these
+using an identifier table
+
+Write pseudocode that contains input, process and
+output
+
+Write pseudocode using the three basic constructs
+of sequence, selection and iteration (repetition)
+
+Document a simple algorithm using a structured
+English description, a flowchart or pseudocode
+
+Write pseudocode from:
+· a structured English description
+· a flowchart
+
+Draw a flowchart from:
+· a structured English description
+· pseudocode
+
+Back to contents page                                             www.cambridgeinternational.org/alevel  27
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+9.2 Algorithms continued
+
+Describe and use the process of stepwise
+refinement to express an algorithm to a level of
+detail from which the task may be programmed
+
+Use logic statements to define parts of an algorithm
+solution
+
+10 Data Types and Structures                             Notes and guidance
+10.1 Data Types and Records                              including integer, real, char, string, Boolean, date
+Candidates should be able to:                            (pseudocode will use the following data types:
+Select and use appropriate data types for a problem      INTEGER, REAL, CHAR, STRING, BOOLEAN,
+solution                                                 DATE, ARRAY, FILE)
+
+Show understanding of the purpose of a record            Write pseudocode to define a record structure
+structure to hold a set of data of different data types  Write pseudocode to read data from a record
+under one identifier                                     structure and save data to a record structure
+
+10.2 Arrays                                              Notes and guidance
+                                                         Including index, upper and lower bound
+Candidates should be able to:
+Use the technical terms associated with arrays           Sort using a bubble sort
+Select a suitable data structure (1D or 2D array) to     Search using a linear search
+use for a given task
+Write pseudocode for 1D and 2D arrays
+Write pseudocode to process array data
+
+10.3 Files                                               Notes and guidance
+
+Candidates should be able to:
+Show understanding of why files are needed
+Write pseudocode to handle text files that consist of
+one or more lines
+
+Back to contents page                                    www.cambridgeinternational.org/alevel                 28
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+10.4 Introduction to Abstract Data Types (ADT)       Notes and guidance
+Candidates should be able to:
+Show understanding that an ADT is a collection of    Describe the key features of a stack, queue and
+data and a set of operations on those data           linked list and justify their use for a given situation
+Show understanding that a stack, queue and linked    Candidates will not be required to write pseudocode
+list are examples of ADTs                            for these structures, but they should be able to add,
+Use a stack, queue and linked list to store data     edit and delete data from these structures
+
+Describe how a queue, stack and linked list can be
+implemented using arrays
+
+11 Programming                                       Notes and guidance
+
+11.1 Programming Basics                              Any functions not given in the pseudocode guide
+                                                     will be provided
+Candidates should be able to:                        String manipulation functions will always be given
+Implement and write pseudocode from a given
+design presented as either a program flowchart or
+structured English
+
+Write pseudocode statements for:
+· the declaration and initialisation of constants
+· the declaration of variables
+· the assignment of values to variables
+· expressions involving any of the arithmetic or
+
+     logical operators input from the keyboard and
+     output to the console
+
+Use built-in functions and library routines
+
+11.2 Constructs                                      Notes and guidance
+
+Candidates should be able to:
+Use pseudocode to write:
+
+· an `IF' statement including the `ELSE' clause
+     and nested IF statements
+
+· a `CASE' structure
+· a `count-controlled' loop:
+· a `post-condition' loop
+· a `pre-condition' loop
+
+Justify why one loop structure may be better suited
+to solve a problem than the others
+
+Back to contents page                                www.cambridgeinternational.org/alevel                    29
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+11.3 Structured Programming                           Notes and guidance
+Candidates should be able to:
+Define and use a procedure                            A procedure may have none, one or more
+Explain where in the construction of an algorithm it  parameters
+would be appropriate to use a procedure               A parameter can be passed by reference or by value
+Use parameters
+                                                      A function is used in an expression, e.g. the return
+Define and use a function                             value replaces the call
+Explain where in the construction of an algorithm it  including procedure/function header, procedure/
+is appropriate to use a function                      function interface, parameter, argument, return value
+Use the terminology associated with procedures
+and functions
+Write efficient pseudocode
+
+12 Software Development                               Notes and guidance
+
+12.1 Program Development Life cycle                   Including: waterfall, iterative, rapid application
+                                                      development (RAD)
+Candidates should be able to:
+Show understanding of the purpose of a
+development life cycle
+
+Show understanding of the need for different
+development life cycles depending on the program
+being developed
+
+Describe the principles, benefits and drawbacks of
+each type of life cycle
+
+Show understanding of the analysis, design, coding,
+testing and maintenance stages in the program
+development life cycle
+
+12.2 Program Design                                   Notes and guidance
+                                                      Describe the purpose of a structure chart
+Candidates should be able to:                         Construct a structure chart for a given problem
+Use a structure chart to decompose a                  Derive equivalent pseudocode from a structure
+problem into sub-tasks and express the                chart
+parameters passed between the various
+modules/procedures/functions which are part of
+the algorithm design
+
+Show understanding of the purpose of
+state-transition diagrams to document an algorithm
+
+Back to contents page                                 www.cambridgeinternational.org/alevel                  30
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+12.3 Program Testing and Maintenance                Notes and guidance
+
+Candidates should be able to:                       · syntax errors
+Show understanding of ways of exposing and          · logic errors
+avoiding faults in programs                         · run-time errors
+Locate and identify the different types of errors
+                                                    Including dry run, walkthrough, white-box, black-
+Correct identified errors                           box, integration, alpha, beta, acceptance, stub
+Show understanding of the methods of testing
+available and select appropriate data for a given   Including normal, abnormal and extreme/boundary
+method                                              Including perfective, adaptive, corrective
+Show understanding of the need for a test strategy
+and test plan and their likely contents
+Choose appropriate test data for a test plan
+Show understanding of the need for continuing
+maintenance of a system and the differences
+between each type of maintenance
+Analyse an existing program and make
+amendments to enhance functionality
+
+Back to contents page                               www.cambridgeinternational.org/alevel              31
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+A Level content
+
+Computational thinking is further developed at A Level to extend methods for searching, sorting, structuring
+and storage of data. This includes understanding of Artificial Intelligence (AI). Programming paradigms are
+considered together with an extension of programming skills to include recursion and exception handling.
+
+Computational thinking is supported by developing an in-depth understanding of how computer architecture,
+hardware, systems software, security measures and communication systems can have different structures
+and protocols. These can be combined to provide an appropriate infrastructure for solutions of problems. The
+syllabus encourages opportunities for students to apply their skills in a practical context that are required in the
+digital industry.
+
+13 Data Representation                                 Notes and guidance
+
+13.1 User-defined data types                           Including enumerated, pointer
+                                                       Including set, record and class/object
+Candidates should be able to:
+Show understanding of why user-defined types are
+necessary
+Define and use non-composite types
+
+Define and use composite data types
+
+Choose and design an appropriate user-defined
+data type for a given problem
+
+13.2 File organisation and access                      Notes and guidance
+Candidates should be able to:                          Including serial, sequential (using a key field),
+Show understanding of the methods of file              random (using a record key)
+organisation and select an appropriate method of
+file organisation and file access for a given problem  Including
+Show understanding of methods of file access           Sequential access for serial and sequential files
+                                                       Direct access for sequential and random files
+Show understanding of hashing algorithms               Describe and use different hashing algorithms to
+                                                       read from and write data to a random/sequential file
+
+Back to contents page                                  www.cambridgeinternational.org/alevel                          32
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+13.3 Floating-point numbers, representation and manipulation
+
+Candidates should be able to:                        Notes and guidance
+Describe the format of binary floating-point real    Use two's complement form
+numbers                                              Understand of the effects of changing the allocation
+                                                     of bits to mantissa and exponent in a floating-point
+Convert binary floating-point real numbers into      representation
+denary and vice versa
+Normalise floating-point numbers                     Understand the reasons for normalisation
+Show understanding of the consequences of a          Understand how underflow and overflow can occur
+binary representation only being an approximation
+to the real number it represents (in certain cases)
+Show understanding that binary representations
+can give rise to rounding errors
+
+14 Communication and internet technologies           Notes and guidance
+14.1 Protocols
+Candidates should be able to:                        Four Layers (Application, Transport, Internet, Link)
+Show understanding of why a protocol is essential    Purpose and function of each layer
+for communication between computers                  Application when a message is sent from one host
+Show understanding of how protocol                   to another on the internet
+implementation can be viewed as a stack, where       BitTorrent protocol provides peer-to-peer file sharing
+each layer has its own functionality
+Show understanding of the TCP/IP protocol suite
+
+Show understanding of protocols (HTTP, FTP,
+POP3, IMAP, SMTP, BitTorrent) and their purposes
+
+14.2 Circuit switching, packet switching             Notes and guidance
+                                                     Benefits, drawbacks and where it is applicable
+Candidates should be able to:
+Show understanding of circuit switching              Benefits, drawbacks and where it is applicable
+Show understanding of packet switching               Show understanding of the function of a router in
+                                                     packet switching
+                                                     Explain how packet switching is used to pass
+                                                     messages across a network, including the internet
+
+Back to contents page                                         www.cambridgeinternational.org/alevel          33
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+15 Hardware and Virtual Machines
+
+15.1 Processors, Parallel Processing and Virtual Machines
+
+Candidates should be able to:                           Notes and guidance
+Show understanding of Reduced Instruction Set           Differences between RISC and CISC
+Computers (RISC) and Complex Instruction Set            Understand interrupt handling on CISC and RISC
+Computers (CISC) processors                             processors
+
+Show understanding of the importance/use of             SISD, SIMD, MISD, MIMD
+pipelining and registers in RISC processors
+                                                        Give examples of the role of virtual machines
+Show understanding of the four basic computer           Understand the benefits and limitations of virtual
+architectures                                           machines
+
+Show understanding of the characteristics of
+massively parallel computers
+
+Show understanding of the concept of a virtual
+machine
+
+15.2 Boolean Algebra and Logic Circuits                 Notes and guidance
+Candidates should be able to:                           May include logic gates with more than two inputs
+Produce truth tables for logic circuits including half
+adders and full adders                                  Draw a logic circuit and derive a truth table for a
+Show understanding of a flip-flop (SR, JK)              flip-flop
+                                                        Understand of the role of flip-flops as data storage
+Show understanding of Boolean algebra                   elements
+
+Show understanding of Karnaugh maps (K-map)             Understand De Morgan's laws
+                                                        Perform Boolean algebra using De Morgan's laws
+                                                        Simplify a logic circuit/expression using Boolean
+                                                        algebra
+
+                                                        Understand of the benefits of using Karnaugh maps
+                                                        Solve logic problems using Karnaugh maps
+
+Back to contents page                                      www.cambridgeinternational.org/alevel              34
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+16 System Software                                   Notes and guidance
+16.1 Purposes of an Operating System (OS)
+Candidates should be able to:                        The concept of multi-tasking and a process
+Show understanding of how an OS can maximise         The process states: running, ready and blocked
+the use of resources                                 The need for scheduling and the function and
+Describe the ways in which the user interface hides  benefits of different scheduling routines (including
+the complexities of the hardware from the user       round robin, shortest job first, first come first served,
+Show understanding of process management             shortest remaining time)
+                                                     How the kernel of the OS acts as an interrupt
+Show understanding of virtual memory, paging and     handler and how interrupt handling is used to
+segmentation for memory management                   manage low-level scheduling
+                                                     The concepts of paging, virtual memory and
+                                                     segmentation
+                                                     The difference between paging and segmentation
+                                                     How pages can be replaced
+                                                     How disk thrashing can occur
+
+16.2 Translation Software                            Notes and guidance
+
+Candidates should be able to:                        Including lexical analysis, syntax analysis, code
+Show understanding of how an interpreter can         generation and optimisation
+execute programs without producing a translated
+version
+
+Show understanding of the various stages in the
+compilation of a program
+
+Show understanding of how the grammar of a
+language can be expressed using syntax diagrams
+or Backus-Naur Form (BNF) notation
+
+Show understanding of how Reverse Polish
+Notation (RPN) can be used to carry out the
+evaluation of expressions
+
+Back to contents page                                www.cambridgeinternational.org/alevel                      35
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+17 Security
+
+17.1 Encryption, Encryption Protocols and Digital Certificates
+
+Candidates should be able to:                     Notes and guidance
+Show understanding of how encryption works        Including the use of public key, private key, plain
+                                                  text, cipher text, encryption, symmetric key
+Show awareness of the Secure Socket Layer (SSL)/  cryptography and asymmetric key cryptography
+Transport Layer Security (TLS)                    How the keys can be used to send a private
+Show understanding of digital certification       message from the public to an individual/
+                                                  organisation
+                                                  How the keys can be used to send a verified
+                                                  message to the public
+                                                  How data is encrypted and decrypted, using
+                                                  symmetric and asymmetric cryptography
+                                                  Purpose, benefits and drawbacks of quantum
+                                                  cryptography
+
+                                                  Purpose of SSL/TLS
+                                                  Use of SSL/TLS in client-server communication
+                                                  Situations where the use of SSL/TLS would be
+                                                  appropriate
+
+                                                  How a digital certificate is acquired
+                                                  How a digital certificate is used to produce digital
+                                                  signatures
+
+18 Artificial Intelligence (AI)                   Notes and guidance
+18.1 Artificial Intelligence (AI)                 Purpose and structure of a graph
+Candidates should be able to:                     Use A* and Dijkstra's algorithms to perform
+Show understanding of how graphs can be used to   searches on a graph
+aid Artificial Intelligence (AI)                  Candidates will not be required to write algorithms
+                                                  to set up, access, or perform searches on graphs
+Show understanding of how artificial neural
+networks have helped with machine learning        Understand machine learning categories, including
+Show understanding of Deep Learning, Machine      supervised learning, unsupervised learning
+Learning and Reinforcement Learning and the
+reasons for using these methods.
+Show understanding of back propagation of errors
+and regression methods in machine learning
+
+Back to contents page                                           www.cambridgeinternational.org/alevel   36
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+19 Computational thinking and Problem-solving
+
+19.1 Algorithms
+
+Candidates should be able to:                       Notes and guidance
+Show understanding of linear and binary searching   Write an algorithm to implement a linear search
+methods                                             Write an algorithm to implement a binary search
+                                                    The conditions necessary for the use of a binary
+Show understanding of insertion sort and bubble     search
+sort methods                                        How the performance of a binary search varies
+                                                    according to the number of data items
+Show understanding of and use Abstract Data
+Types (ADT)                                         Write an algorithm to implement an insertion sort
+                                                    Write an algorithm to implement a bubble sort
+Show how it is possible for ADTs to be implemented  Performance of a sorting routine may depend on
+from another ADT                                    the initial order of the data and the number of data
+                                                    items
+Show understanding that different algorithms which
+perform the same task can be compared by using      Write algorithms to find an item in each of the
+criteria (e.g. time taken to complete the task and  following: linked list, binary tree
+memory used)                                        Write algorithms to insert an item into each of the
+                                                    following: stack, queue, linked list, binary tree
+                                                    Write algorithms to delete an item from each of the
+                                                    following: stack, queue, linked list
+                                                    Show understanding that a graph is an example of
+                                                    an ADT. Describe the key features of a graph and
+                                                    justify its use for a given situation. Candidates will
+                                                    not be required to write code for a graph structure
+
+                                                    Describe the following ADTs and demonstrate how
+                                                    they can be implemented from appropriate built-
+                                                    in types or other ADTs: stack, queue, linked list,
+                                                    dictionary, binary tree
+
+                                                    Including use of Big O notation to specify time and
+                                                    space complexity
+
+19.2 Recursion                                      Notes and guidance
+Candidates should be able to:                       Essential features of recursion
+Show understanding of recursion                     How recursion is expressed in a programming
+                                                    language
+Show awareness of what a compiler has to do to      Write and trace recursive algorithms
+translate recursive programming code                When the use of recursion is beneficial
+
+                                                    Use of stacks and unwinding
+
+Back to contents page                               www.cambridgeinternational.org/alevel                   37
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+20 Further Programming                            Notes and guidance
+20.1 Programming Paradigms
+Candidates should be able to:                     Low-level Programming:
+Understanding what is meant by a programming
+paradigm                                          · understanding of and ability to write
+Show understanding of the characteristics of a         low-level code that uses various addressing
+number of programming paradigms:                       modes: immediate, direct, indirect, indexed and
+· Low-level                                            relative
+· Imperative (Procedural)
+                                                  Imperative (Procedural) programming:
+· Object Oriented
+                                                  · Assumed knowledge and understanding of
+· Declarative                                          Structural Programming (see details in AS
+                                                       content section 11.3)
+
+                                                  · understanding of and ability to write imperative
+                                                       (procedural) programming code that uses
+                                                       variables, constructs, procedures and functions.
+                                                       See details in AS content
+
+                                                  Object-Oriented Programming (OOP):
+
+                                                  · understanding of the terminology associated
+                                                       with OOP (including objects, properties/
+                                                       attributes, methods, classes, inheritance,
+                                                       polymorphism, containment (aggregation),
+                                                       encapsulation, getters, setters, instances)
+
+                                                  · understanding of how to solve a problem by
+                                                       designing appropriate classes
+
+                                                  · understanding of and ability to write code that
+                                                       demonstrates the use of OOP
+
+                                                  Declarative programming:
+
+                                                  · understanding of and ability to solve a problem
+                                                       by writing appropriate facts and rules based on
+                                                       supplied information
+
+                                                  · understanding of and ability to write code that
+                                                       can satisfy a goal using facts and rules
+
+20.2 File Processing and Exception Handling       Notes and guidance
+Candidates should be able to:                     Open (in read, write, append mode) and close a file
+Write code to perform file-processing operations  Read a record from a file and write a record to a file
+                                                  Perform file-processing operations on serial,
+Show understanding of an exception and the        sequential, random files
+importance of exception handling
+                                                  Know when it is appropriate to use exception
+                                                  handling
+                                                  Write program code to use exception handling
+
+Back to contents page                             www.cambridgeinternational.org/alevel                   38
+                                          Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Subject content
+
+Teacher guidance
+
+Equipment and facilities
+
+Computer science is a practical subject and the Cambridge AS and A Level syllabus places emphasis on the
+use of procedural high-level programming languages. Centres must ensure that their equipment and facilities
+are adequate for candidates to be able to satisfy the requirements of the syllabus. The hardware facilities
+needed will depend on the number of candidates, but should be sufficient for all candidates to have enough
+time to practise their programming skills.
+
+Hardware
+
+Candidates need to have access to a system with direct-access file capability on backing store and hardcopy
+facilities.
+
+Software
+
+Candidates should have experience of using a high-level programming language, chosen by the centre, from
+the following list:
+· Java (console mode)
+· Visual Basic (console mode)
+· Python (console mode).
+
+Books
+
+The British Computer Society (BCS) book list for schools and colleges are suitable for use as reference.
+Teachers will need to consult several books to cover the whole syllabus adequately. There is a suggested book
+list on our website.
+
+Practical skills
+
+Computing is a practical subject and a range of practical exercises should supplement the study of most parts
+of the syllabus.
+
+It is important that centres encourage candidates, as early as possible in the course, to develop a systematic
+approach to practical problem-solving using appropriate resources.
+
+Back to contents page  www.cambridgeinternational.org/alevel  39
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026.
+
+4 Details of the assessment
+
+The AS Level will be assessed through two external written papers. Both papers are compulsory.
+· Paper 1 - Theory Fundamentals
+· Paper 2 - Fundamental Problem-solving and Programming Skills
+
+Paper 1 Theory Fundamentals will assess content described in this syllabus, sections 1 to 8. Candidates
+will answer a number of questions, requiring some short and some longer answers. The questions will test
+knowledge and understanding of the principles behind computer science as well as the application of these to
+solve problems.
+
+Paper 2 Fundamental Problem-solving and Programming Skills will assess content described in this
+syllabus, sections 9 to 12. Candidates will answer a number of questions, requiring some short and
+some longer answers. The questions will test programming knowledge and skills. Candidates will not
+be required to write programming code. Candidates will be provided with an Insert to use in the exam
+with pseudocode built-in functions and operators. For more information on the pseudocode please see
+www.cambridgeinternational.org/support
+
+The A Level will be examined through four papers, papers 1 and 2 at AS Level plus:
+· Paper 3 - Advanced Theory (written paper)
+· Paper 4 - Practical
+
+Paper 3 is a written paper and paper 4 is a practical programming paper carried out on a computer. Both
+papers are compulsory.
+
+Paper 3 Advanced Theory will assess content described in this syllabus, sections 13 to 20. Candidates will
+answer a number of questions, requiring some short and some longer answers.
+
+Paper 4 Practical will assess practical application of content described in the syllabus, sections 19 to 20, except
+for low-level and declarative programming. The programming tasks will be based around a small number of
+scenarios, candidates will be assessed on their ability to write programs or program elements to solve tasks.
+Centres must ensure that all candidates have access to computers that belong to the centre and these must
+not have internet access or access to email.
+
+The source files given will not contain binary files.
+
+Please see section 2: Assessment overview.
+
+Submission of Paper 4 Practical
+
+The evidence document supplied by Cambridge International should be saved with the centre number,
+candidate's name and candidate's number. At each stage in the assessment of Paper 4, candidates will be
+asked to copy program listings or take screenshots of results to paste into the evidence document. Candidates
+must save their work at regular intervals and centres are recommended to enable the auto save function. If
+there is no evidence of work in the evidence document, the work will not receive any marks.
+
+Details of how to administer Paper 4 Practical can be found in the Cambridge Handbook which is available on
+our website: www.cambridgeinternational.org/examsofficers
+
+Back to contents page  www.cambridgeinternational.org/alevel                                                         40
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Details of the assessment
+
+Command words
+
+Command words and their meanings help candidates know what is expected from them in the exams. The
+table below includes command words used in the assessment for this syllabus. The use of the command word
+will relate to the subject context.
+
+Command word           What it means
+Analyse                examine in detail to show meaning, identify elements and the relationship between
+                       them
+Assess                 make an informed judgement
+Calculate              work out from given facts, figures or information
+Comment                give an informed opinion
+Compare                identify/comment on similarities and/or differences
+Complete               add information to an incomplete diagram or table
+Consider               review and respond to given information
+Contrast               identify/comment on differences
+Define                 give precise meaning
+Demonstrate            show how or give an example
+Describe               state the points of a topic / give characteristics and main features
+Develop                take forward to a more advanced stage or build upon given information
+Discuss                write about issue(s) or topic(s) in depth in a structured way
+Draw                   draw a line to match a term with a description
+Evaluate               judge or calculate the quality, importance, amount, or value of something
+Examine                investigate closely, in detail
+Explain                set out purposes or reasons / make the relationships between things clear / say why
+                       and/or how and support with relevant evidence
+Give                   produce an answer from a given source or recall/memory
+Identify               name/select/recognise
+Justify                support a case with evidence/argument
+Outline                set out the main points
+Predict                suggest what may happen based on available information
+Sketch                 make a simple freehand drawing showing the key features, taking care over
+                       proportions
+
+Back to contents page  www.cambridgeinternational.org/alevel                                                41
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. Details of the assessment
+
+Command Word           What it means
+State                  express in clear terms
+Suggest                apply knowledge and understanding to situations where there are a range of valid
+                       responses in order to make proposals / put forward considerations
+Summarise              select and present the main points, without detail
+Write                  write an answer in a specific way
+
+Back to contents page  www.cambridgeinternational.org/alevel                                             42
+                                                                 Cambridge International AS & A Level Computer Science 9618 syllabus for 2026.
+
+5 What else you need to know
+
+This section is an overview of other information you need to know about this syllabus. It will help to share the
+administrative information with your exams officer so they know when you will need their support. Find more
+information about our administrative processes at www.cambridgeinternational.org/eoguide
+
+Before you start
+
+Previous study
+
+We recommend that learners starting this course should have completed a course in Computer Science
+equivalent to Cambridge IGCSETM or Cambridge O Level.
+
+Guided learning hours
+
+We design Cambridge International AS & A Level syllabuses to require about 180 guided learning hours for
+each Cambridge International AS Level and about 360 guided learning hours for a Cambridge International
+A Level. The number of hours a learner needs to achieve the qualification may vary according to each school
+and the learners' previous experience of the subject.
+
+Availability and timetables
+
+All Cambridge schools are allocated to an administrative zone. Each zone has a specific timetable.
+Find your administrative zone at www.cambridgeinternational.org/adminzone
+
+You can view the timetable for your administrative zone at www.cambridgeinternational.org/timetables
+
+You can enter candidates in the June and November exam series.
+
+Check you are using the syllabus for the year the candidate is taking the exam.
+
+Private candidates can enter for this syllabus provided that the accommodating centre can make appropriate
+arrangements to conduct the practical paper. For more information, see the Cambridge Guide to Making
+Entries.
+
+Combining with other syllabuses
+
+Candidates can take this syllabus alongside other Cambridge International syllabuses in a single exam series.
+The only exceptions are:
+· Cambridge International AS & A Level Information and Communication Technology 9626
+· syllabuses with the same title at the same level.
+
+Group awards: Cambridge AICE
+
+Cambridge AICE (Advanced International Certificate of Education) is a group award for Cambridge International
+AS & A Level. It encourages schools to offer a broad and balanced curriculum by recognising the achievements
+of learners who pass exams in a range of different subjects.
+
+Learn more about Cambridge AICE at www.cambridgeinternational.org/aice
+
+Back to contents page  www.cambridgeinternational.org/alevel  43
+                          Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. What else you need to know
+
+Making entries
+
+Exams officers are responsible for submitting entries to Cambridge International. We encourage them to work
+closely with you to make sure they enter the right number of candidates for the right combination of syllabus
+components. Entry option codes and instructions for submitting entries are in the Cambridge Guide to Making
+Entries. Your exams officer has access to this guide.
+
+Exam administration
+
+To keep our exams secure, we produce question papers for different areas of the world, known as
+administrative zones. We allocate all Cambridge schools to one administrative zone determined by their
+location. Each zone has a specific timetable.
+
+Some of our syllabuses offer candidates different assessment options. An entry option code is used to identify
+the components the candidate will take relevant to the administrative zone and the available assessment
+options.
+
+Support for exams officers
+
+We know how important exams officers are to the successful running of exams. We provide them with the
+support they need to make entries on time. Your exams officer will find this support, and guidance for all other
+phases of the Cambridge Exams Cycle, at www.cambridgeinternational.org/eoguide
+
+Retakes and carrying forward marks
+
+Candidates can retake Cambridge International AS Level and Cambridge International A Level as many times
+as they want to. Information on retake entries is at www.cambridgeinternational.org/retakes
+
+Candidates can carry forward the result of their Cambridge International AS Level assessment from one series
+to complete the Cambridge International A Level in a following series. The rules, time limits and regulations
+for carry-forward entries for staged assessment and carrying forward component marks can be found in the
+Cambridge Handbook for the relevant year of assessment at www.cambridgeinternational.org/eoguide
+
+To confirm what entry options are available for this syllabus, refer to the Cambridge Guide to Making Entries for
+the relevant series.
+
+Language
+
+This syllabus and the related assessment materials are available in English only.
+
+Accessibility and equality
+
+Syllabus and assessment design
+
+At Cambridge International, we work to avoid direct or indirect discrimination in our syllabuses and assessment
+materials. We aim to maximise inclusivity for candidates of all national, cultural or social backgrounds and
+candidates with protected characteristics, which include special educational needs and disability, religion and
+belief, and characteristics related to gender and identity. We also aim to make our materials as accessible as
+possible by using accessible language and applying accessible design principles. This gives all candidates the
+fairest possible opportunity to demonstrate their knowledge, skills and understanding and helps to minimise the
+requirement to make reasonable adjustments during the assessment process.
+
+Back to contents page  www.cambridgeinternational.org/alevel  44
+                          Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. What else you need to know
+
+Access arrangements
+
+Access arrangements (including modified papers) are the principal way in which Cambridge International
+complies with our duty, as guided by the UK Equality Act (2010), to make `reasonable adjustments' for
+candidates with special educational needs (SEN), disability, illness or injury. Where a candidate would otherwise
+be at a substantial disadvantage in comparison to a candidate with no SEN, disability, illness or injury, we
+may be able to agree pre-examination access arrangements. These arrangements help a candidate by
+minimising accessibility barriers and maximising their opportunity to demonstrate their knowledge, skills and
+understanding in an assessment.
+
+Important:
+Requested access arrangements should be based on evidence of the candidate's barrier to assessment
+and should also reflect their normal way of working at school. This is explained in the Cambridge Handbook
+www.cambridgeinternational.org/eoguide
+· For Cambridge International to approve an access arrangement, we will need to agree that it constitutes
+
+     a reasonable adjustment, involves reasonable cost and timeframe and does not affect the security and
+     integrity of the assessment.
+· Availability of access arrangements should be checked by centres at the start of the course. Details of our
+     standard access arrangements and modified question papers are available in the Cambridge Handbook
+     www.cambridgeinternational.org/eoguide
+· Please contact us at the start of the course to find out if we are able to approve an arrangement that is not
+     included in the list of standard access arrangements.
+· Candidates who cannot access parts of the assessment may be able to receive an award based on the
+     parts they have completed.
+
+After the exam
+
+Grading and reporting
+
+Grades a, b, c, d or e indicate the standard a candidate achieved at Cambridge International AS Level. `a' is the
+highest and `e' is the lowest grade.
+
+Grades A*, A, B, C, D or E indicate the standard a candidate achieved at Cambridge International A Level. A* is
+the highest and E is the lowest grade.
+
+`Ungraded' means that the candidate's performance did not meet the standard required for the lowest grade
+(E or e). `Ungraded' is reported on the statement of results but not on the certificate. In specific circumstances
+your candidates may see one of the following letters on their statement of results:
+· Q (PENDING)
+· X (NO RESULT).
+These letters do not appear on the certificate.
+
+If a candidate takes a Cambridge International A Level and fails to achieve grade E or higher, a Cambridge
+International AS Level grade will be awarded if both of the following apply:
+· the components taken for the Cambridge International A Level by the candidate in that series included all
+
+     the components making up a Cambridge International AS Level
+· the candidate's performance on the AS Level components was sufficient to merit the award of a Cambridge
+
+     International AS Level grade.
+
+Back to contents page  www.cambridgeinternational.org/alevel  45
+                          Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. What else you need to know
+
+On the statement of results and certificates, Cambridge International AS & A Levels are shown as General
+Certificates of Education, GCE Advanced Subsidiary Level (GCE AS Level) and GCE Advanced Level (GCE
+A Level).
+
+School feedback: `Cambridge International A Levels are the `gold standard' qualification. They
+are based on rigorous, academic syllabuses that are accessible to students from a wide range
+of abilities yet have the capacity to stretch our most able.'
+
+Feedback from: Director of Studies, Auckland Grammar School, New Zealand
+
+Back to contents page  www.cambridgeinternational.org/alevel                                    46
+                          Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. What else you need to know
+
+How students, teachers and higher education can use the grades
+
+Cambridge International A Level
+
+Assessment at Cambridge International A Level has two purposes:
+1 to measure learning and achievement
+
+     The assessment confirms achievement and performance in relation to the knowledge, understanding and
+     skills specified in the syllabus.
+2 to show likely future success
+     The outcomes help predict which students are well prepared for a particular course or career and/or which
+     students are more likely to be successful.
+     The outcomes help students choose the most suitable course or career
+
+Cambridge International AS Level
+
+Assessment at Cambridge International AS Level has two purposes:
+1 to measure learning and achievement
+
+     The assessment confirms achievement and performance in relation to the knowledge, understanding and
+     skills specified in the syllabus.
+2 to show likely future success
+     The outcomes help predict which students are well prepared for a particular course or career and/or which
+     students are more likely to be successful.
+     The outcomes help students choose the most suitable course or career
+     The outcomes help decide whether students part way through a Cambridge International A Level course
+     are making enough progress to continue
+     The outcomes guide teaching and learning in the next stages of the Cambridge International A Level
+     course.
+
+Back to contents page  www.cambridgeinternational.org/alevel  47
+                       Cambridge International AS & A Level Computer Science 9618 syllabus for 2026. What else you need to know
+
+Changes to this syllabus for 2026
+
+The syllabus has been updated. This is version 2, published December 2025.
+
+You must read the whole syllabus before planning your teaching programme. We review our
+syllabuses regularly to make sure they continue to meet the needs of our schools. In updating this syllabus, we
+have made it easier for teachers and students to understand, keeping the familiar features that teachers and
+schools value.
+
+Changes to version 2 of the syllabus, published December 2025
+
+Other changes          · There is clarification on which papers are to be taken for each level and
+                            the use of calculators on page 11.
+
+                       · The weblink on page 43 has been updated.
+
+Changes to version 1 of the syllabus, published September 2023
+
+Changes to assessment  · For Paper 4, source files given will not contain binary files.
+(including changes to
+specimen papers)
+
+Significant changes to the syllabus are indicated by black vertical lines either side of the text.
+
+Any textbooks endorsed to support the syllabus for examination from 2021 are still suitable for
+use with this syllabus.
+
+Back to contents page                                           www.cambridgeinternational.org/alevel            48
+School feedback: `While studying Cambridge IGCSE and Cambridge International A Levels, students
+broaden their horizons through a global perspective and develop a lasting passion for learning.'
+
+Feedback from: Zhai Xiaoning, Deputy Principal, The High School Affiliated to Renmin University of China
+
+We are committed to making our documents accessible in accordance with the WCAG 2.1 Standard. We are always looking to improve
+the accessibility of our documents. If you find any problems or you think we are not meeting accessibility requirements, contact us at
+info@cambridgeinternational.org with the subject heading: Digital accessibility. If you need this document in a different format, contact
+us and supply your name, email address and requirements and we will respond within 15 working days.
+
+Cambridge Assessment International Education, The Triangle Building, Shaftesbury Road, Cambridge, CB2 8EA, United Kingdom
+
+t: +44 (0)1223 553554  email: info@cambridgeinternational.org  www.cambridgeinternational.org
+
+© Cambridge University Press & Assessment September 2023
+

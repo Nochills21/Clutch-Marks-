@@ -1,0 +1,8 @@
+{
+  "1": "Decomposition makes a large problem testable by splitting it into parts. Abstraction hides detail that does not matter at the current level, so the solution stays clear.",
+  "2": "Sequence, selection and iteration are the control structures that decide the order in which statements run. Any algorithm can be built from these three.",
+  "3": "Normal data show the algorithm works in typical cases. Boundary data test the edges, where off-by-one errors appear, and erroneous data check that invalid input is rejected.",
+  "4": "Linear search works on any list because it examines each item in turn. In the worst case it needs as many comparisons as there are items.",
+  "5": "Binary search halves the sorted list at each step, so the number of comparisons grows with the logarithm of the list length. It is faster on long lists but only works after the data are sorted.",
+  "6": "Each pass of a bubble sort carries the largest unsorted value to its final position. Repeating the passes places every value in order."
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "course": "Computer Science A2",
+    "failing": "abstract-data-types[n1614 l5 f10 s1], computational-thinking-and-problem-solving[n1662 l5 f10 s2], data-types-and-file-organisation[n1789 l5 f10 s4], databases-and-data-definition[n1714 l5 f10 s1], networks-and-the-internet[n1730 l5 f10 s2], programming-paradigms-and-low-level[n1939 l5 f10 s2], simulation-sensors-and-real-data[n1678 l0 f10 s0], web-technologies-and-security[n1787 l5 f10 s1]"
+  },
+  {
+    "course": "Computer Science AS",
+    "failing": "communication-and-networking[n1559 l5 f10 s1], data-structures[n1345 l5 f10 s2], databases[n1491 l5 f10 s2], ethics-and-ai[n1462 l5 f10 s2], information-representation[n1653 l5 f10 s3], processor-fundamentals[n1587 l5 f10 s4], programming-and-algorithms[n1541 l5 f10 s8], system-software-and-security[n1511 l5 f10 s6]"
+  },
+  {
+    "course": "Computer Science OL",
+    "failing": "algorithms-programming[n1959 l7 f10 s1], data-representation[n1790 l7 f10 s3], database-systems[n1446 l7 f10 s1], ethics-security-impact[n4906 l5 f10 s1], networking-communication[n1652 l7 f10 s4], operating-systems[n1448 l3 f10 s1], programming-concepts[n1622 l7 f10 s4], robotics-ai[n1619 l7 f10 s3], web-technologies[n1720 l7 f10 s2]"
+  },
+  {
+    "course": "Mathematics A2",
+    "failing": "binomial-distribution[n1536 l0 f8 s0], complex-numbers[n1302 l5 f9 s1], continuous-random-variables[n1558 l5 f8 s1], differentiation-ii[n1036 l5 f9 s2], further-algebra[n1316 l5 f7 s2], further-trigonometry[n1006 l5 f7 s2], hypothesis-testing[n1839 l5 f8 s1], integration-ii[n1119 l5 f8 s2], measures-of-variation-and-standard-deviation[n1531 l0 f7 s0], numerical-measures-of-central-tendency[n1661 l5 f8 s1], permutations-and-combinations[n1978 l5 f8 s1], poisson-distribution[n1382 l5 f9 s1], probability[n1608 l5 f8 s1], probability-distributions[n1573 l5 f8 s2], sampling-and-estimation[n1709 l5 f9 s1], the-normal-distribution[n1826 l5 f8 s1], vectors[n1168 l5 f8 s1]"
+  },
+  {
+    "course": "Mathematics AS",
+    "failing": "circular-measure[n2629 l5 f10 s1], coordinate-geometry[n1119 l5 f10 s1], differentiation[n1150 l5 f10 s1], functions[n1425 l5 f10 s1], integration[n1029 l5 f10 s1], quadratics[n1798 l5 f10 s1], sequences-and-series[n1010 l5 f10 s1], trigonometry[n1273 l5 f10 s1]"
+  },
+  {
+    "course": "Mathematics OL",
+    "failing": "algebra-equations[n1274 l5 f10 s1], algebra-graphs[n1320 l7 f10 s11], algebra-inequalities[n1207 l7 f10 s1], algebra-sequences-and-functions[n1179 l7 f10 s2], algebra-simplifying-and-expanding[n1344 l7 f10 s3], geometry-angles-and-polygons[n1420 l7 f10 s4], geometry-congruence-and-similarity[n1224 l7 f10 s2], mensuration-area-and-volume[n1207 l7 f10 s5], mensuration-bearings-and-loci[n1495 l7 f10 s2], number-arithmetic-and-place-value[n1647 l7 f10 s8], number-fractions-decimals-and-percentages[n1388 l7 f10 s3], number-ratio-rate-and-proportion[n1400 l7 f10 s3], number-sets[n1178 l7 f10 s1], scatter-diagrams-and-correlation[n1546 l7 f10 s1], statistics-data-handling[n1354 l7 f10 s6], statistics-probability[n1327 l10 f10 s4], transformations-and-vectors[n1412 l5 f10 s4], trigonometry-right-angled-triangles[n1447 l5 f10 s4], trigonometry-sine-and-cosine-rules[n1584 l5 f10 s2]"
+  },
+  {
+    "course": "Physics A2",
+    "failing": "astronomy-and-cosmology[n1642 l6 f11 s3]"
+  },
+  {
+    "course": "Physics AS",
+    "failing": "electricity-d-c-circuits[n1890 l6 f12 s6], forces-and-equilibrium[n1739 l6 f12 s2], materials-deformation[n1625 l6 f11 s2], motion-in-a-circle-and-gravity[n1668 l6 f11 s4], superposition[n1717 l6 f11 s4], waves[n1751 l6 f12 s5], work-energy-and-power[n1729 l6 f11 s2]"
+  },
+  {
+    "course": "Physics OL",
+    "failing": "earth-space[n1525 l0 f6 s2], electricity-circuits[n1710 l0 f6 s3], energy-work-power[n1411 l0 f5 s1], forces-motion[n1710 l0 f6 s4], magnetism-electromagnetism[n1625 l0 f5 s2], measurement-units[n1748 l0 f5 s1], nuclear-physics[n1970 l0 f6 s2], pressure-density[n1072 l0 f5 s2], thermal-physics[n1913 l0 f6 s3], waves-sound[n1551 l0 f6 s4]"
+  }
+]

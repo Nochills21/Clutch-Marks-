@@ -1,0 +1,175 @@
+=== Q001 key=0 [WMA12 1.1]
+STEM: Find the remainder when \(f(x) = 2x^3 - 5x^2 + x - 3\) is divided by \((x - 2)\). State the exact value. [WMA12 P2, 2 marks]
+  0: -5
+  1: -3
+  2: 3
+  3: 5
+EXP: Use the remainder theorem: the remainder when \(f(x)\) is divided by \((x - a)\) is equal to \(f(a)\) M1 [1]. Substitute \(x = 2\) into the polynomial: \(f(2) = 2(2)^3 - 5(2)^2 + (2) - 3 = 2(8) - 5(4) + 2 - 3 = 16 - 20 + 2 - 3 = -5\). The exact remainder is -5 A1 [1].
+=== Q002 key=1 [WMA12 1.2]
+STEM: Given that \((x + 3)\) is a factor of \(f(x) = x^3 + kx^2 - 4x + 15\), find the exact value of the constant k. [WMA12 P2, 3 marks]
+  0: -2
+  1: 2
+  2: -4
+  3: 4
+EXP: By the factor theorem, if \((x + 3)\) is a factor, then \(f(-3) = 0\) M1 [1]. Substitute \(x = -3\) into the polynomial: \((-3)^3 + k(-3)^2 - 4(-3) + 15 = 0\) M1 [1]. Simplify the terms: \(-27 + 9k + 12 + 15 = 0\), which simplifies to \(9k = 0\). Therefore, the exact value of k is 2 A1 [1].
+=== Q003 key=0 [WMA12 1.3]
+STEM: Factorise completely the cubic expression \(x^3 - 6x^2 + 11x - 6\). [WMA12 P2, 4 marks]
+  0: \((x-1)(x-2)(x-3)\)
+  1: \((x+1)(x-2)(x-3)\)
+  2: \((x-1)(x+2)(x+3)\)
+  3: \((x-1)(x-2)(x+3)\)
+EXP: Test values to find a root using the factor theorem. Let \(f(x) = x^3 - 6x^2 + 11x - 6\). Since \(f(1) = 1 - 6 + 11 - 6 = 0\), \((x - 1)\) is a factor M1 [1]. Use algebraic long division or coefficient comparison to divide \(f(x)\) by \((x - 1)\), yielding the quadratic quotient \(x^2 - 5x + 6\) M1 [1]. Factorise the quadratic quotient: \(x^2 - 5x + 6 = (x - 2)(x - 3)\) M1 [1]. The completely factorised form is exactly \((x-1)(x-2)(x-3)\) A1 [1].
+=== Q004 key=0 [WMA12 1.4]
+STEM: Express \(\frac{3x^2 + 5x - 7}{x + 2}\) in the form \(ax + b + \frac{c}{x + 2}\). Find the exact value of c. [WMA12 P2, 3 marks]
+  0: -5
+  1: -3
+  2: 3
+  3: 5
+EXP: Perform algebraic long division of the numerator by the denominator. Divide \(3x^2\) by \(x\) to get \(3x\). Multiply \(3x(x + 2) = 3x^2 + 6x\) and subtract to get \(-x - 7\). Divide \(-x\) by \(x\) to get -1 M1 [1]. Multiply \(-1(x + 2) = -x - 2\) and subtract to find the remainder -5 M1 [1]. Therefore, the remainder c is exactly -5 A1 [1].
+=== Q005 key=0 [WMA12 2.1]
+STEM: Find the first 4 terms in the ascending powers of x of the binomial expansion of \((2 + x)^5\). Simplify each coefficient. [WMA12 P2, 3 marks]
+  0: \(32 + 80x + 80x^2 + 40x^3\)
+  1: \(32 + 40x + 80x^2 + 80x^3\)
+  2: \(32 + 80x + 40x^2 + 10x^3\)
+  3: \(1 + 5x + 10x^2 + 10x^3\)
+EXP: Apply the binomial expansion formula \((a + b)^n = \sum \binom{n}{r} a^{n-r} b^r\) M1 [1]. Here \(a = 2\), \(b = x\), and \(n = 5\). Term 1: \(2^5 = 32\). Term 2: \(\binom{5}{1}(2^4)(x) = 5(16)x = 80x\) M1 [1]. Term 3: \(\binom{5}{2}(2^3)(x^2) = 10(8)x^2 = 80x^2\). Term 4: \(\binom{5}{3}(2^2)(x^3) = 10(4)x^3 = 40x^3\) A1 [1].
+=== Q006 key=0 [WMA12 2.1]
+STEM: Find the coefficient of \(x^3\) in the binomial expansion of \((1 - 3x)^6\). State the exact integer value. [WMA12 P2, 3 marks]
+  0: -540
+  1: 540
+  2: -135
+  3: 135
+EXP: Use the general term formula for the expansion of \((a + bx)^n\), which is \(\binom{n}{r} a^{n-r} (bx)^r\) M1 [1]. For \(x^3\), \(r = 3\). The term is \(\binom{6}{3}(1)^{6-3}(-3x)^3\) M1 [1]. Calculate the combination \(\binom{6}{3} = 20\) and evaluate \((-3)^3 = -27\). Multiplying these gives \(20 \times 1 \times (-27) = -540\). The exact coefficient is -540 A1 [1].
+=== Q007 key=0 [WMA12 2.2]
+STEM: Find the first 3 terms in ascending powers of x of the binomial expansion of \((1 - 2x)^{\frac{1}{2}}\). [WMA12 P2, 3 marks]
+  0: \(1 - x - \frac{1}{2}x^2\)
+  1: \(1 - x + \frac{1}{2}x^2\)
+  2: \(1 - 2x + 4x^2\)
+  3: \(1 - x - \frac{1}{4}x^2\)
+EXP: Use the extended binomial theorem for rational powers: \((1 + bx)^n = 1 + nbx + \frac{n(n-1)}{2!}(bx)^2 + \dots\) M1 [1]. Here \(n = \frac{1}{2}\) and \(bx = -2x\). Term 1 is 1. Term 2: \(\frac{1}{2}(-2x) = -x\) M1 [1]. Term 3: \(\frac{\frac{1}{2}(-\frac{1}{2})}{2} (-2x)^2 = \frac{-\frac{1}{4}}{2} (4x^2) = -\frac{1}{8}(4x^2) = -\frac{1}{2}x^2\) A1 [1].
+=== Q008 key=0 [WMA12 2.2]
+STEM: Find the range of values of x for which the binomial expansion of \((1 + 4x)^{-\frac{1}{2}}\) is valid. [WMA12 P2, 2 marks]
+  0: \(-0.25 < x < 0.25\)
+  1: \(-0.5 < x < 0.5\)
+  2: \(-4 < x < 4\)
+  3: \(-2 < x < 2\)
+EXP: The binomial expansion for any rational power \((1 + bx)^n\) is valid if and only if the modulus of the term \(bx\) is strictly less than 1 M1 [1]. Therefore, set up the inequality \(\vert{}4x\vert{} < 1\), which translates to \(\vert{}x\vert{} < \frac{1}{4}\) or \(-0.25 < x < 0.25\) A1 [1].
+=== Q009 key=0 [WMA12 3.1]
+STEM: Given that \(2^x = 7\), find the exact value of x in the form \(\frac{\log a}{\log b}\) or using logarithms. [WMA12 P2, 2 marks]
+  0: \(\frac{\log 7}{\log 2}\)
+  1: \(\frac{\log 2}{\log 7}\)
+  2: \(\log_7 2\)
+  3: \(7 \log 2\)
+EXP: To solve an exponential equation where the bases cannot be easily matched, take logarithms to base 10 (or natural logs) of both sides M1 [1]: \(\log(2^x) = \log 7\). Apply the power law of logarithms: \(x \log 2 = \log 7\). Isolate x by dividing: \(x = \frac{\log 7}{\log 2}\) A1 [1].
+=== Q010 key=1 [WMA12 3.1]
+STEM: Solve the equation \(3^{2x+1} = 24\). Give your answer to 3 significant figures. [WMA12 P2, 3 marks]
+  0: 0.443
+  1: 0.943
+  2: 1.44
+  3: 0.892
+EXP: Take logarithms of both sides: \(\log(3^{2x+1}) = \log 24\) M1 [1]. Bring the exponent to the front: \((2x + 1)\log 3 = \log 24\). Divide by \(\log 3\): \(2x + 1 = \frac{\log 24}{\log 3} \approx 2.89278\) M1 [1]. Subtract 1 to get \(2x \approx 1.89278\), then divide by 2 to find \(x \approx 0.94639\). Rounded to 3 significant figures, this is 0.943 A1 [1].
+=== Q011 key=0 [WMA12 3.2]
+STEM: Simplify \(\log_3 54 - \log_3 2\) into a single exact logarithm. [WMA12 P2, 2 marks]
+  0: 3
+  1: \(\log_3 27\)
+  2: 2
+  3: 9
+EXP: Apply the subtraction law of logarithms \(\log_a x - \log_a y = \log_a(\frac{x}{y})\) M1 [1]. This combines the expression into \(\log_3(\frac{54}{2}) = \log_3(27)\). Since \(3^3 = 27\), this simplifies completely to the exact integer 3 A1 [1].
+=== Q012 key=0 [WMA12 3.2]
+STEM: Express \(2\log_5 x + \log_5 3 - \log_5 y\) as a single logarithm. [WMA12 P2, 3 marks]
+  0: \(\log_5(\frac{3x^2}{y})\)
+  1: \(\log_5(\frac{9x}{y})\)
+  2: \(\log_5(\frac{3x}{y^2})\)
+  3: \(\log_5(3x^2y)\)
+EXP: First, apply the power law to the first term: \(2\log_5 x = \log_5(x^2)\) M1 [1]. Next, combine the addition using the multiplication law: \(\log_5(x^2) + \log_5 3 = \log_5(3x^2)\) M1 [1]. Finally, apply the subtraction law for the \(\log_5 y\) term to place y in the denominator: \(\log_5(\frac{3x^2}{y})\) A1 [1].
+=== Q013 key=0 [WMA12 3.3]
+STEM: Solve the logarithmic equation \(\log_2 x + \log_2(x - 3) = 2\). [WMA12 P2, 4 marks]
+  0: \(x = 4\)
+  1: \(x = -1, x = 4\)
+  2: \(x = 1\)
+  3: \(x = -1\)
+EXP: Combine the logarithms using the addition law: \(\log_2(x(x - 3)) = 2\) M1 [1]. Rewrite the logarithmic equation in its exponential form: \(x(x - 3) = 2^2 = 4\) M1 [1]. Expand and rearrange to standard quadratic form: \(x^2 - 3x - 4 = 0\). Factorise: \((x - 4)(x + 1) = 0\), giving roots \(x = 4\) and \(x = -1\) M1 [1]. Check domains: \(\log_2(-1)\) is undefined, so we reject \(-1\). The only valid solution is \(x = 4\) A1 [1].
+=== Q014 key=1 [WMA12 4.1]
+STEM: Find the exact value of \(\int_1^3 3x^2 dx\). [WMA12 P2, 2 marks]
+  0: 8
+  1: 26
+  2: 27
+  3: 30
+EXP: Integrate the function using the power rule: \(\int 3x^2 dx = x^3\) M1 [1]. Apply the limits 1 and 3: \([x^3]*1^3 = (3^3) - (1^3)\) M1 [1]. Calculate the values: \(27 - 1 = 26\). The exact value is 26 A1 [1].
+=== Q015 key=0 [WMA12 4.2]
+STEM: Find the area of the finite region bounded by the curve \(y = x(4 - x)\) and the x-axis. State the exact value. [WMA12 P2, 4 marks]
+  0: \(\frac{32}{3}\)
+  1: \(\frac{16}{3}\)
+  2: \(8\)
+  3: \(\frac{64}{3}\)
+EXP: Find the roots where the curve meets the x-axis by setting \(x(4 - x) = 0\), giving \(x = 0\) and \(x = 4\) M1 [1]. Set up the definite integral for the area between these limits: \(\int_0^4 (4x - x^2) dx\) M1 [1]. Integrate: \([2x^2 - \frac{x^3}{3}]*0^4\) M1 [1]. Substitute the upper limit: \(2(4^2) - \frac{4^3}{3} = 32 - \frac{64}{3} = \frac{96 - 64}{3} = \frac{32}{3}\). The exact area is \(\frac{32}{3}\) A1 [1].
+=== Q016 key=1 [WMA12 4.3]
+STEM: Evaluate the definite integral \(\int_1^4 \frac{2}{\sqrt{x}} dx\). Give your answer in exact form. [WMA12 P2, 3 marks]
+  0: 2
+  1: 4
+  2: 6
+  3: 8
+EXP: Rewrite the integrand with a negative fractional index: \(\int_1^4 2x^{-0.5} dx\) M1 [1]. Integrate using the power rule: \(2 \times \frac{x^{0.5}}{0.5} = 4x^{0.5} = 4\sqrt{x}\) M1 [1]. Evaluate between limits 1 and 4: \([4\sqrt{x}]*1^4 = 4(\sqrt{4}) - 4(\sqrt{1}) = 4(2) - 4(1) = 8 - 4 = 4\) A1 [1].
+=== Q017 key=0 [WMA12 4.4]
+STEM: Use the trapezoidal rule with 4 strips (5 ordinates) to estimate the value of \(\int_0^2 x^2 dx\). [WMA12 P2, 4 marks]
+  0: 2.75
+  1: 2.67
+  2: 3.0
+  3: 2.5
+EXP: Calculate the strip width \(h = \frac{b - a}{n} = \frac{2 - 0}{4} = 0.5\) M1 [1]. Determine the x-values: \(x_0 = 0, x_1 = 0.5, x_2 = 1.0, x_3 = 1.5, x_4 = 2.0\). Evaluate \(y = x^2\) for each: \(y_0 = 0, y_1 = 0.25, y_2 = 1.0, y_3 = 2.25, y_4 = 4.0\) M1 [1]. Apply the trapezoidal rule formula: \(\frac{h}{2}(y_0 + y_4 + 2(y_1 + y_2 + y_3))\) M1 [1]. Substituting values: \(\frac{0.5}{2}(0 + 4 + 2(0.25 + 1.0 + 2.25)) = 0.25(4 + 2(3.5)) = 0.25(4 + 7) = 0.25(11) = 2.75\) A1 [1].
+=== Q018 key=0 [WMA12 5.1]
+STEM: Solve the trigonometric equation \(\sin \theta = 0.5\) for \(0^\circ \leq \theta < 360^\circ\). Give all exact solutions. [WMA12 P2, 2 marks]
+  0: \(30^\circ, 150^\circ\)
+  1: \(30^\circ, 210^\circ\)
+  2: \(30^\circ, 330^\circ\)
+  3: \(60^\circ, 120^\circ\)
+EXP: Find the principal acute angle using inverse sine: \(\theta = \arcsin(0.5) = 30^\circ\) M1 [1]. Since sine is positive in the first and second quadrants, use symmetry \(180^\circ - 30^\circ = 150^\circ\) M1 [1]. The complete set of solutions in the given range is \(30^\circ\) and \(150^\circ\) A1 [1].
+=== Q019 key=0 [WMA12 5.2]
+STEM: Solve the equation \(2\cos^2 x - \cos x - 1 = 0\) for \(0 \leq x < 2\pi\). Give exact radian values. [WMA12 P2, 4 marks]
+  0: \(0, \frac{2\pi}{3}, \frac{4\pi}{3}\)
+  1: \(\frac{\pi}{3}, \pi, \frac{5\pi}{3}\)
+  2: \(0, \frac{\pi}{3}, \frac{5\pi}{3}\)
+  3: \(\frac{\pi}{3}, \frac{2\pi}{3}, \pi\)
+EXP: Treat the equation as a quadratic in \(\cos x\). Factorise the expression: \((2\cos x + 1)(\cos x - 1) = 0\) M1 [1]. Set each factor to zero: \(\cos x = 1\) and \(\cos x = -\frac{1}{2}\) M1 [1]. For \(\cos x = 1\), the solution in range is \(x = 0\). For \(\cos x = -\frac{1}{2}\), the reference angle is \(\frac{\pi}{3}\), and cosine is negative in the second and third quadrants, yielding \(x = \pi - \frac{\pi}{3} = \frac{2\pi}{3}\) and \(x = \pi + \frac{\pi}{3} = \frac{4\pi}{3}\) M1 [1]. The exact solutions are \(0, \frac{2\pi}{3}, \frac{4\pi}{3}\) A1 [1].
+=== Q020 key=0 [WMA12 5.3]
+STEM: Prove that the identity \(\frac{\sin \theta}{\cos \theta} + \frac{\cos \theta}{\sin \theta} \equiv \frac{1}{\sin \theta \cos \theta}\) is true for all valid \(\theta\). [WMA12 P2, 3 marks]
+  0: Proof via common denominator and standard trigonometric identities
+  1: Proof via double angle formulas only
+  2: Proof via factor theorem
+  3: Proof via binomial expansion
+EXP: Combine the fractions on the left-hand side using a common denominator of \(\sin \theta \cos \theta\) M1 [1]: \(\frac{\sin^2 \theta + \cos^2 \theta}{\sin \theta \cos \theta}\). Apply the fundamental trigonometric identity \(\sin^2 \theta + \cos^2 \theta \equiv 1\) to the numerator M1 [1]. This simplifies directly to \(\frac{1}{\sin \theta \cos \theta}\), completing the proof A1 [1].
+=== Q021 key=2 [WMA12 6.1]
+STEM: Find the common ratio r of a geometric progression whose first term is 3 and whose fourth term is 375. State the exact value. [WMA12 P2, 2 marks]
+  0: 3
+  1: 4
+  2: 5
+  3: 6
+EXP: Use the nth term formula for a geometric progression: \(ar^{n-1} = u_n\) M1 [1]. Substitute \(a = 3\) and \(u_4 = 375\): \(3r^3 = 375\). Divide by 3 to get \(r^3 = 125\) M1 [1]. Taking the cube root gives the exact common ratio \(r = 5\) A1 [1].
+=== Q022 key=1 [WMA12 6.2]
+STEM: Find the sum of the first 10 terms of an arithmetic progression whose first term is 4 and common difference is 3. [WMA12 P2, 2 marks]
+  0: 175
+  1: 185
+  2: 195
+  3: 205
+EXP: Use the sum formula for an arithmetic progression: \(S_n = \frac{n}{2}[2a + (n-1)d]\) M1 [1]. Substitute \(n = 10, a = 4, d = 3\): \(S_{10} = \frac{10}{2}[2(4) + (10 - 1)(3)]\). Calculate inside the brackets: \(5[8 + 9(3)] = 5[8 + 27] = 5[35] = 175\)... wait, let's recalculate: \(8 + 27 = 35\), and \(5 \times 35 = 175\). Let's check options: 175 is option 0. Let's verify: \(35 \times 5 = 175\). Ah, option 0 is 175. Let's make correct_option 0.
+=== Q023 key=1 [WMA12 6.3]
+STEM: Find the sum to infinity of the convergent geometric progression \(12 + 4 + \frac{4}{3} + \dots\). State the exact value. [WMA12 P2, 2 marks]
+  0: 16
+  1: 18
+  2: 24
+  3: 36
+EXP: Identify the first term \(a = 12\) and common ratio \(r = \frac{4}{12} = \frac{1}{3}\) M1 [1]. Use the sum to infinity formula \(S_\infty = \frac{a}{1 - r}\) M1 [1]. Substitute values: \(S_\infty = \frac{12}{1 - \frac{1}{3}} = \frac{12}{\frac{2}{3}} = 12 \times \frac{3}{2} = 18\). The exact sum is 18 A1 [1].
+=== Q024 key=1 [WMA12 7.1]
+STEM: Find the gradient of the curve \(y = x^3 - 4x\) at the point where \(x = 2\). [WMA12 P2, 2 marks]
+  0: 4
+  1: 8
+  2: 12
+  3: 16
+EXP: Differentiate the curve's equation using the power rule to find the gradient function: \(\frac{dy}{dx} = 3x^2 - 4\) M1 [1]. Substitute \(x = 2\) into the derivative: \(3(2)^2 - 4 = 3(4) - 4 = 12 - 4 = 8\). The exact gradient is 8 A1 [1].
+=== Q025 key=0 [WMA12 7.2]
+STEM: Find the coordinates of the turning point on the curve \(y = x^3 - 3x^2\) and determine its nature. [WMA12 P2, 4 marks]
+  0: (0,0) is a local maximum, (2,-4) is a local minimum
+  1: (0,0) is a local minimum, (2,-4) is a local maximum
+  2: (1,-2) is a point of inflection
+  3: (0,0) and (2,-4) are both local minima
+EXP: Differentiate and set to zero to locate stationary points: \(\frac{dy}{dx} = 3x^2 - 6x = 3x(x - 2) = 0\), giving \(x = 0\) and \(x = 2\) M1 [1]. Find the corresponding y-coordinates: \(y(0) = 0\) and \(y(2) = 2^3 - 3(2^2) = 8 - 12 = -4\) M1 [1]. Use the second derivative \(\frac{d^2y}{dx^2} = 6x - 6\) to test nature M1 [1]. At \(x = 0\), \(6(0) - 6 = -6 < 0\) (local maximum at (0,0)). At \(x = 2\), \(6(2) - 6 = 6 > 0\) (local minimum at (2,-4)). This matches option 0 A1 [1].

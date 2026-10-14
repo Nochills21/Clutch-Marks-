@@ -21,17 +21,18 @@ import { PreviewBanner } from "@/components/PreviewBanner";
 import { SubjectGate } from "@/components/SubjectGate";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { SubjectPicker } from "@/components/SubjectPicker";
+import type { Tables } from "@/integrations/supabase/types";
 
 export default function Lessons() {
   const { user } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
   const { subject, level, topic } = useParams<{ subject?: string; level?: string; topic?: string }>();
-  const [topics, setTopics] = useState<any[]>([]);
-  const [lessons, setLessons] = useState<any[]>([]);
+  const [topics, setTopics] = useState<Tables<"topics">[]>([]);
+  const [lessons, setLessons] = useState<Tables<"lessons">[]>([]);
   const [progress, setProgress] = useState<Record<string, boolean>>({});
-  const [selectedLesson, setSelectedLesson] = useState<any>(null);
-  const [notes, setNotes] = useState<any[]>([]);
+  const [selectedLesson, setSelectedLesson] = useState<Tables<"lessons"> | null>(null);
+  const [notes, setNotes] = useState<Pick<Tables<"study_materials">, "id" | "title" | "file_url" | "topic_id">[]>([]);
   // Per-topic hub links (notes / questions) plus the badge label
   // (subject + level), so same-named topics on different levels — Nuclear
   // Physics (OL vs A2), Thermal Physics — are distinguishable in the list.
@@ -43,7 +44,7 @@ export default function Lessons() {
   // Save the open lesson as branded revision paper. The export loads the brand
   // tile and stamps the account watermark, so it is async and can fail (offline,
   // a blocked canvas) — awaited in a try/catch rather than fired into the void.
-  const saveLessonPdf = async (lesson) => {
+  const saveLessonPdf = async (lesson: Tables<"lessons">) => {
     try {
       await exportLessonToPdf(lesson, { owner: user?.email ?? user?.id ?? null });
       toast({ title: "Saved", description: "Your PDF is downloading." });
@@ -75,12 +76,12 @@ export default function Lessons() {
       setProgress(prog);
       // Resolve each topic's hub links (notes / questions) and badge
       // label via its subject level + subject slug.
-      const slMap = new Map(((slRes.data ?? []) as any[]).map((s) => [s.id, s]));
-      const subMap = new Map(((subRes.data ?? []) as any[]).map((s) => [s.id, s]));
+      const slMap = new Map((slRes.data ?? []).map((s) => [s.id, s]));
+      const subMap = new Map((subRes.data ?? []).map((s) => [s.id, s]));
       const links: Record<string, { notes: string; quiz: string } | undefined> = {};
       const meta: Record<string, { subject: string; level: string }> = {};
       for (const t of topicsList) {
-        const sl = slMap.get((t as any).subject_level_id);
+        const sl = slMap.get(t.subject_level_id);
         const sub = sl ? subMap.get(sl.subject_id) : undefined;
         const slug = sub?.slug;
         if (slug && sl) {
@@ -120,17 +121,17 @@ export default function Lessons() {
     // away — they see every subject, still cut down by the free-plan slice
     // below, exactly like a student on the free plan.
     const picked = user
-      ? topics.filter((t) => pickedIds.has((t as any).subject_level_id))
+      ? topics.filter((t) => pickedIds.has(t.subject_level_id))
       : topics;
     if (planLoading) return picked;
     // Free plan: first 2 lessons per subject-level (preview limit)
     if (!isPreview) {
-      const byLevel = new Map<string, any[]>();
+      const byLevel = new Map<string, Tables<"lessons">[]>();
       for (const t of picked) {
         const qs = lessons.filter((l) => l.topic_id === t.id);
         byLevel.set(t.id, qs);
       }
-      const limited = new Map<string, any[]>();
+      const limited = new Map<string, Tables<"lessons">[]>();
       for (const [levelId, qs] of byLevel) {
         limited.set(levelId, qs.slice(0, FREE_PREVIEW_LIMIT));
       }

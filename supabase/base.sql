@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-12T11:49:18.110Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-14T10:35:53.046Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -67,7 +67,7 @@ create table if not exists public."ai_audit_log" (
   "corrected_paper" jsonb,
   "cost_cents" numeric(10,0) default 0,
   "created_at" timestamp with time zone default now() not null,
-  constraint "ai_audit_log_action_check" CHECK (action = ANY (ARRAY['plan'::text, 'correction'::text, 'paper_correction'::text])),
+  constraint "ai_audit_log_action_check" CHECK (action = ANY (ARRAY['plan'::text, 'correction'::text, 'paper_correction'::text, 'quota_exhausted'::text])),
   constraint "ai_audit_log_pkey" PRIMARY KEY (id)
 );
 create table if not exists public."ai_correction" (
@@ -842,6 +842,33 @@ alter table public."xp_events" drop constraint if exists "xp_events_user_id_fkey
 alter table public."xp_events" add constraint "xp_events_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 
 -- ============ functions ============
+CREATE OR REPLACE FUNCTION public.ai_marker_quota_today()
+ RETURNS TABLE(marked_today integer, refusals_today integer, last_refusal_at timestamp with time zone, window_start timestamp with time zone)
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+declare
+  _uid uuid := auth.uid();
+  _start timestamptz;
+begin
+  if _uid is null then raise exception 'Not authenticated'; end if;
+  if not public.has_role(_uid, 'admin') then raise exception 'Admin only'; end if;
+
+  _start := date_trunc('day', now() at time zone 'America/Los_Angeles') at time zone 'America/Los_Angeles';
+
+  return query
+  select
+    (select count(*)::integer from public.ai_audit_log a
+      where a.action = 'paper_correction' and a.provider = 'gemini' and a.created_at >= _start),
+    (select count(*)::integer from public.ai_audit_log a
+      where a.action = 'quota_exhausted' and a.provider = 'gemini' and a.created_at >= _start),
+    (select max(a.created_at) from public.ai_audit_log a
+      where a.action = 'quota_exhausted' and a.provider = 'gemini' and a.created_at >= _start),
+    _start;
+end;
+$function$;
+
 CREATE OR REPLACE FUNCTION public.approve_paper_candidate(p_check_id uuid)
  RETURNS jsonb
  LANGUAGE plpgsql

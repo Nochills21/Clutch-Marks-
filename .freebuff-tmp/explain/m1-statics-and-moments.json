@@ -1,0 +1,6 @@
+{
+  "1": "Resolving splits each force into two independent components, so the equilibrium conditions can be solved one direction at a time. Forces in perpendicular directions do not affect each other.",
+  "2": "A particle at rest has zero resultant force, so the sum of the components in each direction must be zero separately. Two equations are needed because two unknowns are usually involved.",
+  "3": "Friction takes whatever value is needed to hold equilibrium, up to its limit μR. So the inequality F ≤ μR is the correct condition, and the friction does not have to equal μR unless the particle is about to slip.",
+  "4": "A moment measures the turning effect of a force, which is force times the perpendicular distance from the pivot. A body in equilibrium has zero total moment about any point, so you can choose the pivot that eliminates the unknown forces."
+}

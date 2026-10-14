@@ -1,0 +1,202 @@
+
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\ai-correction\index.ts
+  502:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  503:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  626:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  737:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\generate-questions\index.ts
+   62:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  129:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  136:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  160:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\backend\supabase\functions\quiz-feedback\index.ts
+   86:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  104:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  114:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\FileVersionHistory.tsx
+  71:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\PreviewLimit.tsx
+  15:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  22:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  69:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  69:30  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\admin\ContentEditor.tsx
+  39:46  error    Unexpected any. Specify a different type                                                                          @typescript-eslint/no-explicit-any
+  67:51  warning  React Hook useEffect has a missing dependency: 'loadRevisions'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\dashboards\ParentDashboard.tsx
+   32:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   32:66  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  194:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\dashboards\StudentDashboard.tsx
+  121:6  warning  React Hook useEffect has a missing dependency: 'pickedIds'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\practice\QuestionBankParts.tsx
+  117:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\ui\badge.tsx
+  29:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\ui\button.tsx
+  47:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\ui\form.tsx
+  129:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\ui\navigation-menu.tsx
+  111:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\ui\sidebar.tsx
+  636:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\ui\sonner.tsx
+  27:19  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\components\ui\toggle.tsx
+  37:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\frontend\src\lib\auth.tsx
+  33:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  53:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  57:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\src\main.tsx
+  15:10  warning  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Flashcards.tsx
+  237:6  warning  React Hook useMemo has an unnecessary dependency: 'FREE_PREVIEW_LIMIT'. Either exclude it or remove the dependency array. Outer scope values like 'FREE_PREVIEW_LIMIT' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\LessonNotes.tsx
+  33:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Lessons.tsx
+   30:40  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+   31:42  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+   33:56  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+   34:38  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+   78:52  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+   79:54  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+   83:36  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+  123:50  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+  128:39  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+  133:39  error    Unexpected any. Specify a different type                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+  140:6   warning  React Hook useMemo has an unnecessary dependency: 'FREE_PREVIEW_LIMIT'. Either exclude it or remove the dependency array. Outer scope values like 'FREE_PREVIEW_LIMIT' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+  153:6   warning  React Hook useMemo has a missing dependency: 'prefsLoaded'. Either include it or remove the dependency array                                                                                                                                            react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Notes.tsx
+   41:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+   46:23  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+   71:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  123:23  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\PastPapers.tsx
+  89:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Practice.tsx
+  207:47  warning  React Hook useEffect has a missing dependency: 'loadReviewQuestions'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  269:6   warning  React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array                react-hooks/exhaustive-deps
+  375:25  error    Unexpected any. Specify a different type                                                                                @typescript-eslint/no-explicit-any
+  404:23  error    Unexpected any. Specify a different type                                                                                @typescript-eslint/no-explicit-any
+  423:6   warning  React Hook useMemo has an unnecessary dependency: 'pickedIds'. Either exclude it or remove the dependency array         react-hooks/exhaustive-deps
+  428:6   warning  React Hook useMemo has an unnecessary dependency: 'pickedIds'. Either exclude it or remove the dependency array         react-hooks/exhaustive-deps
+  436:6   warning  React Hook useMemo has a missing dependency: 'filtering'. Either include it or remove the dependency array              react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Pricing.tsx
+  205:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\ProgressPage.tsx
+  131:62  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  139:21  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  140:42  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  145:39  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  203:6   warning  React Hook useMemo has a missing dependency: 'topics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Quizzes.tsx
+   72:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   73:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  138:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  310:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  614:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\StudyPlanner.tsx
+   72:48  error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+   83:11  error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+   83:39  error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+   93:37  warning  React Hook useEffect has a missing dependency: 'loadPlans'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  163:23  error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+  170:23  error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\Subject.tsx
+  58:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  60:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  61:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  62:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicNotes.tsx
+  38:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  39:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  43:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  44:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  45:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicPapers.tsx
+  52:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  53:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\TopicQuiz.tsx
+   69:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  226:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  235:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  235:84  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminAnnouncements.tsx
+  36:32  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminFlashcards.tsx
+  63:32  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminLessons.tsx
+  65:32  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminPayments.tsx
+  85:54  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminQuizzes.tsx
+  66:32  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminSubmissions.tsx
+  143:36  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\src\pages\admin\AdminUsers.tsx
+  169:32  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\ai-correction\index.ts
+  180:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  234:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  623:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  624:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  747:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  869:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\generate-questions\index.ts
+   73:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  151:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  158:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  182:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\zaidt\Downloads\top-67-master\supabase\functions\quiz-feedback\index.ts
+   86:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  104:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  114:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 115 problems (76 errors, 39 warnings)
+

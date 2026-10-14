@@ -1,0 +1,29 @@
+{
+  "Q127": {
+    "correct_option": 2,
+    "explanation": "By the factor theorem, if \\((x - 3)\\) is a factor then \\(f(3) = 0\\) M1 [1]. Substitute \\(x = 3\\) into the polynomial: \\(27 - 36 + 3k - 6 = 0\\) M1 [1]. Simplify: \\(3k - 15 = 0\\), so \\(k = 5\\) A1 [1]."
+  },
+  "Q140": {
+    "correct_option": 2,
+    "explanation": "Rewrite the integrand with a negative index: \\(\\int_1^3 4x^{-3} dx\\) M1 [1]. Integrate using the power rule: \\(4 \\times \\frac{x^{-2}}{-2} = -\\frac{2}{x^2}\\) M1 [1]. Evaluate between the limits: \\([-\\frac{2}{x^2}]_1^3 = (-\\frac{2}{9}) - (-2) = 2 - \\frac{2}{9} = \\frac{16}{9}\\) A1 [1]. The exact value is \\(\\frac{16}{9}\\)."
+  },
+  "Q141": {
+    "correct_option": 0,
+    "options": ["1.117", "1.099", "1.104", "1.125"],
+    "explanation": "Find the strip width \\(h = \\frac{2 - 0}{4} = 0.5\\) M1 [1]. The ordinates \\(x = 0, 0.5, 1, 1.5, 2\\) give \\(y = 1, \\frac{2}{3}, \\frac{1}{2}, \\frac{2}{5}, \\frac{1}{3}\\) M1 [1]. Apply the trapezoidal rule: \\(\\frac{0.5}{2}(1 + \\frac{1}{3} + 2(\\frac{2}{3} + \\frac{1}{2} + \\frac{2}{5})) = 0.25(\\frac{4}{3} + \\frac{47}{15}) = 0.25 \\times \\frac{67}{15} \\approx 1.1167\\) M1 [1]. To 3 decimal places the estimate is 1.117 A1 [1]."
+  },
+  "Q142": {
+    "correct_option": 0,
+    "explanation": "Treat the equation as a quadratic in \\(\\tan x\\) M1 [1]: \\((\\tan x - 3)(\\tan x + 1) = 0\\). Set each factor to zero: \\(\\tan x = 3\\) and \\(\\tan x = -1\\) M1 [1]. For \\(\\tan x = 3\\), the principal angle is \\(\\arctan(3) \\approx 71.6^\\circ\\) and the third-quadrant solution is \\(71.6^\\circ + 180^\\circ = 251.6^\\circ\\). For \\(\\tan x = -1\\), the solutions in the range are \\(135^\\circ\\) and \\(315^\\circ\\) M1 [1]. The complete solution set is \\(71.6^\\circ, 135^\\circ, 251.6^\\circ, 315^\\circ\\) A1 [1]."
+  },
+  "Q146": {
+    "correct_option": 0,
+    "options": ["\\(y = -x + 5\\)", "\\(y = x + 3\\)", "\\(y = -x + 4\\)", "\\(y = -0.25x + 4.25\\)"],
+    "explanation": "Find the y-coordinate at \\(x = 1\\): \\(y = 1^3 - 2(1) + 5 = 4\\) M1 [1]. Differentiate: \\(\\frac{dy}{dx} = 3x^2 - 2\\), so the tangent gradient at \\(x = 1\\) is \\(3(1) - 2 = 1\\) M1 [1]. The normal gradient is the negative reciprocal, \\(m = -1\\), and the normal passes through (1, 4): \\(y - 4 = -1(x - 1)\\) M1 [1]. Rearranging gives \\(y = -x + 5\\) A1 [1]."
+  },
+  "Q148": {
+    "correct_option": 1,
+    "question_text": "Find the remainder when \\(f(x) = x^3 + 2x^2 - 5x - 3\\) is divided by \\((x - 2)\\). [WMA12 P2, 2 marks]",
+    "explanation": "Use the remainder theorem: the remainder when \\(f(x)\\) is divided by \\((x - a)\\) is \\(f(a)\\) M1 [1]. Substitute \\(x = 2\\): \\(f(2) = 2^3 + 2(2^2) - 5(2) - 3\\) M1 [1]. Simplify: \\(8 + 8 - 10 - 3 = 3\\) A1 [1]. The exact remainder is 3."
+  }
+}

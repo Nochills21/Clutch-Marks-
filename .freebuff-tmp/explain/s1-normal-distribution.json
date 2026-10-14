@@ -1,0 +1,6 @@
+{
+  "1": "The Normal curve is fully determined by its mean, which sets the centre, and its variance, which sets the spread. Its symmetry about the mean is why many probabilities are equal in pairs.",
+  "2": "Standardising converts any Normal distribution into the standard form, so one table of probabilities serves every case. The z value measures distance from the mean in standard deviations.",
+  "3": "The curve is symmetric about zero, so the probability above a positive value equals the probability below its negative. The symmetry lets you use a table that gives only positive z values.",
+  "4": "Reading the table in reverse finds the z value for a given probability. Converting back with x = μ + zσ gives the value in the original units."
+}

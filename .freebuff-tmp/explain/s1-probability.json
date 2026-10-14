@@ -1,0 +1,7 @@
+{
+  "1": "An event and its complement together cover every outcome, so their probabilities sum to 1. Finding the complement is useful when the event itself has many outcomes.",
+  "2": "The overlap A ∩ B is counted in both P(A) and P(B), so it is subtracted once. For mutually exclusive events there is no overlap, so the formula reduces to adding.",
+  "3": "The probability that both events happen is the probability of A times the probability of B given that A has happened. The conditional probability is needed because A changes the situation for B.",
+  "4": "Independence means knowing that A happened does not change the probability of B. This is why the product rule simplifies to a plain multiplication.",
+  "5": "Each branch of a tree diagram is a conditional probability, so multiplying along a branch gives the probability of that sequence. Summing the branches that match an event gives its total probability."
+}

@@ -1,0 +1,102 @@
+HTTP 200
+topics 100
+astronomy-and-cosmology | Astronomy and Cosmology
+circular-motion-and-shm | Circular Motion and SHM
+electric-fields-and-capacitance | Electric Fields and Capacitance
+magnetic-fields-and-electromagnetism | Magnetic Fields and Electromagnetism
+nuclear-physics | Nuclear Physics
+oscillations-and-waves-ii | Oscillations and Waves II
+quantum-physics | Quantum Physics
+thermal-physics | Thermal Physics
+communication-and-networking | Communication and Networking
+data-structures | Data Structures
+databases | Databases
+ethics-and-ai | Ethics and AI
+hardware-and-logic-gates | Hardware and Logic Gates
+information-representation | Information Representation
+processor-fundamentals | Processor Fundamentals
+programming-and-algorithms | Programming and Algorithms
+system-software-and-security | System Software and Security
+computational-thinking-and-problem-solving | Computational Thinking and Problem-Solving
+networks-and-the-internet | Networks and the Internet
+web-technologies-and-security | Web Technologies and Security
+binomial-distribution | Binomial Distribution
+continuous-random-variables | Continuous Random Variables
+hypothesis-testing | Hypothesis Testing
+measures-of-variation-and-standard-deviation | Measures of Variation and Standard Deviation
+numerical-measures-of-central-tendency | Numerical Measures of Central Tendency
+circular-measure | Circular Measure
+coordinate-geometry | Coordinate Geometry
+differentiation | Differentiation
+functions | Functions
+integration | Integration
+quadratics | Quadratics
+sequences-and-series | Sequences and Series
+trigonometry | Trigonometry
+dynamics | Dynamics
+electricity-d-c-circuits | Electricity: D.C. Circuits
+forces-and-equilibrium | Forces and Equilibrium
+kinematics | Kinematics
+materials-deformation | Materials: Deformation
+motion-in-a-circle-and-gravity | Motion in a Circle and Gravity
+superposition | Superposition
+waves | Waves
+work-energy-and-power | Work, Energy and Power
+algebra-equations | Algebra — Equations
+algebra-graphs | Algebra — Graphs
+algebra-inequalities | Algebra — Inequalities
+algebra-sequences-and-functions | Algebra — Sequences and Functions
+algebra-simplifying-and-expanding | Algebra — Simplifying and Expanding
+geometry-angles-and-polygons | Geometry — Angles and Polygons
+geometry-congruence-and-similarity | Geometry — Congruence and Similarity
+mensuration-area-and-volume | Mensuration — Area and Volume
+mensuration-bearings-and-loci | Mensuration — Bearings and Loci
+number-arithmetic-and-place-value | Number — Arithmetic and Place Value
+number-fractions-decimals-and-percentages | Number — Fractions, Decimals and Percentages
+number-indices-and-standard-form | Number — Indices and Standard Form
+number-ratio-rate-and-proportion | Number — Ratio, Rate and Proportion
+number-sets | Number — Sets
+scatter-diagrams-and-correlation | Scatter Diagrams and Correlation
+statistics-data-handling | Statistics — Data Handling
+statistics-probability | Statistics — Probability
+transformations-and-vectors | Transformations and Vectors
+trigonometry-right-angled-triangles | Trigonometry — Right-Angled Triangles
+trigonometry-sine-and-cosine-rules | Trigonometry — Sine and Cosine Rules
+abstract-data-types | Abstract Data Types
+data-types-and-file-organisation | Data Types and File Organisation
+databases-and-data-definition | Databases and Data Definition
+programming-paradigms-and-low-level | Programming Paradigms and Low-Level
+simulation-sensors-and-real-data | Simulation, Sensors and Real Data
+complex-numbers | Complex Numbers
+differentiation-ii | Differentiation II
+further-algebra | Further Algebra
+further-trigonometry | Further Trigonometry
+integration-ii | Integration II
+permutations-and-combinations | Permutations and Combinations
+poisson-distribution | Poisson Distribution
+probability | Probability
+probability-distributions | Probability Distributions
+sampling-and-estimation | Sampling and Estimation
+the-normal-distribution | The Normal Distribution
+vectors | Vectors
+algorithms-programming | Algorithms & Programming
+data-representation | Data Representation
+database-systems | Database Systems
+ethics-security-impact | Ethics, Security & Impact
+hardware-architecture | Hardware & Architecture
+logic-gates-boolean-logic | Logic Gates & Boolean Logic
+networking-communication | Networking & Communication
+operating-systems | Operating Systems
+programming-concepts | Programming Concepts
+robotics-ai | Robotics & AI
+web-technologies | Web Technologies
+earth-space | Earth & Space
+electricity-circuits | Electricity & Circuits
+energy-work-power | Energy, Work & Power
+forces-motion | Forces & Motion
+magnetism-electromagnetism | Magnetism & Electromagnetism
+measurement-units | Measurement & Units
+nuclear-physics | Nuclear Physics
+pressure-density | Pressure & Density
+thermal-physics | Thermal Physics
+waves-sound | Waves & Sound

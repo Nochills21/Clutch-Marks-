@@ -1,0 +1,11 @@
+{
+  "1": "In one period a wave advances by one wavelength, so speed equals frequency times wavelength. Knowing what each term means lets you apply v = fλ to any wave.",
+  "2": "In a longitudinal wave the particles move along the direction of energy transfer, forming compressions and rarefactions. In a transverse wave they move at right angles, so the wave shows crests and troughs.",
+  "3": "Coherent sources with a constant phase difference interfere. A path difference of a whole number of wavelengths gives constructive interference, and half-integer multiples give destructive interference. A standing wave forms when two waves of equal size travel in opposite directions.",
+  "4": "Tension gives the restoring force, so greater tension raises the wave speed. A heavier string, with larger mass per unit length, carries waves more slowly.",
+  "5": "Intensity is power per unit area. The area a source spreads over grows with the square of the distance, so intensity falls with the inverse square of distance.",
+  "6": "Light bends towards the normal when it enters a denser medium, as Snell's law describes. Total internal reflection occurs beyond the critical angle, where the refracted ray would travel along the surface, so sin c = 1/n.",
+  "7": "Adjacent slits differ in path length by d sin θ, and bright maxima occur where that difference is a whole number of wavelengths. The first order corresponds to n = 1.",
+  "8": "Particles such as electrons have a wavelength λ = h/p, which is why electron diffraction is possible. The wave nature of matter follows from the same relation that describes light.",
+  "9": "Light arrives as photons with energy hf, and an electron leaves the metal only if the photon energy exceeds the work function. Energy conservation gives the maximum kinetic energy as hf minus the work function."
+}

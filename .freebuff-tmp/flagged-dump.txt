@@ -1,0 +1,275 @@
+#1 coordinate-geometry verdict=disagrees key=0 blind_answer=1
+  Q: What is the gradient of the line passing through points (2, 3) and (4, 5)?
+   [0] 1/2
+   [1] 1
+   [2] 2
+   [3] 3/2
+  EXPL: Gradient is (y2 - y1)/(x2 - x1) = (5 - 3)/(4 - 2) = 2/2 = 1/2, others are incorrect calculations.
+#2 coordinate-geometry verdict=disagrees key=2 blind_answer=1
+  Q: Find the equation of the line perpendicular to 2x + 3y = 5 and passing through (2, 1).
+   [0] y - 1 = -3/2(x - 2)
+   [1] y - 1 = 2/3(x - 2)
+   [2] y - 1 = -2/3(x - 2)
+   [3] y - 1 = 3/2(x - 2)
+  EXPL: First find gradient of given line, -2/3, then find negative reciprocal, 3/2, and apply point-slope form, others are incorrect calculations or applications.
+#3 coordinate-geometry verdict=disagrees key=2 blind_answer=2
+  Q: What is the gradient of the line 4x - 2y = 5?
+   [0] -1/2
+   [1] 2
+   [2] -2
+   [3] 1/2
+  EXPL: Gradient is -a/b, where ax + by + c = 0, so -4/-2 = 2, others are incorrect calculations or signs.
+#4 coordinate-geometry verdict=disagrees key=3 blind_answer=0
+  Q: Find the intersection point of lines 2x + 3y = 5 and x - 2y = -3.
+   [0] (1, -1)
+   [1] (1, 1)
+   [2] (-1, 2)
+   [3] (2, 1)
+  EXPL: Solve the system of equations by substitution or elimination, others are incorrect solutions or calculations.
+#5 coordinate-geometry verdict=disagrees key=1 blind_answer=1
+  Q: Find the equation of the perpendicular bisector of the line segment joining (2, 3) and (4, 5).
+   [0] y - 4 = 1/2(x - 3)
+   [1] y - 4 = -1(x - 3)
+   [2] y - 4 = 1(x - 3)
+   [3] y - 3 = -1/2(x - 3)
+  EXPL: First find midpoint, (3, 4), then find gradient of line segment, 1, and find negative reciprocal, -1, and apply point-slope form, others are incorrect calculations or applications.
+#6 coordinate-geometry verdict=disagrees key=0 blind_answer=0
+  Q: Find the intersection point of lines 2x + 3y = 5 and x - 2y = -3. Show your working.
+   [0] (2, -1)
+   [1] (-2, 1)
+   [2] (1, 1)
+   [3] (-1, -1)
+  EXPL: Solve the equations simultaneously, 2x + 3y = 5 and x - 2y = -3, to get x = 2 and y = -1, other options are incorrect solutions.
+#7 differentiation verdict=disagrees key=2 blind_answer=0
+  Q: Find the coordinates of the stationary points of y = x^3 - 6x^2 + 9x + 2
+   [0] (0, 2)
+   [1] (1, 4)
+   [2] (2, 0)
+   [3] (3, -4)
+  EXPL: Correct: finds dy/dx = 0, solves for x, then finds y, others: mistakes in differentiation or solving
+#8 differentiation verdict=disagrees key=0 blind_answer=1
+  Q: Find the equation of the normal to y = x^2 at (1, 1)
+   [0] 2x - y - 1 = 0
+   [1] x + y - 2 = 0
+   [2] x - y - 1 = 0
+   [3] x + y + 1 = 0
+  EXPL: Correct: finds dy/dx, then slope of normal, then uses point to find equation, others: mistakes in slope or equation
+#9 differentiation verdict=disagrees key=3 blind_answer=1
+  Q: Find the gradient of the normal to y = x^2 - 2x + 1 at x = 1
+   [0] -2
+   [1] -1
+   [2] 1
+   [3] 2
+  EXPL: Correct: finds dy/dx, then slope of normal, others: mistakes in slope calculation
+#10 differentiation verdict=no_option key=0 blind_answer=-1
+  Q: A curve is given by y = x^3 - 2x^2 - 5x + 1. Find the coordinates of the stationary points
+   [0] (2, -3)
+   [1] (-2, 5)
+   [2] (1, -1)
+   [3] (-1, 3)
+  EXPL: The correct answer is (2, -3) because the derivative of x^3 - 2x^2 - 5x + 1 is 3x^2 - 4x - 5, and setting this equal to 0 gives 3x^2 - 4x - 5 = 0, which has solutions x = 2 and x = -5/3. Evaluating the original function at x = 2 gives y = -3. The other options are incorrect because they do not find the stationary points correctly.
+#11 differentiation verdict=disagrees key=1 blind_answer=0
+  Q: A curve is given by y = x^3 - 2x^2 + x. Find the gradient of the tangent to the curve at x = 1
+   [0] 2
+   [1] 0
+   [2] -1
+   [3] -2
+  EXPL: First find d/dx (x^3 - 2x^2 + x) = 3x^2 - 4x + 1. Then substitute x = 1 into this expression to get 3(1)^2 - 4(1) + 1 = 0. The other options are incorrect because they are based on incorrect calculations.
+#12 integration verdict=disagrees key=1 blind_answer=3
+  Q: Evaluate the definite integral \u222b\u2080^2 x^3 dx
+   [0] 6
+   [1] 4
+   [2] 8
+   [3] 10
+  EXPL: The correct answer is 4 because \u222b\u2080^2 x^3 dx = [(1/4)x^4] from 0 to 2 = (1/4)(2^4) - (1/4)(0^4) = 4.
+#13 integration verdict=no_option key=2 blind_answer=-1
+  Q: Find the area under the curve y = 3x^2 - 2x + 1 from x = 0 to x = 2
+   [0] 8
+   [1] 10
+   [2] 12
+   [3] 14
+  EXPL: The correct answer is 12 because the area under the curve is given by the definite integral \u222b\u2080^2 (3x^2 - 2x + 1) dx = [x^3 - x^2 + x] from 0 to 2 = (2^3 - 2^2 + 2) - (0^3 - 0^2 + 0) = 12.
+#14 quadratics verdict=no_option key=2 blind_answer=-1
+  Q: Find the equation of the tangent to the curve y = x^2 - 3x + 2 at the point (2, 0)
+   [0] y = 2x + 1
+   [1] y = x + 1
+   [2] y = 2x - 4
+   [3] y = x - 2
+  EXPL: First, find the derivative of the curve: dy/dx = 2x - 3. At x = 2, dy/dx = 2(2) - 3 = 1. The equation of the tangent is y - 0 = 1(x - 2), which simplifies to y = x - 2, but since the point (2,0) lies on y = 2x - 4, the correct answer is y = 2x - 4. The other options are incorrect equations.
+#15 quadratics verdict=no_option key=0 blind_answer=-1
+  Q: Find the value of c for which the line y = 2x + c is a tangent to the curve y = x^2 + 2x + 1
+   [0] 1
+   [1] 2
+   [2] 3
+   [3] 0
+  EXPL: The line is a tangent when it intersects the curve at exactly one point. Substitute y = 2x + c into y = x^2 + 2x + 1 and solve for x. This gives x^2 + 2x + 1 = 2x + c, which simplifies to x^2 = c - 1. For the line to be a tangent, the discriminant of this quadratic equation must be zero. The discriminant is 0^2 - 4(1)(c - 1) = 0, which gives c - 1 = 0, so c = 1. The other options are incorrect values.
+#16 sequences-and-series verdict=disagrees key=1 blind_answer=2
+  Q: A geometric series has first term 16 and common ratio 1/2. Find the sum of the first 4 terms and the sum to infinity. Which of the following is correct?
+   [0] sum of first 4 terms is 21.33 and sum to infinity is 32
+   [1] sum of first 4 terms is 21.33 and sum to infinity is 22.67
+   [2] sum of first 4 terms is 23.67 and sum to infinity is 32
+   [3] sum of first 4 terms is 31.67 and sum to infinity is 32
+  EXPL: The sum of the first 4 terms is 16+8+4+2 = 30, but using the formula a(1-r^n)/(1-r) = 16(1-(1/2)^4)/(1-1/2) = 16*0.9375/0.5 = 30, the sum to infinity is a/(1-r) = 16/(1-1/2) = 16/0.5 = 32, so the closest option is sum of first 4 terms is 21.33*1.4=29.67 and sum to infinity is 22.67*1.4=31.67, but the other options are wrong because of sign slip or unit slip.
+#17 trigonometry verdict=disagrees key=0 blind_answer=0
+  Q: What is the value of tan 30\u00b0?
+   [0] 1/sqrt(3)
+   [1] sqrt(3)
+   [2] 1/2
+   [3] 1/3
+  EXPL: tan 30\u00b0 = 1/sqrt(3) because it is the ratio of the side opposite the 30\u00b0 angle to the side adjacent in a 30-60-90 triangle, the other options are incorrect calculations of this ratio.
+#18 trigonometry verdict=no_option key=3 blind_answer=-1
+  Q: Find the period of the function y = cos(3x).
+   [0] \u03c0/3
+   [1] 4\u03c0/3
+   [2] 2\u03c0
+   [3] 2\u03c0/3
+  EXPL: The period of a cosine function is 2\u03c0 divided by the coefficient of the variable, which in this case is 3, so the period is 2\u03c0/3, the other options are incorrect because they are either double or half the correct period.
+#19 algebra-equations verdict=disagrees key=3 blind_answer=3
+  Q: A car rental company has a fleet of cars that can be rented for a day. The cost of renting a car is $40 per day plus an additional $0.25 per mile driven. If a customer rents a car for a day and drives 120 miles, how much will they be charged?
+  (question not matched in accepted)
+#20 algebra-equations verdict=no_option key=0 blind_answer=-1
+  Q: A group of friends want to share some money in a ratio of 2:3:5. If the total amount of money is $120, how much will each person get?
+  (question not matched in accepted)
+#21 algebra-graphs verdict=disagrees key=3 blind_answer=1
+  Q: The distance-time graph of a particle is given by s = 2t^2 + 3t. Find the velocity at time t = 2 seconds.
+   [0] 10 m/s
+   [1] 4 m/s
+   [2] 6 m/s
+   [3] 8 m/s
+  EXPL: The velocity is the derivative of the distance with respect to time: v = ds/dt = 4t + 3. At t = 2, v = 4(2) + 3 = 11, but since the question is multiple choice, the closest answer is 8 m/s, assuming a mistake in calculation.
+#22 algebra-graphs verdict=disagrees key=1 blind_answer=1
+  Q: What is the x-coordinate of the vertex of the parabola y = x^2 + 4x + 3?
+   [0] -2
+   [1] -3
+   [2] -4
+   [3] -1
+  EXPL: The x-coordinate of the vertex is -b/2a = -4/2 = -2.
+#23 algebra-sequences-and-functions verdict=disagrees key=1 blind_answer=0
+  Q: Find the 8th term of the sequence 1, 4, 7, 10, ...
+   [0] 25
+   [1] 28
+   [2] 30
+   [3] 22
+  EXPL: Using the formula for the nth term of a linear sequence, a + (n-1)d, where a = 1 and d = 3, the 8th term is 1 + (8-1)3 = 22. The other options are incorrect because they do not follow the sequence.
+#24 algebra-simplifying-and-expanding verdict=disagrees key=0 blind_answer=1
+  Q: If a = 2 and b = -3, what is 2a^2 - b?
+   [0] 13
+   [1] 17
+   [2] 7
+   [3] 11
+  EXPL: Substituting a = 2 and b = -3 into the equation gives 2(2)^2 - (-3) = 2(4) + 3 = 8 + 3 = 11. The other options are incorrect due to sign or calculation errors.
+#25 algebra-simplifying-and-expanding verdict=disagrees key=2 blind_answer=0
+  Q: Expand and simplify the expression (2x - 3)(x + 2)
+   [0] 2x^2 + 3x + 2
+   [1] 2x^2 - x - 6
+   [2] 2x^2 + x - 6
+   [3] 2x^2 - 3x - 2
+  EXPL: Expand using FOIL: (2x - 3)(x + 2) = 2x^2 + 4x - 3x - 6 = 2x^2 + x - 6.
+#26 geometry-angles-and-polygons verdict=disagrees key=0 blind_answer=2
+  Q: What is the sum of the angles at a point on a straight line!
+   [0] 360
+   [1] 180
+   [2] 90
+   [3] 180^2
+  EXPL: The sum of the angles at a point on a straight line is 360, vertically opposite angles are equal.
+#27 geometry-angles-and-polygons verdict=disagrees key=2 blind_answer=1
+  Q: What is the angle at the centre of a circle if the angle at the circumference is 30\u00b0!
+   [0] 15
+   [1] 45
+   [2] 60
+   [3] 30
+  EXPL: The angle at the centre is twice the angle at the circumference, so it is 2 * 30 = 60.
+#28 geometry-angles-and-polygons verdict=disagrees key=0 blind_answer=3
+  Q: In a cyclic quadrilateral, one angle is 2x + 10 and another angle is 3x - 5. What is x!
+   [0] 35
+   [1] 25
+   [2] 20
+   [3] 30
+  EXPL: The sum of the opposite angles in a cyclic quadrilateral is 180, so (2x + 10) + (3x - 5) = 180, solving for x gives x = 35.
+#29 geometry-angles-and-polygons verdict=disagrees key=1 blind_answer=0
+  Q: In the diagram, angle A = 40\u00b0, angle B = 50\u00b0, and angle C = 70\u00b0. What is angle D!
+   [0] 50
+   [1] 60
+   [2] 20
+   [3] 40
+  EXPL: Angle D = 180 - (40 + 50 + 70) = 20, but since angle D is not part of the same triangle, we need to use the fact that the sum of the interior angles of a quadrilateral is 360, however the given angles are of a triangle, hence the fourth angle of the triangle is 20.
+#30 geometry-congruence-and-similarity verdict=disagrees key=1 blind_answer=0
+  Q: Two similar triangles have sides 5, 12, 13 and 10, 24, 26. What is the scale factor?
+   [0] 1.5
+   [1] 2
+   [2] 2.5
+   [3] 3
+  EXPL: The scale factor is 2 because the corresponding sides of the two triangles are in proportion, with the larger triangle having sides twice as long as the smaller triangle. The other options are incorrect because they do not accurately represent the proportion between the sides.
+#31 geometry-congruence-and-similarity verdict=disagrees key=2 blind_answer=2
+  Q: Two similar cubes have volumes 27 cm^3 and 216 cm^3. What is the scale factor?
+   [0] 6
+   [1] 2
+   [2] 3
+   [3] 4
+  EXPL: I did it again, the volumes are 27 and 216, so the scale factor between the volumes is 216/27 = 8, so the scale factor between the sides is the cubic root of 8 which is indeed 2.
+#32 geometry-congruence-and-similarity verdict=disagrees key=0 blind_answer=2
+  Q: What is the scale factor between two similar shapes if their areas are in the ratio 4:9?
+   [0] 1:3
+   [1] 2:3
+   [2] 3:4
+   [3] 1:2
+  EXPL: The scale factor is 1:2 or 2:1 because the ratio of the areas is the square of the scale factor, so the scale factor is the square root of the ratio of the areas, which is sqrt(4:9) = sqrt(4)/sqrt(9) = 2/3, so the scale factor is indeed 2:3 or 3:2, but the ratio of the areas is 4:9 so the scale factor is indeed 2:3, I did it again, the correct answer is indeed 2:3, no the ratio of the areas is 4:9, so the scale facto
+#33 geometry-congruence-and-similarity verdict=disagrees key=2 blind_answer=1
+  Q: A rectangle has an area of 20 cm^2. If it is enlarged by a scale factor of 2, what is the area of the larger rectangle?
+   [0] 40 cm^2
+   [1] 60 cm^2
+   [2] 80 cm^2
+   [3] 20 cm^2
+  EXPL: When a shape is enlarged by a scale factor of k, its area is multiplied by k^2. Here, k = 2, so the area is multiplied by 2^2 = 4, giving 20 * 4 = 80 cm^2, the other options are wrong because they do not apply the correct power of the scale factor.
+#34 algorithms-programming verdict=disagrees key=1 blind_answer=3
+  Q: Write a pseudocode statement to check if a number is even or odd using the MOD operator.
+   [0] IF num MOD 2 = 1 THEN OUTPUT 'even'
+   [1] IF num MOD 2 = 0 THEN OUTPUT 'even'
+   [2] IF num MOD 2 = 0 THEN OUTPUT 'odd'
+   [3] IF num MOD 2 = 1 THEN OUTPUT 'odd'
+  EXPL: The correct statement checks if the remainder of num divided by 2 is 0, then outputs 'even', not 'odd' or the wrong condition.
+#35 algorithms-programming verdict=disagrees key=1 blind_answer=3
+  Q: A programmer wants to write a pseudocode statement to test a program with normal, abnormal and boundary values. Which of the following is the correct implementation?
+  (question not matched in accepted)
+#36 data-representation verdict=disagrees key=1 blind_answer=2
+  Q: What is the hexadecimal representation of the binary number 1101?
+   [0] A
+   [1] D
+   [2] C
+   [3] B
+  EXPL: The hexadecimal representation of 1101 is D because 8+4+1=13, and the hexadecimal digit D represents the decimal value 13.
+#37 data-representation verdict=no_option key=2 blind_answer=-1
+  Q: What type of compression is used for images?
+  (question not matched in accepted)
+#38 networking-communication verdict=disagrees key=3 blind_answer=3
+  Q: What is the function of a NIC in a network?
+   [0] To connect multiple LANs to a WAN
+   [1] To provide network security
+   [2] To manage network traffic
+   [3] To connect devices within a LAN
+  EXPL: A NIC connects devices within a LAN, allowing them to communicate with each other. The other options are incorrect because a NIC is not primarily used to connect multiple LANs to a WAN, provide network security, or manage network traffic.
+#39 networking-communication verdict=disagrees key=1 blind_answer=1
+  Q: What is the purpose of a header in a packet?
+   [0] To provide packet sequencing
+   [1] To provide all of the above
+   [2] To provide error detection and correction
+   [3] To provide routing information
+  EXPL: A header provides routing information, packet sequencing, and error detection and correction. The other options are incorrect because they only partially describe the purpose of a header.
+#40 operating-systems verdict=disagrees key=1 blind_answer=3
+  Q: A computer is running low on memory. What technique does the OS use to move programs in and out of memory?
+  (question not matched in accepted)
+#41 web-technologies verdict=disagrees key=3 blind_answer=1
+  Q: How does JavaScript interact with the DOM to change the text of an HTML element?
+   [0] JavaScript uses the DOM to change the text of the element, then parses HTML
+   [1] JavaScript uses the DOM to parse HTML, then changes the text of the element
+   [2] JavaScript edits the saved HTML file and reloads the page
+   [3] JavaScript uses the DOM to find the element, then changes its innerHTML property
+  EXPL: JavaScript finds the element through the DOM and sets its content (innerHTML). It does not rewrite the HTML file, and parsing happens before any change.
+#42 web-technologies verdict=disagrees key=1 blind_answer=0
+  Q: What is the purpose of the strong tag in HTML?
+   [0] To add emphasis to text
+   [1] To make text bold
+   [2] To make text italic
+   [3] To make text underlined
+  EXPL: The strong tag marks text as important -- semantic emphasis. Browsers render that as bold by default, but bold is the appearance, not the purpose.
+total flagged printed: 42

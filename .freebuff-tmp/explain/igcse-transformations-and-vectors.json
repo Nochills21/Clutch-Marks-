@@ -1,0 +1,6 @@
+{
+  "1": "A transformation is fixed only by its parameters: a reflection needs its mirror line, and a rotation needs its centre, angle and direction. Without them the image is not uniquely determined.",
+  "2": "A column vector splits a movement into across and up parts. Because the parts are independent, vectors add and subtract component by component.",
+  "3": "The magnitude is the length of the vector. Pythagoras on the two components gives that length.",
+  "4": "Going from A to B is the same as going from the origin to B and back to A, so AB = b − a. The midpoint is halfway, so its position vector is the average of the two."
+}

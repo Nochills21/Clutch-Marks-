@@ -1,0 +1,81 @@
+=== wma11-p1-b009.json Q202 (statement_code WMA11 1.2, difficulty exam)
+STEM: Expand and simplify \((\sqrt{7} - \sqrt{3})^2\). Give your answer in the form \(a + b\sqrt{21}\). [WMA11 P1, 2 marks]
+  0: 4
+  1: \(4 - 2\sqrt{21}\)
+  2: \(10 + 2\sqrt{21}\)
+  3: \(10 - 2\sqrt{21}\)
+KEY: 3 -> \(10 - 2\sqrt{21}\)
+EXP: Write out the brackets twice: \((\sqrt{7} - \sqrt{3})(\sqrt{7} - \sqrt{3})\). Expand using FOIL to get \(7 - \sqrt{21} - \sqrt{21} + 3\) M1 [1]. Combine the integer terms (7 + 3 = 10) and the surd terms to yield exactly \(10 - 2\sqrt{21}\) A1 [1]. Be careful not to square each term separately and claim the value is 4.
+
+=== wma11-p1-b014.json Q336 (statement_code WMA11 5.1, difficulty exam)
+STEM: Find the coordinates of the midpoint of the line segment joining (-3, 4) and (5, -2). [WMA11 P1, 2 marks]
+  0: (2, 2)
+  1: (1, -1)
+  2: (1, 1)
+  3: (-1, 1)
+KEY: 2 -> (1, 1)
+EXP: Apply the midpoint formula: \((\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})\) M1 [1]. Substitute the coordinates: \((\frac{-3 + 5}{2}, \frac{4 + (-2)}{2})\). This simplifies to \((\frac{2}{2}, \frac{2}{2})\), yielding exactly (1, 1) A1 [1].
+
+=== wma11-p1-b015.json Q369 (statement_code WMA11 7.4, difficulty exam)
+STEM: Find the range of values for x for which the function \(y = x^3 - 6x^2 + 9x\) is decreasing. [WMA11 P1, 4 marks]
+  0: \(1 < x < 3\)
+  1: \(x < 1 \text{ or } x > 3\)
+  2: \(-3 < x < -1\)
+  3: \(x < -3 \text{ or } x > -1\)
+KEY: 0 -> \(1 < x < 3\)
+EXP: A function is decreasing where its first derivative is negative. Differentiate to get \(\frac{dy}{dx} = 3x^2 - 12x + 9\) M1 [1]. Set up the inequality \(3x^2 - 12x + 9 < 0\) and divide by 3: \(x^2 - 4x + 3 < 0\). Factorise: \((x - 1)(x - 3) < 0\) M1 [1]. The critical values are 1 and 3 M1 [1]. The positive quadratic falls below the x-axis between its roots, giving exactly \(1 < x < 3\) A1 [1].
+
+=== wma11-p1-b017.json Q447 (statement_code WMA11 6.3, difficulty exam)
+STEM: In triangle ABC, side a = 4 cm, side b = 7 cm, and angle C = \(60^\circ\). Find the exact length of side c. [WMA11 P1, 3 marks]
+  0: 37
+  1: \(\sqrt{37}\)
+  2: \(\sqrt{65}\)
+  3: \(\sqrt{93}\)
+KEY: 1 -> \(\sqrt{37}\)
+EXP: Apply the cosine rule: \(c^2 = a^2 + b^2 - 2ab\cos C\) M1 [1]. Substitute the values: \(c^2 = 4^2 + 7^2 - 2(4)(7)\cos 60^\circ\). Calculate: \(c^2 = 16 + 49 - 56(0.5)\) M1 [1]. This simplifies to \(65 - 28 = 37\). Take the square root: \(c = \sqrt{37}\), which is the exact length A1 [1].
+
+=== wma11-p1-b018.json Q465 (statement_code WMA11 6.1, difficulty exam)
+STEM: Convert \(225^\circ\) into radians. State the exact value in terms of \(\pi\). [WMA11 P1, 2 marks]
+  0: \(\frac{3\pi}{4}\)
+  1: \(\frac{5\pi}{4}\)
+  2: \(\frac{7\pi}{4}\)
+  3: \(\frac{5\pi}{3}\)
+KEY: 1 -> \(\frac{5\pi}{4}\)
+EXP: To convert degrees to radians, multiply the angle by \(\frac{\pi}{180}\) M1 [1]. This gives \(225 \times \frac{\pi}{180}\). Simplify by dividing the numerator and denominator by 45 to get exactly \(\frac{5\pi}{4}\) A1 [1].
+
+=== wma11-p1-b018.json Q469 (statement_code WMA11 6.3, difficulty exam)
+STEM: In triangle ABC, side a = 2 cm, side b = 9 cm, and angle C = \(60^\circ\). Find the exact length of side c. [WMA11 P1, 3 marks]
+  0: 67
+  1: \(\sqrt{67}\)
+  2: \(\sqrt{85}\)
+  3: \(\sqrt{103}\)
+KEY: 1 -> \(\sqrt{67}\)
+EXP: Use the cosine rule: \(c^2 = a^2 + b^2 - 2ab\cos C\) M1 [1]. Substitute the values: \(c^2 = 2^2 + 9^2 - 2(2)(9)\cos 60^\circ\). Calculate: \(c^2 = 4 + 81 - 36(0.5)\) M1 [1]. This simplifies to \(85 - 18 = 67\). Take the square root to find exactly \(\sqrt{67}\) A1 [1].
+
+=== wma11-p1-b018.json Q475 (statement_code WMA11 8.2, difficulty exam)
+STEM: A curve has gradient function \(\frac{dy}{dx} = 4x - 1\) and passes through the point (2, 5). Find the equation of the curve. [WMA11 P1, 3 marks]
+  0: \(y = 2x^2 - x - 1\)
+  1: \(y = 2x^2 - x + 1\)
+  2: \(y = 2x^2 - x - 5\)
+  3: \(y = 2x^2 - x\)
+KEY: 0 -> \(y = 2x^2 - x - 1\)
+EXP: Integrate the gradient function to get the general curve equation: \(y = \frac{4x^2}{2} - x + c = 2x^2 - x + c\) M1 [1]. Substitute the coordinate (2, 5) to solve for c: \(5 = 2(2)^2 - 2 + c\) M1 [1]. This simplifies to \(5 = 6 + c\), which gives \(c = -1\). The equation of the curve is exactly \(y = 2x^2 - x - 1\) A1 [1].
+
+=== wma11-p1-b019.json Q485 (statement_code WMA11 5.3, difficulty exam)
+STEM: Find the point of intersection of the lines \(2x + y = 11\) and \(x - y = 1\). [WMA11 P1, 3 marks]
+  0: (3, 4)
+  1: (4, 5)
+  2: (4, 3)
+  3: (3, 5)
+KEY: 2 -> (4, 3)
+EXP: Add the two equations to eliminate y: \((2x + y) + (x - y) = 11 + 1\) M1 [1]. This simplifies to \(3x = 12\), giving \(x = 4\) M1 [1]. Substitute \(x = 4\) into the second equation: \(4 - y = 1\), which means \(y = 3\). The intersection is exactly (4, 3) A1 [1].
+
+=== wma12-p2-b007.json Q153 (statement_code WMA12 2.1, difficulty exam)
+STEM: Find the coefficient of \(x^3\) in the binomial expansion of \((2 - x)^5\). State the exact integer value. [WMA12 P2, 2 marks]
+  0: -40
+  1: 40
+  2: -80
+  3: -10
+KEY: 0 -> -40
+EXP: Use the general term formula for \((a + bx)^n\), which is \(\binom{n}{r} a^{n-r} (bx)^r\) M1 [1]. For \(x^3\), \(n = 5, r = 3, a = 2, b = -1\). The term is \(\binom{5}{3}(2)^{5-3}(-x)^3 = 10(4)(-x^3)\) M1 [1]. Calculate the product: \(10 \times 4 \times (-1) = -40\). The exact coefficient is -40 A1 [1].
+

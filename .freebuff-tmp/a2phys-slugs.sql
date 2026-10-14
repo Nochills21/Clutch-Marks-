@@ -1,0 +1,1 @@
+select t.slug, t.name, sl.level::text as lvl, (select count(*) from quizzes z where z.topic_id=t.id) as quizzes from topics t join subject_levels sl on sl.id=t.subject_level_id join subjects s on s.id=sl.subject_id where s.name ilike '%physics%' and sl.level::text ilike '%a2%' order by t.sort_order nulls last, t.slug;

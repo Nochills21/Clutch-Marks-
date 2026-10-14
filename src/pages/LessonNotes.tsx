@@ -22,6 +22,15 @@ import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { QueryError } from "@/components/QueryError";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
+import type { Tables } from "@/integrations/supabase/types";
+
+// The lesson row plus the topic → subject_level → subject join the select above returns.
+type LessonWithTopic = Pick<Tables<"lessons">, "id" | "title" | "content" | "topic_id"> & {
+  topics: {
+    name: string;
+    subject_levels: { id: string; level: string; subjects: { name: string; slug: string } | null } | null;
+  } | null;
+};
 
 export default function LessonNotes() {
   const { lessonId } = useParams();
@@ -30,7 +39,7 @@ export default function LessonNotes() {
   const { failure, report } = useLoadFailure("this lesson");
   const [reloadKey, setReloadKey] = useState(0);
   const bump = () => setReloadKey((k) => k + 1);
-  const [lesson, setLesson] = useState<any>(null);
+  const [lesson, setLesson] = useState<LessonWithTopic | null>(null);
   const [notes, setNotes] = useState<NoteRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [lessonDone, setLessonDone] = useState(false);

@@ -1,0 +1,69 @@
+{
+  "run": "1b614996",
+  "at": "2026-10-13T16:37:09.076Z",
+  "status": 200,
+  "ms": 18247,
+  "json": {
+    "corrected_papers": [
+      {
+        "question": "Q7(a) [3 marks] Sector POS, angle 1.65 rad, area 30 m^2, PQ = 2.8 m. Show OQ = 8.83 m (3 s.f.).",
+        "original_answer": "Area = 1/2 r^2 theta: 30 = 0.5 x OP^2 x 1.65, so OP^2 = 60/1.65 = 36.36, OP = 6.03. OQ = OP + PQ = 6.03 + 2.8 = 8.83 m (3 s.f.).",
+        "correct_answer": "Area = 1/2 r^2 theta with area 30 and theta 1.65 to find OP (OP^2 = 60/1.65, OP = 6.03). OQ = OP + 2.8 = 6.03 + 2.8 = 8.83 m to 3 s.f.",
+        "marks_earned": 3,
+        "total_marks": 3,
+        "feedback": "The student correctly applied the formula for the area of a sector and calculated OQ. The answer is correct to 3 significant figures.",
+        "grade": 100,
+        "comment": "The student demonstrated a thorough understanding of the concept and applied it correctly to find the value of OQ.",
+        "watermark": "Clutch Marks · AI-marked · 2853aa6e",
+        "audit_ref": "2853aa6e-587d-4292-9760-43589037289f"
+      },
+      {
+        "question": "Q7(b) [3 marks] Find the total surface area of the swimming pool to the nearest integer.",
+        "original_answer": "Major angle = 2pi - 1.65 = 4.63. Major area = 0.5 x 8.83^2 x 4.63 = 178.4 (my arithmetic). Total = 30 + 178.4 = 208.4, so 208 m^2.",
+        "correct_answer": "Major sector angle = 2pi - 1.65 (= 4.63). Major sector area = 1/2 x (their OQ)^2 x (2pi - 1.65). Total = 211 m^2 to the nearest integer",
+        "marks_earned": 2,
+        "total_marks": 3,
+        "feedback": "The student correctly calculated the major sector angle, but the final answer is incorrect due to arithmetic error. The correct total surface area should be around 211 m^2.",
+        "grade": 67,
+        "comment": "The student demonstrated a good understanding of the concept, but made an arithmetic error that affected the final answer.",
+        "watermark": "Clutch Marks · AI-marked · 2853aa6e",
+        "audit_ref": "2853aa6e-587d-4292-9760-43589037289f"
+      },
+      {
+        "question": "Q7(c) [3 marks] Find the total perimeter of the swimming pool to 2 s.f.",
+        "original_answer": "Perimeter = 2 x pi x 8.83 + 2 x pi x 6.03 = 55.5 + 37.9 = 93.4, so 93 m.",
+        "correct_answer": "M1 both arc lengths: (their OP) x 1.65 and (their OQ) x (2pi - 1.65). M1 adds both straight radial edges 2 x 2.8. Total perimeter = 56 m to 2 s.f.",
+        "marks_earned": 0,
+        "total_marks": 3,
+        "feedback": "The student incorrectly calculated the perimeter by using the wrong formula. The correct formula should involve the arc lengths and the radial edges.",
+        "grade": 0,
+        "comment": "The student did not demonstrate an understanding of the concept and applied an incorrect formula to find the perimeter.",
+        "watermark": "Clutch Marks · AI-marked · 2853aa6e",
+        "audit_ref": "2853aa6e-587d-4292-9760-43589037289f"
+      },
+      {
+        "question": "Q2 [5 marks] Find integral (x-3)^2 (2x-5) dx in simplest form.",
+        "original_answer": "Expand: (x^2-6x+9)(2x-5) = 2x^3 - 17x^2 + 48x - 45. Integrate: x^4/2 - 17x^3/3 + 24x^2 - 45x + c.",
+        "correct_answer": "Expand (x-3)^2(2x-5) to a four-term cubic. Integrate term by term: x^4/2 - 17x^3/3 + 24x^2 - 45x + c",
+        "marks_earned": 5,
+        "total_marks": 5,
+        "feedback": "The student correctly expanded the expression and integrated term by term to find the correct integral.",
+        "grade": 100,
+        "comment": "The student demonstrated a thorough understanding of the concept and applied it correctly to find the integral.",
+        "watermark": "Clutch Marks · AI-marked · 2853aa6e",
+        "audit_ref": "2853aa6e-587d-4292-9760-43589037289f"
+      }
+    ],
+    "overall_grade": 71,
+    "total_possible": 14,
+    "total_earned": 10,
+    "audit_ref": "2853aa6e-587d-4292-9760-43589037289f",
+    "source": "paste",
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "watermark": "Clutch Marks · AI-marked · 2853aa6e",
+    "mark_scheme": {
+      "loaded": true,
+      "chars": 883
+    }
+  }
+}
