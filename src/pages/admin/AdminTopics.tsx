@@ -14,13 +14,14 @@ import { contentSaveError } from "@/lib/contentGuards";
 import { openSignedFile } from "@/lib/contentFiles";
 
 type Note = { id: string; title: string; file_url: string | null; topic_id: string | null };
+type Topic = { id: string; name: string; description: string | null; sort_order: number };
 
 export default function AdminTopics() {
   const { toast } = useToast();
-  const [topics, setTopics] = useState<any[]>([]);
+  const [topics, setTopics] = useState<Topic[]>([]);
   const [notes, setNotes] = useState<Note[]>([]);
   const [open, setOpen] = useState(false);
-  const [editing, setEditing] = useState<any>(null);
+  const [editing, setEditing] = useState<Topic | null>(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [sortOrder, setSortOrder] = useState(0);
@@ -60,7 +61,7 @@ export default function AdminTopics() {
     load();
   };
 
-  const openEdit = (t) => {
+  const openEdit = (t: Topic) => {
     setEditing(t); setName(t.name); setDescription(t.description ?? ""); setSortOrder(t.sort_order); setOpen(true);
   };
 

@@ -177,7 +177,8 @@ const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.8-flash";
 
 function geminiParts(content: string | unknown[]): unknown[] {
   if (typeof content === "string") return [{ text: content }];
-  return content.map((part: any) => {
+  return content.map((item) => {
+    const part = item as { type?: string; image_url?: { url?: string }; text?: string } | null;
     if (part?.type === "image_url") {
       const match = /^data:([^;]+);base64,([A-Za-z0-9+/=]+)$/.exec(
         String(part.image_url?.url ?? ""),
@@ -231,7 +232,7 @@ async function callGemini(
   }
   const data = await res.json();
   const candidate = data?.candidates?.[0];
-  const parts: any[] = Array.isArray(candidate?.content?.parts)
+  const parts: Array<{ text?: unknown }> = Array.isArray(candidate?.content?.parts)
     ? candidate.content.parts
     : [];
   const text = parts.map((p) => String(p?.text ?? "")).join("");
@@ -620,12 +621,12 @@ export async function handler(req: Request): Promise<Response> {
 
     const answerFiles: AnswerFile[] = (Array.isArray(body.answerFiles) ? body.answerFiles : [])
       .slice(0, MAX_ANSWER_FILES)
-      .filter((f: any) => f && typeof f === "object")
-      .map((f: any) => ({
+      .filter((f: unknown): f is Record<string, unknown> => Boolean(f) && typeof f === "object")
+      .map((f) => ({
         bucket: String(f.bucket ?? ""),
         path: String(f.path ?? ""),
-        name: f.name ?? null,
-        mimeType: f.mimeType ?? null,
+        name: typeof f.name === "string" ? f.name : null,
+        mimeType: typeof f.mimeType === "string" ? f.mimeType : null,
       }));
 
     const hasTyped = typeof rawPaper === "string"
@@ -744,7 +745,7 @@ Mark scheme style:
 
     const typedText = hasTyped
       ? (Array.isArray(rawPaper)
-        ? rawPaper.map((p: any) =>
+        ? rawPaper.map((p: { idx?: number; question?: string; answer?: string; text?: string }) =>
           `Q: ${p.question || "Question " + (p.idx ?? "")}\nStudent answer: ${p.answer || p.text || ""}`
         ).join("\n\n---\n\n")
         : String(rawPaper))
@@ -866,19 +867,20 @@ Mark scheme style:
 
     const auditRef = crypto.randomUUID();
 
-    const corrected: CorrectedPaper[] = parsed.map((raw: any, idx: number) => {
+    const corrected: CorrectedPaper[] = parsed.map((item, idx: number) => {
+      const raw = (item && typeof item === "object" ? item : {}) as Record<string, unknown>;
       // Bounded to 0..total_marks: a stray model value must never give a
       // negative mark or a grade above 100% (see marks.ts).
       const marks = normaliseMarks(raw);
       return {
-        question: String(raw?.question ?? `Question ${idx + 1}`),
-        original_answer: String(raw?.original_answer ?? ""),
-        correct_answer: String(raw?.correct_answer ?? ""),
+        question: String(raw.question ?? `Question ${idx + 1}`),
+        original_answer: String(raw.original_answer ?? ""),
+        correct_answer: String(raw.correct_answer ?? ""),
         marks_earned: marks.marks_earned,
         total_marks: marks.total_marks,
-        feedback: String(raw?.feedback ?? ""),
+        feedback: String(raw.feedback ?? ""),
         grade: marks.grade,
-        comment: String(raw?.comment ?? ""),
+        comment: String(raw.comment ?? ""),
         watermark: `Clutch Marks · AI-marked · ${auditRef.slice(0, 8)}`,
         audit_ref: auditRef,
       };

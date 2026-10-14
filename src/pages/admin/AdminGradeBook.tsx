@@ -306,7 +306,7 @@ export default function AdminGradeBook() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input placeholder="Search students..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
         </div>
-        <Select value={sortBy} onValueChange={(v) => setSortBy(v as any)}>
+        <Select value={sortBy} onValueChange={(v) => setSortBy(v as "name" | "quiz_avg")}>
           <SelectTrigger className="w-[180px]">
             <SelectValue />
           </SelectTrigger>

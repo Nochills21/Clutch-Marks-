@@ -10,10 +10,18 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/useToast";
+import type { Tables } from "@/integrations/supabase/types";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
-import { format } from "date-fns";
+import { addMonths, format } from "date-fns";
 import { Check, X, RefreshCw, Landmark, Wallet, ReceiptText, Download } from "lucide-react";
+
+/** A subscription row with its plan embed. The profile is looked up by user_id
+ * separately: subscriptions has no foreign key to profiles, so an embed fails. */
+type SubscriptionRow = Tables<"subscriptions"> & {
+  plans: { name: string; months: number; price_monthly: number } | null;
+};
+type ProfileContact = { username: string | null; full_name: string | null; email: string | null };
 
 const PLAN_PRICE: Record<string, string> = { free: "—", monthly: "$40/mo", quarterly: "$72 / 3mo", annual: "$80 / yr" };
 
@@ -36,7 +44,8 @@ function MethodBadge({ method }: { method: string | null }) {
 export default function AdminPayments() {
   const { toast } = useToast();
   const { role } = useAuth();
-  const [rows, setRows] = useState<any[]>([]);
+  const [rows, setRows] = useState<SubscriptionRow[]>([]);
+  const [profiles, setProfiles] = useState<Record<string, ProfileContact>>({});
   const [loading, setLoading] = useState(true);
   const { failure, report, clear } = useLoadFailure("subscription requests");
 
@@ -45,7 +54,7 @@ export default function AdminPayments() {
     clear();
     const { data, error } = await supabase
       .from("subscriptions")
-      .select("*, profiles(username, full_name, email), plans(name, months, price_monthly)")
+      .select("*, plans(name, months, price_monthly)")
       .order("created_at", { ascending: false })
       .limit(200);
     // A failed read rendered "No subscription requests yet.", so an admin could
@@ -56,14 +65,30 @@ export default function AdminPayments() {
       setLoading(false);
       return;
     }
-    setRows(data ?? []);
+    const list = (data ?? []) as SubscriptionRow[];
+    setRows(list);
+    const userIds = [...new Set(list.map((r) => r.user_id))];
+    if (userIds.length > 0) {
+      const { data: profileRows, error: profileError } = await supabase
+        .from("profiles")
+        .select("user_id, username, full_name, email")
+        .in("user_id", userIds);
+      if (profileError) report(profileError);
+      const map: Record<string, ProfileContact> = {};
+      (profileRows ?? []).forEach((p) => { map[p.user_id] = p; });
+      setProfiles(map);
+    } else {
+      setProfiles({});
+    }
     setLoading(false);
   };
   useEffect(() => { if (role === "admin") load(); }, [role]);
 
   const decide = async (id: string, approve: boolean, months: number) => {
+    // Calendar months: a 3-month plan runs to the same day three months on
+    // (not 90 fixed days), and an annual plan to the same day next year.
     const patch = approve
-      ? { status: "active", starts_at: new Date().toISOString(), ends_at: new Date(Date.now() + months * 30 * 864e5).toISOString(), updated_at: new Date().toISOString() }
+      ? { status: "active", starts_at: new Date().toISOString(), ends_at: addMonths(new Date(), months).toISOString(), updated_at: new Date().toISOString() }
       : { status: "cancelled", updated_at: new Date().toISOString() };
     const { error } = await supabase.from("subscriptions").update(patch).eq("id", id);
     if (error) {
@@ -126,8 +151,8 @@ export default function AdminPayments() {
                 rows.map(r => (
                   <TableRow key={r.id}>
                     <TableCell>
-                      <p className="font-medium text-sm">{r.profiles?.email ?? r.profiles?.username ?? r.user_id.slice(0, 8)}</p>
-                      <p className="text-xs text-muted-foreground">{r.profiles?.email}</p>
+                      <p className="font-medium text-sm">{profiles[r.user_id]?.email ?? profiles[r.user_id]?.username ?? r.user_id.slice(0, 8)}</p>
+                      <p className="text-xs text-muted-foreground">{profiles[r.user_id]?.email}</p>
                       {r.full_name && (
                         <p className="mt-0.5 flex items-center gap-1 text-[11px] text-muted-foreground">
                           <Download className="h-3 w-3" /> {r.full_name}

@@ -149,8 +149,9 @@ export default function AdminSubjects() {
         body: { topicId: aiTopicId, count: aiCount, difficulty: aiDifficulty, quizTitle: aiTitle || undefined },
       });
       if (error) throw error;
-      if ((data as any)?.error) throw new Error((data as any).error);
-      toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
+      const result = data as { error?: string; count?: number; title?: string } | null;
+      if (result?.error) throw new Error(result.error);
+      toast({ title: "Question bank generated", description: `${result?.count} questions added to "${result?.title}".` });
       setAiOpen(false); setAiTitle("");
     } catch (e) {
       toast({ title: "Generation failed", description: e.message ?? "Please try again.", variant: "destructive" });

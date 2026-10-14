@@ -22,8 +22,12 @@ import { Plus, Trash2, Pencil, FileText, FileCheck, Upload, ExternalLink, Folder
 import type { LucideIcon } from "lucide-react";
 import { format } from "date-fns";
 import { validateUploadFile, getSafeUploadExtension } from "@/lib/fileValidation";
-import { matchPaperFiles, type ArchivePaper, type PaperFileMatch } from "@/lib/pastPaperFiles";
+import { matchPaperFiles, type PaperFileMatch } from "@/lib/pastPaperFiles";
+import type { Enums, Tables } from "@/integrations/supabase/types";
 import { openSignedFile } from "@/lib/contentFiles";
+
+/** A past_papers row as loaded by the page, with its topic embed. */
+type PaperRow = Tables<"past_papers"> & { topics?: { name: string } | null };
 import { cn } from "@/lib/utils";
 
 const SESSIONS = ["May/June", "Oct/Nov", "Feb/Mar"];
@@ -77,7 +81,7 @@ export default function AdminPastPapers() {
   const { toast } = useToast();
   const qc = useQueryClient();
   const [open, setOpen] = useState(false);
-  const [editing, setEditing] = useState<any>(null);
+  const [editing, setEditing] = useState<Tables<"past_papers"> | null>(null);
   const [form, setForm] = useState({ title: "", year: currentYear, session: "", paper_number: "", topic_id: "", source_url: "", subject_slug: "none", level: "none" });
   const [paperFile, setPaperFile] = useState<File | null>(null);
   const [markSchemeFile, setMarkSchemeFile] = useState<File | null>(null);
@@ -205,7 +209,7 @@ export default function AdminPastPapers() {
         // Archive-level tagging: used when the paper isn't tied to a topic
         // (e.g. multi-year compilation PDFs on the Past Papers hub).
         subject_slug: form.subject_slug === "none" ? null : form.subject_slug,
-        level: form.level === "none" ? null : (form.level as any),
+        level: form.level === "none" ? null : (form.level as Enums<"subject_level">),
         paper_url,
         mark_scheme_url,
         // Official board page — the student-facing fallback until our own
@@ -243,13 +247,13 @@ export default function AdminPastPapers() {
   // Which paper does a flagged dead link belong to? (papers are already loaded)
   const paperTitleById = useMemo(() => {
     const m = new Map<string, string>();
-    for (const p of (papers ?? []) as any[]) m.set(p.id, p.title);
+    for (const p of (papers ?? []) as PaperRow[]) m.set(p.id, p.title);
     return m;
   }, [papers]);
 
   // ---------- File coverage + bulk attach ----------
   const coverage = useMemo(() => {
-    const rows = (papers ?? []) as any[];
+    const rows = (papers ?? []) as PaperRow[];
     return {
       total: rows.length,
       papers: rows.filter((p) => p.paper_url).length,
@@ -297,29 +301,30 @@ export default function AdminPastPapers() {
   });
 
   const visiblePapers = useMemo(() => {
-    const rows = (papers ?? []) as any[];
+    const rows = (papers ?? []) as PaperRow[];
     return needsFileOnly ? rows.filter((p) => !p.paper_url || !p.mark_scheme_url) : rows;
   }, [papers, needsFileOnly]);
 
   const runBulkMatch = (files: File[]) => {
     if (files.length === 0) { setBulkMatches([]); return; }
-    const rows = (papers ?? []) as ArchivePaper[];
+    const rows = (papers ?? []) as PaperRow[];
     const matches = matchPaperFiles(files.map((f) => f.name), rows);
     setBulkMatches(files.map((file, i) => ({ file, match: matches[i] })));
     setBulkOverrides({});
   };
 
-  const targetRow = (m: PaperFileMatch): ArchivePaper | null => {
+  const targetRow = (m: PaperFileMatch): PaperRow | null => {
     const override = bulkOverrides[m.file.fileName];
-    if (override) return ((papers ?? []) as ArchivePaper[]).find((p) => p.id === override) ?? null;
-    return m.row;
+    if (override) return ((papers ?? []) as PaperRow[]).find((p) => p.id === override) ?? null;
+    // matchPaperFiles only reads ArchivePaper fields and returns the rows it was given.
+    return m.row as PaperRow | null;
   };
 
   /** Upload every matched file, then write each row once (a paper and its mark scheme share a row). */
   const attachBulk = async () => {
     const pending = bulkMatches
       .map(({ file, match }) => ({ file, match, row: targetRow(match) }))
-      .filter((x) => x.row) as { file: File; match: PaperFileMatch; row: ArchivePaper }[];
+      .filter((x) => x.row) as { file: File; match: PaperFileMatch; row: PaperRow }[];
     if (pending.length === 0) return;
 
     setBulkProgress({ done: 0, total: pending.length });

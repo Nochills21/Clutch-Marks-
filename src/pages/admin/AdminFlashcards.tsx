@@ -15,20 +15,30 @@ import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
 import { contentSaveError } from "@/lib/contentGuards";
 
+type Topic = { id: string; name: string };
+type FlashcardSet = {
+  id: string;
+  title: string;
+  description: string | null;
+  topic_id: string | null;
+  topics?: { name: string } | null;
+};
+type Flashcard = { id: string; set_id: string; front: string; back: string; sort_order: number };
+
 export default function AdminFlashcards() {
   const { toast } = useToast();
-  const [sets, setSets] = useState<any[]>([]);
-  const [topics, setTopics] = useState<any[]>([]);
+  const [sets, setSets] = useState<FlashcardSet[]>([]);
+  const [topics, setTopics] = useState<Topic[]>([]);
   const [open, setOpen] = useState(false);
-  const [editing, setEditing] = useState<any>(null);
+  const [editing, setEditing] = useState<FlashcardSet | null>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [topicId, setTopicId] = useState<string>("");
   const [expandedSet, setExpandedSet] = useState<string | null>(null);
-  const [cards, setCards] = useState<any[]>([]);
+  const [cards, setCards] = useState<Flashcard[]>([]);
   const [cardFront, setCardFront] = useState("");
   const [cardBack, setCardBack] = useState("");
-  const [editingCard, setEditingCard] = useState<any>(null);
+  const [editingCard, setEditingCard] = useState<Flashcard | null>(null);
   const { failure, report, clear } = useLoadFailure("flashcard sets");
 
   const load = async () => {
@@ -100,7 +110,7 @@ export default function AdminFlashcards() {
     toast({ title: "Set deleted" });
   };
 
-  const editSet = (s) => {
+  const editSet = (s: FlashcardSet) => {
     setEditing(s);
     setTitle(s.title);
     setDescription(s.description ?? "");
@@ -140,7 +150,7 @@ export default function AdminFlashcards() {
     toast({ title: "Card deleted" });
   };
 
-  const startEditCard = (c) => {
+  const startEditCard = (c: Flashcard) => {
     setEditingCard(c);
     setCardFront(c.front);
     setCardBack(c.back);
