@@ -33,6 +33,9 @@ const AuthCallback = lazy(() => import("./pages/AuthCallback"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Lessons = lazy(() => import("./pages/Lessons"));
 const Notes = lazy(() => import("./pages/Notes"));
+// A note opened as its own page, so the HTML renders with the manuscript design
+// instead of inside the library's generic dialog.
+const NoteView = lazy(() => import("./pages/NoteView"));
 const LessonNotes = lazy(() => import("./pages/LessonNotes"));
 const Quizzes = lazy(() => import("./pages/Quizzes"));
 const Practice = lazy(() => import("./pages/Practice"));
@@ -206,6 +209,7 @@ const App = () => (
                 <Route path="/study/:slug/:level/:topic/papers" element={<TopicPapers />} />
                 <Route path="/lessons" element={<Lessons />} />
                 <Route path="/notes" element={<Notes />} />
+                <Route path="/notes/:materialId" element={<NoteView />} />
                 <Route path="/quizzes" element={<Quizzes />} />
                 <Route path="/past-papers" element={<PastPapers />} />
 

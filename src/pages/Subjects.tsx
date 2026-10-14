@@ -40,7 +40,7 @@ export default function Subjects() {
     try {
       await savePicks([...pickedIds, id]);
       navigate(href);
-    } catch (e: any) {
+    } catch (e) {
       toast({
         title: "Could not add that subject",
         description: e?.message ?? "Check your connection and try again.",

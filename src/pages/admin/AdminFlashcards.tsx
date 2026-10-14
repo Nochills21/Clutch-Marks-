@@ -100,7 +100,7 @@ export default function AdminFlashcards() {
     toast({ title: "Set deleted" });
   };
 
-  const editSet = (s: any) => {
+  const editSet = (s) => {
     setEditing(s);
     setTitle(s.title);
     setDescription(s.description ?? "");
@@ -140,7 +140,7 @@ export default function AdminFlashcards() {
     toast({ title: "Card deleted" });
   };
 
-  const startEditCard = (c: any) => {
+  const startEditCard = (c) => {
     setEditingCard(c);
     setCardFront(c.front);
     setCardBack(c.back);

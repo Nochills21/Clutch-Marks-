@@ -60,7 +60,7 @@ export default function AdminTopics() {
     load();
   };
 
-  const openEdit = (t: any) => {
+  const openEdit = (t) => {
     setEditing(t); setName(t.name); setDescription(t.description ?? ""); setSortOrder(t.sort_order); setOpen(true);
   };
 
@@ -71,7 +71,7 @@ export default function AdminTopics() {
       return;
     }
     setUploadingTopic(topicId);
-    const path = `notes/${topicId}/${Date.now()}-${file.name.replace(/[^\w.\-]/g, "_")}`;
+    const path = `notes/${topicId}/${Date.now()}-${file.name.replace(/[^\w.-]/g, "_")}`;
     const { error } = await supabase.storage.from("study-materials").upload(path, file);
     if (error) {
       setUploadingTopic(null);

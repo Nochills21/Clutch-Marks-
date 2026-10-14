@@ -152,7 +152,7 @@ export default function AdminSubjects() {
       if ((data as any)?.error) throw new Error((data as any).error);
       toast({ title: "Question bank generated", description: `${(data as any).count} questions added to "${(data as any).title}".` });
       setAiOpen(false); setAiTitle("");
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Generation failed", description: e.message ?? "Please try again.", variant: "destructive" });
     } finally {
       setGenerating(false);

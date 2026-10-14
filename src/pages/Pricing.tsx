@@ -276,7 +276,7 @@ export default function Pricing() {
       });
       refresh();
       setSelected(null);
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Request failed", description: e?.message, variant: "destructive" });
     } finally {
       setSubmitting(false);

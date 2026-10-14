@@ -21,8 +21,11 @@ import { MaterialPreview } from "@/components/MaterialPreview";
 import { deleteVersions, listVersions, recordVersion, removeStorageObjects } from "@/lib/contentFiles";
 import { getSafeUploadExtension, validateUploadFile } from "@/lib/fileValidation";
 import { FileVersionHistory } from "@/components/FileVersionHistory";
+import type { Tables } from "@/integrations/supabase/types";
 
 const UNASSIGNED = "unassigned";
+
+type MaterialRow = Tables<"study_materials"> & { topics: { name: string } | null };
 
 interface TopicOption {
   id: string;
@@ -32,10 +35,10 @@ interface TopicOption {
 
 export default function AdminMaterials() {
   const { toast } = useToast();
-  const [materials, setMaterials] = useState<any[]>([]);
+  const [materials, setMaterials] = useState<MaterialRow[]>([]);
   const [topics, setTopics] = useState<TopicOption[]>([]);
   const [open, setOpen] = useState(false);
-  const [editing, setEditing] = useState<any>(null);
+  const [editing, setEditing] = useState<MaterialRow | null>(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [topicId, setTopicId] = useState<string>(UNASSIGNED);
@@ -154,7 +157,7 @@ export default function AdminMaterials() {
       toast({ title: editing ? "Material updated" : "Material created" });
       resetForm();
       await load();
-    } catch (e: any) {
+    } catch (e) {
       // Undo partial uploads so a failed save never leaves orphaned objects.
       for (const item of uploaded) {
         try {
@@ -173,7 +176,7 @@ export default function AdminMaterials() {
     }
   };
 
-  const removeMaterial = async (m: any) => {
+  const removeMaterial = async (m) => {
     if (!window.confirm(`Delete “${m.title}”? Its uploaded file and version history are removed too.`)) return;
     setBusyId(m.id);
     try {
@@ -191,14 +194,14 @@ export default function AdminMaterials() {
 
       toast({ title: "Material deleted" });
       await load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Delete failed", description: e?.message, variant: "destructive" });
     } finally {
       setBusyId(null);
     }
   };
 
-  const openEdit = (m: any) => {
+  const openEdit = (m) => {
     setEditing(m);
     setTitle(m.title);
     setContent(m.content ?? "");

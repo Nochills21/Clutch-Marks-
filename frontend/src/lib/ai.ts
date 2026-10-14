@@ -4,6 +4,7 @@
 // Both workers enforce approval gates + audit logging server-side.
 
 import { supabase } from "@/integrations/supabase/client";
+import type { Json } from "@/integrations/supabase/types";
 import { AI_TIMEOUT_MS, TIMEOUT_HEADER } from "@/lib/net";
 
 /**
@@ -12,7 +13,7 @@ import { AI_TIMEOUT_MS, TIMEOUT_HEADER } from "@/lib/net";
  */
 const aiRequest = { headers: { [TIMEOUT_HEADER]: String(AI_TIMEOUT_MS) } };
 
-export type AiProvider = "cloudflare" | "openai" | "lovable";
+export type AiProvider = "gemini" | "cloudflare" | "openai" | "lovable";
 
 export interface AiStudyPlanInput {
   quizPerformance: string;      // e.g. "Quiz: 3/5; Midpaper: 7/10"
@@ -91,8 +92,8 @@ export function isPlanRequiredError(error: unknown): error is PlanRequiredError 
  * available here. The body is consumed once, deliberately — nothing else looks
  * at it.
  */
-async function planRequiredFrom(error: any): Promise<string | null> {
-  const response: Response | undefined = error?.context;
+async function planRequiredFrom(error: unknown): Promise<string | null> {
+  const response: Response | undefined = (error as { context?: Response } | null)?.context;
   if (!response || typeof response.status !== "number") return null;
   if (response.status !== 403) return null;
   try {
@@ -116,8 +117,8 @@ async function planRequiredFrom(error: any): Promise<string | null> {
  * sentence written for the student. get-js turns every non-2xx into the same
  * "non-2xx status code", which told them nothing about whether to retry.
  */
-async function workerErrorMessage(error: any): Promise<string | null> {
-  const response: Response | undefined = error?.context;
+async function workerErrorMessage(error: unknown): Promise<string | null> {
+  const response: Response | undefined = (error as { context?: Response } | null)?.context;
   if (!response || typeof response.status !== "number") return null;
   try {
     const body = await response.clone().json();
@@ -198,7 +199,7 @@ export interface PaperRef {
  */
 export async function callPaperCorrector(
   paper: string | CorrectedPaperInput[],
-  provider: AiProvider = "cloudflare",
+  provider: AiProvider = "gemini",
   subjectLevelId?: string,
   paperRef?: PaperRef,
   /** Uploaded answer scripts (photos or PDFs) already in the private bucket. */
@@ -210,8 +211,8 @@ export async function callPaperCorrector(
       subjectLevelId,
       paperRef,
       answerFiles: answerFiles?.length ? answerFiles : undefined,
-      // No model is pinned here: the worker resolves a current Workers AI model
-      // (the old `llama-3.1-8b-instruct` was retired and made every call fail).
+      // No model is pinned here: the worker chooses it (GEMINI_MODEL by default,
+      // or the Workers AI model when AI_PROVIDER=cloudflare).
       provider,
     },
     ...aiRequest,
@@ -264,22 +265,21 @@ export async function persistCorrection(
   const user = userData.user;
   if (!user) throw new Error("Not signed in");
 
-  const { data, error } = await (supabase as any)
+  const { data, error } = await supabase
     .from("ai_correction")
     .insert({
       user_id: user.id,
       subject_level_id: subjectLevelId ?? null,
       paper_text: paperText,
-      corrected_papers: corrected,
+      corrected_papers: corrected as unknown as Json,
       overall_grade: corrected.reduce((s, q) => s + q.marks_earned, 0) /
         Math.max(1, corrected.reduce((s, q) => s + q.total_marks, 0)) * 100,
       total_possible: corrected.reduce((s, q) => s + q.total_marks, 0),
       total_earned: corrected.reduce((s, q) => s + q.marks_earned, 0),
       model,
-    } as any)
+    })
     .select("id")
     .single();
   if (error) throw error;
-  const row = data as any;
-  return { id: row.id };
+  return { id: data.id };
 }

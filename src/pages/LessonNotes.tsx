@@ -53,13 +53,13 @@ export default function LessonNotes() {
       if (l?.topic_id) {
         const { data, error: notesError } = await supabase
           .from("study_materials")
-          .select("id, title, file_url, content, topic_id")
+          .select("id, title, file_url, content, topic_id, material_type")
           .eq("material_type", "notes")
           .eq("topic_id", l.topic_id)
           .order("title");
         if (notesError) { report(notesError); setLoading(false); return; }
-        const t: any = l as any;
-        setNotes((data ?? []).map((m: any) => ({
+        const t = l;
+        setNotes((data ?? []).map((m) => ({
           id: m.id,
           title: m.title,
           file_url: m.file_url,
@@ -261,14 +261,14 @@ export default function LessonNotes() {
                     if (!n.file_url) return;
                     try {
                       await openProtectedFile("study-materials", n.file_url);
-                    } catch (e: any) {
+                    } catch (e) {
                       toast.error(e?.message ?? "Could not open this file");
                     }
                   }}>
                   <ExternalLink className="h-3.5 w-3.5" /> Open
                 </Button>
                 <Button size="sm" variant="ghost" className="gap-1" disabled={!n.file_url}
-                  onClick={() => downloadNote(n).catch((e: any) => toast.error(e?.message ?? "Could not download this file"))}>
+                  onClick={() => downloadNote(n).catch((e) => toast.error(e?.message ?? "Could not download this file"))}>
                   <Download className="h-3.5 w-3.5" /> Download
                 </Button>
               </div>

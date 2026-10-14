@@ -103,33 +103,33 @@ export default function ProgressPage() {
 
       // Map topic_id -> subject_level_id so we can scope the heatmap to
       // the subjects the student actually picked.
-      const slMap = new Map((topicsRes.data ?? []).map((t: any) => [t.id, t.subject_level_id]));
+      const slMap = new Map((topicsRes.data ?? []).map((t) => [t.id, t.subject_level_id]));
       setTopicSL(slMap);
 
       // Per-topic mastery (topic heatmap): quiz performance + practice
       // incorrect/bookmark signals + lesson completion.
-      const quizTopic = new Map((quizzesRes.data ?? []).map((q: any) => [q.id, q.topic_id]));
+      const quizTopic = new Map((quizzesRes.data ?? []).map((q) => [q.id, q.topic_id]));
       const practiceQ = new Map<string, { last_correct: boolean; attempts: number }>();
-      (practiceRes.data ?? []).forEach((a: any) => {
+      (practiceRes.data ?? []).forEach((a) => {
         practiceQ.set(a.question_id, { last_correct: a.last_correct, attempts: a.attempts_count });
       });
-      const bookmarkedIds = new Set((bookmarkRes.data ?? []).map((b: any) => b.question_id));
+      const bookmarkedIds = new Set((bookmarkRes.data ?? []).map((b) => b.question_id));
 
       // Map question_id -> topic_id so practice/bookmark signals can be
       // attributed to a topic.
       const questionTopic = new Map<string, string>();
-      (quizzesRes.data ?? []).forEach((q: any) => {
+      (quizzesRes.data ?? []).forEach((q) => {
         const tid = q.topic_id;
         if (tid) questionTopic.set(q.id, tid);
       });
 
       const attempts = attemptsRes.data ?? [];
       const lessons = lessonsRes.data ?? [];
-      const completed = new Set((progressRes.data ?? []).map((p: any) => p.lesson_id));
-      setTopics((topicsRes.data ?? []).map((t: any) => {
-        const topicAttempts = attempts.filter((a: any) => quizTopic.get(a.quiz_id) === t.id);
+      const completed = new Set((progressRes.data ?? []).map((p) => p.lesson_id));
+      setTopics((topicsRes.data ?? []).map((t) => {
+        const topicAttempts = attempts.filter((a) => quizTopic.get(a.quiz_id) === t.id);
         const totalPct = topicAttempts.reduce((s: number, a: any) => s + ((a.score ?? 0) / (a.total_questions || 1)) * 100, 0);
-        const topicLessons = lessons.filter((l: any) => l.topic_id === t.id);
+        const topicLessons = lessons.filter((l) => l.topic_id === t.id);
 
         // Practice + bookmark weak signals attributed to this topic.
         let practiceIncorrect = 0;
@@ -150,9 +150,9 @@ export default function ProgressPage() {
           name: t.name,
           attempts: topicAttempts.length,
           avgPercent: topicAttempts.length > 0 ? Math.round(totalPct / topicAttempts.length) : 0,
-          mastered: topicAttempts.length > 0 && topicAttempts.every((a: any) => (a.score ?? 0) / (a.total_questions || 1) >= 0.8),
-          totalQuizzes: (quizzesRes.data ?? []).filter((q: any) => q.topic_id === t.id).length,
-          completedLessons: topicLessons.filter((l: any) => completed.has(l.id)).length,
+          mastered: topicAttempts.length > 0 && topicAttempts.every((a) => (a.score ?? 0) / (a.total_questions || 1) >= 0.8),
+          totalQuizzes: (quizzesRes.data ?? []).filter((q) => q.topic_id === t.id).length,
+          completedLessons: topicLessons.filter((l) => completed.has(l.id)).length,
           totalLessons: topicLessons.length,
           practiceIncorrect,
           practiceTotal,

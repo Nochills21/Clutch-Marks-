@@ -256,7 +256,7 @@ export function SolvedPaperMarker({
       uploadPhase = false;
       const out = await callPaperCorrector(
         notes,
-        "cloudflare",
+        "gemini",
         subjectLevelId ?? undefined,
         paperRef ?? undefined,
         uploadedNow,

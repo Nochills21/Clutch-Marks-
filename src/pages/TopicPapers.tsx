@@ -91,7 +91,7 @@ export default function TopicPapers() {
   const openPaper = async (url: string) => {
     try {
       await openProtectedFile("past-papers", url);
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e?.message ?? "Unable to open file", variant: "destructive" });
     }
   };
@@ -101,7 +101,7 @@ export default function TopicPapers() {
   const downloadPaper = async (url: string, name: string) => {
     try {
       await openProtectedFile("past-papers", url, name);
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e?.message ?? "Unable to download file", variant: "destructive" });
     }
   };
@@ -111,7 +111,7 @@ export default function TopicPapers() {
   const openExternal = async (url: string, label?: string) => {
     try {
       await openExternalPaper(url, label);
-    } catch (e: any) {
+    } catch (e) {
       if (e instanceof ExternalPaperGated) {
         toast({ title: "Full plan required", description: e.message });
         return;
@@ -178,7 +178,7 @@ export default function TopicPapers() {
             setLevelPapers((levelRes.data ?? []) as unknown as TopicPaper[]);
           }
         }
-      } catch (e: any) {
+      } catch (e) {
         setError(e.message ?? "Failed to load topic past papers");
       } finally {
         if (active) setLoading(false);

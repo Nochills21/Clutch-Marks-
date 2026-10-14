@@ -202,7 +202,7 @@ export default function AdminUsers() {
       await invoke("approve", { user_id: userId });
       toast({ title: "Approved", description: "User can now access the platform." });
       load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
     }
     setActionLoading(null);
@@ -214,7 +214,7 @@ export default function AdminUsers() {
       await invoke("reject", { user_id: userId });
       toast({ title: "Rejected", description: "Account has been removed." });
       load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
     }
     setActionLoading(null);
@@ -227,7 +227,7 @@ export default function AdminUsers() {
       await invoke("delete", { user_id: userId });
       toast({ title: "Deleted", description: "Account has been removed." });
       load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
     }
     setActionLoading(null);
@@ -275,7 +275,7 @@ export default function AdminUsers() {
         toast({ title: "Paid access granted", description: `${row.full_name} now has full access for 30 days.` });
       }
       load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
     }
     setActionLoading(null);
@@ -313,7 +313,7 @@ export default function AdminUsers() {
       setPromoteEmail("");
       setPromoteOpen(false);
       load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
     }
     setPromoting(false);
@@ -333,7 +333,7 @@ export default function AdminUsers() {
       toast({ title: "Account created", description: `${newEmail.trim()} can now log in.` });
       setNewEmail(""); setNewFullName(""); setNewPassword(""); setNewRole("student");
       load();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
     }
     setCreating(false);
@@ -349,7 +349,7 @@ export default function AdminUsers() {
         description: `Password updated for ${resetTarget.username || resetTarget.full_name}.`,
       });
       setResetTarget(null); setResetPassword("");
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
     }
     setResetting(false);

@@ -153,11 +153,11 @@ export default function Practice() {
         supabase.from("quiz_attempts").select("quiz_id, score, total_questions").eq("user_id", user.id).not("completed_at", "is", null),
       ]);
       const topics = topicsRes.data ?? [];
-      setTopicSL(new Map(topics.map((t: any) => [t.id, t.subject_level_id])));
-      setBankTopics(topics.map((t: any) => ({ id: t.id, name: t.name })));
-      const quizTopic = new Map((quizzesRes.data ?? []).map((q: any) => [q.id, q.topic_id]));
+      setTopicSL(new Map(topics.map((t) => [t.id, t.subject_level_id])));
+      setBankTopics(topics.map((t) => ({ id: t.id, name: t.name })));
+      const quizTopic = new Map((quizzesRes.data ?? []).map((q) => [q.id, q.topic_id]));
       const tally: Record<string, { sum: number; n: number }> = {};
-      (attemptsRes.data ?? []).forEach((a: any) => {
+      (attemptsRes.data ?? []).forEach((a) => {
         const tid = quizTopic.get(a.quiz_id);
         if (!tid) return;
         const pct = ((a.score ?? 0) / (a.total_questions || 1)) * 100;
@@ -166,10 +166,10 @@ export default function Practice() {
         tally[tid].n += 1;
       });
       const ranked = topics
-        .map((t: any) => ({ id: t.id, name: t.name, avg: tally[t.id] ? Math.round(tally[t.id].sum / tally[t.id].n) : -1 }))
+        .map((t) => ({ id: t.id, name: t.name, avg: tally[t.id] ? Math.round(tally[t.id].sum / tally[t.id].n) : -1 }))
         .filter((t) => t.avg >= 0)
         .sort((a, b) => a.avg - b.avg);
-      setWeakTopics(ranked.length > 0 ? ranked : topics.map((t: any) => ({ id: t.id, name: t.name, avg: 0 })));
+      setWeakTopics(ranked.length > 0 ? ranked : topics.map((t) => ({ id: t.id, name: t.name, avg: 0 })));
       setLoadingWeak(false);
     })();
   }, [user]);
@@ -196,7 +196,7 @@ export default function Practice() {
         .order("sort_order");
       if (levelsError) { setError(loadFailureMessage("your subjects", levelsError)); return; }
       setLevelOptions(
-        (data ?? []).map((l: any) => ({
+        (data ?? []).map((l) => ({
           id: l.id,
           label: `${l.subjects?.name ?? "Subject"} — ${LEVEL_LABELS[l.level as SubjectLevelCode]}`,
         })),
@@ -204,7 +204,7 @@ export default function Practice() {
     })();
   }, []);
 
-  useEffect(() => { loadReviewQuestions(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [mode, defaultedLevelId]);
+  useEffect(() => { loadReviewQuestions(); }, [mode, defaultedLevelId]);
 
   const loadBankAttempts = async () => {
     if (!user) return;
@@ -223,7 +223,7 @@ export default function Practice() {
       return;
     }
     const map: Record<string, Attempt> = {};
-    (data ?? []).forEach((a: any) => { map[a.question_id] = a; });
+    (data ?? []).forEach((a) => { map[a.question_id] = a; });
     setBankAttempts(map);
   };
 
@@ -302,10 +302,10 @@ export default function Practice() {
         });
         return;
       }
-      const pool: DrillQuestion[] = (qs ?? []).map((q: any) => ({
+      const pool: DrillQuestion[] = (qs ?? []).map((q) => ({
         id: q.id,
         question_text: q.question_text,
-        options: Array.isArray(q.options) ? q.options : [],
+        options: Array.isArray(q.options) ? (q.options as string[]) : [],
         topic_name: topicName,
       }));
       if (pool.length === 0) {
@@ -321,7 +321,7 @@ export default function Practice() {
       setDrillSelected(null);
       setDrillCorrect(0);
       setDrillDone(false);
-    } catch (e: any) {
+    } catch (e) {
       toast({
         title: "Could not start the drill",
         description: e?.message ?? "Unexpected error",

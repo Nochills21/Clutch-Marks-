@@ -58,7 +58,7 @@ export function NotificationCenter() {
       return;
     }
     setFailure(null);
-    setItems((data ?? []).map((d: any) => ({
+    setItems((data ?? []).map((d) => ({
       id: d.id,
       title: d.title,
       message: d.content,

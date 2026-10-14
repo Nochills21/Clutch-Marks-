@@ -1,6 +1,7 @@
 // Student home: progress stats, today's tasks, quick links.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
 import { YourWeekCard } from "@/components/YourWeekCard";
@@ -64,7 +65,7 @@ export function StudentDashboard() {
     notesDone: 0,
     materials: 0,
   });
-  const [announcements, setAnnouncements] = useState<any[]>([]);
+  const [announcements, setAnnouncements] = useState<Tables<"announcements">[]>([]);
   const [subjectRows, setSubjectRows] = useState<SubjectRow[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -95,7 +96,7 @@ export function StudentDashboard() {
         supabase.rpc("get_subject_progress"),
       ]);
       if (cancelled) return;
-      const c = ((countsRes.data ?? []) as any[])[0];
+      const c = (countsRes.data ?? [])[0];
       if (c) {
         setCounts({
           topics: Number(c.topics_total ?? 0),

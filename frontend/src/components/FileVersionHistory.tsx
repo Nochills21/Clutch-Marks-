@@ -55,7 +55,7 @@ export function FileVersionHistory({ entityType, entityId, label = "Versions", o
 
     listVersions(entityType, entityId)
       .then((v) => { if (!cancelled) setVersions(v); })
-      .catch((e: any) => { if (!cancelled) setError(e?.message ?? "Could not load version history"); })
+      .catch((e) => { if (!cancelled) setError(e?.message ?? "Could not load version history"); })
       .finally(() => { if (!cancelled) setLoading(false); });
 
     return () => { cancelled = true; };
@@ -98,7 +98,7 @@ export function FileVersionHistory({ entityType, entityId, label = "Versions", o
 
       toast({ title: "Version restored", description: `v${v.version} is live again.` });
       onRestored?.();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Restore failed", description: e?.message, variant: "destructive" });
     } finally {
       setRestoringId(null);

@@ -270,7 +270,6 @@ export function prerenderSeo(): Plugin {
             `\n  ${TOPIC_MARKER}\n${entries}\n</urlset>`,
           );
         } else if (contentPages === 0) {
-          // eslint-disable-next-line no-console
           console.warn("prerender-seo: empty manifest — sitemap left without study URLs");
         }
 
@@ -283,7 +282,6 @@ export function prerenderSeo(): Plugin {
         // No sitemap in this build — nothing to refresh.
       }
 
-      // eslint-disable-next-line no-console
       console.log(
         `prerender-seo: wrote ${prerendered} route HTML files + ${contentPages} study pages, a noindex fallback at ${SPA_FALLBACK_PATH}, sitemap has ${countSitemapEntries(sitemapPath)} URLs`,
       );
@@ -292,7 +290,6 @@ export function prerenderSeo(): Plugin {
       // so fails `npm run build` — if a public page is missing its index
       // directive, a private page is indexable, a page nobody classified was
       // emitted, or a preview/development build would be indexable at all.
-      // eslint-disable-next-line no-console
       console.log(`prerender-seo: ${verifyIndexDirectives({ root: config.root, outDir })}`);
     },
   };

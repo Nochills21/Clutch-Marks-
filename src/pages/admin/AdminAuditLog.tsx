@@ -19,6 +19,16 @@ import { format } from "date-fns";
 
 const PAGE_SIZE = 50;
 
+interface AuditRow {
+  id: string;
+  created_at: string;
+  actor_username: string | null;
+  action: string;
+  entity: string;
+  entity_label: string | null;
+  details: Record<string, unknown> | null;
+}
+
 // One owner for the audit filters: both the live table and the CSV export build
 // their query through this, so adding a filter never silently diverges the two.
 function buildAuditQuery(
@@ -34,7 +44,8 @@ function buildAuditQuery(
   if (from !== undefined && to !== undefined) q = q.range(from, to);
   if (entityFilter !== "all") q = q.eq("entity", entityFilter);
   if (search.trim()) q = q.ilike("entity_label", `%${search.trim()}%`);
-  return q;
+  // The select is a runtime string, so the row shape is pinned here.
+  return q.returns<AuditRow[]>();
 }
 
 const ACTION_STYLES: Record<string, string> = {
@@ -64,7 +75,7 @@ function LabelDisplay({ label }: { label: string | null }) {
 
 export default function AdminAuditLog() {
   const { role } = useAuth();
-  const [logs, setLogs] = useState<any[]>([]);
+  const [logs, setLogs] = useState<AuditRow[]>([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(true);

@@ -107,7 +107,7 @@ export default function Subject() {
       if (tpError) { setLoadError(loadFailureMessage("this subject", tpError)); setLoading(false); return; }
       const topicList = tp ?? [];
       setTopics(topicList);
-      const ids = topicList.map((t: any) => t.id);
+      const ids = topicList.map((t) => t.id);
 
       if (ids.length) {
         const [ls, ms, qz] = await Promise.all([
@@ -123,7 +123,7 @@ export default function Subject() {
         }
         setLessons(ls.data ?? []);
         setMaterials(ms.data ?? []);
-        setQuizzes((qz.data ?? []).filter((q: any) => q.is_published));
+        setQuizzes((qz.data ?? []).filter((q) => q.is_published));
       } else {
         setLessons([]); setMaterials([]); setQuizzes([]);
       }

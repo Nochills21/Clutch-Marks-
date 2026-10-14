@@ -109,26 +109,26 @@ export function ParentDashboard() {
       // Resolve display titles with plain lookups (embeds are ambiguous on these
       // tables because of dual FKs to auth.users and public tables).
       const titleMap = new Map<string, string>();
-      const quizIds = [...new Set((attempts.data ?? []).map((a: any) => a.quiz_id).filter(Boolean))];
-      const lessonIds = [...new Set((lessons.data ?? []).map((l: any) => l.lesson_id).filter(Boolean))];
+      const quizIds = [...new Set((attempts.data ?? []).map((a) => a.quiz_id).filter(Boolean))];
+      const lessonIds = [...new Set((lessons.data ?? []).map((l) => l.lesson_id).filter(Boolean))];
       let lookupError: unknown = null;
       if (quizIds.length) {
         const { data, error } = await supabase.from("quizzes").select("id, title").in("id", quizIds);
         lookupError ??= error;
-        (data ?? []).forEach((q: any) => titleMap.set(`q:${q.id}`, q.title));
+        (data ?? []).forEach((q) => titleMap.set(`q:${q.id}`, q.title));
       }
       if (lessonIds.length) {
         const { data, error } = await supabase.from("lessons").select("id, title").in("id", lessonIds);
         lookupError ??= error;
-        (data ?? []).forEach((l: any) => titleMap.set(`l:${l.id}`, l.title));
+        (data ?? []).forEach((l) => titleMap.set(`l:${l.id}`, l.title));
       }
       if (cancelled) return;
       // Titles are cosmetic — a failed lookup still shows "Quiz"/"Lesson" — but
       // say so rather than letting the generic label look like real data.
       if (lookupError) reportStats(lookupError);
       setStats({
-        attempts: (attempts.data ?? []).map((a: any) => ({ ...a, quiz_title: titleMap.get(`q:${a.quiz_id}`) ?? "Quiz" })),
-        lessons: (lessons.data ?? []).map((l: any) => ({ ...l, lesson_title: titleMap.get(`l:${l.lesson_id}`) ?? "Lesson" })),
+        attempts: (attempts.data ?? []).map((a) => ({ ...a, quiz_title: titleMap.get(`q:${a.quiz_id}`) ?? "Quiz" })),
+        lessons: (lessons.data ?? []).map((l) => ({ ...l, lesson_title: titleMap.get(`l:${l.lesson_id}`) ?? "Lesson" })),
       });
       setStatsLoading(false);
     })();
@@ -176,7 +176,7 @@ export function ParentDashboard() {
       toast({ title: "Linked", description: `You now see ${email}'s progress.` });
       setChildEmail("");
       await loadLinks();
-    } catch (e: any) {
+    } catch (e) {
       toast({ title: "Link failed", description: e?.message, variant: "destructive" });
     } finally { setLinking(false); }
   };
