@@ -12,7 +12,7 @@ import { PDFDocument, rgb, StandardFonts, degrees } from "https://esm.sh/pdf-lib
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-cm-timeout-ms",
 };
 
 const ALLOWED_BUCKETS = new Set(["study-materials", "past-papers", "quiz-files"]);
@@ -77,6 +77,7 @@ Deno.serve(async (req) => {
     if (!isPdf) {
       return new Response(buf, {
         headers: {
+          ...corsHeaders,
           "Content-Type": fileData.type || "application/octet-stream",
           "Content-Disposition": `inline; filename="${path.split("/").pop() ?? "file"}"`,
           "Cache-Control": "private, no-store",
@@ -154,6 +155,7 @@ Deno.serve(async (req) => {
 
     return new Response(stamped as unknown as BodyInit, {
       headers: {
+        ...corsHeaders,
         "Content-Type": "application/pdf",
         "Content-Disposition": `inline; filename="${escapePdf(label) || "file.pdf"}"`,
         "Cache-Control": "private, no-store",
