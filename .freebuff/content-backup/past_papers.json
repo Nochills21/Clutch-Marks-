@@ -1,5 +1,20 @@
 [
  {
+  "id": "00261c28-a932-4a37-b335-85656adccd3d",
+  "title": "Cambridge International A Level Physics 9702 — Paper 4",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 4",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-4-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-4-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:35:37.582492+00",
+  "updated_at": "2026-10-15 10:35:37.582492+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-4/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
+ },
+ {
   "id": "002c0ac8-da9a-4b8c-9603-4d0b2c7060b9",
   "title": "Cambridge IGCSE Physics 0625 — Paper 3 (0625/32)",
   "year": 2019,
@@ -195,6 +210,21 @@
   "level": "A2"
  },
  {
+  "id": "0466ead9-33c6-4759-88b3-cc764656023d",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 4: Theory Extended (0625/42)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 4 (42)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-4-42--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-4-42--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:32:05.200802+00",
+  "updated_at": "2026-10-15 10:32:05.200802+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-4/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "04b6e764-8ba4-45ac-916e-37a5ef933980",
   "title": "Cambridge IGCSE Physics 0625 — Paper 1 (0625/12)",
   "year": 2025,
@@ -283,6 +313,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-1/QP/June%202023%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
+ },
+ {
+  "id": "075d620e-bbd1-4df4-8462-955750d6c1f2",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 3 (0580/32)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 3 (32)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-3-32--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:30:31.802974+00",
+  "updated_at": "2026-10-15 10:30:31.802974+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
  },
  {
   "id": "07c6231e-7709-408d-9c8a-f211f5176d9c",
@@ -465,6 +510,21 @@
   "level": "AS"
  },
  {
+  "id": "0a886521-6acc-412d-96ba-d126c6927e83",
+  "title": "Cambridge International A Level Physics 9702 — Paper 4",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 4",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-4-feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-4-feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:35:44.088117+00",
+  "updated_at": "2026-10-15 10:35:44.088117+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-4/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
+ },
+ {
   "id": "0b0b6b1a-d42d-4d7e-861f-f0934b43d7bd",
   "title": "Cambridge International AS Level Computer Science 9618 — Paper 1",
   "year": 2019,
@@ -478,6 +538,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-1/June%202019%20(v1)%20QP%20-%20Paper%201%20CAIE%20Computer%20Science%20A-level.pdf",
   "subject_slug": "computer-science",
   "level": "AS"
+ },
+ {
+  "id": "0b41772b-fa4f-49b2-b04c-61060b79cc99",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 3 (0625/32)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 3 (32)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-3-32--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:31:47.795605+00",
+  "updated_at": "2026-10-15 10:31:47.795605+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "0bf7000e-1e3c-4b73-8b5a-40cb326cdda4",
@@ -552,6 +627,21 @@
   "updated_at": "2026-10-15 10:16:16.814447+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/9-1/QP/November%202023%20(9-1)%20(v1)%20QP.pdf",
   "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
+  "id": "0cb691da-522f-4ad1-b7c8-fb9ea5c0b544",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 2: Extended (0580/22)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-2-22--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-2-22--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:30:04.186946+00",
+  "updated_at": "2026-10-15 10:30:04.186946+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-2/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "mathematics",
   "level": "OL"
  },
  {
@@ -915,6 +1005,21 @@
   "level": "OL"
  },
  {
+  "id": "13742112-565d-4add-bd06-1e75ab1d5f43",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 2",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 2",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-2-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-2-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:35:06.745037+00",
+  "updated_at": "2026-10-15 10:35:06.745037+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-2/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
+ },
+ {
   "id": "13d2a999-e226-41a4-b96e-2dc8e37bc8b3",
   "title": "Cambridge International AS Level Computer Science 9618 — Paper 1",
   "year": 2024,
@@ -1275,6 +1380,21 @@
   "level": "A2"
  },
  {
+  "id": "19bdc249-d3ee-425d-96a2-e849d6d500e1",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 4: Mechanics",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 4",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-4-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-4-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:17.463229+00",
+  "updated_at": "2026-10-15 10:34:17.463229+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-M1/QP/November%202018%20(v1)%20QP%20-%20M1.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
+ },
+ {
   "id": "19c6ded3-decb-4529-a932-d14335ce3034",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 2: Pure Mathematics 2",
   "year": 2020,
@@ -1393,6 +1513,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
+ },
+ {
+  "id": "1b0732f0-60a3-4d5b-a96f-10507973777b",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 4: Theory Extended (0625/42)",
+  "year": 2018,
+  "session": "Specimen",
+  "paper_number": "Paper 4 (42)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-4-42--specimen-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-4-42--specimen-2018-ms.pdf",
+  "created_at": "2026-10-15 10:32:16.909713+00",
+  "updated_at": "2026-10-15 10:32:16.909713+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-4/9-1/QP/Specimen%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "1b2a285a-ac47-483b-9fc4-e07122ec5e27",
@@ -1680,6 +1815,21 @@
   "level": "A2"
  },
  {
+  "id": "1e8347ff-cc35-4df5-8946-8043925cba2d",
+  "title": "Cambridge International A Level Physics 9702 — Paper 5",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 5",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-5-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-5-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:06.794767+00",
+  "updated_at": "2026-10-15 10:36:06.794767+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-5/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
+ },
+ {
   "id": "1e9825af-abf0-45ca-bb0c-2810905a1988",
   "title": "Edexcel IAL Maths — Statistics S1 (WST01/01)",
   "year": 2019,
@@ -1755,6 +1905,51 @@
   "level": "AS"
  },
  {
+  "id": "2007b2c2-e0f4-4608-86c6-920b1be46eec",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 4: Mechanics",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 4",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-4-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-4-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:13.453133+00",
+  "updated_at": "2026-10-15 10:34:13.453133+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-M1/QP/June%202018%20(v1)%20QP%20-%20M1.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
+ },
+ {
+  "id": "20453ba6-b515-4e97-9682-1e11198e4cfe",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 5: Probability & Statistics 1",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 5",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-5-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-5-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:21.08822+00",
+  "updated_at": "2026-10-15 10:34:21.08822+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-M2/QP/June%202018%20(v1)%20QP%20-%20M2.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
+ },
+ {
+  "id": "204d46e0-f46c-496e-825c-1b8d9c460b8e",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 4: Theory Extended (0625/42)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 4 (42)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-4-42--may-june-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-4-42--may-june-2018-ms.pdf",
+  "created_at": "2026-10-15 10:31:58.854385+00",
+  "updated_at": "2026-10-15 10:31:58.854385+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-4/9-1/QP/June%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "20ceaa07-1c0e-46df-80e0-64ae84fb16c4",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 3: Pure Mathematics 3",
   "year": 2024,
@@ -1768,6 +1963,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/CAIE/Pure-3/QP/March%202024%20(v2)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "20f6f03f-0f53-4720-8d54-6431f8ac6cd7",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 1 (0625/12)",
+  "year": 2018,
+  "session": "Specimen",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-1-12--specimen-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--specimen-2018-ms.pdf",
+  "created_at": "2026-10-15 10:31:11.519823+00",
+  "updated_at": "2026-10-15 10:31:11.519823+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/9-1/QP/Specimen%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "20fc0713-1fea-4228-b1de-7b7c328eca0b",
@@ -1857,6 +2067,21 @@
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
   "subject_slug": "mathematics",
+  "level": "OL"
+ },
+ {
+  "id": "22be50aa-139a-41fb-a9c2-836a5143efcd",
+  "title": "Cambridge IGCSE Computer Science 0478 — Paper 1: Computer Systems (0478/12)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0478-paper-1-12--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0478-paper-1-12--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:33:20.315377+00",
+  "updated_at": "2026-10-15 10:33:20.315377+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/GCSE/Past-Papers/CAIE/Paper-1/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "computer-science",
   "level": "OL"
  },
  {
@@ -1995,6 +2220,36 @@
   "level": "AS"
  },
  {
+  "id": "261fd6ee-b780-4d33-85df-444e14ebafd3",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 1",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-1-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-1-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:35.677921+00",
+  "updated_at": "2026-10-15 10:34:35.677921+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-1/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
+ },
+ {
+  "id": "264dbf07-6481-4e9e-bbe8-bb49941fb5d2",
+  "title": "Cambridge International A Level Computer Science 9618 — Paper 4",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 4",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9618-paper-4-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9618-paper-4-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:59.084825+00",
+  "updated_at": "2026-10-15 10:36:59.084825+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-4/June%202018%20(v1)%20QP%20-%20Paper%204%20CAIE%20Computer%20Science%20A-level.pdf",
+  "subject_slug": "computer-science",
+  "level": "A2"
+ },
+ {
   "id": "26a9f3c8-e0f2-421b-a50a-99bfcdc6cdad",
   "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
   "year": 2023,
@@ -2021,6 +2276,21 @@
   "created_at": "2026-10-10 06:26:43.749417+00",
   "updated_at": "2026-10-10 06:26:43.749417+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-1/June%202020%20(v1)%20QP%20-%20Paper%201%20CAIE%20Computer%20Science%20A-level.pdf",
+  "subject_slug": "computer-science",
+  "level": "AS"
+ },
+ {
+  "id": "27392a6f-e9ef-4779-83de-418874ac2501",
+  "title": "Cambridge International AS Level Computer Science 9618 — Paper 2",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 2",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9618-paper-2-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9618-paper-2-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:37.241911+00",
+  "updated_at": "2026-10-15 10:36:37.241911+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-2/November%202018%20(v1)%20QP%20-%20Paper%202%20CAIE%20Computer%20Science%20A-level.pdf",
   "subject_slug": "computer-science",
   "level": "AS"
  },
@@ -2100,6 +2370,21 @@
   "level": "AS"
  },
  {
+  "id": "28bbc682-6ab9-49ce-a17a-24ff54fee8a6",
+  "title": "Cambridge International AS Level Mathematics 9709 — Paper 1: Pure Mathematics 1",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 1",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-1-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-1-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:56.298163+00",
+  "updated_at": "2026-10-15 10:33:56.298163+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-P1/QP/November%202018%20(v1)%20QP%20-%20P1.pdf",
+  "subject_slug": "mathematics",
+  "level": "AS"
+ },
+ {
   "id": "29142369-ae53-4c27-9e3d-d07602dc218c",
   "title": "Edexcel IAL Maths — Statistics S1 (WST01/01)",
   "year": 2021,
@@ -2113,6 +2398,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Statistics/S1/QP/October%202021%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "293e27fb-75ed-4059-aa49-1190ea921d56",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 6 (62)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-6-62--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-6-62--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:32:58.894314+00",
+  "updated_at": "2026-10-15 10:32:58.894314+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-6/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "2a2af0d7-e118-4280-aba7-1054a574f376",
@@ -2203,6 +2503,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/Edexcel-IAL/Unit-2/January%202019%20(IAL)%20QP%20-%20Unit%202%20Edexcel%20Physics%20A-level.pdf",
   "subject_slug": "physics",
   "level": "AS"
+ },
+ {
+  "id": "2b235a64-4f55-4c48-a975-23c5a2ffafb3",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 2: Multiple Choice Extended (0625/22)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-2-22--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-2-22--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:31:18.482605+00",
+  "updated_at": "2026-10-15 10:31:18.482605+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-2/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "2c0c74e4-c677-4996-8e16-c7022f8b1e9e",
@@ -2760,6 +3075,21 @@
   "level": "A2"
  },
  {
+  "id": "37238bfd-78ba-413d-9490-6c54ae045c8c",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 3 (0625/32)",
+  "year": 2018,
+  "session": "Specimen",
+  "paper_number": "Paper 3 (32)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-3-32--specimen-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--specimen-2018-ms.pdf",
+  "created_at": "2026-10-15 10:31:52.085421+00",
+  "updated_at": "2026-10-15 10:31:52.085421+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/9-1/QP/Specimen%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "383d4e1f-4910-4486-979b-f8362ebc3f77",
   "title": "Cambridge IGCSE Computer Science 0478 — Paper 1: Computer Systems (0478/12)",
   "year": 2019,
@@ -2802,6 +3132,21 @@
   "updated_at": "2026-10-03 06:24:35.88017+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/past-papers/",
   "subject_slug": "computer-science",
+  "level": "OL"
+ },
+ {
+  "id": "38ff208c-6419-45b4-9252-6386be7c651a",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 4: Extended (0580/42)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 4 (42)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-4-42--may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-4-42--may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:30:39.557066+00",
+  "updated_at": "2026-10-15 10:30:39.557066+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-4/International/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
   "level": "OL"
  },
  {
@@ -3360,6 +3705,21 @@
   "level": "A2"
  },
  {
+  "id": "4568eb64-24ad-46a2-99c8-2630564db957",
+  "title": "Edexcel IAL Physics — Unit 6 (WPH16/01)",
+  "year": 2019,
+  "session": "May/June",
+  "paper_number": "U6",
+  "topic_id": null,
+  "paper_url": "papers/pmt/WPH16-u6-may-june-2019-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/WPH16-u6-may-june-2019-ms.pdf",
+  "created_at": "2026-10-15 10:29:34.543776+00",
+  "updated_at": "2026-10-15 10:29:34.543776+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/Edexcel-IAL/Unit-6/June%202019%20(IAL)%20QP%20-%20Unit%206%20Edexcel%20Physics%20A-level.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
+ },
+ {
   "id": "45f760d3-02b6-4239-91a2-1b7f675e26ec",
   "title": "Edexcel IAL Maths — Statistics S1 (WST01/01)",
   "year": 2022,
@@ -3705,6 +4065,21 @@
   "level": "OL"
  },
  {
+  "id": "4b767c46-5e0b-4e83-8b5c-bea80040223e",
+  "title": "Cambridge IGCSE Computer Science 0478 — Paper 1: Computer Systems (0478/12)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0478-paper-1-12--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0478-paper-1-12--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:26.733985+00",
+  "updated_at": "2026-10-15 10:33:26.733985+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/GCSE/Past-Papers/CAIE/Paper-1/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "computer-science",
+  "level": "OL"
+ },
+ {
   "id": "4b7bfc93-44bb-4fad-a4bc-7cf42d5f11bd",
   "title": "Computer Science 9618 — Paper 1: Theory Fundamentals",
   "year": 2019,
@@ -3900,6 +4275,21 @@
   "level": "A2"
  },
  {
+  "id": "4e56e422-af6d-4259-acae-876b4913ef42",
+  "title": "Cambridge IGCSE Computer Science 0478 — Paper 2: Algorithms, Programming and Logic (0478/22)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0478-paper-2-22--may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0478-paper-2-22--may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:34.316355+00",
+  "updated_at": "2026-10-15 10:33:34.316355+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/GCSE/Past-Papers/CAIE/Paper-2/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "computer-science",
+  "level": "OL"
+ },
+ {
   "id": "4e63c33b-65b7-44f8-a93c-576acb3e058d",
   "title": "Edexcel IAL Maths — Mechanics M1 (WME01/01)",
   "year": 2024,
@@ -4020,6 +4410,21 @@
   "level": "AS"
  },
  {
+  "id": "5078fa3d-174b-4ff2-8785-71c41828949f",
+  "title": "Cambridge International AS Level Computer Science 9618 — Paper 2",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9618-paper-2-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9618-paper-2-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:30.683806+00",
+  "updated_at": "2026-10-15 10:36:30.683806+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-2/June%202018%20(v1)%20QP%20-%20Paper%202%20CAIE%20Computer%20Science%20A-level.pdf",
+  "subject_slug": "computer-science",
+  "level": "AS"
+ },
+ {
   "id": "507a5d08-bdaa-4072-a70f-22a207b2d56e",
   "title": "Cambridge International A Level Physics 9702 — Paper 5",
   "year": 2021,
@@ -4078,6 +4483,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/CAIE/Pure-3/QP/Specimen%202020%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "51525ae8-87df-44f3-bf7d-6638274919ce",
+  "title": "Cambridge International AS Level Mathematics 9709 — Paper 1: Pure Mathematics 1",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-1-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-1-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:52.692745+00",
+  "updated_at": "2026-10-15 10:33:52.692745+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-P1/QP/June%202018%20(v1)%20QP%20-%20P1.pdf",
+  "subject_slug": "mathematics",
+  "level": "AS"
  },
  {
   "id": "5192f1ca-be29-4132-bc4b-4fa85c8ad64e",
@@ -4170,6 +4590,21 @@
   "level": "OL"
  },
  {
+  "id": "54060874-78bf-4a43-a2ae-ab8df6535cfd",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 2",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 2",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-2-feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-2-feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:34:58.051943+00",
+  "updated_at": "2026-10-15 10:34:58.051943+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-2/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
+ },
+ {
   "id": "54833b1f-ac83-4a9e-8acf-2d8923761bc6",
   "title": "Cambridge International AS Level Computer Science 9618 — Paper 1",
   "year": 2022,
@@ -4215,6 +4650,21 @@
   "level": "A2"
  },
  {
+  "id": "550f7a61-793a-4478-b7aa-053a5015adf4",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 4: Theory Extended (0625/42)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 4 (42)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-4-42--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-4-42--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:32:12.409225+00",
+  "updated_at": "2026-10-15 10:32:12.409225+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-4/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "554cc1bf-cbb2-42d3-869a-995a65e24afd",
   "title": "Edexcel IAL Physics — Unit 3: Practical Skills in Physics I (WPH13/01)",
   "year": 2021,
@@ -4243,6 +4693,21 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
   "subject_slug": "mathematics",
   "level": "OL"
+ },
+ {
+  "id": "55579900-df4b-43ac-8a42-eab5276952c9",
+  "title": "Cambridge International A Level Physics 9702 — Paper 5",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 5",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-5-feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-5-feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:36:01.976732+00",
+  "updated_at": "2026-10-15 10:36:01.976732+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-5/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
  },
  {
   "id": "555c51b2-ee75-4c76-8336-cb22bace9e8b",
@@ -4905,6 +5370,21 @@
   "level": "AS"
  },
  {
+  "id": "608cd764-4994-4ee1-affa-b8941af7a24b",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 2: Multiple Choice Extended (0625/22)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-2-22--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-2-22--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:31:22.068857+00",
+  "updated_at": "2026-10-15 10:31:22.068857+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-2/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "60ace232-7a85-491c-8cf8-d2e28c6dfa16",
   "title": "Cambridge IGCSE Maths 0580 — Paper 4: Extended (0580/42)",
   "year": 2023,
@@ -4965,6 +5445,21 @@
   "level": "AS"
  },
  {
+  "id": "62ae83a8-8d16-416b-8a10-93c82d6e1f28",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 1 (0580/12)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-1-12--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:29:50.348571+00",
+  "updated_at": "2026-10-15 10:29:50.348571+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
+ },
+ {
   "id": "641669e5-5b9f-41d0-b6ea-a0ce7ae6598b",
   "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
   "year": 2023,
@@ -4976,6 +5471,21 @@
   "created_at": "2026-10-10 06:06:57.601545+00",
   "updated_at": "2026-10-10 06:06:57.601545+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-5/International/QP/March%202023%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
+  "id": "64798d7c-1a9b-4b82-b5b9-8f33702c815e",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 3 (0625/32)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 3 (32)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-3-32--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:31:42.868706+00",
+  "updated_at": "2026-10-15 10:31:42.868706+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202018%20(v2)%20QP.pdf",
   "subject_slug": "physics",
   "level": "OL"
  },
@@ -5098,6 +5608,21 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
   "subject_slug": "mathematics",
   "level": "OL"
+ },
+ {
+  "id": "656ce8a9-22da-4ecc-8524-76b8d4b6b9bc",
+  "title": "Cambridge International A Level Physics 9702 — Paper 5",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 5",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-5-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-5-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:35:55.138411+00",
+  "updated_at": "2026-10-15 10:35:55.138411+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-5/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
  },
  {
   "id": "660ffadb-78f3-4d1d-acd9-8ba29f9c5c23",
@@ -5308,6 +5833,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Statistics/S1/QP/October%202023%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "6c12d8c1-cd2b-4fbd-94ce-15b6343a46bb",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
+  "year": 2018,
+  "session": "Specimen",
+  "paper_number": "Paper 6 (62)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-6-62--specimen-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-6-62--specimen-2018-ms.pdf",
+  "created_at": "2026-10-15 10:33:07.597524+00",
+  "updated_at": "2026-10-15 10:33:07.597524+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-6/9-1/QP/Specimen%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "6c543724-1ad8-4a26-9327-c23f593a5d07",
@@ -5865,6 +6405,21 @@
   "level": "A2"
  },
  {
+  "id": "74b97b27-caa9-4108-abcf-2a92719d7ef6",
+  "title": "Cambridge IGCSE Computer Science 0478 — Paper 2: Algorithms, Programming and Logic (0478/22)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0478-paper-2-22--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0478-paper-2-22--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:33:41.792891+00",
+  "updated_at": "2026-10-15 10:33:41.792891+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/GCSE/Past-Papers/CAIE/Paper-2/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "computer-science",
+  "level": "OL"
+ },
+ {
   "id": "74c128ef-43a2-4573-9472-17c22cf6f571",
   "title": "Cambridge International AS Level Computer Science 9618 — Paper 2",
   "year": 2021,
@@ -5985,6 +6540,21 @@
   "level": "A2"
  },
  {
+  "id": "768c4b36-004c-4ed3-84ff-cd3ba256f256",
+  "title": "Cambridge International AS Level Computer Science 9618 — Paper 1",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9618-paper-1-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9618-paper-1-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:12.957732+00",
+  "updated_at": "2026-10-15 10:36:12.957732+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-1/June%202018%20(v1)%20QP%20-%20Paper%201%20CAIE%20Computer%20Science%20A-level.pdf",
+  "subject_slug": "computer-science",
+  "level": "AS"
+ },
+ {
   "id": "76d3ac2e-be72-41a5-9735-d1e071f51e97",
   "title": "Edexcel IAL Maths — Pure Mathematics P1 (WMA11/01)",
   "year": 2019,
@@ -6043,6 +6613,36 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
+ },
+ {
+  "id": "77a3903c-e1a9-4edc-9f54-1dec5d4d1fc4",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 1",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 1",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-1-feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-1-feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:34:38.17803+00",
+  "updated_at": "2026-10-15 10:34:38.17803+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-1/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
+ },
+ {
+  "id": "78322a5f-32bd-4628-b51c-874902e012ca",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 1 (0625/12)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-1-12--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:31:03.04463+00",
+  "updated_at": "2026-10-15 10:31:03.04463+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "7838f2ef-1825-4c33-961a-ebedd5bcea19",
@@ -6510,6 +7110,36 @@
   "level": "OL"
  },
  {
+  "id": "81ed57b2-628d-49c8-af4b-11837850bb35",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 6: Probability & Statistics 2",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 6",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-6-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-6-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:28.132606+00",
+  "updated_at": "2026-10-15 10:34:28.132606+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-S1/QP/June%202018%20(v1)%20QP%20-%20S1.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
+ },
+ {
+  "id": "81f7c562-3206-4286-9c05-21f26a7d0925",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 6 (62)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-6-62--may-june-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-6-62--may-june-2018-ms.pdf",
+  "created_at": "2026-10-15 10:32:53.731012+00",
+  "updated_at": "2026-10-15 10:32:53.731012+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-6/9-1/QP/June%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "8219400a-91ed-4051-9994-80ef4f95fcfd",
   "title": "Edexcel IAL Maths — Pure Mathematics P2 (WMA12/01)",
   "year": 2024,
@@ -6885,6 +7515,21 @@
   "level": "AS"
  },
  {
+  "id": "89b3a196-bcb2-4f36-84d0-4f300adb3574",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 2: Multiple Choice Extended (0625/22)",
+  "year": 2018,
+  "session": "Specimen",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-2-22--specimen-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-2-22--specimen-2018-ms.pdf",
+  "created_at": "2026-10-15 10:31:26.399745+00",
+  "updated_at": "2026-10-15 10:31:26.399745+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-2/9-1/QP/Specimen%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "8a028a72-0eb5-4de0-addd-e9a8faf9f690",
   "title": "Cambridge IGCSE Maths 0580 — Paper 3 (0580/32)",
   "year": 2024,
@@ -6898,6 +7543,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/November%202024%20(v1)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
+ },
+ {
+  "id": "8a52a27d-bcc9-4d7d-a659-bcd6eff9e3d5",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 1",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 1",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-1-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-1-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:40.382312+00",
+  "updated_at": "2026-10-15 10:34:40.382312+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-1/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
  },
  {
   "id": "8a6f36ec-04a2-45be-8c25-8860d152fe75",
@@ -7200,6 +7860,21 @@
   "level": "AS"
  },
  {
+  "id": "8e698a21-4b15-4f20-9692-b11de438bd3c",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 2: Pure Mathematics 2",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-2-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-2-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:59.289993+00",
+  "updated_at": "2026-10-15 10:33:59.289993+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-P2/QP/June%202018%20(v1)%20QP%20-%20P2.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
+ },
+ {
   "id": "8ec5ba15-0e02-49f9-84a7-0db320698431",
   "title": "Edexcel IAL Maths — Pure Mathematics P1 (WMA11/01)",
   "year": 2025,
@@ -7500,6 +8175,21 @@
   "level": "OL"
  },
  {
+  "id": "94bab4bf-c94e-4adb-b0d9-131f4bb96544",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 2: Pure Mathematics 2",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 2",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-2-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-2-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:02.597269+00",
+  "updated_at": "2026-10-15 10:34:02.597269+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-P2/QP/November%202018%20(v1)%20QP%20-%20P2.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
+ },
+ {
   "id": "94c2e84f-d04b-419f-80e2-c3bbb5bf127d",
   "title": "Edexcel IAL Physics — Unit 3: Practical Skills in Physics I (WPH13/01)",
   "year": 2024,
@@ -7590,6 +8280,21 @@
   "level": "A2"
  },
  {
+  "id": "96aa6cdb-42c7-4bcc-83a6-f3eb0dc6ce8d",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 3",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 3",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-3-feb-mar-2018-v3-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-3-feb-mar-2018-v3-ms.pdf",
+  "created_at": "2026-10-15 10:35:22.831299+00",
+  "updated_at": "2026-10-15 10:35:22.831299+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-3/QP/March%202018%20(v3)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
+ },
+ {
   "id": "96c5639f-3006-47bd-b0d3-899ad7932e57",
   "title": "Edexcel IAL Maths — Statistics S2 (WST02/01)",
   "year": 2022,
@@ -7648,6 +8353,21 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/past-papers/",
   "subject_slug": "computer-science",
   "level": "OL"
+ },
+ {
+  "id": "97a6c46b-3b12-4f3d-8d59-5d2818c99940",
+  "title": "Cambridge International AS Level Computer Science 9618 — Paper 1",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 1",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9618-paper-1-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9618-paper-1-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:21.62577+00",
+  "updated_at": "2026-10-15 10:36:21.62577+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-1/November%202018%20(v1)%20QP%20-%20Paper%201%20CAIE%20Computer%20Science%20A-level.pdf",
+  "subject_slug": "computer-science",
+  "level": "AS"
  },
  {
   "id": "97af88c2-48fe-4722-9d1c-de877b06b1a2",
@@ -7767,6 +8487,21 @@
   "updated_at": "2026-10-15 10:26:27.092904+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-5/QP/June%202019%20(v1)%20QP.pdf",
   "subject_slug": "physics",
+  "level": "A2"
+ },
+ {
+  "id": "999792bc-c20a-4e5d-8178-c1d867884c20",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 3: Pure Mathematics 3",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 3",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-3-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-3-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:06.63573+00",
+  "updated_at": "2026-10-15 10:34:06.63573+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-P3/QP/June%202018%20(v1)%20QP%20-%20P3.pdf",
+  "subject_slug": "mathematics",
   "level": "A2"
  },
  {
@@ -7963,6 +8698,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "9d89d0ac-4e60-4d16-835c-96f84cb1b1d2",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 1 (0580/12)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-1-12--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:29:45.440037+00",
+  "updated_at": "2026-10-15 10:29:45.440037+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
  },
  {
   "id": "9da6a012-cd12-4911-a91f-6af85e3b4554",
@@ -8370,6 +9120,21 @@
   "level": "A2"
  },
  {
+  "id": "a633f8de-cc91-4474-84c7-a3f7a85288b4",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
+  "year": 2018,
+  "session": "Specimen",
+  "paper_number": "Paper 5 (52)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-5-52--specimen-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-5-52--specimen-2018-ms.pdf",
+  "created_at": "2026-10-15 10:32:44.853496+00",
+  "updated_at": "2026-10-15 10:32:44.853496+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-5/9-1/QP/Specimen%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "a643b391-c42d-444e-a5ef-e9574377ad1d",
   "title": "Cambridge International AS Level Physics 9702 — Paper 3",
   "year": 2019,
@@ -8520,6 +9285,21 @@
   "level": "OL"
  },
  {
+  "id": "a884e4ea-5657-4b50-8f71-7dc4d5e77274",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 4: Extended (0580/42)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 4 (42)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-4-42--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-4-42--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:30:53.740161+00",
+  "updated_at": "2026-10-15 10:30:53.740161+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-4/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
+ },
+ {
   "id": "a88f6069-c92e-4bbe-b2af-0d6fcd3d2597",
   "title": "Cambridge International A Level Computer Science 9618 — Paper 3",
   "year": 2021,
@@ -8548,6 +9328,36 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Pure/P2/QP/October%202022%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
+ },
+ {
+  "id": "a9b84e7b-580b-4c1c-aab5-4023ebd15439",
+  "title": "Edexcel IAL Physics — Unit 6 (WPH16/01)",
+  "year": 2019,
+  "session": "Feb/Mar",
+  "paper_number": "U6",
+  "topic_id": null,
+  "paper_url": "papers/pmt/WPH16-u6-feb-mar-2019-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/WPH16-u6-feb-mar-2019-ms.pdf",
+  "created_at": "2026-10-15 10:29:24.618608+00",
+  "updated_at": "2026-10-15 10:29:24.618608+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/Edexcel-IAL/Unit-6/January%202019%20(IAL)%20QP%20-%20Unit%206%20Edexcel%20Physics%20A-level.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
+ },
+ {
+  "id": "a9e7cfef-90a1-4738-bd9d-192f56e58947",
+  "title": "Cambridge IGCSE Computer Science 0478 — Paper 2: Algorithms, Programming and Logic (0478/22)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0478-paper-2-22--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0478-paper-2-22--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:49.308228+00",
+  "updated_at": "2026-10-15 10:33:49.308228+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/GCSE/Past-Papers/CAIE/Paper-2/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "computer-science",
+  "level": "OL"
  },
  {
   "id": "aa052a27-a731-4a85-8e18-b48b26b767bc",
@@ -8668,6 +9478,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "A2"
+ },
+ {
+  "id": "ac525e3c-76e7-4edb-9a58-e7141230655b",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 2",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-2-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-2-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:48.897523+00",
+  "updated_at": "2026-10-15 10:34:48.897523+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-2/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
  },
  {
   "id": "ad7b5e01-1104-47e3-86ca-eaa8d4bb1d19",
@@ -8923,6 +9748,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Pure/P2/QP/June%202023%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
+ },
+ {
+  "id": "b3a1bb59-7d1f-4110-93b7-7d36a2cfd3a4",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 6: Alternative to Practical (0625/62)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 6 (62)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-6-62--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-6-62--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:03.608298+00",
+  "updated_at": "2026-10-15 10:33:03.608298+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-6/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "b3f15a91-763a-4ccb-b400-80b2be634687",
@@ -9450,6 +10290,21 @@
   "level": "OL"
  },
  {
+  "id": "bc524b54-00dc-4a79-bfa9-20b2aed32519",
+  "title": "Cambridge IGCSE Computer Science 0478 — Paper 1: Computer Systems (0478/12)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0478-paper-1-12--may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0478-paper-1-12--may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:33:14.89167+00",
+  "updated_at": "2026-10-15 10:33:14.89167+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/GCSE/Past-Papers/CAIE/Paper-1/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "computer-science",
+  "level": "OL"
+ },
+ {
   "id": "bd58e4f9-7eee-4648-9f79-4d1b0aba2046",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 4: Mechanics",
   "year": 2025,
@@ -9585,6 +10440,21 @@
   "level": "A2"
  },
  {
+  "id": "bf742c30-7e57-4333-afe6-01ad0b5020bf",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 3 (0625/32)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 3 (32)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-3-32--may-june-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-3-32--may-june-2018-ms.pdf",
+  "created_at": "2026-10-15 10:31:35.87214+00",
+  "updated_at": "2026-10-15 10:31:35.87214+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/9-1/QP/June%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "bfce48d8-da64-408e-ae1d-15f4123a2dcf",
   "title": "Cambridge International A Level Physics 9702 — Paper 4",
   "year": 2021,
@@ -9658,6 +10528,36 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
   "subject_slug": "physics",
   "level": "OL"
+ },
+ {
+  "id": "c0508839-c917-40ad-ad3d-4a567946153a",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 6: Probability & Statistics 2",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 6",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-6-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-6-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:32.572479+00",
+  "updated_at": "2026-10-15 10:34:32.572479+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-S1/QP/November%202018%20(v1)%20QP%20-%20S1.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
+ },
+ {
+  "id": "c0ab9ea5-0ee3-4efb-ae03-d4847fce7a78",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 3",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 3",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-3-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-3-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:35:12.158689+00",
+  "updated_at": "2026-10-15 10:35:12.158689+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-3/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
  },
  {
   "id": "c0ca1522-455c-4f6e-83f9-a5536e45e487",
@@ -9855,6 +10755,21 @@
   "level": "OL"
  },
  {
+  "id": "c5ace493-9272-496a-bb0b-9528b62a95b2",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 5 (52)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-5-52--may-june-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-5-52--may-june-2018-ms.pdf",
+  "created_at": "2026-10-15 10:32:25.687597+00",
+  "updated_at": "2026-10-15 10:32:25.687597+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-5/9-1/QP/June%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "c5e6b2f4-8788-4f5d-9713-a7a0e77b8673",
   "title": "Cambridge IGCSE Computer Science 0478 — Paper 2: Algorithms, Programming and Logic (0478/22)",
   "year": 2021,
@@ -10003,6 +10918,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Statistics/S1/QP/January%202021%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "c944f1fb-4f1f-43d0-8822-a38748caef2d",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 2: Multiple Choice Extended (0625/22)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-2-22--may-june-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-2-22--may-june-2018-ms.pdf",
+  "created_at": "2026-10-15 10:31:15.139007+00",
+  "updated_at": "2026-10-15 10:31:15.139007+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-2/9-1/QP/June%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "c9483b5f-5152-48e3-910f-0efc8e95f99c",
@@ -10256,6 +11186,21 @@
   "created_at": "2026-10-15 10:19:35.931687+00",
   "updated_at": "2026-10-15 10:19:35.931687+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/June%202020%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
+ },
+ {
+  "id": "cd110299-d1cc-4f4e-9b68-904711f7a9e4",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 2: Extended (0580/22)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-2-22--may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-2-22--may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:29:57.936261+00",
+  "updated_at": "2026-10-15 10:29:57.936261+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-2/International/QP/June%202018%20(v1)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
  },
@@ -10845,6 +11790,21 @@
   "level": "OL"
  },
  {
+  "id": "d49c8393-9f48-435e-b371-13a9cd945865",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 1 (0580/12)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-1-12--may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-1-12--may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:29:39.113821+00",
+  "updated_at": "2026-10-15 10:29:39.113821+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
+ },
+ {
   "id": "d4d51819-af65-45da-8cee-23b281c59bf2",
   "title": "Cambridge International AS Level Physics 9702 — Paper 1",
   "year": 2021,
@@ -10965,6 +11925,21 @@
   "level": "OL"
  },
  {
+  "id": "d8544718-d58e-4713-8006-05ac11183125",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 5 (52)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-5-52--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-5-52--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:32:41.477587+00",
+  "updated_at": "2026-10-15 10:32:41.477587+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-5/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "d8af1585-95cf-40a2-81a8-11f949fb6bc0",
   "title": "Cambridge IGCSE Computer Science 0478 — Paper 2: Algorithms, Programming and Logic (0478/22)",
   "year": 2019,
@@ -11008,6 +11983,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
+ },
+ {
+  "id": "d9215055-14e4-4924-aca7-11cb134ea170",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 3 (0580/32)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 3 (32)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-3-32--may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:30:14.548825+00",
+  "updated_at": "2026-10-15 10:30:14.548825+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/June%202018%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
  },
  {
   "id": "d943fb6f-7016-4e94-83e1-bbb11495b590",
@@ -11158,6 +12148,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "db160d48-fc04-4da9-a96c-ee5100a0a15a",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 4: Extended (0580/42)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 4 (42)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-4-42--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-4-42--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:30:46.806252+00",
+  "updated_at": "2026-10-15 10:30:46.806252+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-4/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
  },
  {
   "id": "db57bf35-0102-4a4e-86c7-3bfee0d05c94",
@@ -11460,6 +12465,21 @@
   "level": "OL"
  },
  {
+  "id": "e16a8393-1ba5-4acb-9730-df73d0a28138",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 1 (0625/12)",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-1-12--may-june-2018-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--may-june-2018-ms.pdf",
+  "created_at": "2026-10-15 10:30:58.66433+00",
+  "updated_at": "2026-10-15 10:30:58.66433+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/9-1/QP/June%202018%20(9-1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "e2075e40-9109-4e14-a936-45d73816c05b",
   "title": "Cambridge International AS Level Physics 9702 — Paper 2",
   "year": 2024,
@@ -11623,6 +12643,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-4/International/QP/March%202019%20(v2)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
+ },
+ {
+  "id": "e5295dbe-a735-4656-aedb-e4af76286e8e",
+  "title": "Cambridge International A Level Computer Science 9618 — Paper 3",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 3",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9618-paper-3-may-june-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9618-paper-3-may-june-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:44.780557+00",
+  "updated_at": "2026-10-15 10:36:44.780557+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-3/June%202018%20(v1)%20QP%20-%20Paper%203%20CAIE%20Computer%20Science%20A-level.pdf",
+  "subject_slug": "computer-science",
+  "level": "A2"
  },
  {
   "id": "e5bdede4-d1b8-42ac-9673-1acb376771c2",
@@ -11955,6 +12990,21 @@
   "level": "AS"
  },
  {
+  "id": "ebd2933f-1e82-4fd2-822f-1f3110470694",
+  "title": "Cambridge International A Level Computer Science 9618 — Paper 3",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 3",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9618-paper-3-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9618-paper-3-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:36:51.771674+00",
+  "updated_at": "2026-10-15 10:36:51.771674+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-3/November%202018%20(v1)%20QP%20-%20Paper%203%20CAIE%20Computer%20Science%20A-level.pdf",
+  "subject_slug": "computer-science",
+  "level": "A2"
+ },
+ {
   "id": "ebeb64c5-33cd-4d1e-884d-f34c1c4ff721",
   "title": "Computer Science 9618 — Paper 3: Advanced Theory",
   "year": 2024,
@@ -11967,6 +13017,21 @@
   "updated_at": "2026-10-07 15:12:35.012508+00",
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-computer-science-9618/past-papers/",
   "subject_slug": "computer-science",
+  "level": "A2"
+ },
+ {
+  "id": "eca002a6-ffc1-4e6a-a9dd-0bb96a0596e8",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 3: Pure Mathematics 3",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 3",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-3-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-3-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:10.366645+00",
+  "updated_at": "2026-10-15 10:34:10.366645+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-P3/QP/November%202018%20(v1)%20QP%20-%20P3.pdf",
+  "subject_slug": "mathematics",
   "level": "A2"
  },
  {
@@ -11983,6 +13048,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "AS"
+ },
+ {
+  "id": "eccb59ea-37f4-4a35-aa61-73c76ae414cf",
+  "title": "Cambridge International A Level Mathematics 9709 — Paper 5: Probability & Statistics 1",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 5",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9709-paper-5-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9709-paper-5-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:34:24.637844+00",
+  "updated_at": "2026-10-15 10:34:24.637844+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/CIE/Paper-M2/QP/November%202018%20(v1)%20QP%20-%20M2.pdf",
+  "subject_slug": "mathematics",
+  "level": "A2"
  },
  {
   "id": "ed15ac55-6b6f-4b1e-ad33-8495b22bf248",
@@ -12450,6 +13530,21 @@
   "level": "OL"
  },
  {
+  "id": "f5dba4c4-c863-4f65-b582-179f1cbdad8a",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 3 (0580/32)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 3 (32)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-3-32--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-3-32--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:30:21.817032+00",
+  "updated_at": "2026-10-15 10:30:21.817032+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-3/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
+ },
+ {
   "id": "f5e9d715-ef27-4027-92db-e9024b12a33f",
   "title": "Cambridge International AS Level Physics 9702 — Paper 1",
   "year": 2022,
@@ -12493,6 +13588,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "f67627ec-10c1-4e67-86ae-a9e427b6893c",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 1 (0625/12)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 1 (12)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-1-12--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-1-12--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:31:07.875036+00",
+  "updated_at": "2026-10-15 10:31:07.875036+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
  },
  {
   "id": "f6bca413-d87e-4f2b-827f-cb61d8ee1553",
@@ -12630,6 +13740,21 @@
   "level": "A2"
  },
  {
+  "id": "f8e25f27-210c-45f0-a4ab-f3023b163a56",
+  "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
+  "year": 2018,
+  "session": "Feb/Mar",
+  "paper_number": "Paper 5 (52)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0625-paper-5-52--feb-mar-2018-v2-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0625-paper-5-52--feb-mar-2018-v2-ms.pdf",
+  "created_at": "2026-10-15 10:32:33.005569+00",
+  "updated_at": "2026-10-15 10:32:33.005569+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-5/International/QP/March%202018%20(v2)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "OL"
+ },
+ {
   "id": "f8ed94aa-7d82-4166-949e-92bd1733c1ac",
   "title": "Cambridge International A Level Computer Science 9618 — Paper 4",
   "year": 2023,
@@ -12660,6 +13785,21 @@
   "level": "A2"
  },
  {
+  "id": "f9e637b3-0924-4e0b-84fb-ca082850890a",
+  "title": "Cambridge IGCSE Maths 0580 — Paper 2: Extended (0580/22)",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 2 (22)",
+  "topic_id": null,
+  "paper_url": "papers/pmt/0580-paper-2-22--oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/0580-paper-2-22--oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:30:08.481539+00",
+  "updated_at": "2026-10-15 10:30:08.481539+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-2/International/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "mathematics",
+  "level": "OL"
+ },
+ {
   "id": "fa2e3413-3c8b-4a6b-9797-9ef66fb8d1cc",
   "title": "Cambridge IGCSE Maths 0580 — Paper 2: Extended (0580/22)",
   "year": 2023,
@@ -12673,6 +13813,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-2/International/QP/March%202023%20(v2)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
+ },
+ {
+  "id": "fa90b333-4cf7-4a94-a13c-84358811e46e",
+  "title": "Cambridge International AS Level Physics 9702 — Paper 3",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 3",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-3-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-3-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:35:29.390536+00",
+  "updated_at": "2026-10-15 10:35:29.390536+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-3/QP/November%202018%20(v1)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "AS"
  },
  {
   "id": "faa8bd01-e50a-4b66-8287-9c7f6ba20462",
@@ -12866,6 +14021,21 @@
   "created_at": "2026-10-10 06:14:23.391069+00",
   "updated_at": "2026-10-10 06:14:23.391069+00",
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/Edexcel-IAL/2018-spec/Unit-4/QP/January%202022%20(IAL)%20QP.pdf",
+  "subject_slug": "physics",
+  "level": "A2"
+ },
+ {
+  "id": "fe20cde4-8be5-41ff-b9f8-6ce0574b4a02",
+  "title": "Cambridge International A Level Physics 9702 — Paper 4",
+  "year": 2018,
+  "session": "Oct/Nov",
+  "paper_number": "Paper 4",
+  "topic_id": null,
+  "paper_url": "papers/pmt/9702-paper-4-oct-nov-2018-v1-qp.pdf",
+  "mark_scheme_url": "mark-schemes/pmt/9702-paper-4-oct-nov-2018-v1-ms.pdf",
+  "created_at": "2026-10-15 10:35:50.589072+00",
+  "updated_at": "2026-10-15 10:35:50.589072+00",
+  "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-4/QP/November%202018%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "A2"
  },

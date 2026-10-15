@@ -1,5 +1,35 @@
 [
  {
+  "id": "0019393b-3631-4242-9922-7e22a50f7d4e",
+  "entity_type": "material",
+  "entity_id": "92183967-18ff-4f89-90fb-10fd52eb9e0a",
+  "title": "Exam technique: Communication and Networking",
+  "content": "### What earns the marks\nFor switching and protocols, describe earns marks for the mechanism plus its consequence: packets carry addresses and sequence numbers so routers forward independently and the receiver reassembles. For TCP vs UDP, justify earns marks for matching reliability to the use case, not for declaring one better. For security, name earns the control plus what it inspects: packet-filtering checks headers against rules.\n### Traps\nError: circuit-switching features credited to packet switching. Correction: dedicated path and guaranteed bandwidth are circuit properties. Error: TCP recommended for live video. Correction: delay hurts more than loss there, so UDP. Error: claiming wireless uses collision detection. Correction: senders cannot listen while sending, so avoidance (RTS/CTS).",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
+  "id": "01269905-9c96-4ee0-8780-7f6ea1a75ea9",
+  "entity_type": "material",
+  "entity_id": "979f42e1-d3ff-4dd4-8993-d6a7ada44e76",
+  "title": "Databases — Quick Revision Summary",
+  "content": "<h2>Quick revision: Databases</h2>\n<p><strong>Computer Science — AS.</strong> `# Databases</p>\n<h3>Key areas to revise</h3>\n<ul><li>Relational Basics</li><li>Normalisation</li><li>SQL</li><li>Transactions</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
   "id": "028dd94d-66d5-445a-b398-b5620ee8b24b",
   "entity_type": "material",
   "entity_id": "e1a3c834-71a5-46c5-87e6-4700be5beeb8",
@@ -135,6 +165,21 @@
   "created_at": "2026-10-13 14:26:08.422261+00"
  },
  {
+  "id": "073bcaf2-c7c3-4375-9169-27b5b8d10810",
+  "entity_type": "material",
+  "entity_id": "5044a262-a2b1-459f-92fb-3866734eb1a1",
+  "title": "Algebra — Equations — Quick Revision Summary",
+  "content": "<h2>Quick revision: Algebra — Equations</h2>\n<p><strong>Mathematics — OL.</strong> linear equations, simultaneous equations, quadratic formula, completing the square, forming equations from words.</p>\n<ul>\n<li>1. Linear equations</li>\n<li>2. Forming equations</li>\n<li>3. Simultaneous equations</li>\n<li>4. Quadratics by formula</li>\n<li>5. Completing the square</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
+ },
+ {
   "id": "0823e81a-e287-4a20-bc56-9ed7297ab3f5",
   "entity_type": "material",
   "entity_id": "08301850-6448-4a6a-9f29-d723df78f89a",
@@ -255,6 +300,21 @@
   "created_at": "2026-10-12 09:51:11.443742+00"
  },
  {
+  "id": "0cf46602-2d6c-4c4d-92b0-f889c0f28af6",
+  "entity_type": "material",
+  "entity_id": "55709e1c-ba44-4fde-9419-d3406d0fa5c0",
+  "title": "Exam technique: Mensuration",
+  "content": "### What earns the marks\nFor circles, sectors and arcs, the fraction of 360 stated earns the method mark: write 60/360 before multiplying. For cylinders, cones and spheres, the formula quoted earns a mark on its own, so write Volume = (1/3) pi r squared h even when confident. For compound shapes, split earns marks: compute each part separately, then add or subtract with a clear statement.\n### Traps\nError: 2 pi r used for area. Correction: circumference versus area check first. Error: omitting 1/3 for cones and pyramids. Correction: quote the formula every time. Error: using diameter as radius in a semicircle cut-out. Correction: halve the diameter before any pi work. Error: forgetting the square root in a Pythagoras step. Correction: label squared lines as squared.\n### Worked example\nA cylinder has radius 3 cm and height 10 cm. Its volume is πr²h = π × 9 × 10 = 90π ≈ 282.7 cm³. A sector of angle 60° in a circle of radius 6 cm has arc length (60/360) × 2π × 6 = 2π cm.\n### Check yourself\nA trapezium has parallel sides 5 cm and 9 cm and a perpendicular height of 4 cm. Find its area. Use ½(a + b)h = ½ × (5 + 9) × 4 = 28 cm². State the units and show the substitution before the final value.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
   "id": "0e100ce9-da0c-4b7e-8551-40d1fe894d68",
   "entity_type": "material",
   "entity_id": "77c32ddd-d720-4973-9b42-3e1600709841",
@@ -268,6 +328,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "0f495b4b-f9ce-4a3f-bd38-dd51992b0cbe",
+  "entity_type": "material",
+  "entity_id": "887eb0dc-eb5d-47ea-81ab-4d527cbcb3e1",
+  "title": "The Normal Distribution — Quick Revision Summary",
+  "content": "<h2>Quick revision: The Normal Distribution</h2>\n<p><strong>Mathematics — A2.</strong> A continuous distribution with the familiar bell shape, symmetric about the mean, described by two parameters: X ~ N(μ, σ²). The curve is fully determined by μ (centre) and σ (width). Total probability is 1, and because X is continuous, P(X = a) = 0 for any single point — inequalities do not need strictness.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Model</li><li>Standardising</li><li>Backwards Problems</li><li>Symmetry Shortcuts</li><li>Normal Approximation to the Binomial</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
  },
  {
   "id": "0f903ea2-d2e4-4e5f-88b6-3c765b401c01",
@@ -435,6 +510,21 @@
   "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
+  "id": "1899c4c4-278b-45e8-af08-d486c9017bf9",
+  "entity_type": "material",
+  "entity_id": "55709e1c-ba44-4fde-9419-d3406d0fa5c0",
+  "title": "Exam technique: Mensuration",
+  "content": "### What earns the marks\nFor circles, sectors and arcs, the fraction of 360 stated earns the method mark: write 60/360 before multiplying. For cylinders, cones and spheres, the formula quoted earns a mark on its own, so write Volume = (1/3) pi r squared h even when confident. For compound shapes, split earns marks: compute each part separately, then add or subtract with a clear statement.\n### Traps\nError: 2 pi r used for area. Correction: circumference versus area check first. Error: omitting 1/3 for cones and pyramids. Correction: quote the formula every time. Error: using diameter as radius in a semicircle cut-out. Correction: halve the diameter before any pi work. Error: forgetting the square root in a Pythagoras step. Correction: label squared lines as squared.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
   "id": "19692c47-87d3-4687-b83e-2e528a4478ad",
   "entity_type": "material",
   "entity_id": "f5acbebb-b0b2-4070-9f23-249d8e606ec2",
@@ -448,6 +538,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
+  "id": "197b215f-0a82-435c-951f-af8794ec0ab6",
+  "entity_type": "material",
+  "entity_id": "bbb2b05b-65de-4a24-9ffc-9fb2a7911597",
+  "title": "Exam technique: Right-Angled Trigonometry",
+  "content": "### What earns the marks\nFor finding sides or angles, the correct ratio chosen (sin, cos, tan) with sides labelled earns the method mark: write sin(angle) = opposite / hypotenuse before substituting. For Pythagoras, the squared equation earns the mark before the root. For exact values, the surd form (root 3 / 2) earns the exactness mark; decimals lose it. For angles of elevation and depression, the diagram with the equality stated earns credit.\n### Traps\nError: sine used where cosine belongs (adjacent involved). Correction: label O, A, H on the diagram first. Error: 225 given as the hypotenuse. Correction: root last. Error: 0.866 accepted for sin 60. Correction: exact means surd. Error: sin used for a tan situation in height problems. Correction: opposite over adjacent when the hypotenuse is absent.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
+  "id": "1a36e09f-2e0b-4a17-ba3c-d32d72b2a430",
+  "entity_type": "material",
+  "entity_id": "26724ce0-a257-45ce-a531-f3f7ae3c6948",
+  "title": "Exam technique: Programming and Algorithms",
+  "content": "### What earns the marks\nFor validation, the rejected range stated plus the rejection loop earns both marks. For structure, single entry and exit modules using only sequence, selection and iteration earn the design marks. For traces, each variable tracked per line earns method credit. For testing, the stage named with its setting (isolated module vs live users) earns each mark.\n### Traps\nError: fixed FOR loops for unknown-attempt validation. Correction: WHILE-until-valid loops. Error: binary search on unsorted data. Correction: sort first or use linear search. Error: unit and acceptance settings swapped. Correction: unit is isolated with test data; acceptance is live with real users.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
  },
  {
   "id": "1a72150c-f793-4f92-8d8a-cd2b0640644d",
@@ -478,6 +598,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
+  "id": "1a9c810a-c7e1-477e-8abb-5f62977c05bc",
+  "entity_type": "material",
+  "entity_id": "8ace548d-24a6-4523-87d6-efb8b01c02f9",
+  "title": "Processor Fundamentals — Quick Revision Summary",
+  "content": "<h2>Quick revision: Processor Fundamentals</h2>\n<p><strong>Computer Science — AS.</strong> `# Processor Fundamentals</p>\n<h3>Key areas to revise</h3>\n<ul><li>The FDE Cycle</li><li>Registers</li><li>Buses</li><li>Interrupts</li><li>Assembly and Addressing</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
+  "id": "1b395bfe-8ce2-44c8-ac0f-821660df8620",
+  "entity_type": "material",
+  "entity_id": "d3861842-85bc-46a9-9b8f-c33c61f75777",
+  "title": "Exam technique: Algebra Inequalities",
+  "content": "### What earns the marks\nFor solving, calculate earns marks for each correct rearrangement step with the inequality sign carried through, and the final solution as an inequality or integer list as demanded. For integer-solution questions, list earns marks only for the complete correct set: show the solved inequality first, then enumerate. For combined inequalities, handle each side separately and intersect at the end.\n### Traps\nError: forgetting to reverse the sign when dividing by a negative. Correction: circle every division by a negative and flip immediately. Error: answering x < 9 with 9 for the largest integer. Correction: step down one for strict inequalities. Error: including -1 in -1 < n <= 3. Correction: strict ends exclude, slack ends include.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
  },
  {
   "id": "1bc1e511-a3ac-46dc-a1b0-cee575b2b494",
@@ -523,6 +673,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-12 06:15:14.901839+00"
+ },
+ {
+  "id": "1ea16af5-0388-4d94-9075-80f9b165b313",
+  "entity_type": "material",
+  "entity_id": "7ffb73b1-93f6-4a6b-95e2-46131d5d1317",
+  "title": "Programming and Algorithms — Quick Revision Summary",
+  "content": "<h2>Quick revision: Programming and Algorithms</h2>\n<p><strong>Computer Science — AS.</strong> `# Programming and Algorithms</p>\n<h3>Key areas to revise</h3>\n<ul><li>Design Approaches</li><li>Pseudocode Conventions</li><li>Searching</li><li>Sorting</li><li>Recursion</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
+  "id": "1fa3833d-3681-430f-8fcd-9c22d685353d",
+  "entity_type": "material",
+  "entity_id": "7a971f20-7ee9-4a15-9c5d-d0b0420228e0",
+  "title": "Circular Measure — Quick Revision Summary",
+  "content": "<h2>Quick revision: Circular Measure</h2>\n<p><strong>Mathematics — AS (9709).</strong> One radian is the angle subtending an arc equal in length to the radius. π radians = 180°.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Radians</li><li>Arc Length</li><li>Sector Area</li><li>Segment Area</li><li>Rearranging</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
  },
  {
   "id": "21680a51-88fe-4aea-91fe-0778200f8b50",
@@ -613,6 +793,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
+  "id": "248e4405-00d1-4e25-bb31-fb7f384ad35b",
+  "entity_type": "material",
+  "entity_id": "3232dace-5b8d-4bde-8511-79a0bceb36fb",
+  "title": "Networks and the Internet — Quick Revision Summary",
+  "content": "<h2>Quick revision: Networks and the Internet</h2>\n<p><strong>Computer Science — A2.</strong> Four layers: Application (HTTP, FTP, SMTP, DNS), Transport (TCP reliable, connection-oriented with sequence numbers and acknowledgements; UDP fast, connectionless), Internet (IP addressing and routing), Link (physical delivery on the local network). Layering separates concerns so each layer can change independently.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The TCP/IP Stack</li><li>Switching</li><li>Addressing and Subnetting</li><li>Models and Protection</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n### Worked example\nThe internet is a network of networks. Data travels as packets, and each packet carries a destination IP address. IPv4 addresses are 32 bits, giving 2³² possible addresses, and IPv6 addresses are 128 bits. DNS translates a domain name into an IP address. TCP checks that packets arrive and reassembles them in order, while HTTPS encrypts the data in transit.\n### Check yourself\nDescribe the role of DNS when you open a website by name. DNS looks up the domain name and returns the IP address, and the browser then sends its request to that address. Explain why packets may take different routes but still reach the destination.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
  },
  {
   "id": "24950def-0ad6-43c8-a3be-6b228383927d",
@@ -795,6 +990,21 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "2ce12d0f-cf74-4c17-96df-635cd52f21d9",
+  "entity_type": "material",
+  "entity_id": "95823bfe-53a0-41fc-b53f-e2719296ac1e",
+  "title": "Exam technique: Fractions, Decimals and Percentages",
+  "content": "### What earns the marks\nFor percentages of amounts, the 10-percent building blocks shown earn method marks without a calculator. For reverse percentages, state what the given amount represents (64 dollars = 80 percent) before dividing: that line earns the mark. For compound interest, each year on its own line earns credit. For Steel-type growth and decay, the multiplier (1/2 cubed) stated earns the method mark.\n### Traps\nError: adding 20 percent to the sale price for the original. Correction: the sale price is the base of nothing; divide by 0.8. Error: simple interest applied twice for compound growth. Correction: grow each year from the new total. Error: decimal-point slips in 3/8 to percent. Correction: decimal first (0.375), then times 100.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
+ },
+ {
   "id": "2d31599d-0be3-4724-9974-9404221b4606",
   "entity_type": "material",
   "entity_id": "a5a88378-f424-47de-9f47-e92967a125cc",
@@ -808,6 +1018,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 09:42:20.893682+00"
+ },
+ {
+  "id": "2e9fe310-29f0-4030-8793-d3849bcb7eba",
+  "entity_type": "material",
+  "entity_id": "d3c988e8-6c65-4656-ba9f-f14c4a514b1d",
+  "title": "Exam technique: Arithmetic and Place Value",
+  "content": "### What earns the marks\nFor HCF and LCM, the prime factorisation of each number earns the method mark; state highest powers for LCM and lowest for HCF. For bounds, half-the-precision stated (0.05 for 1 d.p.) earns the method mark before the bound. For estimation, the rounded line (50 x 20 / 10) must be shown: a bare calculator value scores nothing. For time and money, each conversion step shown earns its mark.\n### Traps\nError: 16:80 as a time. Correction: 60 minutes carry. Error: largest rounded value confused with the upper bound (6.34 vs 6.35). Correction: the bound is the first value that rounds away. Error: HCF powers used for LCM. Correction: LCM takes the highest of each prime.\n### Worked example\nIn 4 706 325 the digit 7 is in the hundred-thousands place, so its value is 700 000. For order of operations, 3 + 4 × (10 − 6)² is worked out as 3 + 4 × 4² = 3 + 4 × 16 = 3 + 64 = 67. Brackets and powers come before multiplication, and addition comes last.\n### Check yourself\nState the value of the digit 6 in 4 706 325, then calculate 20 − 2 × (3 + 4)². The 6 is worth 6000. The second is 20 − 2 × 49 = 20 − 98 = −78, which shows why the brackets must be done first.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
+ },
+ {
+  "id": "2eb259ba-7bb4-4ca8-85d0-2f790541a81d",
+  "entity_type": "material",
+  "entity_id": "dda72fa0-d883-4994-9e85-9530efc1e841",
+  "title": "System Software and Security — Quick Revision Summary",
+  "content": "<h2>Quick revision: System Software and Security</h2>\n<p><strong>Computer Science — AS.</strong> `# System Software and Security</p>\n<h3>Key areas to revise</h3>\n<ul><li>Operating System Roles</li><li>Translators</li><li>Linkers and Loaders</li><li>IDEs</li><li>Malware and Defences</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
  },
  {
   "id": "2eeb7b03-3ee3-4745-b8c7-c9662efd7b67",
@@ -855,6 +1095,36 @@
   "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
+  "id": "30c64b96-5ce4-48c3-8823-eab2923e381a",
+  "entity_type": "material",
+  "entity_id": "e984fd15-d160-45e6-984a-ec7940c7650b",
+  "title": "Communication and Networking — Quick Revision Summary",
+  "content": "<h2>Quick revision: Communication and Networking</h2>\n<p><strong>Computer Science — AS.</strong> `# Communication and Networking</p>\n<h3>Key areas to revise</h3>\n<ul><li>Transmission</li><li>Packets and Protocols</li><li>Network Types</li><li>Hardware</li><li>Client-Server vs Peer-to-Peer</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
+ },
+ {
+  "id": "31d20154-d2a9-46b8-b709-ba2298992986",
+  "entity_type": "material",
+  "entity_id": "5f4ea511-14f7-47b6-b864-7c036cdcaaaf",
+  "title": "Permutations and Combinations — Quick Revision Summary",
+  "content": "<h2>Quick revision: Permutations and Combinations</h2>\n<p><strong>Mathematics — A2.</strong> If a task is done in successive stages with m, n, ... choices at each stage, the total is the product of the choices. This underpins every counting problem: a menu with 4 starters and 6 mains gives 24 meals.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Multiplication Principle</li><li>Permutations — Order Matters</li><li>Combinations — Order Irrelevant</li><li>Restricted Permutations</li><li>Combinations with Constraints</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
+ },
+ {
   "id": "32668b69-5574-40a3-83f6-4b146640e5b5",
   "entity_type": "material",
   "entity_id": "cad3375c-cc3e-4846-8a72-441509ebada1",
@@ -883,6 +1153,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-12 09:51:11.443742+00"
+ },
+ {
+  "id": "33f006bb-6c4b-43f7-9849-47c020856ac9",
+  "entity_type": "material",
+  "entity_id": "39a4043c-189a-416c-882b-d9b503694e4e",
+  "title": "Simulation, Sensors and Real Data — Quick Revision Summary",
+  "content": "<h2>Quick revision: Simulation, Sensors and Real Data</h2>\n<p><strong>Computer Science — A2.</strong> A simulation is a program that models a real system to test scenarios safely and cheaply: weather models, traffic flows, epidemic spread. Models use abstractions — chosen variables and equations — with a time step. Advantages: no real-world risk, repeatable, faster or slower than real time. Limitations: only as good as the model; rare events may be missed.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Simulation and Modelling</li><li>Sensors and Signals</li><li>Monitoring vs Control</li><li>Real-Time Considerations</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
+  "id": "3442ff7e-d891-48cb-9e63-b158744f756f",
+  "entity_type": "material",
+  "entity_id": "317310ce-3bf6-4dd4-87a8-951948ac4d36",
+  "title": "Exam technique: Angles and Polygons",
+  "content": "### What earns the marks\nFor angle-chasing, justify earns marks for each reason stated alongside the value: angles on a straight line, vertically opposite, alternate, corresponding, and the circle theorems by name. For cyclic quadrilaterals, quote earns the theorem (opposite angles sum to 180) before the equation. For polygons, the formula (n - 2) x 180 stated earns the method mark.\n### Traps\nError: using adjacent instead of opposite angles in a cyclic quadrilateral. Correction: mark the diagram first. Error: answering each interior angle when the sum is asked. Correction: only divide at the very end. Error: treating any triangle in a circle as right-angled. Correction: the right angle needs the diameter as hypotenuse.\n### Worked example\nThe sum of the interior angles of an n-sided polygon is (n − 2) × 180°. For a regular octagon (n = 8), each interior angle is 6 × 180 ÷ 8 = 135°, so each exterior angle is 45°. The exterior angles of any polygon add up to 360°, which gives a quick check: 8 × 45 = 360.\n### Check yourself\nFind the interior angle of a regular hexagon. Use (6 − 2) × 180 ÷ 6 = 120°. Explain why the exterior angle is 60° and why this matches 360 ÷ 6.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
  },
  {
   "id": "346cbd34-910f-413d-aa5d-307391c85370",
@@ -960,6 +1260,36 @@
   "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
+  "id": "36e2d6a8-6e79-499e-ad7e-4fc9e7476a0c",
+  "entity_type": "material",
+  "entity_id": "d4d41ed0-cbb8-4358-909f-a9a7d7aa7149",
+  "title": "Database Systems — Quick Revision Summary",
+  "content": "<h2>Quick revision: Database Systems</h2>\n<p><strong>Computer Science — OL.</strong> limitations of file-based systems; relational concepts; SQL (SELECT, FROM, WHERE, ORDER BY, GROUP BY, INNER JOIN, SUM, COUNT); DBMS features.</p>\n<ul>\n<li>1. File-based problems</li>\n<li>2. Relational concepts</li>\n<li>3. SQL</li>\n<li>4. DBMS features</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
+ },
+ {
+  "id": "3729ff7f-47a7-449f-aca0-3d8fb1315688",
+  "entity_type": "material",
+  "entity_id": "df3d12de-fd68-41e6-8dc6-91fe9b1b8e6f",
+  "title": "Exam technique: Bearings and Loci",
+  "content": "### What earns the marks\nFor bearings, measure earns marks for the angle taken clockwise from north with three figures in the final answer: add leading zeros (075, 008). For back bearings, the 180-degree adjustment stated earns the method mark. For scale drawings, the scale multiplication shown earns a mark independent of arithmetic. For loci, construct earns marks for the correct locus type (circle, bisector, parallel pair) drawn and labelled.\n### Traps\nError: measuring anticlockwise or from the wrong datum. Correction: north line up, clockwise. Error: dropping leading zeros. Correction: three figures always. Error: one angle bisector instead of the pair for intersecting lines. Correction: two lines cross, so two bisectors. Error: dividing by the scale instead of multiplying. Correction: real distances exceed map distances.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
   "id": "37ae78bf-b932-474c-9fe7-c79058bf250a",
   "entity_type": "material",
   "entity_id": "d7503fbf-4726-4fd0-97ad-92a64510499b",
@@ -1035,6 +1365,21 @@
   "created_at": "2026-10-15 10:20:44.763052+00"
  },
  {
+  "id": "3a4d26a9-5efd-4fe2-8f8e-15168853d79b",
+  "entity_type": "material",
+  "entity_id": "46636b0d-bd26-45c4-92ab-5957188bc34d",
+  "title": "Hypothesis Testing — Quick Revision Summary",
+  "content": "<h2>Quick revision: Hypothesis Testing</h2>\n<p><strong>Mathematics — A2.</strong> The null hypothesis H₀ is the default claim (no change, p = p₀). The alternative H₁ is what a suspicious observation suggests (p > p₀, p < p₀, or p ≠ p₀). The significance level α is the probability of rejecting a true H₀ — the false-alarm rate, usually 5% or 1%.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Framework</li><li>Test for a Binomial Proportion</li><li>One-Tailed vs Two-Tailed</li><li>Critical Regions</li><li>Conclusions in Context</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
+ },
+ {
   "id": "3acb366b-157c-4385-9056-4dfffb0b21a4",
   "entity_type": "material",
   "entity_id": "c003d9a3-a2b3-4cd9-a6af-7fdbe98cf9d6",
@@ -1080,6 +1425,21 @@
   "created_at": "2026-10-15 09:37:44.778172+00"
  },
  {
+  "id": "3b408517-6061-402a-931e-1ebdc9c31e04",
+  "entity_type": "material",
+  "entity_id": "c6566b28-d871-4546-b6d3-7a4453dba5c7",
+  "title": "Exam technique: Scatter Diagrams",
+  "content": "### What earns the marks\nFor correlation, direction (rising or falling) and strength (tight or spread) each earn a mark: comment on both. For lines of best fit, the mean point plotted first earns the method mark. For estimation questions, naming interpolation versus extrapolation earns a mark before any value, with the reliability comment credited separately.\n### Traps\nError: claiming correlation proves causation. Correction: name the confounder (hot weather drives both). Error: trusting extrapolation like interpolation. Correction: outside the range is always less reliable. Error: forcing the line through the origin. Correction: anchor at (mean x, mean y). Error: calling curved association zero correlation. Correction: zero means no pattern at all.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
+ },
+ {
   "id": "3be7b4c4-2d9d-4e20-8818-ffa4e5e758f1",
   "entity_type": "material",
   "entity_id": "07ec21fe-84aa-4a8f-a87d-e5c9abaedc5e",
@@ -1093,6 +1453,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-12 09:51:11.443742+00"
+ },
+ {
+  "id": "3d1742fc-f670-42c6-8ea0-ec348b723111",
+  "entity_type": "material",
+  "entity_id": "464ba5ea-f481-4229-ac71-6b3217804ea8",
+  "title": "Binomial Distribution — Quick Revision Summary",
+  "content": "<h2>Quick revision: Binomial Distribution</h2>\n<p><strong>Mathematics — A2.</strong> X ~ B(n, p) counts successes in n independent trials when:</p>\n<h3>Key areas to revise</h3>\n<ul><li>When Binomial Applies</li><li>The Formula</li><li>Cumulative Probabilities</li><li>Expectation and Variance</li><li>Modelling Decisions</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
+ },
+ {
+  "id": "3dcbaa86-6b93-4e1a-8a2d-8176c7615e12",
+  "entity_type": "material",
+  "entity_id": "a08058d5-9984-4983-b1bd-fca455e25220",
+  "title": "Computational Thinking and Problem-Solving — Quick Revision Summary",
+  "content": "<h2>Quick revision: Computational Thinking and Problem-Solving</h2>\n<p><strong>Computer Science — A2.</strong> A recursive routine calls itself with a smaller input and a base case that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow. Any recursion can be rewritten with a loop and explicit stack.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Thinking Ahead, Abstractly, Systematically</li><li>Recursion</li><li>Searching and Sorting</li><li>Testing</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
  },
  {
   "id": "3dd59ff0-dbc7-4bf4-a32a-86e67f5dc8fd",
@@ -1170,6 +1560,21 @@
   "created_at": "2026-10-13 14:08:56.63165+00"
  },
  {
+  "id": "40edbb71-8c0b-4d4f-94ba-5fe366eed407",
+  "entity_type": "material",
+  "entity_id": "56ee9aa1-f335-4a7a-9af1-1b32e9b1d4d5",
+  "title": "Data Structures — Quick Revision Summary",
+  "content": "<h2>Quick revision: Data Structures</h2>\n<p><strong>Computer Science — AS.</strong> `# Data Structures</p>\n<h3>Key areas to revise</h3>\n<ul><li>Arrays and Lists</li><li>Stack (LIFO)</li><li>Queue (FIFO)</li><li>Linked List</li><li>Hash Table</li><li>Complexity</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
   "id": "4142a58c-4498-4253-aaf4-53e16224a829",
   "entity_type": "material",
   "entity_id": "eff91bce-733f-4869-933f-f449fc857e90",
@@ -1198,6 +1603,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "42c8c564-669e-4195-8dcd-1a0a3d8b60e7",
+  "entity_type": "material",
+  "entity_id": "6f197bc5-9095-4ee7-9174-5057751e9f21",
+  "title": "Algebra — Sequences and Functions — Quick Revision Summary",
+  "content": "<h2>Quick revision: Algebra — Sequences and Functions</h2>\n<p><strong>Mathematics — OL.</strong> nth term (linear &amp; quadratic), special sequences, function notation, composites, inverses.</p>\n<ul>\n<li>1. Linear sequences</li>\n<li>2. Quadratic sequences</li>\n<li>3. Special sequences</li>\n<li>4. Function notation</li>\n<li>5. Composite functions</li>\n<li>6. Inverse functions</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
  },
  {
   "id": "43cd1c9a-c01e-44e8-b73b-b7613de2a05f",
@@ -1335,6 +1755,36 @@
   "created_at": "2026-10-15 09:42:20.893682+00"
  },
  {
+  "id": "48aae907-8560-4525-9a24-1bd68aff297c",
+  "entity_type": "material",
+  "entity_id": "849a823f-2b5c-44c4-9432-5abe3f415a1f",
+  "title": "Differentiation — Quick Revision Summary",
+  "content": "<h2>Quick revision: Differentiation</h2>\n<p><strong>Mathematics — AS (9709).</strong> Example: y = 5x² − 3x gives dy/dx = 10x − 3.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Basic Rules</li><li>Chain Rule</li><li>Tangents and Normals</li><li>Stationary Points</li><li>Rates of Change</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
+  "id": "4bcbd3d3-3f06-4aff-a9bd-91240a27dc8b",
+  "entity_type": "material",
+  "entity_id": "95823bfe-53a0-41fc-b53f-e2719296ac1e",
+  "title": "Exam technique: Fractions, Decimals and Percentages",
+  "content": "### What earns the marks\nFor percentages of amounts, the 10-percent building blocks shown earn method marks without a calculator. For reverse percentages, state what the given amount represents (64 dollars = 80 percent) before dividing: that line earns the mark. For compound interest, each year on its own line earns credit. For Steel-type growth and decay, the multiplier (1/2 cubed) stated earns the method mark.\n### Traps\nError: adding 20 percent to the sale price for the original. Correction: the sale price is the base of nothing; divide by 0.8. Error: simple interest applied twice for compound growth. Correction: grow each year from the new total. Error: decimal-point slips in 3/8 to percent. Correction: decimal first (0.375), then times 100.\n### Worked example\nFind 35% of 240: 0.35 × 240 = 84. A value increases by 20% to reach 180. The original is 180 ÷ 1.2 = 150, because you divide by the multiplier rather than taking 20% of 180. Check: 150 × 1.2 = 180. For fractions, 3/4 + 2/5 = 15/20 + 8/20 = 23/20 = 1 3/20.\n### Check yourself\nA price falls from £80 to £68. Find the percentage decrease. The decrease is £12, so the percentage is 12/80 × 100 = 15%. Show the divisor is the original price and not the new one.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
+ },
+ {
   "id": "4e01c362-e933-462c-9e51-1c5d6e6234a7",
   "entity_type": "material",
   "entity_id": "a836a83d-d4a7-469e-8654-2518686bb60e",
@@ -1438,6 +1888,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
+  "id": "51462267-4844-46c7-8acd-e7760443271e",
+  "entity_type": "material",
+  "entity_id": "599553b0-0b15-435d-b095-f1ce99a0164d",
+  "title": "Exam technique: Ratio, Rate and Proportion",
+  "content": "### What earns the marks\nFor sharing in a ratio, total parts and value of one part each earn a mark: write 5 parts = 600 before splitting. For scales and maps, the real-distance multiplication shown earns the method mark, with each unit conversion (cm to m to km) credited. For proportion with powers, the constant k found first earns the mark: write y = k x squared and solve for k.\n### Traps\nError: dividing by 2 and 3 directly for a 2:3 split. Correction: parts first, always. Error: 1.40 hours for 1 h 40 min in speed questions. Correction: 40 min = 2/3 h. Error: linear scaling for an x-squared relation. Correction: square the ratio. Error: inverted map scale (dividing by 50000). Correction: real is bigger than map.\n### Worked example\nShare £120 in the ratio 2 : 3 : 7. The total parts are 12, so one part is £10 and the shares are £20, £30 and £70. Check: 20 + 30 + 70 = 120. For speed, 150 km in 2.5 hours gives 150 ÷ 2.5 = 60 km/h. Direct proportion means y = kx, so doubling x doubles y.\n### Check yourself\nShare £45 in the ratio 1 : 4. Find each share and check that they add up to £45. The shares are £9 and £36, because there are 5 parts and each is £9.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
  },
  {
   "id": "52d1dac4-7248-4d80-82d1-5399381f0936",
@@ -1590,6 +2055,21 @@
   "created_at": "2026-10-13 14:04:52.70696+00"
  },
  {
+  "id": "58ce7c39-4960-4e1a-9d92-fc44a4d0e7f7",
+  "entity_type": "material",
+  "entity_id": "7d59a676-02f5-41a7-8e3b-4447b3495899",
+  "title": "Abstract Data Types — Quick Revision Summary",
+  "content": "<h2>Quick revision: Abstract Data Types</h2>\n<p><strong>Computer Science — A2.</strong> An abstract data type is a logical description of a collection of data plus the operations on it, independent of implementation. Stacks, queues, linked lists, binary trees and hash tables are all ADTs; in A Level you must show how they are built from arrays or records with pointers.</p>\n<h3>Key areas to revise</h3>\n<ul><li>What is an ADT?</li><li>Linked Lists</li><li>Stacks and Queues</li><li>Binary Search Trees</li><li>Hash Tables</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n### Worked example\nAn abstract data type defines the data and operations without fixing the implementation. A stack is last-in-first-out: push adds an item to the top and pop removes the top item. If you push 3, then 7, then pop twice, the first pop returns 7 and the second returns 3. A queue is first-in-first-out, so enqueue and dequeue return 3 then 7 in the same sequence.\n### Check yourself\nTrace a queue after enqueue(A), enqueue(B), dequeue(). State which item is returned and what remains. The result is A, and the queue now holds B.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
+ },
+ {
   "id": "5a1fbcc1-a791-4645-b849-064c02a8429e",
   "entity_type": "material",
   "entity_id": "4e59efe4-7386-4b2f-92cf-1c627eb63269",
@@ -1633,6 +2113,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
+  "id": "5befa237-e9c0-4a01-b9d9-799c3b68537a",
+  "entity_type": "material",
+  "entity_id": "317310ce-3bf6-4dd4-87a8-951948ac4d36",
+  "title": "Exam technique: Angles and Polygons",
+  "content": "### What earns the marks\nFor angle-chasing, justify earns marks for each reason stated alongside the value: angles on a straight line, vertically opposite, alternate, corresponding, and the circle theorems by name. For cyclic quadrilaterals, quote earns the theorem (opposite angles sum to 180) before the equation. For polygons, the formula (n - 2) x 180 stated earns the method mark.\n### Traps\nError: using adjacent instead of opposite angles in a cyclic quadrilateral. Correction: mark the diagram first. Error: answering each interior angle when the sum is asked. Correction: only divide at the very end. Error: treating any triangle in a circle as right-angled. Correction: the right angle needs the diameter as hypotenuse.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
+ },
+ {
+  "id": "5c30e5a4-a696-4e6f-ba8f-152a8f51adec",
+  "entity_type": "material",
+  "entity_id": "d3c988e8-6c65-4656-ba9f-f14c4a514b1d",
+  "title": "Exam technique: Arithmetic and Place Value",
+  "content": "### What earns the marks\nFor HCF and LCM, the prime factorisation of each number earns the method mark; state highest powers for LCM and lowest for HCF. For bounds, half-the-precision stated (0.05 for 1 d.p.) earns the method mark before the bound. For estimation, the rounded line (50 x 20 / 10) must be shown: a bare calculator value scores nothing. For time and money, each conversion step shown earns its mark.\n### Traps\nError: 16:80 as a time. Correction: 60 minutes carry. Error: largest rounded value confused with the upper bound (6.34 vs 6.35). Correction: the bound is the first value that rounds away. Error: HCF powers used for LCM. Correction: LCM takes the highest of each prime.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
  },
  {
   "id": "5d49c9e1-0d37-4346-a8f2-83053edd8fcd",
@@ -1768,6 +2278,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 13:54:32.710733+00"
+ },
+ {
+  "id": "6469c16d-cc00-4b2d-9c19-c37ff0e73c63",
+  "entity_type": "material",
+  "entity_id": "6b07220f-fe34-4ce6-83b5-5a5e4c4fe103",
+  "title": "Algebra — Simplifying and Expanding — Quick Revision Summary",
+  "content": "<h2>Quick revision: Algebra — Simplifying and Expanding</h2>\n<p><strong>Mathematics — OL.</strong> substitution, collecting like terms, expanding brackets, factorising (common factor, quadratics, difference of two squares), algebraic fractions.</p>\n<ul>\n<li>1. Substitution</li>\n<li>2. Collecting like terms</li>\n<li>3. Expanding</li>\n<li>4. Factorising</li>\n<li>5. Algebraic fractions</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
  },
  {
   "id": "64de7c13-d7f2-46a8-a467-9f1d084402c5",
@@ -1918,6 +2443,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
+  "id": "6ca1433c-acb3-423a-bfab-8f0615a93b59",
+  "entity_type": "material",
+  "entity_id": "aa8b627f-2264-4698-be0f-0165fce80c9d",
+  "title": "Databases and Data Definition — Quick Revision Summary",
+  "content": "<h2>Quick revision: Databases and Data Definition</h2>\n<p><strong>Computer Science — A2.</strong> A table (relation) stores rows (tuples) and columns (attributes). The primary key uniquely identifies each row; a foreign key references a primary key in another table, creating the relationship. A composite key uses two or more columns together.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Relational Concepts</li><li>Normalisation</li><li>DDL and DML</li><li>Transactions and Concurrency</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
  },
  {
   "id": "6cdde299-21c7-4ef8-a184-c5c86c7e10f9",
@@ -2100,6 +2640,21 @@
   "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
+  "id": "75e9a992-8ff7-4dbd-9a63-c55e00f30703",
+  "entity_type": "material",
+  "entity_id": "eb0814a1-dfea-4224-af6d-931215635f9c",
+  "title": "Data Types and File Organisation — Quick Revision Summary",
+  "content": "<h2>Quick revision: Data Types and File Organisation</h2>\n<p><strong>Computer Science — A2.</strong> A user-defined type is derived from existing types. An enumerated type lists named values in order: TYPE Months = (Jan, Feb, Mar ...). Internally each value is an integer index starting at 0. Pointer types store a memory address; the dereference operator returns the value at that address, which is how linked structures reference their nodes. Set types store unordered collections of distinct values from an ordinal base type, supporting union, intersection and difference.</p>\n<h3>Key areas to revise</h3>\n<ul><li>User-Defined Types</li><li>Records</li><li>File Organisation</li><li>Hashing</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
   "id": "7779fbdb-2d6c-4913-a80c-4d38af907ee8",
   "entity_type": "material",
   "entity_id": "48eb2c92-c8a0-4948-94ec-04ba6f954e79",
@@ -2113,6 +2668,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "7a748a90-9ad8-43f3-858c-1663f16ec507",
+  "entity_type": "material",
+  "entity_id": "599553b0-0b15-435d-b095-f1ce99a0164d",
+  "title": "Exam technique: Ratio, Rate and Proportion",
+  "content": "### What earns the marks\nFor sharing in a ratio, total parts and value of one part each earn a mark: write 5 parts = 600 before splitting. For scales and maps, the real-distance multiplication shown earns the method mark, with each unit conversion (cm to m to km) credited. For proportion with powers, the constant k found first earns the mark: write y = k x squared and solve for k.\n### Traps\nError: dividing by 2 and 3 directly for a 2:3 split. Correction: parts first, always. Error: 1.40 hours for 1 h 40 min in speed questions. Correction: 40 min = 2/3 h. Error: linear scaling for an x-squared relation. Correction: square the ratio. Error: inverted map scale (dividing by 50000). Correction: real is bigger than map.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
  },
  {
   "id": "7da340ed-8672-46ae-81ba-5c7ed1471e58",
@@ -2188,6 +2758,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 09:47:33.160331+00"
+ },
+ {
+  "id": "7fa03825-a496-4768-8568-274910ffd78a",
+  "entity_type": "material",
+  "entity_id": "26724ce0-a257-45ce-a531-f3f7ae3c6948",
+  "title": "Exam technique: Programming and Algorithms",
+  "content": "### What earns the marks\nFor validation, the rejected range stated plus the rejection loop earns both marks. For structure, single entry and exit modules using only sequence, selection and iteration earn the design marks. For traces, each variable tracked per line earns method credit. For testing, the stage named with its setting (isolated module vs live users) earns each mark.\n### Traps\nError: fixed FOR loops for unknown-attempt validation. Correction: WHILE-until-valid loops. Error: binary search on unsorted data. Correction: sort first or use linear search. Error: unit and acceptance settings swapped. Correction: unit is isolated with test data; acceptance is live with real users.\n### Worked example\nA trace table records the value of each variable at each step of an algorithm. For a linear search, the program checks each item in turn and can take up to n comparisons. A binary search on a sorted list halves the search space each time, so 16 sorted items need at most about log₂16 = 4 comparisons. Binary search only works if the list is sorted.\n### Check yourself\nTrace a binary search for 9 in the sorted list 1, 3, 5, 7, 9, 11, 13. Record the middle index at each step and state the number of comparisons. It finds 9 at the middle on the first comparison.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
  },
  {
   "id": "7fc6eebf-3423-47b1-9361-61c5cbe637a1",
@@ -2355,6 +2940,21 @@
   "created_at": "2026-10-15 09:37:44.778172+00"
  },
  {
+  "id": "889b35a1-66b1-42ee-8171-08d9612eb281",
+  "entity_type": "material",
+  "entity_id": "c9ad3127-9994-4908-94f4-a408320c21ab",
+  "title": "Numerical Measures of Central Tendency — Quick Revision Summary",
+  "content": "<h2>Quick revision: Numerical Measures of Central Tendency</h2>\n<p><strong>Mathematics — A2.</strong> For data x₁, ..., xₙ the mean is</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Mean</li><li>The Median</li><li>The Mode</li><li>Effects of Data Changes</li><li>Coding</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
   "id": "88f3fe41-c799-4287-bb8f-0ee7c8c03c7e",
   "entity_type": "material",
   "entity_id": "37c076d2-e903-4a57-8672-96dd9b97fbec",
@@ -2490,6 +3090,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "90d053bc-4cbb-461b-9d3c-bb68de93eaa0",
+  "entity_type": "material",
+  "entity_id": "887eb0dc-eb5d-47ea-81ab-4d527cbcb3e1",
+  "title": "The Normal Distribution — Quick Revision Summary",
+  "content": "<h2>Quick revision: The Normal Distribution</h2>\n<p><strong>Mathematics — A2.</strong> A continuous distribution with the familiar bell shape, symmetric about the mean, described by two parameters: X ~ N(μ, σ²). The curve is fully determined by μ (centre) and σ (width). Total probability is 1, and because X is continuous, P(X = a) = 0 for any single point — inequalities do not need strictness.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Model</li><li>Standardising</li><li>Backwards Problems</li><li>Symmetry Shortcuts</li><li>Normal Approximation to the Binomial</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n### Worked example\nX follows a normal distribution with mean μ and variance σ². Standardise with Z = (X − μ)/σ and read the probability from tables. For Z < 1.5, the table gives 0.9332. The curve is symmetric about the mean, so P(X < μ) = 0.5, and about 68% of values lie within one standard deviation of the mean and about 95% within two.\n### Check yourself\nFind P(Z < −1.5) using symmetry. It equals 1 − 0.9332 = 0.0668. Explain why the symmetry of the curve allows this without a separate table lookup.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
+ },
+ {
   "id": "917a7d44-34b8-4356-9226-468db1c13196",
   "entity_type": "material",
   "entity_id": "e1c1569d-a45c-4ebe-8012-6df10e500034",
@@ -2533,6 +3148,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
+  "id": "967ff2db-2581-429a-b768-9b7e0c67790c",
+  "entity_type": "material",
+  "entity_id": "c6566b28-d871-4546-b6d3-7a4453dba5c7",
+  "title": "Exam technique: Scatter Diagrams",
+  "content": "### What earns the marks\nFor correlation, direction (rising or falling) and strength (tight or spread) each earn a mark: comment on both. For lines of best fit, the mean point plotted first earns the method mark. For estimation questions, naming interpolation versus extrapolation earns a mark before any value, with the reliability comment credited separately.\n### Traps\nError: claiming correlation proves causation. Correction: name the confounder (hot weather drives both). Error: trusting extrapolation like interpolation. Correction: outside the range is always less reliable. Error: forcing the line through the origin. Correction: anchor at (mean x, mean y). Error: calling curved association zero correlation. Correction: zero means no pattern at all.\n### Worked example\nA scatter diagram shows a positive correlation between hours revised and test score. The line of best fit passes through the mean point (x̄, ȳ). If x̄ = 5 and ȳ = 12 with gradient 2, the line is y = 2x + 2. Estimating y for x = 8 is interpolation if 8 lies within the data range, which makes it more reliable than extrapolating beyond the data.\n### Check yourself\nExplain why the line of best fit should pass through (x̄, ȳ). Check that 2 × 5 + 2 = 12, so the line does pass through the mean point. State whether a prediction at x = 20 would be interpolation or extrapolation, and say why it is less reliable.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
  },
  {
   "id": "973e5b6a-f4ce-47b1-b685-0029438c94a9",
@@ -2625,6 +3255,21 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "9ce62c32-8ae7-437c-810c-4a2089e6ef57",
+  "entity_type": "material",
+  "entity_id": "eda06930-1fde-4f9f-bfdf-58bcf2a64245",
+  "title": "Measures of Variation and Standard Deviation — Quick Revision Summary",
+  "content": "<h2>Quick revision: Measures of Variation and Standard Deviation</h2>\n<p><strong>Mathematics — A2.</strong> The range is max − min — quick but destroyed by a single outlier. Quartiles split ordered data into quarters: Q₁ at position (n + 1)/4, Q₃ at 3(n + 1)/4 (raw data). The interquartile range, IQR = Q₃ − Q₁, is the spread of the middle 50% and resists outliers. Outliers are commonly flagged as values beyond Q₁ − 1.5·IQR or Q₃ + 1.5·IQR.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Range and Quartiles</li><li>Variance and Standard Deviation</li><li>Grouped Data</li><li>Combining and Scaling Datasets</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
   "id": "9d30fac3-fa71-4c53-a38d-166a6e17f1a0",
   "entity_type": "material",
   "entity_id": "676e85b2-92ba-4147-a226-ffb7f1a011a0",
@@ -2683,6 +3328,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-12 09:51:29.588223+00"
+ },
+ {
+  "id": "9e677d63-0f6f-43cc-8d8f-98356f14476d",
+  "entity_type": "material",
+  "entity_id": "7d59a676-02f5-41a7-8e3b-4447b3495899",
+  "title": "Abstract Data Types — Quick Revision Summary",
+  "content": "<h2>Quick revision: Abstract Data Types</h2>\n<p><strong>Computer Science — A2.</strong> An abstract data type is a logical description of a collection of data plus the operations on it, independent of implementation. Stacks, queues, linked lists, binary trees and hash tables are all ADTs; in A Level you must show how they are built from arrays or records with pointers.</p>\n<h3>Key areas to revise</h3>\n<ul><li>What is an ADT?</li><li>Linked Lists</li><li>Stacks and Queues</li><li>Binary Search Trees</li><li>Hash Tables</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
  },
  {
   "id": "9e90ff28-fa79-4c5f-b22c-86550278b09f",
@@ -2820,6 +3480,36 @@
   "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
+  "id": "a4d7aeae-cdd0-4d99-afda-bdce0b9ff5d8",
+  "entity_type": "material",
+  "entity_id": "a08058d5-9984-4983-b1bd-fca455e25220",
+  "title": "Computational Thinking and Problem-Solving — Quick Revision Summary",
+  "content": "<h2>Quick revision: Computational Thinking and Problem-Solving</h2>\n<p><strong>Computer Science — A2.</strong> A recursive routine calls itself with a smaller input and a base case that stops the recursion. Elegant for trees and divide-and-conquer, but each call consumes stack space — deep recursion can overflow. Any recursion can be rewritten with a loop and explicit stack.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Thinking Ahead, Abstractly, Systematically</li><li>Recursion</li><li>Searching and Sorting</li><li>Testing</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n### Worked example\nWhen planning a route for a delivery app, decomposition breaks the job into stages such as finding the address, choosing a route and sending a notification. Abstraction removes details that do not matter, such as the colour of the vehicle. Pattern recognition notices that many deliveries follow the same steps, so one algorithm can serve them all.\n### Check yourself\nGive one example of abstraction and one of decomposition from a student's timetable app. Abstraction might hide the room layout, showing only the lesson time. Decomposition might split the app into timetable display, reminders and login.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
+ },
+ {
+  "id": "a5314d55-f972-4934-97c3-51a077bf9850",
+  "entity_type": "material",
+  "entity_id": "bfb3a5da-592c-4c27-b57d-df44885a19d9",
+  "title": "Data Representation — Quick Revision Summary",
+  "content": "<h2>Quick revision: Data Representation</h2>\n<p><strong>Computer Science — OL.</strong> binary/hex, two's complement, BCD, text/image/sound encoding, file sizes, compression.</p>\n<ul>\n<li>1. Number systems</li>\n<li>2. Two's complement (signed)</li>\n<li>3. Text</li>\n<li>4. Images and sound</li>\n<li>5. Compression</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
+ },
+ {
   "id": "a54d4a8f-ae29-4074-a24b-39ca967379b4",
   "entity_type": "material",
   "entity_id": "410f9140-4fa3-467e-8cac-852bafc28653",
@@ -2833,6 +3523,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 17:11:43.051229+00"
+ },
+ {
+  "id": "a62aa167-ac32-48c4-99fc-9cfa57ba3675",
+  "entity_type": "material",
+  "entity_id": "75a8a9e4-15af-43f6-9395-1a37660fd65d",
+  "title": "Differentiation II — Quick Revision Summary",
+  "content": "<h2>Quick revision: Differentiation II</h2>\n<p><strong>Mathematics — A2 (9709).</strong> Example: y = x² e^x gives dy/dx = 2x e^x + x² e^x = e^x(2x + x²).</p>\n<h3>Key areas to revise</h3>\n<ul><li>Product and Quotient Rules</li><li>Standard Derivatives</li><li>Chain Rule Everywhere</li><li>Implicit Differentiation</li><li>Parametric Curves</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
  },
  {
   "id": "a7a1f926-f7a1-44ac-a816-c441d3cd77cf",
@@ -3000,6 +3705,36 @@
   "created_at": "2026-10-13 13:42:54.410489+00"
  },
  {
+  "id": "aff76484-7e67-447b-93c1-d0d61d6f9f8c",
+  "entity_type": "material",
+  "entity_id": "4f15878c-8b50-429c-a3ea-19b2eae76d4c",
+  "title": "Complex Numbers — Quick Revision Summary",
+  "content": "<h2>Quick revision: Complex Numbers</h2>\n<p><strong>Mathematics — A2 (9709).</strong> i² = −1. A complex number z = a + bi has real part a and imaginary part b. Two numbers are equal iff both parts match.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Basics</li><li>Conjugates</li><li>Argand Diagram</li><li>Modulus–Argument Form</li><li>de Moivre and Roots</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
+ },
+ {
+  "id": "b12a6291-60a4-47e2-9578-996216a675e6",
+  "entity_type": "material",
+  "entity_id": "f187bf2b-d087-4965-90c9-cf1449f19473",
+  "title": "Information Representation — Quick Revision Summary",
+  "content": "<h2>Quick revision: Information Representation</h2>\n<p><strong>Computer Science — AS.</strong> `# Information Representation</p>\n<h3>Key areas to revise</h3>\n<ul><li>Number Systems and Ranges</li><li>Binary Arithmetic</li><li>Text</li><li>Images and Sound</li><li>Compression</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
   "id": "b159e986-d65e-497d-afb4-f33a9242a350",
   "entity_type": "material",
   "entity_id": "9fe2f14b-5551-4243-bd1c-cc87b02ee427",
@@ -3150,6 +3885,21 @@
   "created_at": "2026-10-13 14:02:47.539724+00"
  },
  {
+  "id": "b6961f6b-719b-40d0-8bd5-ccb11ba93d7d",
+  "entity_type": "material",
+  "entity_id": "909d81df-9e5c-4113-8588-db4986eb9a6a",
+  "title": "Dynamics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Dynamics</h2>\n<p><strong>Physics — AS.</strong> Example: a 2 kg mass with a 10 N resultant accelerates at 5 m s⁻².</p>\n<h3>Key areas to revise</h3>\n<ul><li>Newton's Laws</li><li>Weight and Mass</li><li>Momentum</li><li>Friction and Connected Bodies</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
   "id": "b6eeafb9-22d8-478e-ab13-5a2b332d74d6",
   "entity_type": "material",
   "entity_id": "e57fcf07-484e-4716-b79e-2e80f4c59824",
@@ -3210,6 +3960,21 @@
   "created_at": "2026-09-20 19:23:13.08623+00"
  },
  {
+  "id": "bb9a9d2d-9662-4810-9eb4-3969cdad8ed2",
+  "entity_type": "material",
+  "entity_id": "2eba0d65-fcdd-4f71-bd2f-ba7ea6c8b8eb",
+  "title": "Astronomy and Cosmology — Quick Revision Summary",
+  "content": "<h2>Quick revision: Astronomy and Cosmology</h2>\n<p><strong>Physics — A2.</strong> Luminosity L is total power radiated (W). Intensity at distance d: I = L/(4πd²) — the key to distances.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Luminosity and Intensity</li><li>Wien and Stefan–Boltzmann</li><li>Hubble's Law</li><li>The Big Bang</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
+ },
+ {
   "id": "bc7b4080-409a-4965-bb9f-5c026d6ee53e",
   "entity_type": "material",
   "entity_id": "e57fcf07-484e-4716-b79e-2e80f4c59824",
@@ -3223,6 +3988,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:04:52.70696+00"
+ },
+ {
+  "id": "bccde978-152a-44a1-a01c-6beb07aeba9f",
+  "entity_type": "material",
+  "entity_id": "394cb753-26fe-47fd-a973-3989e8116211",
+  "title": "Coordinate Geometry — Quick Revision Summary",
+  "content": "<h2>Quick revision: Coordinate Geometry</h2>\n<p><strong>Mathematics — AS (9709).</strong> Gradient m = (y₂ − y₁)/(x₂ − x₁). From ax + by + c = 0, the gradient is −a/b.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Gradients and Equations of Lines</li><li>Parallel and Perpendicular</li><li>Midpoint and Distance</li><li>Intersections and Bisectors</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
  },
  {
   "id": "bd78b918-3034-4b27-94d8-33a521ead0bc",
@@ -3300,6 +4080,21 @@
   "created_at": "2026-10-13 13:51:16.271712+00"
  },
  {
+  "id": "bfe2125e-6fd1-4a2d-950c-627dabd43f98",
+  "entity_type": "material",
+  "entity_id": "cc401163-e6c4-4f63-9a98-69fe4e7c53a8",
+  "title": "Exam technique: Algebra Graphs",
+  "content": "### What earns the marks\nFor gradient and equation questions, calculate earns marks for a correct (y2 - y1) / (x2 - x1) computation with substitution shown, then the rearrangement to y = mx + c. For perpendicular lines, state earns the negative-reciprocal gradient explicitly before substituting. For curve questions, describe earns marks for roots, intercept and turning point each stated, and the axis of symmetry as an equation (x = 2, not just 2).\n### Traps\nError: answering the midpoint when length is asked. Correction: re-read the final demand before computing. Error: giving the minimum value instead of its x-coordinate. Correction: label every coordinate pair fully. Error: keeping gradient 2 for a perpendicular to y = 2x + 1. Correction: flip and negate first, then substitute.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
   "id": "c0f081e3-474c-405d-a002-4f8c1dfbb742",
   "entity_type": "material",
   "entity_id": "18c77db3-3d16-4e63-b19a-c8fb9e1bdfc0",
@@ -3375,6 +4170,21 @@
   "created_at": "2026-10-15 09:10:06.182709+00"
  },
  {
+  "id": "c465fade-a83b-45de-bf06-c20a1fafa6b6",
+  "entity_type": "material",
+  "entity_id": "5f4ea511-14f7-47b6-b864-7c036cdcaaaf",
+  "title": "Permutations and Combinations — Quick Revision Summary",
+  "content": "<h2>Quick revision: Permutations and Combinations</h2>\n<p><strong>Mathematics — A2.</strong> If a task is done in successive stages with m, n, ... choices at each stage, the total is the product of the choices. This underpins every counting problem: a menu with 4 starters and 6 mains gives 24 meals.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Multiplication Principle</li><li>Permutations — Order Matters</li><li>Combinations — Order Irrelevant</li><li>Restricted Permutations</li><li>Combinations with Constraints</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n### Worked example\nA permutation is an ordered arrangement, so nPr = n! ÷ (n − r)!. A combination ignores order, so nCr = n! ÷ (r!(n − r)!). Five people in a line can be arranged in 5! = 120 ways. Choosing a committee of 3 from 8 people gives 8C3 = 56, while choosing a ranked top 2 from 5 gives 5P2 = 20.\n### Check yourself\nFind 8C3 without a calculator by writing it as 8 × 7 × 6 ÷ (3 × 2 × 1). The answer is 336 ÷ 6 = 56. Explain why this is a combination and not a permutation.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
+ },
+ {
   "id": "c4da708f-0c65-4bc2-8863-9b140464643f",
   "entity_type": "material",
   "entity_id": "0678b212-2e61-447f-8a64-01b7a7d12763",
@@ -3418,6 +4228,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
+  "id": "cab2944f-8588-4b56-aee5-937d155b39ba",
+  "entity_type": "material",
+  "entity_id": "6cec9be3-8863-48ae-b426-084f33567d9b",
+  "title": "Algorithms & Programming — Quick Revision Summary",
+  "content": "<h2>Quick revision: Algorithms & Programming</h2>\n<p><strong>Computer Science — OL.</strong> pseudocode, flowcharts, standard algorithms (linear/bubble), trace tables, validation &amp; verification.</p>\n<ul>\n<li>1. Pseudocode</li>\n<li>2. Flowchart symbols</li>\n<li>3. Standard algorithms</li>\n<li>4. Trace tables</li>\n<li>5. Validation vs verification</li>\n<li>6. Testing</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:35:10.01951+00"
  },
  {
   "id": "cb5dc04e-8efc-49e6-8c12-d1b34ba34db6",
@@ -3525,6 +4350,21 @@
   "created_at": "2026-10-13 14:20:47.748684+00"
  },
  {
+  "id": "d2ffcf4b-8a64-4ccc-aa0f-f7ede018bf83",
+  "entity_type": "material",
+  "entity_id": "46636b0d-bd26-45c4-92ab-5957188bc34d",
+  "title": "Hypothesis Testing — Quick Revision Summary",
+  "content": "<h2>Quick revision: Hypothesis Testing</h2>\n<p><strong>Mathematics — A2.</strong> The null hypothesis H₀ is the default claim (no change, p = p₀). The alternative H₁ is what a suspicious observation suggests (p > p₀, p < p₀, or p ≠ p₀). The significance level α is the probability of rejecting a true H₀ — the false-alarm rate, usually 5% or 1%.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Framework</li><li>Test for a Binomial Proportion</li><li>One-Tailed vs Two-Tailed</li><li>Critical Regions</li><li>Conclusions in Context</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n### Worked example\nA test of a claimed mean has a null hypothesis H₀ and an alternative H₁. Choose a significance level such as 5%, calculate the test statistic and its p-value, then reject H₀ if p < α. A two-tailed test looks for a change in either direction, so the 5% is split between the two tails.\n### Check yourself\nDefine a Type I error in words. It is rejecting H₀ when H₀ is actually true. Explain why lowering the significance level reduces the chance of a Type I error but increases the chance of a Type II error.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:42.11335+00"
+ },
+ {
   "id": "d63810a8-d8e3-42f6-9d34-1da4727d4d2c",
   "entity_type": "material",
   "entity_id": "61da5c21-d745-4a51-ba0c-2a861af41061",
@@ -3583,6 +4423,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
+  "id": "d79f9f67-8e30-488f-b7b2-4456b1d19073",
+  "entity_type": "material",
+  "entity_id": "34e6b43c-48b2-408f-81c4-7699c8a95a7d",
+  "title": "Functions — Quick Revision Summary",
+  "content": "<h2>Quick revision: Functions</h2>\n<p><strong>Mathematics — AS (9709).</strong> A function maps each input in the domain to exactly one output in the range.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Composite Functions</li><li>Inverse Functions</li><li>Transformations</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
  },
  {
   "id": "d7e271f4-b81a-44bd-87a3-1cb4270a1cae",
@@ -3673,6 +4528,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
+  "id": "dbea3f86-3a0f-4cfb-94d3-6460269d6eef",
+  "entity_type": "material",
+  "entity_id": "a89dd115-df65-4681-82fc-24343202afc1",
+  "title": "Exam technique: Indices and Standard Form",
+  "content": "### What earns the marks\nFor index laws, each law applied on its own line earns credit: subtract for division, multiply for powers of powers. For fractional powers, the root-first order (cube root, then square) stated earns the method mark. For standard form, the coefficient between 1 and 10 with the power justified by the point shift earns both marks. For surds, the split into square factor times prime remainder earns the method mark, and rationalising must finish simplified.\n### Traps\nError: (x to the 5th / x squared) cubed answered x to the 6th. Correction: inner subtraction first, then multiply powers. Error: 27 x 2/3 for 27 to the 2/3. Correction: root, then power. Error: unsimplified 6 root 3 / 3 accepted as final. Correction: always cancel to 2 root 3. Error: non-standard-form coefficients (45 x 10 to the -5). Correction: one non-zero digit, then fix the power.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
  },
  {
   "id": "dc2aefc9-f5c5-44e9-a440-8584b824eb91",
@@ -3930,6 +4800,21 @@
   "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
+  "id": "ec8396b9-8a4e-4ca4-b1c9-07f915fa4f4b",
+  "entity_type": "material",
+  "entity_id": "5afb2c94-9e0a-499c-8ed0-a677c5df2cc4",
+  "title": "Exam technique: Sets",
+  "content": "### What earns the marks\nFor Venn problems, the union formula n(A union B) = n(A) + n(B) - n(A intersect B) quoted earns the method mark; subtracting the intersection corrects the double count explicitly. For neither, the subtraction from the universal set shown earns the final mark. For notation, the complement symbol with the correct parent set earns precision marks.\n### Traps\nError: adding all three Venn counts including the intersection. Correction: the overlap was counted twice, subtract once. Error: element confused with subset (2 vs {2}). Correction: only a set can be a subset. Error: empty set equated with {0}. Correction: {0} has one element; the empty set has none. Error: modal-style single numbers for grouped answers. Correction: classes are intervals.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
+ },
+ {
   "id": "ecd06df3-6fab-4095-8145-e60764a2f298",
   "entity_type": "material",
   "entity_id": "61da5c21-d745-4a51-ba0c-2a861af41061",
@@ -4020,6 +4905,21 @@
   "created_at": "2026-09-30 16:51:29.172364+00"
  },
  {
+  "id": "f1aada4c-bbdf-4ab0-8bfa-f755ebdc7363",
+  "entity_type": "material",
+  "entity_id": "3232dace-5b8d-4bde-8511-79a0bceb36fb",
+  "title": "Networks and the Internet — Quick Revision Summary",
+  "content": "<h2>Quick revision: Networks and the Internet</h2>\n<p><strong>Computer Science — A2.</strong> Four layers: Application (HTTP, FTP, SMTP, DNS), Transport (TCP reliable, connection-oriented with sequence numbers and acknowledgements; UDP fast, connectionless), Internet (IP addressing and routing), Link (physical delivery on the local network). Layering separates concerns so each layer can change independently.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The TCP/IP Stack</li><li>Switching</li><li>Addressing and Subnetting</li><li>Models and Protection</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:33:40.19138+00"
+ },
+ {
   "id": "f1b1534b-a11f-48b1-bd53-8291dc037d8b",
   "entity_type": "material",
   "entity_id": "12080994-0309-4d7d-8fea-86149b5a013f",
@@ -4063,6 +4963,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 17:11:43.051229+00"
+ },
+ {
+  "id": "f38013db-a463-461a-8546-ee7a29183c57",
+  "entity_type": "material",
+  "entity_id": "f9c51321-9fd3-4836-9af7-1dc6760cc3f0",
+  "title": "Exam technique: Congruence and Similarity",
+  "content": "### What earns the marks\nFor similarity lengths, calculate earns marks for the scale factor stated (larger over smaller, matched pairs) and then applied. For area and volume, the squared and cubed factors stated earn the method mark before any multiplication: write k squared or k cubed explicitly. For symmetry, count earns marks per correct count with the reasoning (vertices, rotation step 360 / n). For congruence, name earns the test (SSS, SAS, ASA, RHS) with the matching parts listed.\n### Traps\nError: adding the length difference instead of scaling. Correction: similarity always multiplies. Error: using k instead of k squared for area or k cubed for volume. Correction: write the power first. Error: equal angles claimed as congruence. Correction: angles alone prove similarity; a matching side upgrades it.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:31:35.067615+00"
  },
  {
   "id": "f3a2f2a2-07eb-4abb-a582-b1690eb3b743",
@@ -4230,6 +5145,21 @@
   "created_at": "2026-09-30 16:51:29.172364+00"
  },
  {
+  "id": "fd396c70-1ce6-413a-98b6-0bb370439fff",
+  "entity_type": "material",
+  "entity_id": "e7813732-d626-49af-a422-6d68faf6340b",
+  "title": "Number — Sets — Quick Revision Summary",
+  "content": "<h2>Quick revision: Number — Sets</h2>\n<p><strong>Mathematics — OL.</strong> set notation, Venn diagrams, shading, universal set, subsets.</p>\n<ul>\n<li>1. Notation</li>\n<li>2. Venn diagrams</li>\n<li>3. Shading</li>\n<li>4. Regions algebra</li>\n<li>5. Probability links</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
+ },
+ {
   "id": "fdb69cb4-b6a9-4623-9a19-a6a5c64bcab5",
   "entity_type": "material",
   "entity_id": "a5e5b5fb-bc6b-47a2-86b5-79dad143946f",
@@ -4273,6 +5203,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:06:36.695662+00"
+ },
+ {
+  "id": "ff6355ab-b37e-4f2b-a59e-84a2abb7ee63",
+  "entity_type": "material",
+  "entity_id": "7708d324-6446-47ec-89b1-66e4f1a7e6fe",
+  "title": "Quantum Physics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Quantum Physics</h2>\n<p><strong>Physics — A2.</strong> E = hf = hc/λ, h = 6.63 × 10⁻³⁴ J s.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Photons</li><li>The Photoelectric Effect</li><li>Wave–Particle Duality</li><li>Energy Levels and Line Spectra</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:29:49.026897+00"
  },
  {
   "id": "ffde7e72-5601-4154-ba78-e031e465fd38",
