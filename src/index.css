@@ -83,7 +83,7 @@
 
     --gradient-hero: linear-gradient(135deg, hsla(40, 92%, 42%), hsla(35, 88%, 48%) 55%, hsla(28, 88%, 44%));
     --gradient-card: linear-gradient(135deg, hsla(40, 92%, 38%, 0.05), hsla(35, 88%, 48%, 0.03));
-    --gradient-gold-rule: linear-gradient(90deg, transparent, hsla(var(--gold), 0.55), transparent);
+    --gradient-gold-rule: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.55), transparent);
 
     /* --- elevation: one coherent scale, warm and low-contrast on paper --- */
     --shadow-2xs: 0 1px 1px hsla(240, 10%, 10%, 0.04);
@@ -94,7 +94,7 @@
     --shadow-xl: 0 8px 16px hsla(240, 10%, 10%, 0.08), 0 24px 48px hsla(240, 10%, 10%, 0.1);
     --shadow-2xl: 0 16px 32px hsla(240, 10%, 10%, 0.1), 0 40px 80px hsla(240, 10%, 10%, 0.12);
 
-    --shadow-glow: 0 0 0 1px hsla(var(--gold), 0.18), 0 8px 30px -12px hsla(var(--gold), 0.25);
+    --shadow-glow: 0 0 0 1px hsl(var(--gold) / 0.18), 0 8px 30px -12px hsl(var(--gold) / 0.25);
     --shadow-card: var(--shadow-sm);
     --shadow-card-hover: var(--shadow-md);
 
@@ -180,7 +180,7 @@
 
     --gradient-hero: linear-gradient(135deg, hsla(45, 96%, 66%), hsla(40, 92%, 55%) 55%, hsla(33, 80%, 48%));
     --gradient-card: linear-gradient(135deg, hsla(43, 92%, 55%, 0.07), hsla(36, 85%, 58%, 0.03));
-    --gradient-gold-rule: linear-gradient(90deg, transparent, hsla(var(--gold), 0.5), transparent);
+    --gradient-gold-rule: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.5), transparent);
 
     /* Dark elevation leans on black depth plus a whisper of gold bloom. */
     --shadow-2xs: 0 1px 1px hsla(0, 0%, 0%, 0.4);
@@ -191,7 +191,7 @@
     --shadow-xl: 0 8px 24px hsla(0, 0%, 0%, 0.6), 0 32px 64px hsla(0, 0%, 0%, 0.5);
     --shadow-2xl: 0 16px 40px hsla(0, 0%, 0%, 0.65), 0 48px 96px hsla(0, 0%, 0%, 0.55);
 
-    --shadow-glow: 0 0 0 1px hsla(var(--gold), 0.22), 0 12px 40px -14px hsla(var(--gold), 0.4);
+    --shadow-glow: 0 0 0 1px hsl(var(--gold) / 0.22), 0 12px 40px -14px hsl(var(--gold) / 0.4);
     --shadow-card: 0 1px 0 0 hsla(0, 0%, 100%, 0.03) inset, var(--shadow-sm);
     --shadow-card-hover: 0 1px 0 0 hsla(0, 0%, 100%, 0.05) inset, var(--shadow-md);
 
@@ -245,13 +245,13 @@
   }
 
   ::selection {
-    background: hsla(var(--gold), 0.28);
+    background: hsl(var(--gold) / 0.28);
   }
 
   /* Slim, unobtrusive scrollbars to match the ink canvas. */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsla(var(--muted-foreground), 0.3) transparent;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
   }
 
   ::-webkit-scrollbar {
@@ -260,14 +260,14 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsla(var(--muted-foreground), 0.25);
+    background: hsl(var(--muted-foreground) / 0.25);
     border-radius: 9999px;
     border: 3px solid transparent;
     background-clip: content-box;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsla(var(--muted-foreground), 0.4);
+    background: hsl(var(--muted-foreground) / 0.4);
     background-clip: content-box;
   }
 }
@@ -287,7 +287,7 @@
   .eyebrow {
     @apply text-[10.5px] font-semibold uppercase;
     letter-spacing: 0.18em;
-    color: hsla(var(--muted-foreground), 1);
+    color: hsl(var(--muted-foreground) / 1);
   }
 
   .display-xl {
@@ -299,7 +299,7 @@
 
   .lede {
     @apply text-lg leading-relaxed;
-    color: hsla(var(--muted-foreground), 1);
+    color: hsl(var(--muted-foreground) / 1);
     max-width: 62ch;
   }
 
@@ -320,32 +320,32 @@
 
   .surface {
     @apply rounded-2xl border bg-card;
-    border-color: hsla(var(--border), 1);
+    border-color: hsl(var(--border) / 1);
     box-shadow: var(--shadow-card);
   }
 
   .surface-raised {
     @apply rounded-2xl border bg-card;
-    border-color: hsla(var(--hairline-strong), 1);
+    border-color: hsl(var(--hairline-strong) / 1);
     box-shadow: var(--shadow-lg);
   }
 
   /* Kept for the components that already reference it. */
   .glass-card {
     @apply bg-card border rounded-2xl;
-    border-color: hsla(var(--border), 1);
+    border-color: hsl(var(--border) / 1);
     box-shadow: var(--shadow-card);
     transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
   }
 
   .glass-card:hover {
     box-shadow: var(--shadow-card-hover);
-    border-color: hsla(var(--gold), 0.28);
+    border-color: hsl(var(--gold) / 0.28);
     transform: translateY(-2px);
   }
 
   .hairline {
-    border-color: hsla(var(--hairline), 1);
+    border-color: hsl(var(--hairline) / 1);
   }
 
   /* A hairline gold divider — used sparingly as a brand signature. */
@@ -365,13 +365,13 @@
 
   /* Legacy neon utilities, retuned: a fine gold edge rather than a glow. */
   .neon-border {
-    border: 1px solid hsla(var(--hairline-strong), 1);
+    border: 1px solid hsl(var(--hairline-strong) / 1);
     box-shadow: var(--shadow-card);
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
   }
 
   .neon-border:hover {
-    border-color: hsla(var(--gold), 0.32);
+    border-color: hsl(var(--gold) / 0.32);
     box-shadow: var(--shadow-card-hover);
   }
 
@@ -409,28 +409,28 @@
   /* Ink canvas with a barely-there grid; denser texture is noise, not luxury. */
   .geo-pattern {
     background-image:
-      linear-gradient(hsla(var(--gold), 0.022) 1px, transparent 1px),
-      linear-gradient(90deg, hsla(var(--gold), 0.022) 1px, transparent 1px);
+      linear-gradient(hsl(var(--gold) / 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--gold) / 0.022) 1px, transparent 1px);
     background-size: 56px 56px;
   }
 
   .dot-pattern {
-    background-image: radial-gradient(hsla(var(--foreground), 0.045) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 
   /* Soft gold bloom for hero sections — a vignette, not a neon orb. */
   .bloom {
     background:
-      radial-gradient(60% 50% at 50% 0%, hsla(var(--gold), 0.13), transparent 70%),
-      radial-gradient(40% 40% at 85% 20%, hsla(var(--gold), 0.06), transparent 70%);
+      radial-gradient(60% 50% at 50% 0%, hsl(var(--gold) / 0.13), transparent 70%),
+      radial-gradient(40% 40% at 85% 20%, hsl(var(--gold) / 0.06), transparent 70%);
   }
 
   /* ---------- composites ---------- */
 
   .stat-card {
     @apply relative overflow-hidden rounded-2xl border bg-card p-6;
-    border-color: hsla(var(--border), 1);
+    border-color: hsl(var(--border) / 1);
     box-shadow: var(--shadow-card);
     transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
   }
@@ -438,7 +438,7 @@
   .stat-card:hover {
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-2px);
-    border-color: hsla(var(--gold), 0.3);
+    border-color: hsl(var(--gold) / 0.3);
   }
 
   /* Gold hairline that reveals on hover — replaces the old gradient bar. */
@@ -462,7 +462,7 @@
 
   .prose-elegant {
     max-width: 68ch;
-    color: hsla(var(--foreground), 0.92);
+    color: hsl(var(--foreground) / 0.92);
     font-size: 1.0625rem;
     line-height: 1.78;
   }
@@ -478,7 +478,7 @@
     letter-spacing: -0.015em;
     margin-top: 2.2em;
     padding-top: 1.1em;
-    border-top: 1px solid hsla(var(--hairline), 1);
+    border-top: 1px solid hsl(var(--hairline) / 1);
   }
 
   .prose-elegant h3 {
@@ -490,15 +490,15 @@
 
   .prose-elegant strong {
     font-weight: 600;
-    color: hsla(var(--foreground), 1);
+    color: hsl(var(--foreground) / 1);
   }
 
   .prose-elegant a {
-    color: hsla(var(--gold), 1);
+    color: hsl(var(--gold) / 1);
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
-    text-decoration-color: hsla(var(--gold), 0.4);
+    text-decoration-color: hsl(var(--gold) / 0.4);
   }
 
   .prose-elegant code {
@@ -506,8 +506,8 @@
     font-size: 0.85em;
     padding: 0.15em 0.4em;
     border-radius: 0.375rem;
-    background: hsla(var(--muted), 1);
-    border: 1px solid hsla(var(--hairline), 1);
+    background: hsl(var(--muted) / 1);
+    border: 1px solid hsl(var(--hairline) / 1);
   }
 
   .prose-elegant ul,
@@ -532,7 +532,7 @@
     width: 5px;
     height: 5px;
     border-radius: 9999px;
-    background: hsla(var(--gold), 0.75);
+    background: hsl(var(--gold) / 0.75);
   }
 
   .prose-elegant ol {
@@ -540,15 +540,15 @@
   }
 
   .prose-elegant ol > li::marker {
-    color: hsla(var(--gold), 1);
+    color: hsl(var(--gold) / 1);
     font-variant-numeric: tabular-nums;
   }
 
   .prose-elegant blockquote {
-    border-left: 2px solid hsla(var(--gold), 0.5);
+    border-left: 2px solid hsl(var(--gold) / 0.5);
     padding-left: 1.1em;
     font-style: italic;
-    color: hsla(var(--muted-foreground), 1);
+    color: hsl(var(--muted-foreground) / 1);
   }
 
   .prose-elegant table {
@@ -562,14 +562,14 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: hsla(var(--muted-foreground), 1);
+    color: hsl(var(--muted-foreground) / 1);
     padding: 0.6em 0.75em;
-    border-bottom: 1px solid hsla(var(--hairline-strong), 1);
+    border-bottom: 1px solid hsl(var(--hairline-strong) / 1);
   }
 
   .prose-elegant td {
     padding: 0.6em 0.75em;
-    border-bottom: 1px solid hsla(var(--hairline), 1);
+    border-bottom: 1px solid hsl(var(--hairline) / 1);
     font-variant-numeric: tabular-nums;
   }
 }
@@ -631,7 +631,7 @@
 
   .cm-rule {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsla(var(--gold), 0.55), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.55), transparent);
   }
 
   .cm-panel {

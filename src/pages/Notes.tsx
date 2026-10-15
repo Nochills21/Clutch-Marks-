@@ -1,8 +1,8 @@
 // Revision-notes library (uploaded study materials) — presented as an
 // editorial reading surface: numbered entries, display-serif titles and a
 // measure-limited reader, rather than a wall of identical cards.
-import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Fragment, useEffect, useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
@@ -135,6 +135,10 @@ export default function Notes() {
   const [subject, setSubject] = useState("all");
   const [level, setLevel] = useState("all");
   const [type, setType] = useState("all");
+  // Topic pages link here with ?topic=<id> so a student lands on that topic's
+  // notes in one click; the chip below clears it back to the whole library.
+  const [params, setParams] = useSearchParams();
+  const topicFilter = params.get("topic");
   const { done, toggle } = useNoteProgress();
   // The library is scoped to the student's picked subject-levels, the same way
   // the dashboard tiles are. Without this a Mathematics + Physics student read
@@ -171,6 +175,7 @@ export default function Notes() {
     const term = q.trim().toLowerCase();
     return notes.filter((n) => {
       if (filtering && !pickedIds.has(n.subject_level_id)) return false;
+      if (topicFilter && n.topic_id !== topicFilter) return false;
       if (subject !== "all" && n.subject_id !== subject) return false;
       if (level !== "all" && n.level !== level) return false;
       if (type !== "all" && n.material_type !== type) return false;
@@ -184,9 +189,20 @@ export default function Notes() {
         body.includes(term)
       );
     });
-  }, [notes, q, subject, level, type, filtering, pickedIds]);
+  }, [notes, q, subject, level, type, filtering, pickedIds, topicFilter]);
+  const topicFilterName = topicFilter ? notes.find((n) => n.topic_id === topicFilter)?.topic_name : null;
 
   const completedCount = visible.filter((n) => done[n.id]).length;
+  // Subject → level → topic → title, so the library reads as a shelf of topics
+  // rather than one alphabetical pile. Headers are drawn where the group changes.
+  const ordered = useMemo(
+    () => [...visible].sort((a, b) =>
+      a.subject_name.localeCompare(b.subject_name) ||
+      a.level.localeCompare(b.level) ||
+      a.topic_name.localeCompare(b.topic_name) ||
+      a.title.localeCompare(b.title)),
+    [visible],
+  );
   const progressPct = visible.length ? Math.round((completedCount / visible.length) * 100) : 0;
 
   // Subject & level gate: students must pick at least one subject (and its
@@ -270,6 +286,13 @@ export default function Notes() {
         </Select>
       </div>
 
+      {topicFilter && (
+        <div className="flex items-center justify-between gap-3 rounded-lg border border-primary/25 bg-primary/5 px-4 py-2.5 text-sm">
+          <span>Showing notes for <span className="font-medium">{topicFilterName ?? "this topic"}</span></span>
+          <Button size="sm" variant="ghost" onClick={() => setParams({})}>Show all notes</Button>
+        </div>
+      )}
+
       {error && (
         <Card className="border-destructive/40">
           <CardContent className="flex items-center justify-between gap-3 p-4">
@@ -291,10 +314,26 @@ export default function Notes() {
         </Card>
       ) : (
         <ol className="space-y-3">
-          {visible.map((n, i) => {
+          {ordered.map((n, i) => {
             const studied = !!done[n.id];
+            const prev = ordered[i - 1];
+            const newSubject = prev?.subject_id !== n.subject_id || prev?.level !== n.level;
+            const newTopic = newSubject || prev?.topic_id !== n.topic_id;
             return (
-              <li key={n.id}>
+              <Fragment key={n.id}>
+              {newSubject && (
+                <li className="pt-4 first:pt-0">
+                  <p className="eyebrow">
+                    {n.subject_name} · {LEVEL_LABELS[n.level as "OL"] ?? n.level}
+                  </p>
+                </li>
+              )}
+              {newTopic && (
+                <li>
+                  <h2 className="font-display text-base font-semibold tracking-tight">{n.topic_name}</h2>
+                </li>
+              )}
+              <li>
                 <Card
                   className={`group relative overflow-hidden transition-colors ${studied ? "border-primary/25" : ""}`}
                 >
@@ -384,6 +423,7 @@ export default function Notes() {
                   </CardContent>
                 </Card>
               </li>
+              </Fragment>
             );
           })}
         </ol>
