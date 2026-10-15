@@ -119,6 +119,10 @@ export async function openProtectedFile(bucket: string, urlOrPath: string, downl
     return;
   }
   const path = toStoragePath(bucket, urlOrPath);
+  // Browsers only allow a popup inside the click that caused it. The watermark
+  // fetch below takes seconds, so reserve the tab synchronously here and point
+  // it at the file once the bytes are ready. Downloads don't need a tab.
+  const tab = downloadName ? null : openPendingTab();
   try {
     const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
     // A failed session read used to be indistinguishable from "not signed in".
@@ -144,7 +148,7 @@ export async function openProtectedFile(bucket: string, urlOrPath: string, downl
       // Forced-download variant (keeps the watermarked bytes).
       downloadUrl(url, downloadName);
     } else {
-      window.open(url, "_blank", "noopener,noreferrer");
+      showInTab(tab, url);
     }
     setTimeout(() => URL.revokeObjectURL(url), 120_000);
   } catch (error) {
@@ -154,11 +158,29 @@ export async function openProtectedFile(bucket: string, urlOrPath: string, downl
     console.warn("serve-material unavailable, falling back to a signed URL:", error);
     // Pass the download intent through: a signed URL that downloads is still
     // the action the caller asked for.
-    await openSignedFile(bucket, path, downloadName);
+    await openSignedFile(bucket, path, downloadName, tab);
   }
 }
 
-export async function openSignedFile(bucket: string, urlOrPath: string, downloadName?: string) {
+/** Opens a blank tab inside the current user gesture, to be navigated later. */
+function openPendingTab(): Window | null {
+  const tab = window.open("about:blank", "_blank");
+  if (tab) tab.opener = null;
+  return tab;
+}
+
+/** Points a tab reserved by openPendingTab at url, or opens one if none was reserved. */
+function showInTab(tab: Window | null, url: string) {
+  if (tab && !tab.closed) tab.location.href = url;
+  else window.open(url, "_blank", "noopener,noreferrer");
+}
+
+export async function openSignedFile(
+  bucket: string,
+  urlOrPath: string,
+  downloadName?: string,
+  tab: Window | null = null,
+) {
   // External PDFs are not in our bucket: open them directly.
   if (isExternalUrl(urlOrPath)) {
     window.open(urlOrPath, "_blank", "noopener,noreferrer");
@@ -166,7 +188,7 @@ export async function openSignedFile(bucket: string, urlOrPath: string, download
   }
   const url = await getSignedUrl(bucket, urlOrPath, 300, downloadName);
   if (downloadName) downloadUrl(url, downloadName);
-  else window.open(url, "_blank", "noopener,noreferrer");
+  else showInTab(tab, url);
 }
 
 export interface FileVersion {
