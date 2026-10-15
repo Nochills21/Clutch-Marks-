@@ -120,6 +120,21 @@
   "created_at": "2026-10-13 13:59:37.872525+00"
  },
  {
+  "id": "09b1611d-76d1-4a3e-a30a-0a244068d881",
+  "entity_type": "material",
+  "entity_id": "2b44173a-bcfa-4283-b7e5-0b7f4481d594",
+  "title": "Proofs — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-proofs-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "0aaa2262-aa48-4853-b570-985088a6b47e",
   "entity_type": "material",
   "entity_id": "5dccc945-8f7d-40c0-90d6-ecc2d2cf7b5d",
@@ -133,6 +148,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-12 09:51:49.99748+00"
+ },
+ {
+  "id": "0ad89a59-8583-4afa-9f8d-a1b7a0813524",
+  "entity_type": "material",
+  "entity_id": "f8c8b001-6ff2-4a71-b419-6a8b19f1ab05",
+  "title": "Further Trigonometry — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-trigonometry-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "0b1cdc87-280a-4164-a480-4103f1225d68",
@@ -210,6 +240,21 @@
   "created_at": "2026-10-12 09:51:11.443742+00"
  },
  {
+  "id": "11cbca6b-2657-41b0-a366-4e917a3ebe0e",
+  "entity_type": "material",
+  "entity_id": "9ef53dcf-cf0b-4f69-a966-9e070614eda6",
+  "title": "Logarithms — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-logarithms-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "1230dc3f-9464-4545-b0a5-2095b62afebe",
   "entity_type": "material",
   "entity_id": "7034932b-635a-4949-a7c1-e9df1bd9c136",
@@ -238,6 +283,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "151600c2-5797-4bb9-8eb9-d8af050b4a8d",
+  "entity_type": "material",
+  "entity_id": "80ee71f3-e4c7-4f07-8a7d-10356850f4cb",
+  "title": "Integration — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-integration-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "15e0516d-ae3d-4e46-94a8-473064d5ab39",
@@ -330,6 +390,21 @@
   "created_at": "2026-10-13 13:51:17.069737+00"
  },
  {
+  "id": "2412231e-7210-48f3-aa23-e78a6e177ac6",
+  "entity_type": "material",
+  "entity_id": "bf28a182-8b42-4329-94cf-eedae01c6639",
+  "title": "Factor & Remainder Theorem — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-factor-remainder-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "24950def-0ad6-43c8-a3be-6b228383927d",
   "entity_type": "lesson",
   "entity_id": "bf53adf9-5763-47d1-8896-32310e726c79",
@@ -390,6 +465,36 @@
   "created_at": "2026-09-30 16:51:29.172364+00"
  },
  {
+  "id": "27195a4f-b821-4a57-afcf-712caa2d6c5f",
+  "entity_type": "material",
+  "entity_id": "601e8c93-b27d-45e8-9f14-5f11ef32dcfd",
+  "title": "Logarithms — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-logarithms-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "27f8c462-d82a-4ea3-b2ec-a117840c1f1d",
+  "entity_type": "material",
+  "entity_id": "b57a4eed-8ce6-4f40-ae64-3e3a1e30ce2f",
+  "title": "Sequences and Series — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-sequences-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "2afb3f98-87f6-44ce-9dde-62267f0288b7",
   "entity_type": "material",
   "entity_id": "3bc168f1-4a43-4e2f-9954-2f256539800e",
@@ -403,6 +508,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:26:08.422261+00"
+ },
+ {
+  "id": "2b693324-f3db-40c7-ada9-3b0fad48d9bf",
+  "entity_type": "material",
+  "entity_id": "e908872f-cf79-4883-8980-16255fbe7180",
+  "title": "Differentiation — Revision Notes (P1)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-differentiation-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "2c5d942c-a712-45f2-8360-ac03d8ef9109",
+  "entity_type": "material",
+  "entity_id": "dc60ca88-40b1-4db8-9e46-667d8b536d23",
+  "title": "Trigonometry — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-trigonometry-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "2eeb7b03-3ee3-4745-b8c7-c9662efd7b67",
@@ -480,6 +615,21 @@
   "created_at": "2026-10-12 09:51:11.443742+00"
  },
  {
+  "id": "34a6a9c5-9a3a-4cbf-ae24-564c9c5ab4ad",
+  "entity_type": "material",
+  "entity_id": "fcdc9bf0-d837-4c63-8a50-7153dc896c62",
+  "title": "Differentiation II — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-differentiation-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "35914487-ec15-428c-b916-b3688a0b32dc",
   "entity_type": "material",
   "entity_id": "f1f5eeb9-8449-47ac-8dca-bf15caf51664",
@@ -523,6 +673,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
+  "id": "392fe990-5458-4abf-b856-4716c2dc2a13",
+  "entity_type": "material",
+  "entity_id": "aeea4b47-1fd5-4694-b62c-281cac5c10ce",
+  "title": "Coordinate Geometry — Revision Notes (P1)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-coordinate-geometry-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "397ce637-2dd0-443f-a747-0faab919a2a9",
+  "entity_type": "material",
+  "entity_id": "f2da9e82-d6ec-4141-b9f4-44caf3c1f6ec",
+  "title": "Functions — Revision Notes (P1)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-functions-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "3acb366b-157c-4385-9056-4dfffb0b21a4",
@@ -645,6 +825,36 @@
   "created_at": "2026-10-13 14:06:36.695662+00"
  },
  {
+  "id": "41667b82-8a86-4a45-8436-4311cfdd0eda",
+  "entity_type": "material",
+  "entity_id": "6b6f013d-8fe1-4246-94fb-c87f4853fe07",
+  "title": "AS Pure Mathematics — Full Revision Booklet",
+  "content": "Chapter PDF from Clutch Marks AS Revision — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-revision-booklet.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "43cd1c9a-c01e-44e8-b73b-b7613de2a05f",
+  "entity_type": "material",
+  "entity_id": "28f93177-0cc6-484c-9080-86a27805c0da",
+  "title": "Algebra Foundations — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-algebra-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "44e2a15a-37d0-41ee-9889-754cca11ae46",
   "entity_type": "material",
   "entity_id": "798f9e7d-33c5-456e-9070-c32874b67978",
@@ -688,6 +898,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:20:47.748684+00"
+ },
+ {
+  "id": "475c19e3-737d-4bc2-ba3c-25f53afcc39b",
+  "entity_type": "material",
+  "entity_id": "432b462a-edc3-451c-878a-2e73b878cc7c",
+  "title": "Algebra Foundations — Revision Notes (P1)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-algebra-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "4e01c362-e933-462c-9e51-1c5d6e6234a7",
@@ -763,6 +988,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 13:42:53.681236+00"
+ },
+ {
+  "id": "501d1ee7-4fc1-448d-82d4-548257b6f904",
+  "entity_type": "material",
+  "entity_id": "facf761f-acdd-46df-ae16-f6799e6f402b",
+  "title": "Proofs — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-proofs-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "52d1dac4-7248-4d80-82d1-5399381f0936",
@@ -945,6 +1185,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "6024fe1c-78bc-453d-90a4-447955e2c85d",
+  "entity_type": "material",
+  "entity_id": "fb114d9b-a2cb-47b3-a90c-c1edca88d29c",
+  "title": "Further Trigonometry — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-trigonometry-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "610d38aa-1166-40c3-b0b5-99d40f9c8bee",
   "entity_type": "material",
   "entity_id": "77c32ddd-d720-4973-9b42-3e1600709841",
@@ -1018,6 +1273,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "68004b25-edec-4e59-892b-f2be61eee35d",
+  "entity_type": "material",
+  "entity_id": "1931c053-d2df-4d17-b5e7-979b7c7d750d",
+  "title": "Binomial Expansion — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-binomial-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "69d2978e-c1cc-44ea-9089-8f436ca5b896",
@@ -1170,6 +1440,21 @@
   "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
+  "id": "7779fbdb-2d6c-4913-a80c-4d38af907ee8",
+  "entity_type": "material",
+  "entity_id": "48eb2c92-c8a0-4948-94ec-04ba6f954e79",
+  "title": "Sequences and Series — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-sequences-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "7da340ed-8672-46ae-81ba-5c7ed1471e58",
   "entity_type": "material",
   "entity_id": "dcb48bc6-ebfa-4469-9a47-d9fc8394172f",
@@ -1183,6 +1468,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:21:52.343617+00"
+ },
+ {
+  "id": "7df9b8c2-d75e-4f8a-8f17-6c651f79f55b",
+  "entity_type": "material",
+  "entity_id": "28b7ebd7-b943-4980-b5d5-755f8526819d",
+  "title": "Circular Measure & Sectors — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-circular-measure-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "7e19e178-4e51-4c32-8277-8b3651f248ab",
@@ -1305,6 +1605,21 @@
   "created_at": "2026-10-13 14:20:47.748684+00"
  },
  {
+  "id": "8faf9d33-5348-42e2-8ee0-b2f29a58b7a3",
+  "entity_type": "material",
+  "entity_id": "c3a28c7a-4e0b-41cc-aff2-7ce104799746",
+  "title": "Factor & Remainder Theorem — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-factor-remainder-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "8ffb0dc6-ed28-4e1d-9c69-6af27e5ad72f",
   "entity_type": "material",
   "entity_id": "58ecfd82-cac6-4371-8ec0-1f303808c592",
@@ -1410,6 +1725,21 @@
   "created_at": "2026-10-13 14:06:36.695662+00"
  },
  {
+  "id": "9cc50ce7-e2c8-4632-9ff1-5e0a9e8148b6",
+  "entity_type": "material",
+  "entity_id": "ee89b58f-f19d-4079-895b-53eac277b2ff",
+  "title": "Integration II — Revision Notes (P2)",
+  "content": "Chapter PDF from Clutch Marks P2 Notes — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-integration-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "9d30fac3-fa71-4c53-a38d-166a6e17f1a0",
   "entity_type": "material",
   "entity_id": "676e85b2-92ba-4147-a226-ffb7f1a011a0",
@@ -1438,6 +1768,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "9d6963b4-3c24-4218-ba89-49a9eda0fb16",
+  "entity_type": "material",
+  "entity_id": "cdc68215-f8b4-494a-94c1-af933151fd8b",
+  "title": "Differentiation II — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-differentiation-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "9df6eb8d-51ed-4f7d-a499-19a9fddfe57b",
@@ -1740,6 +2085,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "bb202cc2-3217-43dc-9e5e-351ade637595",
+  "entity_type": "material",
+  "entity_id": "48a22dad-ac6e-4a2c-b616-faca351645d9",
+  "title": "Coordinate Geometry — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-coordinate-geometry-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "bb23712f-7138-4b97-ba3c-3365fd9d67ec",
   "entity_type": "material",
   "entity_id": "c015774f-319c-423f-94e2-c1b6a3505c70",
@@ -1770,6 +2130,36 @@
   "created_at": "2026-10-13 14:04:52.70696+00"
  },
  {
+  "id": "bd78b918-3034-4b27-94d8-33a521ead0bc",
+  "entity_type": "material",
+  "entity_id": "c447a914-6fe7-4dde-bc5a-8ebb56e4ef29",
+  "title": "Integration II — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-integration-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "bd9c9019-5984-41d1-a5c1-ba6cc8ddf011",
+  "entity_type": "material",
+  "entity_id": "a7f84aa6-84b8-43c3-b387-1d8a2d7d907c",
+  "title": "Integration — Revision Notes (P1)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-integration-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "bdd71aec-185e-4507-ab33-dea525768e3c",
   "entity_type": "material",
   "entity_id": "b85187cd-a73d-45af-9ae1-f1616a80a393",
@@ -1783,6 +2173,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 13:59:37.872525+00"
+ },
+ {
+  "id": "be4e3d08-d6cc-409b-b4e5-6cbe02a28011",
+  "entity_type": "material",
+  "entity_id": "01c2ff35-5ae0-49bd-b5d4-0a22ae5215be",
+  "title": "Trigonometry — Revision Notes (P1)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-trigonometry-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "be9cbebb-c363-43b3-9eef-304cd21e6bd3",
@@ -1860,6 +2265,36 @@
   "created_at": "2026-10-13 14:06:36.695662+00"
  },
  {
+  "id": "cdb78db9-bbe0-4a5f-9e35-30bdd11ca88e",
+  "entity_type": "material",
+  "entity_id": "f82719f0-4e48-4ba1-911b-a2e06da06897",
+  "title": "Discriminant — Revision Notes (P1)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-quadratics-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "cfcbe814-1f7f-4989-a8dd-9d300576dc6f",
+  "entity_type": "material",
+  "entity_id": "58f6b1bd-dd6c-4653-85e3-8c5ed5e1dd76",
+  "title": "Circular Measure & Sectors — Revision Notes (P1 Trigonometry B)",
+  "content": "Chapter PDF from Clutch Marks P1 notes — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-circular-measure-notes.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "d293a88d-c694-4d40-8e54-0265ff606b1a",
   "entity_type": "material",
   "entity_id": "153c8051-6b06-48ca-b39a-24d41b791d2c",
@@ -1903,6 +2338,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:31.529055+00"
+ },
+ {
+  "id": "d70d6651-012e-4bb5-9b81-3d04d813a00f",
+  "entity_type": "material",
+  "entity_id": "e80156fd-ec00-4ff2-a5b2-4f2e1951dd6d",
+  "title": "Differentiation — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-differentiation-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "d8b93a7c-e01b-4199-b342-d56a03161b7d",
@@ -2040,6 +2490,21 @@
   "created_at": "2026-09-21 17:56:49.948062+00"
  },
  {
+  "id": "e57d7e87-d5cb-48ba-97aa-afb29865c3ff",
+  "entity_type": "material",
+  "entity_id": "c127f256-2232-4e26-9d74-eb179a073e49",
+  "title": "Discriminant — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-quadratics-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
   "id": "e7401dfe-e246-4a53-a61e-bd3c8a5031bb",
   "entity_type": "material",
   "entity_id": "57eaee80-6b7e-424d-b649-06a608be6256",
@@ -2158,6 +2623,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:20:26.362014+00"
+ },
+ {
+  "id": "f0728097-4a06-43e3-ac83-c07ec04338e9",
+  "entity_type": "material",
+  "entity_id": "dd18931a-157d-48e7-9e66-bb652dc7340c",
+  "title": "Binomial Expansion — Exam Questions (P2 Classified)",
+  "content": "Chapter PDF from Clutch Marks P2 Classified  — A2 Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/a2-binomial-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "f19959df-7d2d-4cc1-8917-540ba53be73b",
@@ -2338,6 +2818,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "fdb69cb4-b6a9-4623-9a19-a6a5c64bcab5",
+  "entity_type": "material",
+  "entity_id": "a5e5b5fb-bc6b-47a2-86b5-79dad143946f",
+  "title": "Functions — Exam Questions (P1 Classified)",
+  "content": "Chapter PDF from Clutch Marks P1 Classified  — AS Mathematics (9709).",
+  "extra": {
+   "file_url": "materials/as-functions-questions.pdf",
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
   "id": "fef13392-f1ab-467c-b467-4435bddaa1fc",
