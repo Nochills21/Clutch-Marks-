@@ -415,7 +415,7 @@ export default function Subject() {
                         {ts ? (
                           <Link to={topicNotesPath(subject!.slug!, subjectLevel!.level.toLowerCase(), ts)}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
                         ) : (
-                          <Link to="/notes">Open <ArrowRight className="h-3.5 w-3.5" /></Link>
+                          <Link to={m.topic_id ? `/notes?topic=${m.topic_id}` : "/notes"}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
                         )}
                       </Button>
                     </CardContent>

@@ -60,6 +60,36 @@
   "created_at": "2026-10-13 14:21:52.343617+00"
  },
  {
+  "id": "0469f174-64b1-4de2-b43b-700a14e562f5",
+  "entity_type": "material",
+  "entity_id": "142411fd-623b-4b22-bb2d-343a91a1ded3",
+  "title": "Exam technique: Abstract Data Types",
+  "content": "### What earns the marks\nFor ADT choice, the access pattern stated earns the mark: LIFO for stacks, FIFO for queues, keyed jumps for BSTs. For traversals, the visit order written (root-left-right for preorder) earns each mark. For linked structures, pointer relinking described earns the insertion mark without any shifting claim.\n### Traps\nError: queues for undo. Correction: undo is LIFO, so stack. Error: inorder claimed as root-first. Correction: preorder is root-first. Error: arrays claimed best for mid-list churn. Correction: shifting costs every insert.\n### Worked example\nTrace a stack. Push A, push B, push C, then pop, then push D, then pop. After the three pushes the top is C, so the first pop returns C. Pushing D leaves the stack as A, B, D, so the second pop returns D and B is left on top. A stack is last in, first out, so the top item always leaves first.\n### Check yourself\nState which structure a printer queue uses and why, in one sentence that names the order of service. A print queue serves the first job submitted first, so it is first in, first out.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
+  "id": "04c5258a-0214-435c-81d5-2e92dd514617",
+  "entity_type": "material",
+  "entity_id": "1905a82f-d430-49dc-b49f-844dcd24fa3d",
+  "title": "Exam technique: Dynamics",
+  "content": "### What earns the marks\nFor resultant force, subtract opposition before applying F = ma to earn both marks. For collisions, total momentum before equated to total after earns the method mark. For rebounds, the sign change included earns the second mark.\n### Traps\nError: friction ignored in acceleration. Correction: use the resultant, not the push alone. Error: rebound treated as stopping. Correction: add the speeds with the sign flip. Error: kinetic energy claimed conserved generally. Correction: momentum always, kinetic only when elastic.\n### Worked example\nA car of mass 800 kg has a driving force of 2400 N and a resistance of 400 N. The resultant force is 2400 - 400 = 2000 N, so a = F/m = 2000 / 800 = 2.5 m/s^2. Subtract the opposing force before you divide by the mass.\n### Check yourself\nA 2 kg trolley moving at 3 m/s hits a stationary 1 kg trolley, and they stick together. Total momentum before is 2 x 3 = 6 kg m/s, so the joint speed is 6 / 3 = 2 m/s. Show the momentum equation even when the speed looks obvious.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
   "id": "04f65ae9-a683-450a-a91f-19e50804aae0",
   "entity_type": "material",
   "entity_id": "15f953e6-3831-4cd9-a4ff-98a991c5d346",
@@ -73,6 +103,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:06:36.695662+00"
+ },
+ {
+  "id": "0512726c-5939-4f34-98e0-1cb3959e971b",
+  "entity_type": "material",
+  "entity_id": "2188824e-7cf4-4b08-bdbb-a02b5e20cb71",
+  "title": "Exam technique: Probability",
+  "content": "### What earns the marks\nFor combined events, each branch probability with the changed denominator earns a mark: write 3/5 then 2/4 for no-replacement draws. For expectation, probability times trials stated earns the mark even with arithmetic slips. For conditional probability, restricting the denominator to the given condition earns the method mark: write 12/20 before simplifying. For P(A or B), the overlap subtracted earns the final mark.\n### Traps\nError: unchanged denominator after a no-replacement draw. Correction: both numerator and denominator drop. Error: dividing by 50 for a given-glasses probability. Correction: condition first, population second. Error: adding P(A) + P(B) without subtracting the overlap. Correction: both-occurring counted twice. Error: adding single-coin probabilities for two coins. Correction: multiply along branches.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
  },
  {
   "id": "05e51d54-5557-46b5-96a0-19d0244d452d",
@@ -118,6 +163,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 13:59:37.872525+00"
+ },
+ {
+  "id": "09106cc4-9375-412f-b7f7-950714b71b83",
+  "entity_type": "material",
+  "entity_id": "0ceab5ac-2814-41a6-8bf4-36e546a553cd",
+  "title": "Exam technique: Poisson Distribution",
+  "content": "### What earns the marks\nFor lambda scaling, the rate times the interval stated earns the first mark. For probabilities, e^-lambda lambda^x / x! with values earns the method mark. For approximations, the condition named (n large, p small, lambda = np) earns credit.\n### Traps\nError: unscaled lambda over a new interval. Correction: scale first. Error: binomial coefficients inside Poisson work. Correction: Poisson formula only. Error: mean and variance treated as different. Correction: both equal lambda.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
   "id": "09b1611d-76d1-4a3e-a30a-0a244068d881",
@@ -270,6 +330,36 @@
   "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
+  "id": "129136b9-0bba-4be7-b7e7-4be28d96f210",
+  "entity_type": "material",
+  "entity_id": "18c77db3-3d16-4e63-b19a-c8fb9e1bdfc0",
+  "title": "Statistics — Data Handling — Quick Revision Summary",
+  "content": "<h2>Quick revision: Statistics — Data Handling</h2>\n<p><strong>Mathematics — OL.</strong> averages from lists and tables, quartiles/IQR, charts, cumulative frequency, histograms.</p>\n<ul>\n<li>1. Averages</li>\n<li>2. Quartiles and IQR</li>\n<li>3. Charts</li>\n<li>4. Cumulative frequency</li>\n<li>5. Histograms</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
+  "id": "13a32d92-880e-4568-a622-573e239330f1",
+  "entity_type": "material",
+  "entity_id": "4c83eff4-82e2-473c-83a2-dc959f0ca347",
+  "title": "Sequences and Series — Study Notes",
+  "content": "<h2>Sequences and Series</h2>\n<h3>Arithmetic Progressions (AP)</h3>\n<p>Terms increase by a common difference d.</p>\n<ul>\n<li>nth term: uₙ = a + (n − 1)d</li>\n<li>Sum: Sₙ = n/2 [2a + (n − 1)d]</li>\n</ul>\n<p><strong>Example:</strong> AP 5, 8, 11: the 20th term is 5 + 19 × 3 = 62.</p>\n<h3>Geometric Progressions (GP)</h3>\n<p>Terms multiply by a common ratio r.</p>\n<ul>\n<li>nth term: uₙ = arⁿ⁻¹</li>\n<li>Sum: Sₙ = a(1 − rⁿ)/(1 − r)</li>\n<li>Sum to infinity (|r| &lt; 1 only): S∞ = a/(1 − r)</li>\n</ul>\n<p><strong>Example:</strong> a = 8, r = 1/2 gives S∞ = 8/(1/2) = 16.</p>\n<h3>Binomial Expansion</h3>\n<p>(1 + x)ⁿ = 1 + nx + n(n − 1)/2! x² + n(n − 1)(n − 2)/3! x³ + …, valid for |x| &lt; 1.</p>\n<p>For positive integer n, coefficients come from Pascal's triangle: (1 + 2x)⁴ = 1 + 8x + 24x² + 32x³ + 16x⁴.</p>\n<p><strong>Exam tips:</strong> identify a, d or r first; for \"sum to infinity\" questions check |r| &lt; 1 explicitly, and for binomial expansions give terms up to the power asked (usually x² or x³).</p>\n<h3>Formulae and exam method</h3>\n<p>Arithmetic progression: the nth term is Tₙ = a + (n − 1)d, where a is the first term and d the common difference. The sum of the first n terms is Sₙ = n/2 [2a + (n − 1)d], or Sₙ = n/2 (a + l) when the last term l is known.</p>\n<p>Geometric progression: Tₙ = arⁿ⁻¹, and Sₙ = a(1 − rⁿ)/(1 − r) for r ≠ 1. The sum to infinity exists only when |r| &lt; 1, and then S∞ = a/(1 − r).</p>\n<p>To find the number of terms, substitute the known sum or term and solve for n. When n sits in an exponent, take logarithms. Check that n is a positive integer.</p>\n<p>Sigma notation: Σ from r = 1 to n of (ar + b) is evaluated with the standard sums, but write out the first few terms when the pattern is unclear.</p>\n<p><strong>Exam cue:</strong> Identify whether the question is AP or GP before choosing a formula, and state the value of r when using the sum to infinity.</p>\n\n<h3>Exam method: arithmetic and geometric sums</h3>\n<p>For an arithmetic sequence with first term a and common difference d, the nth term is a + (n − 1)d and the sum of the first n terms is S_n = n/2 (2a + (n − 1)d). For a geometric sequence with ratio r, the nth term is ar^(n − 1) and S_n = a(1 − r^n)/(1 − r) for r ≠ 1.</p>\n<p>The sum to infinity exists only when |r| &lt; 1, and then S∞ = a/(1 − r). If |r| ≥ 1, say so explicitly rather than applying the formula.</p>\n<p><strong>Exam cue:</strong> Identify whether the sequence is arithmetic or geometric from the common difference or ratio before choosing a formula. Check the number of terms n carefully when you set up the equation.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:47:33.160331+00"
+ },
+ {
   "id": "14815538-8086-4110-8776-7ac377f3b140",
   "entity_type": "material",
   "entity_id": "8070ed35-c07d-4ba4-bba0-9dfbe1a79c80",
@@ -315,6 +405,81 @@
   "created_at": "2026-10-13 14:04:52.70696+00"
  },
  {
+  "id": "15ec4982-ea4b-47c2-a68b-c8ed2b14f381",
+  "entity_type": "material",
+  "entity_id": "23188cf0-1f26-446b-8c51-fcce1cb9471a",
+  "title": "Transformations and Vectors — Quick Revision Summary",
+  "content": "<h2>Quick revision: Transformations and Vectors</h2>\n<p><strong>Mathematics — OL.</strong> reflection, rotation, translation, enlargement (incl. negative SF); vector notation, resultant, magnitude, vector geometry.</p>\n<ul>\n<li>1. Transformations — full descriptions</li>\n<li>2. Combined transformations</li>\n<li>3. Vectors</li>\n<li>4. Vector geometry</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
+  "id": "1813b870-2362-42a5-afc4-28c26a3e7d7a",
+  "entity_type": "material",
+  "entity_id": "0db49f61-4a22-4620-a8b6-272d4018d686",
+  "title": "Exam technique: Sequences and Series",
+  "content": "### What earns the marks\nFor AP terms, a + (n-1)d with the brackets evaluated earns the mark; sums use n/2(2a + (n-1)d) quoted. For GP work, the ratio found by division earns one mark and the formula applied earns the next. For sum to infinity, the |r| < 1 check stated earns the method mark.\n### Traps\nError: n used instead of (n-1) in terms. Correction: first term needs zero gaps. Error: infinity sums with |r| >= 1. Correction: check convergence first. Error: differentiating S_n for the nth term. Correction: subtract S_{n-1}.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
+ },
+ {
+  "id": "19692c47-87d3-4687-b83e-2e528a4478ad",
+  "entity_type": "material",
+  "entity_id": "f5acbebb-b0b2-4070-9f23-249d8e606ec2",
+  "title": "Exam technique: Data Representation",
+  "content": "### What earns the marks\nFor conversions, the working (place values or division remainders) earns the method mark before the answer. For images, resolution times colour depth quoted earns each mark. For sound, sample rate times resolution times time earns the calculation marks.\n### Traps\nError: hex read as denary directly. Correction: convert via binary. Error: bits and bytes mixed. Correction: divide by 8 for bytes. Error: compression types swapped. Correction: lossy loses data, lossless keeps it.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
+  "id": "1a72150c-f793-4f92-8d8a-cd2b0640644d",
+  "entity_type": "material",
+  "entity_id": "929796bd-05c8-46af-85a3-af6815541b09",
+  "title": "Circular Measure — Study Notes",
+  "content": "<h2>Circular Measure</h2>\n<p>Cambridge International AS & A Level Mathematics 9709, Paper 1: radian measure, arc length, and the areas and perimeters of sectors and segments. Every formula here takes its angle in radians — that is the single fact most marks hinge on.</p>\n<h3>Radians</h3>\n<p>One radian is the angle at the centre of a circle subtended by an arc whose length equals the radius. The full circumference is 2πr, so a full turn is 2π radians and π radians = 180°.</p>\n<ul>\n<li>Degrees → radians: multiply by π/180. Example: 150° = 150π/180 = 5π/6 ≈ 2.618 rad.</li>\n<li>Radians → degrees: multiply by 180/π. Example: 1.5 rad = 1.5 × 180/π ≈ 85.9°.</li>\n</ul>\n<p>Learn the common values: 30° = π/6, 45° = π/4, 60° = π/3, 90° = π/2, 180° = π, 360° = 2π. Leave answers in terms of π unless the question asks for a decimal — and when it does, give three significant figures.</p>\n<h3>Arc Length</h3>\n<p>s = rθ (θ in radians).</p>\n<p><strong>Example:</strong> r = 6, θ = π/3 gives s = 6 × π/3 = 2π.</p>\n<p>A chord splits the circumference into a minor arc and a major arc, and their lengths add to 2πr. If a question gives the major angle, use θ_major = 2π − θ_minor before substituting.</p>\n<h3>Sector Area</h3>\n<p>A = ½r²θ.</p>\n<p><strong>Example:</strong> r = 5, θ = 1.2 gives A = ½ × 25 × 1.2 = 15.</p>\n<p>Minor and major sector areas add to πr². The perimeter of a sector is P = 2r + s = 2r + rθ — the two straight edges count, so an arc length alone is not a perimeter.</p>\n<h3>Segment Area</h3>\n<p>A = ½r²(θ − sin θ). For r = 2, θ = π/2: A = 2(π/2 − 1) = π − 2.</p>\n<p>The segment is the sector minus the triangle ½r²sin θ — that subtraction is where the formula comes from, and writing it down earns method marks even if the arithmetic slips. Its perimeter is the arc plus the chord, with chord length 2r sin(θ/2).</p>\n<h3>Putting It Together</h3>\n<p><strong>Worked example:</strong> a sector has radius 8 cm and angle 1.1 rad. Arc length s = 8 × 1.1 = 8.8 cm. Area A = ½ × 64 × 1.1 = 35.2 cm². Perimeter P = 2 × 8 + 8.8 = 24.8 cm.</p>\n<h3>Rearranging</h3>\n<ul>\n<li>θ = s/r (must be radians)</li>\n<li>θ = 2A/r²</li>\n<li>r = s/θ, and r = √(2A/θ) — isolate the squared term first, then take the positive root only, since a radius is a length.</li>\n</ul>\n<p><strong>Exam traps:</strong> never mix degrees into s = rθ or A = ½r²θ — convert first, and check the calculator is in radian mode. Sketch the sector and mark r and θ before computing. Read whether the question asks for the major or the minor arc, sector, or segment, and confirm area answers carry squared units while arcs and perimeters are plain lengths.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:47:33.160331+00"
+ },
+ {
+  "id": "1a7e5e3e-238f-4af1-a8ec-59c91179ec2e",
+  "entity_type": "material",
+  "entity_id": "73413ed6-d9b9-47bb-a307-f1fcd75fe787",
+  "title": "Exam technique: Operating Systems",
+  "content": "### What earns the marks\nFor OS functions, each of processor, memory, device and file management stated earns credit. For interrupts, the cause plus the handler action earns both marks. For utilities, the named tool matched to its job earns the mark.\n### Traps\nError: operating system confused with utility software. Correction: the OS manages hardware; utilities do jobs. Error: buffer and spooling swapped. Correction: buffers smooth speed gaps, spooling queues print jobs. Error: one function listed for describe questions. Correction: give the full set.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
   "id": "1bc1e511-a3ac-46dc-a1b0-cee575b2b494",
   "entity_type": "material",
   "entity_id": "6103544a-0080-4c85-af53-ddbb12284c25",
@@ -328,6 +493,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:21:52.343617+00"
+ },
+ {
+  "id": "1c560310-a98d-4210-b0c4-6dc1449bc95e",
+  "entity_type": "material",
+  "entity_id": "139e542c-853c-4cc8-adc9-753d2f78e2fa",
+  "title": "Trigonometry — Sine and Cosine Rules — Quick Revision Summary",
+  "content": "<h2>Quick revision: Trigonometry — Sine and Cosine Rules</h2>\n<p><strong>Mathematics — OL.</strong> area formula, sine rule, cosine rule, multi-step bearing and 3-D problems (Extended).</p>\n<ul>\n<li>1. Area of a triangle</li>\n<li>2. Sine rule</li>\n<li>3. Cosine rule</li>\n<li>4. Bearing problems</li>\n<li>5. 3-D trigonometry</li>\n</ul>\n<h3>Formulas to learn</h3>\n<ul><li>Area of a triangle: one half of a b sin C.</li><li>Sine rule: a / sin A = b / sin B = c / sin C.</li><li>Cosine rule: a^2 = b^2 + c^2 - 2bc cos A, and cos A = (b^2 + c^2 - a^2) / (2bc).</li></ul>\n<h3>Worked example</h3>\n<p>In a triangle with sides 7 and 9 and included angle 40 degrees, the area is one half of 7 x 9 x sin 40, about 20.2. The angle opposite the side 9 is then found by the sine rule, so check the answer against the cosine rule before you finish.</p>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
  },
  {
   "id": "1cd956ee-9474-47b8-94f3-04b0c40af8b7",
@@ -390,6 +570,21 @@
   "created_at": "2026-10-13 13:51:17.069737+00"
  },
  {
+  "id": "234196d8-254b-4a64-a316-27a841c083d2",
+  "entity_type": "material",
+  "entity_id": "17a3d398-2ace-4af5-9718-9b5c062bb91e",
+  "title": "Exam technique: Information Representation",
+  "content": "### What earns the marks\nFor two complement, inversion plus one stated earns the method mark before the value. For floating point, mantissa plus exponent roles stated earn one mark each. For normalisation, the leading-bit rule quoted earns the precision mark.\n### Traps\nError: sign bit ignored in range. Correction: an n-bit signed range tops at 2^(n-1) - 1. Error: larger exponent read as more precision. Correction: exponent sets range, mantissa sets precision. Error: normalised form guessed. Correction: mantissa starts with 0.1 or 1.0 pattern per the scheme.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
   "id": "2412231e-7210-48f3-aa23-e78a6e177ac6",
   "entity_type": "material",
   "entity_id": "bf28a182-8b42-4329-94cf-eedae01c6639",
@@ -403,6 +598,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "24401a37-dd79-4c6f-b270-e0afcb09c3ff",
+  "entity_type": "material",
+  "entity_id": "0ceab5ac-2814-41a6-8bf4-36e546a553cd",
+  "title": "Exam technique: Poisson Distribution",
+  "content": "### What earns the marks\nFor lambda scaling, the rate times the interval stated earns the first mark. For probabilities, e^-lambda lambda^x / x! with values earns the method mark. For approximations, the condition named (n large, p small, lambda = np) earns credit.\n### Traps\nError: unscaled lambda over a new interval. Correction: scale first. Error: binomial coefficients inside Poisson work. Correction: Poisson formula only. Error: mean and variance treated as different. Correction: both equal lambda.\n### Worked example\nCalls arrive at a rate of 3 per minute, so over 2 minutes λ = 6. The probability of exactly 2 calls is P(X = 2) = e⁻⁶ × 6² / 2! = 18e⁻⁶ ≈ 0.0446. The mean and the variance both equal λ, so the mean number in 2 minutes is 6.\n### Check yourself\nExplain why the rate must be scaled before you use the formula. The rate is given per minute, but the interval is 2 minutes, so λ must be the rate multiplied by the interval, giving 6 and not 3.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
  },
  {
   "id": "24950def-0ad6-43c8-a3be-6b228383927d",
@@ -450,6 +660,36 @@
   "created_at": "2026-10-13 13:54:31.315752+00"
  },
  {
+  "id": "25b71d10-048d-48b3-9425-1b17f3986ec8",
+  "entity_type": "material",
+  "entity_id": "1d0497b8-8986-4180-acec-1a485740b0e6",
+  "title": "Exam technique: Sine and Cosine Rules",
+  "content": "### What earns the marks\nFor the sine rule, the matched pairs written (b / sin 65 = 7 / sin 40) earn the method mark. For the cosine rule, the full substitution with cos evaluated earns the mark: write a squared = 25 + 64 - 2 x 5 x 8 x 0.5. For the largest angle, identifying the longest side first earns credit. For area, half a b sin C quoted earns the mark on its own.\n### Traps\nError: sides paired with wrong angles in the sine rule. Correction: each side faces its angle. Error: 49 given as side a. Correction: root the cosine-rule result. Error: calculator-only acute angle for an obtuse ambiguous case. Correction: subtract from 180 by hand. Error: half a b without sine for a non-right triangle. Correction: area needs the sine factor unless the angle is 90 degrees.\n### Worked example\nTwo sides are 7 cm and 9 cm, with an included angle of 40 degrees. The cosine rule gives x^2 = 7^2 + 9^2 - 2 x 7 x 9 x cos 40 = 130 - 126 x 0.766 = 33.5, so x is about 5.79 cm. Use the cosine rule when you have two sides and the angle between them.\n### Check yourself\nA right-angled triangle has legs 6 and 8. Compute the area as one half of 6 x 8 x sin 90 degrees, and the hypotenuse with the cosine rule. The area is 24, and the hypotenuse is sqrt(36 + 64) = 10, because cos 90 degrees is zero.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
+  "id": "25e71f3c-c80f-4f90-8fc8-bafdd17db850",
+  "entity_type": "material",
+  "entity_id": "7432eee1-8ea1-4365-9d06-612feef848da",
+  "title": "Exam technique: Programming Concepts",
+  "content": "### What earns the marks\nFor loops, the counted loop for known repeats versus conditional for unknown earns the choice mark. For procedures versus functions, parameters in plus value returned out earns each mark. For arrays, the index range declared earns the method mark.\n### Traps\nError: WHILE used for fixed repeats. Correction: FOR loops count known iterations. Error: function with no return described. Correction: functions return a value; procedures do not. Error: array indices started at 0 in pseudocode. Correction: pseudocode arrays usually start at 1.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
   "id": "2649b832-54c0-4326-a859-06ad537b0a97",
   "entity_type": "material",
   "entity_id": "cad3375c-cc3e-4846-8a72-441509ebada1",
@@ -495,6 +735,21 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "2a0e77f6-93dc-4124-9b03-3b8986b787f2",
+  "entity_type": "material",
+  "entity_id": "01a21fc8-ac4d-4fb8-9be3-5d81a10dc8a5",
+  "title": "Exam technique: Integration",
+  "content": "### What earns the marks\nFor indefinite integrals, each term raised correctly plus the constant earns full marks. For definite integrals, the antiderivative quoted earns one mark and the correct upper-minus-lower evaluation earns the next. For area and curve-finding, the limits or the given point used earns the final mark.\n### Traps\nError: constant of integration omitted. Correction: +c always for indefinite. Error: limits subtracted backwards. Correction: upper minus lower. Error: power rule inverted on roots. Correction: root x is x to the half, integral goes up.\n### Worked example\nFind the integral of 6x² − 4x⁻³. Raise each power by one and divide by the new power: 6x² becomes 2x³, and −4x⁻³ becomes 2x⁻² because (−4)/(−2) = 2. Add the constant: 2x³ + 2x⁻² + c. Check by differentiating: 6x² + (−4)x⁻³, which matches the original.\n### Check yourself\nEvaluate the definite integral of 2x + 1 from 1 to 3. The antiderivative is x² + x, giving (9 + 3) − (1 + 1) = 10. Write both the antiderivative and the subtraction on the paper, because the method mark depends on them.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
   "id": "2afb3f98-87f6-44ce-9dde-62267f0288b7",
   "entity_type": "material",
   "entity_id": "3bc168f1-4a43-4e2f-9954-2f256539800e",
@@ -538,6 +793,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "2d31599d-0be3-4724-9974-9404221b4606",
+  "entity_type": "material",
+  "entity_id": "a5a88378-f424-47de-9f47-e92967a125cc",
+  "title": "Algebra — Inequalities — Study Notes",
+  "content": "<h2>Algebra — Inequalities</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> solving linear inequalities, integer solution sets, shading regions on graphs (linear programming context).</p>\n\n<h3>1. Solving</h3>\n<p>Like equations, but <strong>reverse the sign</strong> when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3.</p>\n<p><strong>Example:</strong> 3x − 5 &lt; 2x + 1 ⇒ x &lt; 6.</p>\n\n<h3>2. Integer solutions</h3>\n<p>−1 ≤ x &lt; 4 ⇒ x ∈ {−1, 0, 1, 2, 3}. Closed endpoint for ≤/≥, open for &lt;/&gt;.</p>\n\n<h3>3. Double inequalities</h3>\n<p>Handle both sides: −3 &lt; 2x + 1 ≤ 7 → −4 &lt; 2x ≤ 6 → −2 &lt; x ≤ 3.</p>\n\n<h3>4. Shading regions</h3>\n<ul>\n<li>Draw the boundary line: dashed for &lt;/&gt;, solid for ≤/≥.</li>\n<li>Test a point (usually (0,0)) to pick the wanted side; shade the <em>unwanted</em> side or label the wanted region.</li>\n<li>Feasible region satisfies all constraints simultaneously.</li>\n</ul>\n<p><strong>Example:</strong> y ≤ 2x + 1: solid line, test (0,0): 0 ≤ 1 ✓ → region containing origin.</p>\n\n<p><strong>Exam tips:</strong> never divide by an unknown sign — move x terms first; list integer solutions inside curly brackets; state which region you shade.</p>\n<h3>Solving linear inequalities</h3>\n<p>Inequalities are solved like equations, with one crucial exception: multiplying or dividing both sides by a negative number reverses the inequality sign. Answers are written as a single inequality such as x &gt; 3, or as a set such as -2 &lt; x ≤ 5 when two bounds are given.</p>\n<h3>Representing inequalities on a number line</h3>\n<p>An open circle marks a strict bound (&lt; or &gt;) that is not included; a filled circle marks an inclusive bound (≤ or ≥). Shade the region that satisfies the statement.</p>\n<h3>Regions on a coordinate grid</h3>\n<p>Draw each boundary line as a solid line for ≤ or ≥ and a dashed line for &lt; or &gt;. Test a point such as (0, 0) if it is not on the line; shade the side that makes the inequality true. Where several regions are required, the wanted region is the overlap of all the shaded areas. Integer points inside a region are counted when a question asks for them.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:42:20.893682+00"
  },
  {
   "id": "2eeb7b03-3ee3-4745-b8c7-c9662efd7b67",
@@ -615,6 +885,21 @@
   "created_at": "2026-10-12 09:51:11.443742+00"
  },
  {
+  "id": "346cbd34-910f-413d-aa5d-307391c85370",
+  "entity_type": "material",
+  "entity_id": "25c811e0-13a3-4375-91d3-0d2c8110fc77",
+  "title": "Ethics and AI — Quick Revision Summary",
+  "content": "<h2>Quick revision: Ethics and AI</h2>\n<p><strong>Computer Science — AS.</strong> `# Ethics and AI</p>\n<h3>Key areas to revise</h3>\n<ul><li>Professional Bodies</li><li>Ethical Scenarios</li><li>AI Characteristics</li><li>Machine Learning</li><li>Ethics of AI</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:26:42.586122+00"
+ },
+ {
   "id": "34a6a9c5-9a3a-4cbf-ae24-564c9c5ab4ad",
   "entity_type": "material",
   "entity_id": "fcdc9bf0-d837-4c63-8a50-7153dc896c62",
@@ -643,6 +928,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "35f01b2a-bcf7-4054-bc35-2580650aae62",
+  "entity_type": "material",
+  "entity_id": "0886ecfd-6c56-4cec-a789-c9fb76259cd4",
+  "title": "Trigonometry — Quick Revision Summary",
+  "content": "<h2>Quick revision: Trigonometry</h2>\n<p><strong>Mathematics — AS (9709).</strong> Use the symmetry of the graphs. For sin x = 1/2 in 0 ≤ x ≤ 2π: the acute answer is π/6, and the second solution is π − π/6 = 5π/6.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Exact Values</li><li>Key Identities</li><li>Solving Equations</li><li>Graphs and Transformations</li><li>Using Identities</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
+ },
+ {
+  "id": "36bb0215-41b0-40a6-8f8f-c04ceeb4dade",
+  "entity_type": "material",
+  "entity_id": "0a29078b-272e-4bc4-a24a-bd6bebd731cc",
+  "title": "Exam technique: Magnetism and Electromagnetism",
+  "content": "### What earns the marks\nFor electromagnets, turns plus current plus soft iron core earns each mark. For transformers, the turns ratio equation quoted earns the method mark. For induction, rate of change of flux linked to emf size earns the explanation mark.\n### Traps\nError: steel chosen for electromagnet cores. Correction: soft iron; steel suits permanent magnets. Error: Fleming hands swapped. Correction: left for motor, right for generator. Error: step-up confused with step-down. Correction: more secondary turns means step-up.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
   "id": "37ae78bf-b932-474c-9fe7-c79058bf250a",
@@ -705,6 +1020,21 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "39b2d4ca-4715-4b9a-b696-b86e5308cca7",
+  "entity_type": "material",
+  "entity_id": "c41cf635-5f86-4dc4-877d-d83e3c7bd438",
+  "title": "Exam technique: Robotics & AI",
+  "content": "### What earns the marks\nFor expert systems, knowledge base plus inference engine plus explanation system earns each mark. For machine learning, training on data stated earns the method mark. For robotics, the named sensor matched to its reading earns the mark.\n### Traps\nError: AI claimed to understand like a human. Correction: it matches patterns from training. Error: inference engine confused with interface. Correction: inference reasons, interface talks to users. Error: automation effects one-sided. Correction: weigh jobs lost against jobs created.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
   "id": "3acb366b-157c-4385-9056-4dfffb0b21a4",
   "entity_type": "material",
   "entity_id": "c003d9a3-a2b3-4cd9-a6af-7fdbe98cf9d6",
@@ -718,6 +1048,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:20:47.748684+00"
+ },
+ {
+  "id": "3afb473b-5b1a-401e-9fbe-12cf870afb40",
+  "entity_type": "material",
+  "entity_id": "d298ec66-90da-4074-973d-12cb5f24cd46",
+  "title": "Exam technique: Ethics, Security & Impact",
+  "content": "### What earns the marks\nFor definitions, each term stated precisely earns its mark (hacking is unauthorised access, not every attack). For discuss questions, one benefit plus one drawback plus a reasoned conclusion earns full marks. For security, the named threat matched to its countermeasure earns each mark.\n### Traps\nError: one-sided discuss answers. Correction: both sides plus a verdict. Error: virus named for every malware. Correction: worms, spyware and trojans differ. Error: copyright confused with plagiarism. Correction: copyright is the legal right.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
+  "id": "3b31692e-52ed-4234-84a3-cf324631d543",
+  "entity_type": "material",
+  "entity_id": "7a6b58bd-8e42-4c07-8162-996586f0077b",
+  "title": "Algebra — Sequences and Functions — Study Notes",
+  "content": "<h2>Algebra — Sequences and Functions</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> nth term (linear &amp; quadratic), special sequences, function notation, composites, inverses.</p>\n\n<h3>1. Linear sequences</h3>\n<p>nth term = a + (n − 1)d. 5, 8, 11, … → 3n + 2. Check n = 1, 2, 3.</p>\n\n<h3>2. Quadratic sequences</h3>\n<p>Second difference = 2a → an² + bn + c. 3, 8, 15, 24 … has second difference 2 → n² + bn + c; subtract n² → 2, 4, 6, 8 → 2n; so nth term = n² + 2n.</p>\n\n<h3>3. Special sequences</h3>\n<p>Even/odd, triangular (½n(n+1)), squares, cubes, Fibonacci-type (each term = sum of previous two), geometric (×r).</p>\n\n<h3>4. Function notation</h3>\n<p>f(x) = 2x − 5: f(3) = 1. Solve f(x) = 11 → x = 8.</p>\n\n<h3>5. Composite functions</h3>\n<p>fg(x) = f(g(x)) — g first. f(x) = 2x − 5, g(x) = x²: gf(2) = g(1) = 1; fg(3) = f(9) = 13.</p>\n\n<h3>6. Inverse functions</h3>\n<p>Swap x and y, rearrange. f(x) = 2x − 5 ⇒ f⁻¹(x) = (x + 5)/2. Domain of inverse = range of original. Verify: f⁻¹(f(x)) = x.</p>\n\n<p><strong>Exam tips:</strong> write the bracket order explicitly in composites; show the \"swap and rearrange\" line for inverses — answer-only scores little.</p>\n<h3>Finding the nth term of a linear sequence</h3>\n<p>For a sequence with a constant difference d, the nth term is dn + (a − d), where a is the first term. Check the rule by substituting n = 1, 2 and 3 before using it. Given a term value, set the nth term equal to it and solve for n to test whether it belongs to the sequence.</p>\n<h3>Functions as machines</h3>\n<p>A function takes an input and gives exactly one output. Composite functions are applied right to left: fg(x) means apply g first, then f. The inverse f⁻¹ reverses each step, found by writing y = f(x), swapping x and y, and rearranging for y.</p>\n<h3>Domain and range</h3>\n<p>The domain is the set of allowed inputs; the range is the set of outputs produced. Restrictions usually come from division by zero or from taking square roots of negative numbers. State both when asked to describe a function fully.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:37:44.778172+00"
  },
  {
   "id": "3be7b4c4-2d9d-4e20-8818-ffa4e5e758f1",
@@ -855,6 +1215,36 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "43e1598b-c901-417b-b8e0-b9c8d98dd08f",
+  "entity_type": "material",
+  "entity_id": "7eaeae86-301f-41c8-9901-70ab01bf804c",
+  "title": "Coordinate Geometry — Study Notes",
+  "content": "<h2>Coordinate Geometry</h2>\n<h3>Gradients and Equations of Lines</h3>\n<p>Gradient m = (y₂ − y₁)/(x₂ − x₁). From ax + by + c = 0, the gradient is −a/b.</p>\n<p>Point-slope form: y − y₁ = m(x − x₁).</p>\n<p><strong>Example:</strong> through (4, 3) with m = −1/2: y − 3 = −(x − 4)/2, i.e. y = −x/2 + 5.</p>\n<h3>Parallel and Perpendicular</h3>\n<ul>\n<li>Parallel lines: equal gradients.</li>\n<li>Perpendicular lines: m₁m₂ = −1 (gradients are negative reciprocals).</li>\n</ul>\n<p><strong>Example:</strong> perpendicular to y = 2x + 1 has gradient −1/2.</p>\n<h3>Midpoint and Distance</h3>\n<p>Midpoint of (x₁, y₁), (x₂, y₂): ((x₁+x₂)/2, (y₁+y₂)/2).</p>\n<p>Distance: √((x₂−x₁)² + (y₂−y₁)²). The line from (0,0) to (3,4) has length 5 — recognise 3-4-5 triangles.</p>\n<h3>Intersections and Bisectors</h3>\n<p>Intersections: solve the equations simultaneously. The perpendicular bisector of AB passes through the midpoint of AB with gradient −1/m(AB) — equate distances PA = PB for the locus method.</p>\n<p><strong>Exam tips:</strong> rationalise gradients as fractions; check perpendicularity by multiplying gradients to get −1.</p>\n<h3>Key results and exam method</h3>\n<p>Distance between (x₁, y₁) and (x₂, y₂) is √((x₂ − x₁)² + (y₂ − y₁)²). The midpoint is ((x₁ + x₂)/2, (y₁ + y₂)/2). The gradient is (y₂ − y₁)/(x₂ − x₁); a vertical line has no gradient and a horizontal line has gradient 0.</p>\n<p>Parallel lines have equal gradients. Perpendicular lines have gradients m₁ and m₂ with m₁m₂ = −1, so a line perpendicular to gradient 3/4 has gradient −4/3. The perpendicular bisector of a chord passes through the midpoint of the chord, is perpendicular to it, and always passes through the centre of the circle.</p>\n<p>A circle with centre (a, b) and radius r has equation (x − a)² + (y − b)² = r². Expand and compare with x² + y² + 2gx + 2fy + c = 0 to read the centre (−g, −f) and the radius √(g² + f² − c). To test whether a line meets a circle, substitute the line into the circle equation and examine the discriminant.</p>\n<p><strong>Exam cue:</strong> Sketch the situation first. Many marks are for stating which point is the midpoint, which gradient is perpendicular, and which radius is used.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:47:33.160331+00"
+ },
+ {
+  "id": "444a756b-7771-4c09-921b-e9151eeb1253",
+  "entity_type": "material",
+  "entity_id": "242f1185-1c0f-4d78-8f75-b076f7880714",
+  "title": "Web Technologies and Security — Quick Revision Summary",
+  "content": "<h2>Quick revision: Web Technologies and Security</h2>\n<p><strong>Computer Science — A2.</strong> Server-side scripting (PHP) runs on the server: reads form fields ($_POST), queries the database, outputs HTML. The client never sees PHP source.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The Three Layers</li><li>SQL Injection</li><li>Encryption</li><li>Hashing vs Encryption</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
   "id": "44e2a15a-37d0-41ee-9889-754cca11ae46",
   "entity_type": "material",
   "entity_id": "798f9e7d-33c5-456e-9070-c32874b67978",
@@ -868,6 +1258,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
+  "id": "4586ad4f-5f0f-43ae-b163-b04348549487",
+  "entity_type": "material",
+  "entity_id": "2300a338-fae9-4dda-80fe-7b6f100c1755",
+  "title": "Exam technique: Representation via Numerical Measures",
+  "content": "### What earns the marks\nFor skewness direction, mean vs median comparison stated earns the mark. For box plots, all five values labelled earn one mark and the skew comment earns the second. For outlier checks, the fence calculation shown earns the method mark.\n### Traps\nError: skew direction flipped. Correction: tail side names the skew. Error: quartiles mislabeled on plots. Correction: order min, Q1, median, Q3, max. Error: max value called an outlier by eye. Correction: test against the fence.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
  },
  {
   "id": "45b9bd22-d810-4601-a879-3b89c3df11cd",
@@ -913,6 +1318,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "47d0049d-fba9-4276-9f41-bf8af03f9b6b",
+  "entity_type": "material",
+  "entity_id": "dc3d7286-feb5-4d75-99e1-ce0941a6a237",
+  "title": "Geometry — Angles and Polygons — Study Notes",
+  "content": "<h2>Geometry — Angles and Polygons</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> angle facts, parallel lines, polygon angles, circle theorems (Extended).</p>\n\n<h3>1. Core angle facts</h3>\n<ul>\n<li>Line 180°; point 360°; vertically opposite equal.</li>\n<li>Parallel lines: corresponding (F), alternate (Z), co-interior (C, sum 180°).</li>\n<li>Triangle 180°; isosceles/equilateral properties; exterior angle = sum of two remote interior angles.</li>\n</ul>\n\n<h3>2. Polygons</h3>\n<p>Interior angle sum = (n − 2) × 180°. Regular polygon: exterior = 360° ÷ n; interior = 180° − exterior.</p>\n<p><strong>Example:</strong> regular octagon: exterior 45°, interior 135°.</p>\n\n<h3>3. Circle theorems (Extended)</h3>\n<ol>\n<li>Angle at centre = 2 × angle at circumference (same arc).</li>\n<li>Angle in a semicircle = 90°.</li>\n<li>Angles in the same segment are equal.</li>\n<li>Cyclic quadrilateral: opposite angles sum to 180°.</li>\n<li>Tangent ⊥ radius; two tangents from an external point are equal.</li>\n<li>Alternate segment theorem.</li>\n</ol>\n<p>Quote the reason in brackets every time: \"∠ACB = 62° (angles in same segment)\".</p>\n\n<h3>4. Algebra with angles</h3>\n<p>Set up equations from the theorem: cyclic quad (2x + 10) + (3x − 5) = 180 ⇒ x = 35.</p>\n\n<p><strong>Exam tips:</strong> mark every found angle on the diagram immediately; use radii to create isosceles triangles; never leave a theorem unquoted.</p>\n<h3>Angle facts you must know</h3>\n<p>Angles on a straight line sum to 180°; angles at a point sum to 360°; vertically opposite angles are equal. Parallel lines give equal alternate and corresponding angles and supplementary co-interior angles. Give a reason with every step, naming the rule (for example, alternate angles).</p>\n<h3>Interior and exterior angles of polygons</h3>\n<p>The interior angles of a polygon with n sides sum to (n − 2) × 180°. For a regular polygon each interior angle is that sum divided by n, and each exterior angle is 360° divided by n. The exterior angles of any convex polygon always sum to 360°.</p>\n<h3>Triangles and quadrilaterals</h3>\n<p>Angles in a triangle sum to 180°, and an exterior angle equals the sum of the two opposite interior angles. Angles in a quadrilateral sum to 360°. Use the properties of isosceles, equilateral and special quadrilaterals to find unknown angles.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:42:20.893682+00"
  },
  {
   "id": "4e01c362-e933-462c-9e51-1c5d6e6234a7",
@@ -1005,6 +1425,21 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "510cbd16-f046-4d05-95c9-7645cbb8ada5",
+  "entity_type": "material",
+  "entity_id": "dce98df1-2982-40df-ab8c-b849b8d78ee1",
+  "title": "Mensuration — Area and Volume — Study Notes",
+  "content": "<h2>Mensuration — Area and Volume</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> units, perimeter/area (incl. sectors), surface area, volume of standard solids, composite shapes.</p>\n\n<h3>1. Units</h3>\n<p>1 m² = 10 000 cm²; 1 m³ = 1 000 000 cm³; 1 litre = 1000 cm³. Convert area/volume factors carefully (square/cube the length factor).</p>\n\n<h3>2. Area</h3>\n<ul>\n<li>Triangle ½bh; trapezium ½(a + b)h; parallelogram bh.</li>\n<li>Circle A = πr²; sector area = (θ/360)πr²; arc = (θ/360) × 2πr.</li>\n<li>Composites: split, calculate, add/subtract.</li>\n</ul>\n\n<h3>3. Volume and surface area</h3>\n<ul>\n<li>Cuboid V = lbh; prism V = cross-section × length.</li>\n<li>Cylinder V = πr²h; SA = 2πr² + 2πrh.</li>\n<li>Pyramid V = ⅓ × base area × h.</li>\n<li>Cone V = ⅓πr²h; SA = πr² + πrl, with l² = r² + h².</li>\n<li>Sphere V = (4/3)πr³; SA = 4πr².</li>\n</ul>\n\n<h3>4. Problem solving</h3>\n<p>Flow/filling: volume ÷ rate = time. Packing: divide volumes (check edge alignment). Nets for surface area: label every face before adding.</p>\n\n<p><strong>Exam tips:</strong> keep π on the calculator until the final answer; for sector problems ask \"fraction of the full circle?\"; quote units in every answer.</p>\n<h3>Area formulae</h3>\n<p>Rectangle: length × width. Triangle: ½ × base × perpendicular height. Parallelogram: base × perpendicular height. Trapezium: ½(a + b)h, where a and b are the parallel sides. Circle: πr², and circumference 2πr. Leave answers in terms of π when asked, or round to the accuracy stated.</p>\n<h3>Volume and surface area</h3>\n<p>Prism volume is cross-sectional area × length. Cylinder volume is πr²h. Cone volume is ⅓πr²h and sphere volume is ⁴⁄₃πr³. Surface area of a cylinder is 2πr² + 2πrh. Sketch the solid and label radii and heights before you substitute.</p>\n<h3>Units and compound measures</h3>\n<p>Convert units before calculating: 1 m² = 10 000 cm² and 1 m³ = 1 000 000 cm³. Density is mass ÷ volume, and speed is distance ÷ time. Keep the units with the answer.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
   "id": "52d1dac4-7248-4d80-82d1-5399381f0936",
   "entity_type": "material",
   "entity_id": "fa0fd6bb-1dda-4f3c-af76-0db40924f2a3",
@@ -1065,6 +1500,21 @@
   "created_at": "2026-10-13 14:26:08.422261+00"
  },
  {
+  "id": "55e3a2db-98f9-46ee-9367-8a310b0215f7",
+  "entity_type": "material",
+  "entity_id": "eff91bce-733f-4869-933f-f449fc857e90",
+  "title": "Materials: Deformation — Study Notes",
+  "content": "<h2>Materials: deformation</h2>\n<h3>Stress and strain</h3>\n<ul>\n<li>Stress = F ÷ A, where A is the cross-sectional area perpendicular to the force. Unit: pascal (Pa), where 1 Pa = 1 N m⁻².</li>\n<li>Strain = extension ÷ original length. It has no unit.</li>\n</ul>\n<h3>Young modulus</h3>\n<p>Young modulus E = stress ÷ strain, measured in the region where stress is proportional to strain. Unit: Pa.</p>\n<h3>Force–extension behaviour</h3>\n<ul>\n<li>Up to the limit of proportionality, extension is proportional to force (Hooke's law), and the graph is a straight line through the origin.</li>\n<li>Up to the elastic limit, the material returns to its original length when unloaded. This is elastic deformation.</li>\n<li>Beyond the elastic limit, the material is plastically deformed and does not return to its original length. The graph curves, and the energy in the extension is not recovered.</li>\n</ul>\n<h3>Energy stored</h3>\n<p>The elastic energy stored in a stretched material equals the area under its force–extension graph up to the point of interest. For a spring obeying Hooke's law, E = ½Fx = ½kx².</p>\n<p><strong>Worked example:</strong> a wire of cross-sectional area 2.0 × 10⁻⁴ m² is pulled by 500 N. Stress = 500 ÷ (2.0 × 10⁻⁴) = 2.5 × 10⁶ Pa. If it extends by 1.0 mm from an original length of 2.0 m, strain = 0.001 ÷ 2.0 = 5.0 × 10⁻⁴, so E = 2.5 × 10⁶ ÷ 5.0 × 10⁻⁴ = 5.0 × 10⁹ Pa.</p>\n<p><strong>Exam tips:</strong> convert the area to m² and the extension to m before calculating. Strain has no unit, so do not write a unit for it. Say \"the limit of proportionality\" and \"the elastic limit\" as separate ideas.</p>\n<h3>Stored elastic energy and Hooke's law</h3>\n<p>Within the limit of proportionality, extension is proportional to force, F = kx, and the stiffness k depends on the material and its dimensions. The elastic strain energy stored in a stretched wire is equal to the area under the force-extension graph, E = &frac12;Fx. For a material, the Young modulus E = stress / strain. Beyond the elastic limit the material deforms plastically and does not return to its original length.</p>\n<p><strong>Exam tip:</strong> state the limit of proportionality on the graph, because the energy formula only applies while the material obeys Hooke's law.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:57:02.669675+00"
+ },
+ {
   "id": "561a12bb-1c63-4068-9624-dd4b6812d4af",
   "entity_type": "material",
   "entity_id": "944a7eb4-3cc4-4439-bc06-3250049bf117",
@@ -1108,6 +1558,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "581b2455-3353-4d4a-b0b8-d43b241387b5",
+  "entity_type": "material",
+  "entity_id": "6883e43f-e218-4402-a853-449d01d97825",
+  "title": "Exam technique: Database Systems",
+  "content": "### What earns the marks\nFor keys, primary identified as unique plus foreign as the link earns one mark each. For SQL, SELECT plus FROM plus WHERE in order earns each mark. For flat versus relational, one concrete drawback of duplication earns the discussion mark.\n### Traps\nError: SELECT * claimed as precise. Correction: name the fields asked for. Error: primary key assigned to a non-unique field. Correction: keys must be unique. Error: flat file praised for large data. Correction: duplication corrupts it.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
  },
  {
   "id": "58ce6789-ac94-4127-82d2-6eae5718bc78",
@@ -1155,6 +1620,51 @@
   "created_at": "2026-10-13 13:42:55.802533+00"
  },
  {
+  "id": "5b55254a-5f9c-4748-9d36-19ea95001523",
+  "entity_type": "material",
+  "entity_id": "07ec21fe-84aa-4a8f-a87d-e5c9abaedc5e",
+  "title": "Exam technique: Hardware & Architecture",
+  "content": "### What earns the marks\nFor the fetch-execute cycle, each stage in order earns stepwise credit. For CPU parts, control unit versus ALU roles stated earn one mark each. For sensors, the named sensor matched to its use earns the mark.\n### Traps\nError: RAM and ROM roles swapped. Correction: RAM is working memory, ROM holds boot code. Error: control unit claimed to compute. Correction: the ALU computes, the CU coordinates. Error: stages given out of order. Correction: fetch, decode, execute, store.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
+  "id": "5d49c9e1-0d37-4346-a8f2-83053edd8fcd",
+  "entity_type": "material",
+  "entity_id": "2596d1e1-1ffd-4da0-b96a-432a321df2f6",
+  "title": "Exam technique: Materials and Deformation",
+  "content": "### What earns the marks\nFor stress and strain, each definition quoted with units or unitless noted earns a mark. For Young modulus, stress over strain earns the method mark with a steel-scale answer. For graphs, area read as stored energy earns the mark.\n### Traps\nError: strain given units. Correction: strain is a pure ratio. Error: force-extension gradient called energy. Correction: gradient is stiffness; area is energy. Error: plastic region called elastic. Correction: only the straight line obeys Hooke.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
+  "id": "5ef47fc0-1c89-4ce5-b0d3-17e2cc3703fb",
+  "entity_type": "material",
+  "entity_id": "0922f772-661e-4380-b5a6-141b70f1263c",
+  "title": "Algebra — Equations — Study Notes",
+  "content": "<h2>Algebra — Equations</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> linear equations, simultaneous equations, quadratic formula, completing the square, forming equations from words.</p>\n\n<h3>1. Linear equations</h3>\n<p>3(x − 2) = x + 4 → 3x − 6 = x + 4 → 2x = 10 → x = 5. With fractions, multiply through by the LCD first.</p>\n\n<h3>2. Forming equations</h3>\n<p>Translate shapes/situations: \"rectangle length 3 cm more than width, perimeter 34\" → 2w + 2(w + 3) = 34 → w = 7.</p>\n\n<h3>3. Simultaneous equations</h3>\n<ul>\n<li>Elimination: 2x + y = 7 and x − y = 2 → add → 3x = 9 → x = 3, y = 1.</li>\n<li>Substitution for linear–quadratic: substitute y = 2x into x² + y² = 20 → 5x² = 20 → x = ±2.</li>\n</ul>\n\n<h3>4. Quadratics by formula</h3>\n<p>x = (−b ± √(b² − 4ac)) / 2a.</p>\n<p><strong>Example:</strong> 2x² − 4x − 3 = 0 → x = (4 ± √(16 + 24))/4 = 2.58 or −0.58 (2 d.p.).</p>\n\n<h3>5. Completing the square</h3>\n<p>x² + bx + c = (x + b/2)² − (b/2)² + c. x² − 6x + 5 = (x − 3)² − 4 → minimum at (3, −4). Use for turning points and for solving when factorising fails.</p>\n\n<p><strong>Exam tips:</strong> substitute answers back to verify; in word problems define the unknown clearly (\"let w = width in cm\"); give quadratic solutions to the accuracy demanded.</p>\n<h3>Solving linear equations step by step</h3>\n<p>Collect the unknown on one side and the numbers on the other, undoing operations in the reverse order to BODMAS. Whatever you do to one side you must do to the other. When brackets are present, expand first, then collect like terms. Fractions are cleared by multiplying every term by the lowest common denominator.</p>\n<h3>Simultaneous equations</h3>\n<p>Two linear equations in x and y can be solved by elimination (make the coefficient of one unknown equal and opposite, then add or subtract) or by substitution (rearrange one equation for one unknown and put it into the other). Check the answer in both original equations. Examiners award method marks for a correct, clearly shown elimination even when arithmetic slips later.</p>\n<h3>Rearranging formulae</h3>\n<p>Treat the subject letter as the unknown and apply inverse operations. Where the subject appears twice, gather every term containing it, factorise, then divide. Square roots or squares are undone with a square and a root, applied to both sides.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:42:20.893682+00"
+ },
+ {
   "id": "5f0d64dd-bcb5-4141-8f13-88c73d2f14f0",
   "entity_type": "material",
   "entity_id": "42a00afc-901a-4089-8544-5d9011e1d6ca",
@@ -1168,6 +1678,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "6012dfca-9d9c-4866-95b8-626c061ed4c7",
+  "entity_type": "material",
+  "entity_id": "1542988c-107c-4361-b0df-32d9b77cbeea",
+  "title": "Exam technique: Nuclear Physics (A2)",
+  "content": "### What earns the marks\nFor energy, mass defect times c squared with units earns both marks. For decay, ln2 over half-life quoted earns the method mark; activity as lambda N earns the second. For radii, the cube-root rule applied to ratios earns the mark.\n### Traps\nError: half-life used as the decay constant. Correction: divide ln2 by it. Error: fission named for the Sun. Correction: fusion powers stars. Error: radius scaled linearly with A. Correction: cube root of nucleon number.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
  },
  {
   "id": "601cf6aa-b7b8-4f3b-bddf-135d2822a1ed",
@@ -1200,6 +1725,21 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "60643ef9-585a-4907-a9b8-1edbdde7ab72",
+  "entity_type": "material",
+  "entity_id": "78b026c5-7368-43c8-a8bb-0b19b9be584d",
+  "title": "Dynamics — Study Notes",
+  "content": "<h2>Dynamics</h2>\n<h3>Momentum</h3>\n<ul>\n<li>Momentum p = mv. It is a vector, with unit kg m s⁻¹, and it has the same direction as the velocity.</li>\n<li>Momentum and kinetic energy are different. Momentum is a vector and changes sign with direction. Kinetic energy is a scalar.</li>\n</ul>\n<h3>Newton's laws of motion</h3>\n<ul>\n<li><strong>First law:</strong> a body stays at rest or keeps moving at constant velocity unless a resultant (net) force acts on it.</li>\n<li><strong>Second law:</strong> the resultant force equals the rate of change of momentum, F = ma for constant mass. The acceleration is in the direction of the resultant force.</li>\n<li><strong>Third law:</strong> when body A exerts a force on body B, B exerts an equal and opposite force on A. The two forces are the same type and act on different bodies, so they never cancel.</li>\n</ul>\n<h3>Weight and mass</h3>\n<p>Mass is the amount of matter (scalar, kg). Weight is the gravitational force on it, W = mg (vector, N). Mass is the same everywhere; weight changes with the value of g.</p>\n<h3>Impulse</h3>\n<p>Impulse = FΔt = Δp = m(v − u). The area under a force–time graph equals the impulse. A longer contact time for the same change in momentum means a smaller average force, which is why airbags and crumple zones work.</p>\n<h3>Conservation of linear momentum</h3>\n<p>For a system with no resultant external force, the total momentum before an event equals the total momentum after. In an <strong>elastic</strong> collision momentum and kinetic energy are both conserved. In an <strong>inelastic</strong> collision only momentum is conserved. In a collision where the bodies stick together, the kinetic energy lost is greatest.</p>\n<p><strong>Worked example:</strong> a 0.5 kg trolley moving at 4 m s⁻¹ hits a stationary 1.0 kg trolley and they stick together. Total momentum before = 0.5 × 4 = 2.0 kg m s⁻¹. Common velocity = 2.0 / 1.5 ≈ 1.3 m s⁻¹.</p>\n<p><strong>Exam tips:</strong> choose a positive direction and keep signs consistent in every momentum term. State that the system is isolated before applying conservation. For a recoil question, the two momenta are equal and opposite.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:57:02.669675+00"
+ },
+ {
   "id": "610d38aa-1166-40c3-b0b5-99d40f9c8bee",
   "entity_type": "material",
   "entity_id": "77c32ddd-d720-4973-9b42-3e1600709841",
@@ -1230,6 +1770,36 @@
   "created_at": "2026-10-13 13:54:32.710733+00"
  },
  {
+  "id": "64de7c13-d7f2-46a8-a467-9f1d084402c5",
+  "entity_type": "material",
+  "entity_id": "1eb9529e-c138-45df-bf2b-3b19ae7f78e9",
+  "title": "Programming Concepts — Quick Revision Summary",
+  "content": "<h2>Quick revision: Programming Concepts</h2>\n<p><strong>Computer Science — OL.</strong> variables/constants, data types, selection/iteration, arrays, file handling, subroutines, scope, IDE tools.</p>\n<ul>\n<li>1. Basics</li>\n<li>2. Selection and iteration</li>\n<li>3. Arrays</li>\n<li>4. Files</li>\n<li>5. Subroutines</li>\n<li>6. IDE tools</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
+  "id": "64fa1a7f-b851-4d9c-9024-32463a0934ef",
+  "entity_type": "material",
+  "entity_id": "142411fd-623b-4b22-bb2d-343a91a1ded3",
+  "title": "Exam technique: Abstract Data Types",
+  "content": "### What earns the marks\nFor ADT choice, the access pattern stated earns the mark: LIFO for stacks, FIFO for queues, keyed jumps for BSTs. For traversals, the visit order written (root-left-right for preorder) earns each mark. For linked structures, pointer relinking described earns the insertion mark without any shifting claim.\n### Traps\nError: queues for undo. Correction: undo is LIFO, so stack. Error: inorder claimed as root-first. Correction: preorder is root-first. Error: arrays claimed best for mid-list churn. Correction: shifting costs every insert.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
   "id": "65093782-c961-43d8-adf7-1d581b27f77c",
   "entity_type": "material",
   "entity_id": "9aeb73c7-e1de-4bae-bb5e-eb23ae83e3b3",
@@ -1258,6 +1828,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 13:42:55.141957+00"
+ },
+ {
+  "id": "66315373-b90d-47e0-b9d0-465e905f5b5a",
+  "entity_type": "material",
+  "entity_id": "1413c321-6dd7-40e3-a9b0-9a4970ca365d",
+  "title": "Exam technique: Algorithms & Programming",
+  "content": "### What earns the marks\nFor trace tables, every variable column updated stepwise earns the marks; the final OUTPUT row earns the last one. For validation versus verification, one named example of each earns one mark each. For test data, normal plus abnormal plus extreme or boundary stated earns full marks.\n### Traps\nError: dry-running only the final values. Correction: fill every row of the table. Error: validation and verification swapped. Correction: validation checks input, verification checks transfer. Error: one test type only. Correction: name all three kinds.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
  },
  {
   "id": "67388eea-835c-436e-a6cb-956ab70d11e9",
@@ -1305,6 +1890,36 @@
   "created_at": "2026-10-13 14:36:38.458889+00"
  },
  {
+  "id": "69fd5246-b0b3-43ac-927b-965232fe1b63",
+  "entity_type": "material",
+  "entity_id": "1e4fed25-c788-42a1-8331-cea119299ab9",
+  "title": "Sequences and Series — Quick Revision Summary",
+  "content": "<h2>Quick revision: Sequences and Series</h2>\n<p><strong>Mathematics — AS (9709).</strong> Terms increase by a common difference d.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Arithmetic Progressions (AP)</li><li>Geometric Progressions (GP)</li><li>Binomial Expansion</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
+  "id": "6ba188a4-2ae7-4d38-84ea-3e2f9b6d07c6",
+  "entity_type": "material",
+  "entity_id": "dcbbe01b-cbb0-4e90-bf61-0ecc971a9467",
+  "title": "Number — Sets — Study Notes",
+  "content": "<h2>Number — Sets</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> set notation, Venn diagrams, shading, universal set, subsets.</p>\n\n<h3>1. Notation</h3>\n<ul>\n<li>∈ belongs to; ∉ not in; ∅ empty set; ξ (or U) universal set; n(A) = number of elements.</li>\n<li>A ∩ B intersection (AND); A ∪ B union (OR); A′ complement (NOT A).</li>\n<li>A ⊆ B: every element of A is in B.</li>\n</ul>\n\n<h3>2. Venn diagrams</h3>\n<p>Fill the intersection first, then work outwards. Two sets: only A, both, only B, neither.</p>\n<p><strong>Example:</strong> 30 students; 18 maths, 15 physics, 7 both ⇒ neither = 30 − (11 + 7 + 8) = 4.</p>\n\n<h3>3. Shading</h3>\n<p>For A ∩ B′ shade where A and outside-B overlap. (A ∪ B)′ = A′ ∩ B′ (De Morgan) — check every region.</p>\n\n<h3>4. Regions algebra</h3>\n<p>With region variables x, y, z: use the totals to form equations, e.g. n(A ∪ B) = n(A) + n(B) − n(A ∩ B).</p>\n\n<h3>5. Probability links</h3>\n<p>P(A ∪ B) = P(A) + P(B) − P(A ∩ B) — inclusion–exclusion from the diagram.</p>\n\n<p><strong>Exam tips:</strong> \"neither\" sits outside both circles — subtract from the universal set last; label regions with numbers, not expressions, as you fill.</p>\n<h3>The number sets</h3>\n<p>Natural numbers are 1, 2, 3 and so on; integers add zero and negatives; rational numbers can be written as a fraction p/q with q not zero; irrational numbers, such as π and √2, cannot. Terminating and recurring decimals are rational. Prime numbers have exactly two factors, 1 and themselves.</p>\n<h3>Prime factors and HCF/LCM</h3>\n<p>Write a number as a product of primes using a factor tree. The highest common factor uses the common primes at their lowest powers; the lowest common multiple uses every prime at its highest power. Venn diagrams sort numbers by properties such as even, square or prime.</p>\n<h3>Square roots and cube roots</h3>\n<p>The square root of a number is positive or negative: √16 = 4 but x² = 16 gives x = ±4. Check whether a root is exact or needs a calculator, and give a non-exact answer to the accuracy asked.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
   "id": "6cdde299-21c7-4ef8-a184-c5c86c7e10f9",
   "entity_type": "material",
   "entity_id": "c41cf635-5f86-4dc4-877d-d83e3c7bd438",
@@ -1350,6 +1965,21 @@
   "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
+  "id": "714eb30c-3fd4-4a0d-8e90-5eeae7620c65",
+  "entity_type": "material",
+  "entity_id": "0678b212-2e61-447f-8a64-01b7a7d12763",
+  "title": "Exam technique: Continuous Random Variables",
+  "content": "### What earns the marks\nFor pdf constants, total area equals 1 stated earns the method mark. For probabilities, the integral with correct limits earns each mark. For mean and variance, E(X) and E(X squared) - E(X) squared each earn credit stepwise.\n### Traps\nError: point probabilities given positive values. Correction: points have zero area. Error: mean mistaken for median. Correction: solve the half-area equation for medians. Error: variance sign reversed. Correction: E(X squared) minus mean squared.\n### Worked example\nA pdf is f(x) = kx for 0 ≤ x ≤ 2. Total area is 1, so the integral of kx from 0 to 2 gives 2k = 1 and k = 1/2. Then P(X > 1) is the integral of x/2 from 1 to 2, which is [x²/4] from 1 to 2 = 1 − 1/4 = 3/4. The mean is the integral of x · x/2 from 0 to 2, which is 8/6 = 4/3.\n### Check yourself\nFor the same pdf, state why P(X = 1) is zero before you calculate anything. A single point has zero width, so its area is zero.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
   "id": "71747852-71b4-442f-8740-5b562c64f3f6",
   "entity_type": "material",
   "entity_id": "3a5f3230-7e9e-4d8b-8943-bcf86193dc3b",
@@ -1378,6 +2008,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:20:47.748684+00"
+ },
+ {
+  "id": "720bfbec-0fb4-4579-981a-29852cf9844f",
+  "entity_type": "material",
+  "entity_id": "1e4fed25-c788-42a1-8331-cea119299ab9",
+  "title": "Sequences and Series — Quick Revision Summary",
+  "content": "<h2>Quick revision: Sequences and Series</h2>\n<p><strong>Mathematics — AS (9709).</strong> Terms increase by a common difference d.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Arithmetic Progressions (AP)</li><li>Geometric Progressions (GP)</li><li>Binomial Expansion</li></ul>\n<h3>Formulas to learn</h3>\n<ul><li>Arithmetic progression: nth term a + (n - 1)d; sum of n terms S_n = n/2 (2a + (n - 1)d).</li><li>Geometric progression: nth term ar^(n - 1); sum of n terms S_n = a(1 - r^n)/(1 - r) for r not equal to 1.</li><li>Sum to infinity: a/(1 - r), valid only when |r| is less than 1.</li></ul>\n<h3>Worked example</h3>\n<p>An arithmetic sequence starts at 3 with common difference 4. The 10th term is 3 + 9 x 4 = 39, and the sum of the first 10 terms is 10/2 (6 + 36) = 210. Check the sum by pairing the first and last terms: 3 + 39 = 42, and five such pairs give 210.</p>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
+  "id": "72255095-7590-48b7-9ffb-0e5a593c0172",
+  "entity_type": "material",
+  "entity_id": "32494a39-439f-420e-9bf7-d3421da7c2e6",
+  "title": "Algebra — Graphs — Study Notes",
+  "content": "<h2>Algebra — Graphs</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> straight lines (gradient, intercept), key curves (quadratic, cubic, reciprocal, exponential), tangents, kinematic reading.</p>\n\n<h3>1. Straight lines</h3>\n<ul>\n<li>Gradient m = (y₂ − y₁)/(x₂ − x₁).</li>\n<li>y = mx + c; parallel ⇒ equal m; perpendicular ⇒ m₁m₂ = −1.</li>\n</ul>\n<p><strong>Example:</strong> through (2, −1) parallel to y = 3x + 1: y + 1 = 3(x − 2) ⇒ y = 3x − 7.</p>\n\n<h3>2. Drawing curves</h3>\n<p>Table of values, plot, smooth curve. Parabola symmetry axis x = −b/2a. Recognise reciprocal y = 1/x (two branches) and exponential y = aˣ (through (0,1)).</p>\n\n<h3>3. Interpreting</h3>\n<ul>\n<li>Roots = x-intercepts; y-intercept from x = 0.</li>\n<li>Turning points of quadratics by completing the square.</li>\n</ul>\n\n<h3>4. Tangents and rates</h3>\n<p>Gradient of tangent at a point = instantaneous rate: draw a large triangle, rise/run. Area under a speed–time graph = distance (trapezium estimate).</p>\n\n<h3>5. Graphical solutions</h3>\n<p>Simultaneous: intersection points. Quadratic = line: intersections give roots. Read off carefully to the accuracy allowed.</p>\n\n<p><strong>Exam tips:</strong> quote gradients as fractions where exact; when estimating a tangent gradient, use a triangle spanning at least 4 grid squares.</p>\n<h3>Plotting and reading straight-line graphs</h3>\n<p>A table of values is set up from the equation, points are plotted and joined with a ruler. For y = mx + c, m is the gradient and c the y-intercept. The gradient is the change in y divided by the change in x, measured on a large triangle drawn on the line, not between two points read from a table.</p>\n<h3>Quadratic and cubic curves</h3>\n<p>Curves are drawn freehand as smooth curves through plotted points. Turning points, roots (where the curve cuts the x-axis) and the y-intercept are read directly from the graph. A quadratic has one turning point; a cubic can have up to two.</p>\n<h3>Using graphs to solve equations</h3>\n<p>To solve f(x) = k, draw the line y = k and read the x-coordinates where it meets the curve. Intersections of two graphs give simultaneous solutions. Always state the solutions to the accuracy the question asks for.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:42:20.893682+00"
  },
  {
   "id": "739fcdf2-fd99-40d0-b46e-7f0b452556a7",
@@ -1470,6 +2130,21 @@
   "created_at": "2026-10-13 14:21:52.343617+00"
  },
  {
+  "id": "7dd71c5e-bccf-48d8-bd68-e4daf6c33964",
+  "entity_type": "material",
+  "entity_id": "1cbe3f90-97ce-4f84-8928-e7f861cadf0e",
+  "title": "Ethics, Security & Impact — Quick Revision Summary",
+  "content": "<h2>Quick revision: Ethics, Security & Impact</h2>\n<p><strong>Computer Science — OL.</strong> ethics &amp; professional codes, cyber security threats and protection, malware, online safety, digital currency, environmental/employment impact.</p>\n<ul>\n<li>1. Ethics and codes</li>\n<li>2. Threats</li>\n<li>3. Cyber security</li>\n<li>4. Digital currency</li>\n<li>5. Defences</li>\n<li>6. Online behaviour</li>\n<li>7. Wider impact</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
   "id": "7df9b8c2-d75e-4f8a-8f17-6c651f79f55b",
   "entity_type": "material",
   "entity_id": "28b7ebd7-b943-4980-b5d5-755f8526819d",
@@ -1500,6 +2175,81 @@
   "created_at": "2026-10-12 20:03:59.658342+00"
  },
  {
+  "id": "7e546751-e5cb-4545-b4f6-01074c275b47",
+  "entity_type": "material",
+  "entity_id": "9b34477c-27c5-4eb8-9a65-e4fb425f5edc",
+  "title": "Trigonometry — Study Notes",
+  "content": "<h2>Trigonometry</h2>\n<h3>Exact Values</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>Angle</th><th>sin</th><th>cos</th><th>tan</th></tr>\n<tr><td>30°</td><td>1/2</td><td>√3/2</td><td>√3/3</td></tr>\n<tr><td>45°</td><td>√2/2</td><td>√2/2</td><td>1</td></tr>\n<tr><td>60°</td><td>√3/2</td><td>1/2</td><td>√3</td></tr>\n</table>\n<h3>Key Identities</h3>\n<ul>\n<li>sin²θ + cos²θ = 1</li>\n<li>tan θ = sin θ / cos θ</li>\n<li>sec²θ = 1 + tan²θ</li>\n</ul>\n<h3>Solving Equations</h3>\n<p>Use the symmetry of the graphs. For sin x = 1/2 in 0 ≤ x ≤ 2π: the acute answer is π/6, and the second solution is π − π/6 = 5π/6.</p>\n<p>For cos x = 0.5 in 0° ≤ x ≤ 360°: x = 60° and 360° − 60° = 300°.</p>\n<p><strong>Always check the required interval and give every solution.</strong></p>\n<h3>Graphs and Transformations</h3>\n<p>y = a sin(bx) + c has amplitude a, period 2π/b, and vertical shift c.</p>\n<p><strong>Example:</strong> y = 3 sin(2x) has amplitude 3 and period π.</p>\n<h3>Using Identities</h3>\n<p>If sin x = 0.6 with x acute, then cos x = √(1 − 0.36) = 0.8 (positive in the first quadrant).</p>\n<p><strong>Exam tips:</strong> write the general second solution using graph symmetry rather than memorising CAST blindly; square both sides only with care, as it can add false solutions.</p>\n<h3>Exact values and exam method</h3>\n<p>Use CAST to find the quadrant signs: all positive in the first quadrant, sine in the second, tangent in the third, cosine in the fourth. Find the acute angle first, then the other solutions in the range the question specifies.</p>\n<p>For sin x = k, the solutions in 0° to 360° are α and 180° − α, where α is the acute angle with sin α = |k|. For cos x = k they are α and 360° − α. Always check the range; an answer outside it earns no mark.</p>\n<p>Write a sin x + b cos x as R sin(x + α) or R cos(x − α). Expanding gives R = √(a² + b²), and for the sine form tan α = b/a. The maximum value is R, which gives the turning points that exam questions often ask for.</p>\n<p>Reciprocal functions: sec x = 1/cos x, cosec x = 1/sin x, cot x = 1/tan x. Use sin²x + cos²x = 1 and 1 + tan²x = sec²x to simplify.</p>\n<p><strong>Exam cue:</strong> Show the working that gives the acute angle before stating the answers in the required range.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:47:33.160331+00"
+ },
+ {
+  "id": "7fc6eebf-3423-47b1-9361-61c5cbe637a1",
+  "entity_type": "material",
+  "entity_id": "12080994-0309-4d7d-8fea-86149b5a013f",
+  "title": "Kinematics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Kinematics</h2>\n<p><strong>Physics — AS.</strong> Sign convention matters: take up as positive and g = −9.81 m s⁻² for falling objects.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Definitions</li><li>Graphs</li><li>SUVAT (uniform acceleration only)</li><li>Projectiles</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n<h3>Worked example</h3>\n<p>A ball is dropped from rest and falls 20 m. Taking down as positive, u = 0, s = 20 m and a = 9.81 m s⁻². Then v² = u² + 2as = 392.4, so v ≈ 19.8 m s⁻¹. Using the sign convention with up positive instead gives s = −20 m and a = −9.81 m s⁻², which gives the same answer with the signs consistent.</p>\n<h3>Common mistakes</h3>\n<ul><li>Using SUVAT for a case with non-uniform acceleration, such as a body with increasing air resistance.</li><li>Mixing signs, for example taking up as positive but using g = +9.81 m s⁻².</li><li>Reading a displacement–time gradient as velocity only when it is a straight line. The gradient gives instantaneous velocity at any point on a curve.</li></ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
+  "id": "804a42d0-1544-4082-9063-db51d7cbb5cd",
+  "entity_type": "material",
+  "entity_id": "1d0497b8-8986-4180-acec-1a485740b0e6",
+  "title": "Exam technique: Sine and Cosine Rules",
+  "content": "### What earns the marks\nFor the sine rule, the matched pairs written (b / sin 65 = 7 / sin 40) earn the method mark. For the cosine rule, the full substitution with cos evaluated earns the mark: write a squared = 25 + 64 - 2 x 5 x 8 x 0.5. For the largest angle, identifying the longest side first earns credit. For area, half a b sin C quoted earns the mark on its own.\n### Traps\nError: sides paired with wrong angles in the sine rule. Correction: each side faces its angle. Error: 49 given as side a. Correction: root the cosine-rule result. Error: calculator-only acute angle for an obtuse ambiguous case. Correction: subtract from 180 by hand. Error: half a b without sine for a non-right triangle. Correction: area needs the sine factor unless the angle is 90 degrees.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
+  "id": "81b415e4-3f2f-4247-bd91-12bd92315cc6",
+  "entity_type": "material",
+  "entity_id": "21fa2662-2a95-4923-a3f7-41c478ef2284",
+  "title": "Exam technique: Simplifying and Expanding",
+  "content": "### What earns the marks\nFor expansion, calculate earns a mark for every correct pair of products shown before collecting terms. For factorisation, the HCF stated earns the first mark and the fully divided bracket earns the second: partial factorisation scores at most half. For algebraic fractions, factorise first earns the method mark even when cancellation follows.\n### Traps\nError: (x + 5)(x - 2) = x squared + 10. Correction: four products, then collect. Error: 3(2x squared - 3x) called fully factorised. Correction: extract x as well. Error: cancelling terms instead of factors in a fraction. Correction: factorise numerator and denominator first.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
+  "id": "821a2b1d-7a89-4663-b103-dd22319314c5",
+  "entity_type": "material",
+  "entity_id": "0832a964-36cb-422e-b5f2-f32b559c16d6",
+  "title": "Geometry — Angles and Polygons — Quick Revision Summary",
+  "content": "<h2>Quick revision: Geometry — Angles and Polygons</h2>\n<p><strong>Mathematics — OL.</strong> angle facts, parallel lines, polygon angles, circle theorems (Extended).</p>\n<ul>\n<li>1. Core angle facts</li>\n<li>2. Polygons</li>\n<li>3. Circle theorems (Extended)</li>\n<li>4. Algebra with angles</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>\n<h3>Worked example</h3>\n<p>The interior angle sum of a polygon with n sides is (n − 2) × 180°. For a regular octagon, n = 8, so the sum is 6 × 180° = 1080°. Each interior angle is 1080 ÷ 8 = 135°, and each exterior angle is 360 ÷ 8 = 45°. Exterior angles of any convex polygon always add up to 360°.</p>\n<h3>Common mistakes</h3>\n<ul><li>Using 360° for the interior sum instead of (n − 2) × 180°.</li><li>Confusing the angle at the centre with the angle at the circumference. The angle at the centre is twice the angle at the circumference when both subtend the same arc.</li><li>Writing a reason without naming the theorem. Name it, for example \"angles in the same segment\" or \"opposite angles of a cyclic quadrilateral sum to 180°\".</li></ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
   "id": "82f4c7dc-0d04-4996-80b5-c724477cd122",
   "entity_type": "material",
   "entity_id": "c015774f-319c-423f-94e2-c1b6a3505c70",
@@ -1515,6 +2265,36 @@
   "created_at": "2026-09-20 19:21:59.516938+00"
  },
  {
+  "id": "834df623-f158-4259-a719-9e6c710fdb19",
+  "entity_type": "material",
+  "entity_id": "0b8c2b5f-335c-4baa-89a2-b14c808bfd1f",
+  "title": "Magnetic Fields and Electromagnetism — Quick Revision Summary",
+  "content": "<h2>Quick revision: Magnetic Fields and Electromagnetism</h2>\n<p><strong>Physics — A2.</strong> F = BIL sin θ (Fleming's left hand: field-index, current-first-finger, force-thumb).</p>\n<h3>Key areas to revise</h3>\n<ul><li>Force on a Current</li><li>Force on a Moving Charge</li><li>Fields from Currents</li><li>Electromagnetic Induction</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n<h3>Worked example</h3>\n<p>A straight wire of length 0.40 m carries a current of 2.5 A at right angles to a uniform magnetic field of flux density 0.12 T. The force is F = BIL sin θ = 0.12 × 2.5 × 0.40 × sin 90° = 0.12 N. Fleming's left hand gives the direction: the field points from the first finger (north to south), the current points along the second finger, and the force is the thumb.</p>\n<h3>Common mistakes</h3>\n<ul><li>Using θ = 0° when the wire is at right angles to the field. The force is zero only when the wire is parallel to the field.</li><li>Mixing up the left and right hand rules. The left hand is for motors (force), and the right hand is for generators (induced current).</li><li>Forgetting that the force on a charge moving in a field is F = BQv, not BIL, unless you convert the current first.</li></ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
+  "id": "83f47809-31a1-40ed-b91b-c138d333c7d9",
+  "entity_type": "material",
+  "entity_id": "1542988c-107c-4361-b0df-32d9b77cbeea",
+  "title": "Exam technique: Nuclear Physics (A2)",
+  "content": "### What earns the marks\nFor energy, mass defect times c squared with units earns both marks. For decay, ln2 over half-life quoted earns the method mark; activity as lambda N earns the second. For radii, the cube-root rule applied to ratios earns the mark.\n### Traps\nError: half-life used as the decay constant. Correction: divide ln2 by it. Error: fission named for the Sun. Correction: fusion powers stars. Error: radius scaled linearly with A. Correction: cube root of nucleon number.\n### Worked example\nA nucleus has a half-life of 8 days. The decay constant is lambda = ln 2 / 8, which is about 0.087 per day. If the sample holds N = 2.0 x 10^10 nuclei, the activity is A = lambda N, about 1.7 x 10^9 decays per day. Quote the unit with the answer, because the mark depends on it.\n### Check yourself\nA nucleus with A = 64 has radius r = 1.2 x 64^(1/3) = 4.8 fm. State why doubling A does not double the radius. The radius grows with the cube root of A, so doubling A multiplies r by 2^(1/3), about 1.26.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
   "id": "8496ceea-c24d-4157-a045-2e7d2ae0d88c",
   "entity_type": "material",
   "entity_id": "013ebfea-e165-48f6-ad1d-2e01fd4e5214",
@@ -1528,6 +2308,51 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:06:36.695662+00"
+ },
+ {
+  "id": "84a3a9ac-cd39-4f54-9938-e645a44c9036",
+  "entity_type": "material",
+  "entity_id": "074439e5-ee02-4481-98ca-67a38ac7edf8",
+  "title": "Algebra — Inequalities — Quick Revision Summary",
+  "content": "<h2>Quick revision: Algebra — Inequalities</h2>\n<p><strong>Mathematics — OL.</strong> solving linear inequalities, integer solution sets, shading regions on graphs (linear programming context).</p>\n<ul>\n<li>1. Solving</li>\n<li>2. Integer solutions</li>\n<li>3. Double inequalities</li>\n<li>4. Shading regions</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>\n<h3>Worked example</h3>\n<p>Solve 2x − 3 &lt; 7. Add 3 to both sides to get 2x &lt; 10, then divide by 2 to get x &lt; 5. If x is an integer and −2 ≤ x &lt; 5, the integer solutions are −2, −1, 0, 1, 2, 3, 4. The bounds are inclusive on the left and exclusive on the right, so the endpoint −2 is included and 5 is not.</p>\n<h3>Common mistakes</h3>\n<ul><li>Reversing the inequality sign when you multiply or divide by a negative number, for example in −3x &gt; 6, which gives x &lt; −2.</li><li>Using a solid line for a strict inequality. Use a dashed line for &lt; or &gt;, and a solid line for ≤ or ≥.</li><li>Shading the wrong side. Test a point such as (0, 0) and shade the region that makes the inequality true.</li></ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
+  "id": "8733d472-f5e3-4524-ad79-c310a19a3c33",
+  "entity_type": "material",
+  "entity_id": "1ca1987e-6f24-4b6a-91c0-a39f3f92e220",
+  "title": "Exam technique: Sampling",
+  "content": "### What earns the marks\nFor method choice, random vs stratified vs systematic justified earns the mark. For stratified allocation, the proportion of each stratum applied earns the method mark. For bias discussion, the named source of bias with its effect earns both marks.\n### Traps\nError: sample claimed unbiased with no method. Correction: name and justify the method. Error: equal numbers per stratum. Correction: allocate proportionally. Error: population confused with frame. Correction: frame is the list used.\n### Worked example\nA school has 600 students: 120 in Year 11 and 480 in Year 10. A stratified sample of 50 is needed with proportional allocation. Year 11 gets 120/600 x 50 = 10 students, and Year 10 gets 480/600 x 50 = 40 students. The two numbers add to 50, which confirms the allocation. Random selection then happens inside each group.\n### Check yourself\nA teacher samples 50 students from the first 50 names on the register. Name the sampling method and the main source of bias. This is a convenience sample, and the bias comes from the register order, which may not represent the whole school.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
+  "id": "87af6a0b-3f34-43ea-8966-46afc3042eb5",
+  "entity_type": "material",
+  "entity_id": "39e37ac0-41b8-4d23-8d69-64e36dfd77af",
+  "title": "Differentiation II — Study Notes",
+  "content": "<h2>Differentiation II</h2>\n<h3>Product and Quotient Rules</h3>\n<ul>\n<li>(uv)′ = u′v + uv′</li>\n<li>(u/v)′ = (u′v − uv′)/v²</li>\n</ul>\n<p><strong>Example:</strong> y = x² e^x gives dy/dx = 2x e^x + x² e^x = e^x(2x + x²).</p>\n<h3>Standard Derivatives</h3>\n<ul>\n<li>sin x → cos x; cos x → −sin x; tan x → sec²x</li>\n<li>e^x → e^x; ln x → 1/x</li>\n</ul>\n<h3>Chain Rule Everywhere</h3>\n<p>d/dx [ln(3x)] = 3/(3x) = 1/x; d/dx [e^(2x)] = 2e^(2x); d/dx [sin²x] = 2 sin x cos x.</p>\n<h3>Implicit Differentiation</h3>\n<p>Differentiate both sides w.r.t. x, treating y as a function of x (terms in y pick up dy/dx).</p>\n<p><strong>Example:</strong> x² + y² = 25 → 2x + 2y(dy/dx) = 0 → dy/dx = −x/y.</p>\n<h3>Parametric Curves</h3>\n<p>For x = f(t), y = g(t): dy/dx = (dy/dt)/(dx/dt).</p>\n<p><strong>Example:</strong> x = t², y = t³ gives dy/dx = 3t²/2t = 3t/2.</p>\n<p><strong>Exam tips:</strong> quote the rule you use; for tangent/normal on parametric curves, find t at the point first, and simplify implicit answers using the original equation.</p>\n<h3>Exam method: exponential, logarithmic and trigonometric rules</h3>\n<p>The derivative of eˣ is eˣ, and the derivative of e^(kx) is k e^(kx). The derivative of ln x is 1/x, and for ln(f(x)) the chain rule gives f′(x)/f(x). The derivative of sin x is cos x and of cos x is −sin x; for a function of kx, multiply by k.</p>\n<p>When a product contains an exponential or trigonometric function, use the product rule d/dx(uv) = u dv/dx + v du/dx. Factorising the result, such as eˣ(1 + x), makes it easier to evaluate at a point.</p>\n<p>Quotients use d/dx(u/v) = (v du/dx − u dv/dx)/v². Write tan x as sin x/cos x when the quotient rule is easier, and remember that d/dx(tan x) = sec² x.</p>\n<p>Second derivatives follow by differentiating again. Use them to classify stationary points, or to check the concavity of a curve, when the question asks for it.</p>\n<p><strong>Exam cue:</strong> Show each rule as you apply it. Method marks are awarded for a correct product or chain step even if the final arithmetic is wrong.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:37:44.778172+00"
  },
  {
   "id": "88f3fe41-c799-4287-bb8f-0ee7c8c03c7e",
@@ -1558,6 +2383,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "8aa9142b-d079-42bf-af1f-37341dd7559e",
+  "entity_type": "material",
+  "entity_id": "0a6dd708-d477-4b7b-a734-f1178b3a3f67",
+  "title": "Waves — Quick Revision Summary",
+  "content": "<h2>Quick revision: Waves</h2>\n<p><strong>Physics — AS.</strong> A wave transfers energy without net transfer of matter.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Basics</li><li>The Wave Equation</li><li>Intensity</li><li>Doppler Effect</li><li>EM Spectrum</li><li>Polarization</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
   "id": "8cb9db08-efb5-4302-a8d2-bdfcb9898ec5",
@@ -1680,6 +2520,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "95924359-af5d-4099-983a-0179ca5bc8c3",
+  "entity_type": "material",
+  "entity_id": "3bc168f1-4a43-4e2f-9954-2f256539800e",
+  "title": "Integration — Study Notes",
+  "content": "<h2>Integration</h2>\n<h3>Indefinite Integrals</h3>\n<p>Reverse the power rule and add a constant: ∫ xⁿ dx = xⁿ⁺¹/(n+1) + c (n ≠ −1).</p>\n<p><strong>Examples:</strong> ∫ x³ dx = x⁴/4 + c; ∫ 1/x dx = ln|x| + c; ∫ sin x dx = −cos x + c; ∫ e^x dx = e^x + c.</p>\n<h3>Definite Integrals</h3>\n<p>∫ₐᵇ f(x) dx = [F(x)]ₐᵇ = F(b) − F(a). Constants of integration cancel.</p>\n<p><strong>Example:</strong> ∫₀¹ 6x² dx = [2x³]₀¹ = 2.</p>\n<h3>Areas Under Curves</h3>\n<p>Area between a curve and the x-axis = ∫ₐᵇ y dx, where y ≥ 0. If the curve dips below the axis, split the integral at the roots and add the absolute values.</p>\n<p><strong>Example:</strong> area between y = x² − 4 and the x-axis: roots ±2, and the area is |∫₋₂² (x² − 4) dx| = 32/3.</p>\n<h3>Trapezium Rule</h3>\n<p>A ≈ h/2 [y₀ + 2(y₁ + … + yₙ₋₁) + yₙ], h = (b − a)/n. More strips → better estimate; always an over-estimate for convex curves.</p>\n<p><strong>Exam tips:</strong> never forget +c on indefinite integrals; for areas with negative regions, sketch first and split.</p>\n<h3>Rules and exam method</h3>\n<p>For xⁿ with n ≠ −1, ∫xⁿ dx = xⁿ⁺¹/(n + 1) + c. Integrate term by term. The special case is ∫(1/x) dx = ln|x| + c. An indefinite integral needs + c; a definite integral does not.</p>\n<p>For a definite integral, ∫ₐᵇ f(x) dx = F(b) − F(a), where F is any antiderivative. Write the limits as [F(x)] between a and b, and substitute carefully: a negative limit raised to a power needs brackets.</p>\n<p>The area between a curve and the x-axis is ∫ y dx when y ≥ 0 over the interval. If the curve lies below the axis the integral is negative, so take the modulus. If the curve crosses the axis, find the root and integrate each part separately, adding the moduli of the parts.</p>\n<p>The area between two curves is the integral of (upper − lower) between their intersection points, found by solving the equations simultaneously.</p>\n<p><strong>Exam cue:</strong> Show the expanded antiderivative before substituting limits; method marks are given for a correct integration even when the arithmetic later slips.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
   "id": "973e5b6a-f4ce-47b1-b685-0029438c94a9",
   "entity_type": "material",
   "entity_id": "944cae75-d042-4e44-adb7-84ee5a7e4f18",
@@ -1693,6 +2548,36 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "9904e042-21b9-4b11-a786-ec2d90eefd64",
+  "entity_type": "material",
+  "entity_id": "0a6dd708-d477-4b7b-a734-f1178b3a3f67",
+  "title": "Waves — Quick Revision Summary",
+  "content": "<h2>Quick revision: Waves</h2>\n<p><strong>Physics — AS.</strong> A wave transfers energy without net transfer of matter.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Basics</li><li>The Wave Equation</li><li>Intensity</li><li>Doppler Effect</li><li>EM Spectrum</li><li>Polarization</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n<h3>Worked example</h3>\n<p>A wave on a rope has a frequency of 500 Hz and a wavelength of 0.68 m. Its speed is v = fλ = 500 × 0.68 = 340 m s⁻¹. The same equation applies to sound and light, but the speed of light in a vacuum is 3.0 × 10⁸ m s⁻¹ and does not depend on the source. Intensity falls with the inverse square of distance from a point source, so doubling the distance cuts the intensity to one quarter.</p>\n<h3>Common mistakes</h3>\n<ul><li>Mixing up frequency and wavelength in v = fλ, or leaving wavelength in centimetres while using metres per second.</li><li>Saying waves carry matter. A wave carries energy, and the particles of the medium oscillate about fixed positions.</li><li>Assuming polarisation applies to longitudinal waves. Only transverse waves can be polarised.</li></ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
+  "id": "995b6f33-9287-4288-9ebf-50ab956fb850",
+  "entity_type": "material",
+  "entity_id": "1b126571-19a9-4237-9727-d00138858bd2",
+  "title": "Exam technique: Measures of Variation",
+  "content": "### What earns the marks\nFor standard deviation, mean first then the squared-deviation sum earns each mark. For coded data, the y-bar and s_y transformation earns the method mark. For comparisons, mean and spread commented together earns both marks.\n### Traps\nError: variance reported as sd. Correction: root last. Error: comparing means only. Correction: comment on spread too. Error: coding applied once then forgotten. Correction: transform consistently.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
  },
  {
   "id": "9b01b430-d668-4ad6-a7c3-6cd04544ceaf",
@@ -1800,6 +2685,36 @@
   "created_at": "2026-10-12 09:51:29.588223+00"
  },
  {
+  "id": "9e90ff28-fa79-4c5f-b22c-86550278b09f",
+  "entity_type": "material",
+  "entity_id": "1c4249ab-d224-4279-a85d-e9a9f32c78f8",
+  "title": "Exam technique: Transformations and Vectors",
+  "content": "### What earns the marks\nFor translations and vector arithmetic, each component computed separately earns credit: show x and y lines. For magnitude, the root-of-sum-of-squares line earns the method mark before evaluation. For reflections and rotations, the coordinate rule stated ((y; -x) for 90 degrees clockwise) earns the method mark. For describing transformations, all three of type, centre or line, and size or angle are needed for full marks.\n### Traps\nError: writing column vectors as bracket rows that lose a row. Correction: use (x; y) form and keep both components. Error: (100) or 14 for the magnitude of (6; 8). Correction: square, add, then root. Error: (-y; x) for a clockwise rotation. Correction: clockwise is (y; -x). Error: negating both coordinates for a single-axis reflection. Correction: one axis changes, the other stays.\n### Worked example\nPoint A(1; 2) is translated by the vector (3; -1), giving A'(4; 1). Reflecting A' in the x-axis gives (4; -1). Rotating the point (3; -1) 90 degrees clockwise about the origin gives (-1; -3), using the rule (x; y) to (y; -x). Scaling (1; 2) by a factor of 2 from the origin gives (2; 4). Write each coordinate step on its own line.\n### Check yourself\nA point at (6; 8) has magnitude sqrt(6^2 + 8^2) = sqrt(100) = 10. Explain why the magnitude is never the sum 6 + 8 = 14. The magnitude uses the root of the sum of squares, so the components do not add directly.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
+  "id": "9eb1c3ac-c959-4a31-ba83-2bcaff5dcd2d",
+  "entity_type": "material",
+  "entity_id": "24f6e4fa-159d-45b1-8282-7bd24292eb53",
+  "title": "Circular Motion and SHM — Quick Revision Summary",
+  "content": "<h2>Quick revision: Circular Motion and SHM</h2>\n<p><strong>Physics — A2.</strong> Angular speed ω = 2π/T; v = ωr; a = ω²r = v²/r; F = mv²/r toward the centre.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Circular Motion Recap</li><li>Simple Harmonic Motion</li><li>Energy in SHM</li><li>Damping and Resonance</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
   "id": "9ed2cb43-4a64-43f8-ae47-9855bed7b055",
   "entity_type": "material",
   "entity_id": "c6799c2c-a5ca-4a0d-b962-7bf95e65b17d",
@@ -1845,6 +2760,21 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "a1f72682-8fba-470a-a78b-c44930bb5cb2",
+  "entity_type": "material",
+  "entity_id": "17a3d398-2ace-4af5-9718-9b5c062bb91e",
+  "title": "Exam technique: Information Representation",
+  "content": "### What earns the marks\nFor two complement, inversion plus one stated earns the method mark before the value. For floating point, mantissa plus exponent roles stated earn one mark each. For normalisation, the leading-bit rule quoted earns the precision mark.\n### Traps\nError: sign bit ignored in range. Correction: an n-bit signed range tops at 2^(n-1) - 1. Error: larger exponent read as more precision. Correction: exponent sets range, mantissa sets precision. Error: normalised form guessed. Correction: mantissa starts with 0.1 or 1.0 pattern per the scheme.\n### Worked example\nWrite -45 in 8-bit two's complement. First write 45 in binary: 00101101. Invert every bit to get 11010010, then add 1 to get 11010011. Check: the sign bit has weight -128, so the value is -128 + 64 + 16 + 2 + 1 = -45, which matches.\n### Check yourself\nState the range of an 8-bit two's complement integer, and say which bit sets the sign. The range is -128 to +127, and the leftmost bit is the sign bit with weight -128.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
   "id": "a32e16b6-f43b-4de9-98bc-7b70006d5ede",
   "entity_type": "material",
   "entity_id": "61da5c21-d745-4a51-ba0c-2a861af41061",
@@ -1860,6 +2790,36 @@
   "created_at": "2026-09-30 16:51:28.718217+00"
  },
  {
+  "id": "a41865a4-9cd6-4cb5-95a3-932cb0b3d282",
+  "entity_type": "material",
+  "entity_id": "1905a82f-d430-49dc-b49f-844dcd24fa3d",
+  "title": "Exam technique: Dynamics",
+  "content": "### What earns the marks\nFor resultant force, subtract opposition before applying F = ma to earn both marks. For collisions, total momentum before equated to total after earns the method mark. For rebounds, the sign change included earns the second mark.\n### Traps\nError: friction ignored in acceleration. Correction: use the resultant, not the push alone. Error: rebound treated as stopping. Correction: add the speeds with the sign flip. Error: kinetic energy claimed conserved generally. Correction: momentum always, kinetic only when elastic.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
+  "id": "a43b86d9-2e8d-43cb-a6cb-1147dd0688e2",
+  "entity_type": "material",
+  "entity_id": "01a21fc8-ac4d-4fb8-9be3-5d81a10dc8a5",
+  "title": "Exam technique: Integration",
+  "content": "### What earns the marks\nFor indefinite integrals, each term raised correctly plus the constant earns full marks. For definite integrals, the antiderivative quoted earns one mark and the correct upper-minus-lower evaluation earns the next. For area and curve-finding, the limits or the given point used earns the final mark.\n### Traps\nError: constant of integration omitted. Correction: +c always for indefinite. Error: limits subtracted backwards. Correction: upper minus lower. Error: power rule inverted on roots. Correction: root x is x to the half, integral goes up.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
+ },
+ {
   "id": "a54d4a8f-ae29-4074-a24b-39ca967379b4",
   "entity_type": "material",
   "entity_id": "410f9140-4fa3-467e-8cac-852bafc28653",
@@ -1873,6 +2833,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 17:11:43.051229+00"
+ },
+ {
+  "id": "a7a1f926-f7a1-44ac-a816-c441d3cd77cf",
+  "entity_type": "material",
+  "entity_id": "f87684c4-ab07-4f84-825d-b9fee9f73bc6",
+  "title": "Algebra — Simplifying and Expanding — Study Notes",
+  "content": "<h2>Algebra — Simplifying and Expanding</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> substitution, collecting like terms, expanding brackets, factorising (common factor, quadratics, difference of two squares), algebraic fractions.</p>\n\n<h3>1. Substitution</h3>\n<p>a = 3, b = −2: 2a² − b = 2(9) + 2 = 20. Always bracket substituted negatives.</p>\n\n<h3>2. Collecting like terms</h3>\n<p>5x + 3y − 2x + y = 3x + 4y. Terms need identical letter parts (x² and x are not like terms).</p>\n\n<h3>3. Expanding</h3>\n<ul>\n<li>Single: 3(2x − 5) = 6x − 15.</li>\n<li>Double: (x + 3)(x − 4) = x² − x − 12 (grid or FOIL).</li>\n<li>Cubic products: (x+2)³ = x³ + 6x² + 12x + 8.</li>\n</ul>\n\n<h3>4. Factorising</h3>\n<ul>\n<li>Common factor: 6x²y − 9xy² = 3xy(2x − 3y).</li>\n<li>Quadratics: x² − 5x + 6 = (x − 2)(x − 3) (two numbers ×6, sum −5).</li>\n<li>Harder: 6x² + 7x + 2 = (3x + 2)(2x + 1) — split the middle term.</li>\n<li>Difference of two squares: 9x² − 25 = (3x − 5)(3x + 5).</li>\n</ul>\n\n<h3>5. Algebraic fractions</h3>\n<p>Factorise top and bottom fully, then cancel: (x² − 9)/(x + 3) = (x − 3). To add, use a common denominator: 1/(x+1) + 2/(x−1) = (3x + 1)/((x+1)(x−1)).</p>\n\n<p><strong>Exam tips:</strong> always factorise out the <em>highest</em> common factor including the number; check expansion by substituting x = 1 into both forms.</p>\n<h3>Expanding brackets</h3>\n<p>Each term outside a bracket multiplies every term inside it. For a double bracket, multiply each term in the first by each term in the second, then collect like terms. Expanding (x + 3)(x − 5) gives x² − 2x − 15. Keep track of signs carefully, since most lost marks come from negative terms.</p>\n<h3>Factorising</h3>\n<p>Take out the highest common factor first, then look for a pair of brackets. For a quadratic x² + bx + c, find two numbers that multiply to c and add to b. For the difference of two squares, a² − b² = (a + b)(a − b). Check by expanding your answer.</p>\n<h3>Algebraic fractions</h3>\n<p>Simplify by factorising the numerator and denominator and cancelling common factors. Add or subtract fractions by writing them over a common denominator. Never cancel terms that are added, only factors that multiply.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:42:20.893682+00"
  },
  {
   "id": "a7d77932-a38c-441f-bda4-c8f02b05e489",
@@ -1905,6 +2880,36 @@
   "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
+  "id": "ab74f3f8-20ff-40a4-9068-7da6d57162f0",
+  "entity_type": "material",
+  "entity_id": "139e542c-853c-4cc8-adc9-753d2f78e2fa",
+  "title": "Trigonometry — Sine and Cosine Rules — Quick Revision Summary",
+  "content": "<h2>Quick revision: Trigonometry — Sine and Cosine Rules</h2>\n<p><strong>Mathematics — OL.</strong> area formula, sine rule, cosine rule, multi-step bearing and 3-D problems (Extended).</p>\n<ul>\n<li>1. Area of a triangle</li>\n<li>2. Sine rule</li>\n<li>3. Cosine rule</li>\n<li>4. Bearing problems</li>\n<li>5. 3-D trigonometry</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
+  "id": "ac54766c-4f63-4db7-93f6-02fd551c3ae9",
+  "entity_type": "material",
+  "entity_id": "0db49f61-4a22-4620-a8b6-272d4018d686",
+  "title": "Exam technique: Sequences and Series",
+  "content": "### What earns the marks\nFor AP terms, a + (n-1)d with the brackets evaluated earns the mark; sums use n/2(2a + (n-1)d) quoted. For GP work, the ratio found by division earns one mark and the formula applied earns the next. For sum to infinity, the |r| < 1 check stated earns the method mark.\n### Traps\nError: n used instead of (n-1) in terms. Correction: first term needs zero gaps. Error: infinity sums with |r| >= 1. Correction: check convergence first. Error: differentiating S_n for the nth term. Correction: subtract S_{n-1}.\n### Worked example\nAn arithmetic progression has a = 5 and d = 3. The 20th term is a + 19d = 5 + 57 = 62. The sum of the first 20 terms is S₂₀ = (20/2)(2a + 19d) = 10 × 67 = 670. A geometric progression with terms 2, 6, 18 has r = 3, so S₅ = 2(3⁵ − 1)/(3 − 1) = 242. The sum to infinity exists only when |r| < 1, so for r = 1/2 with a = 8 the sum is 8 / (1 − 1/2) = 16.\n### Check yourself\nState the nth term of a sequence from its sum. Find Sₙ, then subtract Sₙ₋₁. Do not differentiate Sₙ, because the sum is a discrete function.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
   "id": "addbe7ff-f0be-412a-9119-9da87e11b6c7",
   "entity_type": "material",
   "entity_id": "7e15d4c0-7177-419e-989b-05b5eca76131",
@@ -1918,6 +2923,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 13:49:10.355822+00"
+ },
+ {
+  "id": "adfbc14c-e134-4cf2-84c5-1e0e79d4e91e",
+  "entity_type": "material",
+  "entity_id": "1c4249ab-d224-4279-a85d-e9a9f32c78f8",
+  "title": "Exam technique: Transformations and Vectors",
+  "content": "### What earns the marks\nFor translations and vector arithmetic, each component computed separately earns credit: show x and y lines. For magnitude, the root-of-sum-of-squares line earns the method mark before evaluation. For reflections and rotations, the coordinate rule stated ((y; -x) for 90 degrees clockwise) earns the method mark. For describing transformations, all three of type, centre or line, and size or angle are needed for full marks.\n### Traps\nError: writing column vectors as bracket rows that lose a row. Correction: use (x; y) form and keep both components. Error: (100) or 14 for the magnitude of (6; 8). Correction: square, add, then root. Error: (-y; x) for a clockwise rotation. Correction: clockwise is (y; -x). Error: negating both coordinates for a single-axis reflection. Correction: one axis changes, the other stays.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
  },
  {
   "id": "ae884f49-69e3-4b43-99c5-b8fb68067f6c",
@@ -2010,6 +3030,21 @@
   "created_at": "2026-10-12 09:51:11.443742+00"
  },
  {
+  "id": "b22cb82b-9e49-4c2e-ae75-577730ea41d7",
+  "entity_type": "material",
+  "entity_id": "1b126571-19a9-4237-9727-d00138858bd2",
+  "title": "Exam technique: Measures of Variation",
+  "content": "### What earns the marks\nFor standard deviation, mean first then the squared-deviation sum earns each mark. For coded data, the y-bar and s_y transformation earns the method mark. For comparisons, mean and spread commented together earns both marks.\n### Traps\nError: variance reported as sd. Correction: root last. Error: comparing means only. Correction: comment on spread too. Error: coding applied once then forgotten. Correction: transform consistently.\n### Worked example\nFive values are 2, 4, 4, 6 and 9. The mean is 25 / 5 = 5. The squared deviations are 9, 1, 1, 1 and 16, which sum to 28. The variance is 28 / 5 = 5.6, and the standard deviation is the square root, about 2.37. Show the squared deviations line on the paper, since the method mark depends on it.\n### Check yourself\nIf each value in the list is increased by 10, state what happens to the mean and to the standard deviation. The mean rises by 10, while the standard deviation is unchanged, because adding a constant does not change the spread.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
   "id": "b25ea473-c615-423c-8902-327b578ba2ce",
   "entity_type": "material",
   "entity_id": "f4ec1c0b-4462-46b9-98fe-457d9fbd7e90",
@@ -2023,6 +3058,51 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "b26800c1-560f-4e9b-bedb-cf3263c11b39",
+  "entity_type": "material",
+  "entity_id": "1e8487a9-74ee-4699-8e57-03a86a2d6ec3",
+  "title": "Algebra — Graphs — Quick Revision Summary",
+  "content": "<h2>Quick revision: Algebra — Graphs</h2>\n<p><strong>Mathematics — OL.</strong> straight lines (gradient, intercept), key curves (quadratic, cubic, reciprocal, exponential), tangents, kinematic reading.</p>\n<ul>\n<li>1. Straight lines</li>\n<li>2. Drawing curves</li>\n<li>3. Interpreting</li>\n<li>4. Tangents and rates</li>\n<li>5. Graphical solutions</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
+  "id": "b3a68de6-14ce-4acf-84fb-e8c3ddc3f6a5",
+  "entity_type": "material",
+  "entity_id": "0832a964-36cb-422e-b5f2-f32b559c16d6",
+  "title": "Geometry — Angles and Polygons — Quick Revision Summary",
+  "content": "<h2>Quick revision: Geometry — Angles and Polygons</h2>\n<p><strong>Mathematics — OL.</strong> angle facts, parallel lines, polygon angles, circle theorems (Extended).</p>\n<ul>\n<li>1. Core angle facts</li>\n<li>2. Polygons</li>\n<li>3. Circle theorems (Extended)</li>\n<li>4. Algebra with angles</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
+ },
+ {
+  "id": "b3ca82dc-80ea-41da-89d9-54989882eb19",
+  "entity_type": "material",
+  "entity_id": "013ebfea-e165-48f6-ad1d-2e01fd4e5214",
+  "title": "Superposition — Study Notes",
+  "content": "<h2>Superposition</h2>\n<h3>Principle of superposition</h3>\n<p>When two or more waves meet at a point, the resultant displacement is the vector sum of the individual displacements. Constructive interference occurs where the waves are in phase; destructive interference occurs where they are in antiphase.</p>\n<h3>Stationary waves</h3>\n<ul>\n<li>A stationary wave forms when two progressive waves of the same frequency, amplitude and wavelength travel in opposite directions and superpose.</li>\n<li>Nodes are points of zero amplitude; antinodes are points of maximum amplitude. Adjacent nodes (or antinodes) are separated by λ/2.</li>\n<li>On a string fixed at both ends, the fundamental frequency is f = v/(2L), so the wavelength is λ = 2L.</li>\n</ul>\n<h3>Interference</h3>\n<p>For coherent sources (same frequency and a constant phase difference) with slit separation a and screen distance D, the fringe spacing is Δx = λD/a.</p>\n<h3>Diffraction</h3>\n<p>Diffraction is the spreading of a wave after it passes through a gap or round an edge. It is greatest when the gap width is comparable to the wavelength.</p>\n<h3>Diffraction grating</h3>\n<p>For a grating with slit spacing d, the angle θ of the nth-order maximum satisfies nλ = d sin θ. A grating with more lines per metre gives a smaller d and larger angles of diffraction.</p>\n<p><strong>Worked example:</strong> light of wavelength 600 nm passes through two slits 0.30 mm apart, with a screen 1.5 m away. Fringe spacing Δx = λD/a = (600 × 10⁻⁹ × 1.5) ÷ (3.0 × 10⁻⁴) = 3.0 mm.</p>\n<p><strong>Exam tips:</strong> convert nm and mm to metres before using Δx = λD/a. Check the order n when using a grating. Coherence is a requirement for interference, so state it.</p>\n<h3>The diffraction grating equation</h3>\n<p>A diffraction grating has many closely spaced slits. Light of wavelength &lambda; leaves the grating at angle &theta; to form bright maxima when d sin &theta; = n&lambda;, where d is the slit spacing and n is the order of the maximum. Each order is sharper and more widely separated than a double slit, because the many slits reinforce the bright positions. The number of orders visible is limited by the condition that sin &theta; cannot exceed 1.</p>\n<p><strong>Exam tip:</strong> convert the slit spacing to metres before using the grating equation, and note that the central maximum is n = 0.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:57:02.669675+00"
  },
  {
   "id": "b481e9d0-aeb4-41b6-8570-2223ea29feec",
@@ -2083,6 +3163,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:28.718217+00"
+ },
+ {
+  "id": "b7d93aca-0775-43d0-95b6-9075de947022",
+  "entity_type": "material",
+  "entity_id": "7e37e2f6-be9c-4324-8485-942a90f4da83",
+  "title": "Exam technique: Logic Gates & Boolean Logic",
+  "content": "### What earns the marks\nFor truth tables, every row completed correctly earns stepwise credit. For circuits, each gate output labelled earns one mark before the final column. For expressions, brackets showing the gate order earn the method mark.\n### Traps\nError: NAND confused with AND plus NOT placed wrongly. Correction: NAND inverts the AND output. Error: half-filled tables guessed. Correction: list all input combinations. Error: XOR read as OR. Correction: XOR excludes both-1.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
  },
  {
   "id": "bb202cc2-3217-43dc-9e5e-351ade637595",
@@ -2205,6 +3300,21 @@
   "created_at": "2026-10-13 13:51:16.271712+00"
  },
  {
+  "id": "c0f081e3-474c-405d-a002-4f8c1dfbb742",
+  "entity_type": "material",
+  "entity_id": "18c77db3-3d16-4e63-b19a-c8fb9e1bdfc0",
+  "title": "Statistics — Data Handling — Quick Revision Summary",
+  "content": "<h2>Quick revision: Statistics — Data Handling</h2>\n<p><strong>Mathematics — OL.</strong> averages from lists and tables, quartiles/IQR, charts, cumulative frequency, histograms.</p>\n<ul>\n<li>1. Averages</li>\n<li>2. Quartiles and IQR</li>\n<li>3. Charts</li>\n<li>4. Cumulative frequency</li>\n<li>5. Histograms</li>\n</ul>\n<h3>Formulas to learn</h3>\n<ul><li>Mean from a grouped table: sum of f x divided by sum of f, using the class midpoints.</li><li>Interquartile range: Q3 - Q1. The median is Q2.</li><li>Histogram height: frequency density = frequency / class width. Area of each bar is proportional to frequency.</li></ul>\n<h3>Worked example</h3>\n<p>A cumulative frequency curve has its points plotted against the upper class boundary. Reading the curve at 25 percent of the total gives Q1, at 50 percent gives the median, and at 75 percent gives Q3. The IQR is Q3 minus Q1, and it is less affected by outliers than the range.</p>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
   "id": "c20d86a3-f659-4215-94a7-191fcbae73c4",
   "entity_type": "material",
   "entity_id": "124279ee-da25-472a-b5f2-53fdcaab4186",
@@ -2250,6 +3360,81 @@
   "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
+  "id": "c37b8cde-acf5-4435-964f-3c434e833b33",
+  "entity_type": "material",
+  "entity_id": "ab443e7e-11f0-4286-966f-b5ff4edc5835",
+  "title": "Databases — Study Notes",
+  "content": "<p>`# Databases</p>\n<h3>Relational Basics</h3>\n<p>Tables (relations) of records with fields. <strong>Keys</strong>:</p>\n<ul>\n<li>Primary key: unique identifier</li>\n<li>Foreign key: references another table's PK — creates relationships</li>\n<li>Candidate/secondary keys: other unique identifiers</li>\n</ul>\n<h3>Normalisation</h3>\n<ul>\n<li><strong>1NF</strong>: atomic values, no repeating groups</li>\n<li><strong>2NF</strong>: 1NF + no partial dependency on a composite key</li>\n<li><strong>3NF</strong>: 2NF + no transitive dependencies (non-key → non-key)</li>\n</ul>\n<p><strong>Example:</strong> (StudentID, Course, CourseFee) has CourseFee depending on Course, not StudentID — move course data to its own table (3NF).</p>\n<h3>SQL</h3>\n<pre><code>SELECT name, grade FROM students\n  WHERE grade &gt;= 'A' ORDER BY name;\nINSERT INTO students VALUES (...);\nUPDATE students SET grade = 'B' WHERE id = 5;\nDELETE FROM students WHERE id = 5;</code></pre>\n<p>Joins combine tables: <code>FROM students s JOIN enrolments e ON s.id = e.sid</code>.</p>\n<h3>Transactions</h3>\n<p>ACID: <strong>A</strong>tomicity (all or nothing), <strong>C</strong>onsistency (rules hold), <strong>I</strong>solation (no interference), <strong>D</strong>urability (committed = permanent). Record locking prevents conflicting simultaneous edits.</p>\n<p><strong>Exam tips:</strong> justify each normal form step with the dependency removed; write SQL with correct WHERE clauses to avoid accidental full-table updates.</p>\n<h3>Primary keys, foreign keys and redundancy</h3>\n<p>A primary key is a field, or combination of fields, that uniquely identifies each record in a table. A foreign key is a field in one table that holds the primary key of a record in another table. Foreign keys link the tables together and let the database check referential integrity, so that an order cannot refer to a customer who does not exist.</p>\n<p>Storing data in one place rather than repeating it in several tables reduces data redundancy. Less redundancy saves storage, and it reduces the chance that an update is made in one copy but not the others. Normalisation is the process of organising tables to remove this repetition.</p>\n<p><strong>Exam tip:</strong> when asked about a foreign key, say which table it sits in and which primary key it refers to.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:10:06.182709+00"
+ },
+ {
+  "id": "c4da708f-0c65-4bc2-8863-9b140464643f",
+  "entity_type": "material",
+  "entity_id": "0678b212-2e61-447f-8a64-01b7a7d12763",
+  "title": "Exam technique: Continuous Random Variables",
+  "content": "### What earns the marks\nFor pdf constants, total area equals 1 stated earns the method mark. For probabilities, the integral with correct limits earns each mark. For mean and variance, E(X) and E(X squared) - E(X) squared each earn credit stepwise.\n### Traps\nError: point probabilities given positive values. Correction: points have zero area. Error: mean mistaken for median. Correction: solve the half-area equation for medians. Error: variance sign reversed. Correction: E(X squared) minus mean squared.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
+ },
+ {
+  "id": "c6900a05-dd97-4027-ada0-7a868b233a84",
+  "entity_type": "material",
+  "entity_id": "0b8c2b5f-335c-4baa-89a2-b14c808bfd1f",
+  "title": "Magnetic Fields and Electromagnetism — Quick Revision Summary",
+  "content": "<h2>Quick revision: Magnetic Fields and Electromagnetism</h2>\n<p><strong>Physics — A2.</strong> F = BIL sin θ (Fleming's left hand: field-index, current-first-finger, force-thumb).</p>\n<h3>Key areas to revise</h3>\n<ul><li>Force on a Current</li><li>Force on a Moving Charge</li><li>Fields from Currents</li><li>Electromagnetic Induction</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
+ },
+ {
+  "id": "c929e93d-9bee-49eb-a2c4-17b782d27368",
+  "entity_type": "material",
+  "entity_id": "1cbe3f90-97ce-4f84-8928-e7f861cadf0e",
+  "title": "Ethics, Security & Impact — Quick Revision Summary",
+  "content": "<h2>Quick revision: Ethics, Security & Impact</h2>\n<p><strong>Computer Science — OL.</strong> ethics &amp; professional codes, cyber security threats and protection, malware, online safety, digital currency, environmental/employment impact.</p>\n<ul>\n<li>1. Ethics and codes</li>\n<li>2. Threats</li>\n<li>3. Cyber security</li>\n<li>4. Digital currency</li>\n<li>5. Defences</li>\n<li>6. Online behaviour</li>\n<li>7. Wider impact</li>\n</ul>\n<h3>Key ideas to learn</h3>\n<ul><li>Malware: viruses, worms, trojans, spyware, adware and ransomware are all malicious software, and each has a different way of spreading.</li><li>Social engineering and phishing: a fake message tricks the user into giving away a password or a payment.</li><li>Defences: firewalls, encryption, strong authentication, anti-malware software and regular updates.</li><li>Digital currency: a blockchain is a list of records linked by hashes, so an earlier record cannot be altered without changing every later link.</li></ul>\n<h3>Exam link</h3>\n<p>For an impact question, give one benefit and one drawback with a specific example, such as e-waste from discarded devices or automation changing a job. Vague answers about technology being good or bad earn no marks.</p>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:41.551372+00"
+ },
+ {
+  "id": "cb5dc04e-8efc-49e6-8c12-d1b34ba34db6",
+  "entity_type": "material",
+  "entity_id": "e23c2293-09a7-4e85-8e0f-9788f5dcb85a",
+  "title": "Exam technique: Networking & Communication",
+  "content": "### What earns the marks\nFor topologies, the diagram plus one benefit earns one mark each. For addresses, MAC as permanent plus IP as routable earns each mark. For security, firewall plus encryption plus passwords named in context earn full marks.\n### Traps\nError: LAN and WAN swapped. Correction: LAN is local, WAN spans distance. Error: MAC claimed to change per network. Correction: MAC is burned in, IP is assigned. Error: HTTP called secure. Correction: HTTPS adds the encryption.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
   "id": "cc334ee4-bbce-4b12-8d9e-7dc22f6f5556",
   "entity_type": "material",
   "entity_id": "b019737f-148f-4517-90eb-36528c45eb85",
@@ -2265,6 +3450,21 @@
   "created_at": "2026-10-13 14:06:36.695662+00"
  },
  {
+  "id": "cc9ec28b-d45c-4aa2-855b-96ef205fa480",
+  "entity_type": "material",
+  "entity_id": "1e855b3f-d19a-4989-a855-0c2693bea29a",
+  "title": "Exam technique: Data Handling",
+  "content": "### What earns the marks\nFor averages, the total shown earns a mark before any division. For even-count medians, the two middle values identified earn the method mark. For grouped data, the modal class stated as an interval earns full credit; single numbers score nothing. For cumulative frequency, the position formula (n + 1) / 2 quoted earns the method mark before reading off.\n### Traps\nError: total given as the mean. Correction: divide by the count last. Error: 3rd value picked as median of six values. Correction: average the 3rd and 4th. Error: 40th value read for the median of 80. Correction: position 40.5. Error: quartiles read for median and vice versa. Correction: 20th/60th are quartiles at n = 80.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
   "id": "cdb78db9-bbe0-4a5f-9e35-30bdd11ca88e",
   "entity_type": "material",
   "entity_id": "f82719f0-4e48-4ba1-911b-a2e06da06897",
@@ -2278,6 +3478,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 04:55:02.538191+00"
+ },
+ {
+  "id": "ce65c165-3495-4215-bc7c-cd80a44eee4f",
+  "entity_type": "material",
+  "entity_id": "074439e5-ee02-4481-98ca-67a38ac7edf8",
+  "title": "Algebra — Inequalities — Quick Revision Summary",
+  "content": "<h2>Quick revision: Algebra — Inequalities</h2>\n<p><strong>Mathematics — OL.</strong> solving linear inequalities, integer solution sets, shading regions on graphs (linear programming context).</p>\n<ul>\n<li>1. Solving</li>\n<li>2. Integer solutions</li>\n<li>3. Double inequalities</li>\n<li>4. Shading regions</li>\n</ul>\n<p><strong>How to use this:</strong> skim the list above, then open the full revision notes for any area that feels shaky, and finish with the topic questions to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
   "id": "cfcbe814-1f7f-4989-a8dd-9d300576dc6f",
@@ -2355,6 +3570,36 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "d710b057-5877-4f03-b63a-036fa8c42381",
+  "entity_type": "material",
+  "entity_id": "0a29078b-272e-4bc4-a24a-bd6bebd731cc",
+  "title": "Exam technique: Magnetism and Electromagnetism",
+  "content": "### What earns the marks\nFor electromagnets, turns plus current plus soft iron core earns each mark. For transformers, the turns ratio equation quoted earns the method mark. For induction, rate of change of flux linked to emf size earns the explanation mark.\n### Traps\nError: steel chosen for electromagnet cores. Correction: soft iron; steel suits permanent magnets. Error: Fleming hands swapped. Correction: left for motor, right for generator. Error: step-up confused with step-down. Correction: more secondary turns means step-up.\n### Worked example\nA transformer has 2000 primary turns and 100 secondary turns. The primary is supplied at 240 V. The turns ratio gives Vs = Vp × Ns / Np = 240 × 100 / 2000 = 12 V. More secondary turns than primary turns means a step-up transformer, so the output voltage rises.\n### Check yourself\nAn ideal transformer has 12 V at its secondary and a current of 4.0 A there. Find the primary current when the primary is at 240 V. Power in equals power out, so Ip = (12 × 4.0) / 240 = 0.20 A.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
+ },
+ {
+  "id": "d7e271f4-b81a-44bd-87a3-1cb4270a1cae",
+  "entity_type": "material",
+  "entity_id": "8537cd37-f33e-4d3d-8db2-ad7b7baa754e",
+  "title": "Exam technique: Web Technologies",
+  "content": "### What earns the marks\nFor web roles, HTML for structure plus CSS for presentation plus JavaScript for behaviour earns each mark. For threats, phishing versus pharming versus smishing distinguished earns one mark each. For cookies, session versus persistent with a use earns both marks.\n### Traps\nError: HTML claimed to style pages. Correction: CSS styles, HTML structures. Error: every scam called phishing. Correction: pharming redirects sites, smishing uses texts. Error: HTTPS said to block all attacks. Correction: it encrypts transit only.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:20:44.763052+00"
+ },
+ {
   "id": "d8b93a7c-e01b-4199-b342-d56a03161b7d",
   "entity_type": "material",
   "entity_id": "0b01158e-1681-416b-986a-b17cb4bc9956",
@@ -2415,6 +3660,21 @@
   "created_at": "2026-10-13 14:13:02.496566+00"
  },
  {
+  "id": "dbd71fc0-097d-4988-8416-b95ceccb7bb9",
+  "entity_type": "material",
+  "entity_id": "edbbedae-7847-4852-a895-44af0d0b57d5",
+  "title": "Differentiation — Study Notes",
+  "content": "<h2>Differentiation</h2>\n<h3>Basic Rules</h3>\n<ul>\n<li>d/dx (xⁿ) = n xⁿ⁻¹</li>\n<li>d/dx (k) = 0, d/dx (kx) = k</li>\n</ul>\n<p><strong>Example:</strong> y = 5x² − 3x gives dy/dx = 10x − 3.</p>\n<h3>Chain Rule</h3>\n<p>dy/dx = dy/du × du/dx.</p>\n<p><strong>Example:</strong> y = (3x − 1)⁵: dy/dx = 5(3x − 1)⁴ × 3 = 15(3x − 1)⁴.</p>\n<h3>Tangents and Normals</h3>\n<p>The tangent gradient at a point is dy/dx there; the normal gradient is −1/(dy/dx).</p>\n<p><strong>Example:</strong> y = x² at (2, 4): tangent y = 4x − 4; normal has gradient −1/4.</p>\n<h3>Stationary Points</h3>\n<p>Set dy/dx = 0, then classify with the second derivative:</p>\n<ul>\n<li>d²y/dx² &gt; 0 → minimum</li>\n<li>d²y/dx² &lt; 0 → maximum</li>\n<li>d²y/dx² = 0 → test either side</li>\n</ul>\n<p><strong>Example:</strong> y = x³ − 3x: dy/dx = 3x² − 3 = 0 at x = ±1; d²y/dx² = 6x, so a maximum at x = −1 and a minimum at x = 1.</p>\n<h3>Rates of Change</h3>\n<p>dy/dx is a rate: if V = 4/3 πr³, then dV/dr = 4πr² links volume change to radius change.</p>\n<p><strong>Exam tips:</strong> always restart gradients from the derivative at the exact point, and answer rate questions with units.</p>\n<h3>Rules and exam method</h3>\n<p>For y = axⁿ, dy/dx = naxⁿ⁻¹. Differentiate each term of a polynomial separately; a constant term differentiates to zero. Rewrite roots and reciprocals as powers first: √x = x^(1/2) and 1/x² = x⁻².</p>\n<p>Product rule: d/dx(uv) = u dv/dx + v du/dx. Quotient rule: d/dx(u/v) = (v du/dx − u dv/dx)/v². Chain rule: dy/dx = dy/du × du/dx. For (ax + b)ⁿ the result is na(ax + b)ⁿ⁻¹.</p>\n<p>Stationary points occur where dy/dx = 0. Classify them by the sign of dy/dx either side of the point, or with d²y/dx²: positive gives a minimum, negative a maximum, and zero means use the sign change. The gradient at a point gives the tangent; the normal has the negative reciprocal gradient.</p>\n<p><strong>Exam cue:</strong> Give the tangent or normal as y − y₁ = m(x − x₁), or simplified to y = mx + c, as the question asks. Check it by substituting the point back into the line.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:37:44.778172+00"
+ },
+ {
   "id": "dc2aefc9-f5c5-44e9-a440-8584b824eb91",
   "entity_type": "material",
   "entity_id": "dec61a69-ea89-4236-9ae4-64f25d54c51d",
@@ -2445,6 +3705,21 @@
   "created_at": "2026-10-13 14:21:52.343617+00"
  },
  {
+  "id": "de8128fd-e4ca-4d72-8e7f-4c9ad3d6d8bb",
+  "entity_type": "material",
+  "entity_id": "0cbbd441-9668-420f-9aa8-be8713c2ae54",
+  "title": "Exam technique: Probability (A2)",
+  "content": "### What earns the marks\nFor conditional probability, the restricted sample space stated earns the method mark. For independence checks, P(A)P(B) compared with P(A and B) earns both marks. For Bayes-style updates, the tree fractions multiplied along branches earn stepwise credit.\n### Traps\nError: mutually exclusive assumed independent. Correction: test, never assume. Error: given-condition ignored. Correction: shrink the denominator first. Error: branches added instead of multiplied. Correction: multiply along, add across.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
+ },
+ {
   "id": "e02dcf21-8bf5-4e23-ba66-8fec1ee65746",
   "entity_type": "material",
   "entity_id": "fcf12351-d3b1-4ebf-a940-772b1080dca9",
@@ -2458,6 +3733,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:20:47.748684+00"
+ },
+ {
+  "id": "e052b0cd-798f-44ca-ad36-48f35c9afdc3",
+  "entity_type": "material",
+  "entity_id": "60c15fd5-3a9c-4466-ab16-33b4c3496232",
+  "title": "Motion in a Circle and Gravity — Study Notes",
+  "content": "<h2>Motion in a circle and gravity</h2>\n<h3>Circular motion</h3>\n<ul>\n<li>A body moving in a circle at constant speed has a centripetal acceleration of v²/r, directed towards the centre.</li>\n<li>The centripetal force is F = mv²/r = mω²r, and it is provided by a real force such as tension, friction or gravity. It does no work on the body, because it is always perpendicular to the velocity.</li>\n</ul>\n<h3>Gravitational field</h3>\n<p>The gravitational field strength at a point is the force per unit mass placed at that point: g = F/m. Unit: N kg⁻¹. Field lines point towards the mass that creates the field.</p>\n<h3>Newton's law of gravitation</h3>\n<p>F = GMm/r², where r is measured from the centre of each point mass. Doubling the separation reduces the force to one quarter.</p>\n<h3>Gravitational field of a point mass</h3>\n<p>g = GM/r². Outside a uniform sphere, its field is the same as that of a point mass at its centre.</p>\n<h3>Gravitational potential</h3>\n<p>Gravitational potential at a point is the work done per unit mass in bringing a small mass from infinity to that point. It is always negative, is zero at infinity, and becomes more negative closer to the mass: V = −GM/r. Gravitational potential energy of a mass m is Ep = mV.</p>\n<p><strong>Worked example:</strong> a 2.0 kg object moves in a circle of radius 0.50 m at 3.0 m s⁻¹. The centripetal force is F = mv²/r = (2.0 × 3.0²) ÷ 0.50 = 36 N.</p>\n<p><strong>Exam tips:</strong> use r as the distance from the centre, not the surface. State that gravitational potential is negative and rises to zero at infinity. Field strength and potential are different quantities: do not mix their units.</p>\n<h3>Gravitational potential and escape velocity</h3>\n<p>Gravitational potential at a point is the work done per unit mass in moving a small mass from infinity to that point, so &phi; = -GM/r. Potential is negative because work must be done against gravity to remove a mass to infinity. The change in gravitational potential energy between two radii is GMm(1/r1 - 1/r2). A body escapes a planet when its kinetic energy equals the potential energy needed to reach infinity, which gives the escape speed v = &radic;(2GM/r).</p>\n<p><strong>Exam tip:</strong> use the zero of potential at infinity, and keep the sign of the potential negative in every calculation.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:57:02.669675+00"
  },
  {
   "id": "e1a819b6-bfed-4bf4-9744-1b0d2c9dd3fb",
@@ -2505,6 +3795,21 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "e715173b-dbd5-4052-9d20-83e0f099716d",
+  "entity_type": "material",
+  "entity_id": "1ca1987e-6f24-4b6a-91c0-a39f3f92e220",
+  "title": "Exam technique: Sampling",
+  "content": "### What earns the marks\nFor method choice, random vs stratified vs systematic justified earns the mark. For stratified allocation, the proportion of each stratum applied earns the method mark. For bias discussion, the named source of bias with its effect earns both marks.\n### Traps\nError: sample claimed unbiased with no method. Correction: name and justify the method. Error: equal numbers per stratum. Correction: allocate proportionally. Error: population confused with frame. Correction: frame is the list used.",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:24:33.511966+00"
+ },
+ {
   "id": "e7401dfe-e246-4a53-a61e-bd3c8a5031bb",
   "entity_type": "material",
   "entity_id": "57eaee80-6b7e-424d-b649-06a608be6256",
@@ -2518,6 +3823,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:09.159928+00"
+ },
+ {
+  "id": "e91cac84-7de9-4e13-ab41-6f605d4833d5",
+  "entity_type": "material",
+  "entity_id": "f35f2af5-9d17-40d9-8772-d181fa861e96",
+  "title": "Functions — Study Notes",
+  "content": "<h2>Functions</h2>\n<p>A function maps each input in the <strong>domain</strong> to exactly one output in the <strong>range</strong>.</p>\n<h3>Composite Functions</h3>\n<p>fg(x) means f(g(x)) — apply g first, then f. Order matters.</p>\n<p><strong>Example:</strong> f(x) = 2x + 1, g(x) = x². Then fg(x) = 2x² + 1 but gf(x) = (2x + 1)².</p>\n<h3>Inverse Functions</h3>\n<p>f⁻¹ reverses f: f⁻¹f(x) = x. To find it, swap x and y in y = f(x) and rearrange.</p>\n<p><strong>Example:</strong> f(x) = 3x − 2 gives f⁻¹(x) = (x + 2)/3.</p>\n<p>An inverse exists only if f is <strong>one-one</strong>. If not, restrict the domain (e.g. f(x) = x² for x ≥ 0 has f⁻¹(x) = √x). Graphically, y = f⁻¹(x) is the reflection of y = f(x) in the line y = x, and the range of f becomes the domain of f⁻¹.</p>\n<h3>Transformations</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>Notation</th><th>Effect on y = f(x)</th></tr>\n<tr><td>f(x) + a</td><td>translation up by a</td></tr>\n<tr><td>f(x + a)</td><td>translation left by a</td></tr>\n<tr><td>a f(x)</td><td>vertical stretch, factor a</td></tr>\n<tr><td>f(ax)</td><td>horizontal stretch, factor 1/a</td></tr>\n<tr><td>−f(x)</td><td>reflection in the x-axis</td></tr>\n<tr><td>f(−x)</td><td>reflection in the y-axis</td></tr>\n</table>\n<p><strong>Exam tips:</strong> state the domain of any inverse; when combining transformations, translations inside the bracket act in the opposite direction to the sign.</p>\n<h3>Composite and inverse functions: exam method</h3>\n<p>fg(x) means f(g(x)): apply g first, then f, so read the composite from the right. Check that the output of g lies in the domain of f before you combine them; restricted domains are a common examiner target.</p>\n<p>To find f⁻¹(x), write y = f(x), swap x and y, then rearrange to make y the subject. The domain of f⁻¹ is the range of f. A function has an inverse only if it is one-to-one on the domain given; restrict the domain (for example x ≥ 0 for a quadratic) when the question asks for it.</p>\n<p>The graph of f⁻¹ is the reflection of the graph of f in the line y = x, so the point (a, b) on f becomes (b, a) on f⁻¹. Use this to check an answer.</p>\n<p><strong>Exam cue:</strong> State the domain and range of an inverse when asked, and write fg and gf separately when order matters.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:10:06.182709+00"
  },
  {
   "id": "e9686cc5-82e8-4042-8124-8a4b6125ed23",
@@ -2548,6 +3868,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 13:40:26.838311+00"
+ },
+ {
+  "id": "ea582304-3978-4159-973a-2d16c6c3fea1",
+  "entity_type": "material",
+  "entity_id": "0886ecfd-6c56-4cec-a789-c9fb76259cd4",
+  "title": "Trigonometry — Quick Revision Summary",
+  "content": "<h2>Quick revision: Trigonometry</h2>\n<p><strong>Mathematics — AS (9709).</strong> Use the symmetry of the graphs. For sin x = 1/2 in 0 ≤ x ≤ 2π: the acute answer is π/6, and the second solution is π − π/6 = 5π/6.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Exact Values</li><li>Key Identities</li><li>Solving Equations</li><li>Graphs and Transformations</li><li>Using Identities</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>\n<h3>Worked example</h3>\n<p>Solve 2 sin x = −1 for 0 ≤ x ≤ 360°. Rearrange to sin x = −1/2. The reference angle is 30°, and sine is negative in the third and fourth quadrants, so x = 180° + 30° = 210° and x = 360° − 30° = 330°. Both answers go in the final line, because a question that asks for \"all solutions in the interval\" loses marks when one is missing.</p>\n<h3>Common mistakes</h3>\n<ul><li>Stopping at the calculator value and missing the second solution in the interval.</li><li>Giving answers in degrees when the question asks for radians, or the reverse. Check the units against the question before writing the final answer.</li><li>Dividing both sides of an equation by a trig expression that could be zero, which loses solutions. Factorise and set each factor to zero instead.</li></ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
  },
  {
   "id": "ebb72023-416e-4564-b745-2108d5e837b4",
@@ -2640,6 +3975,36 @@
   "created_at": "2026-10-15 04:55:02.538191+00"
  },
  {
+  "id": "f0af6bd5-f6ae-469b-bc1e-fa84f1b8e2b2",
+  "entity_type": "material",
+  "entity_id": "6d5aa4b1-9916-4af0-a529-74d409d9f9b9",
+  "title": "Quadratics — Study Notes",
+  "content": "<h2>Quadratics</h2>\n<p>A quadratic has the form ax² + bx + c with a ≠ 0. Master three tools: completing the square, the discriminant, and inequalities.</p>\n<h3>Completing the Square</h3>\n<p>Rewrite x² + bx + c as (x + b/2)² − (b/2)² + c.</p>\n<p><strong>Example:</strong> x² + 6x + 5 = (x + 3)² − 9 + 5 = (x + 3)² − 4, so the vertex is at (−3, −4).</p>\n<p>For a &gt; 1, factor out a first: 2x² + 12x + 19 = 2(x² + 6x) + 19 = 2(x + 3)² − 18 + 19 = 2(x + 3)² + 1.</p>\n<p>Vertex form a(x − h)² + k gives the minimum/maximum value k at x = h — this is how you find a maximum area or minimum cost.</p>\n<h3>The Discriminant</h3>\n<p>Δ = b² − 4ac decides how the curve meets the x-axis:</p>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>Δ</th><th>Roots</th><th>Graph</th></tr>\n<tr><td>Δ &gt; 0</td><td>two distinct real roots</td><td>crosses x-axis twice</td></tr>\n<tr><td>Δ = 0</td><td>repeated root</td><td>touches (tangent)</td></tr>\n<tr><td>Δ &lt; 0</td><td>no real roots</td><td>never meets x-axis</td></tr>\n</table>\n<p><strong>Example:</strong> kx² + 4x + 1 = 0 has equal roots when 16 − 4k = 0, so k = 4.</p>\n<h3>Quadratic Inequalities</h3>\n<p>Solve by sketching. For x² − 5x + 4 &lt; 0, factorise: (x − 1)(x − 4) &lt; 0, and the curve is below the axis between the roots, so 1 &lt; x &lt; 4.</p>\n<p><strong>Tip:</strong> flip the inequality when dividing by a negative number, and always sketch to check which interval you need.</p>\n<h3>Curve and Line Intersections</h3>\n<p>Set the equations equal; the resulting quadratic's discriminant tells you if the line is a secant (Δ &gt; 0), tangent (Δ = 0) or misses (Δ &lt; 0).</p>\n<p><strong>Exam tips:</strong> complete the square before reading off turning points; state the discriminant condition explicitly before solving for an unknown coefficient.</p>\n<h3>Discriminant and inequalities: exam method</h3>\n<p>For ax² + bx + c = 0 the discriminant is b² − 4ac. Positive gives two distinct real roots, zero gives one repeated root, and negative gives no real roots. Use this without solving the equation when the question asks about the nature of the roots.</p>\n<p>To find the values of k for which a quadratic has no real roots, require b² − 4ac &lt; 0 and solve the resulting inequality in k.</p>\n<p>To solve a quadratic inequality, find the roots, sketch the U-shaped (a &gt; 0) or inverted-U (a &lt; 0) curve, and read off the region above or below the axis. For x² − 5x + 6 &lt; 0 the roots are 2 and 3, and the solution is 2 &lt; x &lt; 3.</p>\n<p><strong>Exam cue:</strong> Completing the square gives the turning point (p, q) and shows the minimum or maximum value directly.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:47:33.160331+00"
+ },
+ {
+  "id": "f0d428de-ea64-4577-9916-a864bbdbef0c",
+  "entity_type": "material",
+  "entity_id": "c003d9a3-a2b3-4cd9-a6af-7fdbe98cf9d6",
+  "title": "Geometry — Congruence and Similarity — Study Notes",
+  "content": "<h2>Geometry — Congruence and Similarity</h2>\n<p><strong>Cambridge IGCSE 0580 (2025–2027):</strong> congruence criteria, similar shapes, scale factors for length/area/volume, symmetry.</p>\n\n<h3>1. Congruence</h3>\n<p>Criteria: SSS, SAS, ASA (AAS), RHS. State the criterion used when proving triangles congruent, then transfer matching sides/angles.</p>\n\n<h3>2. Similarity</h3>\n<p>Equal angles + sides in proportion. Scale factor k = corresponding new ÷ old.</p>\n<p><strong>Example:</strong> triangles with sides 4, 6, 8 and 6, 9, 12: k = 1.5.</p>\n\n<h3>3. Length, area, volume factors</h3>\n<p>Length ×k; area ×k²; volume ×k³ — including reverse problems.</p>\n<p><strong>Example:</strong> volumes 250 cm³ and 2000 cm³: k³ = 8 ⇒ k = 2 ⇒ areas ×4.</p>\n\n<h3>4. Area/volume calculations from similarity</h3>\n<p>Find k from a matching length pair, then apply the right power. Watch hidden pairs (radii, heights, slants).</p>\n\n<h3>5. Symmetry</h3>\n<p>Line symmetry (reflect) and rotational symmetry order — for 2-D shapes and 3-D solids (prisms, cubes, pyramids).</p>\n\n<p><strong>Exam tips:</strong> write the matching-vertex order in similarity statements (△ABC ~ △DEF); choose which k-power applies <em>before</em> calculating.</p>\n<h3>Congruent triangles</h3>\n<p>Two triangles are congruent when they match on one of four conditions: SSS (three sides), SAS (two sides and the included angle), ASA or AAS (two angles and a side), or RHS (right angle, hypotenuse and a side) for right-angled triangles. SSA is not a condition. Name the congruence test in every proof.</p>\n<h3>Similar shapes and scale factors</h3>\n<p>Similar shapes have equal angles and proportional sides. The linear scale factor k multiplies lengths, k² multiplies areas and k³ multiplies volumes. To find a missing side, set up the ratio of corresponding sides and cross-multiply.</p>\n<h3>Transformations in geometry questions</h3>\n<p>A translation is described by a column vector, a rotation by its centre, angle and direction, a reflection by its mirror line and an enlargement by its centre and scale factor. Image points are checked by measuring the same distance from the centre or the mirror line.</p>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:42:20.893682+00"
+ },
+ {
   "id": "f19959df-7d2d-4cc1-8917-540ba53be73b",
   "entity_type": "material",
   "entity_id": "d371087c-b171-4536-ae7e-16eadfdba067",
@@ -2653,6 +4018,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-09-30 16:51:29.172364+00"
+ },
+ {
+  "id": "f1b1534b-a11f-48b1-bd53-8291dc037d8b",
+  "entity_type": "material",
+  "entity_id": "12080994-0309-4d7d-8fea-86149b5a013f",
+  "title": "Kinematics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Kinematics</h2>\n<p><strong>Physics — AS.</strong> Sign convention matters: take up as positive and g = −9.81 m s⁻² for falling objects.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Definitions</li><li>Graphs</li><li>SUVAT (uniform acceleration only)</li><li>Projectiles</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:11.116528+00"
  },
  {
   "id": "f2cf4e97-22cf-4fb0-907a-d8280a01e96e",
@@ -2713,6 +4093,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-12 09:51:29.588223+00"
+ },
+ {
+  "id": "f54e5120-48c3-493e-b931-f6d4ee9c7cc9",
+  "entity_type": "material",
+  "entity_id": "c6799c2c-a5ca-4a0d-b962-7bf95e65b17d",
+  "title": "Kinematics — Study Notes",
+  "content": "<h2>Kinematics</h2>\n<h3>Definitions</h3>\n<ul>\n<li><strong>Distance</strong> and <strong>speed</strong> are scalars; <strong>displacement</strong> s and <strong>velocity</strong> v are vectors (magnitude and direction).</li>\n<li><strong>Velocity</strong> v = ds/dt: rate of change of displacement.</li>\n<li><strong>Acceleration</strong> a = dv/dt: rate of change of velocity. A change of direction at constant speed is still an acceleration.</li>\n</ul>\n<h3>Graphs</h3>\n<ul>\n<li>Gradient of a displacement–time graph = velocity. A horizontal line means the object is at rest.</li>\n<li>Gradient of a velocity–time graph = acceleration. A straight line with constant gradient means uniform acceleration.</li>\n<li><strong>Area under a velocity–time graph = displacement</strong>. Area below the time axis counts as negative (a return journey).</li>\n<li>Area under an acceleration–time graph = change in velocity.</li>\n</ul>\n<h3>SUVAT equations (uniform acceleration only)</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>Equation</th><th>Quantity not involved</th></tr>\n<tr><td>v = u + at</td><td>s</td></tr>\n<tr><td>s = ut + ½at²</td><td>v</td></tr>\n<tr><td>v² = u² + 2as</td><td>t</td></tr>\n<tr><td>s = ½(u + v)t</td><td>a</td></tr>\n</table>\n<p>Choose the equation that leaves out the quantity you were not given or do not need. Sign convention matters: take up (or the direction of motion) as positive. For objects falling freely, take g = −9.81 m s⁻² if up is positive.</p>\n<h3>Non-uniform motion</h3>\n<ul>\n<li>When acceleration is not constant, SUVAT cannot be used. Work from the graphs instead.</li>\n<li>Average speed = total distance ÷ total time. Average velocity = total displacement ÷ total time. These are not the same when the object changes direction.</li>\n<li>Read the gradient at a point on a curved s–t or v–t graph from the tangent at that point.</li>\n</ul>\n<h3>Projectiles</h3>\n<p>Resolve the launch velocity into independent components. Horizontal: uₓ = u cos θ, constant velocity, s = uₓt. Vertical: u_y = u sin θ, uniform acceleration g downwards, so SUVAT applies. At the highest point v_y = 0. For a launch and landing at the same level, time of flight = 2u_y/g.</p>\n<p><strong>Worked example:</strong> a ball is launched at 20 m s⁻¹ at 30° above the horizontal. uₓ = 20 cos 30° ≈ 17.3 m s⁻¹ and u_y = 20 sin 30° = 10 m s⁻¹. Time of flight = 2 × 10 / 9.81 ≈ 2.04 s. Range = 17.3 × 2.04 ≈ 35 m.</p>\n<p><strong>Exam tips:</strong> write the sign convention at the top of the answer. Treat the horizontal and vertical motions as two separate one-dimensional problems linked only by time. Check whether the question asks for speed or velocity, and distance or displacement.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 09:10:06.182709+00"
  },
  {
   "id": "f66b5877-5357-43e3-afa9-d545e1e4fa26",
@@ -2790,6 +4185,21 @@
   "created_at": "2026-10-13 14:20:26.362014+00"
  },
  {
+  "id": "fb041936-a98f-4bcd-9ed1-30b3cda4d136",
+  "entity_type": "material",
+  "entity_id": "2533db4e-b82d-4d5d-bc05-6e82b803ba82",
+  "title": "Continuous Random Variables — Quick Revision Summary",
+  "content": "<h2>Quick revision: Continuous Random Variables</h2>\n<p><strong>Mathematics — A2.</strong> A continuous variable X is described by a density f(x) with f(x) ≥ 0 and ∫f(x)dx = 1 over all x. Probabilities are areas:</p>\n<h3>Key areas to revise</h3>\n<ul><li>Probability Density Functions</li><li>Finding Unknown Constants</li><li>Expectation and Variance</li><li>The Median and Mode</li><li>Uniform Distribution</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "summary"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:28:17.375781+00"
+ },
+ {
   "id": "fc0b81e4-4c4b-4389-a832-65f125990875",
   "entity_type": "material",
   "entity_id": "9aeb73c7-e1de-4bae-bb5e-eb23ae83e3b3",
@@ -2863,5 +4273,20 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:06:36.695662+00"
+ },
+ {
+  "id": "ffde7e72-5601-4154-ba78-e031e465fd38",
+  "entity_type": "material",
+  "entity_id": "0cbbd441-9668-420f-9aa8-be8713c2ae54",
+  "title": "Exam technique: Probability (A2)",
+  "content": "### What earns the marks\nFor conditional probability, the restricted sample space stated earns the method mark. For independence checks, P(A)P(B) compared with P(A and B) earns both marks. For Bayes-style updates, the tree fractions multiplied along branches earn stepwise credit.\n### Traps\nError: mutually exclusive assumed independent. Correction: test, never assume. Error: given-condition ignored. Correction: shrink the denominator first. Error: branches added instead of multiplied. Correction: multiply along, add across.\n### Worked example\nEvent A has P(A) = 0.5 and event B has P(B) = 0.4. Given that A and B are independent, P(A and B) = 0.5 × 0.4 = 0.20. If the question instead gives P(A and B) = 0.3, then the events are not independent, because 0.3 does not equal 0.20. The conditional probability is P(A | B) = P(A and B) ÷ P(B) = 0.3 ÷ 0.4 = 0.75.\n### Check yourself\nTwo events are mutually exclusive with P(A) = 0.3 and P(B) = 0.2. Are they independent? No. P(A and B) = 0 but P(A)P(B) = 0.06, so the events are dependent. Mutually exclusive events are always dependent when both have non-zero probability.\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "exam-technique"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-15 10:23:18.665838+00"
  }
 ]

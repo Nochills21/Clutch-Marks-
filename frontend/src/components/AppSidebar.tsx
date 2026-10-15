@@ -30,8 +30,8 @@ const studentLinkGroups = [
   {
     title: "Study & practise",
     links: [
-      { title: "Lessons", url: "/lessons", icon: BookOpen },
-      { title: "Revision Notes", url: "/notes", icon: FileText },
+      // One entry for everything written: notes hub (lessons are reached from it).
+      { title: "Notes", url: "/notes", icon: FileText },
       { title: "Flashcards", url: "/flashcards", icon: Layers },
       { title: "Quizzes", url: "/quizzes", icon: Brain },
       { title: "Practice", url: "/practice", icon: Target },

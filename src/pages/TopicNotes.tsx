@@ -342,7 +342,7 @@ export default function TopicNotes() {
                     </>
                   ) : m.content ? null : (
                     <Button asChild size="sm" variant="ghost" className="gap-1 h-8">
-                      <Link to="/notes">
+                      <Link to={`/notes?topic=${topicId}`}>
                         Read <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </Button>
