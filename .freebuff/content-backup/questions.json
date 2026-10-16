@@ -666,6 +666,24 @@
   "statement_id": null
  },
  {
+  "id": "04390f8f-ffb0-43c8-89e2-e547cd47a4dc",
+  "quiz_id": "53f6dc7d-9c82-4dcd-93bd-4df54f0e8e7c",
+  "question_text": "A continuous random variable has pdf f(x) = 2x for 0 <= x <= 1. What is E(X)?",
+  "options": [
+   "0.5",
+   "1",
+   "0.667",
+   "1.5"
+  ],
+  "correct_option": 2,
+  "explanation": "E(X) = integral of x x 2x from 0 to 1 = 2/3, which is 0.667 to 3 decimal places.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "0476a923-6b76-4ec0-8bb9-93be70e13855",
   "quiz_id": "19007845-18e5-4a37-a2ca-1d25a90cc677",
   "question_text": "What is the primary function of a device driver in a computer system?",
@@ -679,6 +697,24 @@
   "explanation": "A device driver translates OS calls to hardware specifics, while the other options are unrelated or incorrect.",
   "sort_order": 4,
   "created_at": "2026-10-10 06:07:33.794414+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "048c8dd4-8567-43dc-8547-d5477e7014df",
+  "quiz_id": "a1af827c-dcdd-45af-a919-3f21ac573019",
+  "question_text": "In how many ways can a committee of 2 be chosen from 5 people?",
+  "options": [
+   "20",
+   "10",
+   "25",
+   "7"
+  ],
+  "correct_option": 1,
+  "explanation": "Order does not matter, so the number of ways is C(5, 2) = 10.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
@@ -1292,6 +1328,24 @@
   "sort_order": 7,
   "created_at": "2026-09-21 17:57:04.36356+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "088ef5f0-6b18-443c-924a-64ebfa469185",
+  "quiz_id": "aaee8b30-affd-4508-a0f9-02eca942fe95",
+  "question_text": "Events A and B are independent with P(A) = 0.4 and P(B) = 0.3. What is P(A and B)?",
+  "options": [
+   "0.12",
+   "0.7",
+   "0.58",
+   "0.1"
+  ],
+  "correct_option": 0,
+  "explanation": "For independent events P(A and B) = P(A) x P(B) = 0.4 x 0.3 = 0.12.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -3528,6 +3582,24 @@
   "statement_id": null
  },
  {
+  "id": "16508869-3510-447e-8fff-27a7326e9b6b",
+  "quiz_id": "24521c7e-5420-4d95-bb1b-1f5d3a4765a6",
+  "question_text": "For the same distribution, what is Var(X)?",
+  "options": [
+   "0.49",
+   "4.9",
+   "0.7",
+   "2.1"
+  ],
+  "correct_option": 0,
+  "explanation": "E(X^2) = 0.2 + 2 + 2.7 = 4.9, so Var(X) = 4.9 - 2.1^2 = 4.9 - 4.41 = 0.49.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "16588ca5-15d6-4db1-b876-10671dbf0486",
   "quiz_id": "0874db41-3ed0-41fd-88de-1b16146f8f85",
   "question_text": "A wave has frequency 2 Hz and wavelength 3 m. What is its speed?",
@@ -3578,6 +3650,24 @@
   "sort_order": 1,
   "created_at": "2026-08-22 14:16:03.222511+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "16b3ede7-5d27-4e03-88c1-a5849ca513c6",
+  "quiz_id": "96daad31-cb36-490a-a064-37fad3a24b80",
+  "question_text": "The data set 1, 2, 3, 4, 5, 6 is treated as a whole population. What is its variance to 2 decimal places?",
+  "options": [
+   "2.92",
+   "3.50",
+   "1.71",
+   "2.50"
+  ],
+  "correct_option": 0,
+  "explanation": "For consecutive integers the population variance is (n^2 - 1)/12 = 35/12 = 2.92. The value 1.71 is the standard deviation, not the variance.",
+  "sort_order": 23,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -3668,6 +3758,24 @@
   "sort_order": 4,
   "created_at": "2026-09-21 17:56:48.237815+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "177b9348-f8b7-4ce6-85fc-5144b4a48974",
+  "quiz_id": "9024cae1-59cf-49bf-a80f-288ce0031e1a",
+  "question_text": "Find the integral of x cos x with respect to x.",
+  "options": [
+   "x sin x - cos x + C",
+   "x sin x + cos x + C",
+   "-x sin x + cos x + C",
+   "sin x + C"
+  ],
+  "correct_option": 1,
+  "explanation": "By parts with u = x and dv = cos x dx: integral = x sin x - integral of sin x = x sin x + cos x + C.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -3978,6 +4086,24 @@
   "statement_id": null
  },
  {
+  "id": "189651f1-4a2a-4887-9898-44cb784b4bf4",
+  "quiz_id": "e9ff2c0d-16d0-4fab-a6ba-7ee6d7471ee9",
+  "question_text": "Which condition shows that two non-zero vectors are perpendicular?",
+  "options": [
+   "a.b = 0",
+   "a.b = 1",
+   "|a| = 0",
+   "a = -b"
+  ],
+  "correct_option": 0,
+  "explanation": "Two non-zero vectors are perpendicular exactly when their scalar product is zero.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "189eeaf8-4b65-4522-862e-892ad0496f9a",
   "quiz_id": "0a4b03bf-3f68-4078-942a-26cca88f7536",
   "question_text": "Which quantity is conserved in an elastic collision but not in an inelastic one?",
@@ -4046,6 +4172,24 @@
   "sort_order": 11,
   "created_at": "2026-10-12 08:06:56.605428+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "18ef890f-a517-4f57-ba2c-9c415ef08125",
+  "quiz_id": "ff89eced-2666-4d5d-a2e7-7bab00e4db60",
+  "question_text": "If X ~ B(8, 0.25), what is P(X >= 1) to 4 decimal places?",
+  "options": [
+   "0.1001",
+   "0.6004",
+   "0.8999",
+   "0.2500"
+  ],
+  "correct_option": 2,
+  "explanation": "P(X >= 1) = 1 - P(X = 0) = 1 - 0.75^8 = 1 - 0.1001 = 0.8999.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -4446,6 +4590,24 @@
   "statement_id": null
  },
  {
+  "id": "1bc339e9-8c2f-485d-9a25-bd1cc5f7da9e",
+  "quiz_id": "8b72f3a7-bcd9-44dd-afbc-1674f2dbdf38",
+  "question_text": "Write 3 sin x + 4 cos x in the form R sin(x + a) with R > 0. What is R?",
+  "options": [
+   "7",
+   "1",
+   "5",
+   "12"
+  ],
+  "correct_option": 2,
+  "explanation": "R = sqrt(3^2 + 4^2) = sqrt(25) = 5.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "1bdaaf9c-4268-4771-a078-ee2f8c64c74e",
   "quiz_id": "444699b3-858e-4243-a865-0facb42333f8",
   "question_text": "Estimate \\(29^2\\) without a calculator.",
@@ -4770,6 +4932,24 @@
   "statement_id": null
  },
  {
+  "id": "1df5464c-ddc3-45e1-8c86-b8ee91852d1a",
+  "quiz_id": "03b79dc6-852d-433c-a7da-37f02b5bb665",
+  "question_text": "Express 1 / ((x - 1)(x + 2)) in partial fractions.",
+  "options": [
+   "1/(x - 1) - 1/(x + 2)",
+   "1/3(x - 1) - 1/3(x + 2)",
+   "1/3 (1/(x - 1) - 1/(x + 2))",
+   "1/(3(x - 1)) + 1/(3(x + 2))"
+  ],
+  "correct_option": 2,
+  "explanation": "Let 1/((x - 1)(x + 2)) = A/(x - 1) + B/(x + 2). Then A = 1/3 and B = -1/3.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "1e1eb4a7-1074-4a9f-b21a-315d207711a0",
   "quiz_id": "a09ecf3a-5a4b-4f7d-8267-9ecb4b218d64",
   "question_text": "What is the unit of weight?",
@@ -4964,6 +5144,24 @@
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:57.167755+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "1fc938df-a7b3-4613-b21c-46a81b5afb73",
+  "quiz_id": "d02804f3-29cb-420c-a765-b2e60e24ae74",
+  "question_text": "H0: mu = 50 and H1: mu > 50. What type of test is this?",
+  "options": [
+   "Two-tailed",
+   "One-tailed (upper)",
+   "One-tailed (lower)",
+   "Not a hypothesis test"
+  ],
+  "correct_option": 1,
+  "explanation": "The alternative hypothesis is only greater than 50, so the test is one-tailed with the critical region in the upper tail.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -5778,6 +5976,24 @@
   "statement_id": null
  },
  {
+  "id": "26805ea4-687d-46b7-bea0-5891b2c78288",
+  "quiz_id": "5b535f8f-c454-4507-a3c1-8767dae97327",
+  "question_text": "X ~ N(50, 16). What is P(X < 54)?",
+  "options": [
+   "0.1587",
+   "0.8413",
+   "0.5",
+   "0.6826"
+  ],
+  "correct_option": 1,
+  "explanation": "Standardise: z = (54 - 50)/sqrt(16) = 1, so P(X < 54) = P(Z < 1) = 0.8413.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "26849d87-b173-4dff-a02d-c9331c1621c3",
   "quiz_id": "ccb42b62-7562-4f90-8dc3-b6b5db3bf553",
   "question_text": "Explain the concept of encryption and its role in secure data transmission. Include the types of encryption and their applications.",
@@ -5812,6 +6028,24 @@
   "difficulty": "check",
   "objective_id": null,
   "statement_id": "420d55a2-d546-44c8-837e-87c43299b6e1"
+ },
+ {
+  "id": "26d0ad0d-4bd2-4fbb-9be7-a5e903ea249a",
+  "quiz_id": "57743ba2-b113-44e2-bd23-58515247a5b9",
+  "question_text": "What is the mode of the data set 2, 3, 3, 5, 7?",
+  "options": [
+   "2",
+   "3",
+   "5",
+   "7"
+  ],
+  "correct_option": 1,
+  "explanation": "The mode is the value that occurs most often. The value 3 appears twice and every other value once.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "26fa5615-6f93-4e86-8421-7e8b53bf0510",
@@ -6372,6 +6606,24 @@
   "statement_id": null
  },
  {
+  "id": "29d54658-1b90-4da1-a9d9-f34437ce6ed6",
+  "quiz_id": "706e051b-0ce7-4f68-8b28-c9f988479b5c",
+  "question_text": "What is a sampling frame?",
+  "options": [
+   "A list of the population from which the sample is drawn",
+   "A graph used to plot data",
+   "The sample mean",
+   "A test statistic"
+  ],
+  "correct_option": 0,
+  "explanation": "A sampling frame is the list of population members from which the sample is selected.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "29daf559-ffd4-415d-9586-63e5f3f79093",
   "quiz_id": "fbdd17ec-cf8a-49cd-9aea-b0ebc2b31672",
   "question_text": "In-order traversal of a BST outputs keys:",
@@ -6746,6 +6998,24 @@
   "sort_order": 11,
   "created_at": "2026-10-12 08:16:18.877979+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "2c6c664e-6cbe-4d57-ae14-1a702a1a218e",
+  "quiz_id": "24521c7e-5420-4d95-bb1b-1f5d3a4765a6",
+  "question_text": "For the same distribution with E(X) = 2.1, what is E(3X + 2)?",
+  "options": [
+   "8.3",
+   "6.3",
+   "4.1",
+   "8.1"
+  ],
+  "correct_option": 0,
+  "explanation": "E(3X + 2) = 3 x 2.1 + 2 = 8.3.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -7142,6 +7412,24 @@
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:51.51593+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "2f22060d-3daf-4080-931a-cd6d2f7b6dfc",
+  "quiz_id": "03b79dc6-852d-433c-a7da-37f02b5bb665",
+  "question_text": "What is the remainder when x^2 + 3x + 5 is divided by x + 1?",
+  "options": [
+   "5",
+   "-3",
+   "2",
+   "3"
+  ],
+  "correct_option": 3,
+  "explanation": "By the remainder theorem, the remainder is f(-1) = 1 - 3 + 5 = 3.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -8010,6 +8298,24 @@
   "statement_id": null
  },
  {
+  "id": "35a87336-4113-4624-852f-3872717ce436",
+  "quiz_id": "57743ba2-b113-44e2-bd23-58515247a5b9",
+  "question_text": "What is the median of 1, 3, 4, 6, 8, 9, 12?",
+  "options": [
+   "4",
+   "6",
+   "8",
+   "7"
+  ],
+  "correct_option": 1,
+  "explanation": "With 7 ordered values the median is the 4th value, which is 6.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "35bbb286-17f7-40bf-9a1e-2d2966ff6910",
   "quiz_id": "57743ba2-b113-44e2-bd23-58515247a5b9",
   "question_text": "A histogram has unequal class widths with frequencies 8, 20, 12 for widths 5, 10, 4. Which class has the tallest bar, and why?",
@@ -8276,6 +8582,24 @@
   "sort_order": 2,
   "created_at": "2026-08-22 14:07:07.516764+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "3730c991-5b74-42fb-afd4-4bc89fe79ebb",
+  "quiz_id": "a28e9def-d0a4-49ab-9ba1-9779a2b833fd",
+  "question_text": "Differentiate y = sin(3x) with respect to x.",
+  "options": [
+   "cos 3x",
+   "-3 cos 3x",
+   "3 sin 3x",
+   "3 cos 3x"
+  ],
+  "correct_option": 3,
+  "explanation": "By the chain rule, dy/dx = 3 cos(3x).",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -8962,6 +9286,24 @@
   "difficulty": "drill",
   "objective_id": null,
   "statement_id": "e7ccd480-7016-45b8-b780-861f237f7e5e"
+ },
+ {
+  "id": "3a9eff08-5860-46eb-a473-64546c09b571",
+  "quiz_id": "ff89eced-2666-4d5d-a2e7-7bab00e4db60",
+  "question_text": "If X ~ B(6, 0.5), what is P(X = 3) to 4 decimal places?",
+  "options": [
+   "0.3125",
+   "0.3750",
+   "0.1563",
+   "0.5000"
+  ],
+  "correct_option": 0,
+  "explanation": "P(X = 3) = C(6, 3) x 0.5^3 x 0.5^3 = 20/64 = 0.3125.",
+  "sort_order": 23,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "3aa4de54-3bc7-404c-b6ca-753a4fd40fb9",
@@ -9806,6 +10148,24 @@
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:40.480254+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "3f59c8a6-6c09-4aec-a122-336097f6f860",
+  "quiz_id": "9024cae1-59cf-49bf-a80f-288ce0031e1a",
+  "question_text": "Evaluate the integral of e^(2x) from 0 to 1.",
+  "options": [
+   "(e^2 - 1)/2",
+   "e^2 - 1",
+   "e^2/2",
+   "2e^2 - 2"
+  ],
+  "correct_option": 0,
+  "explanation": "The integral is [e^(2x)/2] from 0 to 1 = (e^2 - 1)/2.",
+  "sort_order": 14,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -10778,6 +11138,24 @@
   "sort_order": 4,
   "created_at": "2026-08-22 13:58:46.563963+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "45153e0b-4abc-4cf8-a00a-2dd40da14f20",
+  "quiz_id": "10cad8f1-146d-4c82-88d3-a49442204b1a",
+  "question_text": "If X ~ Po(4), what is P(X = 1) to 4 decimal places?",
+  "options": [
+   "0.0733",
+   "0.0183",
+   "0.1465",
+   "0.2381"
+  ],
+  "correct_option": 0,
+  "explanation": "P(X = 1) = 4e^(-4) = 4 x 0.0183156 = 0.0733 to 4 decimal places.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -11844,6 +12222,24 @@
   "statement_id": null
  },
  {
+  "id": "4bccdc91-692a-4c6e-8148-33d582455cb2",
+  "quiz_id": "ff89eced-2666-4d5d-a2e7-7bab00e4db60",
+  "question_text": "If X ~ B(4, 0.5), what is P(X = 2)?",
+  "options": [
+   "0.125",
+   "0.250",
+   "0.500",
+   "0.375"
+  ],
+  "correct_option": 3,
+  "explanation": "P(X = 2) = C(4,2) x 0.5^2 x 0.5^2 = 6 x 0.0625 = 0.375.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "4c0c0b08-8864-41a7-afca-6e8c1d4c3a3b",
   "quiz_id": "53f6dc7d-9c82-4dcd-93bd-4df54f0e8e7c",
   "question_text": "X has pdf f(x) = kx on [0, 2]. Find k for a valid pdf, then P(X > 1).",
@@ -12542,6 +12938,24 @@
   "sort_order": 4,
   "created_at": "2026-09-14 18:41:41.811409+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "50b322cf-a2a9-4b12-aba8-2b6b801d8b89",
+  "quiz_id": "24521c7e-5420-4d95-bb1b-1f5d3a4765a6",
+  "question_text": "X takes values 1, 2, 3 with probabilities 0.2, 0.5 and 0.3. What is E(X)?",
+  "options": [
+   "2",
+   "2.1",
+   "1.8",
+   "2.5"
+  ],
+  "correct_option": 1,
+  "explanation": "E(X) = 1(0.2) + 2(0.5) + 3(0.3) = 0.2 + 1 + 0.9 = 2.1.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -14076,6 +14490,24 @@
   "statement_id": null
  },
  {
+  "id": "5a3feedc-c6d0-4cee-804e-3e11e3621403",
+  "quiz_id": "706e051b-0ce7-4f68-8b28-c9f988479b5c",
+  "question_text": "A population has standard deviation 6. What is the standard error of the sample mean for a sample of size 36?",
+  "options": [
+   "6",
+   "1",
+   "0.167",
+   "36"
+  ],
+  "correct_option": 1,
+  "explanation": "The standard error is sigma/sqrt(n) = 6/sqrt(36) = 1.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "5a983df9-68e6-4612-b47f-340ca9a9a978",
   "quiz_id": "83a5aaae-6c28-469d-80a3-6d091e75c905",
   "question_text": "Write DDL to create Table Member(MemberID INTEGER PRIMARY KEY, Name TEXT(30)). Which statement is correct?",
@@ -14774,6 +15206,24 @@
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:40.098206+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "5fa17a01-c83c-4bb0-a8ae-45b02895b3b2",
+  "quiz_id": "53f6dc7d-9c82-4dcd-93bd-4df54f0e8e7c",
+  "question_text": "X is uniform on [0, 4]. What is P(X < 1)?",
+  "options": [
+   "0.25",
+   "0.50",
+   "0.75",
+   "1.00"
+  ],
+  "correct_option": 0,
+  "explanation": "The density is 1/4 on [0, 4], so P(X < 1) = (1 - 0)/4 = 0.25.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -16110,6 +16560,24 @@
   "statement_id": null
  },
  {
+  "id": "671ca3f5-a1f8-4679-9d50-c5f525b62017",
+  "quiz_id": "53f6dc7d-9c82-4dcd-93bd-4df54f0e8e7c",
+  "question_text": "The cumulative distribution function is F(x) = x^2 for 0 <= x <= 1. What is P(0.5 < X < 1)?",
+  "options": [
+   "0.25",
+   "0.50",
+   "0.75",
+   "1.00"
+  ],
+  "correct_option": 2,
+  "explanation": "P(0.5 < X < 1) = F(1) - F(0.5) = 1 - 0.25 = 0.75.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "6734e96b-e0c7-4f15-a13a-c5264bf5e641",
   "quiz_id": "afd18bba-8c7a-47a4-8a05-d2f23b6f0463",
   "question_text": "An arithmetic series has sum formula S_n = 3n squared + 2n. Find the nth term.",
@@ -16326,6 +16794,24 @@
   "statement_id": "6ce916a8-1105-4534-8542-13b1edfba4b0"
  },
  {
+  "id": "686308e1-c2e5-41eb-af99-8242d346d993",
+  "quiz_id": "aaee8b30-affd-4508-a0f9-02eca942fe95",
+  "question_text": "P(A) = 0.6 and P(B given A) = 0.5. What is P(A and B)?",
+  "options": [
+   "0.3",
+   "0.5",
+   "1.1",
+   "0.1"
+  ],
+  "correct_option": 0,
+  "explanation": "P(A and B) = P(A) x P(B given A) = 0.6 x 0.5 = 0.3.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "68827726-4236-430d-89e3-64f5b322b55d",
   "quiz_id": "2c165904-9e60-4ea0-bf46-c3879345bb35",
   "question_text": "A 2.0 kg object moves at 3.0 m s⁻¹. What is its kinetic energy?",
@@ -16340,6 +16826,24 @@
   "sort_order": 100,
   "created_at": "2026-10-13 13:42:52.98217+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "68ca149f-b97b-4427-8d79-d4a319c454ae",
+  "quiz_id": "10cad8f1-146d-4c82-88d3-a49442204b1a",
+  "question_text": "If X ~ Po(1.5), what is P(X = 0) to 3 decimal places?",
+  "options": [
+   "0.223",
+   "0.335",
+   "0.777",
+   "0.150"
+  ],
+  "correct_option": 0,
+  "explanation": "P(X = 0) = e^(-1.5) = 0.2231, which is 0.223 to 3 decimal places.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -16992,6 +17496,24 @@
   "statement_id": null
  },
  {
+  "id": "6d02c07d-b4fc-467a-a8e4-6c57e40fdacd",
+  "quiz_id": "5b535f8f-c454-4507-a3c1-8767dae97327",
+  "question_text": "If Z ~ N(0, 1), what is P(Z > 2) to 4 decimal places?",
+  "options": [
+   "0.9772",
+   "0.0228",
+   "0.9544",
+   "0.0456"
+  ],
+  "correct_option": 1,
+  "explanation": "P(Z > 2) = 1 - P(Z < 2) = 1 - 0.9772 = 0.0228.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "6d05e02f-a2a8-4646-8ee3-a638cd0eb96d",
   "quiz_id": "419f8348-f4aa-48e0-a1f3-83dc48e034be",
   "question_text": "What happens if a program keeps reading after the last line with no EOF test?",
@@ -17168,6 +17690,24 @@
   "sort_order": 5,
   "created_at": "2026-08-22 14:07:03.358326+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "6de199b7-4db5-4b4d-9a99-458219e8cc1c",
+  "quiz_id": "aaee8b30-affd-4508-a0f9-02eca942fe95",
+  "question_text": "P(A) = 0.5, P(B) = 0.4 and P(A or B) = 0.7. What is P(A and B)?",
+  "options": [
+   "0.9",
+   "0.2",
+   "0.1",
+   "0.3"
+  ],
+  "correct_option": 1,
+  "explanation": "P(A or B) = P(A) + P(B) - P(A and B), so P(A and B) = 0.5 + 0.4 - 0.7 = 0.2.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -18846,6 +19386,24 @@
   "statement_id": null
  },
  {
+  "id": "77d9341e-8738-4d77-abea-14cd084d3395",
+  "quiz_id": "c020b89f-64d4-44c0-b421-b1a5b8f3bfa9",
+  "question_text": "Expand and simplify (2 + 3i)(1 - i).",
+  "options": [
+   "5 + i",
+   "-1 + 5i",
+   "5 - i",
+   "1 + 5i"
+  ],
+  "correct_option": 0,
+  "explanation": "(2 + 3i)(1 - i) = 2 - 2i + 3i - 3i^2 = 2 + i + 3 = 5 + i.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "77dee9cb-f44c-442a-94e6-8e52ae23edf1",
   "quiz_id": "2d63367c-4316-4c93-860e-44865c436bfa",
   "question_text": "∫₁^e (1/x) dx =",
@@ -19724,6 +20282,24 @@
   "sort_order": 9,
   "created_at": "2026-09-20 18:43:07.885461+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "7ce03e8f-bece-4249-9e1a-7ab65fbb129c",
+  "quiz_id": "96daad31-cb36-490a-a064-37fad3a24b80",
+  "question_text": "Each value x is coded as y = 2x + 3. How is the standard deviation of y related to that of x?",
+  "options": [
+   "sigma_x + 3",
+   "2 sigma_x + 3",
+   "sigma_x",
+   "2 sigma_x"
+  ],
+  "correct_option": 3,
+  "explanation": "Adding 3 does not change the spread, and multiplying by 2 doubles the standard deviation, so sigma_y = 2 sigma_x.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -20790,6 +21366,24 @@
   "statement_id": null
  },
  {
+  "id": "82c3d044-1de9-4944-9e4f-c7ce67bee3f5",
+  "quiz_id": "706e051b-0ce7-4f68-8b28-c9f988479b5c",
+  "question_text": "Which sampling method is most likely to introduce bias?",
+  "options": [
+   "Simple random sampling",
+   "Stratified sampling",
+   "Opportunity (convenience) sampling",
+   "Systematic sampling with a random start"
+  ],
+  "correct_option": 2,
+  "explanation": "Opportunity sampling takes whoever is easiest to reach, so the sample is unlikely to represent the population fairly.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "82e4bd34-1362-44b2-96e8-038869f56745",
   "quiz_id": "1cf364de-0248-4a9c-a267-3f1c39b87772",
   "question_text": "Solve x² − 5x + 6 = 0",
@@ -21510,6 +22104,24 @@
   "statement_id": null
  },
  {
+  "id": "887cb9ba-a486-44b3-8f38-38f4880bccc7",
+  "quiz_id": "10cad8f1-146d-4c82-88d3-a49442204b1a",
+  "question_text": "If X ~ Po(3), what is Var(X)?",
+  "options": [
+   "3",
+   "9",
+   "sqrt(3)",
+   "1/3"
+  ],
+  "correct_option": 0,
+  "explanation": "For a Poisson distribution the mean and the variance are both equal to lambda, so Var(X) = 3.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "88b72458-7ba6-4240-89fe-06b9f8f71f75",
   "quiz_id": "2279244a-a5b9-46cf-a16e-703ec4e438c1",
   "question_text": "X uniform on [1, 5]. E(X) =",
@@ -21618,6 +22230,24 @@
   "statement_id": "8d983a40-ff2e-4ce8-b823-75d4b7db77f5"
  },
  {
+  "id": "897b4219-50ca-4261-a69b-8e3823b086fb",
+  "quiz_id": "57743ba2-b113-44e2-bd23-58515247a5b9",
+  "question_text": "A value 1 occurs 2 times, value 2 occurs 3 times and value 4 occurs once. What is the mean?",
+  "options": [
+   "2",
+   "2.5",
+   "1.75",
+   "3"
+  ],
+  "correct_option": 0,
+  "explanation": "Sum of fx = 2 + 6 + 4 = 12 and sum of f = 6, so the mean is 12/6 = 2.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "89b8b2b7-03f0-4090-9d04-a8e68327c6fe",
   "quiz_id": "7d0783cf-b530-482c-9353-d5b240864ed8",
   "question_text": "Newton's third law pairs act on:",
@@ -21704,6 +22334,24 @@
   "sort_order": 6,
   "created_at": "2026-08-22 13:58:35.465005+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "8a4a9b53-3089-4eca-b165-18802d8d848a",
+  "quiz_id": "5b535f8f-c454-4507-a3c1-8767dae97327",
+  "question_text": "If Z ~ N(0, 1), what is P(Z < -1)?",
+  "options": [
+   "0.8413",
+   "0.1587",
+   "0.3413",
+   "0.6827"
+  ],
+  "correct_option": 1,
+  "explanation": "By symmetry P(Z < -1) = 1 - P(Z < 1) = 1 - 0.8413 = 0.1587.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -21812,6 +22460,24 @@
   "sort_order": 101,
   "created_at": "2026-10-13 14:26:08.422261+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "8b9776be-e219-476e-808d-04537d98955f",
+  "quiz_id": "a1af827c-dcdd-45af-a919-3f21ac573019",
+  "question_text": "How many ways can the letters of the word WORD be arranged in a line?",
+  "options": [
+   "12",
+   "24",
+   "4",
+   "256"
+  ],
+  "correct_option": 1,
+  "explanation": "All four letters are different, so there are 4! = 24 arrangements.",
+  "sort_order": 14,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -22298,6 +22964,24 @@
   "sort_order": 12,
   "created_at": "2026-10-12 08:04:25.005419+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "8f05687f-493c-4e24-8381-e295073f2b2a",
+  "quiz_id": "a28e9def-d0a4-49ab-9ba1-9779a2b833fd",
+  "question_text": "Differentiate y = x/(x + 1) with respect to x.",
+  "options": [
+   "1/(x + 1)",
+   "1/(x + 1)^2",
+   "(x + 1)/x^2",
+   "x/(x + 1)^2"
+  ],
+  "correct_option": 1,
+  "explanation": "By the quotient rule, dy/dx = ((x + 1) - x)/(x + 1)^2 = 1/(x + 1)^2.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -22968,6 +23652,24 @@
   "statement_id": null
  },
  {
+  "id": "928e2064-f1eb-4a26-8a50-8d469c4ab338",
+  "quiz_id": "e9ff2c0d-16d0-4fab-a6ba-7ee6d7471ee9",
+  "question_text": "What is the scalar product of a = (1, 2, 3) and b = (4, -1, 2)?",
+  "options": [
+   "8",
+   "4",
+   "12",
+   "10"
+  ],
+  "correct_option": 0,
+  "explanation": "a.b = 4 - 2 + 6 = 8.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "929189d4-e609-4872-a104-502c64063aa8",
   "quiz_id": "b204f634-6497-4d4f-9857-671e0d03ff26",
   "question_text": "In a two-source interference pattern, what is observed at an antinode?",
@@ -23036,6 +23738,24 @@
   "sort_order": 6,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "93141e2a-cea5-4531-a174-5552f3ec28c3",
+  "quiz_id": "9024cae1-59cf-49bf-a80f-288ce0031e1a",
+  "question_text": "The region between y = x, the x-axis and x = 2 is rotated fully about the x-axis. What is the volume?",
+  "options": [
+   "8pi/3",
+   "4pi",
+   "8pi",
+   "2pi"
+  ],
+  "correct_option": 0,
+  "explanation": "V = pi times integral of x^2 from 0 to 2 = pi x [x^3/3] = 8pi/3.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -23900,6 +24620,24 @@
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:11.000221+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "989a0b84-661f-4ffd-ba6a-18dd31693177",
+  "quiz_id": "706e051b-0ce7-4f68-8b28-c9f988479b5c",
+  "question_text": "A sample of size 5 has sum of squared deviations from its mean equal to 40. What is the unbiased estimate of the population variance?",
+  "options": [
+   "8",
+   "10",
+   "40",
+   "5"
+  ],
+  "correct_option": 1,
+  "explanation": "The unbiased estimate is s^2 = sum of (x - x-bar)^2/(n - 1) = 40/4 = 10.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -25398,6 +26136,24 @@
   "statement_id": "fb705b8c-c2e4-46ac-ae65-b632718cef5c"
  },
  {
+  "id": "a23a9da4-6b2d-4ed1-89ac-69557e654e88",
+  "quiz_id": "8b72f3a7-bcd9-44dd-afbc-1674f2dbdf38",
+  "question_text": "Which expression is equal to cos^2 x - sin^2 x?",
+  "options": [
+   "cos 2x",
+   "sin 2x",
+   "1",
+   "2 cos 2x"
+  ],
+  "correct_option": 0,
+  "explanation": "The double-angle identity gives cos 2x = cos^2 x - sin^2 x.",
+  "sort_order": 14,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "a25ff3a0-68f9-41b4-afc5-2f7350f305d0",
   "quiz_id": "f4607e70-cda9-4742-b39f-ce1af17863bf",
   "question_text": "Find the median of 3, 1, 4, 1, 5, 9, 2.",
@@ -25790,6 +26546,24 @@
   "sort_order": 4,
   "created_at": "2026-09-14 18:41:37.613921+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "a3fb3d80-ad51-461f-bf84-f6db3d26de77",
+  "quiz_id": "10cad8f1-146d-4c82-88d3-a49442204b1a",
+  "question_text": "If X ~ Po(2), what is P(X = 0) to 4 decimal places?",
+  "options": [
+   "0.1353",
+   "0.2707",
+   "0.8647",
+   "0.0183"
+  ],
+  "correct_option": 0,
+  "explanation": "P(X = 0) = e^(-2) = 0.1353 to 4 decimal places.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -26190,6 +26964,24 @@
   "statement_id": "45128b4e-255e-4db6-a708-f9c9cb3f9834"
  },
  {
+  "id": "a6ecaa7f-aeaf-428d-8a58-5a50c7b1071b",
+  "quiz_id": "9024cae1-59cf-49bf-a80f-288ce0031e1a",
+  "question_text": "Find the integral of 1/(x + 3) with respect to x.",
+  "options": [
+   "ln(x + 3)^2",
+   "1/(x + 3)^2",
+   "ln|x + 3| + C",
+   "(x + 3) ln(x + 3)"
+  ],
+  "correct_option": 2,
+  "explanation": "The integral of 1/(x + a) is ln|x + a| + C.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "a71b8492-b3e0-4cb7-8721-087d48fef0a4",
   "quiz_id": "5203e0bf-1fa0-4002-8ca7-847ab681f5a6",
   "question_text": "Round 47.83 to 3 significant figures.",
@@ -26475,6 +27267,24 @@
   "created_at": "2026-10-12 10:52:27.64297+00",
   "difficulty": "check",
   "objective_id": "d5402324-889e-4c76-a83d-bceaba3668da",
+  "statement_id": null
+ },
+ {
+  "id": "a8e57a6f-6529-4ae6-8707-9b90ffa3cc71",
+  "quiz_id": "03b79dc6-852d-433c-a7da-37f02b5bb665",
+  "question_text": "What is the remainder when x^3 - 2x + 4 is divided by x - 1?",
+  "options": [
+   "5",
+   "3",
+   "1",
+   "2"
+  ],
+  "correct_option": 1,
+  "explanation": "By the remainder theorem, the remainder is f(1) = 1 - 2 + 4 = 3.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
   "statement_id": null
  },
  {
@@ -27000,6 +27810,24 @@
   "statement_id": null
  },
  {
+  "id": "ac92a77d-85c9-4988-bbf0-dffc9db112dd",
+  "quiz_id": "96daad31-cb36-490a-a064-37fad3a24b80",
+  "question_text": "Five values have sum 25 and sum of squares 135. What is the population standard deviation?",
+  "options": [
+   "2",
+   "10",
+   "sqrt(2), about 1.414",
+   "sqrt(10)"
+  ],
+  "correct_option": 2,
+  "explanation": "The mean is 5. Variance = 135/5 - 5^2 = 27 - 25 = 2, so the standard deviation is sqrt(2) = 1.414.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "ac97c994-7700-498a-8fff-b113a0bd78cb",
   "quiz_id": "b766da52-675a-44ce-9035-4a75adc436ef",
   "question_text": "The component of weight down a slope of angle θ is:",
@@ -27086,6 +27914,24 @@
   "sort_order": 14,
   "created_at": "2026-10-12 08:18:04.865456+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "ace91309-a844-4d2b-a0bf-f5ebe6bf8da0",
+  "quiz_id": "aaee8b30-affd-4508-a0f9-02eca942fe95",
+  "question_text": "P(A) = 0.5 and P(A and B) = 0.2. What is P(B given A)?",
+  "options": [
+   "0.1",
+   "0.2",
+   "0.4",
+   "0.5"
+  ],
+  "correct_option": 2,
+  "explanation": "P(B given A) = P(A and B)/P(A) = 0.2/0.5 = 0.4.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -27288,6 +28134,24 @@
   "statement_id": null
  },
  {
+  "id": "ae6f8f2d-72de-4cb2-849b-39719c682b4d",
+  "quiz_id": "d02804f3-29cb-420c-a765-b2e60e24ae74",
+  "question_text": "For a two-tailed z-test at the 5% significance level, what is the critical value (positive)?",
+  "options": [
+   "1.645",
+   "2.33",
+   "2.58",
+   "1.96"
+  ],
+  "correct_option": 3,
+  "explanation": "For a two-tailed test at 5%, the critical values are plus or minus 1.96.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "ae9b5695-9e8b-42a5-ab82-2f9537a73cfd",
   "quiz_id": "82a76163-685e-49ae-b1b1-a3dbca107403",
   "question_text": "A star keeps the same radius but its surface temperature doubles. By what factor does its luminosity increase?",
@@ -27358,6 +28222,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "a65bf273-559a-4cbe-b16f-ad772c711ab6"
+ },
+ {
+  "id": "af39b28c-6289-4d0f-a73c-b4e9b0af7b60",
+  "quiz_id": "e9ff2c0d-16d0-4fab-a6ba-7ee6d7471ee9",
+  "question_text": "What is the unit vector in the direction of (3, 4)?",
+  "options": [
+   "(3/5, 4/5)",
+   "(3, 4)/7",
+   "(1/3, 1/4)",
+   "(4/5, 3/5)"
+  ],
+  "correct_option": 0,
+  "explanation": "The magnitude is 5, so the unit vector is (3/5, 4/5).",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "af4126b0-ebd2-4f0a-bb12-8a51adbb7692",
@@ -28854,6 +29736,24 @@
   "statement_id": "c53edd88-6d34-4602-9c0a-5e6908753d65"
  },
  {
+  "id": "b857c44c-a992-48e7-bfef-028a2fe1bdde",
+  "quiz_id": "a28e9def-d0a4-49ab-9ba1-9779a2b833fd",
+  "question_text": "Differentiate y = ln(3x^2 + 1) with respect to x.",
+  "options": [
+   "6x/(3x^2 + 1)",
+   "1/(3x^2 + 1)",
+   "3x/(3x^2 + 1)",
+   "ln(6x)"
+  ],
+  "correct_option": 0,
+  "explanation": "By the chain rule, dy/dx = 6x / (3x^2 + 1).",
+  "sort_order": 14,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "b8816a33-e6be-43dc-b427-43f3a3448fd9",
   "quiz_id": "bde4696a-d22a-4751-bc0e-8add89f628a5",
   "question_text": "Which Boolean expression is equivalent to NOT(A AND B)?",
@@ -29394,6 +30294,24 @@
   "statement_id": null
  },
  {
+  "id": "bcb76835-97de-4fd7-8f9b-55eef1d5adae",
+  "quiz_id": "a28e9def-d0a4-49ab-9ba1-9779a2b833fd",
+  "question_text": "Differentiate y = x e^(2x) with respect to x.",
+  "options": [
+   "e^(2x)",
+   "2e^(2x)",
+   "(1 + 2x)e^(2x)",
+   "2x e^(2x)"
+  ],
+  "correct_option": 2,
+  "explanation": "By the product rule, dy/dx = e^(2x) + x x 2e^(2x) = (1 + 2x)e^(2x).",
+  "sort_order": 13,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "bcbe8678-fd49-4cad-b27a-42009ef84aa7",
   "quiz_id": "2c165904-9e60-4ea0-bf46-c3879345bb35",
   "question_text": "Doubling speed multiplies KE by:",
@@ -29644,6 +30562,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "c11f07d2-3194-42a7-8702-ff21d45de66a"
+ },
+ {
+  "id": "bf3be192-3dfc-452e-bd39-1fd6c6f93117",
+  "quiz_id": "c020b89f-64d4-44c0-b421-b1a5b8f3bfa9",
+  "question_text": "Given z = 3 + 4i, what is |z|?",
+  "options": [
+   "7",
+   "5",
+   "1",
+   "25"
+  ],
+  "correct_option": 1,
+  "explanation": "|z| = sqrt(3^2 + 4^2) = sqrt(25) = 5.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "bf579d5a-338b-48f5-b2cb-adc10c128d7f",
@@ -30312,6 +31248,24 @@
   "statement_id": null
  },
  {
+  "id": "c3d28864-f995-40fd-8245-062511d0c10e",
+  "quiz_id": "d02804f3-29cb-420c-a765-b2e60e24ae74",
+  "question_text": "What is a Type I error?",
+  "options": [
+   "Rejecting H0 when H0 is true",
+   "Accepting H0 when H0 is false",
+   "Rejecting H1 when H1 is true",
+   "Choosing a sample size that is too small"
+  ],
+  "correct_option": 0,
+  "explanation": "A Type I error is rejecting a true null hypothesis. Its probability is the significance level.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "c40e1664-5921-4a47-9437-ac5b32632e24",
   "quiz_id": "685fcdc2-ffde-4265-b4e4-568746aa375e",
   "question_text": "Expand and simplify (x + 5)(x - 2).",
@@ -30364,6 +31318,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "ae2a6611-a7d7-4315-b507-b1a523c3bfe2"
+ },
+ {
+  "id": "c4395c24-bed5-4f08-828e-0be1d4affd81",
+  "quiz_id": "a1af827c-dcdd-45af-a919-3f21ac573019",
+  "question_text": "How many arrangements are there of the letters of BOOK?",
+  "options": [
+   "24",
+   "12",
+   "6",
+   "4"
+  ],
+  "correct_option": 1,
+  "explanation": "There are 4! arrangements of the four letters, divided by 2! for the two identical Os: 24/2 = 12.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "c449b247-08da-42c0-aa0e-3eafb4866cbe",
@@ -31662,6 +32634,24 @@
   "statement_id": null
  },
  {
+  "id": "ccd90a0a-d779-43be-86b0-6b80fca59cca",
+  "quiz_id": "96daad31-cb36-490a-a064-37fad3a24b80",
+  "question_text": "Data: 2, 4, 6, 8. What is the population standard deviation?",
+  "options": [
+   "2.236",
+   "5",
+   "1.581",
+   "20"
+  ],
+  "correct_option": 0,
+  "explanation": "The mean is 5 and the squared deviations sum to 20, so the variance is 20/4 = 5 and the standard deviation is sqrt(5) = 2.236.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "ccf4d9a6-b3d3-499f-908a-e7c7448a2b7e",
   "quiz_id": "24e6140f-9819-41ba-8b34-1fab26849c75",
   "question_text": "100W for 3 hours. Energy?",
@@ -32058,6 +33048,24 @@
   "statement_id": "8732cb64-62e0-4ab4-90e0-2e94b41ca9bc"
  },
  {
+  "id": "cf6414fb-1c11-418e-af1c-91aa1e69c057",
+  "quiz_id": "c020b89f-64d4-44c0-b421-b1a5b8f3bfa9",
+  "question_text": "What is the complex conjugate of 2 - 5i?",
+  "options": [
+   "-2 + 5i",
+   "5 + 2i",
+   "2 + 5i",
+   "-2 - 5i"
+  ],
+  "correct_option": 2,
+  "explanation": "The complex conjugate changes the sign of the imaginary part, giving 2 + 5i.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "cf83487f-999d-4264-8bc4-250dd9985ad4",
   "quiz_id": "8c35a10c-0dad-49f8-9b40-69a8722e10b6",
   "question_text": "Sector area with r = 5, θ = 1.2 rad:",
@@ -32416,6 +33424,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "1fb8071f-c77c-4a07-a79a-907036c51840"
+ },
+ {
+  "id": "d1ecde56-3107-4e7b-8157-9dc7ccc97a3f",
+  "quiz_id": "ff89eced-2666-4d5d-a2e7-7bab00e4db60",
+  "question_text": "If X ~ B(5, 0.4), what is Var(X)?",
+  "options": [
+   "2.0",
+   "0.6",
+   "1.2",
+   "3.0"
+  ],
+  "correct_option": 2,
+  "explanation": "Var(X) = np(1 - p) = 5 x 0.4 x 0.6 = 1.2.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "d2012ce8-4a10-4411-9a5a-d173d04479db",
@@ -32974,6 +34000,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "cd58bf2e-9914-4d4c-968b-ba658cb348bc"
+ },
+ {
+  "id": "d5d011e4-2004-44cd-860a-510c18070756",
+  "quiz_id": "d02804f3-29cb-420c-a765-b2e60e24ae74",
+  "question_text": "A sample of size 16 has mean 52. H0: mu = 50 and sigma = 8 is known. What is the test statistic z?",
+  "options": [
+   "2",
+   "0.5",
+   "1",
+   "4"
+  ],
+  "correct_option": 2,
+  "explanation": "z = (52 - 50)/(8/sqrt(16)) = 2/2 = 1.",
+  "sort_order": 18,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "d5e9d7a2-6052-41b9-b112-3dcff571ca3a",
@@ -33714,6 +34758,24 @@
   "statement_id": null
  },
  {
+  "id": "daf36aad-221f-4ec1-8c3b-8704afcb912b",
+  "quiz_id": "8b72f3a7-bcd9-44dd-afbc-1674f2dbdf38",
+  "question_text": "Solve sin x = 1/2 for 0 <= x <= 2 pi.",
+  "options": [
+   "pi/6 only",
+   "pi/6 and 5pi/6",
+   "pi/3 and 2pi/3",
+   "pi/6 and pi/3"
+  ],
+  "correct_option": 1,
+  "explanation": "sin x = 1/2 has solutions x = pi/6 and x = pi - pi/6 = 5pi/6 in this range.",
+  "sort_order": 13,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "db0c8f25-08dd-4d40-adfe-d914e8113aff",
   "quiz_id": "0883e010-0b8c-4638-ac5c-805345bcf5d5",
   "question_text": "Which loop type tests the condition AFTER executing?",
@@ -34142,6 +35204,24 @@
   "sort_order": 4,
   "created_at": "2026-09-21 17:56:51.180879+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "dd3890cd-2878-46ad-8202-1d4ac217fe6e",
+  "quiz_id": "a1af827c-dcdd-45af-a919-3f21ac573019",
+  "question_text": "What is the value of C(7, 3)?",
+  "options": [
+   "35",
+   "21",
+   "210",
+   "70"
+  ],
+  "correct_option": 0,
+  "explanation": "C(7, 3) = 7!/(3! 4!) = 35.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -35298,6 +36378,24 @@
   "statement_id": null
  },
  {
+  "id": "e4271437-1785-4708-ae4f-a2c7c619b64b",
+  "quiz_id": "24521c7e-5420-4d95-bb1b-1f5d3a4765a6",
+  "question_text": "The probability distribution of a discrete random variable X takes P(X = 0) = 0.2, P(X = 1) = k and P(X = 2) = 0.3. What is k?",
+  "options": [
+   "0.2",
+   "0.3",
+   "0.5",
+   "0.1"
+  ],
+  "correct_option": 2,
+  "explanation": "The probabilities must sum to 1, so k = 1 - 0.2 - 0.3 = 0.5.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "e4420986-a589-4f40-a22b-1262ae5c71d1",
   "quiz_id": "47f55265-f0b4-4dcd-bfb8-0c126397550f",
   "question_text": "A router forwards packets using:",
@@ -35366,6 +36464,24 @@
   "sort_order": 11,
   "created_at": "2026-10-12 08:20:28.118914+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "e4e4f690-44de-45dc-a6de-729df3ca8e34",
+  "quiz_id": "5b535f8f-c454-4507-a3c1-8767dae97327",
+  "question_text": "If Z ~ N(0, 1), what is P(Z < 1) to 4 decimal places?",
+  "options": [
+   "0.1587",
+   "0.8413",
+   "0.6826",
+   "0.5000"
+  ],
+  "correct_option": 1,
+  "explanation": "From the standard normal tables, P(Z < 1) = 0.8413.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -35564,6 +36680,24 @@
   "sort_order": 6,
   "created_at": "2026-08-22 13:58:24.881483+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "e5c96df2-9aba-4ffe-9818-cef99b0347cb",
+  "quiz_id": "c020b89f-64d4-44c0-b421-b1a5b8f3bfa9",
+  "question_text": "Given z = 1 + i, what is z^2?",
+  "options": [
+   "2",
+   "-2i",
+   "1 + 2i",
+   "2i"
+  ],
+  "correct_option": 3,
+  "explanation": "z^2 = (1 + i)^2 = 1 + 2i + i^2 = 2i.",
+  "sort_order": 17,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -35996,6 +37130,24 @@
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:19.704692+00",
   "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "e8270ca1-da32-460e-976d-7cda20225db7",
+  "quiz_id": "03b79dc6-852d-433c-a7da-37f02b5bb665",
+  "question_text": "Is x - 2 a factor of x^3 - 3x^2 + 2x?",
+  "options": [
+   "Yes, because f(2) = 0",
+   "No, because f(2) = 4",
+   "No, because f(2) = -4",
+   "Yes, because f(-2) = 0"
+  ],
+  "correct_option": 0,
+  "explanation": "f(2) = 8 - 12 + 4 = 0, so by the factor theorem x - 2 is a factor. f(-2) = -24, so the last option is false.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -37116,6 +38268,24 @@
   "statement_id": null
  },
  {
+  "id": "ef6e4506-d150-4380-a5c3-b8438f2d2ce5",
+  "quiz_id": "ff89eced-2666-4d5d-a2e7-7bab00e4db60",
+  "question_text": "If X ~ B(10, 0.3), what is P(X = 0) to 4 significant figures?",
+  "options": [
+   "0.0282",
+   "0.1211",
+   "0.3000",
+   "0.7000"
+  ],
+  "correct_option": 0,
+  "explanation": "P(X = 0) = 0.7^10 = 0.0282 to 4 significant figures.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "ef83bf84-42e2-4297-92a3-f6b07426406c",
   "quiz_id": "340b6e36-4572-466c-b120-e7a34b3a9c67",
   "question_text": "What should a line of best fit do?",
@@ -37782,6 +38952,24 @@
   "statement_id": null
  },
  {
+  "id": "f3657e09-b294-46fa-8e03-db6a31748076",
+  "quiz_id": "57743ba2-b113-44e2-bd23-58515247a5b9",
+  "question_text": "The mean of 2, 4, 6 and 8 is 5. What is the mean of the values 3x + 1 for these x?",
+  "options": [
+   "5",
+   "16",
+   "6",
+   "15"
+  ],
+  "correct_option": 1,
+  "explanation": "The mean of 3x + 1 is 3 x 5 + 1 = 16.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "f370bca7-791a-4264-a5b0-c34ee3d0d00c",
   "quiz_id": "79267351-722b-4622-b1a7-4a8437a4ff2f",
   "question_text": "cos 60° =",
@@ -38250,6 +39438,24 @@
   "statement_id": null
  },
  {
+  "id": "f653cb19-ceb3-4abf-ac5c-69b380cbe80d",
+  "quiz_id": "e9ff2c0d-16d0-4fab-a6ba-7ee6d7471ee9",
+  "question_text": "What is the magnitude of a = (1, 2, 2)?",
+  "options": [
+   "3",
+   "5",
+   "9",
+   "sqrt(5)"
+  ],
+  "correct_option": 0,
+  "explanation": "|a| = sqrt(1 + 4 + 4) = sqrt(9) = 3.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:30:56.98705+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "f655a2d9-0f2c-4a9c-888f-a47321e30530",
   "quiz_id": "b766da52-675a-44ce-9035-4a75adc436ef",
   "question_text": "A 20 N force acts on a spanner at a perpendicular distance of 0.30 m from the bolt. What is the moment of the force about the bolt?",
@@ -38520,6 +39726,24 @@
   "statement_id": null
  },
  {
+  "id": "f81a642d-f221-4109-afd4-3599e4e9e89d",
+  "quiz_id": "8b72f3a7-bcd9-44dd-afbc-1674f2dbdf38",
+  "question_text": "What is the exact value of tan(pi/3)?",
+  "options": [
+   "1/2",
+   "sqrt(3)",
+   "sqrt(3)/2",
+   "1"
+  ],
+  "correct_option": 1,
+  "explanation": "tan(pi/3) = sin(pi/3)/cos(pi/3) = (sqrt(3)/2)/(1/2) = sqrt(3).",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "f81fa5c0-6c0a-4d74-8270-f0451b96b219",
   "quiz_id": "540f0bef-c227-48ae-be5d-a0c028390eb4",
   "question_text": "A pendulum with x₀ = 0.02 m, f = 0.5 Hz has a_max about:",
@@ -38552,6 +39776,24 @@
   "sort_order": 13,
   "created_at": "2026-10-12 08:17:18.655988+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "f8b770f4-339d-44d9-b7d2-f0c4bef6cb2e",
+  "quiz_id": "53f6dc7d-9c82-4dcd-93bd-4df54f0e8e7c",
+  "question_text": "A probability density function is f(x) = kx for 0 <= x <= 2 and 0 otherwise. What is k?",
+  "options": [
+   "0.25",
+   "0.5",
+   "1",
+   "2"
+  ],
+  "correct_option": 1,
+  "explanation": "The total area must be 1: the integral of kx from 0 to 2 is 2k, so k = 0.5.",
+  "sort_order": 15,
+  "created_at": "2026-10-16 07:27:39.162171+00",
+  "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
  },
@@ -39739,6 +40981,24 @@
   "explanation": "Cyberbullying is the act of harassing someone online, while the other options are different types of online behaviors.",
   "sort_order": 10,
   "created_at": "2026-10-10 06:07:39.386986+00",
+  "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "ffb3ac25-c4bb-4e94-86b9-cffad12b8b00",
+  "quiz_id": "96daad31-cb36-490a-a064-37fad3a24b80",
+  "question_text": "The quartiles of a data set are Q1 = 4 and Q3 = 9. What is the interquartile range?",
+  "options": [
+   "13",
+   "5",
+   "9",
+   "2.25"
+  ],
+  "correct_option": 1,
+  "explanation": "IQR = Q3 - Q1 = 9 - 4 = 5.",
+  "sort_order": 16,
+  "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
   "objective_id": null,
   "statement_id": null
