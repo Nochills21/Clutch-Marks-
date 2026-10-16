@@ -199,6 +199,28 @@ export function StudentDashboard() {
         </section>
       )}
 
+      {/* Notices sit at the top so new announcements are seen before anything else. */}
+      {announcements.length > 0 && (
+        <section className="space-y-4">
+          <div className="space-y-2">
+            <p className="eyebrow flex items-center gap-2">
+              <Megaphone className="h-3 w-3 text-primary" /> Notices
+            </p>
+            <h2 className="font-display text-2xl font-normal tracking-tight">Announcements</h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {announcements.map((a) => (
+              <Card key={a.id} className="surface">
+                <CardContent className="p-5">
+                  <p className="font-display text-base tracking-tight">{a.title}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">{a.content}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Course progress — the console's master gauge */}
       <section className="surface-raised relative overflow-hidden">
         <div className="bloom pointer-events-none absolute inset-0" aria-hidden="true" />
@@ -377,37 +399,7 @@ export function StudentDashboard() {
       </div>
 
 
-      <div className="grid gap-8 lg:grid-cols-5">
-        <div className="lg:col-span-3">
-          <TodaysTasks />
-        </div>
-        <div className="space-y-4 lg:col-span-2">
-          <div className="space-y-2">
-            <p className="eyebrow flex items-center gap-2">
-              <Megaphone className="h-3 w-3 text-primary" /> Notices
-            </p>
-            <h2 className="font-display text-2xl font-normal tracking-tight">Announcements</h2>
-          </div>
-          <div className="space-y-3">
-            {announcements.length === 0 ? (
-              <Card className="surface">
-                <CardContent className="py-10 text-center">
-                  <p className="text-sm text-muted-foreground">No announcements yet.</p>
-                </CardContent>
-              </Card>
-            ) : (
-              announcements.map((a) => (
-                <Card key={a.id} className="surface">
-                  <CardContent className="p-5">
-                    <p className="font-display text-base tracking-tight">{a.title}</p>
-                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">{a.content}</p>
-                  </CardContent>
-                </Card>
-              ))
-            )}
-          </div>
-        </div>
-      </div>
+      <TodaysTasks />
     </div>
   );
 }
