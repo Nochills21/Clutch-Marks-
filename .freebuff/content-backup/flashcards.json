@@ -416,6 +416,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "0bc71961-55e7-451d-beff-4b74157761d4",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "What is the double-angle identity for cos 2A?",
+  "back": "cos 2A = cos^2 A - sin^2 A = 2 cos^2 A - 1 = 1 - 2 sin^2 A.",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "0bc77aa6-a68f-43de-a815-7de5a92e5d1f",
   "set_id": "5e11263e-ea4e-40ed-9564-2724ca9cc0f5",
   "front": "Angular speed",
@@ -696,6 +704,14 @@
   "created_at": "2026-10-12 07:48:00.880768+00"
  },
  {
+  "id": "1556a99f-97c8-4092-8e2d-4cbbbb3a9d97",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "What is the standard deviation?",
+  "back": "The square root of the variance.",
+  "sort_order": 106,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "155a7eab-0215-448f-ba8b-86efd32c05d4",
   "set_id": "658dc798-ba46-4929-903f-7aad5463e9f5",
   "front": "Sorting",
@@ -718,6 +734,14 @@
   "back": "2 inputs → 4 rows; 3 inputs → 8 rows. Work gate by gate, adding intermediate columns for sub-circuit outputs.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "16456c99-ce81-4af8-ae52-37366aab52f6",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "What is the integral of f'(x)/f(x)?",
+  "back": "ln|f(x)| + C.",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "16664fe0-fd55-4fba-af40-d80b4e90c1ee",
@@ -1576,6 +1600,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "2e4440ee-f448-449f-87d6-24806419da0f",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "What is the mean and variance of X ~ B(n, p)?",
+  "back": "Mean = np and variance = np(1 - p).",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "2e62ed42-14b1-4be4-b8f1-bbdcbb24b5af",
   "set_id": "8c12d660-3cfe-4c4a-ae59-37f84d91487c",
   "front": "Magnitude of (6; 8)",
@@ -1640,6 +1672,14 @@
   "created_at": "2026-09-30 05:35:33.346797+00"
  },
  {
+  "id": "30d7f646-d300-45bb-8a0c-ed04d0235561",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "What is the product rule?",
+  "back": "d/dx (uv) = u dv/dx + v du/dx.",
+  "sort_order": 101,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "30de9159-3be0-477d-8175-4d07704822f1",
   "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
   "front": "Effect of adding a constant to every value on the standard deviation?",
@@ -1670,6 +1710,14 @@
   "back": "Discriminant below zero: k squared - 36 < 0 gives -6 < k < 6. Both branches.",
   "sort_order": 7,
   "created_at": "2026-10-12 08:12:17.224583+00"
+ },
+ {
+  "id": "31d5d4f1-42f4-4a97-98c9-4669f2c033c1",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "What is the alternative hypothesis H1?",
+  "back": "The statement that contradicts H0, such as mu > 50, mu < 50 or mu not equal to 50.",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "31e95de6-fc22-491b-a7f4-8c8b9e3d1664",
@@ -2088,12 +2136,28 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "3dbcba77-c7f8-4a01-8f1a-fc6a1fbd8168",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "What is the derivative of ln f(x)?",
+  "back": "d/dx ln f(x) = f'(x) / f(x).",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "3dcdd394-da21-4ea5-b5fe-842b417e0951",
   "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
   "front": "When Binomial Applies",
   "back": "X ~ B(n, p) counts successes in n independent trials when:",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "3e4f3344-b099-4459-8010-7fb03c2bdb15",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "What is the formula for population variance?",
+  "back": "sigma^2 = sum of (x - x-bar)^2 / n, which equals sum of x^2 / n - x-bar^2.",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "3e5c9826-1149-4f64-8b1f-86eafb7c73ee",
@@ -2424,6 +2488,14 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "475dc253-30c3-44f2-a2f9-dc134421ee9e",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "What is the chain rule?",
+  "back": "dy/dx = (dy/du)(du/dx).",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "475ed2c7-aa9d-400d-bf5c-f818991078a8",
   "set_id": "02ed25e4-1f39-4402-984c-56956e7756a5",
   "front": "Compound shapes method",
@@ -2454,6 +2526,14 @@
   "back": "NOT inverts; NAND is 'AND then NOT'; XOR outputs 1 when inputs differ.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "483b8fdb-c229-405f-88e5-d26f9e9a5de1",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "How is the argument of z = a + bi found?",
+  "back": "arg z = arctan(b/a), adjusted for the quadrant that z lies in.",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "486a6cdb-5460-4f61-ba8e-ab91fc13cc7b",
@@ -2560,6 +2640,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "4c2d2976-91fe-4df2-a44c-45c04bb3a531",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "What is the range of a data set?",
+  "back": "Range = maximum value - minimum value.",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "4c7ebfa3-b0f5-47f7-9529-41b3f0054860",
   "set_id": "c00d9e5c-b51b-4f4a-bf17-00c87ec8cceb",
   "front": "Young modulus E = σ/ε",
@@ -2606,6 +2694,14 @@
   "back": "gives structure and content: elements, attributes, forms for user input.",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "4f3f1a13-125d-4676-9bda-e4b96028589c",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "What partial fraction form does a repeated linear factor (x - a)^2 give?",
+  "back": "A/(x - a) + B/(x - a)^2.",
+  "sort_order": 106,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "501b6eff-2d79-491f-b2e3-78bebb747985",
@@ -2670,6 +2766,14 @@
   "back": "Round each number to 1 s.f. first, show the rounded line, then compute. Bare calculator values score nothing.",
   "sort_order": 8,
   "created_at": "2026-10-12 07:34:59.49118+00"
+ },
+ {
+  "id": "53e96729-f3eb-455e-9134-9c62296c4585",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "What is tan theta in terms of sin and cos?",
+  "back": "tan theta = sin theta / cos theta.",
+  "sort_order": 106,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "53f75dfe-65f2-4d2e-9ea9-5deaa4abb3e2",
@@ -2816,6 +2920,14 @@
   "created_at": "2026-10-13 14:35:09.159928+00"
  },
  {
+  "id": "582429bb-6daf-4d98-aca5-2516bac2f320",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "How do you choose u in integration by parts?",
+  "back": "Choose u as the function that becomes simpler when differentiated, using the order ILATE: inverse trig, log, algebraic, trig, exponential.",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "587648ff-b19e-4c0d-820e-ee0fe9c2fefa",
   "set_id": "6383f2b6-41d9-4c2f-8251-ec812a3dbc2c",
   "front": "Specific heat capacity",
@@ -2910,6 +3022,14 @@
   "back": "Current: rate of charge flow; same everywhere in series.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "5becfa6a-b765-4312-8940-af0d3743b9ed",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "What is the significance level?",
+  "back": "The probability of a Type I error, meaning rejecting H0 when it is true.",
+  "sort_order": 106,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "5bee368e-8851-41cd-ab93-7344dc0585ad",
@@ -3110,6 +3230,14 @@
   "back": "Opposite the longest side: sides 7, 8, 9 give 73.4 degrees.",
   "sort_order": 7,
   "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
+  "id": "627784c5-7034-4e48-b13f-075123680ec6",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "What partial fraction form does an irreducible quadratic factor ax^2 + bx + c give?",
+  "back": "(Px + Q)/(ax^2 + bx + c).",
+  "sort_order": 107,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "62bcdf22-b474-480d-8e9a-e97c130ad30d",
@@ -3584,6 +3712,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "6f2cd24e-34e4-4f03-8055-d9769f1a76ac",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "What must be true of the total area under a pdf?",
+  "back": "The total area under the pdf over all values is exactly 1.",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "6f65b1db-3630-40d8-83b1-95b38b8d9815",
   "set_id": "f411564d-8010-4b91-a19b-df34f3782f25",
   "front": "Alternate vs corresponding angles",
@@ -3702,6 +3838,14 @@
   "back": "(x + 3) squared - 9 + 5 = (x + 3) squared - 4. Minimum at (-3, -4).",
   "sort_order": 5,
   "created_at": "2026-10-12 07:33:54.385982+00"
+ },
+ {
+  "id": "73024915-1d4e-4688-808c-6ea58da06937",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "What is the quotient rule?",
+  "back": "d/dx (u/v) = (v du/dx - u dv/dx) / v^2.",
+  "sort_order": 102,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "732c10ca-e5e5-4707-98d6-ab60089bf4cf",
@@ -3840,6 +3984,14 @@
   "created_at": "2026-09-29 18:46:40.564659+00"
  },
  {
+  "id": "7741385d-b52a-42bc-b927-2b24e5343704",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "What does the notation X ~ B(n, p) mean?",
+  "back": "X follows a binomial distribution with n trials and probability of success p on each trial.",
+  "sort_order": 106,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "775f290e-bc1b-41dc-a2d8-3e14a00f50a6",
   "set_id": "a7fe8570-e9bc-4e30-8536-49eb1b33c54a",
   "front": "The Model",
@@ -3944,6 +4096,14 @@
   "created_at": "2026-09-30 05:35:34.636501+00"
  },
  {
+  "id": "798f6245-7dda-40f0-b0af-e7c988b63fdd",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "What is the relationship between the cdf F(x) and the pdf f(x)?",
+  "back": "F(x) = P(X <= x), so F'(x) = f(x).",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "7991bcb3-6738-4591-aaf9-a0564f802925",
   "set_id": "8393ef02-750a-428c-abd8-7dd4f92123a5",
   "front": "gf(x) vs fg(x)",
@@ -4024,12 +4184,28 @@
   "created_at": "2026-10-12 07:54:54.445133+00"
  },
  {
+  "id": "7b02a0e8-6fc7-4c89-a109-9441eb7ae859",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "What is the null hypothesis H0?",
+  "back": "The statement that there is no effect or no difference, which is assumed true until evidence rejects it.",
+  "sort_order": 102,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "7b137c70-ed12-46d9-baec-be1532fb9b58",
   "set_id": "19c43b32-4f72-44a4-8168-48157bd3e206",
   "front": "Coulomb's Law",
   "back": "F = q₁q₂/(4πε₀r²). Field strength E = F/q (N C⁻¹); for a point charge E = q/(4πε₀r²).",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "7b42412c-3308-4020-bac4-ce49f19ad056",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "What is the integration by parts formula?",
+  "back": "integral of u dv = uv - integral of v du.",
+  "sort_order": 102,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "7b78a382-c835-4375-b16c-8ea2ade931f4",
@@ -4054,6 +4230,14 @@
   "back": "Negate x only: (4; -3) to (-4; -3). Both negated is a half-turn instead.",
   "sort_order": 9,
   "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
+  "id": "7cf2af38-7982-48b4-bc99-e0b6889ae945",
+  "set_id": "48261bff-def2-4348-92a3-6ae100d7bf31",
+  "front": "What is the derivative of e^(kx)?",
+  "back": "d/dx e^(kx) = k e^(kx).",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "7d1d269a-46b2-4b9e-9331-96919ee4e3d0",
@@ -4350,6 +4534,14 @@
   "back": "in a collision with no external forces, total momentum is unchanged.",
   "sort_order": 5,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "87e7018d-bad2-46ce-ad5f-1a1ec3f5ea96",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "What are the conditions for a binomial distribution?",
+  "back": "A fixed number n of independent trials, each with two outcomes, and a constant probability p of success.",
+  "sort_order": 102,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "886c9e72-2dc3-4a92-a5c1-74ff18ff7c44",
@@ -4760,6 +4952,22 @@
   "created_at": "2026-10-12 07:33:54.385982+00"
  },
  {
+  "id": "966eac42-c020-44b2-ab69-49d8aec9f729",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "How is a definite integral evaluated?",
+  "back": "integral from a to b of f(x) dx = F(b) - F(a), where F is an antiderivative of f.",
+  "sort_order": 106,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
+  "id": "96ba716c-ab9a-47e1-b7d2-58b6658f58b3",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "How do you find P(a < X < b) from the cdf?",
+  "back": "P(a < X < b) = F(b) - F(a).",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "96f95e83-5dca-465d-884c-4ee9f80d29f1",
   "set_id": "710df944-f531-477b-80b9-2ba65dba0648",
   "front": "Scalar product a · b in components?",
@@ -4774,6 +4982,14 @@
   "back": "Client-server centralises services (web, email, files); peer-to-peer shares directly (torrents, small LANs). Firewalls filter traffic by rules; proxy servers sit between clients and the internet, caching and filtering;",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "980fcc86-d5df-40cc-b42d-f108957cac26",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "If y = ax + b, how do the standard deviations compare?",
+  "back": "sigma_y = |a| sigma_x. Adding b does not change the spread.",
+  "sort_order": 107,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "9838a33e-1715-44eb-8cde-bac971146994",
@@ -4928,6 +5144,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "9c23448e-c7d6-4911-b93f-b087a6da7a29",
+  "set_id": "656f3c57-d858-48b2-898e-ce99343a124c",
+  "front": "What is the interquartile range?",
+  "back": "IQR = Q3 - Q1.",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "9c9deddb-1d59-4374-9b68-b415378d8296",
   "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
   "front": "Tangents and Normals",
@@ -4958,6 +5182,14 @@
   "back": "Like equations, but reverse the sign when multiplying/dividing by a negative: −2x ≥ 6 ⇒ x ≤ −3.",
   "sort_order": 0,
   "created_at": "2026-09-29 18:46:40.564659+00"
+ },
+ {
+  "id": "9d223a9d-050e-41e5-8270-d96f19a31e61",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "How is E(X) found from a pdf?",
+  "back": "E(X) = integral of x f(x) dx over all values of x.",
+  "sort_order": 106,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "9d56c616-63f1-4469-8592-f0ac68131181",
@@ -5048,6 +5280,14 @@
   "created_at": "2026-10-12 08:03:08.398276+00"
  },
  {
+  "id": "a04dd2f5-2e52-41d1-85c4-6efae0ea9be0",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "What is the formula for P(X = r) when X ~ B(n, p)?",
+  "back": "P(X = r) = C(n, r) p^r (1 - p)^(n - r).",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "a0e0f9e1-fc11-4231-a098-416701fdda09",
   "set_id": "76490045-590c-4bc1-aab3-861bb8f212aa",
   "front": "Interpolation vs extrapolation",
@@ -5086,6 +5326,14 @@
   "back": "Set dy/dx = 0, then classify with the second derivative:",
   "sort_order": 3,
   "created_at": "2026-09-30 05:35:33.346797+00"
+ },
+ {
+  "id": "a1bb2713-78d3-4927-a921-d6c1c8bc55e6",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "What does the remainder theorem say?",
+  "back": "When f(x) is divided by (x - a), the remainder is f(a).",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "a1e4d5b1-8f7b-4329-b044-05db6ac60bea",
@@ -5222,6 +5470,14 @@
   "back": "Client (JavaScript): runs in browser, instant feedback. Server (PHP): database access, secure.",
   "sort_order": 9,
   "created_at": "2026-10-12 07:48:00.880768+00"
+ },
+ {
+  "id": "a657d2e3-0fe5-4c14-862b-4740c617b3c4",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "What is i squared?",
+  "back": "i^2 = -1.",
+  "sort_order": 101,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "a6821bbe-da36-414e-91ad-6f177ccded82",
@@ -5696,12 +5952,28 @@
   "created_at": "2026-10-12 07:47:24.107802+00"
  },
  {
+  "id": "b3927366-2587-4124-bebf-03e20e53b4da",
+  "set_id": "7498d09d-4d73-4e92-a60f-2f0f76c99193",
+  "front": "What is the volume of revolution about the x-axis?",
+  "back": "V = pi integral of y^2 dx between the limits.",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "b3e3cbc9-489c-411d-b34a-b0b8b1c8883f",
   "set_id": "fd41cdf7-c32e-4775-9c05-2ff92f96d9b0",
   "front": "Pythagoras: the last step",
   "back": "Square, add or subtract, then root. 81 + 144 = 225 gives hypotenuse 15.",
   "sort_order": 5,
   "created_at": "2026-10-12 07:36:16.038442+00"
+ },
+ {
+  "id": "b4662651-798c-428d-992c-b1eab23a5f72",
+  "set_id": "885e0e9a-0edb-4245-a57b-47b8be60c1b6",
+  "front": "How do you find P(X >= 1) efficiently?",
+  "back": "Use P(X >= 1) = 1 - P(X = 0) = 1 - (1 - p)^n.",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "b4a43bce-63ac-4076-ab49-b9c8542cb88f",
@@ -5766,6 +6038,14 @@
   "back": "north to south",
   "sort_order": 1,
   "created_at": "2026-10-13 14:13:02.496566+00"
+ },
+ {
+  "id": "b5d60e3a-ff46-4ba8-9896-c7142bdb59e4",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "How do you write a sin x + b cos x in the form R sin(x + a)?",
+  "back": "R = sqrt(a^2 + b^2), and tan(alpha) = b/a. Expanding R sin(x + alpha) gives a sin x + b cos x.",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "b5edefbf-aa59-4aa2-8a96-0d05f6ece3b9",
@@ -6256,6 +6536,14 @@
   "created_at": "2026-10-12 07:54:54.445133+00"
  },
  {
+  "id": "c4a5e6a6-6bc8-452b-aa13-5dc3a46d6dac",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "What is the expansion of sin(A + B)?",
+  "back": "sin(A + B) = sin A cos B + cos A sin B.",
+  "sort_order": 107,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "c4c6e083-ae0c-49c1-b8d8-292c10f68595",
   "set_id": "6da7364a-3c81-4086-8889-aad04e614628",
   "front": "Compare SRAM and DRAM refresh, speed and typical use.",
@@ -6622,6 +6910,14 @@
   "back": "It is a weighted average — the long-run average value over many repetitions. E(X) need not equal any value X can actually take.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "cdb6be36-07cf-44f8-b491-778f1cbdb871",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "What does the factor theorem say?",
+  "back": "(x - a) is a factor of f(x) if and only if f(a) = 0.",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "cde3e944-4708-4002-8dfa-e0e814fcacad",
@@ -7080,6 +7376,14 @@
   "created_at": "2026-09-29 18:46:41.1524+00"
  },
  {
+  "id": "db034841-7c6f-4cc3-a7ab-fd8736bebf71",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "What is the test statistic for a z-test on a sample mean with known sigma?",
+  "back": "z = (x-bar - mu) / (sigma / sqrt(n)).",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "db20144b-3adc-4fac-921c-8434af9894c0",
   "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
   "front": "domain",
@@ -7190,6 +7494,14 @@
   "back": "V = IR",
   "sort_order": 0,
   "created_at": "2026-10-13 14:08:56.63165+00"
+ },
+ {
+  "id": "dda10a3a-b83f-4393-9734-07243032526a",
+  "set_id": "0dc5b35e-44f8-494e-a6ed-26c37937308b",
+  "front": "How do you solve a trigonometric equation over a range?",
+  "back": "Find the principal value with a calculator or standard angle, then use the symmetry of the graph and periodicity to find all solutions in the range.",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "ddc5705d-f57c-4dbb-adb2-231719295acb",
@@ -7664,6 +7976,22 @@
   "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
+  "id": "edb13f01-058a-4a4a-a9f1-0b326c0a3313",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "What is the modulus of a + bi?",
+  "back": "|a + bi| = sqrt(a^2 + b^2).",
+  "sort_order": 102,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
+  "id": "edb9db9e-e8ba-43db-9f51-0baf3b72ff32",
+  "set_id": "7d3ca0b8-2428-4f24-8f0f-6d0845f3d9f6",
+  "front": "Why is P(X = a) = 0 for a continuous random variable?",
+  "back": "Probability is the area under the pdf over an interval, and a single point has zero width, so its area is zero.",
+  "sort_order": 102,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "edba7bc0-257d-4c02-929d-2b8623018718",
   "set_id": "9b378e2f-83f6-427f-9158-3f5014c14443",
   "front": "in-order traversal",
@@ -7702,6 +8030,14 @@
   "back": "Data splits into packets with header (addresses, sequence) and trailer (checksum). A protocol is an agreed rule set — without one, devices cannot interpret signals.",
   "sort_order": 1,
   "created_at": "2026-09-29 18:46:41.1524+00"
+ },
+ {
+  "id": "eebf75e6-5c00-4703-95bf-6ebb07e531a5",
+  "set_id": "bb3238c1-81b4-4781-8a78-d32a39be7103",
+  "front": "What is a Type II error?",
+  "back": "Accepting H0 when H0 is false.",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "eee25d4b-3a4a-43ab-a305-8fb9a35b912c",
@@ -7920,6 +8256,14 @@
   "created_at": "2026-10-13 13:54:32.087537+00"
  },
  {
+  "id": "f67a0b7b-403e-47da-a60a-6ab4a20cbdbf",
+  "set_id": "1cce5929-18d9-4949-a25e-bd61766e7016",
+  "front": "When can you use partial fractions directly?",
+  "back": "Only when the fraction is proper, meaning the degree of the numerator is less than the degree of the denominator. Otherwise divide first.",
+  "sort_order": 105,
+  "created_at": "2026-10-16 07:27:40.245948+00"
+ },
+ {
   "id": "f6cecb1c-b21f-4031-8d96-a1c67b6ba0a7",
   "set_id": "1e4df03e-206d-4f92-a025-425b627fd81c",
   "front": "Spotting AP vs GP",
@@ -7950,6 +8294,14 @@
   "back": "Single: 3(2x − 5) = 6x − 15.",
   "sort_order": 2,
   "created_at": "2026-09-30 05:35:34.091917+00"
+ },
+ {
+  "id": "f75a76f7-6bcd-429f-bc18-f3e0f97b3a02",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "What is the complex conjugate of a + bi, and what does z z* equal?",
+  "back": "The conjugate is a - bi, and z z* = a^2 + b^2 = |z|^2.",
+  "sort_order": 103,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "f76d6751-5264-4bfd-be3c-19230f7aa875",
@@ -8054,6 +8406,14 @@
   "back": "P = VI = I²R = V²/R; E = VIt. Fuse rating just above normal current; earth wire, double insulation, circuit breakers (trip quickly, resettable).",
   "sort_order": 4,
   "created_at": "2026-09-30 05:35:34.636501+00"
+ },
+ {
+  "id": "f9147eb0-7442-4767-adc2-8333780ff7f5",
+  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
+  "front": "How do you divide complex numbers?",
+  "back": "Multiply the numerator and denominator by the complex conjugate of the denominator.",
+  "sort_order": 104,
+  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "f963f5f6-ddb0-4492-b92b-104e4548ddc9",
