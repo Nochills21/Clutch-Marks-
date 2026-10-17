@@ -10,6 +10,16 @@
   "slug": "logic-gates-boolean-logic"
  },
  {
+  "id": "039033f5-a544-456a-928d-b9e8e29026b9",
+  "name": "Descriptive Writing",
+  "description": "Descriptive Writing — Cambridge IGCSE English First Language",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:47.378792+00",
+  "updated_at": "2026-10-17 10:32:47.378792+00",
+  "subject_level_id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
+  "slug": "descriptive-writing"
+ },
+ {
   "id": "0745f8f9-88a6-4f86-8476-dcaf63ce9d12",
   "name": "Number — Ratio, Rate and Proportion",
   "description": "Ratio notation, simplifying ratios, sharing in a given ratio, direct and inverse proportion.",
@@ -38,6 +48,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "algebra-equations"
+ },
+ {
+  "id": "0d13c88b-1c48-4bbd-9a2f-07a991960694",
+  "name": "Analysing Language Choices",
+  "description": "Analysing Language Choices — Cambridge IGCSE English First Language",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:44.130426+00",
+  "updated_at": "2026-10-17 10:32:44.130426+00",
+  "subject_level_id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
+  "slug": "analysing-language-choices"
  },
  {
   "id": "0d304099-312f-4f88-8a91-09ff16f5c605",
@@ -108,6 +128,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "number-sets"
+ },
+ {
+  "id": "1837cee6-60d1-43f5-a16a-821e0cedaad2",
+  "name": "Persuasive and Argumentative Writing",
+  "description": "Persuasive and Argumentative Writing — Cambridge IGCSE English First Language",
+  "sort_order": 6,
+  "created_at": "2026-10-17 10:32:49.975102+00",
+  "updated_at": "2026-10-17 10:32:49.975102+00",
+  "subject_level_id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
+  "slug": "persuasive-and-argumentative-writing"
  },
  {
   "id": "1b6d51a7-a379-4b4a-9d3b-b461c1cf291a",
@@ -230,6 +260,16 @@
   "slug": "earth-space"
  },
  {
+  "id": "34cac24b-22ca-439b-a12c-599dfbf6e832",
+  "name": "Reading for Main Ideas and Detail",
+  "description": "Reading for Main Ideas and Detail — Oxford IGCSE English as a Second Language",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:56.778668+00",
+  "updated_at": "2026-10-17 10:32:56.778668+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "reading-for-main-ideas-and-detail"
+ },
+ {
   "id": "35378b08-5638-4278-84b4-def6b1041f0a",
   "name": "Algorithms & Programming",
   "description": "Algorithms & Programming — IGCSE Computer Science",
@@ -338,6 +378,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "trigonometry"
+ },
+ {
+  "id": "43ca4b50-83b4-4542-a818-4db33ac901fb",
+  "name": "Word Formation: Prefixes and Suffixes",
+  "description": "Word Formation: Prefixes and Suffixes — Oxford IGCSE English as a Second Language",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:59.06278+00",
+  "updated_at": "2026-10-17 10:32:59.06278+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "word-formation-prefixes-and-suffixes"
  },
  {
   "id": "46485f71-55f2-4888-9462-d12d7a3833a2",
@@ -590,6 +640,16 @@
   "slug": "algebra-inequalities"
  },
  {
+  "id": "8b9545f6-944a-46c4-948c-245a1b9dbd02",
+  "name": "Articles and Determiners",
+  "description": "Articles and Determiners — Oxford IGCSE English as a Second Language",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:54.339795+00",
+  "updated_at": "2026-10-17 10:32:54.339795+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "articles-and-determiners"
+ },
+ {
   "id": "8eef118f-639b-44a5-b503-80241e2bb58e",
   "name": "Quantum Physics",
   "description": "Quantum Physics — Cambridge International A Level Physics (9702)",
@@ -628,6 +688,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
   "slug": "forces-and-equilibrium"
+ },
+ {
+  "id": "927ba4a9-fc3e-4b8c-b660-8578a41b0dd7",
+  "name": "Formal Writing: Register and Linking Words",
+  "description": "Formal Writing: Register and Linking Words — Oxford IGCSE English as a Second Language",
+  "sort_order": 6,
+  "created_at": "2026-10-17 10:33:00.218938+00",
+  "updated_at": "2026-10-17 10:33:00.218938+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "formal-writing-register-and-linking-words"
  },
  {
   "id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
@@ -710,6 +780,16 @@
   "slug": "statistics-probability"
  },
  {
+  "id": "a0b52a05-fbc8-4c2d-8adb-2525fa781341",
+  "name": "Reading for Information and Inference",
+  "description": "Reading for Information and Inference — Cambridge IGCSE English First Language",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:42.867736+00",
+  "updated_at": "2026-10-17 10:32:42.867736+00",
+  "subject_level_id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
+  "slug": "reading-for-information-and-inference"
+ },
+ {
   "id": "a7777cab-478a-471d-8bd8-475dca83ab0e",
   "name": "Data Representation",
   "description": "Data Representation — IGCSE Computer Science",
@@ -740,6 +820,16 @@
   "slug": "robotics-ai"
  },
  {
+  "id": "b5ce7a38-98cf-46ba-8e83-758e98c7b7bb",
+  "name": "Narrative Writing",
+  "description": "Narrative Writing — Cambridge IGCSE English First Language",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:48.815733+00",
+  "updated_at": "2026-10-17 10:32:48.815733+00",
+  "subject_level_id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
+  "slug": "narrative-writing"
+ },
+ {
   "id": "b777d569-655f-4776-95fd-ef3be62361e9",
   "name": "Measures of Variation and Standard Deviation",
   "description": "Range, interquartile range, variance and standard deviation for raw and grouped data.",
@@ -758,6 +848,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "differentiation-ii"
+ },
+ {
+  "id": "b9c00307-b10e-4727-aa8c-d43940fa0448",
+  "name": "Prepositions and Collocations",
+  "description": "Prepositions and Collocations — Oxford IGCSE English as a Second Language",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:55.508977+00",
+  "updated_at": "2026-10-17 10:32:55.508977+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "prepositions-and-collocations"
  },
  {
   "id": "bb600e06-32eb-473e-ac3e-6e1bd64cb01e",
@@ -828,6 +928,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "functions"
+ },
+ {
+  "id": "d52fc891-6965-47d1-9f6b-6997066cb5df",
+  "name": "Tenses in Context",
+  "description": "Tenses in Context — Oxford IGCSE English as a Second Language",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:52.930885+00",
+  "updated_at": "2026-10-17 10:32:52.930885+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "tenses-in-context"
  },
  {
   "id": "d5e94211-9e09-4ccf-8086-47c044ed468a",
@@ -998,5 +1108,15 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
   "slug": "networking-communication"
+ },
+ {
+  "id": "fd93b421-eb46-414b-992a-21ccb119aeae",
+  "name": "Summary Writing",
+  "description": "Summary Writing — Cambridge IGCSE English First Language",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:46.222911+00",
+  "updated_at": "2026-10-17 10:32:46.222911+00",
+  "subject_level_id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
+  "slug": "summary-writing"
  }
 ]

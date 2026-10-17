@@ -44,6 +44,17 @@
   "zoom_url": null
  },
  {
+  "id": "12733acb-8535-46ae-a490-116616d7fe58",
+  "topic_id": "b5ce7a38-98cf-46ba-8e83-758e98c7b7bb",
+  "title": "Narrative Writing",
+  "content": "<p>A narrative needs a character who wants something, obstacles that stand in the way, and a sequence of events that builds to a change. Writing well is about controlling what the reader knows and when.</p>\n<h2>Structure</h2>\n<p>A common shape is: opening hook, rising tension, a turning point, a climax, and a resolution. You do not need every stage to be long, but each should be clear.</p>\n<h3>The opening</h3>\n<ul>\n<li>Begin in the middle of action or with a striking detail.</li>\n<li>Establish the character and a hint of the problem early.</li>\n<li>Avoid long backstory before anything happens.</li>\n</ul>\n<h2>Tension</h2>\n<p>Tension comes from withholding information and controlling pace. Delay the answer to a question, slow the moment before a discovery, and let small threats build.</p>\n<h3>Techniques</h3>\n<ul>\n<li>End a section on a question or a small reveal.</li>\n<li>Use short sentences at moments of danger.</li>\n<li>Let the character misjudge a situation, so the reader worries.</li>\n</ul>\n<h2>Dialogue</h2>\n<p>Dialogue should reveal character and move the plot forward. Each speaker should sound distinct, and the reader should learn something from each exchange. Use punctuation correctly and begin a new line for each speaker.</p>\n<h2>Point of view</h2>\n<p>First person gives direct access to one mind, using I. Third person can be close to one character or wider in view. Choose one viewpoint and keep it consistent.</p>\n<h2>Ending</h2>\n<p>A satisfying ending resolves or meaningfully changes the central conflict. It can be open, but it should feel earned, not abandoned.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:49.099656+00",
+  "updated_at": "2026-10-17 10:32:49.099656+00",
+  "zoom_url": null
+ },
+ {
   "id": "13e630d4-2daa-414f-95d2-7b873d1e311f",
   "topic_id": "d97eed92-d609-4e1a-92c1-ac8c5dbc0e1a",
   "title": "Sequences and Functions",
@@ -52,6 +63,28 @@
   "sort_order": 1,
   "created_at": "2026-08-22 14:07:12.083304+00",
   "updated_at": "2026-09-19 06:22:56.574952+00",
+  "zoom_url": null
+ },
+ {
+  "id": "1647412f-3328-4d59-ad26-fd1ceb51dffb",
+  "topic_id": "1837cee6-60d1-43f5-a16a-821e0cedaad2",
+  "title": "Persuasive and Argumentative Writing",
+  "content": "<p>Argumentative writing sets out a clear position, supports it with reasons and evidence, and answers the opposing view. The tone should be measured and confident, not aggressive.</p>\n<h2>A clear thesis</h2>\n<p>Your thesis states your position in one sentence. It should be specific and arguable.</p>\n<h3>Weak and strong thesis statements</h3>\n<ul>\n<li>Weak: \"Some people have views about school uniforms.\"</li>\n<li>Strong: \"School uniforms should be abolished because they limit self-expression without improving learning.\"</li>\n</ul>\n<h2>Building the argument</h2>\n<p>Each paragraph should develop one reason. Start with a topic sentence, give evidence or an example, and explain how the evidence supports your thesis.</p>\n<h3>Persuasive devices</h3>\n<ul>\n<li>Rhetorical questions make the reader consider a point, often expecting the answer you want.</li>\n<li>Repetition of a key phrase reinforces your message.</li>\n<li>A striking example makes an abstract point concrete.</li>\n</ul>\n<h2>Counter-argument</h2>\n<p>Acknowledge the opposing view and then rebut it. This shows awareness and makes your case stronger. Use a clear signpost such as \"Some argue that... However, ...\"</p>\n<h2>Register and audience</h2>\n<p>Choose a register that suits the audience and the form. A letter to the editor needs formal vocabulary, a measured tone and no contractions. Avoid slang and text-message abbreviations.</p>\n<h2>Connectives</h2>\n<p>Use connectives to show the logic of your argument. \"However\" introduces contrast, \"consequently\" introduces a result and \"furthermore\" adds a point.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:50.28848+00",
+  "updated_at": "2026-10-17 10:32:50.28848+00",
+  "zoom_url": null
+ },
+ {
+  "id": "178aec23-1538-4af1-950b-62f3cd94329b",
+  "topic_id": "fd93b421-eb46-414b-992a-21ccb119aeae",
+  "title": "Summary Writing",
+  "content": "<p>A summary task tests whether you can select the relevant information and express it concisely in your own words. Accuracy and economy matter more than style.</p>\n<h2>Reading the task first</h2>\n<p>Read the question before the text. It tells you which points to select, and it sets the word limit. Mark the text lightly as you read, looking for the points the question asks for and ignoring examples and illustrations unless they are needed.</p>\n<h3>Selecting points</h3>\n<ul>\n<li>Include main points that answer the question directly.</li>\n<li>Leave out anecdotes, examples and repeated ideas.</li>\n<li>Keep the order logical, usually following the text's order unless the question asks otherwise.</li>\n</ul>\n<h2>Paraphrasing</h2>\n<p>Paraphrasing means rewriting an idea in your own words and sentence structure. Changing one or two words is not enough.</p>\n<h3>Techniques</h3>\n<ul>\n<li>Replace phrases with equivalent expressions, for example \"in the not-too-distant future\" becomes \"soon\".</li>\n<li>Combine two sentences into one where the ideas are connected.</li>\n<li>Use a general word for a list of specific examples where the question allows it.</li>\n</ul>\n<h2>Staying concise</h2>\n<p>Cut filler such as \"in my opinion\" or \"it is important to note that\". Each sentence should carry a required point. Count your words and stay within the limit.</p>\n<h2>Checking your summary</h2>\n<p>Read your summary alone. Does it answer the question? Could a reader understand it without the original text? Is every sentence necessary?</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:46.515627+00",
+  "updated_at": "2026-10-17 10:32:46.515627+00",
   "zoom_url": null
  },
  {
@@ -308,6 +341,17 @@
   "zoom_url": null
  },
  {
+  "id": "4d3c64e1-e167-460f-a898-19427498b3ef",
+  "topic_id": "927ba4a9-fc3e-4b8c-b660-8578a41b0dd7",
+  "title": "Formal Writing: Register and Linking Words",
+  "content": "<p>Formal writing uses a measured register: full forms instead of contractions, precise vocabulary, and connectives that show how ideas relate. Using the right register is as important as using correct grammar.</p>\n<h2>Formal and informal register</h2>\n<p>Informal writing uses slang, contractions and abbreviations. Formal writing avoids them.</p>\n<ul>\n<li>Informal: Hey, we can't go tomorrow.</li>\n<li>Formal: We are unable to attend the meeting tomorrow.</li>\n</ul>\n<h2>Linking words</h2>\n<p>Linking words show the relationship between ideas.</p>\n<ul>\n<li>Addition: moreover, furthermore, in addition</li>\n<li>Contrast: however, nevertheless, although</li>\n<li>Result: consequently, therefore, as a result</li>\n<li>Sequence: first, then, meanwhile</li>\n<li>Similarity: similarly, likewise</li>\n</ul>\n<h2>Choosing a connective</h2>\n<p>Ask what the relationship is. If the second idea contradicts the first, use a contrast word. If it follows from the first, use a result word. Avoid starting every sentence with the same word.</p>\n<h2>Opening and closing formal letters</h2>\n<ul>\n<li>Use Dear Sir or Madam when you do not know the name.</li>\n<li>Use Dear followed by a name when you do.</li>\n<li>End with Yours faithfully for Dear Sir or Madam, and Yours sincerely for a named person.</li>\n</ul>\n<h2>Checking an essay</h2>\n<p>Remove contractions. Replace casual words with precise ones. Check that each connective matches the logic between the sentences.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:33:00.511858+00",
+  "updated_at": "2026-10-17 10:33:00.511858+00",
+  "zoom_url": null
+ },
+ {
   "id": "4ed27a6e-c5b4-42d5-95b7-a9f4dcced29e",
   "topic_id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
   "title": "Arithmetic, Place Value and Estimation",
@@ -451,6 +495,17 @@
   "zoom_url": null
  },
  {
+  "id": "707cbf41-5717-4ac7-badd-cfc11cb93bdc",
+  "topic_id": "a0b52a05-fbc8-4c2d-8adb-2525fa781341",
+  "title": "Reading for Information and Inference",
+  "content": "<p>Reading questions reward two different skills: finding information that is stated, and working out what is implied. Keep them apart when you plan an answer.</p>\n<h2>Information: what the text says</h2>\n<p>Information questions ask for facts the writer states directly. Locate the key words in the question, scan the text for matching ideas, and copy only the words you need. Do not add personal comment unless the question asks for it.</p>\n<h3>Scanning for key words</h3>\n<ul>\n<li>Underline the nouns and verbs in the question.</li>\n<li>Look for synonyms, because the text rarely repeats the question's exact words.</li>\n<li>Check the line reference if one is given, then read a sentence either side to confirm the context.</li>\n</ul>\n<h2>Inference: what the text suggests</h2>\n<p>An inference is a conclusion supported by evidence. The writer does not state it, so you must show how the evidence points to it.</p>\n<h3>Building a strong inference</h3>\n<ul>\n<li>Choose a precise quotation or a short phrase.</li>\n<li>Explain what the word or phrase suggests, using a verb such as suggests, implies or hints.</li>\n<li>Link the suggestion back to the character, mood or idea the question asks about.</li>\n</ul>\n<h3>Common mistakes</h3>\n<ul>\n<li>Retelling the plot instead of explaining the evidence.</li>\n<li>Quoting a long passage with no comment.</li>\n<li>Stating a fact when the question asks for a feeling or an opinion.</li>\n</ul>\n<h2>Exam approach</h2>\n<p>Answer the information questions quickly and accurately, because they are worth marks for precision. Spend the most time on inference questions: one well-explained quotation usually earns more than three vague ones.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:43.196388+00",
+  "updated_at": "2026-10-17 10:32:43.196388+00",
+  "zoom_url": null
+ },
+ {
   "id": "70e94d61-9f27-42b8-86e3-1f12b0d3f973",
   "topic_id": "35378b08-5638-4278-84b4-def6b1041f0a",
   "title": "Algorithms & Programming",
@@ -470,6 +525,17 @@
   "sort_order": 1,
   "created_at": "2026-09-21 17:56:53.701359+00",
   "updated_at": "2026-09-21 17:56:53.701359+00",
+  "zoom_url": null
+ },
+ {
+  "id": "7cb283fe-6eb1-433a-ba21-50342ab6837f",
+  "topic_id": "b9c00307-b10e-4727-aa8c-d43940fa0448",
+  "title": "Prepositions and Collocations",
+  "content": "<p>Prepositions (in, on, at, for, of) and collocations (words that naturally go together) are not always logical, so they are best learned in phrases rather than one word at a time.</p>\n<h2>Time prepositions</h2>\n<ul>\n<li>At: a clock time or a specific moment (at 10 a.m., at night).</li>\n<li>On: a day or a date (on Monday, on 5 May).</li>\n<li>In: a month, a year or a longer period (in June, in 2020).</li>\n</ul>\n<p>Example: The meeting is on Monday at 10 a.m.</p>\n<h2>Prepositions after adjectives and verbs</h2>\n<p>Many adjectives and verbs take a fixed preposition:</p>\n<ul>\n<li>interested in</li>\n<li>good at</li>\n<li>depend on</li>\n<li>listen to</li>\n<li>belong to</li>\n</ul>\n<p>Learn these as complete phrases.</p>\n<h2>Collocations</h2>\n<p>Collocations are common word pairings. Learn the verb that goes with the noun:</p>\n<ul>\n<li>make a decision, make an effort, make a mistake</li>\n<li>do homework, do the washing, do research</li>\n<li>take a break, take a photo, take part</li>\n</ul>\n<p>Using make where do is needed, or the reverse, is one of the most common errors for learners.</p>\n<h2>Strategy</h2>\n<ul>\n<li>Keep a notebook of phrases, not single words.</li>\n<li>Record the preposition or verb with each noun or adjective.</li>\n<li>Read widely and notice which words appear together in good writing.</li>\n</ul>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:55.810278+00",
+  "updated_at": "2026-10-17 10:32:55.810278+00",
   "zoom_url": null
  },
  {
@@ -693,6 +759,17 @@
   "zoom_url": null
  },
  {
+  "id": "a2650f70-e2b9-4711-8263-8dedc8fba4d5",
+  "topic_id": "039033f5-a544-456a-928d-b9e8e29026b9",
+  "title": "Descriptive Writing",
+  "content": "<p>Descriptive writing succeeds when the reader can see, hear, smell or feel the scene. It is built from precise detail, controlled sentence rhythm and a clear sense of focus.</p>\n<h2>Sensory detail</h2>\n<p>Use all five senses where they fit, not only sight. Specific nouns and verbs do more work than general adjectives.</p>\n<h3>Precision</h3>\n<ul>\n<li>Replace weak words such as \"nice\" or \"went\" with exact ones: \"gleaming\", \"stumbled\".</li>\n<li>Use concrete nouns: \"rust-flecked railings\" rather than \"old fence\".</li>\n<li>Choose one striking image and develop it, rather than listing many.</li>\n</ul>\n<h2>Show, do not tell</h2>\n<p>Show a feeling through action and detail rather than naming it. \"She was furious\" tells the reader. \"Her jaw tightened and she slammed the cupboard door\" shows it.</p>\n<h2>Sentence variety</h2>\n<p>Varying sentence length controls pace. Long sentences can build a scene slowly, and short ones can cut the mood or create a jolt. Vary your openings too, rather than starting every sentence with the subject.</p>\n<h2>Structure</h2>\n<p>Organise the piece around a clear focus. Options include:</p>\n<ul>\n<li>A close-up that moves outward, from a detail to the wider scene.</li>\n<li>A changing viewpoint, following a person through a place.</li>\n<li>A fixed point in time that shows change, such as dawn to dusk.</li>\n</ul>\n<p>End with an image or a reflection that returns to your focus. Avoid ending on a plain statement of fact.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:47.644824+00",
+  "updated_at": "2026-10-17 10:32:47.644824+00",
+  "zoom_url": null
+ },
+ {
   "id": "a437b2b1-1dc1-4e2c-96e8-2ac4a561f557",
   "topic_id": "f1b2a357-bf31-42e4-bd85-5d0dc790bb69",
   "title": "Integration II",
@@ -723,6 +800,17 @@
   "sort_order": 1,
   "created_at": "2026-09-18 14:13:00.082487+00",
   "updated_at": "2026-09-19 06:22:36.722844+00",
+  "zoom_url": null
+ },
+ {
+  "id": "a8067f54-6a0e-4a5c-aad9-6b42a6a82555",
+  "topic_id": "8b9545f6-944a-46c4-948c-245a1b9dbd02",
+  "title": "Articles and Determiners",
+  "content": "<p>Articles (a, an, the) and determiners (some, many, much, each) tell the reader whether a noun is specific, general, countable or uncountable. Small words like these are often where accuracy is lost in writing.</p>\n<h2>Indefinite article: a and an</h2>\n<p>Use a or an with a singular countable noun when it is first mentioned or not specific.</p>\n<ul>\n<li>I bought a bag.</li>\n<li>He arrived after an hour.</li>\n</ul>\n<p>Choose the form by sound, not spelling. Use an before a vowel sound, even when the spelling begins with a consonant: an hour. Use a before a consonant sound, even when the spelling begins with a vowel: a university, a European.</p>\n<h2>Definite article: the</h2>\n<p>Use the when both speaker and listener know which thing is meant.</p>\n<ul>\n<li>The café we visited last week was closed.</li>\n<li>The sun rises in the east.</li>\n</ul>\n<h2>No article</h2>\n<p>Use no article for general plural or uncountable nouns.</p>\n<ul>\n<li>I like coffee in the morning.</li>\n<li>Children need sleep.</li>\n</ul>\n<h2>Determiners with countable and uncountable nouns</h2>\n<ul>\n<li>Many and few go with countable nouns: many books, few students.</li>\n<li>Much and little go with uncountable nouns: much water, little time.</li>\n<li>Some and any work with both.</li>\n</ul>\n<h2>Checking your writing</h2>\n<p>Ask two questions: is this noun specific to the reader? Is it countable? Those two answers decide the article and the determiner.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:54.622468+00",
+  "updated_at": "2026-10-17 10:32:54.622468+00",
   "zoom_url": null
  },
  {
@@ -767,6 +855,17 @@
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:37.982942+00",
   "updated_at": "2026-09-20 18:42:37.982942+00",
+  "zoom_url": null
+ },
+ {
+  "id": "b99338f4-6d1f-4055-8de1-2a342e678767",
+  "topic_id": "34cac24b-22ca-439b-a12c-599dfbf6e832",
+  "title": "Reading for Main Ideas and Detail",
+  "content": "<p>Reading in English means knowing which reading method fits the task. Skimming, scanning and close reading are three different tools, and using the right one saves time and improves understanding.</p>\n<h2>Skimming</h2>\n<p>Skimming means reading quickly to get the general idea. Read the title, the first sentence of each paragraph, and any headings. Ask: what is this text about, and who is it for?</p>\n<h2>Scanning</h2>\n<p>Scanning means searching for a specific piece of information, such as a date, a name or a number. Move your eyes quickly over the text looking for the key word, and ignore everything else.</p>\n<h2>Main ideas</h2>\n<p>The main idea of a paragraph is the point the paragraph makes. It is often in the topic sentence, which is frequently near the start, but it is not always there. Ask: what do the other sentences support?</p>\n<h2>Supporting details</h2>\n<p>Supporting details are examples, facts, reasons and explanations that develop the main idea.</p>\n<ul>\n<li>Main idea: The city is a centre of innovation.</li>\n<li>Supporting detail: The city hosts three major universities and many technology firms.</li>\n</ul>\n<h2>Unknown words</h2>\n<p>When you meet an unfamiliar word:</p>\n<ul>\n<li>Look at the words around it for clues.</li>\n<li>Check whether the word is a familiar root with a prefix or suffix.</li>\n<li>Decide whether you need its exact meaning to answer the question.</li>\n</ul>\n<p>Do not stop reading to look up every word. Often the meaning is clear from context.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:57.094548+00",
+  "updated_at": "2026-10-17 10:32:57.094548+00",
   "zoom_url": null
  },
  {
@@ -891,6 +990,17 @@
   "zoom_url": null
  },
  {
+  "id": "cc983e8e-0bf4-40ec-ac85-350b003dfa72",
+  "topic_id": "d52fc891-6965-47d1-9f6b-6997066cb5df",
+  "title": "Tenses in Context",
+  "content": "<p>Tense choice depends on time, not only on the verb. The same action can be described with different tenses, and the difference changes the meaning. Learn the tenses by the situations where you use them.</p>\n<h2>Present simple</h2>\n<p>Use the present simple for facts, general truths and routines.</p>\n<ul>\n<li>Water boils at 100 degrees Celsius.</li>\n<li>The bus leaves at seven every morning.</li>\n</ul>\n<h2>Past simple</h2>\n<p>Use the past simple for a finished action at a stated or clearly understood past time.</p>\n<ul>\n<li>She went to the cinema yesterday evening.</li>\n<li>We moved to Leeds in 2015.</li>\n</ul>\n<h2>Present perfect</h2>\n<p>Use the present perfect for an action connected to now. It is common with since, for and ever, and when the exact time is not important.</p>\n<ul>\n<li>I have lived in London since 2019. (It continues now.)</li>\n<li>Have you ever tried sushi?</li>\n</ul>\n<p>Compare: I lived in London in 2019. This finishes in the past and does not connect to now.</p>\n<h2>Past continuous</h2>\n<p>Use the past continuous for an action in progress at a past moment, often interrupted by a shorter action.</p>\n<ul>\n<li>When the phone rang, I was taking a shower.</li>\n</ul>\n<h2>Future forms</h2>\n<p>Use will have plus a past participle for an action completed before a future time.</p>\n<ul>\n<li>By next summer, they will have finished the course.</li>\n</ul>\n<h2>Common errors</h2>\n<ul>\n<li>Using the past simple with since: write \"I have lived here since 2019\", not \"I lived here since 2019\".</li>\n<li>Forgetting that a general fact uses the present simple even in a past context.</li>\n</ul>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:53.36357+00",
+  "updated_at": "2026-10-17 10:32:53.36357+00",
+  "zoom_url": null
+ },
+ {
   "id": "ce73ce3f-6763-4b08-847e-7b76e563fb65",
   "topic_id": "f52cc259-2b6e-4aca-818b-56556bf68950",
   "title": "Databases",
@@ -1001,6 +1111,17 @@
   "zoom_url": null
  },
  {
+  "id": "e7afa656-8e23-4b2a-b0a5-1acb782fb2f8",
+  "topic_id": "43ca4b50-83b4-4542-a818-4db33ac901fb",
+  "title": "Word Formation: Prefixes and Suffixes",
+  "content": "<p>Many English words are built from a root with prefixes (added to the front) and suffixes (added to the end). Knowing common parts lets you understand new words and spell them correctly.</p>\n<h2>Prefixes</h2>\n<p>A prefix changes the meaning of the root.</p>\n<ul>\n<li>un- means not: unbelievable, unclear</li>\n<li>im-, in-, il-, ir- also mean not: impossible, incorrect, illegal, irregular</li>\n<li>dis- means not or the reverse: disagree, dishonest</li>\n<li>re- means again: rewrite, replay</li>\n<li>pre- means before: preview, pre-war</li>\n</ul>\n<h2>Suffixes that change word class</h2>\n<p>Suffixes often change a word from one class to another.</p>\n<ul>\n<li>Noun suffixes: -ness (happiness), -tion (decision), -ment (development), -ity (possibility)</li>\n<li>Adjective suffixes: -ful (helpful), -less (careless), -able (readable), -ous (dangerous)</li>\n<li>Adverb suffix: -ly (quickly)</li>\n</ul>\n<h2>Changing the form</h2>\n<p>Changing happy to happiness, or imagine to imagination, needs care with spelling. Some words change the final letter or drop an e before a suffix.</p>\n<h2>The suffix -less</h2>\n<p>-less means without: hopeless means without hope, careless means without care.</p>\n<h2>Practice strategy</h2>\n<p>Learn words in families. Write the noun, verb, adjective and adverb forms together, for example: decide, decision, decisive, decisively. This builds range and helps your writing.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:59.361312+00",
+  "updated_at": "2026-10-17 10:32:59.361312+00",
+  "zoom_url": null
+ },
+ {
   "id": "ea200f42-2b84-4f07-b7bf-a1682d037ac7",
   "topic_id": "173c5405-6729-40ad-9f97-7bc228e9b856",
   "title": "Sets and Venn Diagrams",
@@ -1064,6 +1185,17 @@
   "sort_order": 1,
   "created_at": "2026-09-20 18:41:56.675516+00",
   "updated_at": "2026-09-20 18:41:56.675516+00",
+  "zoom_url": null
+ },
+ {
+  "id": "f897abaf-b5b5-4e67-bfd0-6ceecaa52cb5",
+  "topic_id": "0d13c88b-1c48-4bbd-9a2f-07a991960694",
+  "title": "Analysing Language Choices",
+  "content": "<p>Language analysis asks how a writer uses words to create an effect. A device is only worth naming if you explain what it does and why the writer chose it.</p>\n<h2>Identifying devices</h2>\n<p>Name the device precisely, then move straight to its effect.</p>\n<h3>Common devices</h3>\n<ul>\n<li><strong>Simile</strong>: a comparison using like or as, for example \"like a black curtain drawn across the sky\".</li>\n<li><strong>Metaphor</strong>: a direct comparison with no like or as.</li>\n<li><strong>Personification</strong>: giving human qualities to something non-human, for example \"the city devoured the last of the daylight\".</li>\n<li><strong>Onomatopoeia</strong>: a word that imitates a sound, such as buzz or crack.</li>\n<li><strong>Hyperbole</strong>: deliberate exaggeration for effect.</li>\n</ul>\n<h2>Explaining the effect</h2>\n<p>A strong comment has three parts: the word or phrase, what it suggests, and the reader's likely response.</p>\n<h3>Word-level analysis</h3>\n<ul>\n<li>Consider connotations: the feelings a word carries beyond its literal meaning.</li>\n<li>Compare a chosen word with a plausible alternative to show why this one works better.</li>\n<li>Notice verbs and adjectives, since they often carry the emotional weight of a description.</li>\n</ul>\n<h3>Sentence-level analysis</h3>\n<ul>\n<li>A short sentence after several long ones creates emphasis or sudden impact.</li>\n<li>A list of three can build rhythm or momentum.</li>\n<li>A rhetorical question makes the reader pause and consider the point.</li>\n</ul>\n<h2>Structuring your answer</h2>\n<p>Choose two or three clear examples rather than listing everything. Each paragraph should name the device, quote the words, and explain the effect in full sentences.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:45.231335+00",
+  "updated_at": "2026-10-17 10:32:45.231335+00",
   "zoom_url": null
  },
  {

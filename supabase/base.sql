@@ -19,7 +19,7 @@ do $enum$ begin
 end $enum$;
 do $enum$ begin
   if not exists (select 1 from pg_type t join pg_namespace n on n.oid = t.typnamespace where n.nspname = 'public' and t.typname = 'subject_level') then
-    create type public."subject_level" as enum ('OL', 'AS', 'A2');
+    create type public."subject_level" as enum ('OL', 'AS', 'A2', 'IGCSE');
   end if;
 end $enum$;
 
