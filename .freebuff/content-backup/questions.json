@@ -198,6 +198,24 @@
   "statement_id": null
  },
  {
+  "id": "0198eb40-d292-497e-b71d-50a693d2bc4b",
+  "quiz_id": "b35f35d0-1c08-4be2-893c-60f2f0c87ed5",
+  "question_text": "Varying sentence length in description is useful mainly because it:",
+  "options": [
+   "Controls pace and rhythm",
+   "Makes the piece longer",
+   "Removes the need for detail",
+   "Stops the reader from reading"
+  ],
+  "correct_option": 0,
+  "explanation": "Long sentences slow the reader and short ones quicken the pace, so variation shapes how the scene feels.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:48.528949+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "01da2bd6-504c-4f7d-878c-9a3cd463d9f8",
   "quiz_id": "5d7cfff6-a8b2-4589-9e58-6efcdc7e05f3",
   "question_text": "An 8-bit ADC provides:",
@@ -2196,6 +2214,24 @@
   "statement_id": "2433737a-745c-4bf8-9603-d1a94a7602e4"
  },
  {
+  "id": "0d0561f0-9ebe-486f-bbcf-bbe6dbb824de",
+  "quiz_id": "27343f8b-f7a6-4055-9f66-50a83ab6fa7f",
+  "question_text": "A narrative 'hook' is best described as:",
+  "options": [
+   "The title of the story",
+   "A striking line or situation that makes the reader want to continue",
+   "The character's full biography",
+   "A summary of the plot"
+  ],
+  "correct_option": 1,
+  "explanation": "The hook is an opening that grabs attention and makes the reader keep going.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:49.689065+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "0d1dc73a-2311-4859-84b7-3b7c2b35405b",
   "quiz_id": "28f4442c-81f9-49fc-9163-05243edfd569",
   "question_text": "A committee of 4 is chosen from 7 people. The number of committees is:",
@@ -2354,6 +2390,24 @@
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:45.781189+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "0ea8cb06-1c7a-429e-907d-44a15ba3e3c0",
+  "quiz_id": "e4619e42-70a5-4d65-86d3-24e418f7f3d1",
+  "question_text": "Which determiner is used with uncountable nouns?",
+  "options": [
+   "many",
+   "much",
+   "few",
+   "several"
+  ],
+  "correct_option": 1,
+  "explanation": "Much goes with uncountable nouns such as water or time. Many, few and several go with countable nouns.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:55.218863+00",
+  "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
  },
@@ -3096,6 +3150,24 @@
   "statement_id": null
  },
  {
+  "id": "12a4b57b-a587-4086-865f-1fb3cac03d95",
+  "quiz_id": "9bb53768-f593-491a-8c96-aeaabb2b98df",
+  "question_text": "The answer depends ___ the weather.",
+  "options": [
+   "on",
+   "from",
+   "of",
+   "by"
+  ],
+  "correct_option": 0,
+  "explanation": "The verb depend takes the preposition on.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:56.479791+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "12aa344d-08a6-4c78-bb9b-ce936323ce1d",
   "quiz_id": "bc02c9bc-4652-49f1-866c-db720da628a2",
   "question_text": "Find the length of the segment from (0, 0) to (6, 8).",
@@ -3649,6 +3721,24 @@
   "explanation": "Mean = (3 + 7 + 5 + 9 + 1)/5 = 25/5 = 5.",
   "sort_order": 1,
   "created_at": "2026-08-22 14:16:03.222511+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "16a29697-24b8-4043-a595-8cec54357dbd",
+  "quiz_id": "4b94bdce-6146-40c0-92ff-5e15a1a42514",
+  "question_text": "In a summary task, what should you do first?",
+  "options": [
+   "Copy the most interesting sentences",
+   "Write as many words as the limit allows",
+   "Read the question and identify which points it asks for",
+   "Start with your own opinion"
+  ],
+  "correct_option": 2,
+  "explanation": "The question defines what must be selected. Identifying the required points first prevents irrelevant copying.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:47.089503+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -4408,6 +4498,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "d4196e05-0ff4-41d1-96f4-a88e0ddbe8a7"
+ },
+ {
+  "id": "1a3a12f9-cc15-4eec-a39f-3ab144e49bca",
+  "quiz_id": "4b94bdce-6146-40c0-92ff-5e15a1a42514",
+  "question_text": "What is the purpose of a summary?",
+  "options": [
+   "To entertain the reader",
+   "To condense information accurately and concisely",
+   "To give your opinion on the text",
+   "To quote the text as fully as possible"
+  ],
+  "correct_option": 1,
+  "explanation": "A summary condenses. It is accurate and concise, and it contains no personal response.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:47.089503+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "1aac91a9-5b96-40cf-8ef6-175dc55062f1",
@@ -6210,6 +6318,24 @@
   "statement_id": null
  },
  {
+  "id": "27e5544a-fe33-4d6b-94ad-f37864d560c2",
+  "quiz_id": "50fad83f-be7b-4573-8566-3beacfdc1c8d",
+  "question_text": "Which linking word shows a result?",
+  "options": [
+   "However",
+   "Although",
+   "Meanwhile",
+   "Consequently"
+  ],
+  "correct_option": 3,
+  "explanation": "Consequently introduces a result. However and although show contrast, and meanwhile shows time.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:33:01.183354+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "280b54d8-c1f8-4eaa-86f9-c5823fddff03",
   "quiz_id": "444699b3-858e-4243-a865-0facb42333f8",
   "question_text": "Evaluate \\(27^{\\frac{1}{3}}\\).",
@@ -6620,6 +6746,24 @@
   "sort_order": 15,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "29da4cac-4470-461b-a842-6778526674dd",
+  "quiz_id": "c494fe3a-6283-4d30-8d1a-42fb307a8a56",
+  "question_text": "You meet a word you do not know in a sentence. What is the best first step?",
+  "options": [
+   "Stop reading and give up",
+   "Skip the whole text",
+   "Translate every word",
+   "Use the context and surrounding words to work out the meaning"
+  ],
+  "correct_option": 3,
+  "explanation": "Context clues are usually enough to work out a meaning without stopping the reading.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:57.769022+00",
+  "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
  },
@@ -7124,6 +7268,24 @@
   "sort_order": 12,
   "created_at": "2026-10-12 08:05:04.897931+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "2cf72a35-05e3-419d-ab82-6c554a6aa4ac",
+  "quiz_id": "9a984240-6281-4b4c-8bc8-96fecaeafb66",
+  "question_text": "Which sentence contains a simile?",
+  "options": [
+   "The night was a black curtain.",
+   "The night was like a black curtain drawn across the sky.",
+   "The night fell quickly.",
+   "Night came, dark and heavy."
+  ],
+  "correct_option": 1,
+  "explanation": "A simile compares two things using like or as. Only the sentence that uses like does this explicitly.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:45.913821+00",
+  "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
  },
@@ -7951,6 +8113,24 @@
   "explanation": "Use the linearity of expectation: E(a + bX) = a + bE(X). Here E(5 − 2X) = 5 − 2E(X) = 5 − 2(−2) = 5 + 4 = 9. Note that the sign of E(X) matters when the coefficient is negative.",
   "sort_order": 8,
   "created_at": "2026-09-21 17:57:02.406881+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "33c2cd01-fc8f-4b5b-b8fa-57bedfd5ee8d",
+  "quiz_id": "4b94bdce-6146-40c0-92ff-5e15a1a42514",
+  "question_text": "Which is the best approach to paraphrasing?",
+  "options": [
+   "Changing one or two words in each sentence",
+   "Copying phrases exactly",
+   "Using a thesaurus on every word",
+   "Rewriting each point in your own words and sentence structure"
+  ],
+  "correct_option": 3,
+  "explanation": "A true paraphrase changes the wording and the structure, not just a word here and there.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:47.089503+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -8910,6 +9090,24 @@
   "statement_id": null
  },
  {
+  "id": "388d585f-dcd0-4c5b-8643-a97f0b275e1d",
+  "quiz_id": "a7bbf39e-46aa-4f9f-ac74-a65a86fa1921",
+  "question_text": "When the phone rang, I ___ a shower.",
+  "options": [
+   "am taking",
+   "took",
+   "was taking",
+   "have taken"
+  ],
+  "correct_option": 2,
+  "explanation": "The past continuous describes the action in progress when the shorter event happened.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:53.973072+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "38b9df6a-4e67-4901-9d0b-44a4b4ba82fc",
   "quiz_id": "87f0cd6b-6378-40d9-8256-16f334a88fed",
   "question_text": "What is the term for an error that occurs when an array index is out of range?",
@@ -8943,6 +9141,24 @@
   "created_at": "2026-10-12 10:49:39.574339+00",
   "difficulty": "check",
   "objective_id": "179e7694-bde1-4347-aa87-9afe0e786f6a",
+  "statement_id": null
+ },
+ {
+  "id": "38c5af9e-db1a-45cb-94e4-f838f7b66b6f",
+  "quiz_id": "a7bbf39e-46aa-4f9f-ac74-a65a86fa1921",
+  "question_text": "By next summer, they ___ the course.",
+  "options": [
+   "will have finished",
+   "will finish",
+   "finish",
+   "are finishing"
+  ],
+  "correct_option": 0,
+  "explanation": "Will have plus a past participle shows an action completed before a future point.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:53.973072+00",
+  "difficulty": "medium",
+  "objective_id": null,
   "statement_id": null
  },
  {
@@ -9661,6 +9877,24 @@
   "explanation": "W = F × d = 20 × 5 = 100 J (the force must be along the direction of motion).",
   "sort_order": 5,
   "created_at": "2026-09-14 18:41:37.613921+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "3c5e4c76-1664-467b-b184-286ac184b040",
+  "quiz_id": "e8549b86-7043-4c55-940d-723deab97bf6",
+  "question_text": "Which of these is an inference rather than a stated fact?",
+  "options": [
+   "The train left at 9:15",
+   "The passenger seemed anxious, checking his watch every minute",
+   "The station has four platforms",
+   "The ticket cost five pounds"
+  ],
+  "correct_option": 1,
+  "explanation": "Anxiety is interpreted from behaviour. The other options are stated facts that could be checked directly.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:43.826085+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -10980,6 +11214,24 @@
   "statement_id": null
  },
  {
+  "id": "441d0fda-3516-4685-ac61-d408a57cf324",
+  "quiz_id": "2a0c45c8-78c9-4560-9bdd-179d203f7c3a",
+  "question_text": "Which word is the noun form of 'imagine'?",
+  "options": [
+   "imaginary",
+   "imaginative",
+   "imagination",
+   "imagined"
+  ],
+  "correct_option": 2,
+  "explanation": "-ation makes a noun from the verb, giving imagination. The other forms are adjectives or a past participle.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:59.926052+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "441d973c-60d0-4a4d-9d8e-be3c617f7d7c",
   "quiz_id": "2b6a0d6a-0ae0-4756-b1d0-2d6c5c7607bb",
   "question_text": "A student copies numbers from paper to computer, then reads the screen back against the paper. This is an example of what?",
@@ -11520,6 +11772,24 @@
   "statement_id": null
  },
  {
+  "id": "4712e142-4c1a-4fac-accb-46ccd5f1cf73",
+  "quiz_id": "bfc87146-4ab4-4be0-bf32-04e93bca4f11",
+  "question_text": "Which is the strongest thesis statement for an argumentative essay?",
+  "options": [
+   "Some people have views about school uniforms.",
+   "School uniforms should be abolished because they limit self-expression without improving learning.",
+   "Uniforms are a topic.",
+   "I will write about uniforms."
+  ],
+  "correct_option": 1,
+  "explanation": "The strongest thesis is specific, takes a clear position and gives a reason. The others are vague or only announce the topic.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:50.894366+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "4713f3c4-f281-4f79-958f-ba58fc76ca0d",
   "quiz_id": "c7d12408-f0ef-4655-a5b3-638a2b6ba16d",
   "question_text": "What is the median of 2, 5, 8, 3, 7?",
@@ -11749,6 +12019,24 @@
   "explanation": "Volume = length × width × height = 5 × 4 × 3 = 60 cm³. The units are cubic centimetres, not centimetres.",
   "sort_order": 10,
   "created_at": "2026-08-22 14:11:27.713457+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "481cab70-1e48-4bf1-8c7e-f09f0c7d22c7",
+  "quiz_id": "9a984240-6281-4b4c-8bc8-96fecaeafb66",
+  "question_text": "Which term describes a word that imitates a sound, such as buzz?",
+  "options": [
+   "Metaphor",
+   "Hyperbole",
+   "Onomatopoeia",
+   "Personification"
+  ],
+  "correct_option": 2,
+  "explanation": "Onomatopoeia is the term for words whose sound copies their meaning, such as buzz, crack or hiss.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:45.913821+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -13068,6 +13356,24 @@
   "statement_id": null
  },
  {
+  "id": "51505ea0-8dec-4225-bc5c-bb2e441bf8ff",
+  "quiz_id": "27343f8b-f7a6-4055-9f66-50a83ab6fa7f",
+  "question_text": "Which is the best use of dialogue?",
+  "options": [
+   "To fill space with conversation",
+   "To replace all description",
+   "To reveal character and move the plot forward",
+   "To give the reader only facts"
+  ],
+  "correct_option": 2,
+  "explanation": "Dialogue earns its place when it shows who the characters are or advances events.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:49.689065+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "51512284-5b5d-4a08-8943-9d2a0f18a723",
   "quiz_id": "20920374-473e-41b3-a046-bf2de01f5fb5",
   "question_text": "The population is normal. The distribution of x̄ is:",
@@ -13734,6 +14040,24 @@
   "statement_id": null
  },
  {
+  "id": "562ab4d4-cce8-46f9-a5fd-1c7a79fc7271",
+  "quiz_id": "b35f35d0-1c08-4be2-893c-60f2f0c87ed5",
+  "question_text": "Which verb is more precise than 'went' in \"The boy went across the field\"?",
+  "options": [
+   "Gone",
+   "Was",
+   "Had",
+   "Stumbled"
+  ],
+  "correct_option": 3,
+  "explanation": "Stumbled shows how the boy moved as well as where. Gone is a participle, and was and had are not movement verbs.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:48.528949+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "566b0279-8b53-48ac-b632-23940cd129b7",
   "quiz_id": "b2da38b9-9f0a-441e-a925-9dd931543a3b",
   "question_text": "Why do secure websites use asymmetric encryption only to start a session?",
@@ -13873,6 +14197,24 @@
   "explanation": "The interior angles of any triangle always sum to 180°.",
   "sort_order": 1,
   "created_at": "2026-08-22 14:11:11.70286+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "575cb171-39ec-44ae-83a3-b4017ecda520",
+  "quiz_id": "e4619e42-70a5-4d65-86d3-24e418f7f3d1",
+  "question_text": "He arrived after ___ hour.",
+  "options": [
+   "a",
+   "an",
+   "the",
+   "no article"
+  ],
+  "correct_option": 1,
+  "explanation": "Hour begins with a vowel sound (the h is silent), so an is correct.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:55.218863+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -14956,6 +15298,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "884eec33-f615-411d-b184-6e07885e7973"
+ },
+ {
+  "id": "5d46222a-b66c-47cd-8161-0dc2493b9da2",
+  "quiz_id": "50fad83f-be7b-4573-8566-3beacfdc1c8d",
+  "question_text": "Which version is appropriate for an essay?",
+  "options": [
+   "It's clear that the policy failed.",
+   "It is clear that the policy failed.",
+   "Its clear that the policy failed.",
+   "It's obvious the policy failed."
+  ],
+  "correct_option": 1,
+  "explanation": "Essays avoid contractions, so It is is correct. Its without an apostrophe is a possessive, not a contraction.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:33:01.183354+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "5d583eaa-6059-4880-a6e7-315109780795",
@@ -17136,6 +17496,24 @@
   "statement_id": null
  },
  {
+  "id": "6a1abde4-ff9c-4733-8c98-715a90a4f2a5",
+  "quiz_id": "a7bbf39e-46aa-4f9f-ac74-a65a86fa1921",
+  "question_text": "Water ___ at 100 degrees Celsius.",
+  "options": [
+   "is boiling",
+   "has boiled",
+   "boiled",
+   "boils"
+  ],
+  "correct_option": 3,
+  "explanation": "A scientific fact uses the present simple, because it is always true.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:53.973072+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "6a2f54b8-e440-49c4-919e-1a8a1a221f38",
   "quiz_id": "58832197-1629-4492-af44-be6d568ece89",
   "question_text": "A circle has radius 5 cm. Find its circumference.",
@@ -18805,6 +19183,24 @@
   "explanation": "try/except blocks catch and handle runtime errors gracefully.",
   "sort_order": 10,
   "created_at": "2026-09-18 14:13:06.822099+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "749cec16-b79e-4606-89d8-c95c51cbfb20",
+  "quiz_id": "2a0c45c8-78c9-4560-9bdd-179d203f7c3a",
+  "question_text": "The prefix un- in 'unbelievable' means:",
+  "options": [
+   "not",
+   "again",
+   "before",
+   "under"
+  ],
+  "correct_option": 0,
+  "explanation": "Un- is a negative prefix, so unbelievable means not believable.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:59.926052+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -20862,6 +21258,24 @@
   "statement_id": null
  },
  {
+  "id": "7fb2648b-7445-487b-b117-e93d815de2af",
+  "quiz_id": "e4619e42-70a5-4d65-86d3-24e418f7f3d1",
+  "question_text": "Let's meet at ___ café we visited last week.",
+  "options": [
+   "the",
+   "a",
+   "an",
+   "no article"
+  ],
+  "correct_option": 0,
+  "explanation": "The reader knows which café is meant, because it was visited before, so the is used.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:55.218863+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "7fb37655-2db1-4635-8618-8b08bcf8fcc6",
   "quiz_id": "3637c640-0eb1-4fc1-adce-91b2684e23a8",
   "question_text": "HTTPS differs from HTTP because it:",
@@ -21366,6 +21780,24 @@
   "statement_id": null
  },
  {
+  "id": "82ab9b9a-9152-47df-8fcd-bc7beba203c1",
+  "quiz_id": "2a0c45c8-78c9-4560-9bdd-179d203f7c3a",
+  "question_text": "The suffix -less means:",
+  "options": [
+   "without",
+   "full of",
+   "more than",
+   "in the manner of"
+  ],
+  "correct_option": 0,
+  "explanation": "-less means without, so careless means without care.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:59.926052+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "82c3d044-1de9-4944-9e4f-c7ce67bee3f5",
   "quiz_id": "706e051b-0ce7-4f68-8b28-c9f988479b5c",
   "question_text": "Which sampling method is most likely to introduce bias?",
@@ -21847,6 +22279,42 @@
   "explanation": "The discriminant is b² − 4ac = 9 − 20 = −11, which is negative. A negative discriminant means there are no real roots.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:07:03.823529+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "866aca39-0305-4936-b231-f2e5fb2f8af5",
+  "quiz_id": "2a0c45c8-78c9-4560-9bdd-179d203f7c3a",
+  "question_text": "Which suffix changes 'happy' into a noun?",
+  "options": [
+   "-ly",
+   "-ness",
+   "-ful",
+   "-able"
+  ],
+  "correct_option": 1,
+  "explanation": "-ness turns an adjective into a noun: happy becomes happiness.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:59.926052+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "868fd98e-66c0-449e-a431-8cdaa6c8d773",
+  "quiz_id": "a7bbf39e-46aa-4f9f-ac74-a65a86fa1921",
+  "question_text": "I ___ in London since 2019.",
+  "options": [
+   "have lived",
+   "live",
+   "lived",
+   "am living"
+  ],
+  "correct_option": 0,
+  "explanation": "The present perfect with since describes a period that starts in the past and continues now.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:53.973072+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -22388,6 +22856,24 @@
   "sort_order": 0,
   "created_at": "2026-10-12 08:36:29.136796+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "8aa881f3-f666-4a27-9c3b-76ed3b712e2f",
+  "quiz_id": "c494fe3a-6283-4d30-8d1a-42fb307a8a56",
+  "question_text": "Which is a supporting detail?",
+  "options": [
+   "The city hosts three major universities and many technology firms",
+   "The city is a centre of innovation",
+   "Cities are important",
+   "The article is about cities"
+  ],
+  "correct_option": 0,
+  "explanation": "A supporting detail gives specific evidence for the main idea. The other options are either the main idea or too general.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:57.769022+00",
+  "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
  },
@@ -23076,6 +23562,24 @@
   "statement_id": null
  },
  {
+  "id": "8f62b5de-e6ad-4f08-9706-7a62e9b2ec1a",
+  "quiz_id": "27343f8b-f7a6-4055-9f66-50a83ab6fa7f",
+  "question_text": "Which element is most important for building tension?",
+  "options": [
+   "Withholding information and controlling pace",
+   "Long lists of description",
+   "Repeating the opening line",
+   "Telling the reader the ending"
+  ],
+  "correct_option": 0,
+  "explanation": "Tension depends on what the reader does not yet know and how quickly the reveal comes.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:49.689065+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "8f64c1b5-0897-40f3-83ce-b62d640fe2ad",
   "quiz_id": "8c35a10c-0dad-49f8-9b40-69a8722e10b6",
   "question_text": "150° in radians is:",
@@ -23233,6 +23737,24 @@
   "explanation": "The standard result ∫ 1/(x + a) dx = ln|x + a| + c applies to a linear denominator. Differentiating ln|x + 2| returns 1/(x + 2) to confirm it.",
   "sort_order": 9,
   "created_at": "2026-09-20 17:50:54.567992+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "905696e3-ac94-4a36-b148-03f551671e0e",
+  "quiz_id": "e8549b86-7043-4c55-940d-723deab97bf6",
+  "question_text": "Which detail is the best evidence that a narrator is nervous?",
+  "options": [
+   "\"My hands would not stop trembling as I reached for the door.\"",
+   "\"The sky was blue that morning.\"",
+   "\"The bus was number seven.\"",
+   "\"Dinner was at six.\""
+  ],
+  "correct_option": 0,
+  "explanation": "Trembling hands are a physical sign of nerves. The other lines give neutral information with no emotional content.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:43.826085+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -23508,6 +24030,24 @@
   "statement_id": null
  },
  {
+  "id": "9180289a-98a3-4c5c-93ee-8a8e0269a9a0",
+  "quiz_id": "c494fe3a-6283-4d30-8d1a-42fb307a8a56",
+  "question_text": "When you search a text quickly for a date, you are:",
+  "options": [
+   "skimming",
+   "scanning",
+   "reading in detail",
+   "summarising"
+  ],
+  "correct_option": 1,
+  "explanation": "Scanning means searching for a specific item of information.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:57.769022+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "919bd930-5bcb-42b4-b4fc-3600cfd4bb01",
   "quiz_id": "125e60f5-789c-4ba1-8273-92a5fd648835",
   "question_text": "Which is a sensor used by robots?",
@@ -23539,6 +24079,24 @@
   "explanation": "For a binomial distribution Var(X) = np(1 − p). With n = 10 and p = 0.4 this gives 10 × 0.4 × 0.6 = 2.4. The 0.24 option is p(1 − p) without multiplying by n.",
   "sort_order": 3,
   "created_at": "2026-09-21 17:57:04.36356+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "920bb3f3-8a79-4233-9f60-3467026fd271",
+  "quiz_id": "b35f35d0-1c08-4be2-893c-60f2f0c87ed5",
+  "question_text": "Which sentence creates the strongest sensory description?",
+  "options": [
+   "The garden was nice.",
+   "There were some plants and a fence.",
+   "It was a garden.",
+   "Rain drummed on the tin roof and the air smelled of wet earth."
+  ],
+  "correct_option": 3,
+  "explanation": "The sentence about rain uses sound and smell with precise detail. The other options are general and carry little sensory information.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:48.528949+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -24408,6 +24966,24 @@
   "statement_id": null
  },
  {
+  "id": "97422fd0-7123-438c-af89-a5c8eecc2862",
+  "quiz_id": "bfc87146-4ab4-4be0-bf32-04e93bca4f11",
+  "question_text": "Which connective introduces a counter-argument?",
+  "options": [
+   "Furthermore",
+   "However",
+   "Consequently",
+   "In addition"
+  ],
+  "correct_option": 1,
+  "explanation": "However signals contrast. The other connectives add a point or show a result.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:50.894366+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "9748c82c-d19c-4287-a90e-c6d23d3d9411",
   "quiz_id": "fb251745-eb3a-41bd-a55f-f4d1b8a27da4",
   "question_text": "Expand \\((x + 3)(x + 5)\\).",
@@ -24678,6 +25254,24 @@
   "statement_id": null
  },
  {
+  "id": "990983d6-892a-4e88-ad64-e647de6f375d",
+  "quiz_id": "50fad83f-be7b-4573-8566-3beacfdc1c8d",
+  "question_text": "Which linking word shows contrast?",
+  "options": [
+   "Moreover",
+   "Therefore",
+   "Nevertheless",
+   "Similarly"
+  ],
+  "correct_option": 2,
+  "explanation": "Nevertheless introduces a contrast. Moreover adds a point, therefore shows a result, and similarly shows likeness.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:33:01.183354+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "9933192e-cb24-4a40-b8d4-68002f4819dc",
   "quiz_id": "8813f7ef-9d86-49f3-84ac-6c3359dcf444",
   "question_text": "Gamma radiation is stopped by:",
@@ -24709,6 +25303,24 @@
   "explanation": "The denominator x − 2 cannot be zero, because division by zero is undefined. The domain is every real number except x = 2, written x ≠ 2.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:37.251728+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "998182b4-b9c8-44d4-ab87-4ca2dd1c5194",
+  "quiz_id": "c494fe3a-6283-4d30-8d1a-42fb307a8a56",
+  "question_text": "The main idea of a paragraph is usually found:",
+  "options": [
+   "Only in the last sentence",
+   "Only in the title",
+   "In the reader's imagination",
+   "Often in the topic sentence, though not always at the start"
+  ],
+  "correct_option": 3,
+  "explanation": "The topic sentence often states the main idea, but it can appear in other positions.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:57.769022+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -25236,6 +25848,24 @@
   "statement_id": "9324c6bb-8d1e-4537-a509-507f03ccd65e"
  },
  {
+  "id": "9ca55249-ed39-4aa3-91ed-90cedd23b4a3",
+  "quiz_id": "b35f35d0-1c08-4be2-893c-60f2f0c87ed5",
+  "question_text": "A descriptive piece is usually organised around:",
+  "options": [
+   "Random ordering of ideas",
+   "Listing items alphabetically",
+   "A clear focus, such as a close-up that moves outward or a changing viewpoint",
+   "A conclusion of plain facts"
+  ],
+  "correct_option": 2,
+  "explanation": "A clear focus gives the description shape. Random or alphabetical lists lose the reader.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:48.528949+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "9cc68aaa-5ecc-4783-a818-2c228e5cb961",
   "quiz_id": "4f844ba3-c2c9-4c9a-9a86-b8b786a7fb58",
   "question_text": "What is the arc length of a sector with radius 10 cm and angle 72°?",
@@ -25465,6 +26095,24 @@
   "explanation": "The energy supplied is used as latent heat to overcome the forces between molecules (liquid → gas), not to raise their average kinetic energy.",
   "sort_order": 2,
   "created_at": "2026-09-14 18:41:39.947378+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "9df6fcc0-3e34-4766-bb28-32974490190d",
+  "quiz_id": "a7bbf39e-46aa-4f9f-ac74-a65a86fa1921",
+  "question_text": "She ___ to the cinema yesterday evening.",
+  "options": [
+   "has gone",
+   "went",
+   "goes",
+   "has been going"
+  ],
+  "correct_option": 1,
+  "explanation": "A finished action at a named past time (yesterday evening) takes the past simple.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:53.973072+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -26820,6 +27468,24 @@
   "statement_id": null
  },
  {
+  "id": "a5beb6c7-eea9-4f87-abb9-d7e712f37867",
+  "quiz_id": "e8549b86-7043-4c55-940d-723deab97bf6",
+  "question_text": "In the phrase \"the vast, empty plain\", the word vast most suggests:",
+  "options": [
+   "Crowded",
+   "Colourful",
+   "Cold",
+   "Enormous in size"
+  ],
+  "correct_option": 3,
+  "explanation": "Vast means very large. Empty then reinforces the sense of isolation across a huge space.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:43.826085+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "a5ee2213-ddeb-434d-be0d-fbddcb49ac96",
   "quiz_id": "ccb42b62-7562-4f90-8dc3-b6b5db3bf553",
   "question_text": "What is the purpose of a header in a packet?",
@@ -26942,6 +27608,24 @@
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "a695c23f-ce75-4db3-b530-1d4922a20e24",
+  "quiz_id": "9bb53768-f593-491a-8c96-aeaabb2b98df",
+  "question_text": "She is interested ___ photography.",
+  "options": [
+   "at",
+   "on",
+   "for",
+   "in"
+  ],
+  "correct_option": 3,
+  "explanation": "The fixed phrase is interested in.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:56.479791+00",
+  "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
  },
@@ -27504,6 +28188,24 @@
   "statement_id": null
  },
  {
+  "id": "aa9b53e5-7f8f-4fe7-ae63-e245ca5a7b96",
+  "quiz_id": "e8549b86-7043-4c55-940d-723deab97bf6",
+  "question_text": "What makes the strongest evidence in an inference answer?",
+  "options": [
+   "A quotation copied in full",
+   "A repeat of the question wording",
+   "A precise phrase from the text, with an explanation of what it suggests",
+   "Any sentence that mentions the character"
+  ],
+  "correct_option": 2,
+  "explanation": "Examiners reward a precise quotation linked to a clear explanation. Length and repetition earn nothing.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:43.826085+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "aab6da24-c23c-41e1-a98b-9e92beeb3984",
   "quiz_id": "946628c9-a5f0-444f-b6c1-c8aa8fe048a9",
   "question_text": "The sum of the roots of 3x² − 9x + 2 = 0 is:",
@@ -27951,6 +28653,24 @@
   "created_at": "2026-10-12 10:20:30.349135+00",
   "difficulty": "check",
   "objective_id": "d2c4ff31-87c4-422d-968b-aa62c2a1164d",
+  "statement_id": null
+ },
+ {
+  "id": "ad5d0cbf-85f7-4d96-a8e3-ac482eb7eb46",
+  "quiz_id": "9a984240-6281-4b4c-8bc8-96fecaeafb66",
+  "question_text": "Which is the best way to write about a writer's word choice?",
+  "options": [
+   "Identify the word, explain its connotations and link them to the writer's purpose",
+   "Name the device only",
+   "Retell the story in your own words",
+   "Count how many adjectives are used"
+  ],
+  "correct_option": 0,
+  "explanation": "Examiners look for explanation. A word, its connotations and its purpose together make a complete comment.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:45.913821+00",
+  "difficulty": "medium",
+  "objective_id": null,
   "statement_id": null
  },
  {
@@ -29070,6 +29790,24 @@
   "statement_id": null
  },
  {
+  "id": "b45c1c7e-c7a3-45fa-85de-ad1af202b85c",
+  "quiz_id": "27343f8b-f7a6-4055-9f66-50a83ab6fa7f",
+  "question_text": "Which narrative viewpoint gives direct access to one character's thoughts, using 'I'?",
+  "options": [
+   "Second person, using 'you'",
+   "Third person objective",
+   "Dramatic script",
+   "First person"
+  ],
+  "correct_option": 3,
+  "explanation": "First person uses I and gives direct access to the narrator's thoughts and feelings.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:49.689065+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "b45eb12f-ebaf-4b77-b7a2-4aa4e2e19ec6",
   "quiz_id": "b34da0d7-c773-473c-904d-ac9d25a6aec0",
   "question_text": "A fair die is rolled. What is the probability of scoring 5?",
@@ -29628,6 +30366,24 @@
   "statement_id": null
  },
  {
+  "id": "b7da0207-15bb-4a37-a1ff-4b523dfe1415",
+  "quiz_id": "27343f8b-f7a6-4055-9f66-50a83ab6fa7f",
+  "question_text": "A satisfying narrative ending usually:",
+  "options": [
+   "Resolves or meaningfully changes the central conflict",
+   "Introduces an unrelated new plot",
+   "Stops in the middle of a sentence",
+   "Repeats the opening paragraph word for word"
+  ],
+  "correct_option": 0,
+  "explanation": "The ending should respond to the conflict set up earlier, so the story feels complete even if it is open.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:49.689065+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "b7ea9b0d-3569-4fb7-926a-c40262c50168",
   "quiz_id": "e3fca5ce-954e-452a-8dd7-5b5272fcaa33",
   "question_text": "Flat line on distance-time graph means:",
@@ -29947,6 +30703,24 @@
   "explanation": "An SR latch is in an invalid state when both S and R are 1. Both outputs are then forced to 0, so Q and Q̄ are no longer complements of each other.",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:46.581915+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "b9daef7e-dd22-42de-a06c-81a5a3b5cc3c",
+  "quiz_id": "9bb53768-f593-491a-8c96-aeaabb2b98df",
+  "question_text": "Which verb collocates with 'a decision'?",
+  "options": [
+   "do",
+   "make",
+   "play",
+   "say"
+  ],
+  "correct_option": 1,
+  "explanation": "The collocation is make a decision. Do is used with tasks such as homework.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:56.479791+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -30434,6 +31208,24 @@
   "sort_order": 0,
   "created_at": "2026-10-12 08:36:29.136796+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "be328601-56a5-4ba3-ae2b-b255dff97fbf",
+  "quiz_id": "9bb53768-f593-491a-8c96-aeaabb2b98df",
+  "question_text": "He is good ___ mathematics.",
+  "options": [
+   "in",
+   "on",
+   "at",
+   "for"
+  ],
+  "correct_option": 2,
+  "explanation": "The adjective phrase is good at a subject or skill.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:56.479791+00",
+  "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
  },
@@ -31806,6 +32598,24 @@
   "statement_id": null
  },
  {
+  "id": "c726dad2-b8c9-4205-8904-c3a27912a072",
+  "quiz_id": "9a984240-6281-4b4c-8bc8-96fecaeafb66",
+  "question_text": "\"The city devoured the last of the daylight.\" This sentence uses:",
+  "options": [
+   "Simile",
+   "Personification",
+   "A rhetorical question",
+   "Understatement"
+  ],
+  "correct_option": 1,
+  "explanation": "The city is given the human action of devouring, which is personification.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:45.913821+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "c7493e0a-50b2-451b-a1bb-fda8fde14cf7",
   "quiz_id": "21647987-edbb-4d6c-8ab2-d5c58eab6d5b",
   "question_text": "Give the 8-bit two's complement representation of -45.",
@@ -32616,6 +33426,24 @@
   "statement_id": "e005eaef-0406-41c2-b17e-8bff074be4b7"
  },
  {
+  "id": "ccb13577-d81c-444e-92cf-9f5b72c8a3af",
+  "quiz_id": "bfc87146-4ab4-4be0-bf32-04e93bca4f11",
+  "question_text": "A counter-argument paragraph helps because it:",
+  "options": [
+   "Shows awareness of opposing views and allows the writer to rebut them",
+   "Weakens the writer's case by definition",
+   "Replaces the conclusion",
+   "Only adds words"
+  ],
+  "correct_option": 0,
+  "explanation": "Acknowledging and answering the opposing view makes the argument more credible.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:50.894366+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "ccd56308-f021-405f-885f-ce36d64fc5eb",
   "quiz_id": "c9c5b2b2-b378-47cd-80ec-21d3dc4fe2b9",
   "question_text": "Melting 0.2 kg ice (L = 334 kJ/kg) takes about:",
@@ -32776,6 +33604,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "8d983a40-ff2e-4ce8-b823-75d4b7db77f5"
+ },
+ {
+  "id": "cd5eb0d7-4f14-4820-9912-360b6cec6c24",
+  "quiz_id": "b35f35d0-1c08-4be2-893c-60f2f0c87ed5",
+  "question_text": "Which is a 'show, don't tell' version of \"She was angry\"?",
+  "options": [
+   "She was very angry indeed",
+   "Her jaw tightened and she slammed the cupboard door",
+   "She was furious",
+   "She got angry sometimes"
+  ],
+  "correct_option": 1,
+  "explanation": "The option about the jaw and the cupboard door shows the anger through physical action. The others name it or intensify the name.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:48.528949+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "cd64a5d9-cce4-41e0-ae3f-1ec2e6b20509",
@@ -33282,6 +34128,24 @@
   "statement_id": null
  },
  {
+  "id": "d0aabb03-0a3c-40de-8f03-bf7f996b3a8f",
+  "quiz_id": "50fad83f-be7b-4573-8566-3beacfdc1c8d",
+  "question_text": "Which is the best opening for a formal letter to a recipient whose name you do not know?",
+  "options": [
+   "Dear Sir or Madam,",
+   "Hi!",
+   "Yo,",
+   "Hey you"
+  ],
+  "correct_option": 0,
+  "explanation": "Dear Sir or Madam is the standard formal opening when the name is unknown.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:33:01.183354+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "d0b5bf8e-c892-42d8-b872-4d85db5e56c5",
   "quiz_id": "e80d348b-c4b3-4a34-9bc7-6ef0a598dbbc",
   "question_text": "A plane flies 200 km on bearing 090°, then 150 km on bearing 180°. How far south of the start is it?",
@@ -33388,6 +34252,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "10e07249-0c61-4ccc-af69-b3dc52030551"
+ },
+ {
+  "id": "d1d5d320-c655-4bbb-8349-afc092f5a1dd",
+  "quiz_id": "2a0c45c8-78c9-4560-9bdd-179d203f7c3a",
+  "question_text": "Which word means 'able to be read'?",
+  "options": [
+   "unread",
+   "reader",
+   "readful",
+   "readable"
+  ],
+  "correct_option": 3,
+  "explanation": "-able means able to be, so readable means able to be read.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:59.926052+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "d1e14b30-4e32-4ec2-90f7-b8320fe92d46",
@@ -33657,6 +34539,24 @@
   "created_at": "2026-10-12 11:19:03.078118+00",
   "difficulty": "check",
   "objective_id": "895018fe-36ed-4be1-a8a5-5b93de7343cd",
+  "statement_id": null
+ },
+ {
+  "id": "d352664c-379e-409f-a584-e3b5745338c5",
+  "quiz_id": "50fad83f-be7b-4573-8566-3beacfdc1c8d",
+  "question_text": "Which sentence is more formal?",
+  "options": [
+   "Hey, we can't go tomorrow.",
+   "We are unable to attend the meeting tomorrow.",
+   "Sorry, no way I'm going.",
+   "Can't come, sorry!"
+  ],
+  "correct_option": 1,
+  "explanation": "The sentence with we are unable avoids contractions and casual phrases and uses precise vocabulary.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:33:01.183354+00",
+  "difficulty": "medium",
+  "objective_id": null,
   "statement_id": null
  },
  {
@@ -34362,6 +35262,24 @@
   "statement_id": "bc23fdc1-7b68-4ab6-8f3d-335360b72ac3"
  },
  {
+  "id": "d85cbdc8-6126-4b6b-9657-6a07691d2325",
+  "quiz_id": "4b94bdce-6146-40c0-92ff-5e15a1a42514",
+  "question_text": "Which information should usually be left out of a summary?",
+  "options": [
+   "Examples and anecdotes that illustrate a point but are not required",
+   "Main points that answer the question",
+   "Key facts and figures the question asks for",
+   "Causes and effects the question names"
+  ],
+  "correct_option": 0,
+  "explanation": "Illustrations take up words without adding a required point. The other options all answer the question.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:47.089503+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "d866c091-ad03-4a99-ac5e-4a7d9812503a",
   "quiz_id": "c7d12408-f0ef-4655-a5b3-638a2b6ba16d",
   "question_text": "Which measure is most affected by outliers?",
@@ -34558,6 +35476,24 @@
   "difficulty": "exam",
   "objective_id": null,
   "statement_id": "b5e5940a-1f74-439c-9b76-dedd1d06a7fe"
+ },
+ {
+  "id": "d9f06441-ee94-4d58-9cd0-d9d3d6a71f8d",
+  "quiz_id": "bfc87146-4ab4-4be0-bf32-04e93bca4f11",
+  "question_text": "A rhetorical question is used to:",
+  "options": [
+   "Ask for a factual answer",
+   "Confuse the reader on purpose",
+   "Make the reader consider a point, often assuming the answer",
+   "Start a new paragraph in a list"
+  ],
+  "correct_option": 2,
+  "explanation": "A rhetorical question is a persuasive device. It invites the reader to agree with the answer the writer expects.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:50.894366+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "da0dd614-f5e9-4034-9fee-6f83e358d6d7",
@@ -35654,6 +36590,24 @@
   "sort_order": 100,
   "created_at": "2026-10-13 13:42:53.681236+00",
   "difficulty": "exam",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "e04b7d64-1968-4a3b-9437-9c579793d32f",
+  "quiz_id": "4b94bdce-6146-40c0-92ff-5e15a1a42514",
+  "question_text": "Which sentence is the most concise version of \"In my opinion, I think that the park is a place where people can go to relax\"?",
+  "options": [
+   "In my opinion I think the park is somewhere people can go to relax",
+   "I think that the park is very nice",
+   "The park offers people a place to relax",
+   "The park is relaxing, in my opinion, for people"
+  ],
+  "correct_option": 2,
+  "explanation": "It keeps the meaning and removes the hedging phrases. The other options either repeat filler or change the meaning.",
+  "sort_order": 5,
+  "created_at": "2026-10-17 10:32:47.089503+00",
+  "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
  },
@@ -37116,6 +38070,24 @@
   "statement_id": null
  },
  {
+  "id": "e7cc98fe-d62d-4f5f-afb7-0719742b2051",
+  "quiz_id": "c494fe3a-6283-4d30-8d1a-42fb307a8a56",
+  "question_text": "Skimming a text is mainly used to:",
+  "options": [
+   "Learn every word",
+   "Check spelling",
+   "Get the general idea quickly",
+   "Translate sentence by sentence"
+  ],
+  "correct_option": 2,
+  "explanation": "Skimming gives an overview of the text quickly, before any close reading.",
+  "sort_order": 4,
+  "created_at": "2026-10-17 10:32:57.769022+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "e807b67c-eae0-4148-be3a-7a9334d179da",
   "quiz_id": "36a126a3-b8e5-48a2-8e20-87165a50e4b0",
   "question_text": "The field around a straight wire:",
@@ -37219,6 +38191,24 @@
   "explanation": "A force acting through the pivot has zero perpendicular distance, so its moment about that pivot is zero. Taking moments about the support with the unknown reaction removes that reaction from the equation.",
   "sort_order": 10,
   "created_at": "2026-09-20 18:41:57.629989+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "e8839fef-440f-42a9-ab34-2b366268fd33",
+  "quiz_id": "e4619e42-70a5-4d65-86d3-24e418f7f3d1",
+  "question_text": "___ sun rises in the east.",
+  "options": [
+   "A",
+   "An",
+   "The",
+   "Some"
+  ],
+  "correct_option": 2,
+  "explanation": "The sun is unique, so the definite article is used.",
+  "sort_order": 2,
+  "created_at": "2026-10-17 10:32:55.218863+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -38106,6 +39096,24 @@
   "statement_id": null
  },
  {
+  "id": "ee47c0b2-a17f-41e4-8308-c7af6bce4cc6",
+  "quiz_id": "bfc87146-4ab4-4be0-bf32-04e93bca4f11",
+  "question_text": "Which feature suits a formal letter to the editor?",
+  "options": [
+   "Slang and contractions",
+   "Emoji and exclamation marks",
+   "Text-message abbreviations",
+   "Formal vocabulary, a measured tone and no contractions"
+  ],
+  "correct_option": 3,
+  "explanation": "The register should match a formal public audience, so formal vocabulary and full forms are right.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:50.894366+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "ee4a399f-8bfd-4ccd-b14b-ae5741164dc2",
   "quiz_id": "82a76163-685e-49ae-b1b1-a3dbca107403",
   "question_text": "Evidence for the Big Bang includes:",
@@ -38484,6 +39492,24 @@
   "statement_id": "7bafc581-0cdd-42ec-be41-f9f87c4a556d"
  },
  {
+  "id": "f0ed97b7-1179-436c-8ef2-f3ccab548738",
+  "quiz_id": "e8549b86-7043-4c55-940d-723deab97bf6",
+  "question_text": "A narrator writes: \"The room fell silent; the clock on the wall seemed suddenly loud.\" What is most strongly suggested?",
+  "options": [
+   "Everyone in the room became tense and attentive",
+   "The clock was broken",
+   "The room was being cleaned",
+   "The speaker was bored"
+  ],
+  "correct_option": 0,
+  "explanation": "The silence makes the ticking of the clock noticeable. Together they suggest a tense, attentive atmosphere, not a practical or boring one.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:43.826085+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "f1602258-b123-4d71-be6f-38d6d02da0b8",
   "quiz_id": "af3fd394-af71-4fb1-8b6e-27f092c29b2e",
   "question_text": "Find the integral of 6x squared - 4x + 1 with respect to x.",
@@ -38718,6 +39744,24 @@
   "statement_id": "6ce916a8-1105-4534-8542-13b1edfba4b0"
  },
  {
+  "id": "f256b58c-a270-408d-9360-62ad9fd402aa",
+  "quiz_id": "e4619e42-70a5-4d65-86d3-24e418f7f3d1",
+  "question_text": "I like ___ coffee in the morning.",
+  "options": [
+   "the",
+   "a",
+   "an",
+   "no article"
+  ],
+  "correct_option": 3,
+  "explanation": "Coffee is an uncountable noun used in a general sense, so no article is used.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:55.218863+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
   "id": "f259fe3d-b222-4fd0-8d3e-5a203df3c61e",
   "quiz_id": "9c690f86-e985-40b9-9d85-1c0f7e64f814",
   "question_text": "Encryption is used to:",
@@ -38767,6 +39811,24 @@
   "explanation": "In N(μ, σ²) the 4 is the variance, so σ = 2 for the sample mean. Z = (51 − 50)/2 = 0.5, and P(Z > 0.5) = 1 − 0.6915 = 0.3085.",
   "sort_order": 6,
   "created_at": "2026-09-21 17:57:12.287553+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
+ },
+ {
+  "id": "f2746994-cc37-451f-a146-b16bf44084b1",
+  "quiz_id": "9bb53768-f593-491a-8c96-aeaabb2b98df",
+  "question_text": "The meeting is ___ Monday ___ 10 a.m.",
+  "options": [
+   "in / on",
+   "at / in",
+   "on / at",
+   "at / on"
+  ],
+  "correct_option": 2,
+  "explanation": "A day takes on and a clock time takes at.",
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:56.479791+00",
   "difficulty": "medium",
   "objective_id": null,
   "statement_id": null
@@ -40048,6 +41110,24 @@
   "difficulty": "drill",
   "objective_id": null,
   "statement_id": "f519bb32-44f6-44c4-8051-bff7db31e88c"
+ },
+ {
+  "id": "fa489249-2892-404d-9189-75b82840ea31",
+  "quiz_id": "9a984240-6281-4b4c-8bc8-96fecaeafb66",
+  "question_text": "What is the usual effect of a short sentence placed after several long ones?",
+  "options": [
+   "It slows the pace",
+   "It confuses the reader",
+   "It shows the writer is tired",
+   "It creates emphasis or sudden impact"
+  ],
+  "correct_option": 3,
+  "explanation": "The contrast in length makes the short sentence stand out, which draws attention to its content.",
+  "sort_order": 3,
+  "created_at": "2026-10-17 10:32:45.913821+00",
+  "difficulty": "medium",
+  "objective_id": null,
+  "statement_id": null
  },
  {
   "id": "fa4eef9b-1aae-40d3-8e2f-ef152145b664",

@@ -40,6 +40,16 @@
   "updated_at": "2026-08-22 11:25:30.590181+00"
  },
  {
+  "id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "subject_id": "b97ece66-cb60-4b13-8c2d-3fc0c6c6e578",
+  "level": "IGCSE",
+  "description": "Oxford IGCSE English as a Second Language",
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:52.350219+00",
+  "updated_at": "2026-10-17 10:32:52.350219+00"
+ },
+ {
   "id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "subject_id": "84501ceb-494b-4c08-b999-3daba11b9c4e",
   "level": "OL",
@@ -88,5 +98,15 @@
   "sort_order": 1,
   "created_at": "2026-08-22 11:25:30.590181+00",
   "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
+  "subject_id": "0f3771fe-2132-4f6d-ab96-b0e4daa50970",
+  "level": "IGCSE",
+  "description": "Cambridge IGCSE English First Language",
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-10-17 10:32:42.283914+00",
+  "updated_at": "2026-10-17 10:32:42.283914+00"
  }
 ]

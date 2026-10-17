@@ -6,24 +6,32 @@
  * icons, and dragging an icon library into the Vite config bundle is both slow
  * and pointless — the plugin only needs the words.
  */
-export type SubjectLevelCode = "OL" | "AS" | "A2";
+export type SubjectLevelCode = "OL" | "AS" | "A2" | "IGCSE";
 
-export const LEVELS: SubjectLevelCode[] = ["OL", "AS", "A2"];
+export const LEVELS: SubjectLevelCode[] = ["OL", "IGCSE", "AS", "A2"];
 
 /**
- * What a student sees. The code stays "OL" (it is in every URL, in the DB enum
- * and in the topic manifest), but the words are "IGCSE": nobody sits an "O
- * Level" here, and the search term students use is IGCSE. Change the label, not
- * the code — topicUrl/topicSeo/topicSeo tests all key off it.
+ * The levels a newly created subject gets rows for. IGCSE is opt-in: only
+ * subjects that actually teach it (English) should carry an IGCSE row.
+ */
+export const DEFAULT_SUBJECT_LEVELS: SubjectLevelCode[] = ["OL", "AS", "A2"];
+
+/**
+ * What a student sees. "OL" is kept as a code (it is in every URL, in the DB
+ * enum and in the topic manifest) and is relabelled "O Level" so it no longer
+ * reads the same as IGCSE. IGCSE is its own code and label. Change the label,
+ * not the code — topicUrl/topicSeo/topicSeo tests all key off it.
  */
 export const LEVEL_LABELS: Record<SubjectLevelCode, string> = {
-  OL: "IGCSE",
+  OL: "O Level",
+  IGCSE: "IGCSE",
   AS: "AS Level",
   A2: "A2 Level",
 };
 
 export const LEVEL_DESCRIPTIONS: Record<SubjectLevelCode, string> = {
-  OL: "IGCSE foundations",
+  OL: "O Level foundations",
+  IGCSE: "IGCSE foundations",
   AS: "First year of A Level",
   A2: "Second year of A Level",
 };

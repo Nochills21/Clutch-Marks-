@@ -1,5 +1,17 @@
 [
  {
+  "id": "0f3771fe-2132-4f6d-ab96-b0e4daa50970",
+  "name": "English First Language (Cambridge)",
+  "slug": "english-first-language-cambridge",
+  "description": "Cambridge IGCSE English First Language: reading for information and inference, language analysis, summary writing and the descriptive, narrative and argumentative writing tasks.",
+  "icon": "BookOpen",
+  "color": "primary",
+  "sort_order": 4,
+  "is_active": true,
+  "created_at": "2026-10-17 10:32:41.618079+00",
+  "updated_at": "2026-10-17 10:32:41.618079+00"
+ },
+ {
   "id": "403ce537-1fa0-4945-8648-c31e85ea6b57",
   "name": "Physics",
   "slug": "physics",
@@ -22,6 +34,18 @@
   "is_active": true,
   "created_at": "2026-08-22 11:25:30.590181+00",
   "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "b97ece66-cb60-4b13-8c2d-3fc0c6c6e578",
+  "name": "English as a Second Language (Oxford)",
+  "slug": "english-as-a-second-language-oxford",
+  "description": "Oxford IGCSE English as a Second Language: grammar in context, vocabulary and collocations, reading skills and formal writing.",
+  "icon": "BookOpen",
+  "color": "primary",
+  "sort_order": 5,
+  "is_active": true,
+  "created_at": "2026-10-17 10:32:51.651562+00",
+  "updated_at": "2026-10-17 10:32:51.651562+00"
  },
  {
   "id": "e67ce851-9337-4342-92e0-fa5bbb19b258",

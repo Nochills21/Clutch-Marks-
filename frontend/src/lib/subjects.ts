@@ -19,7 +19,7 @@ export function subjectIcon(name?: string | null): LucideIcon {
 // Level vocabulary lives in ./levels so the build-time prerender plugin can
 // import it without pulling lucide-react into the Vite config bundle. Re-exported
 // here because that is where the rest of the app imports it from.
-export { LEVELS, LEVEL_LABELS, LEVEL_DESCRIPTIONS, levelLabel } from "./levels";
+export { LEVELS, DEFAULT_SUBJECT_LEVELS, LEVEL_LABELS, LEVEL_DESCRIPTIONS, levelLabel } from "./levels";
 export type { SubjectLevelCode } from "./levels";
 
 export const SUBJECT_COLORS = ["primary", "purple", "cyan", "green", "amber", "pink"] as const;

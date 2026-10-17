@@ -15,7 +15,7 @@ import { useToast } from "@/hooks/useToast";
 import { Plus, Pencil, Trash2, Sparkles, Layers, Loader2, GraduationCap } from "lucide-react";
 import {
   subjectIcon, subjectAccent, SUBJECT_ICON_NAMES, SUBJECT_COLORS,
-  LEVELS, LEVEL_LABELS, type SubjectLevelCode,
+  LEVELS, DEFAULT_SUBJECT_LEVELS, LEVEL_LABELS, type SubjectLevelCode,
 } from "@/lib/subjects";
 
 type Level = { id: string; subject_id: string; level: SubjectLevelCode; description: string | null; is_active: boolean; sort_order: number };
@@ -103,7 +103,7 @@ export default function AdminSubjects() {
       if (error) { toast({ title: "Failed", description: error.message, variant: "destructive" }); return; }
       subjectId = data.id;
       await supabase.from("subject_levels").insert(
-        LEVELS.map((level, i) => ({ subject_id: subjectId!, level, sort_order: i + 1 })),
+        DEFAULT_SUBJECT_LEVELS.map((level, i) => ({ subject_id: subjectId!, level, sort_order: i + 1 })),
       );
     }
     toast({ title: editing ? "Subject updated" : "Subject created" });

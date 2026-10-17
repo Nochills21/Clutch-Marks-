@@ -686,6 +686,20 @@
   "correction_file_url": null
  },
  {
+  "id": "27343f8b-f7a6-4055-9f66-50a83ab6fa7f",
+  "topic_id": "b5ce7a38-98cf-46ba-8e83-758e98c7b7bb",
+  "title": "Narrative Writing Quiz",
+  "description": "Exam-style questions on Narrative Writing — English First Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:49.399729+00",
+  "updated_at": "2026-10-17 10:32:49.399729+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "278e574f-21f5-4b73-8462-a1f88d01779d",
   "topic_id": "4a093751-70de-4b7b-a451-94efe48c280c",
   "title": "Checkpoints — Angles & Polygons",
@@ -736,6 +750,20 @@
   "is_published": true,
   "created_at": "2026-09-20 17:51:00.295981+00",
   "updated_at": "2026-09-21 17:56:47.080116+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "2a0c45c8-78c9-4560-9bdd-179d203f7c3a",
+  "topic_id": "43ca4b50-83b4-4542-a818-4db33ac901fb",
+  "title": "Word Formation: Prefixes and Suffixes Quiz",
+  "description": "Exam-style questions on Word Formation: Prefixes and Suffixes — English as a Second Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:59.63994+00",
+  "updated_at": "2026-10-17 10:32:59.63994+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -1078,6 +1106,20 @@
   "correction_file_url": null
  },
  {
+  "id": "4b94bdce-6146-40c0-92ff-5e15a1a42514",
+  "topic_id": "fd93b421-eb46-414b-992a-21ccb119aeae",
+  "title": "Summary Writing Quiz",
+  "description": "Exam-style questions on Summary Writing — English First Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:46.80286+00",
+  "updated_at": "2026-10-17 10:32:46.80286+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "4dc89d04-984f-442d-9711-84609b281f18",
   "topic_id": "628446d9-f59a-4542-a298-a0cd8234fc25",
   "title": "Hypothesis Testing Quiz",
@@ -1128,6 +1170,20 @@
   "is_published": true,
   "created_at": "2026-08-22 14:06:55.390573+00",
   "updated_at": "2026-08-22 14:06:55.390573+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "50fad83f-be7b-4573-8566-3beacfdc1c8d",
+  "topic_id": "927ba4a9-fc3e-4b8c-b660-8578a41b0dd7",
+  "title": "Formal Writing: Register and Linking Words Quiz",
+  "description": "Exam-style questions on Formal Writing: Register and Linking Words — English as a Second Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:33:00.899139+00",
+  "updated_at": "2026-10-17 10:33:00.899139+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -1988,6 +2044,20 @@
   "correction_file_url": null
  },
  {
+  "id": "9a984240-6281-4b4c-8bc8-96fecaeafb66",
+  "topic_id": "0d13c88b-1c48-4bbd-9a2f-07a991960694",
+  "title": "Analysing Language Choices Quiz",
+  "description": "Exam-style questions on Analysing Language Choices — English First Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:45.592206+00",
+  "updated_at": "2026-10-17 10:32:45.592206+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "9ab81c49-f6ee-44a2-b96f-b434d72b64b3",
   "topic_id": "ae90cac1-2832-4627-86f3-9b53192ca288",
   "title": "Practice — Robotics & AI",
@@ -1998,6 +2068,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "9bb53768-f593-491a-8c96-aeaabb2b98df",
+  "topic_id": "b9c00307-b10e-4727-aa8c-d43940fa0448",
+  "title": "Prepositions and Collocations Quiz",
+  "description": "Exam-style questions on Prepositions and Collocations — English as a Second Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:56.14729+00",
+  "updated_at": "2026-10-17 10:32:56.14729+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -2152,6 +2236,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "a7bbf39e-46aa-4f9f-ac74-a65a86fa1921",
+  "topic_id": "d52fc891-6965-47d1-9f6b-6997066cb5df",
+  "title": "Tenses in Context Quiz",
+  "description": "Exam-style questions on Tenses in Context — English as a Second Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:53.683496+00",
+  "updated_at": "2026-10-17 10:32:53.683496+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -2338,6 +2436,20 @@
   "correction_file_url": null
  },
  {
+  "id": "b35f35d0-1c08-4be2-893c-60f2f0c87ed5",
+  "topic_id": "039033f5-a544-456a-928d-b9e8e29026b9",
+  "title": "Descriptive Writing Quiz",
+  "description": "Exam-style questions on Descriptive Writing — English First Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:47.961343+00",
+  "updated_at": "2026-10-17 10:32:47.961343+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "b51bd9cf-0bba-4507-870e-b38f4c08c520",
   "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
   "title": "Practice — System Software and Security",
@@ -2464,6 +2576,20 @@
   "correction_file_url": null
  },
  {
+  "id": "bfc87146-4ab4-4be0-bf32-04e93bca4f11",
+  "topic_id": "1837cee6-60d1-43f5-a16a-821e0cedaad2",
+  "title": "Persuasive and Argumentative Writing Quiz",
+  "description": "Exam-style questions on Persuasive and Argumentative Writing — English First Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:50.601951+00",
+  "updated_at": "2026-10-17 10:32:50.601951+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "bfdc2405-2093-4c51-be0b-a6bfc9e6bb1d",
   "topic_id": "580136d1-5758-460e-8f79-7a04e39b9899",
   "title": "Programming Paradigms and Low-Level Quiz",
@@ -2542,6 +2668,20 @@
   "is_published": true,
   "created_at": "2026-08-22 13:58:45.086857+00",
   "updated_at": "2026-08-22 13:58:45.086857+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "c494fe3a-6283-4d30-8d1a-42fb307a8a56",
+  "topic_id": "34cac24b-22ca-439b-a12c-599dfbf6e832",
+  "title": "Reading for Main Ideas and Detail Quiz",
+  "description": "Exam-style questions on Reading for Main Ideas and Detail — English as a Second Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:57.423079+00",
+  "updated_at": "2026-10-17 10:32:57.423079+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2800,6 +2940,20 @@
   "correction_file_url": null
  },
  {
+  "id": "e4619e42-70a5-4d65-86d3-24e418f7f3d1",
+  "topic_id": "8b9545f6-944a-46c4-948c-245a1b9dbd02",
+  "title": "Articles and Determiners Quiz",
+  "description": "Exam-style questions on Articles and Determiners — English as a Second Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:54.927024+00",
+  "updated_at": "2026-10-17 10:32:54.927024+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "e7612548-09a6-4188-beba-78164d25735f",
   "topic_id": "333739b9-8c29-4b03-b1c0-ec9767823dfd",
   "title": "Waves Quiz",
@@ -2836,6 +2990,20 @@
   "is_published": true,
   "created_at": "2026-10-12 11:12:22.821775+00",
   "updated_at": "2026-10-12 11:12:22.821775+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "e8549b86-7043-4c55-940d-723deab97bf6",
+  "topic_id": "a0b52a05-fbc8-4c2d-8adb-2525fa781341",
+  "title": "Reading for Information and Inference Quiz",
+  "description": "Exam-style questions on Reading for Information and Inference — English First Language IGCSE.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-17 10:32:43.483501+00",
+  "updated_at": "2026-10-17 10:32:43.483501+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
