@@ -2285,7 +2285,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "student", "parent"],
-      subject_level: ["OL", "AS", "A2"],
+      subject_level: ["OL", "AS", "A2", "IGCSE"],
     },
   },
 } as const
