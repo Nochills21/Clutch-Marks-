@@ -86,11 +86,12 @@ Deno.serve(async (req) => {
     }
 
     // ── Identity string burned into the document ───────────────────────────
-    const stamp = `Licensed to ${user.email ?? user.id} · ClutchPrep`;
+    const stamp = `Licensed to ${user.email ?? user.id} · Clutch Marks`;
     const now = new Date();
     const utc = now.toISOString().replace("T", " ").slice(0, 19) + " UTC";
 
-    const pdf = await PDFDocument.load(buf);
+    // updateMetadata:false stops pdf-lib overwriting Producer with its own URL on save.
+    const pdf = await PDFDocument.load(buf, { updateMetadata: false });
     const font = await pdf.embedFont(StandardFonts.Helvetica);
     const pages = pdf.getPages();
 
@@ -106,7 +107,7 @@ Deno.serve(async (req) => {
         for (let x = -stepX; x < width + stepX; x += stepX) {
           // Stagger alternate rows for a woven look.
           const offsetX = (Math.round(y / stepY) % 2 === 0) ? 0 : stepX / 2;
-          page.drawText("CLUTCH", {
+          page.drawText("CLUTCH MARKS", {
             x: x + offsetX,
             y,
             size: fontSize,
@@ -130,8 +131,8 @@ Deno.serve(async (req) => {
     }
 
     // Traceable metadata (survives many PDF tools even when visuals are cropped).
-    pdf.setTitle(path.split("/").pop() ?? "ClutchPrep material");
-    pdf.setProducer("ClutchPrep serve-material");
+    pdf.setTitle(path.split("/").pop() ?? "Clutch Marks material");
+    pdf.setProducer("Clutch Marks serve-material");
     pdf.setKeywords([`license:${user.email ?? user.id}`, `ts:${now.toISOString()}`]);
 
     // useObjectStreams:false keeps the info dictionary plaintext — the
