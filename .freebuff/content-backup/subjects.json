@@ -24,6 +24,30 @@
   "updated_at": "2026-08-22 11:25:30.590181+00"
  },
  {
+  "id": "48937e9d-30b1-43c6-92f5-b43765690b35",
+  "name": "Biology",
+  "slug": "biology",
+  "description": "Edexcel International A Level Biology (WBI11-WBI16)",
+  "icon": "BookOpen",
+  "color": "primary",
+  "sort_order": 21,
+  "is_active": false,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00"
+ },
+ {
+  "id": "66507374-12d9-4849-8f93-e69127bcc214",
+  "name": "Chemistry",
+  "slug": "chemistry",
+  "description": "Edexcel International A Level Chemistry (WCH11-WCH16)",
+  "icon": "BookOpen",
+  "color": "primary",
+  "sort_order": 20,
+  "is_active": false,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00"
+ },
+ {
   "id": "84501ceb-494b-4c08-b999-3daba11b9c4e",
   "name": "Mathematics",
   "slug": "mathematics",

@@ -1,5 +1,5 @@
 {
- "dumped_at": "2026-10-18T04:37:18.625Z",
+ "dumped_at": "2026-10-18T05:37:33.656Z",
  "project_ref": "zzliiazovezhxbmfeqco",
  "tables": [
   "subjects",
@@ -17,9 +17,9 @@
   "content_file_versions"
  ],
  "row_counts": {
-  "subjects": 5,
-  "subject_levels": 11,
-  "topics": 112,
+  "subjects": 7,
+  "subject_levels": 15,
+  "topics": 151,
   "lessons": 112,
   "questions": 2338,
   "quizzes": 240,
