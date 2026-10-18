@@ -54,7 +54,7 @@ const DEFAULT_CF_MODEL =
  * Bumped whenever a prompt below changes, and returned with every draft so a
  * seeder can record which wording produced the content it ships.
  */
-const PROMPT_VERSION = "2026-10-09.1";
+const PROMPT_VERSION = "2026-10-18.1";
 
 /** Kept in step with the `difficulty` vocabulary the app already uses. */
 const DIFFICULTIES = ["check", "drill", "exam"] as const;
@@ -63,6 +63,16 @@ const LEVEL_LABELS: Record<string, string> = {
   AS: "AS Level",
   A2: "A2 Level",
 };
+
+/**
+ * The examining body a prompt should write for. AS/A2 Maths, Physics, Chemistry
+ * and Biology are Edexcel International (IAL); IGCSE and AS/A2 Computer Science
+ * (9618) stay with Cambridge.
+ */
+function examiningBody(levelLabel: string, subjectName: string): string {
+  const alevel = /^(AS|A2)\b/.test(levelLabel);
+  return alevel && !/computer/i.test(subjectName) ? "Edexcel International AS/A Level" : "Cambridge";
+}
 
 const MAX_NOTES_CHARS = 14_000;
 const MAX_STATEMENTS = 40;
@@ -259,7 +269,7 @@ function questionPrompt(input: {
 }) {
   const { topicName, subjectName, levelLabel, statements, notes, existing, avoid, count, focused } = input;
   return `
-You are an experienced Cambridge examiner and item writer for ${levelLabel} ${subjectName}.
+You are an experienced ${examiningBody(levelLabel, subjectName)} examiner and item writer for ${levelLabel} ${subjectName}.
 Write ${count} multiple-choice questions for the topic "${topicName}".
 
 The board's statements this topic is responsible for (from the specification):
@@ -306,7 +316,7 @@ function techniquePrompt(input: {
 }) {
   const { topicName, subjectName, levelLabel, statements, notes } = input;
   return `
-You are an experienced Cambridge examiner writing the "exam technique" note for
+You are an experienced ${examiningBody(levelLabel, subjectName)} examiner writing the "exam technique" note for
 ${levelLabel} ${subjectName}, topic "${topicName}", for a student who has already
 studied the topic and now needs the marks.
 
@@ -495,7 +505,7 @@ Deno.serve(async (req) => {
       const prompt = techniquePrompt({ topicName: tidy(topic.name), subjectName, levelLabel, statements: focusedStatements, notes });
       const { text, model } = await callWorkersAI(
         [
-          { role: "system", content: "You are a Cambridge examiner. Reply with one JSON object and nothing else." },
+          { role: "system", content: "You are an experienced examiner. Reply with one JSON object and nothing else." },
           { role: "user", content: prompt },
         ],
         2048,
@@ -551,7 +561,7 @@ Deno.serve(async (req) => {
     });
     const { text, model } = await callWorkersAI(
       [
-        { role: "system", content: "You are a Cambridge examiner writing multiple-choice questions. Reply with one JSON object and nothing else." },
+        { role: "system", content: "You are an experienced examiner writing multiple-choice questions. Reply with one JSON object and nothing else." },
         { role: "user", content: prompt },
       ],
       // 15 questions with an explanation each do not fit in 4096 tokens, and the

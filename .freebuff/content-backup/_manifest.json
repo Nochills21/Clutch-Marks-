@@ -1,5 +1,5 @@
 {
- "dumped_at": "2026-10-18T05:37:33.656Z",
+ "dumped_at": "2026-10-18T08:19:15.736Z",
  "project_ref": "zzliiazovezhxbmfeqco",
  "tables": [
   "subjects",
@@ -20,10 +20,10 @@
   "subjects": 7,
   "subject_levels": 15,
   "topics": 151,
-  "lessons": 112,
-  "questions": 2338,
-  "quizzes": 240,
-  "study_materials": 325,
+  "lessons": 140,
+  "questions": 2784,
+  "quizzes": 268,
+  "study_materials": 381,
   "past_papers": 1095,
   "flashcard_sets": 127,
   "flashcards": 1081,
