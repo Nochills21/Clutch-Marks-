@@ -40,6 +40,26 @@
   "updated_at": "2026-08-22 11:25:30.590181+00"
  },
  {
+  "id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "subject_id": "66507374-12d9-4849-8f93-e69127bcc214",
+  "level": "AS",
+  "description": null,
+  "is_active": false,
+  "sort_order": 1,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00"
+ },
+ {
+  "id": "7dfc0d52-ca74-467b-bf4d-a141b885fa09",
+  "subject_id": "48937e9d-30b1-43c6-92f5-b43765690b35",
+  "level": "AS",
+  "description": null,
+  "is_active": false,
+  "sort_order": 1,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00"
+ },
+ {
   "id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
   "subject_id": "b97ece66-cb60-4b13-8c2d-3fc0c6c6e578",
   "level": "IGCSE",
@@ -48,6 +68,26 @@
   "sort_order": 1,
   "created_at": "2026-10-17 10:32:52.350219+00",
   "updated_at": "2026-10-17 10:32:52.350219+00"
+ },
+ {
+  "id": "94178b69-9872-4e61-b32b-60a71b953e81",
+  "subject_id": "48937e9d-30b1-43c6-92f5-b43765690b35",
+  "level": "A2",
+  "description": null,
+  "is_active": false,
+  "sort_order": 2,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00"
+ },
+ {
+  "id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "subject_id": "66507374-12d9-4849-8f93-e69127bcc214",
+  "level": "A2",
+  "description": null,
+  "is_active": false,
+  "sort_order": 2,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00"
  },
  {
   "id": "b8100a48-b4f7-414b-a796-528259b28a84",

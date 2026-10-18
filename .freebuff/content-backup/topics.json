@@ -1,5 +1,15 @@
 [
  {
+  "id": "0206e311-d1ae-486b-b36f-00ab2dd007ce",
+  "name": "Entropy and Energetics",
+  "description": null,
+  "sort_order": 2,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "entropy-and-energetics"
+ },
+ {
   "id": "02bd056b-1248-42ac-afec-ed66f164f6bd",
   "name": "Logic Gates & Boolean Logic",
   "description": "Logic Gates & Boolean Logic — IGCSE Computer Science",
@@ -8,6 +18,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
   "slug": "logic-gates-boolean-logic"
+ },
+ {
+  "id": "03510ba9-e8c6-4770-868b-2978e2f4ba0a",
+  "name": "Formulae, Equations and Amount of Substance",
+  "description": null,
+  "sort_order": 1,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "formulae-equations-and-amount-of-substance"
  },
  {
   "id": "039033f5-a544-456a-928d-b9e8e29026b9",
@@ -28,6 +48,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "number-ratio-rate-and-proportion"
+ },
+ {
+  "id": "096d6365-d239-4c38-b8f0-a338a550d6be",
+  "name": "Organic Chemistry: Arenes",
+  "description": null,
+  "sort_order": 8,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "organic-arenes"
  },
  {
   "id": "0a0f911e-7056-47a9-ac2b-6882707c60cf",
@@ -100,6 +130,16 @@
   "slug": "web-technologies-and-security"
  },
  {
+  "id": "13f60c5e-232b-43a2-b2d1-92c181f204a0",
+  "name": "Cell Structure, Reproduction and Development",
+  "description": null,
+  "sort_order": 3,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "7dfc0d52-ca74-467b-bf4d-a141b885fa09",
+  "slug": "cell-structure-reproduction-and-development"
+ },
+ {
   "id": "15a26a2d-cb1f-4059-810f-1698500fe548",
   "name": "Kinematics",
   "description": "Kinematics — Cambridge International AS Level Physics (9702)",
@@ -141,11 +181,11 @@
  },
  {
   "id": "1b6d51a7-a379-4b4a-9d3b-b461c1cf291a",
-  "name": "Oscillations and Waves II",
+  "name": "Oscillations",
   "description": "Oscillations and Waves II — Cambridge International A Level Physics (9702)",
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:30.624634+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "oscillations-and-waves-ii"
  },
@@ -160,12 +200,22 @@
   "slug": "ethics-and-ai"
  },
  {
+  "id": "1db268f3-7071-4515-8d9f-311291cfca94",
+  "name": "Transition Metals and their Chemistry",
+  "description": null,
+  "sort_order": 7,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "transition-metals-and-their-chemistry"
+ },
+ {
   "id": "1fb446d5-10eb-407d-9d60-e5ca030eeb1c",
-  "name": "Circular Measure",
+  "name": "Trigonometry: Radian Measure",
   "description": "Circular Measure — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:39.292786+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "circular-measure"
  },
@@ -200,6 +250,16 @@
   "slug": "number-indices-and-standard-form"
  },
  {
+  "id": "2b466f1b-04cf-4937-a711-efe8672838ff",
+  "name": "Plant Structure and Function, Biodiversity and Conservation",
+  "description": null,
+  "sort_order": 4,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "7dfc0d52-ca74-467b-bf4d-a141b885fa09",
+  "slug": "plant-structure-biodiversity-and-conservation"
+ },
+ {
   "id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
   "name": "Number — Fractions, Decimals and Percentages",
   "description": "Converting between fractions, decimals and percentages. Adding, subtracting, multiplying and dividing fractions. Percentage increase/decrease.",
@@ -211,11 +271,11 @@
  },
  {
   "id": "33144da3-195d-4c11-b5f8-a1c05eec5286",
-  "name": "Electric Fields and Capacitance",
+  "name": "Electric Fields",
   "description": "Electric Fields and Capacitance — Cambridge International A Level Physics (9702)",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:16.626143+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "electric-fields-and-capacitance"
  },
@@ -370,6 +430,16 @@
   "slug": "the-normal-distribution"
  },
  {
+  "id": "3f3c0154-5946-4d1c-ac42-12749a11f41e",
+  "name": "Coordination, Response and Gene Technology",
+  "description": null,
+  "sort_order": 4,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "94178b69-9872-4e61-b32b-60a71b953e81",
+  "slug": "coordination-response-and-gene-technology"
+ },
+ {
   "id": "4149e92f-7b66-43ee-af8a-cab08f65524a",
   "name": "Trigonometry",
   "description": "Trigonometry — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
@@ -400,6 +470,16 @@
   "slug": "work-energy-and-power"
  },
  {
+  "id": "494eb848-7ffb-489b-9a2c-948fbc58a33c",
+  "name": "Exponentials and Logarithms",
+  "description": null,
+  "sort_order": 22,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "exponentials-and-logarithms"
+ },
+ {
   "id": "4a093751-70de-4b7b-a451-94efe48c280c",
   "name": "Geometry — Angles and Polygons",
   "description": "Angles on a line, at a point, in triangles, quadrilaterals, and polygons. Parallel line angles.",
@@ -418,6 +498,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "complex-numbers"
+ },
+ {
+  "id": "4bbf548c-f900-449c-9631-bc4b638d623d",
+  "name": "Organic Chemistry: Halogenoalkanes, Alcohols and Spectra",
+  "description": null,
+  "sort_order": 10,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "organic-halogenoalkanes-alcohols-and-spectra"
  },
  {
   "id": "4be1bf79-d264-44d6-84e3-4a5db1319923",
@@ -440,6 +530,16 @@
   "slug": "programming-concepts"
  },
  {
+  "id": "4cde8094-6c1b-4fb9-9b92-38d6670887ca",
+  "name": "Atomic Structure and the Periodic Table",
+  "description": null,
+  "sort_order": 2,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "atomic-structure-and-the-periodic-table"
+ },
+ {
   "id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
   "name": "Measurement & Units",
   "description": "Measurement & Units - IGCSE Physics",
@@ -448,6 +548,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "fc2155c8-9d4d-4896-b1c1-fac0a2810f5b",
   "slug": "measurement-units"
+ },
+ {
+  "id": "4ee8687b-e42e-46e9-98e0-3e84db785f2a",
+  "name": "Membranes, Proteins, DNA and Gene Expression",
+  "description": null,
+  "sort_order": 2,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "7dfc0d52-ca74-467b-bf4d-a141b885fa09",
+  "slug": "membranes-proteins-dna-and-gene-expression"
  },
  {
   "id": "4fbcf844-f1cc-41c3-a81d-e4dba7ad964b",
@@ -481,13 +591,23 @@
  },
  {
   "id": "52889198-3121-4be7-8cd7-e3bd37e97430",
-  "name": "Thermal Physics",
+  "name": "Thermodynamics",
   "description": "Thermal Physics — Cambridge International A Level Physics (9702)",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:15.158174+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "thermal-physics"
+ },
+ {
+  "id": "52c399a1-e52c-446a-a7e4-31be0ca35a87",
+  "name": "Kinetics",
+  "description": null,
+  "sort_order": 1,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "kinetics"
  },
  {
   "id": "52d5c1d0-d6ba-4ae6-9dbd-ece542b7f34c",
@@ -510,6 +630,16 @@
   "slug": "hardware-and-logic-gates"
  },
  {
+  "id": "557df8f5-af3a-4af1-a92e-78b41e90ca27",
+  "name": "Molecules, Transport and Health",
+  "description": null,
+  "sort_order": 1,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "7dfc0d52-ca74-467b-bf4d-a141b885fa09",
+  "slug": "molecules-transport-and-health"
+ },
+ {
   "id": "580136d1-5758-460e-8f79-7a04e39b9899",
   "name": "Programming Paradigms and Low-Level",
   "description": "Programming Paradigms and Low-Level — Cambridge International A Level Computer Science (9618)",
@@ -521,13 +651,23 @@
  },
  {
   "id": "5883f323-f4cd-4741-a6bc-a9c051b11ebf",
-  "name": "Quadratics",
+  "name": "Algebra and Functions: Quadratics",
   "description": "Quadratics — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 1,
   "created_at": "2026-09-20 17:50:34.504941+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "quadratics"
+ },
+ {
+  "id": "59ca94d7-c3b6-482d-a171-197699f10ec8",
+  "name": "Further Mechanics",
+  "description": null,
+  "sort_order": 9,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "further-mechanics"
  },
  {
   "id": "59f8ecd0-7203-4de2-bd02-01f15a70529b",
@@ -550,6 +690,16 @@
   "slug": "algebra-simplifying-and-expanding"
  },
  {
+  "id": "5e850452-1f48-409b-a7d1-9a032abedd8d",
+  "name": "Intermolecular Forces",
+  "description": null,
+  "sort_order": 7,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "intermolecular-forces"
+ },
+ {
   "id": "5fa07820-06cf-4f42-85a4-74f5a3da9bde",
   "name": "Integration",
   "description": "Integration — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
@@ -570,6 +720,16 @@
   "slug": "trigonometry-right-angled-triangles"
  },
  {
+  "id": "62210c38-aeda-4e3d-a6ec-bf161d9060e8",
+  "name": "Organic Synthesis",
+  "description": null,
+  "sort_order": 10,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "organic-synthesis"
+ },
+ {
   "id": "628446d9-f59a-4542-a298-a0cd8234fc25",
   "name": "Hypothesis Testing",
   "description": "Null and alternative hypotheses, test statistics, significance levels and one/two-tailed tests.",
@@ -581,13 +741,53 @@
  },
  {
   "id": "68a0c8be-5eba-4a82-a948-a4baef78c57d",
-  "name": "Astronomy and Cosmology",
+  "name": "Astrophysics and Cosmology",
   "description": "Astronomy and Cosmology — Cambridge International A Level Physics (9702)",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:32.140479+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "astronomy-and-cosmology"
+ },
+ {
+  "id": "6d1c8b2b-45f7-46bc-a46b-df7c5ba1b065",
+  "name": "Chemical Equilibria",
+  "description": null,
+  "sort_order": 3,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "chemical-equilibria"
+ },
+ {
+  "id": "707ec3c7-7efb-4793-ae95-de061ba8ff42",
+  "name": "Energetics",
+  "description": null,
+  "sort_order": 6,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "energetics"
+ },
+ {
+  "id": "713ef970-4ddd-4ed7-a1b7-e68c5fe5ffa9",
+  "name": "Proof",
+  "description": null,
+  "sort_order": 9,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "proof"
+ },
+ {
+  "id": "715fe208-43e9-4c24-987d-b0512b6b83e1",
+  "name": "Bonding and Structure",
+  "description": null,
+  "sort_order": 3,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "bonding-and-structure"
  },
  {
   "id": "71c9573e-0ab6-40e9-89c7-9f5a68410548",
@@ -598,6 +798,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "number-arithmetic-and-place-value"
+ },
+ {
+  "id": "75610651-1ff5-4a6d-b629-76b2596814cb",
+  "name": "Statistics (S1)",
+  "description": null,
+  "sort_order": 11,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "statistics-s1"
  },
  {
   "id": "76639184-3968-4dca-92f4-c5b52f558d8e",
@@ -620,12 +830,32 @@
   "slug": "ethics-security-impact"
  },
  {
+  "id": "7b9f688a-f185-40e3-9582-998d4fadc07f",
+  "name": "Acid-base Equilibria",
+  "description": null,
+  "sort_order": 4,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "acid-base-equilibria"
+ },
+ {
+  "id": "7e5607f4-c80d-4502-a980-8013ead56da6",
+  "name": "Exponentials and Logarithms",
+  "description": null,
+  "sort_order": 10,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "exponentials-and-logarithms"
+ },
+ {
   "id": "7ea1e393-fa84-4b4d-8673-86465d48e9c4",
-  "name": "Further Trigonometry",
+  "name": "Trigonometry",
   "description": "Further Trigonometry — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 2,
   "created_at": "2026-09-20 17:50:50.417183+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "further-trigonometry"
  },
@@ -640,6 +870,16 @@
   "slug": "algebra-inequalities"
  },
  {
+  "id": "84ddf7e9-d4cd-41f6-878b-938dc1a098ca",
+  "name": "Coordinate Geometry",
+  "description": null,
+  "sort_order": 21,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "coordinate-geometry"
+ },
+ {
   "id": "8b9545f6-944a-46c4-948c-245a1b9dbd02",
   "name": "Articles and Determiners",
   "description": "Articles and Determiners — Oxford IGCSE English as a Second Language",
@@ -648,6 +888,16 @@
   "updated_at": "2026-10-17 10:32:54.339795+00",
   "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
   "slug": "articles-and-determiners"
+ },
+ {
+  "id": "8cc72da3-1873-4551-a43a-efbb4b1a474a",
+  "name": "Introduction to Kinetics and Equilibria",
+  "description": null,
+  "sort_order": 9,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "introduction-to-kinetics-and-equilibria"
  },
  {
   "id": "8eef118f-639b-44a5-b503-80241e2bb58e",
@@ -678,6 +928,26 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "trigonometry-sine-and-cosine-rules"
+ },
+ {
+  "id": "8fb378b7-7c2d-4899-a050-4d9120fc7d28",
+  "name": "Respiration, Muscles and the Internal Environment",
+  "description": null,
+  "sort_order": 3,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "94178b69-9872-4e61-b32b-60a71b953e81",
+  "slug": "respiration-muscles-and-internal-environment"
+ },
+ {
+  "id": "90dafb5f-a72e-400e-ba6f-27981acaf6c3",
+  "name": "Proof",
+  "description": null,
+  "sort_order": 19,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "proof"
  },
  {
   "id": "91eac2dd-1acc-4ec2-8800-90ce2d4cc43e",
@@ -720,12 +990,22 @@
   "slug": "computational-thinking-and-problem-solving"
  },
  {
+  "id": "98baf7fe-92b2-4fe5-aad9-80ff57fa0f74",
+  "name": "Redox Equilibria",
+  "description": null,
+  "sort_order": 6,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "redox-equilibria"
+ },
+ {
   "id": "98dfbd94-3f76-4fa5-8e2e-c72c0c9a154a",
-  "name": "Magnetic Fields and Electromagnetism",
+  "name": "Magnetic Fields",
   "description": "Magnetic Fields and Electromagnetism — Cambridge International A Level Physics (9702)",
   "sort_order": 4,
   "created_at": "2026-09-20 18:42:18.63371+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "magnetic-fields-and-electromagnetism"
  },
@@ -751,11 +1031,11 @@
  },
  {
   "id": "9c985dc8-bbb0-4506-9dfc-2f49b774fc24",
-  "name": "Nuclear Physics",
+  "name": "Nuclear and Particle Physics",
   "description": "Nuclear Physics — Cambridge International A Level Physics (9702)",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:28.75806+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "nuclear-physics"
  },
@@ -790,6 +1070,16 @@
   "slug": "reading-for-information-and-inference"
  },
  {
+  "id": "a771b518-48d0-4c6a-bef3-dc8db61653cb",
+  "name": "Microbiology, Immunity and Forensics",
+  "description": null,
+  "sort_order": 2,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "94178b69-9872-4e61-b32b-60a71b953e81",
+  "slug": "microbiology-immunity-and-forensics"
+ },
+ {
   "id": "a7777cab-478a-471d-8bd8-475dca83ab0e",
   "name": "Data Representation",
   "description": "Data Representation — IGCSE Computer Science",
@@ -798,6 +1088,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
   "slug": "data-representation"
+ },
+ {
+  "id": "a7b8da87-1a3e-4082-8293-658374b38642",
+  "name": "Organic Nitrogen Compounds: Amines, Amides, Amino Acids and Proteins",
+  "description": null,
+  "sort_order": 9,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "organic-nitrogen-compounds"
  },
  {
   "id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
@@ -841,11 +1141,11 @@
  },
  {
   "id": "b7daf14f-974d-4ad7-a848-07dd64176630",
-  "name": "Differentiation II",
+  "name": "Differentiation",
   "description": "Differentiation II — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 3,
   "created_at": "2026-09-20 17:50:51.823709+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "differentiation-ii"
  },
@@ -858,6 +1158,16 @@
   "updated_at": "2026-10-17 10:32:55.508977+00",
   "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
   "slug": "prepositions-and-collocations"
+ },
+ {
+  "id": "baa2f4b9-e4de-4c14-a6ec-9ad2a7a2ced8",
+  "name": "Sequences and Series",
+  "description": null,
+  "sort_order": 20,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "sequences-and-series"
  },
  {
   "id": "bb600e06-32eb-473e-ac3e-6e1bd64cb01e",
@@ -880,12 +1190,22 @@
   "slug": "sampling-and-estimation"
  },
  {
+  "id": "c00c11ce-1dcc-43c9-8d5a-2683f2149492",
+  "name": "Alkenes",
+  "description": null,
+  "sort_order": 5,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "alkenes"
+ },
+ {
   "id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
-  "name": "Further Algebra",
+  "name": "Algebra and Functions",
   "description": "Further Algebra — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 1,
   "created_at": "2026-09-20 17:50:49.023975+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "further-algebra"
  },
@@ -920,14 +1240,34 @@
   "slug": "programming-and-algorithms"
  },
  {
+  "id": "d151b2ce-23ed-4570-a15f-a5e50d92884c",
+  "name": "Energy Flow, Ecosystems and the Environment",
+  "description": null,
+  "sort_order": 1,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "94178b69-9872-4e61-b32b-60a71b953e81",
+  "slug": "energy-flow-ecosystems-and-environment"
+ },
+ {
   "id": "d2429c9a-82ec-4a86-8bdc-a119666cecef",
-  "name": "Functions",
+  "name": "Algebra and Functions: Functions",
   "description": "Functions — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
   "sort_order": 2,
   "created_at": "2026-09-20 17:50:36.170005+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "functions"
+ },
+ {
+  "id": "d39ed54e-1d60-4f30-a7a7-2da8a04558fa",
+  "name": "Numerical Methods",
+  "description": null,
+  "sort_order": 23,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "numerical-methods"
  },
  {
   "id": "d52fc891-6965-47d1-9f6b-6997066cb5df",
@@ -941,21 +1281,21 @@
  },
  {
   "id": "d5e94211-9e09-4ccf-8086-47c044ed468a",
-  "name": "Electricity: D.C. Circuits",
+  "name": "Electric Circuits",
   "description": "Electricity: D.C. Circuits — Cambridge International AS Level Physics (9702)",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:05.493558+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
   "slug": "electricity-d-c-circuits"
  },
  {
   "id": "d6c1020a-24ea-4820-b974-1126d494e3ab",
-  "name": "Materials: Deformation",
+  "name": "Materials",
   "description": "Materials: Deformation — Cambridge International AS Level Physics (9702)",
   "sort_order": 5,
   "created_at": "2026-09-20 18:41:59.991266+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
   "slug": "materials-deformation"
  },
@@ -1030,6 +1370,26 @@
   "slug": "data-types-and-file-organisation"
  },
  {
+  "id": "ecb0d454-2166-4969-ad80-57fdeed4a953",
+  "name": "Organic Chemistry: Carbonyls, Carboxylic Acids and Chirality",
+  "description": null,
+  "sort_order": 5,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
+  "slug": "organic-carbonyls-carboxylic-acids-and-chirality"
+ },
+ {
+  "id": "ee479e5f-ac19-4cfd-a777-4a9624343af7",
+  "name": "Binomial Expansion",
+  "description": null,
+  "sort_order": 18,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "binomial-expansion"
+ },
+ {
   "id": "ef569055-35ca-414b-b7bc-e7211c868d3d",
   "name": "Superposition",
   "description": "Superposition — Cambridge International AS Level Physics (9702)",
@@ -1038,6 +1398,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
   "slug": "superposition"
+ },
+ {
+  "id": "f0822aab-d5fc-4e23-8b07-b1e6a7824348",
+  "name": "Mechanics (M1)",
+  "description": null,
+  "sort_order": 12,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
+  "slug": "mechanics-m1"
  },
  {
   "id": "f08508a7-5ca2-4527-97d4-cd63ac22309e",
@@ -1061,11 +1431,11 @@
  },
  {
   "id": "f1b2a357-bf31-42e4-bd85-5d0dc790bb69",
-  "name": "Integration II",
+  "name": "Integration",
   "description": "Integration II — Cambridge International A Level Mathematics (9709) Pure Mathematics 2 & 3",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:53.155809+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "integration-ii"
  },
@@ -1110,6 +1480,16 @@
   "slug": "networking-communication"
  },
  {
+  "id": "fa365fb5-a2eb-4767-905b-4afc5dbd8de4",
+  "name": "Introductory Organic Chemistry and Alkanes",
+  "description": null,
+  "sort_order": 4,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "introductory-organic-chemistry-and-alkanes"
+ },
+ {
   "id": "fd93b421-eb46-414b-992a-21ccb119aeae",
   "name": "Summary Writing",
   "description": "Summary Writing — Cambridge IGCSE English First Language",
@@ -1118,5 +1498,15 @@
   "updated_at": "2026-10-17 10:32:46.222911+00",
   "subject_level_id": "febbe4a9-72ff-4cd6-85cd-9dbf5b016245",
   "slug": "summary-writing"
+ },
+ {
+  "id": "fef757a2-daef-44fc-983d-4c0ce8c6e3b9",
+  "name": "Redox Chemistry and Groups 1, 2 and 7",
+  "description": null,
+  "sort_order": 8,
+  "created_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
+  "slug": "redox-chemistry-and-groups-1-2-and-7"
  }
 ]
