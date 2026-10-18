@@ -64,7 +64,7 @@ export async function handler(req: Request): Promise<Response> {
     const CLOUDFLARE_ACCOUNT_ID = Deno.env.get("CLOUDFLARE_ACCOUNT_ID");
     const PROVIDER = Deno.env.get("AI_PROVIDER") || "lovable";
 
-    const systemPrompt = `You are an expert Cambridge IGCSE / AS / A-Level tutor and study planner for Mathematics (0580/9709), Physics (0625/9702) and Computer Science (0478/9618).
+    const systemPrompt = `You are an expert tutor and study planner for Cambridge IGCSE (Mathematics 0580, Physics 0625, Computer Science 0478), Edexcel International AS/A Level (Mathematics, Physics, Chemistry, Biology) and Cambridge AS/A Level Computer Science (9618).
 Generate a personalized, week-by-week revision schedule for a student based on their performance, upcoming deadlines, and available study time.
 
 Format your response in clean markdown with:
@@ -79,7 +79,7 @@ Markdown hygiene (the renderer takes these literally, so get them right):
 - Bullets use a hyphen only (never * or +); nest with two spaces per level
 - Bold for emphasis with double asterisks; never reveal model names or ids
 
-Be specific, actionable, and motivating. Reference real Cambridge syllabus topics for the student's subjects (e.g. quadratics, circular measure, data representation, thermal physics).`;
+Be specific, actionable, and motivating. Reference real syllabus topics for the student's subjects and board (Cambridge for IGCSE and Computer Science; Edexcel International for AS/A2 Maths, Physics, Chemistry and Biology) (e.g. quadratics, circular measure, data representation, thermal physics).`;
 
     const userPrompt = `Create a study plan with these inputs:
 
@@ -90,7 +90,7 @@ Be specific, actionable, and motivating. Reference real Cambridge syllabus topic
 **Topics needing focus:** ${weakTopics || "Not identified yet — recommend a balanced review"}
 **Subject:** ${subjectLevelId ? "IGCSE / AS / A-Level (see subject context)" : "General"}
 
-Build a realistic schedule that prioritizes weak areas while covering the broader Cambridge syllabus for their subjects.`;
+Build a realistic schedule that prioritizes weak areas while covering the broader syllabus for their subjects.`;
 
     let plan: string;
     let model: string;

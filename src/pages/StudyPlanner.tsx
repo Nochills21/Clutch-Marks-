@@ -278,7 +278,7 @@ export default function StudyPlanner() {
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(studyPlanToHtml(generatedPlan)) }}
             />
             <p className="mt-3 text-xs text-muted-foreground">
-              AI-generated — can make mistakes. Check topics and dates against your Cambridge syllabus.
+              AI-generated — can make mistakes. Check topics and dates against your exam board's syllabus.
             </p>
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
               <Input

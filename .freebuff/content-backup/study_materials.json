@@ -1,5 +1,18 @@
 [
  {
+  "id": "00a3162b-9ef7-4102-ad79-eb544d5a60e4",
+  "topic_id": "03510ba9-e8c6-4770-868b-2978e2f4ba0a",
+  "title": "Formulae, Equations and Amount of Substance — Quick Revision Summary",
+  "content": "<h2>Quick revision: Formulae, Equations and Amount of Substance</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH11, Topic 1. The mole is the bridge between the mass you can weigh and the number of particles a reaction actually uses, so every quantitative question in the course depends on it.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Relative masses and the mole</li><li>Empirical and molecular formulae</li><li>Equations and reacting masses</li><li>Solutions and gases</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "013ebfea-e165-48f6-ad1d-2e01fd4e5214",
   "topic_id": "ef569055-35ca-414b-b7bc-e7211c868d3d",
   "title": "Superposition — Study Notes",
@@ -221,6 +234,32 @@
   "source_range": null
  },
  {
+  "id": "0e710d77-178c-47d7-b1ce-ea81300abfce",
+  "topic_id": "7b9f688a-f185-40e3-9582-998d4fadc07f",
+  "title": "Acid-base Equilibria — Study Notes",
+  "content": "<h2>Acid-base Equilibria</h2>\n<p>Edexcel IAL Chemistry WCH14, Topic 14. Acids and bases are defined by proton transfer. The strength of an acid is given by its dissociation constant, and pH calculations, buffers and titrations all follow from it.</p>\n<h3>Strong and weak acids</h3>\n<ul>\n<li>A strong acid dissociates completely in water, so [H⁺] equals the acid concentration. For 0.010 mol dm⁻³ HCl, [H⁺] = 0.010 and pH = 2.00.</li>\n<li>A weak acid dissociates only partly. For HA ⇌ H⁺ + A⁻, Ka = [H⁺][A⁻] / [HA].</li>\n<li>pKa = −log10 Ka. A smaller pKa means a stronger acid.</li>\n</ul>\n<h3>pH calculations</h3>\n<ul>\n<li>pH = −log10[H⁺]. For a base, find pOH = −log10[OH⁻] and use pH = 14.00 − pOH at 298 K.</li>\n<li>Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ mol² dm⁻⁶ at 298 K.</li>\n<li>For a 0.050 mol dm⁻³ NaOH solution, [OH⁻] = 0.050, pOH = 1.30 and pH = 12.70.</li>\n</ul>\n<h3>Buffers</h3>\n<ul>\n<li>A buffer contains a weak acid and its conjugate base (for example ethanoic acid and sodium ethanoate). It resists large pH changes.</li>\n<li>The pH of a buffer is given by pH = pKa + log([A⁻] / [HA]). When [A⁻] = [HA], pH = pKa.</li>\n<li>Adding a small amount of strong acid is absorbed by the conjugate base, so the pH changes only slightly.</li>\n</ul>\n<h3>Titrations and indicators</h3>\n<ul>\n<li>Strong acid with strong base: the equivalence point is pH 7.</li>\n<li>Weak acid with strong base: the equivalence point is above pH 7, so phenolphthalein (pH 8.3 to 10) is suitable.</li>\n<li>Strong acid with weak base: the equivalence point is below pH 7, so methyl orange (pH 3.1 to 4.4) is suitable.</li>\n<li>Choose an indicator whose colour change lies within the steep vertical section of the titration curve.</li>\n</ul>\n<p>Exam tip: when pH is asked for a weak acid, calculate [H⁺] from Ka and the concentration before taking the logarithm.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "0f02b6a6-e605-4244-b79a-ae4b44c853c6",
+  "topic_id": "4ee8687b-e42e-46e9-98e0-3e84db785f2a",
+  "title": "Membranes, Proteins, DNA and Gene Expression — Study Notes",
+  "content": "<h2>Membranes, Proteins, DNA and Gene Expression</h2>\n<p>Edexcel IAL Biology WBI11, Topic 2. DNA holds the code for proteins. Gene expression copies that code into mRNA and then builds the protein. Cell membranes control what enters and leaves the cell.</p>\n<h3>Cell membranes</h3>\n<ul>\n<li>The fluid mosaic model describes a phospholipid bilayer with proteins that move within it.</li>\n<li>Cholesterol stabilises the membrane and reduces its fluidity at high temperature. Glycoproteins and glycolipids on the outer surface act as cell recognition sites.</li>\n<li>Channel and carrier proteins control facilitated diffusion and active transport.</li>\n</ul>\n<h3>DNA structure and replication</h3>\n<ul>\n<li>DNA is a double helix of two antiparallel strands. Each nucleotide has a deoxyribose sugar, a phosphate and one base: adenine, thymine, cytosine or guanine.</li>\n<li>Adenine pairs with thymine (two hydrogen bonds) and cytosine pairs with guanine (three hydrogen bonds).</li>\n<li>Replication is semi-conservative: each new molecule has one original strand and one new strand. Helicase unwinds the helix, and DNA polymerase adds nucleotides to the 3' end of the new strand.</li>\n</ul>\n<h3>Protein synthesis</h3>\n<ul>\n<li>Transcription takes place in the nucleus. RNA polymerase makes a complementary mRNA copy of one gene. RNA contains uracil instead of thymine.</li>\n<li>Translation takes place on ribosomes. A codon is three bases on mRNA that codes for one amino acid. tRNA carries a specific amino acid and has an anticodon that matches the codon.</li>\n<li>The genetic code is degenerate: several codons can code for the same amino acid. It is also universal and non-overlapping.</li>\n</ul>\n<h3>Mutations</h3>\n<ul>\n<li>A substitution changes one base. It may be silent, or it may change one amino acid.</li>\n<li>A deletion or insertion of one or two bases causes a frameshift that alters every codon after the mutation.</li>\n</ul>\n<p>Exam tip: when you explain a mutation, say what happens to the codon, then to the amino acid, then to the protein's shape and function.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "10d6914f-29ef-4470-9c5d-2ab1eef1952c",
   "topic_id": "0d13c88b-1c48-4bbd-9a2f-07a991960694",
   "title": "Analysing Language Choices — Quick Revision Summary",
@@ -403,6 +442,19 @@
   "source_range": null
  },
  {
+  "id": "17dec020-fa06-4c1e-a90d-7be6d00d13d7",
+  "topic_id": "d151b2ce-23ed-4570-a15f-a5e50d92884c",
+  "title": "Energy Flow, Ecosystems and the Environment — Quick Revision Summary",
+  "content": "<h2>Quick revision: Energy Flow, Ecosystems and the Environment</h2>\n<p><strong>Biology — A2.</strong> Edexcel IAL Biology WBI14, Topic 5. Energy enters most ecosystems as light, is fixed by photosynthesis and then passes along food chains. Nutrients cycle, and human activity can disrupt those cycles.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Photosynthesis and limiting factors</li><li>Energy transfer through trophic levels</li><li>Nutrient cycles</li><li>Human impact</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "17e42a4c-18d8-47cd-b02f-f5b78b6bc7e5",
   "topic_id": "346acb48-363d-495f-bf45-5170082e4abb",
   "title": "Networks and the Internet — Study Notes",
@@ -481,6 +533,32 @@
   "source_range": null
  },
  {
+  "id": "1bd1bf70-8818-48bf-b312-72f7ca7e7b37",
+  "topic_id": "fef757a2-daef-44fc-983d-4c0ce8c6e3b9",
+  "title": "Redox Chemistry and Groups 1, 2 and 7 — Quick Revision Summary",
+  "content": "<h2>Quick revision: Redox Chemistry and Groups 1, 2 and 7</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH12, Topic 8. Redox reactions involve electron transfer. The same ideas explain the reactions of metals with water and acids, and the displacement reactions of the halogens.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Oxidation states</li><li>Redox equations</li><li>Group 1 and Group 2</li><li>Group 7</li><li>Tests for halide ions</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "1c1e24cb-d86d-4684-b2ca-43482126eb56",
+  "topic_id": "4bbf548c-f900-449c-9631-bc4b638d623d",
+  "title": "Organic Chemistry: Halogenoalkanes, Alcohols and Spectra — Quick Revision Summary",
+  "content": "<h2>Quick revision: Organic Chemistry: Halogenoalkanes, Alcohols and Spectra</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH12, Topic 10. Halogenoalkanes and alcohols are the first families where a functional group changes the reactivity of the molecule. Spectra are the tools that identify those groups in an unknown compound.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Halogenoalkanes</li><li>Alcohols</li><li>Mass spectrometry</li><li>Infrared spectroscopy</li><li>NMR (introduced)</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "1c4249ab-d224-4279-a85d-e9a9f32c78f8",
   "topic_id": "0f4bcc9a-e4a0-4c6a-ae8d-2354b6190d2e",
   "title": "Exam technique: Transformations and Vectors",
@@ -533,6 +611,19 @@
   "source_range": null
  },
  {
+  "id": "1de552e0-1569-4e77-8ce2-061f274ffeee",
+  "topic_id": "7b9f688a-f185-40e3-9582-998d4fadc07f",
+  "title": "Acid-base Equilibria — Quick Revision Summary",
+  "content": "<h2>Quick revision: Acid-base Equilibria</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH14, Topic 14. Acids and bases are defined by proton transfer. The strength of an acid is given by its dissociation constant, and pH calculations, buffers and titrations all follow from it.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Strong and weak acids</li><li>pH calculations</li><li>Buffers</li><li>Titrations and indicators</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "1e4fed25-c788-42a1-8331-cea119299ab9",
   "topic_id": "ebe3caea-37e6-47ae-ba8e-1a5cb713196b",
   "title": "Sequences and Series — Quick Revision Summary",
@@ -540,6 +631,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 17:51:02.092385+00",
   "updated_at": "2026-10-15 10:24:41.551372+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "1e63aa6d-96cb-416f-91fb-e8d48e3b3036",
+  "topic_id": "8cc72da3-1873-4551-a43a-efbb4b1a474a",
+  "title": "Introduction to Kinetics and Equilibria — Quick Revision Summary",
+  "content": "<h2>Quick revision: Introduction to Kinetics and Equilibria</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH12, Topic 9. Kinetics asks how fast a reaction goes, and equilibria asks how far it goes before the forward and backward reactions balance. Both depend on the same collision ideas.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Rates and collision theory</li><li>Measuring rates</li><li>Dynamic equilibrium</li><li>Le Chatelier's principle</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -579,6 +683,19 @@
   "material_type": "summary",
   "created_at": "2026-09-18 14:13:20.494765+00",
   "updated_at": "2026-10-15 10:28:17.375781+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "1f2c0b24-b3fe-4c79-81ae-ec8d6ffe56a5",
+  "topic_id": "6d1c8b2b-45f7-46bc-a46b-df7c5ba1b065",
+  "title": "Chemical Equilibria — Quick Revision Summary",
+  "content": "<h2>Quick revision: Chemical Equilibria</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH14, Topic 13. In a closed system a reaction reaches a dynamic equilibrium, where the forward and reverse rates are equal. The equilibrium constant tells you the position of that equilibrium at a given temperature.</p>\n<h3>Key areas to revise</h3>\n<ul><li>The equilibrium constant Kc</li><li>Worked example</li><li>Partial pressure and Kp</li><li>Effect of changes</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -696,6 +813,19 @@
   "material_type": "summary",
   "created_at": "2026-09-21 17:57:09.280278+00",
   "updated_at": "2026-10-15 10:28:17.375781+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "254175d8-d3d0-46bb-81a7-465f573dc717",
+  "topic_id": "13f60c5e-232b-43a2-b2d1-92c181f204a0",
+  "title": "Cell Structure, Reproduction and Development — Study Notes",
+  "content": "<h2>Cell Structure, Reproduction and Development</h2>\n<p>Edexcel IAL Biology WBI12, Topic 3. Cells are the basic units of life. Their structure reflects their function, and cell division produces the new cells needed for growth, repair and reproduction.</p>\n<h3>Cell structure</h3>\n<ul>\n<li>Prokaryotic cells have no nucleus; their DNA is a circular loop in the cytoplasm, and their ribosomes are 70S. Eukaryotic cells have a nucleus and membrane-bound organelles.</li>\n<li>The nucleus holds DNA. Mitochondria carry out aerobic respiration. Chloroplasts carry out photosynthesis in plant cells. Rough endoplasmic reticulum has ribosomes and makes proteins; the Golgi apparatus modifies and packages them.</li>\n<li>Electron microscopes have higher resolution than light microscopes because electrons have a much shorter wavelength than visible light.</li>\n<li>Magnification = image size ÷ actual size. For an image 40 mm across at a magnification of ×400, the actual size is 0.1 mm.</li>\n</ul>\n<h3>Cell division</h3>\n<ul>\n<li>The cell cycle has interphase (G1, S and G2) and mitotic division. DNA replicates in the S phase.</li>\n<li>Mitosis produces two genetically identical diploid daughter cells. It is used for growth and repair.</li>\n<li>Meiosis has two divisions and produces four genetically different haploid gametes. Crossing over happens in prophase I, and independent assortment happens when homologous pairs line up at metaphase I.</li>\n</ul>\n<h3>Stem cells and development</h3>\n<ul>\n<li>A totipotent cell can form any cell type, including the cells of the placenta. Embryonic stem cells are pluripotent: they can form any cell type of the body. Adult stem cells are multipotent.</li>\n<li>Differentiation switches on particular genes so that a cell becomes specialised.</li>\n</ul>\n<h3>Cancer</h3>\n<ul>\n<li>Cancer results from mutations that disrupt the control of the cell cycle. The cells divide in an uncontrolled way and can form a tumour.</li>\n</ul>\n<p>Exam tip: when you compare mitosis and meiosis, name the number of divisions, the number of daughter cells, their ploidy and whether they are genetically identical.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -962,6 +1092,19 @@
   "source_range": null
  },
  {
+  "id": "32080d0c-9637-493b-89c2-989ec33a3ce0",
+  "topic_id": "4cde8094-6c1b-4fb9-9b92-38d6670887ca",
+  "title": "Atomic Structure and the Periodic Table — Study Notes",
+  "content": "<h2>Atomic Structure and the Periodic Table</h2>\n<p>Edexcel IAL Chemistry WCH11, Topic 2. The periodic table is not a list to memorise: its rows and columns follow directly from how electrons fill shells and sub-shells.</p>\n<h3>Atoms, isotopes and mass spectrometry</h3>\n<ul>\n<li>Protons and neutrons make up the nucleus; the mass number is protons plus neutrons, and the atomic number is the number of protons.</li>\n<li>Isotopes have the same number of protons and different numbers of neutrons, so the same chemistry but a different mass.</li>\n<li>Relative atomic mass is the weighted mean of isotopic masses. In a mass spectrum, abundance is read from the peak heights.</li>\n</ul>\n<h3>Electron configuration</h3>\n<ul>\n<li>Electrons fill orbitals in order of energy: 1s, 2s, 2p, 3s, 3p, 4s, 3d and so on, each orbital holding at most two electrons with opposite spins.</li>\n<li>Write configurations such as 1s² 2s² 2p⁶ for neon; for transition metals the 4s electrons are lost before the 3d electrons when forming ions.</li>\n</ul>\n<h3>Periodic trends</h3>\n<ul>\n<li>Ionisation energy increases across a period because nuclear charge rises with similar shielding, and falls down a group as the outer electrons sit further from the nucleus.</li>\n<li>Atomic radius falls across a period and rises down a group.</li>\n<li>Successive ionisation energies reveal the group of an element: a large jump appears after the outer-shell electrons are removed.</li>\n</ul>\n<h3>Electron arrangement and the table</h3>\n<ul>\n<li>Period number = highest principal quantum number in use; group number relates to the number of outer electrons.</li>\n<li>Blocks: s-block (groups 1-2), p-block (groups 13-18), d-block (transition metals).</li>\n</ul>\n<p>Exam tip: when explaining an ionisation energy trend, name the factor (nuclear charge, shielding, distance) and say which way it changes.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "3232dace-5b8d-4bde-8511-79a0bceb36fb",
   "topic_id": "346acb48-363d-495f-bf45-5170082e4abb",
   "title": "Networks and the Internet — Quick Revision Summary",
@@ -995,6 +1138,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 08:30:55.163485+00",
   "updated_at": "2026-10-16 07:00:21.635823+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "33a0fa2e-e229-4df3-abf8-d266c0f90886",
+  "topic_id": "a7b8da87-1a3e-4082-8293-658374b38642",
+  "title": "Organic Nitrogen Compounds: Amines, Amides, Amino Acids and Proteins — Study Notes",
+  "content": "<h2>Organic Nitrogen Compounds: Amines, Amides, Amino Acids and Proteins</h2>\n<p>Edexcel IAL Chemistry WCH15, Topic 19. Amines, amides, amino acids and proteins contain nitrogen. The lone pair on nitrogen controls basicity, and the amide and peptide links join molecules into polymers.</p>\n<h3>Amines</h3>\n<ul>\n<li>Primary amines have one alkyl group on the nitrogen, for example ethylamine.</li>\n<li>Alkyl groups push electron density onto nitrogen, so ethylamine is a stronger base than ammonia.</li>\n<li>In phenylamine the lone pair is delocalised into the ring, so it is a weaker base than ammonia.</li>\n<li>Amines form salts with acids: CH₃NH₂ + HCl gives CH₃NH₃⁺Cl⁻.</li>\n<li>Preparation: a haloalkane heated with excess ethanolic ammonia gives a primary amine. The excess ammonia limits further substitution. A nitrile reduced by LiAlH₄ gives a primary amine.</li>\n</ul>\n<h3>Amides</h3>\n<ul>\n<li>An acyl chloride reacts with ammonia or an amine to form an amide. Ethanoyl chloride with ammonia gives ethanamide.</li>\n<li>Hydrolysis of an amide with hot dilute acid gives a carboxylic acid and an ammonium salt.</li>\n</ul>\n<h3>Amino acids and zwitterions</h3>\n<ul>\n<li>Amino acids contain –NH₂ and –COOH. In the solid and near neutral pH they exist as zwitterions, ⁺H₃NCH(R)COO⁻, with no net charge.</li>\n<li>At the isoelectric point the zwitterion has no net charge. In strong acid it is a cation; in alkali it is an anion.</li>\n<li>Amino acids can be separated by electrophoresis because their charge depends on pH.</li>\n</ul>\n<h3>Peptides and proteins</h3>\n<ul>\n<li>A peptide link forms when the –COOH of one amino acid condenses with the –NH₂ of another, releasing water.</li>\n<li>Proteins have primary (sequence), secondary (alpha helices and beta sheets, held by hydrogen bonds) and tertiary structures. Complete hydrolysis with hot acid gives amino acids.</li>\n</ul>\n<p>Exam tip: when comparing base strength, explain the availability of the nitrogen lone pair, not just the names of the groups.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1196,6 +1352,19 @@
   "source_range": null
  },
  {
+  "id": "3f80c4ce-e7f1-4af5-bb03-bc27da874e5f",
+  "topic_id": "c00c11ce-1dcc-43c9-8d5a-2683f2149492",
+  "title": "Alkenes — Study Notes",
+  "content": "<h2>Alkenes</h2>\n<p>Edexcel IAL Chemistry WCH11, Topic 5. Alkenes contain a carbon–carbon double bond, which makes them far more reactive than alkanes. Their addition reactions are a central part of organic synthesis.</p>\n<h3>Structure and bonding</h3>\n<ul>\n<li>A C=C double bond consists of one sigma bond and one pi bond. The pi bond is an electron cloud above and below the plane of the atoms, and it is the reactive part.</li>\n<li>The carbons of a C=C bond are planar, with bond angles of about 120°.</li>\n</ul>\n<h3>Addition reactions</h3>\n<ul>\n<li>Hydrogen adds across the double bond in the presence of a nickel catalyst to form an alkane.</li>\n<li>Halogens (for example bromine water) add across the double bond: a colour change from orange to colourless is the test for an alkene.</li>\n<li>Steam adds across the double bond in the presence of phosphoric acid to form an alcohol.</li>\n<li>Hydrogen halides add to give halogenoalkanes; with unsymmetrical alkenes the Markovnikov rule predicts the major product.</li>\n</ul>\n<h3>Polymerisation</h3>\n<ul>\n<li>Addition polymers form when many alkene monomers join together. Poly(ethene) and poly(chloroethene) are examples.</li>\n<li>The repeat unit is drawn with the double bond opened and the bonds extended through brackets.</li>\n</ul>\n<h3>Isomerism</h3>\n<ul>\n<li>Restricted rotation about the C=C bond allows E/Z isomers when each carbon carries two different groups.</li>\n</ul>\n<p>Exam tip: when drawing a polymer, show the repeat unit with the bonds extending outwards, and do not leave a dangling double bond.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "40f35105-5474-4a27-843e-d8283ed1d43f",
   "topic_id": "b7daf14f-974d-4ad7-a848-07dd64176630",
   "title": "Exam technique: Differentiation II",
@@ -1229,6 +1398,19 @@
   "material_type": "notes",
   "created_at": "2026-09-20 17:51:02.779531+00",
   "updated_at": "2026-10-16 17:35:47.052201+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "432c26cc-2a4f-4b4a-addd-b063dae00039",
+  "topic_id": "1db268f3-7071-4515-8d9f-311291cfca94",
+  "title": "Transition Metals and their Chemistry — Quick Revision Summary",
+  "content": "<h2>Quick revision: Transition Metals and their Chemistry</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH15, Topic 17. Transition metals form coloured complex ions, show variable oxidation states and act as catalysts. These properties come from partly filled d orbitals.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Complex ions and ligands</li><li>Colour</li><li>Ligand substitution and isomerism</li><li>Catalysis</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1294,6 +1476,32 @@
   "material_type": "summary",
   "created_at": "2026-09-21 17:57:15.99562+00",
   "updated_at": "2026-10-15 10:40:23.026691+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "466e109a-bdaf-4e8b-a380-bbd96a897b9f",
+  "topic_id": "8fb378b7-7c2d-4899-a050-4d9120fc7d28",
+  "title": "Respiration, Muscles and the Internal Environment — Quick Revision Summary",
+  "content": "<h2>Quick revision: Respiration, Muscles and the Internal Environment</h2>\n<p><strong>Biology — A2.</strong> Edexcel IAL Biology WBI15, Topic 7. Respiration releases energy as ATP for muscle contraction. Homeostasis keeps the internal environment stable, and the kidney is central to this. The topic links biochemistry to physiology.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Aerobic respiration</li><li>Anaerobic respiration in mammals</li><li>Respiratory quotient</li><li>Muscle contraction</li><li>Homeostasis and the kidney</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "46db98e1-090c-40c6-9384-85e1a37f3cbe",
+  "topic_id": "ecb0d454-2166-4969-ad80-57fdeed4a953",
+  "title": "Organic Chemistry: Carbonyls, Carboxylic Acids and Chirality — Study Notes",
+  "content": "<h2>Organic Chemistry: Carbonyls, Carboxylic Acids and Chirality</h2>\n<p>Edexcel IAL Chemistry WCH14, Topic 15. Aldehydes and ketones contain the carbonyl group, C=O. Their reactions are nucleophilic addition, and the products can be carboxylic acids, alcohols or molecules with a chiral centre.</p>\n<h3>Carbonyl compounds</h3>\n<ul>\n<li>An aldehyde has the C=O group at the end of a chain (RCHO). A ketone has it inside the chain (RCOR).</li>\n<li>The carbon of C=O is slightly positive, so nucleophiles attack it. Ketones are less reactive than aldehydes because the two alkyl groups donate electron density.</li>\n</ul>\n<h3>Reactions and tests</h3>\n<ul>\n<li>Hydrogen cyanide adds across C=O. For ethanal, CH3CHO + HCN gives 2-hydroxypropanenitrile.</li>\n<li>Sodium tetrahydridoborate(III) (NaBH4) reduces aldehydes to primary alcohols and ketones to secondary alcohols.</li>\n<li>2,4-dinitrophenylhydrazine (2,4-DNPH) gives an orange or yellow precipitate with any carbonyl compound.</li>\n<li>Tollens' reagent gives a silver mirror with aldehydes but not with ketones.</li>\n<li>The iodoform test gives a yellow precipitate of triiodomethane with compounds containing CH3CO– or CH3CH(OH)– groups, such as propanone.</li>\n</ul>\n<h3>Carboxylic acids</h3>\n<ul>\n<li>Carboxylic acids contain –COOH and are weak acids. They are more acidic than alcohols because the carboxylate ion is stabilised by delocalisation.</li>\n<li>Carboxylic acids react with alcohols in the presence of concentrated sulfuric acid to form esters, in a reversible esterification.</li>\n<li>Primary alcohols are oxidised to carboxylic acids by heating with acidified potassium dichromate(VI) under reflux.</li>\n</ul>\n<h3>Chirality</h3>\n<ul>\n<li>A chiral carbon atom has four different groups attached. Molecules with a chiral centre exist as a pair of enantiomers.</li>\n<li>Enantiomers have identical physical properties except their effect on plane-polarised light: one rotates it clockwise and the other anticlockwise by the same amount.</li>\n<li>An equimolar mixture of the two enantiomers is a racemic mixture, which is optically inactive.</li>\n</ul>\n<p>Exam tip: when describing a nucleophilic addition, show the nucleophile attacking the carbon of C=O and the oxygen gaining the negative charge.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1417,6 +1625,19 @@
   "source_range": null
  },
  {
+  "id": "4e823748-461e-4fc0-bb53-b1228833b6ca",
+  "topic_id": "715fe208-43e9-4c24-987d-b0512b6b83e1",
+  "title": "Bonding and Structure — Study Notes",
+  "content": "<h2>Bonding and Structure</h2>\n<p>Edexcel IAL Chemistry WCH11, Topic 3. Bonding explains the physical properties of a substance: melting point, conductivity and solubility all follow from the type of bond and the way particles are packed.</p>\n<h3>Ionic bonding</h3>\n<ul>\n<li>Ionic bonds are the electrostatic attraction between oppositely charged ions in a giant lattice.</li>\n<li>They have high melting points, are brittle and conduct only when molten or dissolved, because the ions are free to move.</li>\n</ul>\n<h3>Covalent bonding</h3>\n<ul>\n<li>A covalent bond is a shared pair of electrons between two atoms. Simple molecular substances have low melting points because only weak intermolecular forces are overcome.</li>\n<li>Giant covalent structures such as diamond and silicon(IV) oxide need many strong bonds broken to melt, so they have very high melting points.</li>\n<li>Graphite conducts because each carbon uses three electrons in bonding, leaving one delocalised electron per atom.</li>\n</ul>\n<h3>Electronegativity and polarity</h3>\n<ul>\n<li>Electronegativity is the ability of an atom to attract the bonding pair. The difference between two atoms gives a polar bond.</li>\n<li>A molecule is polar only if its bond dipoles do not cancel. Shape decides this: CO2 is linear and non-polar, while H2O is bent and polar.</li>\n</ul>\n<h3>Shapes of molecules</h3>\n<ul>\n<li>Electron pairs repel each other, so they arrange themselves as far apart as possible. Lone pairs repel more strongly than bonding pairs.</li>\n<li>Common shapes: linear (180°), trigonal planar (120°), tetrahedral (109.5°), and bent or pyramidal forms when lone pairs are present.</li>\n</ul>\n<h3>Metallic bonding</h3>\n<ul>\n<li>Metals consist of positive ions in a sea of delocalised electrons, which explains conductivity, malleability and high melting points.</li>\n</ul>\n<p>Exam tip: a question asking why a substance conducts must name the mobile particle — ions, delocalised electrons — not just \"electrons\".</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "4f15878c-8b50-429c-a3ea-19b2eae76d4c",
   "topic_id": "4a4ae03f-b502-41f7-8136-209e2a811174",
   "title": "Complex Numbers — Quick Revision Summary",
@@ -1482,6 +1703,19 @@
   "source_range": null
  },
  {
+  "id": "558ecc37-1843-46c3-8851-26d37a7a199e",
+  "topic_id": "6d1c8b2b-45f7-46bc-a46b-df7c5ba1b065",
+  "title": "Chemical Equilibria — Study Notes",
+  "content": "<h2>Chemical Equilibria</h2>\n<p>Edexcel IAL Chemistry WCH14, Topic 13. In a closed system a reaction reaches a dynamic equilibrium, where the forward and reverse rates are equal. The equilibrium constant tells you the position of that equilibrium at a given temperature.</p>\n<h3>The equilibrium constant Kc</h3>\n<ul>\n<li>For aA + bB ⇌ cC + dD, Kc = [C]^c [D]^d / ([A]^a [B]^b). Only species in solution or gas phase appear in the expression.</li>\n<li>Kc is constant for a given temperature. Changing concentration or pressure shifts the position but not the value of Kc.</li>\n<li>The units of Kc depend on the stoichiometry. For N2 + 3H2 ⇌ 2NH3, Kc has units of mol⁻² dm⁶.</li>\n</ul>\n<h3>Worked example</h3>\n<ul>\n<li>For H2 + I2 ⇌ 2HI, at equilibrium [HI] = 1.60, [H2] = 0.20 and [I2] = 0.20 mol dm⁻³. Kc = 1.60² / (0.20 × 0.20) = 64.</li>\n</ul>\n<h3>Partial pressure and Kp</h3>\n<ul>\n<li>In gas equilibria, the partial pressure of a gas is its mole fraction multiplied by the total pressure.</li>\n<li>Kp uses partial pressures instead of concentrations. For N2O4 ⇌ 2NO2, Kp = p(NO2)² / p(N2O4).</li>\n</ul>\n<h3>Effect of changes</h3>\n<ul>\n<li>Adding reactant or removing product shifts the position towards the products. Adding product shifts it towards the reactants.</li>\n<li>Increasing pressure favours the side with fewer gas molecules. Changing the volume has the same effect as changing pressure.</li>\n<li>Raising the temperature favours the endothermic direction. For an exothermic forward reaction, Kc decreases as temperature rises.</li>\n<li>A catalyst changes the rate at which equilibrium is reached but not the position or Kc.</li>\n</ul>\n<p>Exam tip: a change in temperature is the only change that alters Kc. Concentration, pressure and catalyst changes alter the position or rate, but not the constant.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "56ee9aa1-f335-4a7a-9af1-1b32e9b1d4d5",
   "topic_id": "372710b0-fcac-4f55-af62-67b9bec5940c",
   "title": "Data Structures — Quick Revision Summary",
@@ -1528,6 +1762,19 @@
   "material_type": "notes",
   "created_at": "2026-09-21 17:56:52.473834+00",
   "updated_at": "2026-10-17 04:23:26.236739+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "59382ca2-20ed-4337-bae6-d77104659c60",
+  "topic_id": "a771b518-48d0-4c6a-bef3-dc8db61653cb",
+  "title": "Microbiology, Immunity and Forensics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Microbiology, Immunity and Forensics</h2>\n<p><strong>Biology — A2.</strong> Edexcel IAL Biology WBI14, Topic 6. Pathogens cause disease, and the immune system defends the body against them. Knowledge of microbes also allows antibiotics, vaccines and forensic DNA analysis.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Pathogens and antibiotics</li><li>Immune response</li><li>Vaccination</li><li>HIV</li><li>Forensic DNA profiling</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -1859,6 +2106,19 @@
   "source_range": null
  },
  {
+  "id": "6c729b5d-b173-4132-8b53-5a6445138c00",
+  "topic_id": "c00c11ce-1dcc-43c9-8d5a-2683f2149492",
+  "title": "Alkenes — Quick Revision Summary",
+  "content": "<h2>Quick revision: Alkenes</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH11, Topic 5. Alkenes contain a carbon–carbon double bond, which makes them far more reactive than alkanes. Their addition reactions are a central part of organic synthesis.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Structure and bonding</li><li>Addition reactions</li><li>Polymerisation</li><li>Isomerism</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "6cec9be3-8863-48ae-b426-084f33567d9b",
   "topic_id": "35378b08-5638-4278-84b4-def6b1041f0a",
   "title": "Algorithms & Programming — Quick Revision Summary",
@@ -1989,6 +2249,19 @@
   "source_range": null
  },
  {
+  "id": "71c55ef2-c940-4622-9f26-8a46aa507130",
+  "topic_id": "fa365fb5-a2eb-4767-905b-4afc5dbd8de4",
+  "title": "Introductory Organic Chemistry and Alkanes — Study Notes",
+  "content": "<h2>Introductory Organic Chemistry and Alkanes</h2>\n<p>Edexcel IAL Chemistry WCH11, Topic 4. Organic chemistry is the chemistry of carbon compounds. Alkanes are the simplest family, and their reactions introduce the radical substitution mechanism used throughout the course.</p>\n<h3>Naming and formulae</h3>\n<ul>\n<li>A homologous series has the same general formula, similar chemical properties and a gradual change in physical properties.</li>\n<li>Alkanes have the general formula CnH2n+2. Names depend on the longest carbon chain: meth-, eth-, prop-, but-, pent-, hex-.</li>\n<li>Structural isomers have the same molecular formula but different connectivity, such as butane and methylpropane.</li>\n</ul>\n<h3>Fossil fuels and cracking</h3>\n<ul>\n<li>Alkanes are obtained from crude oil by fractional distillation; the fractions separate by boiling point, which rises with chain length.</li>\n<li>Cracking breaks long chains into shorter, more useful alkanes and alkenes, using heat or a catalyst.</li>\n</ul>\n<h3>Radical substitution</h3>\n<ul>\n<li>Alkanes react with chlorine or bromine under UV light by free-radical substitution.</li>\n<li>The three stages are initiation (Cl2 → 2Cl•), propagation (a radical reacts with an alkane, regenerating a radical) and termination (two radicals combine).</li>\n<li>Propagation steps form the product; termination steps are rare, so they do not appear in the main yield.</li>\n</ul>\n<h3>Combustion</h3>\n<ul>\n<li>Complete combustion gives carbon dioxide and water; limited oxygen gives carbon monoxide or carbon (soot).</li>\n</ul>\n<p>Exam tip: when writing a radical mechanism, use a single-headed arrow for each electron moved and always show the radical dot.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "73413ed6-d9b9-47bb-a307-f1fcd75fe787",
   "topic_id": "f349b89f-57b4-461a-b10f-66ca9fbab4ae",
   "title": "Exam technique: Operating Systems",
@@ -2028,6 +2301,19 @@
   "source_range": null
  },
  {
+  "id": "7586febe-33bd-435b-91f5-28140c7b08b4",
+  "topic_id": "707ec3c7-7efb-4793-ae95-de061ba8ff42",
+  "title": "Energetics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Energetics</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH12, Topic 6. Energetics explains why reactions release or absorb heat, and it provides the enthalpy data that later decides whether a reaction is feasible.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Enthalpy change and types of reaction</li><li>Measuring enthalpy changes</li><li>Hess's law</li><li>Bond enthalpies</li><li>Entropy and free energy (introduced)</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "75a8a9e4-15af-43f6-9395-1a37660fd65d",
   "topic_id": "b7daf14f-974d-4ad7-a848-07dd64176630",
   "title": "Differentiation II — Quick Revision Summary",
@@ -2035,6 +2321,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 17:51:02.779531+00",
   "updated_at": "2026-10-16 07:09:52.679021+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "7681584a-8424-4a03-8b4e-8d0feb52038e",
+  "topic_id": "a7b8da87-1a3e-4082-8293-658374b38642",
+  "title": "Organic Nitrogen Compounds: Amines, Amides, Amino Acids and Proteins — Quick Revision Summary",
+  "content": "<h2>Quick revision: Organic Nitrogen Compounds: Amines, Amides, Amino Acids and Proteins</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH15, Topic 19. Amines, amides, amino acids and proteins contain nitrogen. The lone pair on nitrogen controls basicity, and the amide and peptide links join molecules into polymers.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Amines</li><li>Amides</li><li>Amino acids and zwitterions</li><li>Peptides and proteins</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2067,6 +2366,19 @@
   "source_range": null
  },
  {
+  "id": "7782b9f5-a0e8-4eb1-9179-6b98a1c02b52",
+  "topic_id": "5e850452-1f48-409b-a7d1-9a032abedd8d",
+  "title": "Intermolecular Forces — Study Notes",
+  "content": "<h2>Intermolecular Forces</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 7. Intermolecular forces are the attractions between molecules, not the bonds inside them. They determine boiling points, solubility and how molecules pack together.</p>\n<h3>Types of intermolecular force</h3>\n<ul>\n<li>London (instantaneous dipole–induced dipole) forces exist in all molecules. They grow with the number of electrons, so larger molecules have higher boiling points.</li>\n<li>Permanent dipole–dipole forces occur between polar molecules, where the partial positive and negative charges attract one another.</li>\n<li>Hydrogen bonding is a strong dipole–dipole attraction. It occurs when H is bonded to N, O or F and attracts a lone pair on another N, O or F.</li>\n</ul>\n<h3>Effect on physical properties</h3>\n<ul>\n<li>Boiling point depends on the strength of intermolecular forces: more energy is needed to separate molecules that attract strongly.</li>\n<li>Water boils at a much higher temperature than hydrogen sulfide because hydrogen bonding is much stronger than the dipole forces between H2S molecules.</li>\n<li>Branched alkanes have lower boiling points than straight-chain isomers because they have a smaller surface area for London forces.</li>\n</ul>\n<h3>Solubility</h3>\n<ul>\n<li>Substances dissolve when the new attractions between solute and solvent replace the attractions within each.</li>\n<li>Polar solvents such as water dissolve ionic and polar solutes; non-polar solvents dissolve non-polar solutes.</li>\n<li>Ethanol is miscible with water because its –OH group forms hydrogen bonds with water.</li>\n</ul>\n<h3>Ideal and real gases</h3>\n<ul>\n<li>A real gas deviates from ideal behaviour at high pressure and low temperature, because molecules have volume and attract one another.</li>\n</ul>\n<p>Exam tip: when comparing boiling points, name the type of intermolecular force, state whether it is stronger or weaker, and say how much energy is needed to overcome it. Do not say that \"bonds break\" when a liquid boils.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "7798ea37-c64d-4cc6-a474-c55584ee86a7",
   "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
   "title": "Number — Fractions, Decimals and Percentages — Study Notes",
@@ -2087,6 +2399,19 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:20.137546+00",
   "updated_at": "2026-10-16 17:42:05.853927+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "77dc68f0-c9d0-4be8-9750-22f6d69602de",
+  "topic_id": "4bbf548c-f900-449c-9631-bc4b638d623d",
+  "title": "Organic Chemistry: Halogenoalkanes, Alcohols and Spectra — Study Notes",
+  "content": "<h2>Organic Chemistry: Halogenoalkanes, Alcohols and Spectra</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 10. Halogenoalkanes and alcohols are the first families where a functional group changes the reactivity of the molecule. Spectra are the tools that identify those groups in an unknown compound.</p>\n<h3>Halogenoalkanes</h3>\n<ul>\n<li>A halogenoalkane has a halogen atom bonded to a carbon atom. The C–X bond is polar because the halogen is more electronegative, so the carbon is slightly positive.</li>\n<li>Reactivity rises down the group because the C–X bond gets weaker (C–I is weakest), so the iodoalkane reacts fastest.</li>\n<li>Nucleophilic substitution with aqueous hydroxide ions gives an alcohol. The nucleophile donates a pair of electrons to the carbon atom.</li>\n<li>Halogenoalkanes can be tested by warming with aqueous silver nitrate in ethanol: the precipitate forms at different rates, and iodoalkanes react fastest.</li>\n</ul>\n<h3>Alcohols</h3>\n<ul>\n<li>Alcohols contain the –OH group. Primary, secondary and tertiary alcohols depend on how many other carbons are attached to the carbon bearing the –OH.</li>\n<li>Oxidation of primary alcohols with acidified potassium dichromate(VI) gives aldehydes, which can be oxidised further to carboxylic acids; excess oxidant and heat give the acid.</li>\n<li>Secondary alcohols oxidise to ketones; tertiary alcohols are not oxidised under these conditions.</li>\n<li>Dehydration with hot concentrated sulfuric acid or aluminium oxide forms an alkene.</li>\n</ul>\n<h3>Mass spectrometry</h3>\n<ul>\n<li>The molecular ion peak gives the relative molecular mass. Fragmentation patterns reveal structural features.</li>\n<li>Peaks at m/z 15 and 29 can indicate CH3 and C2H5 fragments.</li>\n</ul>\n<h3>Infrared spectroscopy</h3>\n<ul>\n<li>Bonds absorb infrared radiation at characteristic wavenumbers. A broad absorption near 3200–3550 cm⁻¹ indicates an O–H group in an alcohol. A strong absorption near 1700 cm⁻¹ indicates a C=O group.</li>\n<li>Use tables of characteristic absorptions with the spectrum, rather than memorised single values.</li>\n</ul>\n<h3>NMR (introduced)</h3>\n<ul>\n<li>The number of peaks in a proton NMR spectrum gives the number of environments of hydrogen atoms; the relative areas give the ratio of hydrogens.</li>\n</ul>\n<p>Exam tip: when identifying an unknown, combine evidence: the molecular formula from mass spectrometry, the functional groups from infrared, and the environments from NMR.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2139,6 +2464,19 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:22.52813+00",
   "updated_at": "2026-10-15 11:02:40.731413+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "7a6d8b02-5114-40ad-b1cf-94a699d3a6bb",
+  "topic_id": "4ee8687b-e42e-46e9-98e0-3e84db785f2a",
+  "title": "Membranes, Proteins, DNA and Gene Expression — Quick Revision Summary",
+  "content": "<h2>Quick revision: Membranes, Proteins, DNA and Gene Expression</h2>\n<p><strong>Biology — AS.</strong> Edexcel IAL Biology WBI11, Topic 2. DNA holds the code for proteins. Gene expression copies that code into mRNA and then builds the protein. Cell membranes control what enters and leaves the cell.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Cell membranes</li><li>DNA structure and replication</li><li>Protein synthesis</li><li>Mutations</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2256,6 +2594,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:15.071129+00",
   "updated_at": "2026-10-16 07:14:17.708427+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "7f015b5b-32fa-4084-b42e-ac9b839fcd93",
+  "topic_id": "13f60c5e-232b-43a2-b2d1-92c181f204a0",
+  "title": "Cell Structure, Reproduction and Development — Quick Revision Summary",
+  "content": "<h2>Quick revision: Cell Structure, Reproduction and Development</h2>\n<p><strong>Biology — AS.</strong> Edexcel IAL Biology WBI12, Topic 3. Cells are the basic units of life. Their structure reflects their function, and cell division produces the new cells needed for growth, repair and reproduction.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Cell structure</li><li>Cell division</li><li>Stem cells and development</li><li>Cancer</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2392,6 +2743,32 @@
   "source_range": null
  },
  {
+  "id": "8789fc33-7c67-402d-95d0-3ec009dc2d45",
+  "topic_id": "0206e311-d1ae-486b-b36f-00ab2dd007ce",
+  "title": "Entropy and Energetics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Entropy and Energetics</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH14, Topic 12. Enthalpy alone does not decide whether a reaction happens. Entropy measures how energy and matter are spread out, and the Gibbs energy combines enthalpy and entropy to predict feasibility.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Entropy</li><li>Gibbs free energy</li><li>Total entropy change</li><li>Temperature and feasibility</li><li>Worked example</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "87af1d72-2a4f-41be-b34d-ae7156bc8ac9",
+  "topic_id": "a771b518-48d0-4c6a-bef3-dc8db61653cb",
+  "title": "Microbiology, Immunity and Forensics — Study Notes",
+  "content": "<h2>Microbiology, Immunity and Forensics</h2>\n<p>Edexcel IAL Biology WBI14, Topic 6. Pathogens cause disease, and the immune system defends the body against them. Knowledge of microbes also allows antibiotics, vaccines and forensic DNA analysis.</p>\n<h3>Pathogens and antibiotics</h3>\n<ul>\n<li>Bacteria have 70S ribosomes, a cell wall made of peptidoglycan and circular DNA. Antibiotics such as penicillin block cell wall synthesis; others block 70S ribosomes.</li>\n<li>Viruses have no cell structure of their own. They are obligate parasites that use the host cell machinery to replicate, so antibiotics do not act on them.</li>\n<li>Antibiotic resistance spreads by natural selection. Bacteria with resistance alleles survive and reproduce, and the resistant population grows when antibiotics are overused.</li>\n</ul>\n<h3>Immune response</h3>\n<ul>\n<li>Phagocytes engulf pathogens by phagocytosis. Antigens on the pathogen surface are recognised as foreign.</li>\n<li>B lymphocytes with complementary receptors undergo clonal selection and clonal expansion. Plasma cells produce antibodies, which bind to specific antigens.</li>\n<li>T helper cells release cytokines that activate B cells and cytotoxic T cells. Cytotoxic T cells kill infected cells.</li>\n<li>Memory cells persist after an infection, so the secondary response is faster and larger.</li>\n</ul>\n<h3>Vaccination</h3>\n<ul>\n<li>A vaccine contains an antigen, often as a weakened or inactivated pathogen, or a harmless fragment. It stimulates a primary response without causing the disease.</li>\n<li>Herd immunity protects those who cannot be vaccinated when a high proportion of the population is immune.</li>\n</ul>\n<h3>HIV</h3>\n<ul>\n<li>HIV attacks and destroys helper T cells. Over time the immune system fails, and the person develops AIDS.</li>\n<li>The virus carries RNA and uses reverse transcriptase to make DNA copies inside the host cell.</li>\n</ul>\n<h3>Forensic DNA profiling</h3>\n<ul>\n<li>Short tandem repeats (STRs) are short sequences that repeat a variable number of times at specific loci. The number of repeats differs between people.</li>\n<li>PCR amplifies the STR regions from a small sample. The products are separated by gel electrophoresis, where DNA moves towards the positive electrode according to size.</li>\n</ul>\n<p>Exam tip: when you explain antibiotic resistance, describe the variation, the selection pressure and the change in the population over generations.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "887eb0dc-eb5d-47ea-81ab-4d527cbcb3e1",
   "topic_id": "3e08bf8f-4227-40a9-b6af-783b81e8b31f",
   "title": "The Normal Distribution — Quick Revision Summary",
@@ -2464,6 +2841,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 07:52:19.330145+00",
   "updated_at": "2026-10-15 10:39:28.001861+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "92752a03-2ff7-487c-afb9-3c8e2f28e127",
+  "topic_id": "2b466f1b-04cf-4937-a711-efe8672838ff",
+  "title": "Plant Structure and Function, Biodiversity and Conservation — Quick Revision Summary",
+  "content": "<h2>Quick revision: Plant Structure and Function, Biodiversity and Conservation</h2>\n<p><strong>Biology — AS.</strong> Edexcel IAL Biology WBI12, Topic 4. Plant tissues are arranged to transport water, move sugars and carry out photosynthesis. Biodiversity measures and conservation methods show how ecosystems are monitored and protected.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Plant tissues</li><li>Stomata and transpiration</li><li>Measuring biodiversity</li><li>Sampling</li><li>Conservation</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2587,6 +2977,19 @@
   "source_range": null
  },
  {
+  "id": "993c19a2-5f9f-4b8d-afaa-cd061d9c7338",
+  "topic_id": "1db268f3-7071-4515-8d9f-311291cfca94",
+  "title": "Transition Metals and their Chemistry — Study Notes",
+  "content": "<h2>Transition Metals and their Chemistry</h2>\n<p>Edexcel IAL Chemistry WCH15, Topic 17. Transition metals form coloured complex ions, show variable oxidation states and act as catalysts. These properties come from partly filled d orbitals.</p>\n<h3>Complex ions and ligands</h3>\n<ul>\n<li>A ligand is a species with a lone pair that forms a dative bond to a metal ion. Water, ammonia and chloride are monodentate ligands.</li>\n<li>Ethane-1,2-diamine is bidentate because it has two donor atoms. EDTA⁴⁻ is hexadentate.</li>\n<li>The coordination number is the number of coordinate bonds to the central metal ion. Common shapes are octahedral (6), tetrahedral (4), square planar (4) and linear (2, e.g. [Ag(NH₃)₂]⁺).</li>\n</ul>\n<h3>Colour</h3>\n<ul>\n<li>In a ligand field the five d orbitals split into two energy levels. Electrons absorb light to jump between them, and the colour seen is complementary to the colour absorbed.</li>\n<li>The d-orbital splitting depends on the metal, its oxidation state and the ligands. Ligand exchange changes the colour.</li>\n</ul>\n<h3>Ligand substitution and isomerism</h3>\n<ul>\n<li>Concentrated HCl converts [Cu(H₂O)₆]²⁺ (blue) into [CuCl₄]²⁻ (yellow-green, tetrahedral).</li>\n<li>Excess aqueous ammonia converts Cu²⁺ into [Cu(NH₃)₄(H₂O)₂]²⁺, a deep blue complex.</li>\n<li>Square planar [Pt(NH₃)₂Cl₂] shows cis-trans isomerism. The cis form is the anticancer drug cisplatin.</li>\n</ul>\n<h3>Catalysis</h3>\n<ul>\n<li>Heterogeneous catalysts (iron in the Haber process) work on a surface. Homogeneous catalysts such as Fe²⁺ in the iodide–peroxydisulfate reaction are in the same phase as the reactants.</li>\n<li>In the MnO₄⁻ and ethanedioate reaction, Mn²⁺ is the product and catalyses the reaction, so the rate increases as it forms: this is autocatalysis.</li>\n</ul>\n<p>Exam tip: when a ligand exchange is asked for, name both the shape and the colour change, and write the complex formula with its charge.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "99b7565e-54fd-4473-8ea2-50edc443b885",
   "topic_id": "51150c0c-c3dd-4edd-b870-5eba0ce9ffd0",
   "title": "Exam technique: Permutations and Combinations",
@@ -2620,6 +3023,19 @@
   "material_type": "notes",
   "created_at": "2026-09-20 17:51:02.092385+00",
   "updated_at": "2026-10-15 09:47:33.160331+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "9c2ba5de-7796-4b86-937c-e79a94c4e4b4",
+  "topic_id": "5e850452-1f48-409b-a7d1-9a032abedd8d",
+  "title": "Intermolecular Forces — Quick Revision Summary",
+  "content": "<h2>Quick revision: Intermolecular Forces</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH12, Topic 7. Intermolecular forces are the attractions between molecules, not the bonds inside them. They determine boiling points, solubility and how molecules pack together.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Types of intermolecular force</li><li>Effect on physical properties</li><li>Solubility</li><li>Ideal and real gases</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2685,6 +3101,32 @@
   "material_type": "summary",
   "created_at": "2026-09-18 14:13:26.42073+00",
   "updated_at": "2026-10-16 07:14:17.708427+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "a5238e13-ce47-4f35-ac65-3e5c4ba3ab51",
+  "topic_id": "98baf7fe-92b2-4fe5-aad9-80ff57fa0f74",
+  "title": "Redox Equilibria — Quick Revision Summary",
+  "content": "<h2>Quick revision: Redox Equilibria</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH15, Topic 16. Redox reactions transfer electrons. Standard electrode potentials let you predict whether a reaction is feasible and quantify the reducing and oxidising power of species.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Oxidation and reduction</li><li>Standard electrode potentials</li><li>Predicting feasibility</li><li>Redox titrations</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "a582f48a-8c36-42e4-8134-cc3682a9fe47",
+  "topic_id": "8fb378b7-7c2d-4899-a050-4d9120fc7d28",
+  "title": "Respiration, Muscles and the Internal Environment — Study Notes",
+  "content": "<h2>Respiration, Muscles and the Internal Environment</h2>\n<p>Edexcel IAL Biology WBI15, Topic 7. Respiration releases energy as ATP for muscle contraction. Homeostasis keeps the internal environment stable, and the kidney is central to this. The topic links biochemistry to physiology.</p>\n<h3>Aerobic respiration</h3>\n<ul>\n<li>Glycolysis takes place in the cytoplasm. Glucose is split into two pyruvate molecules, with a small net gain of ATP and reduced NAD.</li>\n<li>The link reaction converts pyruvate to acetyl coenzyme A in the mitochondrial matrix, releasing CO₂.</li>\n<li>The Krebs cycle takes place in the matrix. It releases CO₂ and produces reduced NAD and FAD, and a little ATP.</li>\n<li>Oxidative phosphorylation takes place on the inner mitochondrial membrane. Electrons pass along the electron transport chain, a proton gradient forms, and ATP synthase makes ATP. Oxygen is the final electron acceptor.</li>\n</ul>\n<h3>Anaerobic respiration in mammals</h3>\n<ul>\n<li>Without oxygen, pyruvate is reduced to lactate. This regenerates NAD so that glycolysis can continue, but it gives far less ATP.</li>\n<li>The oxygen debt is the extra oxygen needed after exercise to oxidise the lactate.</li>\n</ul>\n<h3>Respiratory quotient</h3>\n<ul>\n<li>RQ = volume of CO₂ produced ÷ volume of O₂ consumed. Carbohydrate gives an RQ of about 1.0 and fat gives about 0.7.</li>\n</ul>\n<h3>Muscle contraction</h3>\n<ul>\n<li>A sarcomere is the unit between two Z lines. Thick filaments of myosin and thin filaments of actin slide past each other; the sarcomere shortens but the filaments do not change length.</li>\n<li>Myosin heads bind to actin, and the power stroke pulls the actin along. ATP binds to myosin to break the link, and hydrolysis of ATP resets the head.</li>\n<li>Calcium ions bind to troponin, which moves tropomyosin and exposes the binding sites on actin.</li>\n</ul>\n<h3>Homeostasis and the kidney</h3>\n<ul>\n<li>Negative feedback corrects a change from the set point. Receptors detect the change, and effectors bring the level back.</li>\n<li>In the nephron, ultrafiltration occurs at the Bowman's capsule under high hydrostatic pressure. Glucose and amino acids are reabsorbed by active transport in the proximal convoluted tubule.</li>\n<li>The loop of Henle creates a salt gradient in the medulla. ADH increases the permeability of the collecting duct, so more water is reabsorbed by osmosis.</li>\n</ul>\n<p>Exam tip: when you describe the link between ADH and water reabsorption, follow the steps in order: osmoreceptors, ADH release, collecting duct permeability, water reabsorption.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2860,6 +3302,19 @@
   "source_range": null
  },
  {
+  "id": "af865f0a-13a6-401b-8e03-5d92fca4ba96",
+  "topic_id": "0206e311-d1ae-486b-b36f-00ab2dd007ce",
+  "title": "Entropy and Energetics — Study Notes",
+  "content": "<h2>Entropy and Energetics</h2>\n<p>Edexcel IAL Chemistry WCH14, Topic 12. Enthalpy alone does not decide whether a reaction happens. Entropy measures how energy and matter are spread out, and the Gibbs energy combines enthalpy and entropy to predict feasibility.</p>\n<h3>Entropy</h3>\n<ul>\n<li>Entropy S measures the disorder or the number of ways energy can be dispersed. Its standard unit is J K⁻¹ mol⁻¹.</li>\n<li>Entropy increases when a solid melts or dissolves, when a liquid evaporates, and when the number of gas molecules increases.</li>\n<li>Entropy decreases when gas molecules condense or when a crystal forms from solution.</li>\n<li>Standard entropy values are given in data books. The entropy change for a reaction is ΔS = Σ S(products) − Σ S(reactants).</li>\n</ul>\n<h3>Gibbs free energy</h3>\n<ul>\n<li>The Gibbs energy change is ΔG = ΔH − TΔS, where T is in kelvin. ΔH is in J mol⁻¹ and ΔS in J K⁻¹ mol⁻¹, so convert ΔH from kJ to J before calculating.</li>\n<li>A reaction is feasible when ΔG is negative. When ΔG = 0 the system is at equilibrium.</li>\n</ul>\n<h3>Total entropy change</h3>\n<ul>\n<li>The total entropy change is ΔS total = ΔS system + ΔS surroundings. For the surroundings, ΔS surroundings = −ΔH / T.</li>\n</ul>\n<h3>Temperature and feasibility</h3>\n<ul>\n<li>For a reaction with positive ΔH and positive ΔS, ΔG becomes negative above the temperature T = ΔH / ΔS. High temperature therefore makes the reaction feasible.</li>\n<li>For a reaction with ΔH positive and ΔS negative, ΔG is always positive, so the reaction is never feasible.</li>\n</ul>\n<h3>Worked example</h3>\n<ul>\n<li>For CaCO3 → CaO + CO2, ΔH = +178 kJ mol⁻¹ and ΔS = +161 J K⁻¹ mol⁻¹. The temperature at which ΔG = 0 is T = 178 000 / 161 = 1106 K, so the decomposition becomes feasible above about 1100 K.</li>\n</ul>\n<p>Exam tip: always convert kJ to J before subtracting TΔS, and state the temperature in kelvin.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "b019737f-148f-4517-90eb-36528c45eb85",
   "topic_id": "d5e94211-9e09-4ccf-8086-47c044ed468a",
   "title": "Electricity: D.C. Circuits — Study Notes",
@@ -2880,6 +3335,19 @@
   "material_type": "summary",
   "created_at": "2026-09-20 18:43:12.85699+00",
   "updated_at": "2026-10-16 07:05:30.44739+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "b43306b7-ef00-4507-9aac-7f10d5b32897",
+  "topic_id": "03510ba9-e8c6-4770-868b-2978e2f4ba0a",
+  "title": "Formulae, Equations and Amount of Substance — Study Notes",
+  "content": "<h2>Formulae, Equations and Amount of Substance</h2>\n<p>Edexcel IAL Chemistry WCH11, Topic 1. The mole is the bridge between the mass you can weigh and the number of particles a reaction actually uses, so every quantitative question in the course depends on it.</p>\n<h3>Relative masses and the mole</h3>\n<ul>\n<li>Relative atomic mass (Ar) and relative molecular mass (Mr) are based on the carbon-12 scale.</li>\n<li>One mole contains the Avogadro constant, 6.02 × 10²³ particles, and the molar mass in g mol⁻¹ equals Mr numerically.</li>\n<li>Moles: n = m / M. Rearrange to find mass (m = n × M) or molar mass (M = m / n).</li>\n</ul>\n<h3>Empirical and molecular formulae</h3>\n<ul>\n<li>Convert percentage (or mass) composition to moles, divide by the smallest value and multiply until the ratios are whole numbers.</li>\n<li>The molecular formula is a whole-number multiple of the empirical formula: n = Mr / Mr(empirical formula).</li>\n</ul>\n<h3>Equations and reacting masses</h3>\n<ul>\n<li>Balance equations by conserving each element, then use the coefficients as mole ratios.</li>\n<li>Limiting reagent: work out the moles each reactant could give, then take the smallest.</li>\n<li>Percentage yield = actual yield / theoretical yield × 100.</li>\n</ul>\n<h3>Solutions and gases</h3>\n<ul>\n<li>Concentration c = n / V, with V in dm³ (cm³ ÷ 1000). Titration data follow the same route.</li>\n<li>At room temperature and pressure one mole of gas occupies 24 dm³, so n = V / 24.</li>\n</ul>\n<p>Exam tip: write the unit on every line of working, and check that your final answer has the same number of significant figures as the least precise data given.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -2964,6 +3432,19 @@
   "source_range": null
  },
  {
+  "id": "bac944a1-250f-4fa9-99e0-6e5fcf626f16",
+  "topic_id": "52c399a1-e52c-446a-a7e4-31be0ca35a87",
+  "title": "Kinetics — Quick Revision Summary",
+  "content": "<h2>Quick revision: Kinetics</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH14, Topic 11. Kinetics links the rate of a reaction to the concentrations of the reactants, and the rate constant to temperature. Rate equations come from experiments, not from the balanced equation.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Rate equations and order</li><li>Initial rates</li><li>Rate constant and units</li><li>Half-life</li><li>Arrhenius equation</li><li>Mechanisms</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "bbb2b05b-65de-4a24-9ffc-9fb2a7911597",
   "topic_id": "6111cf0b-63cc-4804-a218-1b16e82da4f3",
   "title": "Exam technique: Right-Angled Trigonometry",
@@ -2984,6 +3465,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 07:54:25.524105+00",
   "updated_at": "2026-10-16 07:03:00.465532+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "bea89e3b-8399-45c8-a121-0ba720102b40",
+  "topic_id": "557df8f5-af3a-4af1-a92e-78b41e90ca27",
+  "title": "Molecules, Transport and Health — Quick Revision Summary",
+  "content": "<h2>Quick revision: Molecules, Transport and Health</h2>\n<p><strong>Biology — AS.</strong> Edexcel IAL Biology WBI11, Topic 1. Living things are built from a small set of biological molecules. Their structure decides how they are used, how substances move in and out of cells, and how diet affects health.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Carbohydrates</li><li>Lipids and proteins</li><li>Enzymes</li><li>Transport</li><li>Health</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3120,6 +3614,19 @@
   "source_range": null
  },
  {
+  "id": "c540c213-304e-4b0d-8db0-46374bd35217",
+  "topic_id": "62210c38-aeda-4e3d-a6ec-bf161d9060e8",
+  "title": "Organic Synthesis — Quick Revision Summary",
+  "content": "<h2>Quick revision: Organic Synthesis</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH15, Topic 20. Organic synthesis plans a route from a starting material to a target molecule. You need to choose reagents and conditions, track functional groups and calculate the overall yield.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Planning a route</li><li>Key interconversions</li><li>Yield calculations</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "c5db8780-4259-4225-a81e-77c39f6c243f",
   "topic_id": "98dfbd94-3f76-4fa5-8e2e-c72c0c9a154a",
   "title": "Exam technique: Magnetic Fields and Electromagnetism",
@@ -3179,6 +3686,19 @@
   "material_type": "notes",
   "created_at": "2026-09-20 18:43:12.85699+00",
   "updated_at": "2026-10-16 17:42:05.853927+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "c84acac8-641c-480b-9747-5e4c1b7283ab",
+  "topic_id": "096d6365-d239-4c38-b8f0-a338a550d6be",
+  "title": "Organic Chemistry: Arenes — Quick Revision Summary",
+  "content": "<h2>Quick revision: Organic Chemistry: Arenes</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH15, Topic 18. Benzene is an arene. Its delocalised ring of six pi electrons makes it stable, so it reacts by electrophilic substitution rather than addition.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Structure and stability</li><li>Electrophilic substitution</li><li>Directing effects</li><li>Side-chain oxidation</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3263,6 +3783,19 @@
   "source_range": null
  },
  {
+  "id": "d1938503-ee93-42fe-8ada-7a628d3bc3e8",
+  "topic_id": "4cde8094-6c1b-4fb9-9b92-38d6670887ca",
+  "title": "Atomic Structure and the Periodic Table — Quick Revision Summary",
+  "content": "<h2>Quick revision: Atomic Structure and the Periodic Table</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH11, Topic 2. The periodic table is not a list to memorise: its rows and columns follow directly from how electrons fill shells and sub-shells.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Atoms, isotopes and mass spectrometry</li><li>Electron configuration</li><li>Periodic trends</li><li>Electron arrangement and the table</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "d298ec66-90da-4074-973d-12cb5f24cd46",
   "topic_id": "786d1694-9f44-4f8f-98d9-5ec1ce06f2ba",
   "title": "Exam technique: Ethics, Security & Impact",
@@ -3341,6 +3874,19 @@
   "source_range": null
  },
  {
+  "id": "d4516bc0-b215-49ea-904f-286fef0f33bc",
+  "topic_id": "8cc72da3-1873-4551-a43a-efbb4b1a474a",
+  "title": "Introduction to Kinetics and Equilibria — Study Notes",
+  "content": "<h2>Introduction to Kinetics and Equilibria</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 9. Kinetics asks how fast a reaction goes, and equilibria asks how far it goes before the forward and backward reactions balance. Both depend on the same collision ideas.</p>\n<h3>Rates and collision theory</h3>\n<ul>\n<li>For a reaction to occur, particles must collide with enough energy (the activation energy, Ea) and in the correct orientation.</li>\n<li>Increasing concentration or pressure increases the frequency of collisions. Increasing temperature raises the proportion of particles with energy above Ea, which has a larger effect than the increase in collision frequency.</li>\n<li>A catalyst provides an alternative route with a lower Ea; it is not used up.</li>\n</ul>\n<h3>Measuring rates</h3>\n<ul>\n<li>Rates can be found from the gradient of a concentration–time graph at the start of the reaction (the initial rate).</li>\n<li>Methods include measuring the volume of gas produced, the change in mass, or the time for a colour change to occur (1/time gives a relative rate).</li>\n</ul>\n<h3>Dynamic equilibrium</h3>\n<ul>\n<li>In a closed system, the forward and reverse rates become equal. Concentrations stop changing, but the reaction has not stopped.</li>\n<li>Equilibrium constant Kc = [products]^n / [reactants]^m, with each concentration raised to the power of its coefficient. Kc is constant for a given temperature.</li>\n</ul>\n<h3>Le Chatelier's principle</h3>\n<ul>\n<li>If a system at equilibrium is disturbed, the position shifts to oppose the change.</li>\n<li>Increasing temperature favours the endothermic direction. Increasing pressure favours the side with fewer gas molecules. Adding a reactant shifts the position towards products.</li>\n<li>A catalyst speeds up both directions equally, so it changes the rate of reaching equilibrium but not the equilibrium position or Kc.</li>\n</ul>\n<p>Exam tip: say which direction is favoured and why, using the principle. Do not claim that a catalyst increases the yield.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "d4d41ed0-cbb8-4358-909f-a9a7d7aa7149",
   "topic_id": "59f8ecd0-7203-4de2-bd02-01f15a70529b",
   "title": "Database Systems — Quick Revision Summary",
@@ -3393,6 +3939,32 @@
   "source_range": null
  },
  {
+  "id": "d8c33cef-4ee8-4cc9-ada2-8771f123600e",
+  "topic_id": "715fe208-43e9-4c24-987d-b0512b6b83e1",
+  "title": "Bonding and Structure — Quick Revision Summary",
+  "content": "<h2>Quick revision: Bonding and Structure</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH11, Topic 3. Bonding explains the physical properties of a substance: melting point, conductivity and solubility all follow from the type of bond and the way particles are packed.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Ionic bonding</li><li>Covalent bonding</li><li>Electronegativity and polarity</li><li>Shapes of molecules</li><li>Metallic bonding</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "da7c9bd7-2551-4f16-91a9-4f446f20ae69",
+  "topic_id": "707ec3c7-7efb-4793-ae95-de061ba8ff42",
+  "title": "Energetics — Study Notes",
+  "content": "<h2>Energetics</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 6. Energetics explains why reactions release or absorb heat, and it provides the enthalpy data that later decides whether a reaction is feasible.</p>\n<h3>Enthalpy change and types of reaction</h3>\n<ul>\n<li>The enthalpy change ΔH is the heat energy transferred at constant pressure. Exothermic reactions have a negative ΔH; endothermic reactions have a positive ΔH.</li>\n<li>Standard conditions are 100 kPa and a stated temperature, usually 298 K, with substances in their standard states.</li>\n<li>Important definitions include standard enthalpy of formation, combustion and neutralisation. Each is written for one mole of the stated substance.</li>\n</ul>\n<h3>Measuring enthalpy changes</h3>\n<ul>\n<li>In a calorimetry experiment, q = m × c × ΔT, where m is the mass of solution (usually assumed to be 4.18 J g⁻¹ K⁻¹ for water-based solutions).</li>\n<li>Convert heat to enthalpy change using moles: ΔH = −q / n. The sign is negative for an exothermic reaction.</li>\n<li>Sources of error include heat loss to the surroundings and incomplete combustion; the answer is always lower than the data book value for combustion.</li>\n</ul>\n<h3>Hess's law</h3>\n<ul>\n<li>The total enthalpy change is independent of the route taken. Enthalpy cycles let you find an unknown ΔH from known values.</li>\n<li>For formation values: ΔH = Σ ΔHf(products) − Σ ΔHf(reactants).</li>\n</ul>\n<h3>Bond enthalpies</h3>\n<ul>\n<li>Breaking bonds is endothermic; making bonds is exothermic. ΔH ≈ Σ bonds broken − Σ bonds formed.</li>\n<li>Bond enthalpies are averages over many compounds, so values from bond enthalpy calculations differ from accurate formation data.</li>\n</ul>\n<h3>Entropy and free energy (introduced)</h3>\n<ul>\n<li>A reaction that increases disorder (more gas molecules, for example) has a positive entropy change, which favours spontaneous change.</li>\n</ul>\n<p>Exam tip: a common mistake is to use the wrong sign for ΔH. Always check whether the process is releasing or taking in heat before writing the value.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "dadf20d3-a12f-451f-8c56-3cb894099558",
   "topic_id": "1837cee6-60d1-43f5-a16a-821e0cedaad2",
   "title": "Persuasive and Argumentative Writing — Study Notes",
@@ -3413,6 +3985,19 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:23.43738+00",
   "updated_at": "2026-10-15 09:42:20.893682+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "dc64d220-a1d9-4671-bfdd-67785046d0ed",
+  "topic_id": "096d6365-d239-4c38-b8f0-a338a550d6be",
+  "title": "Organic Chemistry: Arenes — Study Notes",
+  "content": "<h2>Organic Chemistry: Arenes</h2>\n<p>Edexcel IAL Chemistry WCH15, Topic 18. Benzene is an arene. Its delocalised ring of six pi electrons makes it stable, so it reacts by electrophilic substitution rather than addition.</p>\n<h3>Structure and stability</h3>\n<ul>\n<li>Benzene is C₆H₆ with a planar ring. All six C–C bonds are the same length (0.139 nm), intermediate between single and double bonds.</li>\n<li>The measured enthalpy of hydrogenation is about −208 kJ mol⁻¹, compared with −360 kJ mol⁻¹ for a hypothetical cyclohexa-1,3,5-triene. The difference, about 150 kJ mol⁻¹, is the delocalisation energy.</li>\n</ul>\n<h3>Electrophilic substitution</h3>\n<ul>\n<li>The pi electron cloud is electron-rich, so the ring is a nucleophile and attacks electrophiles.</li>\n<li>Nitration: concentrated HNO₃ and concentrated H₂SO₄ at about 50 °C. The electrophile is NO₂⁺, and nitrobenzene forms.</li>\n<li>Halogenation: Br₂ with an AlBr₃ or FeBr₃ halogen carrier. The carrier polarises Br₂ to give Br⁺.</li>\n<li>Friedel–Crafts alkylation uses a haloalkane and AlCl₃ to add an alkyl group. Friedel–Crafts acylation uses an acyl chloride and AlCl₃ to form a phenyl ketone.</li>\n</ul>\n<h3>Directing effects</h3>\n<ul>\n<li>Alkyl groups, including –CH₃, direct a second substituent to the 2- and 4- (ortho and para) positions.</li>\n<li>A –NO₂ group directs to the 3- (meta) position.</li>\n<li>–OH and –NH₂ are strongly activating: phenol reacts with bromine water at room temperature to give a white precipitate of 2,4,6-tribromophenol.</li>\n</ul>\n<h3>Side-chain oxidation</h3>\n<ul>\n<li>Hot, acidified KMnO₄ oxidises an alkyl side chain on the ring to a carboxylic acid group. Methylbenzene forms benzoic acid.</li>\n</ul>\n<p>Exam tip: when describing a mechanism, show the electrophile, the arenium intermediate with its positive charge spread over the ring, and the loss of H⁺ to restore the delocalised ring.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3471,6 +4056,19 @@
   "source_range": null
  },
  {
+  "id": "dd922b00-1181-4fc5-88c5-d92e69cf3220",
+  "topic_id": "3f3c0154-5946-4d1c-ac42-12749a11f41e",
+  "title": "Coordination, Response and Gene Technology — Quick Revision Summary",
+  "content": "<h2>Quick revision: Coordination, Response and Gene Technology</h2>\n<p><strong>Biology — A2.</strong> Edexcel IAL Biology WBI15, Topic 8. Nervous and hormonal systems coordinate the body, and plants respond to light and gravity using hormones. Gene technology uses enzymes to cut, join and copy DNA for medicine, research and agriculture.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Nervous coordination</li><li>Hormonal coordination</li><li>Plant responses</li><li>Gene technology</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "dda72fa0-d883-4994-9e85-9530efc1e841",
   "topic_id": "f0bd23ea-3593-4a9c-a1a3-9a080043db6e",
   "title": "System Software and Security — Quick Revision Summary",
@@ -3491,6 +4089,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 08:09:26.366145+00",
   "updated_at": "2026-10-16 07:03:52.795656+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "de2af4ab-d36e-4c26-9cf6-c1e5312f6dd9",
+  "topic_id": "d151b2ce-23ed-4570-a15f-a5e50d92884c",
+  "title": "Energy Flow, Ecosystems and the Environment — Study Notes",
+  "content": "<h2>Energy Flow, Ecosystems and the Environment</h2>\n<p>Edexcel IAL Biology WBI14, Topic 5. Energy enters most ecosystems as light, is fixed by photosynthesis and then passes along food chains. Nutrients cycle, and human activity can disrupt those cycles.</p>\n<h3>Photosynthesis and limiting factors</h3>\n<ul>\n<li>The light-dependent reactions take place on the thylakoid membranes. Light energy splits water (photolysis), releases oxygen and makes ATP and reduced NADP.</li>\n<li>The light-independent reactions (the Calvin cycle) take place in the stroma. CO₂ is fixed by the enzyme RuBisCO onto ribulose bisphosphate, and the product is reduced to make triose phosphate.</li>\n<li>Light intensity, carbon dioxide concentration and temperature are limiting factors. The factor that is in shortest supply limits the rate.</li>\n</ul>\n<h3>Energy transfer through trophic levels</h3>\n<ul>\n<li>Gross primary productivity is the total energy fixed by plants. Net primary productivity is the energy left after respiration.</li>\n<li>Energy is lost between trophic levels: in respiration, as heat, in faeces and urine, and in parts of organisms that are not eaten. Only about 10% of the energy at one trophic level is usually passed on.</li>\n<li>Energy pyramids are always the right way up, because energy is lost at each step.</li>\n</ul>\n<h3>Nutrient cycles</h3>\n<ul>\n<li>In the carbon cycle, photosynthesis removes CO₂ from the air and respiration, decomposition and combustion return it.</li>\n<li>Nitrogen fixing bacteria in root nodules convert nitrogen gas into ammonium ions. Nitrifying bacteria convert ammonium to nitrate, and denitrifying bacteria return nitrogen gas to the air.</li>\n</ul>\n<h3>Human impact</h3>\n<ul>\n<li>Fertiliser run-off causes eutrophication. Algae grow rapidly, block light, and then die. Decomposers use up the oxygen, and fish and other animals die.</li>\n<li>Greenhouse gases such as carbon dioxide and methane absorb infrared radiation and raise the temperature of the Earth.</li>\n<li>Pesticides and persistent chemicals become more concentrated at higher trophic levels, which is called biomagnification.</li>\n</ul>\n<p>Exam tip: when you explain a limiting factor, name the factor, state which reaction it slows, and say why the rate falls.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -3744,6 +4355,19 @@
   "source_range": null
  },
  {
+  "id": "e610dd88-66ad-4a87-b65a-58edadf27b8c",
+  "topic_id": "fa365fb5-a2eb-4767-905b-4afc5dbd8de4",
+  "title": "Introductory Organic Chemistry and Alkanes — Quick Revision Summary",
+  "content": "<h2>Quick revision: Introductory Organic Chemistry and Alkanes</h2>\n<p><strong>Chemistry — AS.</strong> Edexcel IAL Chemistry WCH11, Topic 4. Organic chemistry is the chemistry of carbon compounds. Alkanes are the simplest family, and their reactions introduce the radical substitution mechanism used throughout the course.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Naming and formulae</li><li>Fossil fuels and cracking</li><li>Radical substitution</li><li>Combustion</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "e6f86137-4a51-4833-b66b-d85a5f7000dd",
   "topic_id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
   "title": "Exam technique: Processor Fundamentals",
@@ -3861,6 +4485,32 @@
   "source_range": null
  },
  {
+  "id": "eb7af875-4cad-4035-8e12-5386a53bd2c0",
+  "topic_id": "62210c38-aeda-4e3d-a6ec-bf161d9060e8",
+  "title": "Organic Synthesis — Study Notes",
+  "content": "<h2>Organic Synthesis</h2>\n<p>Edexcel IAL Chemistry WCH15, Topic 20. Organic synthesis plans a route from a starting material to a target molecule. You need to choose reagents and conditions, track functional groups and calculate the overall yield.</p>\n<h3>Planning a route</h3>\n<ul>\n<li>Retrosynthesis works backwards from the target: identify the functional group, then find a precursor that converts into it in one step.</li>\n<li>Each step should be a known functional group interconversion with suitable reagents and conditions.</li>\n<li>Carbon chain length can be increased with KCN, which turns a haloalkane into a nitrile. The nitrile can then be hydrolysed to a carboxylic acid or reduced to an amine.</li>\n</ul>\n<h3>Key interconversions</h3>\n<ul>\n<li>Primary alcohol to aldehyde: distillation with acidified dichromate(VI), so the aldehyde is removed before it oxidises further.</li>\n<li>Primary alcohol to carboxylic acid: reflux with excess acidified dichromate(VI).</li>\n<li>Aldehyde or ketone to alcohol: NaBH₄ (or LiAlH₄ for carboxylic acids and nitriles).</li>\n<li>Alkene to haloalkane: addition of HBr. Alkene to alcohol: steam with an acid catalyst.</li>\n<li>Nitrobenzene to phenylamine: reduction with Sn and concentrated HCl. Nitration of benzene is the first step of a route to phenylamine.</li>\n</ul>\n<h3>Yield calculations</h3>\n<ul>\n<li>Percentage yield = actual mass ÷ theoretical mass × 100.</li>\n<li>Overall yield for a multi-step route is the product of the individual step yields. Two steps at 80% and 70% give 0.80 × 0.70 = 0.56, or 56% overall.</li>\n<li>Atom economy measures the proportion of reactant atoms that end up in the desired product: (molar mass of desired product ÷ sum of molar masses of all products) × 100.</li>\n</ul>\n<p>Exam tip: state the reagent, the condition (reflux, distillation, heat under pressure) and the product of each step. Marks are often given for the condition, not just the reagent.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "eb9a809a-a086-4f98-b365-670ae0c8f7aa",
+  "topic_id": "3f3c0154-5946-4d1c-ac42-12749a11f41e",
+  "title": "Coordination, Response and Gene Technology — Study Notes",
+  "content": "<h2>Coordination, Response and Gene Technology</h2>\n<p>Edexcel IAL Biology WBI15, Topic 8. Nervous and hormonal systems coordinate the body, and plants respond to light and gravity using hormones. Gene technology uses enzymes to cut, join and copy DNA for medicine, research and agriculture.</p>\n<h3>Nervous coordination</h3>\n<ul>\n<li>A reflex arc passes information from a receptor along a sensory neurone, through a relay neurone in the spinal cord, and along a motor neurone to an effector. It is fast and does not need conscious control.</li>\n<li>The resting potential is about −70 mV. The sodium-potassium pump moves three Na⁺ out and two K⁺ in, maintaining the gradient.</li>\n<li>An action potential is a rapid depolarisation as voltage-gated sodium channels open, followed by repolarisation as potassium channels open. The myelin sheath allows saltatory conduction.</li>\n<li>At a cholinergic synapse, an action potential causes Ca²⁺ to enter the presynaptic knob. Vesicles of acetylcholine fuse with the membrane, and the transmitter diffuses across the cleft and binds to receptors. Acetylcholinesterase breaks it down.</li>\n</ul>\n<h3>Hormonal coordination</h3>\n<ul>\n<li>Insulin is released from β cells when blood glucose is high. It increases glucose uptake and glycogenesis, and lowers blood glucose.</li>\n<li>Glucagon is released from α cells when blood glucose is low. It stimulates glycogenolysis and gluconeogenesis.</li>\n<li>Adrenaline prepares the body for fight or flight by raising heart rate and glucose release.</li>\n</ul>\n<h3>Plant responses</h3>\n<ul>\n<li>Auxin is made in the shoot tip and moves to the shaded side of a shoot. Cells on that side elongate faster, so the shoot bends towards the light (positive phototropism).</li>\n<li>Roots show positive gravitropism and shoots show negative gravitropism.</li>\n</ul>\n<h3>Gene technology</h3>\n<ul>\n<li>Restriction endonucleases cut DNA at specific palindromic sequences. Many leave sticky ends that are complementary to each other.</li>\n<li>DNA ligase joins the sugar-phosphate backbone of two DNA fragments. Plasmids are used as vectors to carry the gene into bacteria.</li>\n<li>Reverse transcriptase makes complementary DNA (cDNA) from mRNA, so the cDNA has no introns.</li>\n<li>In PCR, the sample is heated to separate the strands, primers anneal, and Taq polymerase extends the new strands. Each cycle doubles the amount of DNA.</li>\n</ul>\n<p>Exam tip: for a question on synapses, give the steps in order: action potential, calcium entry, vesicle fusion, diffusion, binding, and then removal of the transmitter.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "eb9deec8-1112-4fa5-aaff-c4302c1ed6ad",
   "topic_id": "372710b0-fcac-4f55-af62-67b9bec5940c",
   "title": "Data Structures — Study Notes",
@@ -3913,6 +4563,19 @@
   "source_range": null
  },
  {
+  "id": "ef86c7de-059c-4e33-877c-4547ccb0e5e0",
+  "topic_id": "52c399a1-e52c-446a-a7e4-31be0ca35a87",
+  "title": "Kinetics — Study Notes",
+  "content": "<h2>Kinetics</h2>\n<p>Edexcel IAL Chemistry WCH14, Topic 11. Kinetics links the rate of a reaction to the concentrations of the reactants, and the rate constant to temperature. Rate equations come from experiments, not from the balanced equation.</p>\n<h3>Rate equations and order</h3>\n<ul>\n<li>The rate equation has the form rate = k[A]^m[B]^n. The powers m and n are the orders with respect to A and B, and they must be found from experimental data.</li>\n<li>A first-order reaction has rate proportional to concentration: doubling [A] doubles the rate. A second-order reaction gives a quadrupled rate when [A] doubles.</li>\n<li>A zero-order reaction has a rate that does not depend on the concentration of that reactant, because the reactant is not involved in the rate-determining step or the reaction surface is saturated.</li>\n<li>The overall order is the sum of the individual orders.</li>\n</ul>\n<h3>Initial rates</h3>\n<ul>\n<li>Using the initial rates method, keep all but one concentration constant and compare the rates. The ratio of rates gives the order for the changed reactant.</li>\n</ul>\n<h3>Rate constant and units</h3>\n<ul>\n<li>The rate constant k is the proportionality constant in the rate equation. Its units depend on the overall order: for rate in mol dm⁻³ s⁻¹, a first-order k is in s⁻¹ and a second-order k is in dm³ mol⁻¹ s⁻¹.</li>\n<li>k changes only with temperature (and with a catalyst, which lowers Ea). Concentration changes alter the rate, not k.</li>\n</ul>\n<h3>Half-life</h3>\n<ul>\n<li>For a first-order reaction, the half-life is constant and given by t½ = ln 2 / k = 0.693 / k.</li>\n</ul>\n<h3>Arrhenius equation</h3>\n<ul>\n<li>The Arrhenius equation k = A e^(−Ea/RT) relates the rate constant to temperature. Taking natural logarithms gives ln k = ln A − Ea/(RT).</li>\n<li>A plot of ln k against 1/T is a straight line with gradient −Ea/R, which allows the activation energy to be found.</li>\n</ul>\n<h3>Mechanisms</h3>\n<ul>\n<li>A reaction mechanism is a series of steps. The slowest step is the rate-determining step, and the rate equation is predicted from its stoichiometry.</li>\n</ul>\n<p>Exam tip: when asked for the rate equation, use the data and state the order for each reactant; do not simply copy the coefficients from the balanced equation.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "ef8a0104-500c-4738-ba8d-7b0355e3119b",
   "topic_id": "f08508a7-5ca2-4527-97d4-cd63ac22309e",
   "title": "Probability — Quick Revision Summary",
@@ -3952,6 +4615,32 @@
   "source_range": null
  },
  {
+  "id": "f0935820-c33f-466f-bf4a-d368adc0f69c",
+  "topic_id": "98baf7fe-92b2-4fe5-aad9-80ff57fa0f74",
+  "title": "Redox Equilibria — Study Notes",
+  "content": "<h2>Redox Equilibria</h2>\n<p>Edexcel IAL Chemistry WCH15, Topic 16. Redox reactions transfer electrons. Standard electrode potentials let you predict whether a reaction is feasible and quantify the reducing and oxidising power of species.</p>\n<h3>Oxidation and reduction</h3>\n<ul>\n<li>Oxidation is loss of electrons and an increase in oxidation state. Reduction is gain of electrons and a decrease in oxidation state.</li>\n<li>The reducing agent is oxidised; the oxidising agent is reduced.</li>\n</ul>\n<h3>Standard electrode potentials</h3>\n<ul>\n<li>Each half-cell has a standard electrode potential, E⁰, measured under standard conditions: 298 K, 1.0 mol dm⁻³ solutions and 100 kPa for gases.</li>\n<li>E⁰ is measured against the standard hydrogen electrode, which is defined as 0 V.</li>\n<li>A more positive E⁰ means a stronger oxidising agent on the left of the half-equation. A more negative E⁰ means a stronger reducing agent.</li>\n</ul>\n<h3>Predicting feasibility</h3>\n<ul>\n<li>E⁰cell = E⁰(reduction) − E⁰(oxidation). A positive E⁰cell means the reaction is feasible under standard conditions.</li>\n<li>ΔG = −nFE. A negative ΔG (positive E⁰cell) means the reaction is spontaneous.</li>\n</ul>\n<h3>Redox titrations</h3>\n<ul>\n<li>Manganate(VII) is its own indicator: it is purple in solution and becomes colourless at the end point when Mn²⁺ forms.</li>\n<li>Acidified dichromate(VI) turns from orange to green as Cr³⁺ forms. Iodine and thiosulfate use starch, which turns blue-black with iodine and loses that colour at the end point.</li>\n</ul>\n<p>Exam tip: write the ion-electron half-equations first, balance the electrons, then combine them. The ratio of electrons sets the mole ratio in titration calculations.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "f1523ddd-6246-4303-b8f1-cfab6e555a4b",
+  "topic_id": "ecb0d454-2166-4969-ad80-57fdeed4a953",
+  "title": "Organic Chemistry: Carbonyls, Carboxylic Acids and Chirality — Quick Revision Summary",
+  "content": "<h2>Quick revision: Organic Chemistry: Carbonyls, Carboxylic Acids and Chirality</h2>\n<p><strong>Chemistry — A2.</strong> Edexcel IAL Chemistry WCH14, Topic 15. Aldehydes and ketones contain the carbonyl group, C=O. Their reactions are nucleophilic addition, and the products can be carboxylic acids, alcohols or molecules with a chiral centre.</p>\n<h3>Key areas to revise</h3>\n<ul><li>Carbonyl compounds</li><li>Reactions and tests</li><li>Carboxylic acids</li><li>Chirality</li></ul>\n<p><strong>How to use this:</strong> skim the list above, then read the full study notes for any area that feels shaky, and finish with the topic quiz to check yourself.</p>",
+  "material_type": "summary",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
   "id": "f187bf2b-d087-4965-90c9-cf1449f19473",
   "topic_id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
   "title": "Information Representation — Quick Revision Summary",
@@ -3985,6 +4674,19 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:20.494765+00",
   "updated_at": "2026-10-16 18:01:03.259008+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "f2928fb1-9785-4216-b895-2ecbb103a554",
+  "topic_id": "fef757a2-daef-44fc-983d-4c0ce8c6e3b9",
+  "title": "Redox Chemistry and Groups 1, 2 and 7 — Study Notes",
+  "content": "<h2>Redox Chemistry and Groups 1, 2 and 7</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 8. Redox reactions involve electron transfer. The same ideas explain the reactions of metals with water and acids, and the displacement reactions of the halogens.</p>\n<h3>Oxidation states</h3>\n<ul>\n<li>Oxidation state is the charge an atom would have if all bonds were ionic. Elements are 0, simple ions equal their charge, and the sum of oxidation states equals the overall charge.</li>\n<li>Oxidation is an increase in oxidation state (loss of electrons); reduction is a decrease (gain of electrons).</li>\n<li>The oxidising agent is reduced; the reducing agent is oxidised.</li>\n</ul>\n<h3>Redox equations</h3>\n<ul>\n<li>Half-equations balance atoms, then charge, with electrons added to show the transfer. Combine them so that electrons cancel.</li>\n<li>Example: MnO4⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H2O, and acidified manganate(VII) decolourises when it is reduced.</li>\n</ul>\n<h3>Group 1 and Group 2</h3>\n<ul>\n<li>Reactivity increases down Group 1 because the outer electron is further from the nucleus and more shielded, so it is lost more easily.</li>\n<li>Group 2 metals form M²⁺ ions. Reactivity with water increases down the group: magnesium reacts slowly with cold water, while calcium reacts steadily.</li>\n<li>The solubility of Group 2 hydroxides and sulfates changes down the group: magnesium sulfate is soluble, barium sulfate is not.</li>\n</ul>\n<h3>Group 7</h3>\n<ul>\n<li>Halogens are non-metals that form X2 molecules. Oxidising power decreases down the group: chlorine displaces bromide and iodide ions, bromine displaces iodide ions.</li>\n<li>Halide ions are reducing agents, and reducing power increases down the group. Concentrated sulfuric acid is reduced by HI to hydrogen sulfide, because iodide ions are strong reducing agents.</li>\n</ul>\n<h3>Tests for halide ions</h3>\n<ul>\n<li>Silver nitrate solution forms precipitates: chloride gives white, bromide cream, iodide yellow. Dilute ammonia distinguishes the first two.</li>\n</ul>\n<p>Exam tip: when balancing a redox equation in acid, add H⁺ and H2O before counting electrons, and always check that charge and atoms balance on both sides.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -4076,6 +4778,19 @@
   "material_type": "exam-technique",
   "created_at": "2026-10-12 08:22:54.178419+00",
   "updated_at": "2026-10-16 07:11:07.964136+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "f6cc301d-7f8a-4ce2-b57a-4cf50f94b1fd",
+  "topic_id": "2b466f1b-04cf-4937-a711-efe8672838ff",
+  "title": "Plant Structure and Function, Biodiversity and Conservation — Study Notes",
+  "content": "<h2>Plant Structure and Function, Biodiversity and Conservation</h2>\n<p>Edexcel IAL Biology WBI12, Topic 4. Plant tissues are arranged to transport water, move sugars and carry out photosynthesis. Biodiversity measures and conservation methods show how ecosystems are monitored and protected.</p>\n<h3>Plant tissues</h3>\n<ul>\n<li>Xylem vessels are dead, hollow cells with lignified walls. They carry water and mineral ions up the plant.</li>\n<li>Phloem sieve tube elements have sieve plates and few organelles. They carry sucrose and amino acids in both directions.</li>\n<li>Palisade mesophyll cells are packed with chloroplasts near the upper surface of the leaf. Sclerenchyma gives support through thick lignified walls.</li>\n</ul>\n<h3>Stomata and transpiration</h3>\n<ul>\n<li>Stomata open when guard cells become turgid by taking in water. They close when the guard cells become flaccid.</li>\n<li>Transpiration is faster in high temperatures, dry air and wind, because these increase the water potential gradient out of the leaf.</li>\n<li>Xerophytes reduce water loss with a thick waxy cuticle, sunken stomata and hairs.</li>\n</ul>\n<h3>Measuring biodiversity</h3>\n<ul>\n<li>Species richness is the number of different species in a habitat.</li>\n<li>Simpson's index of diversity is D = 1 − Σ(n/N)², where n is the number of individuals of each species and N is the total. For two species with 10 individuals each, D = 1 − (0.25 + 0.25) = 0.50.</li>\n</ul>\n<h3>Sampling</h3>\n<ul>\n<li>Quadrats estimate the abundance of sessile or slow-moving organisms, often as percentage cover.</li>\n<li>Transects show how species change along an environmental gradient.</li>\n<li>Mark-release-recapture estimates the population of a mobile animal with the Lincoln index: N = (n₁ × n₂) ÷ m₂. Here n₁ is the number marked in the first sample, n₂ the number caught in the second, and m₂ the number of marked animals in the second sample.</li>\n</ul>\n<h3>Conservation</h3>\n<ul>\n<li>In situ conservation protects species in their natural habitat, for example in national parks and reserves.</li>\n<li>Ex situ conservation keeps species outside their habitat, for example in seed banks and zoos.</li>\n<li>The IUCN Red List classifies species by their conservation status.</li>\n</ul>\n<p>Exam tip: when you are asked to explain a transpiration result, relate it to water potential and the diffusion gradient out of the stomata.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
@@ -4206,6 +4921,19 @@
   "material_type": "notes",
   "created_at": "2026-09-18 14:13:21.034559+00",
   "updated_at": "2026-10-16 18:29:08.796763+00",
+  "file_url": null,
+  "preview_url": null,
+  "page_count": null,
+  "source_range": null
+ },
+ {
+  "id": "fe7f71d3-15f5-4c6c-836a-351016c8bf63",
+  "topic_id": "557df8f5-af3a-4af1-a92e-78b41e90ca27",
+  "title": "Molecules, Transport and Health — Study Notes",
+  "content": "<h2>Molecules, Transport and Health</h2>\n<p>Edexcel IAL Biology WBI11, Topic 1. Living things are built from a small set of biological molecules. Their structure decides how they are used, how substances move in and out of cells, and how diet affects health.</p>\n<h3>Carbohydrates</h3>\n<ul>\n<li>Monosaccharides such as glucose, fructose and galactose are the building blocks. Glucose is the main respiratory substrate.</li>\n<li>Disaccharides form by a condensation reaction that releases water and creates a glycosidic bond. Maltose is glucose + glucose, sucrose is glucose + fructose, and lactose is glucose + galactose.</li>\n<li>Starch (amylose and amylopectin) stores glucose in plants. Glycogen stores glucose in animals. Cellulose is a straight chain of beta-glucose with hydrogen bonds between chains, giving strength.</li>\n</ul>\n<h3>Lipids and proteins</h3>\n<ul>\n<li>A triglyceride is one glycerol with three fatty acids joined by ester bonds. Phospholipids have a hydrophilic head and two hydrophobic tails.</li>\n<li>Amino acids join by peptide bonds to form polypeptides. Tertiary structure is held by hydrogen, ionic, disulfide and hydrophobic interactions.</li>\n</ul>\n<h3>Enzymes</h3>\n<ul>\n<li>Enzymes have an active site with a shape complementary to the substrate. Rate rises with temperature until the enzyme denatures, and pH changes can alter the active site.</li>\n</ul>\n<h3>Transport</h3>\n<ul>\n<li>Diffusion moves substances down a concentration gradient without energy. Facilitated diffusion uses carrier or channel proteins. Active transport moves substances against a gradient and uses ATP.</li>\n<li>Water moves by osmosis from a less negative water potential to a more negative water potential.</li>\n<li>Large, multicellular organisms need exchange surfaces with a large surface area to volume ratio, such as alveoli and the villi of the small intestine.</li>\n</ul>\n<h3>Health</h3>\n<ul>\n<li>Body mass index (BMI) = mass (kg) ÷ height² (m²). Diet, exercise and cholesterol intake affect the risk of cardiovascular disease.</li>\n</ul>\n<p>Exam tip: when you describe a transport process, state whether it needs energy, whether it uses a protein, and which way the gradient points.</p>",
+  "material_type": "notes",
+  "created_at": "2026-10-18 06:26:06.25873+00",
+  "updated_at": "2026-10-18 06:26:06.25873+00",
   "file_url": null,
   "preview_url": null,
   "page_count": null,
