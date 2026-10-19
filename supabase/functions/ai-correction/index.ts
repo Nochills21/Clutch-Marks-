@@ -17,6 +17,11 @@
 // (service role, restricted to the caller's own folder), mark them with a
 // Gemini model (Workers AI when AI_PROVIDER=cloudflare), audit-log the correction, and persist the result.
 //
+// On the Gemini path a PDF script is sent WHOLE (inline_data, application/pdf)
+// — Gemini renders the pages itself, so scans with no text layer mark fine.
+// The in-function text extractor remains only for the Workers AI fallback
+// (its models cannot ingest PDFs) and for grounding on published mark schemes.
+//
 // Two audit facts worth knowing: `ai_audit_log.action` for this work is
 // 'paper_correction' (the CHECK constraint that omitted it is fixed by
 // 20261008140000), and a failed audit write must never lose a student's marks.
@@ -33,6 +38,9 @@ const corsHeaders = {
 // Marking provider. Gemini is the default; AI_PROVIDER=cloudflare restores
 // Workers AI (and its vision chain) without a code change.
 const PROVIDER = Deno.env.get("AI_PROVIDER") || "gemini";
+// Only Gemini can ingest a whole PDF; the Workers AI models take images, so
+// on that fallback a PDF still goes through the text extractor.
+const PDF_NATIVE = PROVIDER === "gemini";
 
 // Workers AI retires models; a stale or bare name is rejected outright
 // ("No such model"). `llama-3.1-8b-instruct` was deprecated on 2026-05-30 and
@@ -67,6 +75,13 @@ const VISION_MODEL_CANDIDATES: string[] = [
 const ANSWER_BUCKET = "homework-uploads";
 const MAX_ANSWER_FILES = 6;
 const MAX_ANSWER_TOTAL_BYTES = 20 * 1024 * 1024;
+/**
+ * Cap on the *raw* bytes we attach inline on the Gemini path. Base64 inflates
+ * by 4/3 and Gemini's per-request ceiling is 20 MB including the prompt, so
+ * 14 MB raw (~18.7 MB base64) leaves headroom; the client already caps each
+ * file at 12 MB, so only a multi-file upload can reach this.
+ */
+const MAX_INLINE_TOTAL_BYTES = 14 * 1024 * 1024;
 /** Cap on extracted PDF text handed to the model, so a huge paper still fits. */
 const MAX_EXTRACTED_CHARS = 24_000;
 /**
@@ -178,12 +193,20 @@ const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.5-flash-lite";
 function geminiParts(content: string | unknown[]): unknown[] {
   if (typeof content === "string") return [{ text: content }];
   return content.map((item) => {
-    const part = item as { type?: string; image_url?: { url?: string }; text?: string } | null;
-    if (part?.type === "image_url") {
-      const match = /^data:([^;]+);base64,([A-Za-z0-9+/=]+)$/.exec(
-        String(part.image_url?.url ?? ""),
-      );
-      if (!match) throw new Error("Uploaded page image was not a base64 data URL");
+    const part = item as
+      | { type?: string; image_url?: { url?: string }; file?: { url?: string }; text?: string }
+      | null;
+    // Both page photos (image_url) and whole PDFs (file) travel as base64 data
+    // URLs; the mime type in the data URL picks the inline_data type, so one
+    // conversion serves both shapes.
+    const dataUrl = part?.type === "file"
+      ? String(part.file?.url ?? "")
+      : part?.type === "image_url"
+      ? String(part.image_url?.url ?? "")
+      : "";
+    if (dataUrl) {
+      const match = /^data:([^;]+);base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
+      if (!match) throw new Error("Uploaded page image or PDF was not a base64 data URL");
       return { inline_data: { mime_type: match[1], data: match[2] } };
     }
     return { text: String(part?.text ?? "") };
@@ -307,10 +330,10 @@ Anti-hallucination rules (hard requirements):
 - Never output anything except the JSON array.`;
 
 const VISION_INSTRUCTIONS = `
-The student's answers arrive as photographs or scans of their handwritten script.
+The student's answers arrive as photographs, scans, or PDFs of their handwritten script.
 - Transcribe each answer you can read before judging it, and use your transcription as original_answer.
 - Handwriting is often ambiguous: if a value is genuinely illegible, say so in feedback and award no marks for it rather than guessing.
-- The page images are the student's whole script, so find the question numbers on the page yourself.
+- The attached pages or PDF pages are the student's whole script, so find the question numbers on the page yourself.
 - Answer every question you can identify, in question order.`;
 
 /** Tolerate markdown fences, a JSON string, or an already-parsed value. */
@@ -653,6 +676,7 @@ export async function handler(req: Request): Promise<Response> {
     // inside the caller's own folder. Without the second one a student could
     // ask us to download and mark another account's upload.
     const images: { dataUrl: string; name: string }[] = [];
+    const pdfs: { dataUrl: string; name: string }[] = [];
     const pdfTexts: string[] = [];
     const acceptedFiles: AnswerFile[] = [];
     let totalBytes = 0;
@@ -674,7 +698,11 @@ export async function handler(req: Request): Promise<Response> {
         return json({ error: `Could not read one of your uploads (${file.name ?? file.path}).` }, 400);
       }
       totalBytes += blob.size;
-      if (totalBytes > MAX_ANSWER_TOTAL_BYTES) {
+      // The Gemini path base64-inlines everything, so its real budget is the
+      // inflated payload, not the raw bytes; Workers AI extracts text instead
+      // and keeps the old raw-bytes cap.
+      const byteCap = PDF_NATIVE ? MAX_INLINE_TOTAL_BYTES : MAX_ANSWER_TOTAL_BYTES;
+      if (totalBytes > byteCap) {
         return json({
           error: "Those uploads are too large to mark together — try fewer or smaller pages.",
         }, 413);
@@ -696,8 +724,23 @@ export async function handler(req: Request): Promise<Response> {
           name: file.name ?? file.path,
         });
       } else if (isPdf) {
-        const extracted = await extractPdfText(new Uint8Array(await blob.arrayBuffer()));
-        if (extracted) pdfTexts.push(extracted);
+        if (PDF_NATIVE) {
+          // Send the PDF whole: Gemini renders every page itself, so a scan
+          // with no text layer marks exactly like typed answers. The old
+          // extractor returned "" for scans and the student was told to
+          // re-photograph their own paper — the scraper failing is why the
+          // corrector "didn't work" for PDF uploads.
+          const bytes = new Uint8Array(await blob.arrayBuffer());
+          let binary = "";
+          for (let i = 0; i < bytes.length; i += 1) binary += String.fromCharCode(bytes[i]);
+          pdfs.push({
+            dataUrl: `data:application/pdf;base64,${btoa(binary)}`,
+            name: file.name ?? file.path,
+          });
+        } else {
+          const extracted = await extractPdfText(new Uint8Array(await blob.arrayBuffer()));
+          if (extracted) pdfTexts.push(extracted);
+        }
       } else {
         return json({
           error: `We can mark PDFs and photos of your script, not ${ext || "that file type"}.`,
@@ -706,11 +749,13 @@ export async function handler(req: Request): Promise<Response> {
       acceptedFiles.push(file);
     }
 
-    const source: SubmissionSource = images.length + pdfTexts.length > 0
+    const source: SubmissionSource = images.length + pdfs.length + pdfTexts.length > 0
       ? (hasTyped ? "mixed" : "upload")
       : "paste";
 
-    if (source !== "paste" && images.length === 0 && pdfTexts.length === 0) {
+    // Only reachable on the Workers AI fallback now: on Gemini a PDF always
+    // reaches the model whole, whatever is (or isn't) in its text layer.
+    if (source !== "paste" && images.length === 0 && pdfs.length === 0 && pdfTexts.length === 0) {
       return json({
         error:
           "We couldn't read any text from that PDF — it looks like a scan. Upload photographs of your pages instead, or type your answers.",
@@ -788,6 +833,11 @@ Mark scheme style:
         }`,
       );
     }
+    if (pdfs.length > 0) {
+      textSections.push(
+        `## Uploaded script (${pdfs.length} PDF file${pdfs.length === 1 ? "" : "s"} attached in full — read every page yourself, including handwritten pages)`,
+      );
+    }
     if (images.length > 0) {
       textSections.push(
         `## Uploaded script (${images.length} page image${images.length === 1 ? "" : "s"} attached, in order)`,
@@ -796,7 +846,9 @@ Mark scheme style:
     textSections.push("## Instructions\nReturn ONLY a JSON array. No markdown fences, no explanations outside the JSON.");
 
     const fullPrompt = textSections.filter(Boolean).join("\n\n");
-    const systemPrompt = images.length > 0 ? SYSTEM_PROMPT + VISION_INSTRUCTIONS : SYSTEM_PROMPT;
+    const systemPrompt = images.length + pdfs.length > 0
+      ? SYSTEM_PROMPT + VISION_INSTRUCTIONS
+      : SYSTEM_PROMPT;
 
     // ── call the model ──────────────────────────────────────────────────
     const requestedModel = typeof model === "string" && model.trim() ? model.trim() : "";
@@ -807,17 +859,23 @@ Mark scheme style:
       : (requestedModel || "gpt-4o-mini");
 
     // Text-only prompts stay plain strings; a photographed script adds one
-    // image_url part per page, in order. Both providers read this shape.
+    // image_url part per page and a PDF script one file part per document, in
+    // order. geminiParts turns both into Gemini inline_data; only images ever
+    // reach the Workers AI path (pdfs is empty there).
     const multimodalMessages: ChatMessage[] = [
       { role: "system", content: systemPrompt },
       {
         role: "user",
-        content: images.length > 0
+        content: images.length + pdfs.length > 0
           ? [
               { type: "text", text: fullPrompt },
               ...images.map((img) => ({
                 type: "image_url",
                 image_url: { url: img.dataUrl },
+              })),
+              ...pdfs.map((pdf) => ({
+                type: "file",
+                file: { url: pdf.dataUrl },
               })),
             ]
           : fullPrompt,
