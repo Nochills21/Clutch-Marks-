@@ -490,6 +490,20 @@
   "correction_file_url": null
  },
  {
+  "id": "1ebea24a-6502-4c92-9ab4-5905ff08829a",
+  "topic_id": "59ca94d7-c3b6-482d-a171-197699f10ec8",
+  "title": "Further Mechanics — Topic Questions",
+  "description": "Exam-style questions for Further Mechanics.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:48:57.940153+00",
+  "updated_at": "2026-10-19 09:48:57.940153+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "1ef19d27-142b-481a-94d0-d1210407cbdf",
   "topic_id": "3aef5c79-5146-499d-b4ce-b7118005ffe7",
   "title": "Hardware & Architecture Quiz",
@@ -752,6 +766,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "280c52ec-b81f-486c-962f-9a974f77a159",
+  "topic_id": "75610651-1ff5-4a6d-b629-76b2596814cb",
+  "title": "Statistics (S1) — Topic Questions",
+  "description": "Exam-style questions for Statistics (S1).",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -1526,6 +1554,20 @@
   "correction_file_url": null
  },
  {
+  "id": "5e0775b6-96aa-4a90-8415-2ec255bf46d8",
+  "topic_id": "f0822aab-d5fc-4e23-8b07-b1e6a7824348",
+  "title": "Mechanics (M1) — Topic Questions",
+  "description": "Exam-style questions for Mechanics (M1).",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "5f37269c-acab-4eab-912a-1ad013f2e9a2",
   "topic_id": "35b1da75-be47-4c45-8751-9a70ae75875a",
   "title": "Practice — Thermal Physics",
@@ -1536,6 +1578,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "60e00531-8510-44ca-9cf2-2fcd120b95cb",
+  "topic_id": "84ddf7e9-d4cd-41f6-878b-938dc1a098ca",
+  "title": "Coordinate Geometry — Topic Questions",
+  "description": "Exam-style questions for Coordinate Geometry.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -1862,6 +1918,20 @@
   "correction_file_url": null
  },
  {
+  "id": "812687b5-0309-4085-a658-027479df58b1",
+  "topic_id": "baa2f4b9-e4de-4c14-a6ec-9ad2a7a2ced8",
+  "title": "Sequences and Series — Topic Questions",
+  "description": "Exam-style questions for Sequences and Series.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "816d5d6b-1814-4ef8-ab37-d250ce305fce",
   "topic_id": "3aef5c79-5146-499d-b4ce-b7118005ffe7",
   "title": "Checkpoints — Hardware Architecture",
@@ -2150,6 +2220,20 @@
   "is_published": true,
   "created_at": "2026-09-20 17:50:39.990797+00",
   "updated_at": "2026-09-20 17:50:39.990797+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "8c88395a-8acd-418d-9a26-0dfbd2e142e7",
+  "topic_id": "d39ed54e-1d60-4f30-a7a7-2da8a04558fa",
+  "title": "Numerical Methods — Topic Questions",
+  "description": "Exam-style questions for Numerical Methods.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2486,6 +2570,20 @@
   "is_published": true,
   "created_at": "2026-09-14 18:41:35.869042+00",
   "updated_at": "2026-09-14 18:41:35.869042+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "a14cca7f-ad6a-46b1-8de1-532c2a1cd900",
+  "topic_id": "494eb848-7ffb-489b-9a2c-948fbc58a33c",
+  "title": "Exponentials and Logarithms — Topic Questions",
+  "description": "Exam-style questions for Exponentials and Logarithms.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2968,6 +3066,20 @@
   "correction_file_url": null
  },
  {
+  "id": "c0c2e1f1-c70f-49c9-920e-33d16847e84f",
+  "topic_id": "713ef970-4ddd-4ed7-a1b7-e68c5fe5ffa9",
+  "title": "Proof — Topic Questions",
+  "description": "Exam-style questions for Proof.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "c2781b30-a319-4f2d-903d-2e86fd885ad9",
   "topic_id": "52d5c1d0-d6ba-4ae6-9dbd-ece542b7f34c",
   "title": "Numerical Measures of Central Tendency Quiz",
@@ -3290,6 +3402,20 @@
   "correction_file_url": null
  },
  {
+  "id": "e3d2d12c-ab82-46c0-b84f-6c376adaed43",
+  "topic_id": "7e5607f4-c80d-4502-a980-8013ead56da6",
+  "title": "Exponentials and Logarithms — Topic Questions",
+  "description": "Exam-style questions for Exponentials and Logarithms.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "e3fca5ce-954e-452a-8dd7-5b5272fcaa33",
   "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
   "title": "Measurement & Units Quiz",
@@ -3542,6 +3668,20 @@
   "correction_file_url": null
  },
  {
+  "id": "f1136357-3ed8-4fab-ac53-3931c4984e21",
+  "topic_id": "90dafb5f-a72e-400e-ba6f-27981acaf6c3",
+  "title": "Proof — Topic Questions",
+  "description": "Exam-style questions for Proof.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "f270045a-bae2-4480-96f2-c18ac4693c68",
   "topic_id": "39682f0d-d101-4e70-8f91-05961d6c2a80",
   "title": "Practice — Waves & Sound",
@@ -3718,6 +3858,20 @@
   "is_published": true,
   "created_at": "2026-10-12 10:41:35.12201+00",
   "updated_at": "2026-10-12 10:41:35.12201+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "fef9d538-49cf-425a-9af6-eec42d8a59e7",
+  "topic_id": "ee479e5f-ac19-4cfd-a777-4a9624343af7",
+  "title": "Binomial Expansion — Topic Questions",
+  "description": "Exam-style questions for Binomial Expansion.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-19 09:39:56.147114+00",
+  "updated_at": "2026-10-19 09:39:56.147114+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
