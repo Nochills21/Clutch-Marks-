@@ -144,7 +144,7 @@ for (const [title, topicName, level, srcFile, start, end, outName] of MATERIALS)
   if (topicName && !tid) throw new Error(`topic not found: ${level}|${topicName}`);
   await query(
     `insert into study_materials (topic_id, title, content, material_type, file_url, created_at, updated_at)
-     values (${tid ? `'${tid}'` : 'NULL'}, ${dq(title)}, ${dq(`Chapter PDF from Mr Seif's ${srcFile.replace('.pdf', '')} — ${level} Mathematics (9709).`)}, 'notes', '${storagePath}', now(), now())`
+     values (${tid ? `'${tid}'` : 'NULL'}, ${dq(title)}, ${dq(`Chapter PDF from Clutch Marks, ${srcFile.replace('.pdf', '')} — ${level} Mathematics (9709).`)}, 'notes', '${storagePath}', now(), now())`
   );
   done++;
   console.log(`ok: ${title} (${(bytes.length / 1024 / 1024).toFixed(1)} MB) -> ${storagePath}`);

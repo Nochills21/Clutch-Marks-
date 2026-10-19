@@ -1,1 +1,1 @@
-select count(*)::int as still_short from public.questions where length(coalesce(explanation,'')) < 40;
+select count(*) as short_left, sum(case when m.material_type='summary' then 1 else 0 end) as summ, sum(case when m.material_type='exam-technique' then 1 else 0 end) as exam from study_materials m where m.material_type in ('exam-technique','summary') and length(m.content) < 1000;

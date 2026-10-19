@@ -49,6 +49,11 @@ const EXEMPTIONS: Exemption[] = [
     reason:
       "Generated PDF artifacts: the footer is baked in at generation time by .freebuff/pdftool, so the fix is to regenerate them.",
   },
+  {
+    match: (file) => file.startsWith("dist-single/downloads/") && file.endsWith(".pdf"),
+    reason:
+      "The single-file build copies public/downloads/*.pdf verbatim into dist-single/downloads/; same generated artifacts, same regeneration fix.",
+  },
 ];
 
 /**

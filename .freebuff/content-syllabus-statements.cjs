@@ -371,7 +371,99 @@ const SPECS = {
       "25.3": "astronomy-and-cosmology@A2",
     },
   },
+  /**
+   * Edexcel International A Level Chemistry (9CH0, WCH11-16). The outline is a
+   * local extract of the Pearson spec (`.freebuff/syllabus/9CH0-outline.json`),
+   * 319 statements in 20 board areas: areas 1-10 are the AS half (Units 1-3)
+   * and areas 11-20 the A2 half (Units 4-6), matching our 10+10 topics in
+   * order. The mapping is generated from the area table below rather than typed
+   * per code — 319 hand-written entries would only be a transcription risk.
+   */
+  "9CH0": {
+    subject: "chemistry",
+    level: "AS",
+    mapping: edxMap("9CH0", 10, {
+      1: "formulae-equations-and-amount-of-substance",
+      2: "atomic-structure-and-the-periodic-table",
+      3: "bonding-and-structure",
+      4: "introductory-organic-chemistry-and-alkanes",
+      5: "alkenes",
+      6: "energetics",
+      7: "intermolecular-forces",
+      8: "redox-chemistry-and-groups-1-2-and-7",
+      9: "introduction-to-kinetics-and-equilibria",
+      10: "organic-halogenoalkanes-alcohols-and-spectra",
+      11: "kinetics",
+      12: "entropy-and-energetics",
+      13: "chemical-equilibria",
+      14: "acid-base-equilibria",
+      15: "organic-carbonyls-carboxylic-acids-and-chirality",
+      16: "redox-equilibria",
+      17: "transition-metals-and-their-chemistry",
+      18: "organic-arenes",
+      19: "organic-nitrogen-compounds",
+      20: "organic-synthesis",
+    }),
+  },
+  /**
+   * Edexcel International A Level Biology (9BI0, WBI11-16): 170 statements in
+   * 8 board areas, areas 1-4 AS (Units 1-3) and 5-8 A2 (Units 4-6). Area 2 is
+   * the one place the board's grouping and ours differ: it mixes gas exchange,
+   * membranes and transport, enzymes, and the whole DNA/gene-expression run,
+   * which our AS topics split as molecules-transport (exchange + enzymes) and
+   * membranes-proteins-DNA (membranes + nucleic acids). Those four statements
+   * are pinned per code so the claim stays exact.
+   */
+  "9BI0": {
+    subject: "biology",
+    level: "AS",
+    mapping: edxMap(
+      "9BI0",
+      4,
+      {
+        1: "molecules-transport-and-health",
+        2: "membranes-proteins-dna-and-gene-expression",
+        3: "cell-structure-reproduction-and-development",
+        4: "plant-structure-biodiversity-and-conservation",
+        5: "energy-flow-ecosystems-and-environment",
+        6: "microbiology-immunity-and-forensics",
+        7: "respiration-muscles-and-internal-environment",
+        8: "coordination-response-and-gene-technology",
+      },
+      {
+        // gas exchange surfaces + amino acids/enzymes sit in the
+        // molecules/transport topic, not the DNA one
+        "2.1": "molecules-transport-and-health",
+        "2.6": "molecules-transport-and-health",
+        "2.7": "molecules-transport-and-health",
+        "2.8": "molecules-transport-and-health",
+      },
+    ),
+  },
 };
+
+/**
+ * Generate a code -> 'topic-slug[@A2]' mapping for an Edexcel outline whose
+ * board areas run in topic order: areas 1..asAreas are the AS half, the rest
+ * A2. `overrides` pins individual statements (full mapping value, so an
+ * override that is itself A2 carries its own '@A2').
+ */
+function edxMap(spec, asAreas, areaSlugs, overrides = {}) {
+  const outline = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "syllabus", `${spec}-outline.json`), "utf8"),
+  );
+  const mapping = {};
+  for (const s of outline.statements) {
+    const area = Number(s.area);
+    const slug = areaSlugs[area];
+    if (overrides[s.code]) {
+      mapping[s.code] = overrides[s.code];
+    } else if (slug) {
+      mapping[s.code] = area > asAreas ? `${slug}@A2` : slug;
+    }
+  }
+  return mapping;
+}
 function post(query) {
   return new Promise((resolve, reject) => {
     const body = JSON.stringify({ query });
