@@ -1,0 +1,10 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Clutch Marks",
+    "identifier": "https://clutchmarks.study",
+    "documentationUrl": "https://clutchmarks.study/llms.txt",
+    "logoUrl": "https://clutchmarks.study/brand/logo-512.png"
+  },
+  "entries": []
+}

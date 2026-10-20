@@ -31,8 +31,8 @@ interface StudyPlan {
 
 // Free users see their saved plans but cannot burn AI generation budget: the
 // generate card is replaced with an upgrade prompt (same pattern as the AI
-// marker's gate). The worker only checks approval, not plan, so this gate is
-// what stops unlimited free generation.
+// marker's gate). The worker authenticates but does not check the plan, so
+// this gate is what stops unlimited free generation.
 function PlannerUpgradeCard() {
   return (
     <Card className="neon-border border-dashed">

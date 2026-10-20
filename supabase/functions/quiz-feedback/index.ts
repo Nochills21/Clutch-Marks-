@@ -35,19 +35,6 @@ serve(async (req) => {
     const { data: { user }, error: authError } = await userClient.auth.getUser();
     if (authError || !user) throw new Error("Not authenticated");
 
-    // Approval gate
-    const { data: roleRow } = await admin
-      .from("user_roles")
-      .select("is_approved, role")
-      .eq("user_id", user.id)
-      .maybeSingle();
-    if (!roleRow?.is_approved && roleRow?.role !== "admin") {
-      return new Response(
-        JSON.stringify({ error: "Account not yet approved" }),
-        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
     const body = await req.json().catch(() => ({}));
     const quizId: string | undefined = body?.quizId;
     const answers: Record<string, number> | undefined = body?.answers;

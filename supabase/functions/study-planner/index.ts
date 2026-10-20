@@ -37,18 +37,6 @@ export async function handler(req: Request): Promise<Response> {
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
-    const { data: roleRow } = await admin
-      .from("user_roles")
-      .select("is_approved, role")
-      .eq("user_id", user.id)
-      .maybeSingle();
-    if (!roleRow?.is_approved && roleRow?.role !== "admin") {
-      return new Response(
-        JSON.stringify({ error: "Account not yet approved" }),
-        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-      );
-    }
-
     const body = await req.json();
     const clamp = (v: unknown, max = 2000) => typeof v === "string" ? v.slice(0, max) : "";
     const quizPerformance = clamp(body.quizPerformance);

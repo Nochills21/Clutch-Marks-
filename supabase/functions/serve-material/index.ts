@@ -46,15 +46,6 @@ Deno.serve(async (req) => {
     const adminClient = createClient(supabaseUrl, serviceKey);
 
     // ── Gate: approved student or admin only ───────────────────────────────
-    const { data: roleRow } = await adminClient
-      .from("user_roles")
-      .select("role, is_approved")
-      .eq("user_id", user.id)
-      .maybeSingle();
-    if (!roleRow || !roleRow.is_approved) {
-      return json({ error: "Your account is awaiting approval" }, 403);
-    }
-
     // ── Request validation ─────────────────────────────────────────────────
     const { bucket, path } = await req.json().catch(() => ({ bucket: null, path: null }));
     if (!ALLOWED_BUCKETS.has(bucket) || typeof path !== "string" || !path.trim()) {

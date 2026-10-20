@@ -4,6 +4,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { MathText } from "@/lib/mathText";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 import { BookmarkButton } from "@/components/BookmarkButton";
@@ -71,7 +72,7 @@ export function QuestionList({ items, attempts, onStart, onBookmark, loading }: 
             <CardContent className="p-4 flex items-center gap-4">
               <div className="flex-1 min-w-0">
                 <p className="text-[11px] text-muted-foreground mb-1 truncate">{q.quiz_title}</p>
-                <p className="text-sm font-medium line-clamp-2">{q.question_text}</p>
+                <p className="text-sm font-medium line-clamp-2"><MathText text={q.question_text} /></p>
                 <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
                   <Badge variant="outline" className="text-[10px] capitalize">{q.difficulty}</Badge>
                   {q.is_ai_generated && <Badge variant="outline" className="text-[10px]">Gen</Badge>}

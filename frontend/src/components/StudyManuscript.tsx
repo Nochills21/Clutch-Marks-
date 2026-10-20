@@ -10,6 +10,7 @@ import type { ReactNode } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
 import DOMPurify from "dompurify";
 import { cn } from "@/lib/utils";
+import { MathText, maskMath, unmaskMath } from "@/lib/mathText";
 
 /* ------------------------------------------------------------------ */
 /* Page / reading header: gold eyebrow, serif title, gold rule, lede.  */
@@ -126,7 +127,7 @@ export function ManuscriptQuestion({
         <p className="cm-m-eyebrow">{eyebrow}</p>
         {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
       </div>
-      <p className="cm-m-qtext">{question}</p>
+      <p className="cm-m-qtext"><MathText text={question} /></p>
       <div className="cm-m-options" role={onSelect ? "radiogroup" : undefined}>
         {options.map((option, i) => {
           const state = stateFor(i);
@@ -147,7 +148,7 @@ export function ManuscriptQuestion({
               <span className="flex min-w-0 flex-1 items-center gap-2">
                 {state === "correct" && <CheckCircle2 className="h-4 w-4 shrink-0 text-[hsl(var(--success))]" />}
                 {state === "wrong" && <XCircle className="h-4 w-4 shrink-0 text-[hsl(var(--destructive))]" />}
-                <span className="min-w-0">{option}</span>
+                <span className="min-w-0"><MathText text={option} /></span>
               </span>
             </button>
           );
@@ -156,7 +157,7 @@ export function ManuscriptQuestion({
       {revealed && explanation && (
         <div className="cm-m-explain">
           <p className="cm-m-explain-title">{explanationTitle}</p>
-          <p className="m-0">{explanation}</p>
+          <p className="m-0"><MathText text={explanation} /></p>
         </div>
       )}
       {footer && <div className="mt-4">{footer}</div>}
@@ -170,12 +171,17 @@ export function ManuscriptQuestion({
 
 // Card faces are stored with HTML entities (`p = h&rho;g`, `v = f&lambda;`).
 // Rendering them as text showed the raw entity, so decode them through the
-// HTML parser and keep only inline formatting tags.
+// HTML parser and keep only inline formatting tags. Maths (`\( ... \)`) is
+// masked before DOMPurify runs and swapped for KaTeX HTML after, so the
+// sanitizer never sees the generated markup and the TeX never reaches the
+// student raw.
 export function flashcardFaceHtml(text: string): string {
-  return DOMPurify.sanitize(text, {
+  const { masked, tokens } = maskMath(text);
+  const clean = DOMPurify.sanitize(masked, {
     ALLOWED_TAGS: ["sup", "sub", "em", "strong", "b", "i", "br", "span"],
     ALLOWED_ATTR: [],
   });
+  return unmaskMath(clean, tokens);
 }
 
 export function ManuscriptFlashcard({

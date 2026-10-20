@@ -15,6 +15,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
+import { MathText } from "@/lib/mathText";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -535,7 +536,7 @@ function ObjectiveReview({
               <span>{tally.correct} right so far</span>
             </div>
 
-            <p className="cm-m-qtext !mt-0 text-[1.05rem]">{question.question_text}</p>
+            <p className="cm-m-qtext !mt-0 text-[1.05rem]"><MathText text={question.question_text} /></p>
 
             <div className="grid gap-2 sm:grid-cols-2">
               {question.options.map((option, i) => {
@@ -552,7 +553,7 @@ function ObjectiveReview({
                     disabled={Boolean(result) || busy}
                   >
                     <span className="mr-2 text-xs text-muted-foreground">{String.fromCharCode(65 + i)}</span>
-                    {option}
+                    <MathText text={option} />
                   </Button>
                 );
               })}
@@ -578,7 +579,7 @@ function ObjectiveReview({
                   )}
                 </p>
                 {result.explanation && (
-                  <p className="mt-1 text-xs text-muted-foreground">{result.explanation}</p>
+                  <p className="mt-1 text-xs text-muted-foreground"><MathText text={result.explanation} /></p>
                 )}
                 <Button size="sm" className="mt-3 gap-1.5" onClick={advance}>
                   {index + 1 < questions.length ? "Next check" : "Finish"}

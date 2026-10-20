@@ -1,7 +1,8 @@
 // AI client: thin wrappers around the Supabase Edge workers.
 // - Study planner: POST /ai/study-planner
 // - Paper auto-correction: POST /ai-correction
-// Both workers enforce approval gates + audit logging server-side.
+// Both workers enforce plan gates + audit logging server-side. (Accounts are
+// approved automatically at signup, so there is no account-approval gate.)
 
 import { supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";

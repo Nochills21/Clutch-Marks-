@@ -65,9 +65,11 @@ describe("teachToHtml", () => {
   it("renders bold and leaves the maths exactly as authored", () => {
     const html = teachToHtml(TEACH);
     expect(html).toContain("<strong>two</strong>");
-    // No maths renderer exists in the app; the 100 lessons ship the same way.
-    expect(html).toContain("\\(x^2 = 3x\\)");
-    expect(html).toContain("\\(x(x - 3) = 0\\)");
+    // Maths renders through KaTeX (lib/mathText): the TeX wrapper is gone and
+    // the typeset markup is present in its place.
+    expect(html).not.toContain("\\(x^2 = 3x\\)");
+    expect(html).toContain("katex");
+    expect(html).toContain("annotation"); // MathML carries the TeX for readers
   });
 
   it("gives every non-heading line its own paragraph, the lesson pipeline's shape", () => {

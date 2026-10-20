@@ -1,6 +1,7 @@
 // Manage quizzes and questions.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { MathText } from "@/lib/mathText";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -221,7 +222,7 @@ export default function AdminQuizzes() {
             <Card key={q.id} className="neon-border bg-card">
               <CardContent className="flex items-start justify-between p-4">
                 <div>
-                  <p className="font-medium">Q{i + 1}. {q.question_text}</p>
+                  <p className="font-medium">Q{i + 1}. <MathText text={q.question_text} /></p>
                   <div className="mt-1 space-y-0.5">
                     {(Array.isArray(q.options) ? q.options : []).map((opt: string, j: number) => (
                       <p key={j} className={`text-sm ${j === q.correct_option ? "text-primary font-medium" : "text-muted-foreground"}`}>

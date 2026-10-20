@@ -1,4 +1,4 @@
-// Account management: approve/create students+parents+admins, reset passwords,
+// Account management: create students+parents+admins, reset passwords,
 // upload weekly reports.
 import { useEffect, useState, useRef, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
 import {
-  UserCheck, UserX, UserPlus, Trash2, Loader2, Clock, Users, ShieldCheck,
+  UserPlus, Trash2, Loader2, Users, ShieldCheck,
   KeyRound, FileText, Upload, Download, Search, Shield, X, AtSign, CreditCard,
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
@@ -35,7 +35,6 @@ interface UserRow {
   user_id: string;
   role_id: string;
   role: RoleName | string;
-  is_approved: boolean;
   full_name: string;
   username: string | null;
   email: string | null;
@@ -50,7 +49,6 @@ interface WeeklyReport {
 }
 
 type RoleFilter = "all" | "student" | "parent" | "admin";
-type StatusFilter = "all" | "approved" | "pending";
 
 export default function AdminUsers() {
   const { user } = useAuth();
@@ -64,7 +62,6 @@ export default function AdminUsers() {
   // Filters
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState<RoleFilter>("all");
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
 
   // Create form
   const [newEmail, setNewEmail] = useState("");
@@ -116,7 +113,7 @@ export default function AdminUsers() {
     clear();
     const { data: roles, error: rolesError } = await supabase
       .from("user_roles")
-      .select("id, user_id, role, is_approved");
+      .select("id, user_id, role");
 
     // A failed read used to hit the `!roles` bail-out and render an empty
     // console, which reads as "there are no accounts at all".
@@ -143,7 +140,6 @@ export default function AdminUsers() {
           user_id: r.user_id,
           role_id: r.id,
           role: r.role,
-          is_approved: r.is_approved,
           full_name: p?.full_name || "Unknown",
           username: p?.username ?? null,
           email: p?.email ?? null,
@@ -176,49 +172,21 @@ export default function AdminUsers() {
         if (!hay.includes(q)) return false;
       }
       if (roleFilter !== "all" && r.role !== roleFilter) return false;
-      if (statusFilter === "approved" && !r.is_approved) return false;
-      if (statusFilter === "pending" && r.is_approved) return false;
       return true;
     });
-  }, [rows, search, roleFilter, statusFilter]);
+  }, [rows, search, roleFilter]);
 
   // Tab groupings (use filtered for search support)
-  const pending = filtered.filter((r) => !r.is_approved && r.role !== "admin");
-  const students = filtered.filter((r) => r.is_approved && r.role === "student");
-  const parents = filtered.filter((r) => r.is_approved && r.role === "parent");
+  const students = filtered.filter((r) => r.role === "student");
+  const parents = filtered.filter((r) => r.role === "parent");
   const admins = filtered.filter((r) => r.role === "admin");
   const allList = filtered;
 
-  const hasActiveFilters = !!search || roleFilter !== "all" || statusFilter !== "all";
+  const hasActiveFilters = !!search || roleFilter !== "all";
 
   const clearFilters = () => {
     setSearch("");
     setRoleFilter("all");
-    setStatusFilter("all");
-  };
-
-  const handleApprove = async (userId: string) => {
-    setActionLoading(userId);
-    try {
-      await invoke("approve", { user_id: userId });
-      toast({ title: "Approved", description: "User can now access the platform." });
-      load();
-    } catch (e) {
-      toast({ title: "Error", description: e.message, variant: "destructive" });
-    }
-    setActionLoading(null);
-  };
-
-  const handleReject = async (userId: string) => {
-    setActionLoading(userId);
-    try {
-      await invoke("reject", { user_id: userId });
-      toast({ title: "Rejected", description: "Account has been removed." });
-      load();
-    } catch (e) {
-      toast({ title: "Error", description: e.message, variant: "destructive" });
-    }
-    setActionLoading(null);
   };
 
   const handleDelete = async (userId: string) => {
@@ -470,32 +438,6 @@ export default function AdminUsers() {
   };
 
   const renderActions = (r: UserRow) => {
-    if (!r.is_approved && r.role !== "admin") {
-      return (
-        <>
-          <Button
-            size="sm"
-            className="gap-1"
-            disabled={actionLoading === r.user_id}
-            onClick={() => handleApprove(r.user_id)}
-          >
-            {actionLoading === r.user_id
-              ? <Loader2 className="h-4 w-4 animate-spin" />
-              : <UserCheck className="h-4 w-4" />}
-            Approve
-          </Button>
-          <Button
-            size="sm"
-            variant="destructive"
-            className="gap-1"
-            disabled={actionLoading === r.user_id}
-            onClick={() => handleReject(r.user_id)}
-          >
-            <UserX className="h-4 w-4" /> Reject
-          </Button>
-        </>
-      );
-    }
     if (r.role === "admin") {
       return (
         <Button
@@ -590,12 +532,10 @@ export default function AdminUsers() {
     list,
     emptyText,
     emptyIcon: EmptyIcon,
-    showStatus = false,
   }: {
     list: UserRow[];
     emptyText: string;
     emptyIcon: React.ElementType;
-    showStatus?: boolean;
   }) =>
     loading ? (
       <div className="flex justify-center py-12">
@@ -613,7 +553,6 @@ export default function AdminUsers() {
             <TableHead>Username</TableHead>
             <TableHead>Full Name</TableHead>
             <TableHead>Role</TableHead>
-            {showStatus && <TableHead>Status</TableHead>}
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -635,21 +574,6 @@ export default function AdminUsers() {
                   )}
                 </span>
               </TableCell>
-              {showStatus && (
-                <TableCell>
-                  {r.role === "admin" ? (
-                    <Badge variant="outline">Admin</Badge>
-                  ) : r.is_approved ? (
-                    <Badge variant="outline" className="text-green-600 border-green-600/30">
-                      Approved
-                    </Badge>
-                  ) : (
-                    <Badge variant="outline" className="text-amber-600 border-amber-600/30">
-                      Pending
-                    </Badge>
-                  )}
-                </TableCell>
-              )}
               <TableCell className="text-right space-x-2 whitespace-nowrap">
                 {renderActions(r)}
               </TableCell>
@@ -663,7 +587,7 @@ export default function AdminUsers() {
     <div className="space-y-6">
       <SEOHead
         title="Accounts — Admin Console"
-        description="Approve signups, manage students, parents and admins, reset passwords, and upload weekly reports."
+        description="Manage students, parents and admins, reset passwords, and upload weekly reports."
         path="/admin/accounts"
       />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -700,16 +624,6 @@ export default function AdminUsers() {
                   <SelectItem value="admin">Admins</SelectItem>
                 </SelectContent>
               </Select>
-              <Select value={statusFilter} onValueChange={(v) => setStatusFilter(v as StatusFilter)}>
-                <SelectTrigger className="w-[150px]">
-                  <SelectValue placeholder="Status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All statuses</SelectItem>
-                  <SelectItem value="approved">Approved</SelectItem>
-                  <SelectItem value="pending">Pending</SelectItem>
-                </SelectContent>
-              </Select>
               {hasActiveFilters && (
                 <Button variant="ghost" size="sm" onClick={clearFilters} className="gap-1">
                   <X className="h-4 w-4" /> Clear
@@ -725,13 +639,10 @@ export default function AdminUsers() {
 
       {failure && <QueryError message={failure} onRetry={load} />}
 
-      <Tabs defaultValue={pending.length > 0 ? "pending" : "all"}>
+      <Tabs defaultValue="all">
         <TabsList className="flex-wrap h-auto">
           <TabsTrigger value="all" className="gap-2">
             <Users className="h-4 w-4" /> All {allList.length > 0 && `(${allList.length})`}
-          </TabsTrigger>
-          <TabsTrigger value="pending" className="gap-2">
-            <Clock className="h-4 w-4" /> Pending {pending.length > 0 && `(${pending.length})`}
           </TabsTrigger>
           <TabsTrigger value="students" className="gap-2">
             <Users className="h-4 w-4" /> Students {students.length > 0 && `(${students.length})`}
@@ -754,19 +665,6 @@ export default function AdminUsers() {
                 list={allList}
                 emptyIcon={Users}
                 emptyText="No accounts match your filters"
-                showStatus
-              />
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="pending">
-          <Card>
-            <CardContent className="p-0">
-              <UserTable
-                list={pending}
-                emptyIcon={ShieldCheck}
-                emptyText="No pending accounts"
               />
             </CardContent>
           </Card>
