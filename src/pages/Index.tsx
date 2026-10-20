@@ -259,14 +259,9 @@ export default function Index() {
             </a>
           </div>
         </div>
+
         <div className="container px-4 pb-12">
-          <div className="mx-auto max-w-2xl">
-            <p className="mb-6 text-center text-sm leading-relaxed text-muted-foreground sm:text-left">
-              Hey — I&apos;m Zaid Saadeh, from Al Rowad International Schools. I&apos;m 16, and I&apos;ve been
-              building Clutch Marks for a really long time, so I&apos;d genuinely appreciate your
-              support. Thank you &lt;3.
-            </p>
-            <p className="text-center text-sm text-muted-foreground sm:text-left">
+          <div className="mx-auto max-w-2xl">              <p className="inline text-sm text-muted-foreground sm:text-left">
               <span className="font-medium text-foreground">Contact</span>
               <span className="mx-2 text-muted-foreground/60">·</span>
               <a
@@ -277,10 +272,10 @@ export default function Index() {
               </a>
               <span className="mx-2 text-muted-foreground/60">·</span>
               <a
-                href="mailto:Clutchmarks.support@gmail.com?subject=Clutch%20Marks%20feedback"
+                href="mailto:support@clutchmarks.study?subject=Clutch%20Marks%20feedback"
                 className="font-medium text-foreground underline-offset-4 hover:text-primary"
               >
-                Email: Clutchmarks.support@gmail.com
+                Email: support@clutchmarks.study
               </a>
             </p>
           </div>
