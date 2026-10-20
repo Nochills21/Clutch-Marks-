@@ -1,6 +1,7 @@
 // Manage AI/topic question bank.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { MathText } from "@/lib/mathText";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -172,7 +173,7 @@ export default function AdminQuestionBank() {
                   {topicName && <Badge variant="secondary" className="text-[10px]">{topicName}</Badge>}
                   {quiz && <Badge variant="outline" className="text-[10px]">{quiz.title}</Badge>}
                 </div>
-                <p className="text-sm">{q.question_text}</p>
+                <p className="text-sm"><MathText text={q.question_text} /></p>
               </CardContent>
             </Card>
           );

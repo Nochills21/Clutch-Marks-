@@ -81,18 +81,13 @@ Deno.serve(async (req) => {
 
     const adminClient = createClient(supabaseUrl, serviceKey);
 
-    // ── Gate: approved student or admin only ───────────────────────────────
+    // ── Entitlement: same rule as serve-material ───────────────────────────
     const { data: roleRow } = await adminClient
       .from("user_roles")
-      .select("role, is_approved")
+      .select("role")
       .eq("user_id", user.id)
       .maybeSingle();
-    if (!roleRow || !roleRow.is_approved) {
-      return json({ error: "Your account is awaiting approval" }, 403);
-    }
-
-    // ── Entitlement: same rule as serve-material ───────────────────────────
-    let hasFullAccess = roleRow.role === "admin";
+    let hasFullAccess = roleRow?.role === "admin";
     if (!hasFullAccess) {
       const { data: sub } = await adminClient
         .from("subscriptions")

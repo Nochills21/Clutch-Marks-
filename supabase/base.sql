@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-14T10:35:53.046Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-20T05:35:17.441Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -19,7 +19,7 @@ do $enum$ begin
 end $enum$;
 do $enum$ begin
   if not exists (select 1 from pg_type t join pg_namespace n on n.oid = t.typnamespace where n.nspname = 'public' and t.typname = 'subject_level') then
-    create type public."subject_level" as enum ('OL', 'AS', 'A2', 'IGCSE');
+    create type public."subject_level" as enum ('IGCSE', 'OL', 'AS', 'A2');
   end if;
 end $enum$;
 
@@ -1085,10 +1085,9 @@ AS $function$
     AND (_exam_type IS NULL OR z.exam_type = _exam_type)
     AND (_ai_only IS NULL OR z.is_ai_generated = _ai_only)
     AND (_search IS NULL OR _search = '' OR q.question_text ILIKE '%' || _search || '%' OR z.title ILIKE '%' || _search || '%')
-    -- Signed-in callers still need an approved account; an anonymous caller
-    -- (auth.uid() is null) gets published questions only, which is the same
-    -- public-content rule the study pages and the sitemap already rely on.
-    AND (auth.uid() IS NULL OR public.is_user_approved(auth.uid()))
+    -- Published questions only: the same public-content rule the study
+    -- pages and the sitemap already rely on. Anonymous and signed-in
+    -- callers see the same set.
   ORDER BY z.title, q.sort_order
   LIMIT GREATEST(1, LEAST(_limit, 200))
   OFFSET GREATEST(0, _offset);
@@ -1109,7 +1108,6 @@ declare
   _corrected boolean := false;
 begin
   if auth.uid() is null then raise exception 'Not authenticated'; end if;
-  if not public.is_user_approved(auth.uid()) then raise exception 'Account not approved'; end if;
 
   select q.correct_option, q.explanation
     into _q
@@ -1618,7 +1616,6 @@ AS $function$
     JOIN public.quizzes z ON z.id = q.quiz_id
     LEFT JOIN public.topics t ON t.id = z.topic_id
     WHERE z.is_published = true
-      AND public.is_user_approved(auth.uid())
       AND public.has_role(auth.uid(), 'admin') IS NOT TRUE
   ),
   published_quizzes AS (
@@ -1632,7 +1629,6 @@ AS $function$
            created_at
     FROM public.quizzes
     WHERE is_published = true
-      AND public.is_user_approved(auth.uid())
       AND public.has_role(auth.uid(), 'admin') IS NOT TRUE
   ),
   past_papers AS (
@@ -1645,8 +1641,7 @@ AS $function$
            false AS is_ai_generated,
            created_at
     FROM public.past_papers
-    WHERE public.is_user_approved(auth.uid())
-      AND public.has_role(auth.uid(), 'admin') IS NOT TRUE
+    WHERE public.has_role(auth.uid(), 'admin') IS NOT TRUE
   )
   SELECT item_id, item_type, topic_id, topic_name, title, is_published,
          is_ai_generated, created_at
@@ -1682,7 +1677,6 @@ AS $function$
   JOIN public.quizzes z ON z.id = q.quiz_id
   WHERE z.is_published = true
     AND z.topic_id = _topic_id
-    AND public.is_user_approved(auth.uid())
   ORDER BY random()
   LIMIT GREATEST(1, LEAST(_limit, 50));
 $function$;
@@ -1745,7 +1739,6 @@ AS $function$
   LEFT JOIN public.question_bookmarks qb ON qb.question_id = q.id AND qb.user_id = auth.uid()
   LEFT JOIN public.practice_attempts pa ON pa.question_id = q.id AND pa.user_id = auth.uid()
   WHERE z.is_published = true
-    AND (public.is_user_approved(auth.uid()) OR public.has_role(auth.uid(), 'admin'))
     AND (_subject_level_id IS NULL OR t.subject_level_id = _subject_level_id)
     AND (
       (_mode = 'bookmarked' AND qb.id IS NOT NULL)
@@ -1764,8 +1757,9 @@ CREATE OR REPLACE FUNCTION public.get_student_questions(_quiz_id uuid)
 AS $function$
   SELECT q.id, q.quiz_id, q.question_text, q.options, q.sort_order
   FROM public.questions q
+  JOIN public.quizzes z ON z.id = q.quiz_id
   WHERE q.quiz_id = _quiz_id
-    AND public.is_user_approved(auth.uid())
+    AND (z.is_published = true OR public.has_role(auth.uid(), 'admin'))
   ORDER BY q.sort_order;
 $function$;
 
@@ -1834,7 +1828,7 @@ AS $function$
   LEFT JOIN mat ON mat.subject_level_id = lv.level_id
   LEFT JOIN qz ON qz.subject_level_id = lv.level_id
   LEFT JOIN qs ON qs.subject_level_id = lv.level_id
-  WHERE public.is_user_approved(auth.uid()) OR public.has_role(auth.uid(), 'admin')
+  WHERE auth.uid() IS NOT NULL
   ORDER BY lv.name, lv.level;
 $function$;
 
@@ -1855,10 +1849,6 @@ declare
   _xp integer := 0;
 begin
   if _user_id is null then raise exception 'Not authenticated'; end if;
-  -- Admins bypass the approval gate for oversight, as everywhere else.
-  if not (public.is_user_approved(_user_id) or public.has_role(_user_id, 'admin')) then
-    raise exception 'Account not approved';
-  end if;
 
   for _q in
     select q.id, q.correct_option, q.explanation, q.options, q.objective_id
@@ -2094,18 +2084,6 @@ AS $function$
     SELECT 1 FROM public.parent_student_links
     WHERE parent_id = _parent_auth_id AND student_id = _student_auth_id
   )
-$function$;
-
-CREATE OR REPLACE FUNCTION public.is_user_approved(_user_id uuid)
- RETURNS boolean
- LANGUAGE sql
- STABLE SECURITY DEFINER
- SET search_path TO 'public'
-AS $function$
-  SELECT EXISTS (
-    SELECT 1 FROM public.user_roles
-    WHERE user_id = _user_id AND is_approved = true
-  );
 $function$;
 
 CREATE OR REPLACE FUNCTION public.log_student_activity()
@@ -2686,9 +2664,6 @@ declare
   _streak integer := 0;
 begin
   if _user_id is null then raise exception 'Not authenticated'; end if;
-  if not (public.is_user_approved(_user_id) or public.has_role(_user_id, 'admin')) then
-    raise exception 'Account not approved';
-  end if;
 
   _percentage := case
     when coalesce(p_total_marks, 0) > 0
@@ -3031,7 +3006,6 @@ declare
   _row public.study_sessions;
 begin
   if _uid is null then raise exception 'Not authenticated'; end if;
-  if not public.is_user_approved(_uid) then raise exception 'Account not approved'; end if;
   if _minutes not in (10, 20, 30) then raise exception 'Choose a 10, 20 or 30 minute session'; end if;
 
   update public.study_sessions
@@ -3522,8 +3496,8 @@ drop policy if exists "Users update own announcement state" on public."announcem
 create policy "Users update own announcement state" on public."announcement_reads" for update to "authenticated" using ((user_id = auth.uid())) with check ((user_id = auth.uid()));
 drop policy if exists "Admins can manage announcements" on public."announcements";
 create policy "Admins can manage announcements" on public."announcements" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
-drop policy if exists "Approved users can view announcements" on public."announcements";
-create policy "Approved users can view announcements" on public."announcements" for select to "authenticated" using ((is_user_approved(auth.uid()) OR has_role(auth.uid(), 'admin'::app_role)));
+drop policy if exists "Authenticated can view announcements" on public."announcements";
+create policy "Authenticated can view announcements" on public."announcements" for select to "authenticated" using (true);
 drop policy if exists "Users can delete own bookmarks" on public."bookmarks";
 create policy "Users can delete own bookmarks" on public."bookmarks" for delete to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Users can insert own bookmarks" on public."bookmarks";
@@ -3684,8 +3658,8 @@ drop policy if exists "Users can view own profile" on public."profiles";
 create policy "Users can view own profile" on public."profiles" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins view all question bookmarks" on public."question_bookmarks";
 create policy "Admins view all question bookmarks" on public."question_bookmarks" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
-drop policy if exists "Approved users manage own question bookmarks" on public."question_bookmarks";
-create policy "Approved users manage own question bookmarks" on public."question_bookmarks" for all to "authenticated" using (((user_id = auth.uid()) AND is_user_approved(auth.uid()))) with check (((user_id = auth.uid()) AND is_user_approved(auth.uid())));
+drop policy if exists "Users manage own question bookmarks" on public."question_bookmarks";
+create policy "Users manage own question bookmarks" on public."question_bookmarks" for all to "authenticated" using ((user_id = auth.uid())) with check ((user_id = auth.uid()));
 drop policy if exists "Admins can manage questions" on public."questions";
 create policy "Admins can manage questions" on public."questions" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Anyone authenticated can view questions" on public."questions";
@@ -3720,8 +3694,8 @@ drop policy if exists "Admins can manage materials" on public."study_materials";
 create policy "Admins can manage materials" on public."study_materials" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Anyone can view study materials" on public."study_materials";
 create policy "Anyone can view study materials" on public."study_materials" for select to "anon" using (((file_url IS NULL) OR has_role(auth.uid(), 'admin'::app_role)));
-drop policy if exists "Authenticated can view text materials" on public."study_materials";
-create policy "Authenticated can view text materials" on public."study_materials" for select to "authenticated" using (((file_url IS NULL) OR has_role(auth.uid(), 'admin'::app_role) OR is_user_approved(auth.uid())));
+drop policy if exists "Authenticated can view study materials" on public."study_materials";
+create policy "Authenticated can view study materials" on public."study_materials" for select to "authenticated" using (true);
 drop policy if exists "Admins can manage all study plans" on public."study_plans";
 create policy "Admins can manage all study plans" on public."study_plans" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Admins can view all study plans" on public."study_plans";
@@ -3988,10 +3962,10 @@ drop policy if exists "Admins manage study materials" on "storage"."objects";
 create policy "Admins manage study materials" on "storage"."objects" for all to "authenticated" using (((bucket_id = 'study-materials'::text) AND has_role(auth.uid(), 'admin'::app_role))) with check (((bucket_id = 'study-materials'::text) AND has_role(auth.uid(), 'admin'::app_role)));
 drop policy if exists "Anyone can view lesson resources" on "storage"."objects";
 create policy "Anyone can view lesson resources" on "storage"."objects" for select using ((bucket_id = 'lesson-resources'::text));
-drop policy if exists "Approved users read quiz files" on "storage"."objects";
-create policy "Approved users read quiz files" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'quiz-files'::text) AND is_user_approved(auth.uid())));
-drop policy if exists "Approved users read study materials" on "storage"."objects";
-create policy "Approved users read study materials" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'study-materials'::text) AND is_user_approved(auth.uid())));
+drop policy if exists "Authenticated read quiz files" on "storage"."objects";
+create policy "Authenticated read quiz files" on "storage"."objects" for select to "authenticated" using ((bucket_id = 'quiz-files'::text));
+drop policy if exists "Authenticated read study materials" on "storage"."objects";
+create policy "Authenticated read study materials" on "storage"."objects" for select to "authenticated" using ((bucket_id = 'study-materials'::text));
 drop policy if exists "Authenticated users can read past paper files" on "storage"."objects";
 create policy "Authenticated users can read past paper files" on "storage"."objects" for select using (((bucket_id = 'past-papers'::text) AND (auth.uid() IS NOT NULL)));
 drop policy if exists "Users can delete own homework files" on "storage"."objects";

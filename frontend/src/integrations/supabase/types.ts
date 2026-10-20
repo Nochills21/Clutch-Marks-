@@ -2106,7 +2106,6 @@ export type Database = {
         Args: { _parent_auth_id: string; _student_auth_id: string }
         Returns: boolean
       }
-      is_user_approved: { Args: { _user_id: string }; Returns: boolean }
       record_paper_attempt: {
         Args: {
           p_corrected_papers?: Json

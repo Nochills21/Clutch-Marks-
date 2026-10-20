@@ -26,7 +26,7 @@ Clutch Marks — Cambridge IGCSE/AS/A2 revision platform (Vite + React + TS + Su
 - All curriculum content lives only in the live DB; seeders/exports are `.freebuff/content-*.cjs` + `.freebuff/seed-*.cjs`. There is no remote/backup yet (repo is local-only).
 
 ## Auth & security model
-- `handle_new_user` (auth.users trigger, SECURITY DEFINER) seeds profile + `user_roles(role='student', is_approved=false)` and deliberately ignores client-sent role — never trust signup metadata for roles.
+- `handle_new_user` (auth.users trigger, SECURITY DEFINER) seeds profile + `user_roles(role='student', is_approved=true)` and deliberately ignores client-sent role — never trust signup metadata for roles. Accounts are **auto-approved**: the signup approval gate was removed 2026-10-20 (policies + `is_user_approved()` + the client wall + the edge 403s, migrations `20261020080000`/`20261020081000`). `is_approved` remains only as a plan/privilege flag — `has_active_plan`'s admin exemption, approved-admin RLS reads, and the admin-only edge gates — never as an account gate.
 - `auth.admin.createUser` does NOT create role rows; `manage-accounts` must write `user_roles` explicitly (past bug: panel-created admins landed as students).
 - Trigger `enforce_user_roles_writer` gates `user_roles` writes by `current_user` (service_role/postgres) or approved-admin `auth.uid()`; auth triggers run as `supabase_auth_admin`, so guards must allowlist by role name, not just `auth.uid()`.
 - Edge functions run as service_role → normal audit triggers see a null actor; attribute mutations explicitly via the `audit_admin_action` RPC.

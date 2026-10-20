@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { MathText } from "@/lib/mathText";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -269,7 +270,7 @@ export default function Subject() {
     <Card key={q.id}>
       <CardContent className="flex items-center justify-between gap-3 p-4">
         <div className="min-w-0">
-          <p className="text-sm font-medium line-clamp-2">{q.question_text}</p>
+          <p className="text-sm font-medium line-clamp-2"><MathText text={q.question_text} /></p>
           <div className="flex flex-wrap gap-1.5 mt-2">
             <Badge variant="secondary">{q.topic_name ?? "General"}</Badge>
             <Badge variant="outline" className="capitalize">{q.difficulty}</Badge>

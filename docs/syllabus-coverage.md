@@ -54,13 +54,31 @@ Statement counts, read from the table:
 - **0580's tier is the board's own** — `C2.5` is Core, `E1.18` is Extended — so
   "Extended content only" is a fact, not our guess. 20 of 72 rows are
   Extended-only.
-- **8 of the 44 9618 rows are cross-level**: the board lists the statement in one
+- **7 of the 44 9618 rows are cross-level**: the board lists the statement in one
   half and the topic we teach it in sits in the other. 8.3 (DDL), 10.3 (files) and
-  10.4 (ADTs) are AS statements our A2 topics cover; 15.1, 15.2, 16.1, 16.2 and
-  18.1 are A2 statements our AS topics cover. The seeder prints this list on every
+  10.4 (ADTs) are AS statements our A2 topics cover; 15.1, 15.2, 16.1 and 18.1 are
+  A2 statements our AS topics cover. The seeder prints this list on every
   run and the report keeps the board's `level` on the row, so the mismatch is
-  visible instead of averaged away. It is a mapping to revisit when the AS/A2
-  content split is next touched — not a reason to leave the rows unmapped.
+  visible instead of averaged away.
+
+  **Decided 2026-10-20, after checking every topic's live content**: the mapping
+  points at the topic that *teaches* the statement — when the board's half and
+  our teaching half disagree, content wins, and the drift line keeps it honest.
+  An AS student is not failed by DDL living on an A2 page; they are failed by
+  DDL living nowhere. Verified per statement: the AS `databases` and
+  `data-structures` notes contain no DDL, file or ADT content at all (the
+  question banks for 8.3 and 10.4 sit in the A2 topics' quizzes too); no topic
+  of ours mentions virtual machines anywhere, so 15.1 keeps its closest
+  teacher (`processor-fundamentals`, whose notes cover the processors half of
+  the statement — the parallel/VM half is a real content gap, visible in the
+  report); 15.2's Boolean algebra lives only in `hardware-and-logic-gates`
+  (10 tagged questions); 16.1's OS purposes and 18.1's AI are taught only by
+  `system-software-and-security` and `ethics-and-ai`. One row was moved:
+  **16.2 (Translation Software) now sits on `programming-paradigms-and-low-level`
+  (A2)** — the only statement where both halves teach it, so the board's own
+  split could be honoured (AS keeps 5.2 Language Translators) without either
+  topic claiming content it does not teach. Moving it is what took the count
+  from 8 to 7.
 
 ## 2. Two levels of "covered", because they answer different questions
 
@@ -189,8 +207,9 @@ Edexcel at unit level would claim coverage we cannot point at.
    extended-only subtopics (surds, algebraic fractions, circle theorems II,
    conditional probability, histograms, vector geometry, exact trigonometric
    values) are where top grades are won, and where a student cannot check
-   themselves today. The 8 cross-level 9618 rows are the next mapping question
-   after that.
+   themselves today. (The cross-level 9618 mapping question is decided — see
+   §1; the 7 remaining cross-level rows are deliberate, and the 15.1
+   parallel/VM content gap they expose is the next content item.)
 5. **Report the number publicly** once it is true, per spec: "every 0580
    statement covered, and here is where" is the trust wedge against
    community-written notes — only claim it after the report says so for that

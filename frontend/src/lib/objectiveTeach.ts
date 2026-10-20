@@ -18,9 +18,12 @@
 // The method's order is the whole point of it, and the panel is new, so there is
 // no older rendering to stay compatible with.
 //
-// Maths is left exactly as authored, `\( ... \)` included — the same as the 100
-// lessons that already ship that way. Inventing a partial LaTeX renderer here
-// would make one panel disagree with every other page.
+// Maths is rendered through the shared KaTeX module (lib/mathText): the teach
+// blocks author `\( ... \)`, and masking it before the escape pass keeps the
+// TeX out of the emitted HTML while every other character stays escaped — the
+// same equations the questions, options and flashcards now render.
+
+import { maskMath, unmaskMath } from "./mathText";
 
 const escapeHtml = (text: string): string =>
   text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -61,25 +64,33 @@ export function teachToHtml(markdown: string): string {
       closeList();
       continue;
     }
+
+    // Math spans are masked before escaping so the TeX never meets the HTML
+    // escaper (a stray `&` inside TeX would survive as `&amp;` and break KaTeX),
+    // then swapped for KaTeX HTML after the surrounding tag is written.
+    const { masked, tokens } = maskMath(line);
+    const mTrimmed = masked.trim();
+    const fmt = (text: string) => unmaskMath(inline(text), tokens);
+
     if (line.startsWith("### ")) {
       closeList();
-      html.push(`<h3>${inline(line.slice(4))}</h3>`);
+      html.push(`<h3>${fmt(masked.slice(4))}</h3>`);
       continue;
     }
-    if (/^[-*] /.test(trimmed)) {
+    if (/^[-*] /.test(mTrimmed)) {
       openList("ul");
-      html.push(`<li>${inline(trimmed.slice(2))}</li>`);
+      html.push(`<li>${fmt(mTrimmed.slice(2))}</li>`);
       continue;
     }
-    if (/^\d+\. /.test(trimmed)) {
+    if (/^\d+\. /.test(mTrimmed)) {
       openList("ol");
-      html.push(`<li>${inline(trimmed.replace(/^\d+\.\s*/, ""))}</li>`);
+      html.push(`<li>${fmt(mTrimmed.replace(/^\d+\.\s*/, ""))}</li>`);
       continue;
     }
     closeList();
     // One <p> per source line, the shape the lesson pipeline produces: the teach
     // blocks put each step of a worked example on its own line on purpose.
-    html.push(`<p>${inline(line)}</p>`);
+    html.push(`<p>${fmt(masked)}</p>`);
   }
   closeList();
 

@@ -1,6 +1,7 @@
 // Manage flashcard decks.
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { MathText } from "@/lib/mathText";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -231,8 +232,8 @@ export default function AdminFlashcards() {
                       <div key={c.id} className="flex items-center gap-3 rounded-lg border bg-background p-3">
                         <span className="text-xs text-muted-foreground w-6">{i + 1}</span>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium truncate">{c.front}</p>
-                          <p className="text-xs text-muted-foreground truncate">{c.back}</p>
+                          <p className="text-sm font-medium truncate"><MathText text={c.front} /></p>
+                          <p className="text-xs text-muted-foreground truncate"><MathText text={c.back} /></p>
                         </div>
                         <Button variant="ghost" size="icon" className="h-8 w-8" aria-label={`Edit card “${c.front}”`} title="Edit card" onClick={() => startEditCard(c)}><Pencil className="h-3 w-3" /></Button>
                         <Button variant="ghost" size="icon" className="h-8 w-8" aria-label={`Delete card “${c.front}”`} title="Delete card" onClick={() => deleteCard(c.id)}><Trash2 className="h-3 w-3 text-destructive" /></Button>

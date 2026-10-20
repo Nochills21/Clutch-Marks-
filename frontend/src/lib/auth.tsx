@@ -12,7 +12,6 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   role: AppRole | null;
-  isApproved: boolean;
   loading: boolean;
   studentPreview: boolean;
   exitStudentPreview: () => void;
@@ -23,7 +22,6 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   session: null,
   role: null,
-  isApproved: false,
   loading: true,
   studentPreview: false,
   exitStudentPreview: () => {},
@@ -62,7 +60,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [role, setRole] = useState<AppRole | null>(null);
-  const [isApproved, setIsApproved] = useState(false);
   const [sessionLoading, setSessionLoading] = useState(true);
   const [roleLoading, setRoleLoading] = useState(false);
 
@@ -81,21 +78,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const { data } = await retrySupabase(() =>
           supabase
             .from("user_roles")
-            .select("role, is_approved")
+            .select("role")
             .eq("user_id", userId)
             .maybeSingle(),
         );
         if (data) {
           setRole(data.role as AppRole);
-          setIsApproved(data.is_approved ?? false);
         } else {
           setRole(null);
-          setIsApproved(false);
         }
       } catch (error) {
         console.error("auth: could not load role", error);
         setRole(null);
-        setIsApproved(false);
         // Drop the cache so a later auth event can retry instead of inheriting
         // this failed lookup for the rest of the session.
         roleRequest.current = null;
@@ -134,7 +128,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         } else {
           roleRequest.current = null;
           setRole(null);
-          setIsApproved(false);
           setRoleLoading(false);
         }
         setSessionLoading(false);
@@ -187,7 +180,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
     setSession(null);
     setRole(null);
-    setIsApproved(false);
   };
 
   const loading = sessionLoading || (!!user && roleLoading);
@@ -204,7 +196,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // RLS still runs as the admin behind the scenes — this is UI-only,
         // so nothing privileged is ever exposed.
         role: isAdmin && previewOn ? "student" : role,
-        isApproved: isAdmin && previewOn ? true : isApproved,
         studentPreview: isAdmin && previewOn,
         exitStudentPreview: () => setPreviewActive(false),
         loading,

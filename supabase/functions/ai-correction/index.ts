@@ -6,9 +6,7 @@
 //
 // Access, in order:
 //   1. 401 — no bearer token / invalid session.
-//   2. 403 "Account not yet approved" — the approval gate every student
-//      function shares.
-//   3. 403 "plan_required" — no active subscription (admins exempt). This is
+//   2. 403 "plan_required" — no active subscription (admins exempt). This is
 //      the paid gate; `has_active_plan()` is the single source of truth and it
 //      is checked *here*, not in the browser, because the browser is not a
 //      security boundary.
@@ -605,18 +603,15 @@ export async function handler(req: Request): Promise<Response> {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
-    // ── gate 1: approval ────────────────────────────────────────────────
+    // ── caller role: only the admin plan-exemption matters ────────────────────────────────────────────────
     const { data: roleRow } = await admin
       .from("user_roles")
       .select("is_approved, role")
       .eq("user_id", user.id)
       .maybeSingle();
     const isAdmin = roleRow?.role === "admin" && roleRow?.is_approved === true;
-    if (!roleRow?.is_approved && roleRow?.role !== "admin") {
-      return json({ error: "Account not yet approved" }, 403);
-    }
 
-    // ── gate 2: plan ────────────────────────────────────────────────────
+    // ── plan gate ────────────────────────────────────────────────────
     // Fail closed. If the helper is missing (migration not applied) this is a
     // 503 rather than a 403 so the failure is not misreported to a paying
     // student as "you need to upgrade".
