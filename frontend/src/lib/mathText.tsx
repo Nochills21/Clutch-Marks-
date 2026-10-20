@@ -131,3 +131,151 @@ export function unmaskMath(html: string, tokens: string[]): string {
   if (tokens.length === 0) return html;
   return html.replace(TOKEN_RE, (_m, n) => tokens[Number(n)] ?? "");
 }
+
+/* ------------------------------------------------------------------ */
+/* Plain-text consumers (PDF exports): readable text, not TeX source    */
+/* ------------------------------------------------------------------ */
+
+// jsPDF can only draw strings, so KaTeX HTML is no help on paper: a quiz or
+// flashcard PDF would print the TeX source verbatim (`\(\frac{23}{99}\)`).
+// This converts each maths span to Unicode text a printed page can carry:
+// `23/99`, `0.2̇3̇`, `√2`, `x²`, `×`, `≤`. Commands it does not recognise keep
+// their letters and numbers (backslash and braces dropped) rather than
+// vanishing — a slightly clunky PDF beats a missing operand.
+
+const SUP_DIGITS = "⁰¹²³⁴⁵⁶⁷⁸⁹";
+const SUB_DIGITS = "₀₁₂₃₄₅₆₇₈₉";
+
+/** Map one exponent/subscript character to its Unicode form, or null. */
+const powChar = (ch: string, sup: boolean): string | null => {
+  if (ch >= "0" && ch <= "9") return (sup ? SUP_DIGITS : SUB_DIGITS)[Number(ch)];
+  if (ch === "+") return sup ? "⁺" : "₊";
+  if (ch === "-") return sup ? "⁻" : "₋";
+  if (ch === "n") return sup ? "ⁿ" : "ₙ";
+  if (ch === "i") return sup ? "ⁱ" : "ᵢ";
+  if (ch === "k") return sup ? null : "ₖ";
+  if (ch === "m") return sup ? null : "ₘ";
+  if (ch === "x") return sup ? null : "ₓ";
+  if (ch === "e") return sup ? null : "ₑ";
+  return null;
+};
+
+/** Parenthesise only what would misread without brackets: `(-1)/2`, `23/99`. */
+const grouped = (part: string): string => (/[+\-=]/.test(part) ? `(${part})` : part);
+
+const TEX_SYMBOLS: Array<[RegExp, string]> = [
+  [/\\(?:rightarrow|Rightarrow|longrightarrow)\b/g, "→"],
+  [/\\subset(?:eq)?\b/g, "⊆"],
+  [/\\(?:le|leq)\b/g, "≤"],
+  [/\\(?:ge|geq)\b/g, "≥"],
+  [/\\(?:ne|neq)\b/g, "≠"],
+  [/\\approx\b/g, "≈"],
+  [/\\equiv\b/g, "≡"],
+  [/\\times\b/g, "×"],
+  [/\\div\b/g, "÷"],
+  [/\\pm\b/g, "±"],
+  [/\\mp\b/g, "∓"],
+  [/\\cdot\b/g, "·"],
+  [/\\infty\b/g, "∞"],
+  [/\\(?:degree|circ)\b/g, "°"],
+  [/\\pi\b/g, "π"],
+  [/\\theta\b/g, "θ"],
+  [/\\alpha\b/g, "α"],
+  [/\\beta\b/g, "β"],
+  [/\\gamma\b/g, "γ"],
+  [/\\delta\b/g, "δ"],
+  [/\\mu\b/g, "μ"],
+  [/\\sigma\b/g, "σ"],
+  [/\\phi\b/g, "φ"],
+  [/\\lambda\b/g, "λ"],
+  [/\\(?:in)\b/g, "∈"],
+  [/\\cup\b/g, "∪"],
+  [/\\cap\b/g, "∩"],
+  [/\\lfloor\b/g, "⌊"],
+  [/\\rfloor\b/g, "⌋"],
+  [/\\lceil\b/g, "⌈"],
+  [/\\rceil\b/g, "⌉"],
+  [/\\parallel\b/g, "∥"],
+  [/\\perp\b/g, "⟂"],
+  [/\\angle\b/g, "∠"],
+];
+
+const FRAC_RE = /\\frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}/g;
+const SQRT_RE = /\\sqrt\s*\{([^{}]*)\}/g;
+const DECOR_RE = /\\(dot|ddot|bar|hat|tilde|overline)\s*\{([^{}]*)\}/g;
+const DECOR_MARK: Record<string, string> = {
+  dot: "\u0307",
+  ddot: "\u0308",
+  bar: "\u0304",
+  hat: "\u0302",
+  tilde: "\u0303",
+  overline: "\u0304",
+};
+
+/** One TeX source → Unicode text. Total: every construct degrades, none throws. */
+function texToPlainText(tex: string): string {
+  let s = tex;
+
+  // Superscripts / subscripts: `x^{2}` → `x²`, `a_{i}` → `aᵢ`; anything the
+  // table cannot represent keeps its meaning as a parenthesised group.
+  const script = (braced: string, sup: boolean): string => {
+    let out = "";
+    for (const ch of braced) {
+      const m = powChar(ch, sup);
+      if (!m) return sup ? `^(${braced})` : `_(${braced})`;
+      out += m;
+    }
+    return out;
+  };
+
+  // Scripts and braced constructs interleave (\frac{x^{2}}{3} needs each
+  // before the other can match), so run both until the string stops changing.
+  // Bounded — pathological input just stops early.
+  for (let i = 0; i < 20; i++) {
+    const before = s;
+
+    s = s.replace(/\^\{([^{}]*)\}/g, (_m, a: string) => script(a, true));
+    s = s.replace(/_\{([^{}]*)\}/g, (_m, a: string) => script(a, false));
+    // Unbraced singles only convert when they map (`x^2` → `x²`); an unmappable
+    // one keeps its literal form rather than growing parentheses.
+    s = s.replace(/\^([^\s{}])/g, (_m, a: string) => powChar(a, true) ?? `^${a}`);
+    s = s.replace(/_([^\s{}])/g, (_m, a: string) => powChar(a, false) ?? `_${a}`);
+
+    s = s.replace(FRAC_RE, (_m, a: string, b: string) => `${grouped(a)}/${grouped(b)}`);
+    s = s.replace(SQRT_RE, (_m, a: string) => `√${grouped(a)}`);
+    s = s.replace(DECOR_RE, (_m, cmd: string, content: string) => content + (DECOR_MARK[cmd] ?? "\u0307"));
+    // \text{…}/\mathrm{…}/\operatorname{…} — keep the wording, lose the wrapper
+    // (it can sit inside a fraction's braces and block the match above).
+    s = s.replace(/\\(?:text|textrm|mathrm|operatorname|textbf)\s*\{([^{}]*)\}/g, "$1");
+
+    if (s === before) break;
+  }
+
+  for (const [re, ch] of TEX_SYMBOLS) s = s.replace(re, ch);
+
+  // Escaped specials and spacing, then the wrappers TeX adds for sizing.
+  s = s
+    .replace(/\\([{}%$#&])/g, "$1")
+    .replace(/\\left|\\right/g, "")
+    .replace(/\\[,;!:\s]/g, " ")
+    .replace(/\\\\/g, " ");
+  // Anything left with a backslash keeps its letters (`\sin` → `sin`);
+  // braces and doubled spaces go.
+  s = s.replace(/\\([A-Za-z]+)/g, "$1").replace(/[{}]/g, "").replace(/ {2,}/g, " ");
+  return s;
+}
+
+/**
+ * Replace every `\(..\)`/`\[..\]` span in a string with Unicode text. Plain
+ * strings pass through untouched — so a consumer that never sees maths is
+ * byte-for-byte unchanged.
+ */
+export function mathToPlainText(text: string | null | undefined): string {
+  const value = String(text ?? "");
+  if (!hasMath(value)) return value;
+  return value.replace(
+    MATH_RE,
+    (_m, inlineTex: string | undefined, displayTex: string | undefined) =>
+      texToPlainText(inlineTex ?? displayTex ?? ""),
+  );
+}

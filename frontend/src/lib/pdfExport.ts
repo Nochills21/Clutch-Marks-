@@ -22,15 +22,29 @@ import {
   type BrandIdentity,
 } from "@/lib/brandPdf";
 import type { AiCorrectionOutput, CorrectedPaper } from "@/lib/ai";
+import { mathToPlainText } from "@/lib/mathText";
 
-/** Strip the handful of tags notes/lessons are stored with. */
+// Card faces and lesson HTML carry named entities (`h&rho;g`); jsPDF draws
+// literal strings, so decode them before writing. Browser-only by nature
+// (jsPDF itself is), with a no-op guard for a DOM-less test runner.
+function decodeEntities(text: string): string {
+  if (typeof document === "undefined") return text;
+  const el = document.createElement("textarea");
+  el.innerHTML = text;
+  return el.value;
+}
+
+/** Strip the handful of tags notes/lessons are stored with, then turn any
+ * `\( … \)` maths into readable Unicode (`\(\frac{23}{99}\)` → `23/99`) —
+ * a PDF prints strings, so TeX source would reach the student verbatim. */
 function plainText(html: string | null | undefined): string {
-  return String(html ?? "")
+  const stripped = String(html ?? "")
     .replace(/<\s*br\s*\/?\s*>/gi, "\n")
     .replace(/<\/(p|li|h[1-6]|div)>/gi, "\n")
     .replace(/<[^>]+>/g, "")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+  return mathToPlainText(decodeEntities(stripped));
 }
 
 export interface LessonPdfSource {
@@ -89,12 +103,12 @@ export async function exportFlashcardsToPdf(
   cards.forEach((card, i) => {
     frame.y += 1;
     if (frame.y > frame.bottom - 24) frame.page();
-    frame.write(`${String(i + 1).padStart(2, "0")}  ${card.front}`, {
+    frame.write(`${String(i + 1).padStart(2, "0")}  ${plainText(card.front)}`, {
       size: 11,
       bold: true,
       keepTogether: true,
     });
-    frame.write(card.back, { size: 10, color: BRAND_MUTED, indent: 8 });
+    frame.write(plainText(card.back), { size: 10, color: BRAND_MUTED, indent: 8 });
     frame.gap(2.5);
     if (i < cards.length - 1) frame.rule();
   });
@@ -375,7 +389,9 @@ export async function exportMarkedPaperToPdf(
       frame.write(plainText(paper.correct_answer), { size: 9.5, indent: 4 });
     }
     if (paper.feedback || paper.comment) {
-      frame.write([paper.feedback, paper.comment].filter(Boolean).join(" "), {
+      // Model feedback is plain text, not stored HTML — decode nothing, strip
+      // nothing (a "x < 5" must survive), but still convert any TeX spans.
+      frame.write(mathToPlainText([paper.feedback, paper.comment].filter(Boolean).join(" ")), {
         size: 9,
         italic: true,
         indent: 4,
