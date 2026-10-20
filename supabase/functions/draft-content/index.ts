@@ -54,7 +54,7 @@ const DEFAULT_CF_MODEL =
  * Bumped whenever a prompt below changes, and returned with every draft so a
  * seeder can record which wording produced the content it ships.
  */
-const PROMPT_VERSION = "2026-10-18.1";
+const PROMPT_VERSION = "2026-10-20.1";
 
 /** Kept in step with the `difficulty` vocabulary the app already uses. */
 const DIFFICULTIES = ["check", "drill", "exam"] as const;
@@ -135,6 +135,125 @@ async function callWorkersAI(messages: Array<{ role: string; content: string }>,
     : "";
   if (!text) throw new Error("Cloudflare AI returned no text");
   return { text, model };
+}
+
+/* ------------------------------------------------------------------ */
+/* Gemini                                                              */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Google Gemini, through the generativelanguage REST API — the same key and
+ * model ai-correction marks with (the key travels in the x-goog-api-key
+ * header, never in the URL, so it cannot land in an access log).
+ *
+ * Why notes drafting uses Gemini and not Workers AI: a deepened note is
+ * 6,000+ characters, so one note is several thousand output tokens, and the
+ * Workers AI free allocation is a daily neuron cap that a full-estate run
+ * exhausts after a handful of calls. Gemini's free tier is per-minute and
+ * per-day rather than per-neuron, which is what makes an estate-wide run
+ * possible at all.
+ */
+const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.5-flash-lite";
+
+async function callGemini(
+  messages: Array<{ role: string; content: string }>,
+  maxTokens: number,
+): Promise<{ text: string; model: string }> {
+  const apiKey = Deno.env.get("GEMINI_API_KEY");
+  if (!apiKey) throw new Error("GEMINI_API_KEY not set");
+  const system = messages
+    .filter((m) => m.role === "system")
+    .map((m) => String(m.content))
+    .join("\n\n");
+  const contents = messages
+    .filter((m) => m.role !== "system")
+    .map((m) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: String(m.content) }],
+    }));
+
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: system }] },
+        contents,
+        generationConfig: {
+          temperature: 0.3,
+          maxOutputTokens: maxTokens,
+          responseMimeType: "application/json",
+        },
+      }),
+    },
+  );
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "");
+    throw new Error(`Gemini API error: ${res.status} ${detail.slice(0, 300)}`);
+  }
+  const data = await res.json();
+  const candidate = data?.candidates?.[0];
+  const parts: Array<{ text?: unknown }> = Array.isArray(candidate?.content?.parts)
+    ? candidate.content.parts
+    : [];
+  const text = parts.map((p) => String(p?.text ?? "")).join("");
+  if (!text.trim()) {
+    const reason = candidate?.finishReason ?? data?.promptFeedback?.blockReason ?? "no text returned";
+    throw new Error(`Gemini returned no text (${reason})`);
+  }
+  return { text, model: GEMINI_MODEL };
+}
+
+/**
+ * Pull one string field out of a JSON reply without needing the whole reply to
+ * parse.
+ *
+ * A note is one JSON object whose "content" field holds several thousand
+ * characters of HTML. When a reply is cut off at the output limit the object
+ * is unterminated, JSON.parse throws, and the whole note is lost — but the
+ * string before the cut is intact. Reading the field directly keeps the part
+ * that arrived, which is what a long generation most often loses.
+ */
+function extractJsonStringField(text: string, key: string): string {
+  const cleaned = text.replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
+  try {
+    const parsed = JSON.parse(cleaned) as Record<string, unknown>;
+    const direct = parsed?.[key];
+    if (typeof direct === "string") return direct;
+  } catch {
+    /* fall through to the field scan */
+  }
+  const at = cleaned.indexOf(`"${key}"`);
+  if (at === -1) throw new Error(`no "${key}" in the reply`);
+  const colon = cleaned.indexOf(":", at);
+  if (colon === -1) throw new Error(`no value for "${key}" in the reply`);
+  const firstQuote = cleaned.indexOf('"', colon);
+  if (firstQuote === -1) throw new Error(`"${key}" is not a string in the reply`);
+  let out = "";
+  for (let i = firstQuote + 1; i < cleaned.length; i++) {
+    const ch = cleaned[i];
+    if (ch === "\\") {
+      const next = cleaned[i + 1];
+      if (next === undefined) break; // truncated mid-escape
+      const simple: Record<string, string> = {
+        n: "\n", t: "\t", r: "\r", b: "\b", f: "\f", '"': '"', "\\": "\\", "/": "/",
+      };
+      if (next === "u") {
+        const hex = cleaned.slice(i + 2, i + 6);
+        if (!/^[0-9a-fA-F]{4}$/.test(hex)) break;
+        out += String.fromCharCode(parseInt(hex, 16));
+        i += 5;
+        continue;
+      }
+      out += simple[next] ?? next;
+      i += 1;
+      continue;
+    }
+    if (ch === '"') return out;
+    out += ch;
+  }
+  return out; // truncated tail: keep what arrived
 }
 
 /**
@@ -355,6 +474,125 @@ The title is short and student-facing, e.g. "Exam technique: <topic>".
 `.trim();
 }
 
+/**
+ * The prompt for a deepened note (or a deepened quick-revision summary).
+ *
+ * The existing body is handed to the model as the thing to build on, never as
+ * a summary of: the site already publishes this note and a student may have
+ * read it, so the deepened version must keep every fact in it and add to it.
+ * That is the whole difference between "4x deeper" and "a different note".
+ */
+function notesPrompt(input: {
+  topicName: string;
+  subjectName: string;
+  levelLabel: string;
+  statements: Array<{ code: string; title: string; tier: string }>;
+  existing: string;
+  targetChars: number;
+  materialType: "notes" | "summary";
+}) {
+  const { topicName, subjectName, levelLabel, statements, existing, targetChars, materialType } = input;
+  const isSummary = materialType === "summary";
+  const statementList = statements.map((s) => `- ${s.code}  ${s.title}`).join("\n");
+
+  const common = `
+The board's statements this topic is responsible for (every one of them must appear in what you write):
+${statementList}
+
+${existing ? `The note the site already publishes for this topic. KEEP every fact, formula, example, method and heading that is correct in it — a student who has read it must not find anything taken away. You are adding depth, not replacing the note:
+---
+${existing}
+---
+` : ""}
+
+How to write:
+- HTML only, and only these tags: <h2>, <h3>, <h4>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <table>, <thead>, <tbody>, <tr>, <th>, <td>. No links, no images, no inline styles, no attributes, no scripts.
+- Maths is PLAIN TEXT, never LaTeX. Write "x = (−b ± √(b² − 4ac)) / 2a", "v = u + at", "1/2 mv²", "sin θ = opposite / hypotenuse", "P = VI". Never write \\( \\), $$, \\frac, \\sqrt, ^{ } or _{ }. Use the characters − (U+2212 minus), × , ÷ , √ , ° , θ , π . A column vector is written (x; y) on one line; a point is A(1, 2).
+- Stay strictly inside the level. At IGCSE do not use AS or A2 technique (no differentiation, integration, formal proof, complex numbers or exponential calculus) unless the statement above asks for it. Do not drift into a neighbouring topic or a different board's content.
+- Facts, methods and terminology must be those of this specification. Do not invent mark allocations, exam dates, paper numbers or questions from past papers; describe what earns credit in words.
+- No backticks, no code fences, no "as an AI", no repeated sentence, no padding, no filler such as "in this section we will look at".
+- Write like an examiner writing for a student who wants the marks: precise, concrete, with the method shown.
+
+${isSummary
+      ? `Write a QUICK REVISION SUMMARY for this topic:
+- <h2> a title naming the topic.
+- <p> one or two sentences: the subject, the level, and what the topic covers.
+- <ul> the key points, one per area of the topic, each a single dense line a student can revise from.
+- <h3> Worked example</h3> followed by <p> with one short worked example, steps and answer.
+- <h3> Key points to remember</h3> followed by <p> paragraphs of the things students actually forget.
+- <p> a closing "How to use this" line pointing at the full revision notes and the topic questions.
+- Between ${Math.round(targetChars * 0.85)} and ${Math.round(targetChars * 1.3)} characters of text.`
+      : `Write the FULL REVISION NOTES for this topic:
+- <h2> a title naming the topic and the level.
+- <p> one paragraph saying which specification the topic belongs to and what it covers.
+- One <h3> section per area of the topic, each with a heading that names the idea, prose a student can revise from, and where it helps a <ul> of the formulas, facts or steps to memorise. Every statement listed above gets its own coverage.
+- Worked examples: show the method and the answer, one <p> per step or a <ul> of steps, with the numbers actually worked through.
+- <h3> Typical mistakes</h3> with a <ul>: each mistake named and then corrected.
+- <h3> Exam-style questions</h3> with an <ol> of questions, each <li> carrying its own answer and the step that earns the credit.
+- <p> a closing paragraph on how to use the note and what to revise next.
+- Between ${Math.round(targetChars * 0.85)} and ${Math.round(targetChars * 1.35)} characters of text. Dense and useful — every sentence must earn its place.`}
+
+Reply with ONE JSON object and nothing else:
+{"notes":{"title":"...","content":"<the HTML>"}}
+The title is short and student-facing. The content is the HTML body described above, with no code fence around it.`;
+
+  return `You are an experienced ${examiningBody(levelLabel, subjectName)} examiner and teacher writing revision notes for a student studying ${levelLabel} ${subjectName}.
+Topic: "${topicName}".${common}`.trim();
+}
+
+/**
+ * The prompt for the SECOND pass: more material for a note that came back
+ * short.
+ *
+ * A model asked for a 14,000-character note will often write 3,000 and stop,
+ * still a coherent note — length is the one instruction it follows least
+ * reliably. Asking again for "more" in a separate call is the repair, and it
+ * is a better one than re-asking for the whole note: the second call can be
+ * told what is already there, so it adds rather than repeats.
+ */
+function notesExtendPrompt(input: {
+  topicName: string;
+  subjectName: string;
+  levelLabel: string;
+  statements: Array<{ code: string; title: string; tier: string }>;
+  existing: string;
+  soFar: string;
+  addChars: number;
+  materialType: "notes" | "summary";
+}) {
+  const { topicName, subjectName, levelLabel, statements, soFar, addChars, materialType } = input;
+  const isSummary = materialType === "summary";
+  return `
+You are an experienced ${examiningBody(levelLabel, subjectName)} examiner and teacher writing revision notes for a student studying ${levelLabel} ${subjectName}.
+Topic: "${topicName}".
+
+The board's statements this topic is responsible for:
+${statements.map((s) => `- ${s.code}  ${s.title}`).join("\n")}
+
+The note written so far:
+---
+${soFar}
+---
+
+That note is not long enough: it still needs at least ${addChars} more characters of NEW material. Write only that new material.
+
+What the new material must be:
+- NEW sections that are not already in the note above. Do not restate, reword or repeat anything already written there: no sentence, example or fact may appear twice, and the new sections must not be about the same points in the same order.
+- ${
+    isSummary
+      ? "More key points for the bullet list, a second worked example, and another 'Key points to remember' block on the areas the note has covered least."
+      : "More worked examples with the method and the answer shown, more exam-style questions with their answers and the step that earns the credit, deeper treatment of the areas above that are covered in one sentence only, and the common mistakes and their corrections for each part of the topic."
+  }
+- Written to the same rules as the note so far: HTML only, using <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <table>, <thead>, <tbody>, <tr>, <th>, <td>; no links, no images, no attributes, no scripts.
+- Maths is PLAIN TEXT, never LaTeX: "x = (−b ± √(b² − 4ac)) / 2a", "v = u + at", "1/2 mv²". Never \\( \\), $$, \\frac, \\sqrt, ^{ } or _{ }. Use − (U+2212 minus), × , ÷ , √ , ° , θ , π . A column vector is written (x; y).
+- Stay strictly inside the level: at IGCSE do not use AS or A2 technique unless a statement above asks for it.
+- No backticks, no code fences, no invented mark allocations, no invented exam dates, no "as an AI", no padding.
+
+Reply with ONE JSON object and nothing else:
+{"notes":{"content":"<the new HTML sections only>"}}
+The content is at least ${Math.round(addChars * 0.9)} characters of new HTML. Begin with an <h3> heading for the first new section, and do not repeat the note's existing <h2> title.`;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
@@ -366,7 +604,7 @@ Deno.serve(async (req) => {
 
     const body = await req.json().catch(() => ({}));
     const topicId = typeof body?.topicId === "string" ? body.topicId : "";
-    const kind = body?.kind === "technique" ? "technique" : body?.kind === "solve" ? "solve" : "questions";
+    const kind = body?.kind === "technique" ? "technique" : body?.kind === "solve" ? "solve" : body?.kind === "notes" ? "notes" : "questions";
     const count = Math.min(20, Math.max(1, Number(body?.count) || 8));
     if (kind !== "solve" && !topicId) return json({ error: "topicId is required" }, 400);
 
@@ -532,6 +770,186 @@ Deno.serve(async (req) => {
         model,
         prompt_version: PROMPT_VERSION,
         technique: { title, content },
+      });
+    }
+
+    /**
+     * Deepen one published note.
+     *
+     * The body that comes back is a DRAFT: this function writes nothing, and
+     * the caller (build-notes-depth.cjs) puts the body in front of a human as
+     * a draft file before any seeder writes it to a student-visible row.
+     */
+    if (kind === "notes") {
+      const materialType = body?.materialType === "summary" ? "summary" : "notes";
+      const targetChars = Math.min(14_000, Math.max(1_200, Number(body?.targetChars) || 6_000));
+
+      /**
+       * The extension pass: the note so far, and how much more it needs.
+       *
+       * Length is the instruction a model follows least reliably, so a short
+       * note is not a failed note — it is a note that needs a second call.
+       */
+      const soFar = typeof body?.extend === "string" ? body.extend : "";
+      const addChars = Math.min(12_000, Math.max(800, Number(body?.extendChars) || 3_000));
+      if (soFar) {
+        const extendPrompt = notesExtendPrompt({
+          topicName: tidy(topic.name),
+          subjectName,
+          levelLabel,
+          statements: focusedStatements,
+          existing: "",
+          soFar: soFar.slice(-12_000),
+          addChars,
+          materialType,
+        });
+        let extText = "";
+        let extModel = "";
+        try {
+          const gem = await callGemini(
+            [
+              {
+                role: "system",
+                content:
+                  "You are an experienced examiner writing exam-grade revision notes. Reply with one JSON object and nothing else.",
+              },
+              { role: "user", content: extendPrompt },
+            ],
+            16384,
+          );
+          extText = gem.text;
+          extModel = gem.model;
+        } catch {
+          const cf = await callWorkersAI(
+            [
+              {
+                role: "system",
+                content:
+                  "You are an experienced examiner writing exam-grade revision notes. Reply with one JSON object and nothing else.",
+              },
+              { role: "user", content: extendPrompt },
+            ],
+            8192,
+          );
+          extText = cf.text;
+          extModel = cf.model;
+        }
+        const extension = extractJsonStringField(extText, "content");
+        if (extension.length < 200 || extension.includes("\uFFFD")) {
+          return json(
+            {
+              error: "The model's extension did not meet the content contract",
+              code: "draft_rejected",
+              detail: `chars=${extension.length}`,
+            },
+            502,
+          );
+        }
+        return json({
+          kind: "notes",
+          topic_id: topic.id,
+          topic_slug: topic.slug,
+          subject_level: level,
+          material_type: materialType,
+          material_id: null,
+          model: extModel,
+          provider: "gemini",
+          prompt_version: PROMPT_VERSION,
+          target_chars: targetChars,
+          extended: true,
+          notes: { title: "", content: extension },
+        });
+      }
+
+      const { data: materialRows } = await admin
+        .from("study_materials")
+        .select("id, title, content")
+        .eq("topic_id", topicId)
+        .eq("material_type", materialType)
+        .order("created_at")
+        .limit(1);
+      const material = (materialRows ?? [])[0] as
+        | { id?: string; title?: string; content?: string }
+        | undefined;
+      const existing = typeof material?.content === "string" ? material.content.slice(0, 12_000) : "";
+
+      const prompt = notesPrompt({
+        topicName: tidy(topic.name),
+        subjectName,
+        levelLabel,
+        statements: focusedStatements,
+        existing,
+        targetChars,
+        materialType,
+      });
+
+      let text = "";
+      let model = "";
+      let provider = "gemini";
+      try {
+        const gem = await callGemini(
+          [
+            {
+              role: "system",
+              content:
+                "You are an experienced examiner writing exam-grade revision notes. Reply with one JSON object and nothing else.",
+            },
+            { role: "user", content: prompt },
+          ],
+          16384,
+        );
+        text = gem.text;
+        model = gem.model;
+      } catch (e) {
+        // Workers AI is the fallback, not the plan: its free daily neuron cap
+        // cannot carry an estate-wide run, but it can still carry one note.
+        provider = "cloudflare";
+        const cf = await callWorkersAI(
+          [
+            {
+              role: "system",
+              content:
+                "You are an experienced examiner writing exam-grade revision notes. Reply with one JSON object and nothing else.",
+            },
+            { role: "user", content: prompt },
+          ],
+          8192,
+        );
+        text = cf.text;
+        model = cf.model;
+      }
+
+      const content = extractJsonStringField(text, "content");
+      let title = "";
+      try {
+        title = tidy(extractJsonStringField(text, "title"));
+      } catch {
+        title = "";
+      }
+      if (!title && material?.title) title = String(material.title);
+
+      if (content.length < 400 || content.includes("\uFFFD") || !/<h2/i.test(content)) {
+        return json(
+          {
+            error: "The model's note did not meet the content contract",
+            code: "draft_rejected",
+            detail: `chars=${content.length} provider=${provider}`,
+          },
+          502,
+        );
+      }
+      return json({
+        kind: "notes",
+        topic_id: topic.id,
+        topic_slug: topic.slug,
+        subject_level: level,
+        material_type: materialType,
+        material_id: material?.id ?? null,
+        model,
+        provider,
+        prompt_version: PROMPT_VERSION,
+        target_chars: targetChars,
+        notes: { title, content },
       });
     }
 
