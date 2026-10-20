@@ -15,7 +15,7 @@ export const SITE = {
   tagline: "Revise smarter. Score higher.",
   description:
     "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at IGCSE, AS Level and A2 Level.",
-  supportEmail: "support@clutchmarks.study",
+  supportEmail: "Clutchmarks.support@gmail.com",
   /** Brand gold — keep in step with --gold in src/index.css. */
   gold: "#E8B01E",
   goldDeep: "#C6821A",
