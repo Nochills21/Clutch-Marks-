@@ -14,7 +14,7 @@ const NotFound = () => {
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <SEOHead
         title="Page Not Found (404) — Clutch Marks"
-        description="This Clutch Marks page doesn't exist or has moved. Head back to the home page to find Maths, Physics and Computer Science revision resources."
+        description="This Clutch Marks page doesn't exist or has moved. Head back to the home page to find Maths, Physics, Chemistry, Biology, Computer Science and English revision resources."
         path={location.pathname}
         noindex
       />

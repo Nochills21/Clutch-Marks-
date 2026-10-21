@@ -207,6 +207,36 @@ export function prerenderSeo(): Plugin {
         );
       }
 
+      // Inline the app stylesheet into the shell's <head>, so first paint needs
+      // no second network round trip. On a throttled connection the old shape —
+      // HTML, then a render-blocking /assets/index-*.css discovered inside it —
+      // was most of PageSpeed's "render-blocking requests, est. savings of
+      // 1,210 ms" on every one of these pages. Inlined, the bytes ride along
+      // with the HTML the host was sending anyway (gzip keeps the transfer size
+      // about the same) and there is no CSS request to block on. Every page
+      // written below inherits it from this shell, so the change is one place.
+      // Dev is untouched: this plugin runs on `build` only.
+      const cssLink = shell.match(/<link\s+rel="stylesheet"[^>]*href="(\/[^"]+\.css)"[^>]*>/);
+      if (cssLink) {
+        const cssPath = resolve(outDir, cssLink[1].replace(/^\//, ""));
+        try {
+          const css = readFileSync(cssPath, "utf8");
+          // A literal "</style" inside the CSS would close the element early;
+          // CSS-escaping the slash keeps the sequence inert in both places.
+          const safe = css.replace(/<\/style/gi, "<\\/style");
+          shell = shell.replace(cssLink[0], () => `<style data-inlined="app-css">${safe}</style>`);
+          console.log(
+            `prerender-seo: inlined app CSS (${(css.length / 1024).toFixed(0)} KiB raw) — no render-blocking stylesheet request`,
+          );
+        } catch (e) {
+          // Pages still work with a linked stylesheet; say so rather than
+          // failing the build over a performance nicety.
+          console.warn(`prerender-seo: could not inline ${cssLink[1]} (${e.message}) — stylesheet stays linked`);
+        }
+      } else {
+        console.warn("prerender-seo: no local stylesheet link in the shell — nothing to inline");
+      }
+
       // Same list the runtime routes live in, minus the parameterised ones:
       // those are written below, one real file per topic instead of one
       // placeholder (a colon path is not a directory name on Windows either).

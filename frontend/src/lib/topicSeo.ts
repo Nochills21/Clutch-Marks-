@@ -130,9 +130,9 @@ export function topicHead(
   return {
     path,
     // "| Clutch Marks" is dropped from neither the brand nor the topic: the topic
-    // name leads (that is what a search matched), the level code qualifies it,
-    // and the brand closes it.
-    title: `${input.topicName} — ${copy.titleLabel} | ${input.subjectName} ${input.level.toUpperCase()} | ${SITE_NAME}`,
+    // name leads (that is what a search matched), the level label qualifies it
+    // ("IGCSE", not the OL code that lives in the URL), and the brand closes it.
+    title: `${input.topicName} — ${copy.titleLabel} | ${input.subjectName} ${label} | ${SITE_NAME}`,
     description: copy.description(ctx),
     jsonLd: [
       {

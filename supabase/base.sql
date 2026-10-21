@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-20T18:06:46.188Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-21T09:12:46.790Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -3067,7 +3067,10 @@ CREATE OR REPLACE FUNCTION public.syllabus_coverage()
 AS $function$
   with per_topic as (
     select t.id,
-           coalesce((select sum(length(l.content)) from public.lessons l where l.topic_id = t.id), 0)::int as note_chars,
+           (coalesce((select sum(length(l.content)) from public.lessons l where l.topic_id = t.id), 0)
+            + coalesce((select sum(length(m.content)) from public.study_materials m
+                         where m.topic_id = t.id
+                           and lower(replace(coalesce(m.material_type, ''), '_', '-')) = 'notes'), 0))::int as note_chars,
            (select count(*) from public.questions q join public.quizzes z on z.id = q.quiz_id where z.topic_id = t.id)::int as questions,
            (select count(*) from public.study_materials m where m.topic_id = t.id)::int as materials,
            (select count(*) from public.questions q join public.quizzes z on z.id = q.quiz_id
