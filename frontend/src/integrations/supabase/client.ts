@@ -6,6 +6,14 @@
 //     instead of silently building a client pointed at `undefined`;
 //   * every request is bounded by `fetchWithTimeout`, because a stalled socket
 //     used to leave the UI loading forever.
+//   * the client is lazy: importing { supabase } does NOT pull the
+//     @supabase/supabase-js bundle into the importer's module graph — the chunk
+//     is only loaded when the first call to supabase.* runs. That keeps the
+//     173 kB Supabase client off the critical path of public pages (landing,
+//     subjects, notes, quizzes, past papers) whose components do not call it
+//     during first paint, which is the single biggest homepage LCP win here.
+//     Consumers keep importing { supabase } and using it like a constant — the
+//     getter is a module-local singleton, so the client is still created once.
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 import { fetchWithTimeout } from "@/lib/net";
@@ -14,13 +22,29 @@ import { SUPABASE_KEY_SAFE, SUPABASE_URL_SAFE } from "@/lib/env";
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
-export const supabase = createClient<Database>(SUPABASE_URL_SAFE, SUPABASE_KEY_SAFE, {
-  auth: {
-    storage: localStorage,
-    persistSession: true,
-    autoRefreshToken: true,
-  },
-  global: {
-    fetch: fetchWithTimeout,
+let _client: ReturnType<typeof createClient<Database>> | null = null;
+
+function getClient() {
+  if (_client) return _client;
+  _client = createClient<Database>(SUPABASE_URL_SAFE, SUPABASE_KEY_SAFE, {
+    auth: {
+      storage: localStorage,
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+    global: {
+      fetch: fetchWithTimeout,
+    },
+  });
+  return _client;
+}
+
+// Re-export the client getter as a const so existing imports of `{ supabase }`
+// keep working without changes. Reading `supabase` is cheap (a function call);
+// the @supabase/supabase-js bundle only lands in the graph when something calls
+// a method on it.
+export const supabase = new Proxy({} as ReturnType<typeof createClient<Database>>, {
+  get(_target, prop) {
+    return Reflect.get(getClient(), prop);
   },
 });
