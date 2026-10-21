@@ -80,6 +80,16 @@
   "updated_at": "2026-10-19 19:11:39.695787+00"
  },
  {
+  "id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "subject_id": "66507374-12d9-4849-8f93-e69127bcc214",
+  "level": "OL",
+  "description": "Cambridge IGCSE Chemistry 0620 (Extended route)",
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00"
+ },
+ {
   "id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
   "subject_id": "66507374-12d9-4849-8f93-e69127bcc214",
   "level": "A2",
@@ -118,6 +128,16 @@
   "sort_order": 3,
   "created_at": "2026-08-22 11:25:30.590181+00",
   "updated_at": "2026-08-22 11:25:30.590181+00"
+ },
+ {
+  "id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "subject_id": "48937e9d-30b1-43c6-92f5-b43765690b35",
+  "level": "OL",
+  "description": "Cambridge IGCSE Biology 0610 (Extended route)",
+  "is_active": true,
+  "sort_order": 1,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00"
  },
  {
   "id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",

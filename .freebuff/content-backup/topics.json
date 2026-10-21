@@ -110,6 +110,26 @@
   "slug": "transformations-and-vectors"
  },
  {
+  "id": "0f94b365-6cc6-4b12-916b-bd0921151db6",
+  "name": "Biological Molecules",
+  "description": "Biological Molecules (Cambridge IGCSE)",
+  "sort_order": 4,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "biological-molecules"
+ },
+ {
+  "id": "100672b8-3595-494b-8960-653ddde1b444",
+  "name": "Human Influences on Ecosystems",
+  "description": "Human Influences on Ecosystems (Cambridge IGCSE)",
+  "sort_order": 20,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "human-influences-on-ecosystems"
+ },
+ {
   "id": "10de5ecf-fb90-45c3-a301-0562eb466a1c",
   "name": "Mensuration — Area and Volume",
   "description": "Area of triangles, rectangles, circles, sectors, composite shapes. Volume of prisms, cylinders, spheres, cones.",
@@ -210,6 +230,16 @@
   "slug": "transition-metals-and-their-chemistry"
  },
  {
+  "id": "1e8d181f-831e-4c71-a019-f9acca61ba6c",
+  "name": "Organic Chemistry",
+  "description": "Organic Chemistry (Cambridge IGCSE)",
+  "sort_order": 11,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "organic-chemistry"
+ },
+ {
   "id": "1fb446d5-10eb-407d-9d60-e5ca030eeb1c",
   "name": "Trigonometry: Radian Measure",
   "description": "Circular Measure — Cambridge International A Level Mathematics (9709) Pure Mathematics 1",
@@ -228,6 +258,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
   "slug": "simulation-sensors-and-real-data"
+ },
+ {
+  "id": "22663ac7-9e0c-49ca-8225-76616bce8aa1",
+  "name": "Characteristics and Classification of Living Organisms",
+  "description": "Characteristics and Classification of Living Organisms (Cambridge IGCSE)",
+  "sort_order": 1,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "characteristics-and-classification-of-living-organisms"
  },
  {
   "id": "26473ecc-28e3-439a-9b19-a50032d1eef7",
@@ -250,6 +290,16 @@
   "slug": "number-indices-and-standard-form"
  },
  {
+  "id": "2acb13dc-c778-456a-b52d-d64b4c50ff56",
+  "name": "Human Nutrition",
+  "description": "Human Nutrition (Cambridge IGCSE)",
+  "sort_order": 7,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "human-nutrition"
+ },
+ {
   "id": "2b466f1b-04cf-4937-a711-efe8672838ff",
   "name": "Plant Structure and Function, Biodiversity and Conservation",
   "description": null,
@@ -258,6 +308,16 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "7dfc0d52-ca74-467b-bf4d-a141b885fa09",
   "slug": "plant-structure-biodiversity-and-conservation"
+ },
+ {
+  "id": "2cc3151b-4959-48f0-b1ca-f710457cbc2d",
+  "name": "Metals",
+  "description": "Metals (Cambridge IGCSE)",
+  "sort_order": 9,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "metals"
  },
  {
   "id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
@@ -630,6 +690,26 @@
   "slug": "hardware-and-logic-gates"
  },
  {
+  "id": "5544b2b0-b23f-43e5-baf3-080a6f3c5411",
+  "name": "Transport in Plants",
+  "description": "Transport in Plants (Cambridge IGCSE)",
+  "sort_order": 8,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "transport-in-plants"
+ },
+ {
+  "id": "556e6354-35aa-440b-8633-8c68f7fe36c6",
+  "name": "Drugs",
+  "description": "Drugs (Cambridge IGCSE)",
+  "sort_order": 15,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "drugs"
+ },
+ {
   "id": "557df8f5-af3a-4af1-a92e-78b41e90ca27",
   "name": "Molecules, Transport and Health",
   "description": null,
@@ -690,6 +770,26 @@
   "slug": "algebra-simplifying-and-expanding"
  },
  {
+  "id": "5bc5494a-d0a1-4621-8a90-ee4ba8f94fed",
+  "name": "Inheritance",
+  "description": "Inheritance (Cambridge IGCSE)",
+  "sort_order": 17,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "inheritance"
+ },
+ {
+  "id": "5c676555-0574-4e0e-a3c9-ee162f8f019b",
+  "name": "Variation and Selection",
+  "description": "Variation and Selection (Cambridge IGCSE)",
+  "sort_order": 18,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "variation-and-selection"
+ },
+ {
   "id": "5e850452-1f48-409b-a7d1-9a032abedd8d",
   "name": "Intermolecular Forces",
   "description": null,
@@ -710,6 +810,16 @@
   "slug": "integration"
  },
  {
+  "id": "6044bcfe-5786-4e41-9dff-477fe70e4a1f",
+  "name": "Biotechnology and Genetic Modification",
+  "description": "Biotechnology and Genetic Modification (Cambridge IGCSE)",
+  "sort_order": 21,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "biotechnology-and-genetic-modification"
+ },
+ {
   "id": "6111cf0b-63cc-4804-a218-1b16e82da4f3",
   "name": "Trigonometry — Right-Angled Triangles",
   "description": "Using sine, cosine and tangent to find missing sides and angles in right-angled triangles. 3D trigonometry.",
@@ -718,6 +828,26 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "trigonometry-right-angled-triangles"
+ },
+ {
+  "id": "61884cee-8b39-43f1-a7db-dde38e429534",
+  "name": "States of Matter",
+  "description": "States of Matter (Cambridge IGCSE)",
+  "sort_order": 1,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "states-of-matter"
+ },
+ {
+  "id": "61d4dffc-a519-437b-9b59-705633b7fd76",
+  "name": "Chemical Energetics",
+  "description": "Chemical Energetics (Cambridge IGCSE)",
+  "sort_order": 5,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "chemical-energetics"
  },
  {
   "id": "62210c38-aeda-4e3d-a6ec-bf161d9060e8",
@@ -740,6 +870,36 @@
   "slug": "hypothesis-testing"
  },
  {
+  "id": "64c96e0b-85d6-4d6e-b9a4-6d1b01f1b16e",
+  "name": "The Periodic Table",
+  "description": "The Periodic Table (Cambridge IGCSE)",
+  "sort_order": 8,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "the-periodic-table"
+ },
+ {
+  "id": "665c19bf-c511-4ea6-beaa-50ea10c39207",
+  "name": "Excretion in Humans",
+  "description": "Excretion in Humans (Cambridge IGCSE)",
+  "sort_order": 13,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "excretion-in-humans"
+ },
+ {
+  "id": "682bb9d1-316c-46cd-8392-4ab87682a2ed",
+  "name": "Plant Nutrition",
+  "description": "Plant Nutrition (Cambridge IGCSE)",
+  "sort_order": 6,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "plant-nutrition"
+ },
+ {
   "id": "68a0c8be-5eba-4a82-a948-a4baef78c57d",
   "name": "Astrophysics and Cosmology",
   "description": "Astronomy and Cosmology — Cambridge International A Level Physics (9702)",
@@ -750,6 +910,16 @@
   "slug": "astronomy-and-cosmology"
  },
  {
+  "id": "6a0960d6-4cdd-4eb9-b326-635e26fb0b1c",
+  "name": "Acids, Bases and Salts",
+  "description": "Acids, Bases and Salts (Cambridge IGCSE)",
+  "sort_order": 7,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "acids-bases-and-salts"
+ },
+ {
   "id": "6d1c8b2b-45f7-46bc-a46b-df7c5ba1b065",
   "name": "Chemical Equilibria",
   "description": null,
@@ -758,6 +928,26 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
   "slug": "chemical-equilibria"
+ },
+ {
+  "id": "6e260447-834e-4b86-858f-deb6d0cd3d9d",
+  "name": "Organisation of the Organism",
+  "description": "Organisation of the Organism (Cambridge IGCSE)",
+  "sort_order": 2,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "organisation-of-the-organism"
+ },
+ {
+  "id": "6fad4983-f0cf-47b7-8bb1-f02724d77800",
+  "name": "Transport in Animals",
+  "description": "Transport in Animals (Cambridge IGCSE)",
+  "sort_order": 9,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "transport-in-animals"
  },
  {
   "id": "707ec3c7-7efb-4793-ae95-de061ba8ff42",
@@ -810,6 +1000,16 @@
   "slug": "statistics-s1"
  },
  {
+  "id": "76009be1-cc64-4122-9b06-77ed8f586688",
+  "name": "Electrochemistry",
+  "description": "Electrochemistry (Cambridge IGCSE)",
+  "sort_order": 4,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "electrochemistry"
+ },
+ {
   "id": "76639184-3968-4dca-92f4-c5b52f558d8e",
   "name": "Databases and Data Definition",
   "description": "Databases and Data Definition — Cambridge International A Level Computer Science (9618)",
@@ -840,6 +1040,16 @@
   "slug": "acid-base-equilibria"
  },
  {
+  "id": "7c873d96-9533-4f88-a111-45cfb1e95e4e",
+  "name": "Reproduction",
+  "description": "Reproduction (Cambridge IGCSE)",
+  "sort_order": 16,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "reproduction"
+ },
+ {
   "id": "7e5607f4-c80d-4502-a980-8013ead56da6",
   "name": "Exponentials and Logarithms",
   "description": null,
@@ -858,6 +1068,36 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "further-trigonometry"
+ },
+ {
+  "id": "80ad7ff2-2c9e-4cd8-8273-1143fdd7f970",
+  "name": "Organisms and their Environment",
+  "description": "Organisms and their Environment (Cambridge IGCSE)",
+  "sort_order": 19,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "organisms-and-their-environment"
+ },
+ {
+  "id": "81b99d95-e6ff-49ab-9810-3e27edf1ede2",
+  "name": "Respiration",
+  "description": "Respiration (Cambridge IGCSE)",
+  "sort_order": 12,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "respiration"
+ },
+ {
+  "id": "82b432a2-ffe7-40cd-8c9b-4b047bda8de8",
+  "name": "Enzymes",
+  "description": "Enzymes (Cambridge IGCSE)",
+  "sort_order": 5,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "enzyme"
  },
  {
   "id": "8300c19d-75f8-4cf3-9ee2-53a0b0cbe5da",
@@ -880,6 +1120,26 @@
   "slug": "coordinate-geometry"
  },
  {
+  "id": "8555df55-a969-4f6d-8d97-ffa8f8279fe7",
+  "name": "Diseases and Immunity",
+  "description": "Diseases and Immunity (Cambridge IGCSE)",
+  "sort_order": 10,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "diseases-and-immunity"
+ },
+ {
+  "id": "87cf1ec5-bd34-4f37-9a40-a18f51d9b64b",
+  "name": "Stoichiometry",
+  "description": "Stoichiometry (Cambridge IGCSE)",
+  "sort_order": 3,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "stoichiometry"
+ },
+ {
   "id": "8b9545f6-944a-46c4-948c-245a1b9dbd02",
   "name": "Articles and Determiners",
   "description": "Articles and Determiners — Oxford IGCSE English as a Second Language",
@@ -898,6 +1158,26 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
   "slug": "introduction-to-kinetics-and-equilibria"
+ },
+ {
+  "id": "8d008059-63b7-44c4-94e6-2c0a35559487",
+  "name": "Chemical Reactions",
+  "description": "Chemical Reactions (Cambridge IGCSE)",
+  "sort_order": 6,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "chemical-reactions"
+ },
+ {
+  "id": "8d0d8de0-b21c-442e-b67f-da1c97070f4e",
+  "name": "Experimental Techniques and Chemical Analysis",
+  "description": "Experimental Techniques and Chemical Analysis (Cambridge IGCSE)",
+  "sort_order": 12,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "experimental-techniques-and-chemical-analysis"
  },
  {
   "id": "8eef118f-639b-44a5-b503-80241e2bb58e",
@@ -968,6 +1248,16 @@
   "updated_at": "2026-10-17 10:33:00.218938+00",
   "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
   "slug": "formal-writing-register-and-linking-words"
+ },
+ {
+  "id": "93a7766f-acbf-4ea1-8bd7-ac865d15e305",
+  "name": "Coordination and Response",
+  "description": "Coordination and Response (Cambridge IGCSE)",
+  "sort_order": 14,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "coordination-and-response"
  },
  {
   "id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",
@@ -1100,6 +1390,16 @@
   "slug": "organic-nitrogen-compounds"
  },
  {
+  "id": "aaf10859-fd35-43b2-9c10-581ee9ddb33c",
+  "name": "Gas Exchange in Humans",
+  "description": "Gas Exchange in Humans (Cambridge IGCSE)",
+  "sort_order": 11,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "gas-exchange-in-humans"
+ },
+ {
   "id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
   "name": "Motion in a Circle and Gravity",
   "description": "Motion in a Circle and Gravity — Cambridge International AS Level Physics (9702)",
@@ -1118,6 +1418,26 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
   "slug": "robotics-ai"
+ },
+ {
+  "id": "af004def-0a18-4adb-890c-b0a7fcb9d4af",
+  "name": "Atoms, Elements and Compounds",
+  "description": "Atoms, Elements and Compounds (Cambridge IGCSE)",
+  "sort_order": 2,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "atoms-elements-and-compounds"
+ },
+ {
+  "id": "b5b6148e-1bce-44ed-9d40-13b7f0bc30ad",
+  "name": "Chemistry of the Environment",
+  "description": "Chemistry of the Environment (Cambridge IGCSE)",
+  "sort_order": 10,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
+  "slug": "chemistry-of-the-environment"
  },
  {
   "id": "b5ce7a38-98cf-46ba-8e83-758e98c7b7bb",
@@ -1338,6 +1658,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "f83b5d62-2fd4-4313-a7b6-d34f53ffb88c",
   "slug": "web-technologies"
+ },
+ {
+  "id": "e5911649-9405-4067-bf10-830dffb2f212",
+  "name": "Movement into and out of Cells",
+  "description": "Movement into and out of Cells (Cambridge IGCSE)",
+  "sort_order": 3,
+  "created_at": "2026-10-21 05:43:57.755532+00",
+  "updated_at": "2026-10-21 05:43:57.755532+00",
+  "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
+  "slug": "movement-into-and-out-of-cells"
  },
  {
   "id": "e8237701-4e22-468e-a25f-6bd96b5f22e1",
