@@ -1,5 +1,5 @@
 {
- "dumped_at": "2026-10-21T07:37:42.281Z",
+ "dumped_at": "2026-10-21T08:37:36.132Z",
  "project_ref": "zzliiazovezhxbmfeqco",
  "tables": [
   "subjects",
@@ -19,16 +19,16 @@
  "row_counts": {
   "subjects": 7,
   "subject_levels": 17,
-  "topics": 184,
+  "topics": 185,
   "lessons": 140,
   "questions": 3419,
   "quizzes": 279,
-  "study_materials": 436,
+  "study_materials": 437,
   "past_papers": 1095,
   "flashcard_sets": 178,
   "flashcards": 2348,
   "announcements": 3,
-  "content_revisions": 758,
+  "content_revisions": 839,
   "content_file_versions": 0
  }
 }

@@ -79,7 +79,7 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "How much does Clutch Marks cost?",
-    a: "You can preview every level for free. Full access is $40/month, $24/month when billed quarterly ($72), or $6.67/month when billed annually ($80).",
+    a: "You can preview every level for free. Full access is $40/month, $20/month when billed quarterly ($60), or $6.67/month when billed annually ($80).",
   },
   {
     q: "How do I pay?",
@@ -119,7 +119,7 @@ const course = {
   provider: organization,
   offers: [
     { "@type": "Offer", name: "Monthly", price: "40", priceCurrency: "USD" },
-    { "@type": "Offer", name: "3 Months", price: "72", priceCurrency: "USD" },
+    { "@type": "Offer", name: "3 Months", price: "60", priceCurrency: "USD" },
     { "@type": "Offer", name: "Annual", price: "80", priceCurrency: "USD" },
   ],
 };
