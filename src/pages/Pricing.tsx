@@ -1,4 +1,4 @@
-// Pricing: preview tier + three paid plans ($40/mo, $24/mo billed quarterly, $6.67/mo billed annually).
+// Pricing: preview tier + three paid plans ($40/mo, $20/mo billed quarterly ($60), $6.67/mo billed annually).
 // Exactly two payment methods: Bank Transfer or E-Wallet (Urpay). Requesting a
 // plan captures the payer's full name and a transaction receipt; an admin then
 // activates the subscription from Admin Payments.
@@ -40,10 +40,10 @@ const PLANS = [
   {
     id: "quarterly",
     name: "3 Months",
-    price: "$24",
-    per: "/month · billed $72",
-    blurb: "Save 40% with a quarterly subscription.",
-    features: ["Everything in Monthly", "Save $16/month vs monthly plan"],
+    price: "$20",
+    per: "/month · billed $60",
+    blurb: "Save 50% with a quarterly subscription.",
+    features: ["Everything in Monthly", "Save $20/month vs monthly plan"],
     highlight: true,
   },
   {

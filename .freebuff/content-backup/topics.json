@@ -211,11 +211,11 @@
  },
  {
   "id": "1bdc4fd6-0627-40d3-a8e4-bbe5827c51e0",
-  "name": "Ethics and AI",
+  "name": "Ethics and Ownership",
   "description": "Ethics and AI — Cambridge International AS Level Computer Science (9618)",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:56.00896+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
+  "updated_at": "2026-10-21 07:39:31.356574+00",
   "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
   "slug": "ethics-and-ai"
  },
@@ -483,10 +483,10 @@
   "id": "3e08bf8f-4227-40a9-b6af-783b81e8b31f",
   "name": "The Normal Distribution",
   "description": "The normal model N(μ, σ²), standardising, and using the normal approximation to the binomial.",
-  "sort_order": 13,
+  "sort_order": 16,
   "created_at": "2026-09-20 17:50:57.717213+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "updated_at": "2026-10-21 07:40:21.857819+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "the-normal-distribution"
  },
  {
@@ -673,10 +673,10 @@
   "id": "52d5c1d0-d6ba-4ae6-9dbd-ece542b7f34c",
   "name": "Numerical Measures of Central Tendency",
   "description": "Mean, median and mode for raw and grouped data; effect of data changes; coding.",
-  "sort_order": 9,
+  "sort_order": 12,
   "created_at": "2026-09-21 17:56:55.890817+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "updated_at": "2026-10-21 07:40:21.857819+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "numerical-measures-of-central-tendency"
  },
  {
@@ -1183,10 +1183,10 @@
   "id": "8eef118f-639b-44a5-b503-80241e2bb58e",
   "name": "Quantum Physics",
   "description": "Quantum Physics — Cambridge International A Level Physics (9702)",
-  "sort_order": 5,
+  "sort_order": 9,
   "created_at": "2026-09-20 18:42:20.07172+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
-  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "updated_at": "2026-10-21 07:39:31.356574+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
   "slug": "quantum-physics"
  },
  {
@@ -1303,10 +1303,10 @@
   "id": "9a277064-37cf-40c5-a484-34372e2f058b",
   "name": "Probability Distributions",
   "description": "Discrete random variables: expectation, variance, E(aX+b), and combining independent variables.",
-  "sort_order": 11,
+  "sort_order": 15,
   "created_at": "2026-09-21 17:57:01.30703+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "updated_at": "2026-10-21 07:40:21.857819+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "probability-distributions"
  },
  {
@@ -1403,10 +1403,10 @@
   "id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
   "name": "Motion in a Circle and Gravity",
   "description": "Motion in a Circle and Gravity — Cambridge International AS Level Physics (9702)",
-  "sort_order": 9,
+  "sort_order": 10,
   "created_at": "2026-09-20 18:42:11.30139+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
-  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "updated_at": "2026-10-21 07:39:31.356574+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "motion-in-a-circle-and-gravity"
  },
  {
@@ -1453,10 +1453,10 @@
   "id": "b777d569-655f-4776-95fd-ef3be62361e9",
   "name": "Measures of Variation and Standard Deviation",
   "description": "Range, interquartile range, variance and standard deviation for raw and grouped data.",
-  "sort_order": 10,
+  "sort_order": 13,
   "created_at": "2026-09-21 17:56:58.418623+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "updated_at": "2026-10-21 07:40:21.857819+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "measures-of-variation-and-standard-deviation"
  },
  {
@@ -1518,6 +1518,16 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
   "slug": "alkenes"
+ },
+ {
+  "id": "c2c5db34-d333-4417-851e-4ef3121f0b35",
+  "name": "Artificial Intelligence",
+  "description": null,
+  "sort_order": 9,
+  "created_at": "2026-10-21 07:39:31.356574+00",
+  "updated_at": "2026-10-21 07:39:31.356574+00",
+  "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
+  "slug": "artificial-intelligence"
  },
  {
   "id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
@@ -1733,9 +1743,9 @@
   "id": "f0822aab-d5fc-4e23-8b07-b1e6a7824348",
   "name": "Mechanics (M1)",
   "description": null,
-  "sort_order": 12,
+  "sort_order": 17,
   "created_at": "2026-10-18 05:27:55.845031+00",
-  "updated_at": "2026-10-18 05:27:55.845031+00",
+  "updated_at": "2026-10-21 07:40:21.857819+00",
   "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "mechanics-m1"
  },
@@ -1743,10 +1753,10 @@
   "id": "f08508a7-5ca2-4527-97d4-cd63ac22309e",
   "name": "Probability",
   "description": "Probability rules, Venn diagrams, tree diagrams, conditional probability and independence.",
-  "sort_order": 8,
+  "sort_order": 14,
   "created_at": "2026-09-21 17:56:52.852832+00",
-  "updated_at": "2026-09-29 18:45:57.046967+00",
-  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "updated_at": "2026-10-21 07:40:21.857819+00",
+  "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "probability"
  },
  {

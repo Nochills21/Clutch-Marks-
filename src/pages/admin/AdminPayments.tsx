@@ -23,7 +23,7 @@ type SubscriptionRow = Tables<"subscriptions"> & {
 };
 type ProfileContact = { username: string | null; full_name: string | null; email: string | null };
 
-const PLAN_PRICE: Record<string, string> = { free: "—", monthly: "$40/mo", quarterly: "$72 / 3mo", annual: "$80 / yr" };
+const PLAN_PRICE: Record<string, string> = { free: "—", monthly: "$40/mo", quarterly: "$60 / 3mo", annual: "$80 / yr" };
 
 const METHOD_LABEL: Record<string, string> = {
   bank_transfer: "Bank Transfer",

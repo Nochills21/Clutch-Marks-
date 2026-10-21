@@ -240,8 +240,12 @@ describe("study pages", () => {
     }
     const paths = levelPaths();
     expect(new Set(paths).size, "two levels share a page path").toBe(paths.length);
+    // The segment is the level code lowercased, so the allowed set comes from
+    // the vocabulary itself (OL, IGCSE, AS, A2) rather than a hardcoded subset
+    // that silently goes stale when a level like IGCSE joins.
+    const levelSegment = LEVELS.map((l) => l.toLowerCase()).join("|");
     for (const path of paths) {
-      expect(path, "level path shape").toMatch(/^\/study\/[a-z0-9-]+\/(ol|as|a2)$/);
+      expect(path, "level path shape").toMatch(new RegExp(`^/study/[a-z0-9-]+/(${levelSegment})$`));
     }
 
     // Every topic page must sit under a hub page that is actually emitted:
