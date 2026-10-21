@@ -5,7 +5,7 @@
 // Optional parent email at signup auto-links the child to that parent account
 // (instant if it exists, queued if not). Includes a forgot-password flow.
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/useToast";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
+import { postLoginPath } from "@/lib/returnTo";
 import { captureAttribution, getAttribution, trackSignup } from "@/lib/analytics";
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
 import { buildSignupConsent } from "@/lib/legal";
@@ -43,6 +44,9 @@ export default function Auth() {
   const lastAttemptRef = useRef(0);
   const { toast } = useToast();
   const navigate = useNavigate();
+  // Set by AppLayout when it bounces a signed-out visitor here; sanitised on
+  // the way out so a crafted link cannot turn sign-in into an open redirect.
+  const [searchParams] = useSearchParams();
 
   // Persist first-touch UTM attribution (blog links etc.) before signup.
   useEffect(() => {
@@ -147,7 +151,8 @@ export default function Auth() {
         // Always the same generic message — never reveal whether the account exists
         toast({ title: "Login failed", description: GENERIC_LOGIN_ERROR, variant: "destructive" });
       } else {
-        navigate("/dashboard");
+        // Return the visitor to the page that sent them here, not to the hub.
+        navigate(postLoginPath(searchParams.get("next")), { replace: true });
       }
     } catch {
       toast({ title: "Login failed", description: GENERIC_LOGIN_ERROR, variant: "destructive" });

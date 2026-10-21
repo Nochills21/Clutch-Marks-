@@ -12,6 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/SEOHead";
 import { SubjectGate } from "@/components/SubjectGate";
+import { QuestionTimeTrend } from "@/components/QuestionTimeTrend";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, LEVELS, type SubjectLevelCode } from "@/lib/subjects";
 import {
   BookOpen, Brain, ClipboardList, Sparkles, FileText, Bookmark, AlertCircle,
@@ -315,6 +316,8 @@ export default function ProgressPage() {
       {visible.length === 0 && !error && (
         <Card><CardContent className="p-10 text-center text-muted-foreground">No active subject levels to track yet.</CardContent></Card>
       )}
+
+      <QuestionTimeTrend />
 
       {/* Subject-level cards */}
       <div className="grid gap-4 lg:grid-cols-2">

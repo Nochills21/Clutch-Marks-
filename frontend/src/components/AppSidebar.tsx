@@ -4,7 +4,7 @@ import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, FileCheck,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
   Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
-  ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge,
+  ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge, PenLine, CalendarDays,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -44,6 +44,8 @@ const studentLinkGroups = [
     links: [
       // Mastery is the objective-level review loop; Progress shows wider trends.
       { title: "Mastery", url: "/mastery", icon: GraduationCap },
+      { title: "Command words", url: "/command-words", icon: PenLine },
+      { title: "Exam plan", url: "/exam-plan", icon: CalendarDays },
       { title: "Progress", url: "/progress", icon: BarChart3 },
       { title: "Study Planner", url: "/study-planner", icon: Sparkles },
       { title: "Leaderboard", url: "/leaderboard", icon: Trophy },

@@ -127,8 +127,14 @@ export function NotificationCenter() {
           <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground">
             <Bell className="h-5 w-5" />
             {unread > 0 && (
-              <Badge className="absolute -top-1 -right-1 h-5 min-w-5 p-0 flex items-center justify-center text-[10px] bg-primary text-primary-foreground border-2 border-background">
-                {unread > 9 ? "9+" : unread} new
+              // Count only. The pill is 20px tall, so the old "3 new" label
+              // spilled sideways and collided with the header controls; the
+              // word survives for screen readers instead.
+              <Badge
+                className="absolute -top-1 -right-1 h-5 min-w-5 justify-center border-2 border-background bg-primary p-0 text-[10px] tabular-nums text-primary-foreground"
+                aria-label={`${unread} unread ${unread === 1 ? "announcement" : "announcements"}`}
+              >
+                <span aria-hidden="true">{unread > 9 ? "9+" : unread}</span>
               </Badge>
             )}
           </Button>

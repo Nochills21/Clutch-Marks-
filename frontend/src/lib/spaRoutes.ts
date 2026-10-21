@@ -66,6 +66,16 @@ export const SPA_ONLY_ROUTES: SpaOnlyRoute[] = [
     reason:
       "account-gated and paid, and not in ROUTE_META — so the build writes no file and the fallback answers it",
   },
+  {
+    pattern: "/exam-plan",
+    reason:
+      "account-gated exam timetable and revision plan built from the student's own sitting dates: nothing to enumerate and nothing a crawler should index, so it gets the noindex fallback",
+  },
+  {
+    pattern: "/command-words",
+    reason:
+      "account-gated exam-technique trainer: no list to enumerate and nothing a crawler should index, so it gets the noindex fallback",
+  },
 ];
 
 /**

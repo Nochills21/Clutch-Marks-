@@ -204,7 +204,11 @@ const SPECS = {
       "15.1": "processor-fundamentals@A2", // Parallel processing and virtual machines
       "15.2": "hardware-and-logic-gates@A2", // Boolean algebra and logic circuits
       "16.1": "system-software-and-security@A2", // Purposes of an OS
-      "16.2": "system-software-and-security@A2", // Translation software
+            // Translation Software: the board deepens AS 5.2 at A2, and BOTH halves of
+      // our course teach it — but the A2 half is where the board put it, AS keeps
+      // 5.2 in system-software, so the split is honoured without either topic
+      // claiming content it does not teach.
+      "16.2": "programming-paradigms-and-low-level@A2", // Translation software
       "17.1": "web-technologies-and-security@A2", // Encryption and digital certificates
       "18.1": "ethics-and-ai@A2", // Artificial intelligence
       "19.1": "computational-thinking-and-problem-solving@A2",

@@ -1086,6 +1086,63 @@ export type Database = {
           },
         ]
       }
+      exam_dates: {
+        Row: {
+          created_at: string
+          exam_at: string
+          id: string
+          paper_label: string
+          subject_level_id: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          exam_at: string
+          id?: string
+          paper_label: string
+          subject_level_id?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          exam_at?: string
+          id?: string
+          paper_label?: string
+          subject_level_id?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      question_timings: {
+        Row: {
+          created_at: string
+          id: string
+          ordinal: number
+          question_id: string | null
+          quiz_id: string
+          seconds: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          ordinal?: number
+          question_id?: string | null
+          quiz_id: string
+          seconds: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          ordinal?: number
+          question_id?: string | null
+          quiz_id?: string
+          seconds?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
       practice_attempts: {
         Row: {
           attempts_count: number

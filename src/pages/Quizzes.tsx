@@ -20,6 +20,7 @@ import {
   Loader2,
   FileDown,
   ListChecks,
+  Timer,
 } from "lucide-react";
 import { useToast } from "@/hooks/useToast";
 import { loadFailureMessage } from "@/lib/net";
@@ -31,6 +32,7 @@ import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
+import { formatSeconds, pacingSummary, toTimingRows, type PacingSummary, type QuestionTiming } from "@/lib/pacing";
 
 function LocalLabel({ children, className }: { children: React.ReactNode; className?: string }) {
   return <label className={`text-sm font-medium ${className ?? ""}`}>{children}</label>;
@@ -99,6 +101,25 @@ export default function Quizzes() {
   // Post-marking review: the whole paper, or just the ones to redo.
   const [reviewOnly, setReviewOnly] = useState(false);
   const [exporting, setExporting] = useState(false);
+
+  // Pacing: seconds spent on each question before it was answered, plus the
+  // summary shown once the paper is marked. `lastTimingAt` is the moment of the
+  // previous answer (or the start of the sitting), so each question's time is the
+  // gap before the student answered it.
+  const [pacing, setPacing] = useState<PacingSummary | null>(null);
+  const timingsRef = useRef<Map<string, number>>(new Map());
+  const lastTimingAtRef = useRef<number | null>(null);
+
+  /** Record how long the student took on a question, then answer it. */
+  const recordAnswer = (question: StudentQuestion, option: number) => {
+    const now = Date.now();
+    const from = lastTimingAtRef.current ?? now;
+    // A first answer inside the same tick is 0s, which the summary treats as a
+    // real (very fast) answer rather than a missing one.
+    timingsRef.current.set(question.id, Math.max(0, Math.round((now - from) / 1000)));
+    lastTimingAtRef.current = now;
+    setAnswers((a) => ({ ...a, [question.id]: option }));
+  };
 
   const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
 
@@ -260,6 +281,9 @@ export default function Quizzes() {
     setReviewOnly(false);
     setTimedOut(false);
     setSecondsLeft(0);
+    setPacing(null);
+    timingsRef.current = new Map();
+    lastTimingAtRef.current = Date.now();
   };
 
   const uploadSubmission = async () => {
@@ -286,6 +310,15 @@ export default function Quizzes() {
     // indistinguishable from "not part of this paper".
     const payload = Object.fromEntries(questions.map((q) => [q.id, answers[q.id] ?? -1]));
 
+    // Summarise pacing before the network round trip, so the student sees it
+    // even if the marking call is slow. Blanks are counted from the answers map,
+    // not from the timings: a blank question has no timing by definition.
+    const timings: QuestionTiming[] = questions
+      .map((q, ordinal) => ({ questionId: q.id, ordinal, seconds: timingsRef.current.get(q.id) }))
+      .filter((t): t is QuestionTiming => typeof t.seconds === "number");
+    const blank = questions.length - timings.length;
+    setPacing(pacingSummary(timings, { blank, limitSeconds: timeLimitSeconds }));
+
     const { data, error } = await supabase.rpc("grade_quiz", {
       _quiz_id: activeQuiz.id,
       _answers: payload,
@@ -302,6 +335,14 @@ export default function Quizzes() {
     setGradeResults(result.results);
     setSubmitted(true);
     setReviewOnly(false);
+    // Best effort, and deliberately not awaited: pacing is a study aid, not part
+    // of the attempt. A failure to store it must not look like a failed paper.
+    const rows = toTimingRows(timings, { userId: user.id, quizId: activeQuiz.id });
+    if (rows.length > 0) {
+      void supabase.from("question_timings").insert(rows).then(({ error: timingError }) => {
+        if (timingError) console.error("pacing: could not store timings", timingError);
+      });
+    }
     toast({ title: "Quiz submitted!", description: `You scored ${result.correct}/${result.total}` });
   };
 
@@ -375,7 +416,9 @@ export default function Quizzes() {
             <h1 className="text-2xl font-bold">{activeQuiz.title}</h1>
             <p className="text-muted-foreground">{questions.length} questions</p>
           </div>
-          <Button variant="ghost" onClick={() => setActiveQuiz(null)}>← Back</Button>
+          <Button variant="ghost" onClick={() => setActiveQuiz(null)}>
+            ← Back to quizzes
+          </Button>
         </div>
 
         {/* Sitting clock. Only for a timed paper, and only until it is marked. */}
@@ -511,10 +554,42 @@ export default function Quizzes() {
                     setGradeResults([]);
                     setReviewOnly(false);
                     setAiFeedback(null);
+                    setPacing(null);
+                    timingsRef.current = new Map();
+                    lastTimingAtRef.current = Date.now();
                   }}
                 >
                   Try again
                 </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {submitted && pacing && pacing.answered > 0 && (
+          <Card className="neon-border bg-card">
+            <CardHeader className="pb-2">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <Timer className="h-4 w-4 text-primary" /> Where your time went
+              </CardTitle>
+              <CardDescription className="leading-relaxed">{pacing.advice}</CardDescription>
+            </CardHeader>
+            <CardContent className="grid grid-cols-3 gap-3 text-center">
+              <div>
+                <p className="font-mono text-lg font-semibold">{formatSeconds(pacing.totalSeconds)}</p>
+                <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Total on answers</p>
+              </div>
+              <div>
+                <p className="font-mono text-lg font-semibold">{formatSeconds(pacing.medianSeconds)}</p>
+                <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Typical question</p>
+              </div>
+              <div>
+                <p className="font-mono text-lg font-semibold">
+                  {pacing.slowest ? formatSeconds(pacing.slowest.seconds) : "—"}
+                </p>
+                <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                  {pacing.slowest ? `Slowest (Q${pacing.slowest.ordinal + 1})` : "Slowest"}
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -540,7 +615,7 @@ export default function Quizzes() {
               selected={row.picked ?? null}
               correctOption={submitted && result ? result.correct_option : null}
               disabled={submitted || timedOut}
-              onSelect={(i) => setAnswers((a) => ({ ...a, [q.id]: i }))}
+              onSelect={(i) => recordAnswer(q, i)}
               explanation={submitted ? result?.explanation ?? null : null}
             />
           );
