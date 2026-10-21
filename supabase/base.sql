@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-20T05:35:17.441Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-20T18:06:46.188Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -389,6 +389,17 @@ create table if not exists public."topics" (
   constraint "topics_no_replacement_character" CHECK (POSITION((chr(65533)) IN (name)) = 0 AND POSITION((chr(65533)) IN (COALESCE(description, ''::text))) = 0),
   constraint "topics_pkey" PRIMARY KEY (id)
 );
+create table if not exists public."exam_dates" (
+  "id" uuid default gen_random_uuid() not null,
+  "user_id" uuid not null,
+  "subject_level_id" uuid,
+  "paper_label" text not null,
+  "exam_at" timestamp with time zone not null,
+  "created_at" timestamp with time zone default now() not null,
+  constraint "exam_dates_label_length" CHECK (char_length(paper_label) >= 1 AND char_length(paper_label) <= 120),
+  constraint "exam_dates_no_replacement_character" CHECK (POSITION((chr(65533)) IN (paper_label)) = 0),
+  constraint "exam_dates_pkey" PRIMARY KEY (id)
+);
 create table if not exists public."flashcard_sets" (
   "id" uuid default gen_random_uuid() not null,
   "topic_id" uuid,
@@ -673,6 +684,18 @@ create table if not exists public."question_bookmarks" (
   constraint "question_bookmarks_pkey" PRIMARY KEY (id),
   constraint "question_bookmarks_user_id_question_id_key" UNIQUE (user_id, question_id)
 );
+create table if not exists public."question_timings" (
+  "id" uuid default gen_random_uuid() not null,
+  "user_id" uuid not null,
+  "quiz_id" uuid not null,
+  "question_id" uuid,
+  "ordinal" integer default 0 not null,
+  "seconds" integer not null,
+  "created_at" timestamp with time zone default now() not null,
+  constraint "question_timings_ordinal_sane" CHECK (ordinal >= 0 AND ordinal <= 500),
+  constraint "question_timings_pkey" PRIMARY KEY (id),
+  constraint "question_timings_seconds_sane" CHECK (seconds >= 0 AND seconds <= 3600)
+);
 
 -- ============ indexes ============
 create index if not exists admin_audit_log_actor_idx ON public.admin_audit_log USING btree (actor_id, created_at DESC);
@@ -690,6 +713,7 @@ create index if not exists content_file_versions_entity_idx ON public.content_fi
 create index if not exists content_revisions_created_at_idx ON public.content_revisions USING btree (created_at DESC);
 create index if not exists content_revisions_entity_idx ON public.content_revisions USING btree (entity_type, entity_id, version DESC);
 create index if not exists idx_data_requests_open ON public.data_requests USING btree (status, requested_at DESC);
+create index if not exists exam_dates_user_when_idx ON public.exam_dates USING btree (user_id, exam_at);
 create index if not exists idx_feedback_messages_thread ON public.feedback_messages USING btree (feedback_id, created_at);
 create index if not exists idx_learning_objectives_topic ON public.learning_objectives USING btree (topic_id, sort_order);
 create index if not exists idx_objective_reviews_due ON public.objective_reviews USING btree (user_id, due_at);
@@ -706,6 +730,7 @@ create index if not exists idx_practice_attempts_user ON public.practice_attempt
 create UNIQUE index if not exists profiles_email_unique_idx ON public.profiles USING btree (lower(email)) WHERE (email IS NOT NULL);
 create UNIQUE index if not exists profiles_username_unique_idx ON public.profiles USING btree (lower(username)) WHERE (username IS NOT NULL);
 create index if not exists idx_question_bookmarks_user ON public.question_bookmarks USING btree (user_id);
+create index if not exists question_timings_user_quiz_idx ON public.question_timings USING btree (user_id, quiz_id);
 create index if not exists idx_questions_objective ON public.questions USING btree (objective_id);
 create index if not exists idx_questions_statement ON public.questions USING btree (statement_id);
 create index if not exists idx_student_subject_prefs_user ON public.student_subject_prefs USING btree (user_id);
@@ -738,6 +763,10 @@ alter table public."content_feedback" drop constraint if exists "content_feedbac
 alter table public."content_feedback" add constraint "content_feedback_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."data_requests" drop constraint if exists "data_requests_user_id_fkey";
 alter table public."data_requests" add constraint "data_requests_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+alter table public."exam_dates" drop constraint if exists "exam_dates_subject_level_id_fkey";
+alter table public."exam_dates" add constraint "exam_dates_subject_level_id_fkey" FOREIGN KEY (subject_level_id) REFERENCES subject_levels(id) ON DELETE SET NULL;
+alter table public."exam_dates" drop constraint if exists "exam_dates_user_id_fkey";
+alter table public."exam_dates" add constraint "exam_dates_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."feedback_messages" drop constraint if exists "feedback_messages_feedback_id_fkey";
 alter table public."feedback_messages" add constraint "feedback_messages_feedback_id_fkey" FOREIGN KEY (feedback_id) REFERENCES content_feedback(id) ON DELETE CASCADE;
 alter table public."feedback_messages" drop constraint if exists "feedback_messages_sender_id_fkey";
@@ -796,6 +825,12 @@ alter table public."profiles" drop constraint if exists "profiles_user_id_fkey";
 alter table public."profiles" add constraint "profiles_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."question_bookmarks" drop constraint if exists "question_bookmarks_question_id_fkey";
 alter table public."question_bookmarks" add constraint "question_bookmarks_question_id_fkey" FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE;
+alter table public."question_timings" drop constraint if exists "question_timings_question_id_fkey";
+alter table public."question_timings" add constraint "question_timings_question_id_fkey" FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE SET NULL;
+alter table public."question_timings" drop constraint if exists "question_timings_quiz_id_fkey";
+alter table public."question_timings" add constraint "question_timings_quiz_id_fkey" FOREIGN KEY (quiz_id) REFERENCES quizzes(id) ON DELETE CASCADE;
+alter table public."question_timings" drop constraint if exists "question_timings_user_id_fkey";
+alter table public."question_timings" add constraint "question_timings_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."questions" drop constraint if exists "questions_objective_id_fkey";
 alter table public."questions" add constraint "questions_objective_id_fkey" FOREIGN KEY (objective_id) REFERENCES learning_objectives(id) ON DELETE SET NULL;
 alter table public."questions" drop constraint if exists "questions_quiz_id_fkey";
@@ -3413,6 +3448,8 @@ alter table public."objective_reviews" enable row level security;
 alter table public."admin_audit_log" enable row level security;
 alter table public."ai_audit_log" enable row level security;
 alter table public."syllabus_statements" enable row level security;
+alter table public."question_timings" enable row level security;
+alter table public."exam_dates" enable row level security;
 alter table public."xp_events" enable row level security;
 alter table public."email_suppressions" enable row level security;
 alter table public."admin_audit_log_archive" enable row level security;
@@ -3536,6 +3573,14 @@ drop policy if exists "admins_view_suppressions" on public."email_suppressions";
 create policy "admins_view_suppressions" on public."email_suppressions" for select to "authenticated" using ((EXISTS ( SELECT 1
    FROM user_roles r
   WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND (r.is_approved = true)))));
+drop policy if exists "delete own exam dates" on public."exam_dates";
+create policy "delete own exam dates" on public."exam_dates" for delete using ((auth.uid() = user_id));
+drop policy if exists "insert own exam dates" on public."exam_dates";
+create policy "insert own exam dates" on public."exam_dates" for insert with check ((auth.uid() = user_id));
+drop policy if exists "read own exam dates" on public."exam_dates";
+create policy "read own exam dates" on public."exam_dates" for select using ((auth.uid() = user_id));
+drop policy if exists "update own exam dates" on public."exam_dates";
+create policy "update own exam dates" on public."exam_dates" for update using ((auth.uid() = user_id)) with check ((auth.uid() = user_id));
 drop policy if exists "Admins post to any thread" on public."feedback_messages";
 create policy "Admins post to any thread" on public."feedback_messages" for insert to "authenticated" with check (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Thread participants read messages" on public."feedback_messages";
@@ -3660,6 +3705,12 @@ drop policy if exists "Admins view all question bookmarks" on public."question_b
 create policy "Admins view all question bookmarks" on public."question_bookmarks" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Users manage own question bookmarks" on public."question_bookmarks";
 create policy "Users manage own question bookmarks" on public."question_bookmarks" for all to "authenticated" using ((user_id = auth.uid())) with check ((user_id = auth.uid()));
+drop policy if exists "admins read all question timings" on public."question_timings";
+create policy "admins read all question timings" on public."question_timings" for select using (has_role(auth.uid(), 'admin'::app_role));
+drop policy if exists "insert own question timings" on public."question_timings";
+create policy "insert own question timings" on public."question_timings" for insert with check ((auth.uid() = user_id));
+drop policy if exists "read own question timings" on public."question_timings";
+create policy "read own question timings" on public."question_timings" for select using ((auth.uid() = user_id));
 drop policy if exists "Admins can manage questions" on public."questions";
 create policy "Admins can manage questions" on public."questions" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Anyone authenticated can view questions" on public."questions";
@@ -3808,6 +3859,9 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."d
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."data_requests" to service_role;
 grant DELETE, SELECT on public."email_suppressions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."email_suppressions" to service_role;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."exam_dates" to anon;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."exam_dates" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."exam_dates" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."feedback_messages" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."feedback_messages" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."feedback_messages" to service_role;
@@ -3875,6 +3929,9 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."p
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_bookmarks" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_bookmarks" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_bookmarks" to service_role;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_timings" to anon;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_timings" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_timings" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."questions" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."questions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."questions" to service_role;

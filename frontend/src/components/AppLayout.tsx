@@ -26,10 +26,14 @@ const PUBLIC_CONTENT_PREFIXES = [
 export function AppLayout() {
   const { user, loading } = useAuth();
   const device = useDeviceType();
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const isPublicContent = PUBLIC_CONTENT_PREFIXES.some(
     (prefix) => pathname === prefix.replace(/\/$/, "") || pathname.startsWith(prefix),
   );
+  // Carry the page they asked for through the sign-in form. Without this a
+  // signed-out deep link ended on /dashboard and the visitor had to find the
+  // page again; `postLoginPath` re-validates whatever comes back.
+  const signInHref = `/auth?next=${encodeURIComponent(`${pathname}${search}`)}`;
 
 
   if (loading) {
@@ -43,7 +47,7 @@ export function AppLayout() {
     );
   }
 
-  if (!user && !isPublicContent) return <Navigate to="/auth" replace />;
+  if (!user && !isPublicContent) return <Navigate to={signInHref} replace />;
 
   return (
     <SidebarProvider defaultOpen={device === "laptop"}>

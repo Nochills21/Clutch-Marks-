@@ -167,6 +167,9 @@ function toast({ ...props }: Toast) {
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState);
 
+  // Subscribe once. `setState` is stable, so depending on `state` made this
+  // effect unsubscribe and re-subscribe on every toast change (and left a
+  // window, mid-dispatch, where a listener had been removed).
   React.useEffect(() => {
     listeners.push(setState);
     return () => {
@@ -175,7 +178,7 @@ function useToast() {
         listeners.splice(index, 1);
       }
     };
-  }, [state]);
+  }, []);
 
   return {
     ...state,

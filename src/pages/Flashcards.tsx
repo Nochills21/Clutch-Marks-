@@ -147,12 +147,28 @@ export default function Flashcards() {
     const prev = progressMap[card.id] || { ease_factor: 2.5, interval_days: 1, repetitions: 0 };
     const updated = sm2(quality, prev);
 
-    if (progressMap[card.id]) {
-      await supabase.from("flashcard_progress").update(updated).eq("user_id", user.id).eq("flashcard_id", card.id);
+    // The write used to be fire-and-forget: a dropped request still advanced the
+    // session, so the student saw a clean finish while the SM-2 schedule never
+    // moved and the card was never scheduled again. Report the failure and keep
+    // `progressMap` untouched, so the card stays due and can be rated next time.
+    const { error: saveError } = progressMap[card.id]
+      ? await supabase
+          .from("flashcard_progress")
+          .update(updated)
+          .eq("user_id", user.id)
+          .eq("flashcard_id", card.id)
+      : await supabase
+          .from("flashcard_progress")
+          .insert({ user_id: user.id, flashcard_id: card.id, ...updated });
+    if (saveError) {
+      toast({
+        title: "Couldn't save that card",
+        description: loadFailureMessage("this card's review schedule", saveError),
+        variant: "destructive",
+      });
     } else {
-      await supabase.from("flashcard_progress").insert({ user_id: user.id, flashcard_id: card.id, ...updated });
+      setProgressMap((m) => ({ ...m, [card.id]: { ...prev, ...updated } }));
     }
-    setProgressMap((m) => ({ ...m, [card.id]: { ...prev, ...updated } }));
 
     if (currentIdx + 1 < studyCards.length) {
       setCurrentIdx(currentIdx + 1);

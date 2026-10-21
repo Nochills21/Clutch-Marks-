@@ -87,6 +87,13 @@ const AdminAiQuota = lazy(() => import("./pages/admin/AdminAiQuota"));
 // The mastery loop: per-objective state, the weakest next action, and the checks
 // that are due to resurface. Personal, so it sits inside the approval gate.
 const Mastery = lazy(() => import("./pages/Mastery"));
+// Exam-technique surfaces: the command-word trainer, the exam-timetable plan and
+// the night-before brief. All account-scoped, so they live behind ApprovalGate
+// and are declared SPA-only (see spaRoutes.ts) rather than in ROUTE_META.
+const CommandWords = lazy(() => import("./pages/CommandWords"));
+// Exam plan: the student's sittings, each with a revision schedule paced backwards
+// from its date. Account-scoped, so it is SPA-only (see spaRoutes.ts).
+const ExamPlan = lazy(() => import("./pages/ExamPlan"));
 // PDPL rights page: public, because a reader must be able to find out how to
 // exercise their rights before they have an account (and after they close one).
 const DataRights = lazy(() => import("./pages/DataRights"));
@@ -185,6 +192,8 @@ const App = () => (
                   <Route path="/study-planner" element={<StudyPlanner />} />
                   <Route path="/progress" element={<ProgressPage />} />
                   <Route path="/mastery" element={<Mastery />} />
+                  <Route path="/command-words" element={<CommandWords />} />
+                  <Route path="/exam-plan" element={<ExamPlan />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="/feedback" element={<FeedbackPage />} />

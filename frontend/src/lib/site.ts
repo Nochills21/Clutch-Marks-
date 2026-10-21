@@ -15,7 +15,11 @@ export const SITE = {
   tagline: "Revise smarter. Score higher.",
   description:
     "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at IGCSE, AS Level and A2 Level.",
-  supportEmail: "Clutchmarks.support@gmail.com",
+  // The inbox the privacy notice, data-rights page and app shell all point at.
+  // It must stay the address that is actually live (inbound routed via Resend —
+  // see docs/infrastructure.md): a personal mailbox here silently publishes a
+  // different contact on the legal pages than everywhere else.
+  supportEmail: "support@clutchmarks.study",
   /** Brand gold — keep in step with --gold in src/index.css. */
   gold: "#E8B01E",
   goldDeep: "#C6821A",
