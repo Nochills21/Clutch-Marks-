@@ -930,6 +930,16 @@
   "slug": "chemical-equilibria"
  },
  {
+  "id": "6d2a6e0e-6f51-42b0-ab7e-04b2ab930eb4",
+  "name": "Physical Quantities and Measurement",
+  "description": "SI units, measurement, errors and uncertainties, scalars and vectors — 9702 AS (1.1–1.4).",
+  "sort_order": 10,
+  "created_at": "2026-10-21 09:39:09.684988+00",
+  "updated_at": "2026-10-21 09:39:09.684988+00",
+  "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
+  "slug": "physical-quantities-and-measurement"
+ },
+ {
   "id": "6e260447-834e-4b86-858f-deb6d0cd3d9d",
   "name": "Organisation of the Organism",
   "description": "Organisation of the Organism (Cambridge IGCSE)",
@@ -1038,6 +1048,16 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "9fd0f7e4-5d94-49ea-98af-b83e465534e4",
   "slug": "acid-base-equilibria"
+ },
+ {
+  "id": "7c02291a-b2f0-48e9-998f-24b0c2d673e2",
+  "name": "Medical Physics",
+  "description": "Production and use of ultrasound, X-rays and PET scanning — 9702 A Level medical physics option (24.1–24.3).",
+  "sort_order": 11,
+  "created_at": "2026-10-21 09:39:09.684988+00",
+  "updated_at": "2026-10-21 09:39:09.684988+00",
+  "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
+  "slug": "medical-physics"
  },
  {
   "id": "7c873d96-9533-4f88-a111-45cfb1e95e4e",
@@ -1648,6 +1668,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "algebra-sequences-and-functions"
+ },
+ {
+  "id": "dee533c8-388e-453f-836c-e22b73a58bbc",
+  "name": "Differential Equations",
+  "description": "Form and solve first-order differential equations from context and from dy/dx — 9709 Pure Mathematics 3 (3.8).",
+  "sort_order": 24,
+  "created_at": "2026-10-21 09:39:09.684988+00",
+  "updated_at": "2026-10-21 09:39:09.684988+00",
+  "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
+  "slug": "differential-equations"
  },
  {
   "id": "df5b0bf8-9064-466a-ae6f-9afe1aafea09",
