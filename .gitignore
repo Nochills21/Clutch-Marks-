@@ -94,3 +94,4 @@ dist-single/
 # Playtest / QA snapshots generated under this worktree. Not part of the shipped product.
 
 # Playtest / QA snapshots generated under this worktree. Not part of the shipped product.
+/freebuff-sites-build/

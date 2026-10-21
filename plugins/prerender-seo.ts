@@ -231,7 +231,8 @@ export function prerenderSeo(): Plugin {
         } catch (e) {
           // Pages still work with a linked stylesheet; say so rather than
           // failing the build over a performance nicety.
-          console.warn(`prerender-seo: could not inline ${cssLink[1]} (${e.message}) — stylesheet stays linked`);
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        console.warn(`prerender-seo: could not inline ${cssLink[1]} (${(e as any).message}) — stylesheet stays linked`);
         }
       } else {
         console.warn("prerender-seo: no local stylesheet link in the shell — nothing to inline");
