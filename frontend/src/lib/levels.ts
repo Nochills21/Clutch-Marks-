@@ -17,20 +17,23 @@ export const LEVELS: SubjectLevelCode[] = ["OL", "IGCSE", "AS", "A2"];
 export const DEFAULT_SUBJECT_LEVELS: SubjectLevelCode[] = ["OL", "AS", "A2"];
 
 /**
- * What a student sees. "OL" is kept as a code (it is in every URL, in the DB
- * enum and in the topic manifest) and is relabelled "O Level" so it no longer
- * reads the same as IGCSE. IGCSE is its own code and label. Change the label,
+ * What a student sees. "OL" stays as a code (it is in every URL, in the DB
+ * enum and in the topic manifest) and is labelled "IGCSE", because that is what
+ * the syllabi behind it actually are — 0580/0610/0620/0625/0478 are Cambridge
+ * IGCSE papers, and students search "IGCSE Biology", not "O Level Biology".
+ * The IGCSE *code* (used by the English subjects) carries the same label; two
+ * codes, one qualification name, and the URLs stay distinct. Change the label,
  * not the code — topicUrl/topicSeo/topicSeo tests all key off it.
  */
 export const LEVEL_LABELS: Record<SubjectLevelCode, string> = {
-  OL: "O Level",
+  OL: "IGCSE",
   IGCSE: "IGCSE",
   AS: "AS Level",
   A2: "A2 Level",
 };
 
 export const LEVEL_DESCRIPTIONS: Record<SubjectLevelCode, string> = {
-  OL: "O Level foundations",
+  OL: "IGCSE foundations",
   IGCSE: "IGCSE foundations",
   AS: "First year of A Level",
   A2: "Second year of A Level",

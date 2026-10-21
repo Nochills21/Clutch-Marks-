@@ -15,10 +15,10 @@ import {
 
 /** Counts verified against the live database — keep honest or update together. */
 const TRACKS = [
-  { label: "Subjects", value: "3", detail: "Maths · Physics · Computer Science" },
+  { label: "Subjects", value: "7", detail: "Maths · Physics · Chemistry · Biology · CS · English" },
   { label: "Levels", value: "IGCSE · AS · A2", detail: "IGCSE to A Level" },
   { label: "Past papers", value: "700+", detail: "Catalogued with mark schemes" },
-  { label: "Exams covered", value: "0580 · 0625 · 0478 · 9618 · IAL", detail: "Cambridge & Edexcel" },
+  { label: "Exams covered", value: "12 exams", detail: "Cambridge · Edexcel · Oxford" },
 ];
 
 const TOOLS = [
@@ -90,7 +90,7 @@ export default function Index() {
         <section className="relative overflow-hidden bloom">
           <div className="container relative px-4 pt-20 pb-16 text-center lg:pt-28 lg:pb-24">
             <p className="eyebrow mb-6">
-              IGCSE &middot; AS &middot; A Level — Cambridge &amp; Edexcel
+              IGCSE &middot; AS &middot; A Level — Cambridge, Edexcel &amp; Oxford
             </p>
 
             <h1 className="display-xl mx-auto max-w-4xl text-[2.75rem] sm:text-6xl lg:text-[4.5rem]">
@@ -100,7 +100,8 @@ export default function Index() {
             <p className="lede mx-auto mt-7 text-center">
               Concise revision notes, exam-style topic questions marked instantly, a full
               past-paper archive — and AI marking of your solved scripts against the official
-              mark schemes — everything you need for Maths, Physics and Computer Science,
+              mark schemes — everything you need for Maths, Physics, Chemistry,
+              Biology, Computer Science and English,
               in one place.
             </p>
 

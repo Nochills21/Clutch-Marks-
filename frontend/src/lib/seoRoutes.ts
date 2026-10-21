@@ -54,7 +54,7 @@ const organization = {
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   description:
-    "Online revision platform for Maths, Physics and Computer Science at IGCSE, AS and A2 — notes, exam-style topic questions with instant marking, and a past-paper archive.",
+    "Online revision platform for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2 — notes, exam-style topic questions with instant marking, and a past-paper archive.",
   logo: {
     "@type": "ImageObject",
     url: `${SITE_URL}/icon-512.png`,
@@ -75,7 +75,7 @@ export function ogImageUrl(meta: Pick<RouteMeta, "ogImage">): string {
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "What subjects and levels does Clutch Marks cover?",
-    a: "Maths, Physics and Computer Science at IGCSE, AS and A2. Every subject has topic notes, exam-style questions with instant marking, and a past-paper archive with mark schemes.",
+    a: "Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2. Every subject has topic notes, exam-style questions with instant marking, and a past-paper archive.",
   },
   {
     q: "How much does Clutch Marks cost?",
@@ -112,7 +112,7 @@ const course = {
   "@type": "Course",
   name: "Clutch Marks — Maths, Physics & Computer Science Revision",
   description:
-    "Self-paced Maths, Physics and Computer Science revision for IGCSE, AS and A2: topic notes, exam-style questions with instant AI marking, flashcards and past papers with mark schemes.",
+    "Self-paced revision for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2: topic notes, exam-style questions with instant AI marking, flashcards and past papers.",
   url: `${SITE_URL}/pricing`,
   inLanguage: "en",
   educationalLevel: ["IGCSE", "AS Level", "A2 Level"],
@@ -186,7 +186,7 @@ export const ROUTE_META: RouteMeta[] = [
     // kind of inconsistency that leaves a stale title in the index for weeks.
     title: "Clutch Marks — Revision Notes, Topic Questions & Past Papers",
     description:
-      "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at IGCSE, AS and A2.",
+      "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2.",
     jsonLd: [
       {
         "@context": "https://schema.org",
@@ -197,7 +197,7 @@ export const ROUTE_META: RouteMeta[] = [
         alternateName: ["ClutchMarks", "clutchmarks.study"],
         url: `${SITE_URL}/`,
         description:
-          "Study Maths, Physics and Computer Science at IGCSE, AS and A2 with interactive lessons, practice quizzes and revision tools.",
+          "Study Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2 with interactive lessons, practice quizzes and revision tools.",
       },
       { "@context": "https://schema.org", ...organization },
     ],
@@ -206,7 +206,7 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/auth",
     title: "Log In or Sign Up — Clutch Marks",
     description:
-      "Log in to Clutch Marks or create an account to access lessons, topic notes, quizzes and past papers for Maths, Physics and Computer Science.",
+      "Log in to Clutch Marks or create an account to access lessons, topic notes, quizzes and past papers for Maths, Physics, Chemistry, Biology, Computer Science and English.",
     // A sign-in page must never be what Google shows for the domain.
     noindex: true,
   },
@@ -230,7 +230,7 @@ export const ROUTE_META: RouteMeta[] = [
     ogImage: "/og/lessons.png",
     title: "Lessons — Clutch Marks",
     description:
-      "Browse structured lessons covering the full syllabus with video and text content for Maths, Physics and Computer Science.",
+      "Browse structured lessons covering the full syllabus with video and text content for Maths, Physics, Chemistry, Biology, Computer Science and English.",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -254,7 +254,7 @@ export const ROUTE_META: RouteMeta[] = [
       name: "Topic Notes",
       url: `${SITE_URL}/notes`,
       description:
-        "Downloadable topic notes for Maths, Physics and Computer Science at IGCSE, AS and A2.",
+        "Downloadable topic notes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2.",
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       publisher: organization,
     },
@@ -326,18 +326,18 @@ export const ROUTE_META: RouteMeta[] = [
   },
   {
     path: "/study/:slug/:level/:topic/notes",
-    title: ":topic — Notes | :subject :level | Clutch Marks",
+    title: ":topic — Notes | :subject :levelLabel | Clutch Marks",
     description: "Revision notes, topic questions and past papers for :topic in :subject :levelLabel.",
   },
   {
     path: "/study/:slug/:level/:topic/quiz",
-    title: ":topic — Quiz | :subject :level | Clutch Marks",
+    title: ":topic — Quiz | :subject :levelLabel | Clutch Marks",
     description:
       "Exam-style topic questions for :topic in :subject :levelLabel. Instant marking, worked answers and AI feedback.",
   },
   {
     path: "/study/:slug/:level/:topic/papers",
-    title: ":topic — Papers | :subject :level | Clutch Marks",
+    title: ":topic — Papers | :subject :levelLabel | Clutch Marks",
     description:
       "Past papers and mark schemes for :topic in :subject :levelLabel. Practise under real exam conditions with papers sorted by year.",
   },

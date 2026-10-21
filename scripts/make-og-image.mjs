@@ -17,7 +17,7 @@ const logo = path.join(root, "public", "icon-512.png");
 
 const W = 1200;
 const H = 630;
-const BRAND = "MATHS · PHYSICS · COMPUTER SCIENCE";
+const BRAND = "MATHS · SCIENCES · COMPUTER SCIENCE · ENGLISH";
 
 /** SVG text is XML — ampersands and angle brackets must be escaped. */
 const esc = (t) =>
@@ -78,7 +78,7 @@ const CARDS = [
     titleSize: 94,
     lines: ["Revision notes, topic questions with instant", "marking, and a full past-paper archive."],
   },
-  { out: "og/subjects.png", title: "Subjects & Levels", lines: ["Maths, Physics and Computer Science at", "IGCSE, AS and A2."] },
+  { out: "og/subjects.png", title: "Subjects & Levels", lines: ["Maths, Physics, Chemistry, Biology,", "Computer Science and English — IGCSE,", "AS and A2."] },
   { out: "og/lessons.png", title: "Lessons", lines: ["Structured lessons covering the full syllabus,", "with video and text content."] },
   { out: "og/notes.png", title: "Topic Notes", lines: ["Search, filter and download topic notes for", "every subject, level and topic."] },
   { out: "og/quizzes.png", title: "Quizzes", lines: ["Timed topic quizzes with instant AI feedback", "on every answer."] },

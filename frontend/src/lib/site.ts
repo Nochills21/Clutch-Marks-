@@ -14,7 +14,7 @@ export const SITE = {
   url: SITE_URL,
   tagline: "Revise smarter. Score higher.",
   description:
-    "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics and Computer Science at IGCSE, AS Level and A2 Level.",
+    "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS Level and A2 Level.",
   // The inbox the privacy notice, data-rights page and app shell all point at.
   // It must stay the address that is actually live (inbound routed via Resend —
   // see docs/infrastructure.md): a personal mailbox here silently publishes a
