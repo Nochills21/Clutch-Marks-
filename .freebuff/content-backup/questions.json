@@ -46,7 +46,7 @@
    "1"
   ],
   "correct_option": 0,
-  "explanation": "a = 1, r = 1/2, so S_inf = 1/(1 - 1/2) = 2.",
+  "explanation": "Sum to infinity S = a / (1 - r) = 1 / (1 - 1/2) = 2, valid because |r| < 1. The answer 1 is just the first term, which does not sum the series.",
   "sort_order": 12,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -64,7 +64,7 @@
    "with"
   ],
   "correct_option": 0,
-  "explanation": "Fixed expression: 'in a hurry'.",
+  "explanation": "'In a hurry' is the fixed expression meaning quickly or without time to spare, so the answer is 'in'. 'On' and 'at' do not combine with 'hurry' in this way.",
   "sort_order": 12,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -622,7 +622,7 @@
    "(5, 4)"
   ],
   "correct_option": 0,
-  "explanation": "Multiply each coordinate by 3: (2 × 3, 1 × 3) = (6, 3).",
+  "explanation": "For an enlargement with centre the origin and scale factor k, each point (x, y) maps to (kx, ky). With k = 3, (2, 1) maps to (6, 3). The other options do not multiply both coordinates by 3.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:11:37.411656+00",
   "difficulty": "medium",
@@ -964,7 +964,7 @@
    "it equals the parameter in every sample"
   ],
   "correct_option": 2,
-  "explanation": "Unbiasedness is about the average across samples.",
+  "explanation": "An estimator is unbiased when its expected value equals the population parameter it estimates, so across repeated samples it is right on average. A large sample reduces variance but does not by itself remove bias, and zero variance is a different property.",
   "sort_order": 8,
   "created_at": "2026-09-21 17:57:12.287553+00",
   "difficulty": "medium",
@@ -1288,7 +1288,7 @@
    "5000 J"
   ],
   "correct_option": 0,
-  "explanation": "q = mc(delta T) = 50.0 x 4.18 x 10.0 = 2090 J.",
+  "explanation": "The temperature rise of the water measures the heat it absorbs: Q = mcΔT = 50.0 g × 4.18 J g⁻¹ K⁻¹ × 10.0 K = 2090 J. The other options come from wrong multiplication or from leaving out a factor.",
   "sort_order": 17,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "exam",
@@ -1432,7 +1432,7 @@
    "x < 1 or x > 4"
   ],
   "correct_option": 0,
-  "explanation": "(x − 1)(x − 4) < 0 holds between the roots: 1 < x < 4.",
+  "explanation": "Factorise x² − 5x + 4 = (x − 1)(x − 4). The parabola opens upwards, so the expression is negative between its roots: 1 < x < 4. Outside the roots it is positive.",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:35.834642+00",
   "difficulty": "medium",
@@ -1702,7 +1702,7 @@
    "10.0"
   ],
   "correct_option": 0,
-  "explanation": "Ar = (10 × 20 + 11 × 80) / 100 = 10.8.",
+  "explanation": "Ar = (10 x 20 + 11 x 80) / 100 = (200 + 880) / 100 = 10.8. Weight each isotope by its percentage abundance; the simple average of 10 and 11 would give 10.5.",
   "sort_order": 8,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -1720,7 +1720,7 @@
    "4.5 J"
   ],
   "correct_option": 2,
-  "explanation": "KE = (1/2)mv^2 = 0.5 x 2 x 9 = 9 J.",
+  "explanation": "KE = (1/2) m v^2 = 0.5 x 2 kg x 3^2 = 0.5 x 2 x 9 = 9 J. Leaving out the half gives 18 J; using v instead of v^2 gives 3 J.",
   "sort_order": 14,
   "created_at": "2026-10-19 09:48:57.940153+00",
   "difficulty": "drill",
@@ -1774,7 +1774,7 @@
    "(4, -6)"
   ],
   "correct_option": 1,
-  "explanation": "With 2g = 4 and 2f = -6: centre (-g, -f) = (-2, 3).",
+  "explanation": "Complete the square to write the circle as (x + g)² + (y + f)² = c, with 2g = 4 and 2f = −6, so g = 2 and f = −3. The centre is (−g, −f) = (−2, 3). The signs flip because the equation has +4x and −6y.",
   "sort_order": 13,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -1828,7 +1828,7 @@
    "5 N"
   ],
   "correct_option": 3,
-  "explanation": "By Pythagoras: R = sqrt(3^2 + 4^2) = sqrt(25) = 5 N.",
+  "explanation": "Forces at right angles combine by Pythagoras: R = √(3² + 4²) = √25 = 5 N. Adding the magnitudes to get 7 N is only correct when the forces act in the same direction.",
   "sort_order": 11,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -1882,7 +1882,7 @@
    "0.65"
   ],
   "correct_option": 0,
-  "explanation": "Independence multiplies: 0.5 × 0.8 = 0.4.",
+  "explanation": "For independent events P(A and B) = P(A) x P(B) = 0.5 x 0.8 = 0.4. The value 0.9 is P(A or B), found by adding and subtracting the overlap.",
   "sort_order": 7,
   "created_at": "2026-09-21 17:56:54.538761+00",
   "difficulty": "medium",
@@ -1900,7 +1900,7 @@
    "1/9"
   ],
   "correct_option": 1,
-  "explanation": "Favourable: (2,6) (3,5) (4,4) (5,3) (6,2) — 5 of 36.",
+  "explanation": "There are 36 equally likely outcomes for two dice. The pairs that sum to 8 are (2, 6), (3, 5), (4, 4), (5, 3) and (6, 2), which is 5 outcomes. So P(sum = 8) = 5/36.",
   "sort_order": 3,
   "created_at": "2026-09-21 17:56:54.538761+00",
   "difficulty": "medium",
@@ -2008,7 +2008,7 @@
    "x³⁴"
   ],
   "correct_option": 1,
-  "explanation": "Add the exponents: 3 + 4 = 7. So x³ × x⁴ = x⁷.",
+  "explanation": "When multiplying powers with the same base, add the exponents: x³ × x⁴ = x^(3 + 4) = x⁷. Multiplying the exponents, which gives x¹², is a common error, and the coefficient 2 does not appear in the product.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:06:58.645308+00",
   "difficulty": "medium",
@@ -2026,7 +2026,7 @@
    "Non-volatile"
   ],
   "correct_option": 2,
-  "explanation": "RAM loses its contents when power is off (volatile).",
+  "explanation": "RAM is volatile memory: its contents are lost when the power is switched off. Permanent storage such as ROM or a hard disk is non-volatile. Volatility is about keeping data without power, not about speed.",
   "sort_order": 2,
   "created_at": "2026-09-18 14:12:58.785717+00",
   "difficulty": "medium",
@@ -2098,7 +2098,7 @@
    "π rad s⁻¹"
   ],
   "correct_option": 3,
-  "explanation": "M1: ω = 2π/T\nA1: ω = 2π/2 = π ≈ 3.14 rad s⁻¹",
+  "explanation": "ω = 2π/T = 2π/2 = π rad s⁻¹ ≈ 3.14 rad s⁻¹. Angular speed uses the period, so a period of 2 s gives π, not 2π or 0.5 rad s⁻¹.",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:14.806713+00",
   "difficulty": "medium",
@@ -2170,7 +2170,7 @@
    "SOH CAH TOA"
   ],
   "correct_option": 1,
-  "explanation": "SSS (three sides, no angles) → cosine rule.",
+  "explanation": "With three sides and no angles, use the cosine rule, a^2 = b^2 + c^2 - 2bc cos A, to find an angle first. The sine rule needs at least one angle with its opposite side.",
   "sort_order": 4,
   "created_at": "2026-08-22 14:15:55.631934+00",
   "difficulty": "medium",
@@ -2188,7 +2188,7 @@
    "-3/4"
   ],
   "correct_option": 2,
-  "explanation": "Gradient = rise/run = 4/3.",
+  "explanation": "The radius runs from (0, 0) to (3, 4), so its gradient is rise / run = 4/3. The gradient -3/4 belongs to the tangent at that point, which is perpendicular to the radius.",
   "sort_order": 8,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -2314,7 +2314,7 @@
    "'Two climbers suffered frostbite on the first night'"
   ],
   "correct_option": 3,
-  "explanation": "Only the frostbite detail evidences danger.",
+  "explanation": "The evidence has to show the expedition was dangerous, and two climbers suffering frostbite on the first night does. The other details describe preparation or timing, not danger.",
   "sort_order": 18,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -2368,7 +2368,7 @@
    "43.2 cm²"
   ],
   "correct_option": 1,
-  "explanation": "Area = ½r²θ = ½ × 6² × 1.2 = ½ × 36 × 1.2 = 21.6 cm².",
+  "explanation": "The area of a sector is ½r²θ, with θ in radians. Here ½ × 6² × 1.2 = ½ × 36 × 1.2 = 21.6 cm². Forgetting the ½ or using degrees instead of radians gives the other options.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:36:19.987761+00",
   "difficulty": "exam",
@@ -2404,7 +2404,7 @@
    "0.5 microF"
   ],
   "correct_option": 0,
-  "explanation": "Parallel adds directly: 2 + 3 = 5 microF.",
+  "explanation": "Capacitors in parallel add directly: C = 2 + 3 = 5 microF. In series the reciprocals add instead, giving 1.2 microF, which is the wrong arrangement here.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:35:52.834633+00",
   "difficulty": "exam",
@@ -2638,7 +2638,7 @@
    "7"
   ],
   "correct_option": 0,
-  "explanation": "Set x = −2: 7(−2) + 4 = B(−2 + 1), so −10 = −B, B = 10.",
+  "explanation": "Multiply both sides by (x + 1)(x + 2): 7x + 4 = A(x + 2) + B(x + 1). Set x = −2 to remove A: 7(−2) + 4 = B(−1), so −10 = −B and B = 10.",
   "sort_order": 5,
   "created_at": "2026-09-20 17:50:50.070682+00",
   "difficulty": "medium",
@@ -2782,7 +2782,7 @@
    "x² + x"
   ],
   "correct_option": 1,
-  "explanation": "Integrate to x² + x + c; A(0) = 3 fixes c = 3.",
+  "explanation": "Integrate dA/dx = 2x + 1 to get A = x² + x + c. A(0) = 3 gives c = 3, so A(x) = x² + x + 3. Differentiating this gives 2x + 1, as required.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:48.286177+00",
   "difficulty": "medium",
@@ -2854,7 +2854,7 @@
    "x² + 2x"
   ],
   "correct_option": 1,
-  "explanation": "Collect like terms: (3x² − 2x²) + (5x + 7x) = x² + 12x.",
+  "explanation": "Collect like terms: (3x² − 2x²) + (5x + 7x) = x² + 12x. Only terms with the same power of x can be combined, so the x² terms combine together and the x terms combine together.",
   "sort_order": 1,
   "created_at": "2026-08-22 14:06:56.026518+00",
   "difficulty": "medium",
@@ -2926,7 +2926,7 @@
    "cot x + c"
   ],
   "correct_option": 1,
-  "explanation": "Standard integral (reverse of d/dx tan x).",
+  "explanation": "The integral of sec^2 x is tan x + c, the reverse of d/dx tan x = sec^2 x. A minus sign in front of tan x would reverse the result.",
   "sort_order": 6,
   "created_at": "2026-09-20 17:50:54.567992+00",
   "difficulty": "medium",
@@ -2944,7 +2944,7 @@
    "0.1"
   ],
   "correct_option": 1,
-  "explanation": "Rearrange: P(A ∩ B) = P(A | B)·P(B) = 0.6×0.5 = 0.3.",
+  "explanation": "Rearrange the conditional probability: P(A ∩ B) = P(A | B) × P(B) = 0.6 × 0.5 = 0.3. The result 1.1 is impossible, because a probability cannot exceed 1.",
   "sort_order": 8,
   "created_at": "2026-09-21 17:56:54.538761+00",
   "difficulty": "medium",
@@ -3034,7 +3034,7 @@
    "−0.8"
   ],
   "correct_option": 0,
-  "explanation": "cos x = √(1 − 0.36) = 0.8, positive when acute.",
+  "explanation": "sin²x + cos²x = 1, so cos x = √(1 − sin²x) = √(1 − 0.36) = √0.64 = 0.8. Since x is acute, cos x is positive, so the negative option is wrong.",
   "sort_order": 9,
   "created_at": "2026-09-20 17:50:42.560292+00",
   "difficulty": "medium",
@@ -3340,7 +3340,7 @@
    "35"
   ],
   "correct_option": 3,
-  "explanation": "⁷C₄ = 35; a committee has no internal order.",
+  "explanation": "Order does not matter in a committee, so use combinations: ⁷C₄ = 7!/(4! × 3!) = 35. The 840 option counts ordered selections, 7 × 6 × 5 × 4, which overcounts each committee.",
   "sort_order": 2,
   "created_at": "2026-09-21 17:56:48.237815+00",
   "difficulty": "medium",
@@ -3610,7 +3610,7 @@
    "endanger"
   ],
   "correct_option": 1,
-  "explanation": "'-ous' forms adjectives: danger -> dangerous.",
+  "explanation": "The suffix '-ous' turns a noun into an adjective, as in danger → dangerous and fame → famous. 'Dangerously' is an adverb and 'endanger' is a verb, so neither is the adjective requested.",
   "sort_order": 19,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -4582,7 +4582,7 @@
    "60° only"
   ],
   "correct_option": 0,
-  "explanation": "Cosine is positive in quadrants I and IV: 60° and 300°.",
+  "explanation": "cos x = 0.5 has a reference angle of 60°. Cosine is positive in quadrants I and IV, so the solutions are x = 60° and x = 360° − 60° = 300°. Cosine is negative in quadrants II and III.",
   "sort_order": 4,
   "created_at": "2026-09-20 17:50:42.560292+00",
   "difficulty": "medium",
@@ -4600,7 +4600,7 @@
    "Near 3000 cm⁻¹ only"
   ],
   "correct_option": 2,
-  "explanation": "The strong C=O stretch appears near 1700 cm⁻¹.",
+  "explanation": "The C=O stretch is strong and sharp, appearing near 1700 cm⁻¹. The 1000 cm⁻¹ region is the fingerprint region, and C–H stretches appear near 3000 cm⁻¹, so neither fits a C=O bond.",
   "sort_order": 18,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -4654,7 +4654,7 @@
    "parallel"
   ],
   "correct_option": 3,
-  "explanation": "Same gradient 2, different intercepts — parallel.",
+  "explanation": "Both lines have gradient 2, so they are parallel. Their y-intercepts differ, 1 and −3, so they never meet and are not the same line. Parallel lines have equal gradients but different intercepts.",
   "sort_order": 9,
   "created_at": "2026-09-20 17:50:38.836972+00",
   "difficulty": "medium",
@@ -4708,7 +4708,7 @@
    "0.36 kN"
   ],
   "correct_option": 1,
-  "explanation": "F = mv²/r = 1200 × 15² / 50 = 5400 N = 5.4 kN.",
+  "explanation": "Friction must supply the centripetal force: F = mv²/r = 1200 × 15² ÷ 50 = 5400 N, which is 5.4 kN. Without this friction the car would continue in a straight line instead of following the bend.",
   "sort_order": 104,
   "created_at": "2026-10-13 13:47:24.513655+00",
   "difficulty": "exam",
@@ -4726,7 +4726,7 @@
    "by"
   ],
   "correct_option": 0,
-  "explanation": "The verb depend takes the preposition on.",
+  "explanation": "The verb 'depend' takes the preposition 'on', so the answer is 'on'. 'Depend from' and 'depend of' are not standard English.",
   "sort_order": 3,
   "created_at": "2026-10-17 10:32:56.479791+00",
   "difficulty": "medium",
@@ -5086,7 +5086,7 @@
    "84 kJ"
   ],
   "correct_option": 3,
-  "explanation": "Q = mcΔθ = 2.0 × 4200 × 10 = 84 000 J = 84 kJ.",
+  "explanation": "Energy Q = mcΔθ = 2.0 kg × 4200 J kg⁻¹ K⁻¹ × 10 K = 84 000 J = 84 kJ. A temperature change of 10 K is the same as 10 °C, so the value does not depend on which scale is used.",
   "sort_order": 101,
   "created_at": "2026-10-13 13:49:09.570913+00",
   "difficulty": "exam",
@@ -5374,7 +5374,7 @@
    "x = 3.21"
   ],
   "correct_option": 1,
-  "explanation": "x = ln 12 = 2.4849..., so x = 2.48 to 3 s.f.",
+  "explanation": "Take the natural logarithm of both sides: x = ln 12 = 2.4849…, so x = 2.48 to 3 significant figures. The other options are not ln 12, so they cannot be the solution.",
   "sort_order": 12,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -5500,7 +5500,7 @@
    "Key"
   ],
   "correct_option": 1,
-  "explanation": "A row = record = one entry in the table.",
+  "explanation": "In a database table each row is a record, holding one entry. A column is a field, which holds one attribute for every record.",
   "sort_order": 1,
   "created_at": "2026-09-18 14:13:04.47368+00",
   "difficulty": "medium",
@@ -5590,7 +5590,7 @@
    "5"
   ],
   "correct_option": 3,
-  "explanation": "Mean = (3 + 7 + 5 + 9 + 1)/5 = 25/5 = 5.",
+  "explanation": "Mean = (3 + 7 + 5 + 9 + 1) / 5 = 25 / 5 = 5. Divide the total by the number of values, 5, not by the largest value.",
   "sort_order": 1,
   "created_at": "2026-08-22 14:16:03.222511+00",
   "difficulty": "medium",
@@ -5626,7 +5626,7 @@
    "4s"
   ],
   "correct_option": 3,
-  "explanation": "The Aufbau order puts 4s (lower energy) before 3d.",
+  "explanation": "The Aufbau order fills orbitals by increasing energy, and 4s is lower in energy than 3d, so 4s is filled before 3d. The order runs 3p, then 4s, then 3d. 2p is filled much earlier and 4p after 3d.",
   "sort_order": 4,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -6112,7 +6112,7 @@
    "10"
   ],
   "correct_option": 2,
-  "explanation": "dy/dx = 12x³ − 4x, so at x = 1 it is 12 − 4 = 8.",
+  "explanation": "Differentiate term by term: d/dx(3x⁴) = 12x³ and d/dx(−2x²) = −4x, and the constant 5 disappears. So dy/dx = 12x³ − 4x, and at x = 1 this is 12 − 4 = 8. Keep the power of x in each term when you differentiate.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:26:08.422261+00",
   "difficulty": "exam",
@@ -6220,7 +6220,7 @@
    "1/2"
   ],
   "correct_option": 1,
-  "explanation": "M1: fraction = (½)^(t/t½)\nA1: (½)^(30/10) = (½)³ = 1/8",
+  "explanation": "The fraction remaining after time t is (½)^(t/t½). With t = 30 days and t½ = 10 days, this is (½)³ = 1/8, since three half-lives have passed.",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:30.082488+00",
   "difficulty": "medium",
@@ -6436,7 +6436,7 @@
    "An amino acid"
   ],
   "correct_option": 2,
-  "explanation": "Starch is a polymer of alpha-glucose units.",
+  "explanation": "Starch is a polymer of alpha-glucose, so its monomer is glucose. Glycerol forms fats, fructose is a different sugar, and amino acids build proteins.",
   "sort_order": 1,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -6706,7 +6706,7 @@
    "the exact answer"
   ],
   "correct_option": 0,
-  "explanation": "Accuracy improves with more, thinner strips.",
+  "explanation": "The trapezium rule approximates the curve with straight chords. More strips give a closer fit to the curve, so the estimate becomes more accurate. It is still an approximation and is not exact for a curved graph.",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:48.286177+00",
   "difficulty": "medium",
@@ -6850,7 +6850,7 @@
    "12"
   ],
   "correct_option": 2,
-  "explanation": "R = sqrt(3^2 + 4^2) = sqrt(25) = 5.",
+  "explanation": "R = sqrt(3^2 + 4^2) = sqrt(25) = 5. R is the amplitude, the square root of the sum of the squares of the sin and cos coefficients. The value 7 is their plain sum, which is not the amplitude.",
   "sort_order": 15,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -7030,7 +7030,7 @@
    "About 67 degrees"
   ],
   "correct_option": 0,
-  "explanation": "sin c = 1/1.5 = 0.667, so c is about 41.8 degrees.",
+  "explanation": "The critical angle c satisfies sin c = 1/n = 1/1.5 = 0.667, so c = sin⁻¹(0.667) ≈ 41.8°, which rounds to about 42°. Total internal reflection occurs for light travelling from glass into air at angles greater than c.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:45.781189+00",
   "difficulty": "exam",
@@ -7120,7 +7120,7 @@
    "36 kg m/s"
   ],
   "correct_option": 1,
-  "explanation": "p = mv = 5 x 6 = 30 kg m/s.",
+  "explanation": "Momentum p = mv = 5 kg x 6 m/s = 30 kg m/s. Momentum is the product of mass and velocity, not their sum, which is where 11 comes from.",
   "sort_order": 12,
   "created_at": "2026-10-19 09:48:57.940153+00",
   "difficulty": "drill",
@@ -7264,7 +7264,7 @@
    "2 and 3"
   ],
   "correct_option": 3,
-  "explanation": "Factor out (x − 1): (x − 1)(x − 2)(x − 3).",
+  "explanation": "x = 1 is a root, so divide by (x - 1): x^3 - 6x^2 + 11x - 6 = (x - 1)(x - 2)(x - 3). The other roots are 2 and 3.",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:50.070682+00",
   "difficulty": "medium",
@@ -7390,7 +7390,7 @@
    "0"
   ],
   "correct_option": 0,
-  "explanation": "Any non-zero number to the power 0 equals 1.",
+  "explanation": "Any non-zero number raised to the power 0 equals 1, because x^m ÷ x^m = x^(m − m) = x⁰, which must equal 1. So 5⁰ = 1, while 0⁰ is the special case treated separately.",
   "sort_order": 4,
   "created_at": "2026-08-22 13:58:41.45948+00",
   "difficulty": "medium",
@@ -7480,7 +7480,7 @@
    "Ethane and ethene"
   ],
   "correct_option": 2,
-  "explanation": "Same molecular formula C4H10 but different structures.",
+  "explanation": "Structural isomers have the same molecular formula but different arrangements of atoms. Butane and methylpropane are both C₄H₁₀ with different carbon skeletons. Propane and propanol have different formulae, and ethane and ethene differ in formula too.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -7516,7 +7516,7 @@
    "2.89 m"
   ],
   "correct_option": 2,
-  "explanation": "sin 60° = h/5 → h = 5 × sin 60° = 5 × (√3/2) ≈ 4.33 m.",
+  "explanation": "The height up the wall is the side opposite the 60° angle in a right triangle with hypotenuse 5 m. So h = 5 sin 60° = 5 × 0.866 = 4.33 m. Using cos 60° would give the distance along the ground, 2.5 m.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:15:49.324191+00",
   "difficulty": "medium",
@@ -7552,7 +7552,7 @@
    "accept H₀ as proven"
   ],
   "correct_option": 2,
-  "explanation": "0.048 < 0.05: the result is significant.",
+  "explanation": "P(X >= 10) = 0.048 is below the 5% significance level, so reject H0 and conclude there is evidence that p > 0.3. A test never proves H0, so accepting it as proven is wrong.",
   "sort_order": 3,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
@@ -7606,7 +7606,7 @@
    "S phase"
   ],
   "correct_option": 3,
-  "explanation": "DNA is copied during the S (synthesis) phase.",
+  "explanation": "DNA is copied during the S (synthesis) phase of interphase, so each chromosome becomes two sister chromatids before mitosis. G1 comes before S, G2 comes after it, and M is the division phase.",
   "sort_order": 12,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -7768,7 +7768,7 @@
    "10"
   ],
   "correct_option": 2,
-  "explanation": "2^-n < 0.01 needs n = 7 (2^-7 = 0.0078 < 0.01).",
+  "explanation": "Each bisection halves the interval, so after n steps the width is (1/2)ⁿ. For 2⁻ⁿ < 0.01 we need n ≥ 7, since 2⁻⁶ ≈ 0.0156 is too large and 2⁻⁷ ≈ 0.0078 is small enough.",
   "sort_order": 13,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -7786,7 +7786,7 @@
    "Blue to colourless"
   ],
   "correct_option": 2,
-  "explanation": "Cr₂O₇²⁻ (orange) is reduced to Cr³⁺ (green).",
+  "explanation": "Acidified dichromate(VI) is orange because it contains Cr₂O₇²⁻. When it is reduced, chromium falls to Cr³⁺, which is green. So the reduction changes the solution from orange to green.",
   "sort_order": 10,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -7876,7 +7876,7 @@
    "propanoic acid"
   ],
   "correct_option": 3,
-  "explanation": "Acid hydrolysis converts the –CN group into –COOH.",
+  "explanation": "Heating a nitrile under reflux with dilute acid hydrolyses the –CN group to –COOH, giving a carboxylic acid. The product is propanoic acid, CH₃CH₂COOH. Reduction would give an amine instead.",
   "sort_order": 7,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -7930,7 +7930,7 @@
    "an anticodon"
   ],
   "correct_option": 0,
-  "explanation": "A codon is a triplet of mRNA bases.",
+  "explanation": "A codon is three consecutive bases on mRNA that code for one amino acid. The anticodon is the matching triplet on tRNA, which is why it is not the answer.",
   "sort_order": 9,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -8074,7 +8074,7 @@
    "indefinite integrals only"
   ],
   "correct_option": 3,
-  "explanation": "Definite integrals cancel it; indefinite ones need +c.",
+  "explanation": "An indefinite integral is a family of functions, so it needs a constant of integration, +c. Definite integrals have fixed limits, so the constant cancels when the upper and lower values are subtracted.",
   "sort_order": 5,
   "created_at": "2026-09-20 17:50:48.286177+00",
   "difficulty": "medium",
@@ -8308,7 +8308,7 @@
    "The router"
   ],
   "correct_option": 1,
-  "explanation": "The client sends requests; the server sends responses.",
+  "explanation": "In the client-server model, the client, such as a user's browser, sends requests, and the server responds with the requested resource. A web server, a database and a router each play a different role in the system.",
   "sort_order": 7,
   "created_at": "2026-09-18 14:13:15.118559+00",
   "difficulty": "medium",
@@ -8344,7 +8344,7 @@
    "only potential energy"
   ],
   "correct_option": 2,
-  "explanation": "Energy oscillates but does not propagate.",
+  "explanation": "A stationary wave forms from two waves travelling in opposite directions and has nodes and antinodes. It stores energy but transfers none along the medium, which is why it is stationary.",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:05.134118+00",
   "difficulty": "medium",
@@ -8416,7 +8416,7 @@
    "Interruption of the present action to show the past"
   ],
   "correct_option": 3,
-  "explanation": "Flashbacks reveal backstory at the moment it matters.",
+  "explanation": "A flashback interrupts the present action to show events from the past, often to reveal backstory at the moment it matters to the plot. It is a narrative technique, not a flash of light or a type of dialogue.",
   "sort_order": 12,
   "created_at": "2026-10-19 10:17:40.897405+00",
   "difficulty": "drill",
@@ -8650,7 +8650,7 @@
    "f⁻¹(x) = (x − 3)/5"
   ],
   "correct_option": 2,
-  "explanation": "Let y = 5x − 3. Swap: x = 5y − 3. Solve: y = (x + 3)/5.",
+  "explanation": "Let y = 5x − 3 and swap x and y: x = 5y − 3. Add 3 and divide by 5 to get y = (x + 3)/5, so f⁻¹(x) = (x + 3)/5. Check: f((x + 3)/5) = (x + 3) − 3 = x.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:07:18.534626+00",
   "difficulty": "medium",
@@ -8902,7 +8902,7 @@
    "The internet"
   ],
   "correct_option": 2,
-  "explanation": "Star topology: all devices connect to a central point.",
+  "explanation": "In a star topology every device connects to a central hub or switch, which passes data between them. A single cable joining all devices describes a bus topology, and devices in a star do not connect directly to each other.",
   "sort_order": 2,
   "created_at": "2026-09-18 14:13:01.226069+00",
   "difficulty": "medium",
@@ -9100,7 +9100,7 @@
    "FIFO"
   ],
   "correct_option": 2,
-  "explanation": "B1: stack = LIFO, last item pushed is first popped",
+  "explanation": "A stack is last in, first out (LIFO): the last item pushed is the first one popped. A queue, by contrast, is first in, first out. A stack does not sort items or process them at random.",
   "sort_order": 1,
   "created_at": "2026-09-20 18:43:00.821077+00",
   "difficulty": "medium",
@@ -9460,7 +9460,7 @@
    "2"
   ],
   "correct_option": 0,
-  "explanation": "The overall order is the sum of the orders: 1 + 2 = 3.",
+  "explanation": "The overall order of a rate equation is the sum of the powers of the concentration terms. For rate = k[A][B]², the order in A is 1 and in B is 2, so the overall order is 3.",
   "sort_order": 8,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -9838,7 +9838,7 @@
    "904.32 cm³"
   ],
   "correct_option": 3,
-  "explanation": "V = (4/3)πr³ = (4/3) × 3.14 × 216 ≈ 904.32 cm³.",
+  "explanation": "V = (4/3)πr³ = (4/3) × 3.14 × 6³ = (4/3) × 3.14 × 216 = 904.32 cm³. Cube the radius: 6³ = 216. The other options come from using the wrong formula or a wrong power of the radius.",
   "sort_order": 5,
   "created_at": "2026-08-22 14:11:25.735989+00",
   "difficulty": "medium",
@@ -9910,7 +9910,7 @@
    "24"
   ],
   "correct_option": 0,
-  "explanation": "−12 + 12 = 0, so the vectors are perpendicular.",
+  "explanation": "The dot product is x₁x₂ + y₁y₂ = (2)(−6) + (3)(4) = −12 + 12 = 0. A zero dot product means the two vectors are perpendicular, so −12 and 24 come from a sign or addition slip.",
   "sort_order": 2,
   "created_at": "2026-09-20 17:50:57.30488+00",
   "difficulty": "medium",
@@ -10342,7 +10342,7 @@
    "Before"
   ],
   "correct_option": 0,
-  "explanation": "'Mis-' = wrongly: misread, misplace, misinterpret.",
+  "explanation": "The prefix 'mis-' means wrongly or badly. 'Misunderstand' means to understand wrongly, like 'misread' or 'misplace'. 're-' means again, 'un-' means not, and 'pre-' means before.",
   "sort_order": 8,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "exam",
@@ -10522,7 +10522,7 @@
    "One tiny detail"
   ],
   "correct_option": 2,
-  "explanation": "Gist = general meaning; answer with the big picture.",
+  "explanation": "A gist question asks for the general meaning of a passage: its overall summary or main message. It is answered with the big picture rather than a single detail, a translation or a vocabulary definition.",
   "sort_order": 19,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -10558,7 +10558,7 @@
    "25"
   ],
   "correct_option": 2,
-  "explanation": "k = y/x = 20/5 = 4. So y = 4x. When x = 8, y = 32.",
+  "explanation": "Direct proportion means y = kx. From x = 5, y = 20: k = 20/5 = 4, so y = 4x. When x = 8, y = 4 × 8 = 32. The rule is a multiplier, so adding or subtracting an amount does not give the right answer.",
   "sort_order": 4,
   "created_at": "2026-08-22 13:58:34.63164+00",
   "difficulty": "medium",
@@ -10594,7 +10594,7 @@
    "3"
   ],
   "correct_option": 3,
-  "explanation": "Substituting x = −1 kills q(x), leaving 3.",
+  "explanation": "By the remainder theorem, p(-1) is the remainder when p is divided by (x + 1), which is 3. Substituting x = -1 makes the (x + 1)q(x) term zero.",
   "sort_order": 9,
   "created_at": "2026-09-20 17:50:50.070682+00",
   "difficulty": "medium",
@@ -10630,7 +10630,7 @@
    "16/3"
   ],
   "correct_option": 0,
-  "explanation": "Split at ±2 and total the magnitudes: 32/3.",
+  "explanation": "The curve is below the x-axis between x = -2 and 2, so the area is the integral of (4 - x^2) from -2 to 2 = 32/3. The signed integral of x^2 - 4 is -32/3, and the area is its magnitude.",
   "sort_order": 9,
   "created_at": "2026-09-20 17:50:48.286177+00",
   "difficulty": "medium",
@@ -10666,7 +10666,7 @@
    "8.1"
   ],
   "correct_option": 0,
-  "explanation": "E(3X + 2) = 3 x 2.1 + 2 = 8.3.",
+  "explanation": "Expectation is linear, so E(3X + 2) = 3E(X) + 2 = 3 x 2.1 + 2 = 8.3. Scale the expectation first, then add the constant.",
   "sort_order": 18,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -10936,7 +10936,7 @@
    "1.5 × 10² V m⁻¹"
   ],
   "correct_option": 1,
-  "explanation": "E = V/d = 600 / 0.040 = 1.5 × 10⁴ V m⁻¹.",
+  "explanation": "E = V / d = 600 V / 0.040 m = 1.5 x 10^4 V/m. Using 4.0 cm without converting to metres gives 150 V/m, which is 100 times too small.",
   "sort_order": 102,
   "created_at": "2026-10-13 13:49:10.355822+00",
   "difficulty": "exam",
@@ -11134,7 +11134,7 @@
    "keeping animals in zoos only"
   ],
   "correct_option": 1,
-  "explanation": "In situ protects the species where it lives naturally.",
+  "explanation": "In situ conservation protects species in their natural habitat, such as national parks and reserves. Ex situ conservation takes them out of the habitat, through captive breeding, zoos or gene banks.",
   "sort_order": 11,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -11170,7 +11170,7 @@
    "65°"
   ],
   "correct_option": 1,
-  "explanation": "360° − (80° + 110° + 95°) = 360° − 285° = 75°.",
+  "explanation": "The angles in a quadrilateral sum to 360°. So 360° − (80° + 110° + 95°) = 360° − 285° = 75°. Check: 75 + 285 = 360.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:11:14.147444+00",
   "difficulty": "medium",
@@ -11188,7 +11188,7 @@
    "One is a scalar multiple of the other"
   ],
   "correct_option": 3,
-  "explanation": "⃗a ∥ ⃗b if ⃗a = k⃗b for some scalar k (k ≠ 0).",
+  "explanation": "Two vectors are parallel when one is a scalar multiple of the other: a = kb for some scalar k. A zero dot product means perpendicular, not parallel, and equal magnitudes do not make vectors parallel.",
   "sort_order": 8,
   "created_at": "2026-08-22 14:11:38.553782+00",
   "difficulty": "medium",
@@ -11224,7 +11224,7 @@
    "oxidation with KMnO₄"
   ],
   "correct_option": 2,
-  "explanation": "Sn and concentrated HCl reduce –NO₂ to –NH₂.",
+  "explanation": "Tin and concentrated hydrochloric acid reduce the nitro group, –NO₂, to an amine, –NH₂, which gives phenylamine. Hydrolysis or heating with water does not change the nitro group, and KMnO₄ oxidises rather than reduces it.",
   "sort_order": 13,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -11314,7 +11314,7 @@
    "1 + 8x + 16x²"
   ],
   "correct_option": 1,
-  "explanation": "Terms: 1, 4(2x) = 8x, C(4,2)(2x)² = 24x².",
+  "explanation": "Binomial expansion: 1 + 4(2x) + C(4,2)(2x)^2 = 1 + 8x + 6 x 4x^2 = 1 + 8x + 24x^2. The 16x^2 option uses 2^4 where C(4,2) = 6 belongs.",
   "sort_order": 8,
   "created_at": "2026-09-20 17:50:44.645728+00",
   "difficulty": "medium",
@@ -11530,7 +11530,7 @@
    "Guanine"
   ],
   "correct_option": 1,
-  "explanation": "RNA contains uracil in place of thymine.",
+  "explanation": "Uracil replaces thymine in RNA and pairs with adenine. Thymine is the DNA base that uracil replaces, and adenine and guanine are found in both DNA and RNA.",
   "sort_order": 11,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -11764,7 +11764,7 @@
    "by"
   ],
   "correct_option": 1,
-  "explanation": "'Afraid of' is the dependent preposition.",
+  "explanation": "'Afraid of' is the dependent preposition for a fear, so the answer is 'of'. 'From' and 'with' are not used after 'afraid'.",
   "sort_order": 14,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -11944,7 +11944,7 @@
    "x − 6"
   ],
   "correct_option": 1,
-  "explanation": "2 × x = 2x, and 2 × (−3) = −6. So 2(x − 3) = 2x − 6.",
+  "explanation": "Multiply each term inside the bracket by 2: 2 × x = 2x and 2 × (−3) = −6. So 2(x − 3) = 2x − 6. The sign of −3 must be kept when multiplying, which is where the error 2x − 3 usually comes from.",
   "sort_order": 2,
   "created_at": "2026-08-22 14:06:56.45706+00",
   "difficulty": "medium",
@@ -11998,7 +11998,7 @@
    "2x − 3"
   ],
   "correct_option": 0,
-  "explanation": "g(f(x)) = g(2x + 1) = (2x + 1) − 3 = 2x − 2.",
+  "explanation": "g(f(x)) means apply f first, then put f(x) into g: g(2x + 1) = (2x + 1) − 3 = 2x − 2. Reading it the other way, f(g(x)), would give 2x − 5, which is not an option.",
   "sort_order": 10,
   "created_at": "2026-08-22 14:07:20.154132+00",
   "difficulty": "medium",
@@ -12214,7 +12214,7 @@
    "20"
   ],
   "correct_option": 2,
-  "explanation": "C(5, 2) = 5 x 4 / 2 = 10.",
+  "explanation": "The x^2 term of (1 + x)^5 has coefficient C(5, 2) = (5 x 4) / 2 = 10. That is the number of ways to choose 2 of the 5 factors to supply the x terms.",
   "sort_order": 6,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -12304,7 +12304,7 @@
    "Carry only"
   ],
   "correct_option": 0,
-  "explanation": "Half adder: Sum = A XOR B, Carry = A AND B.",
+  "explanation": "A half adder produces Sum = A XOR B and Carry = A AND B for two binary digits. The sum alone cannot represent 1 + 1, which needs the carry as well.",
   "sort_order": 10,
   "created_at": "2026-09-18 14:13:11.951498+00",
   "difficulty": "medium",
@@ -12322,7 +12322,7 @@
    "1, 4, 9"
   ],
   "correct_option": 2,
-  "explanation": "Each term of 4, 12, 36 is multiplied by 3.",
+  "explanation": "Each term is multiplied by 3 to get the next: 4 x 3 = 12 and 12 x 3 = 36. The sequences 2, 4, 6 and 3, 6, 9 have constant differences, so they are arithmetic.",
   "sort_order": 6,
   "created_at": "2026-09-20 17:50:44.645728+00",
   "difficulty": "medium",
@@ -12340,7 +12340,7 @@
    "the number of individuals of one species"
   ],
   "correct_option": 2,
-  "explanation": "Richness counts how many different species are present.",
+  "explanation": "Species richness is the number of different species in a habitat or community. It counts species, not individuals, and it is different from total biomass or the genetic variation within one species.",
   "sort_order": 6,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -12520,7 +12520,7 @@
    "3.8 x 10^13 km"
   ],
   "correct_option": 1,
-  "explanation": "4.2 x 9.5 x 10^12 = 39.9 x 10^12 = 4.0 x 10^13 km.",
+  "explanation": "Distance = 4.2 × 9.5 × 10¹² km = 39.9 × 10¹² km = 3.99 × 10¹³ km, which rounds to 4.0 × 10¹³ km. Move the decimal point and adjust the power of ten together so the result stays correct.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:28:47.728732+00",
   "difficulty": "exam",
@@ -12556,7 +12556,7 @@
    "A slow build"
   ],
   "correct_option": 2,
-  "explanation": "Beginning mid-action hooks readers instantly.",
+  "explanation": "In medias res means 'in the middle of things': the story opens mid-action. This grabs the reader at once and creates suspense, while background is filled in later. A slow build or a formal opening is the opposite of this technique.",
   "sort_order": 11,
   "created_at": "2026-10-19 10:17:40.897405+00",
   "difficulty": "drill",
@@ -12610,7 +12610,7 @@
    "24 m/s"
   ],
   "correct_option": 1,
-  "explanation": "v = u + at = 0 + 3 x 4 = 12 m/s.",
+  "explanation": "Starting from rest, v = u + at = 0 + 3 x 4 = 12 m/s. Adding a and t (giving 7) instead of multiplying them is the slip that produces the distractor.",
   "sort_order": 6,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -12628,7 +12628,7 @@
    "More electricity usage"
   ],
   "correct_option": 2,
-  "explanation": "Remote work means less commuting → fewer car emissions.",
+  "explanation": "Remote working reduces commuting, so fewer journeys by car means lower transport emissions. E-waste, larger data centres and higher electricity use are environmental costs of technology, not benefits.",
   "sort_order": 7,
   "created_at": "2026-09-18 14:13:08.897768+00",
   "difficulty": "medium",
@@ -12664,7 +12664,7 @@
    "Titration results"
   ],
   "correct_option": 0,
-  "explanation": "Standard entropy values are tabulated in data books.",
+  "explanation": "Standard entropy values, S°, are tabulated in data books, so they are looked up rather than measured in a titration. Bond energy tables give different information and are not the source for standard entropy.",
   "sort_order": 14,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -12880,7 +12880,7 @@
    "e^3"
   ],
   "correct_option": 1,
-  "explanation": "ln x = ln e + ln 3 = ln(3e), so x = 3e.",
+  "explanation": "ln x = 1 + ln 3 = ln e + ln 3 = ln(3e), so x = 3e. The 1 becomes a factor of e, not an addition of 1 to 3.",
   "sort_order": 14,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -12916,7 +12916,7 @@
    "8"
   ],
   "correct_option": 1,
-  "explanation": "xy = constant = 3 × 12 = 36. When x = 4, y = 36/4 = 9.",
+  "explanation": "Inverse proportion means xy = constant. From x = 3, y = 12, the constant is 36. When x = 4, y = 36/4 = 9. Treating y as directly proportional to x would give 16, which is the wrong relationship.",
   "sort_order": 5,
   "created_at": "2026-08-22 13:58:35.058106+00",
   "difficulty": "medium",
@@ -12988,7 +12988,7 @@
    "178 K"
   ],
   "correct_option": 2,
-  "explanation": "T = ΔH / ΔS = 178 000 / 161 = 1106 K.",
+  "explanation": "dG = 0 when T = dH / dS = 178 000 J/mol / 161 J/(K mol) = 1106 K. Convert the enthalpy change from kJ to J first; without that conversion the answer is 1.1 K.",
   "sort_order": 5,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -13060,7 +13060,7 @@
    "Therefore"
   ],
   "correct_option": 0,
-  "explanation": "'Moreover' and 'in addition' add supporting points.",
+  "explanation": "'Moreover' and 'in addition' add a further supporting point to the argument. 'However' and 'in contrast' signal opposition, and 'therefore' signals a conclusion. Choose the connective that matches the relationship between the ideas.",
   "sort_order": 9,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "exam",
@@ -13078,7 +13078,7 @@
    "No — trials are not independent"
   ],
   "correct_option": 3,
-  "explanation": "Without replacement changes p each draw.",
+  "explanation": "Without replacement the probability of success changes after each draw, so the trials are not independent and the count is not binomial. A fixed n alone is not enough.",
   "sort_order": 8,
   "created_at": "2026-09-21 17:57:04.36356+00",
   "difficulty": "medium",
@@ -13132,7 +13132,7 @@
    "3 cos 3x"
   ],
   "correct_option": 3,
-  "explanation": "By the chain rule, dy/dx = 3 cos(3x).",
+  "explanation": "By the chain rule, d/dx sin(3x) = cos(3x) x 3 = 3 cos(3x). The factor 3 from the inside derivative must multiply the result; cos(3x) alone forgets it.",
   "sort_order": 15,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -13258,7 +13258,7 @@
    "48"
   ],
   "correct_option": 2,
-  "explanation": "A = ½ × 6 × 8 × sin 30° = 24 × 0.5 = 12.",
+  "explanation": "Area = (1/2) a b sin C = (1/2)(6)(8) sin 30 degrees = 24 x 0.5 = 12. The 24 option forgets the sin 30 degrees factor.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:15:55.249609+00",
   "difficulty": "medium",
@@ -13276,7 +13276,7 @@
    "glucose and fructose"
   ],
   "correct_option": 3,
-  "explanation": "Sucrose is a disaccharide of glucose and fructose.",
+  "explanation": "Sucrose is a disaccharide made of one glucose and one fructose unit joined by a glycosidic bond. Maltose is two glucose units and lactose is glucose plus galactose, so those are not sucrose.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -13366,7 +13366,7 @@
    "m is the maximum point"
   ],
   "correct_option": 1,
-  "explanation": "Half the probability lies below the median.",
+  "explanation": "The median m satisfies P(X <= m) = 0.5, so exactly half the probability lies to its left. The mean is not in general equal to the median, and m is not the maximum point of the density.",
   "sort_order": 6,
   "created_at": "2026-09-21 17:57:08.743662+00",
   "difficulty": "medium",
@@ -13780,7 +13780,7 @@
    "decidedly"
   ],
   "correct_option": 1,
-  "explanation": "The suffix -ion/-sion forms nouns: decide -> decision.",
+  "explanation": "The suffix -ion (or -sion) forms a noun from a verb, so decide becomes decision. Decisive is an adjective, decidedly an adverb, and deciding is a gerund rather than the noun.",
   "sort_order": 6,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "exam",
@@ -13906,7 +13906,7 @@
    "10 °C"
   ],
   "correct_option": 3,
-  "explanation": "ΔT = q / (m × c) = 4180 / (100 × 4.18) = 10 °C.",
+  "explanation": "Use ΔT = q ÷ (m × c). Convert 4.18 kJ to 4180 J, then ΔT = 4180 ÷ (100 × 4.18) = 4180 ÷ 418 = 10 °C. Keep the units consistent: kJ becomes J, and grams go with J g⁻¹ K⁻¹.",
   "sort_order": 14,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -14032,7 +14032,7 @@
    "Overloading a server"
   ],
   "correct_option": 0,
-  "explanation": "Phishing = social engineering via fake communications.",
+  "explanation": "Phishing is a form of social engineering in which fake emails or websites impersonate trusted organisations to steal passwords or personal information. Installing antivirus is a defence against it, not an attack.",
   "sort_order": 7,
   "created_at": "2026-09-18 14:13:01.226069+00",
   "difficulty": "medium",
@@ -14176,7 +14176,7 @@
    "0.5000"
   ],
   "correct_option": 0,
-  "explanation": "P(X = 3) = C(6, 3) x 0.5^3 x 0.5^3 = 20/64 = 0.3125.",
+  "explanation": "For X ~ B(6, 0.5), P(X = 3) = ⁶C₃ × 0.5³ × 0.5³ = 20 × (1/64) = 20/64 = 0.3125 to 4 decimal places. Here ⁶C₃ = 20, and 0.5⁶ = 1/64.",
   "sort_order": 23,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -14248,7 +14248,7 @@
    "2π/3 and 5π/3"
   ],
   "correct_option": 2,
-  "explanation": "Sine is negative in quadrants III and IV.",
+  "explanation": "sin x = -sqrt(3)/2 has reference angle pi/3, and sine is negative in quadrants III and IV, giving x = 4pi/3 and 5pi/3. The pi/3 and 2pi/3 pair are positive-sine angles.",
   "sort_order": 6,
   "created_at": "2026-09-20 17:50:42.560292+00",
   "difficulty": "medium",
@@ -14410,7 +14410,7 @@
    "50 cm²"
   ],
   "correct_option": 3,
-  "explanation": "A = ½ × (8 + 12) × 5 = ½ × 20 × 5 = 50 cm².",
+  "explanation": "Area = (1/2)(a + b) h = (1/2)(8 + 12)(5) = 50 cm^2. Forgetting the half in the formula gives 100 cm^2.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:11:26.246192+00",
   "difficulty": "medium",
@@ -14428,7 +14428,7 @@
    "45 cm²"
   ],
   "correct_option": 2,
-  "explanation": "Area ratio = k² = 16. Larger area = 15 × 16 = 240 cm².",
+  "explanation": "With a scale factor of 4, lengths scale by 4 and areas by 4² = 16. The larger area is 15 × 16 = 240 cm². Scaling the area by 4 instead of 16 gives 60 cm², which is the wrong step.",
   "sort_order": 9,
   "created_at": "2026-08-22 14:11:21.423302+00",
   "difficulty": "medium",
@@ -14446,7 +14446,7 @@
    "2.26 x 10^6 J"
   ],
   "correct_option": 0,
-  "explanation": "Q = mL = 0.5 x 2.26x10^6 = 1.13 x 10^6 J.",
+  "explanation": "Energy Q = mL = 0.5 kg x 2.26 x 10^6 J/kg = 1.13 x 10^6 J. The 2.26 x 10^6 option is the latent heat per kilogram, not the energy for 0.5 kg.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:36:29.136796+00",
   "difficulty": "exam",
@@ -14824,7 +14824,7 @@
    "String"
   ],
   "correct_option": 2,
-  "explanation": "Array is a data structure, not a primitive data type.",
+  "explanation": "Boolean, integer and string are primitive data types. An array is a data structure built from elements of one type, so it is not a primitive data type in the same sense.",
   "sort_order": 6,
   "created_at": "2026-09-18 14:12:56.177001+00",
   "difficulty": "medium",
@@ -15040,7 +15040,7 @@
    "443"
   ],
   "correct_option": 3,
-  "explanation": "B1: HTTPS = HTTP over TLS, default port 443",
+  "explanation": "HTTPS is HTTP carried over TLS, and it uses port 443 by default. Port 80 is plain HTTP, port 21 is FTP and port 25 is SMTP.",
   "sort_order": 9,
   "created_at": "2026-09-20 18:43:06.573988+00",
   "difficulty": "medium",
@@ -15094,7 +15094,7 @@
    "1 < x < 5"
   ],
   "correct_option": 0,
-  "explanation": "Add 3: 4 < 2x ≤ 10. Divide by 2: 2 < x ≤ 5.",
+  "explanation": "Add 3 to all three parts: 4 < 2x <= 10. Divide by 2: 2 < x <= 5. The left inequality is strict and the right one is not.",
   "sort_order": 5,
   "created_at": "2026-08-22 14:07:09.000423+00",
   "difficulty": "medium",
@@ -15220,7 +15220,7 @@
    "pi rad/s"
   ],
   "correct_option": 0,
-  "explanation": "omega = 2 pi f = 4 pi rad/s, about 12.6 rad/s.",
+  "explanation": "Angular speed ω = 2πf = 2π × 2 Hz = 4π rad s⁻¹ ≈ 12.6 rad s⁻¹. At 2 Hz the turntable makes two full turns each second, and each turn is 2π radians.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:45.781189+00",
   "difficulty": "exam",
@@ -15274,7 +15274,7 @@
    "A, different Z"
   ],
   "correct_option": 1,
-  "explanation": "B1: isotopes: same protons (Z), different neutrons (N)",
+  "explanation": "Isotopes are atoms of the same element, so they have the same number of protons, Z, which defines the element. They differ in neutron number N, and therefore in mass number A.",
   "sort_order": 8,
   "created_at": "2026-09-20 18:42:30.082488+00",
   "difficulty": "medium",
@@ -15328,7 +15328,7 @@
    "O2(g)"
   ],
   "correct_option": 3,
-  "explanation": "The standard state of oxygen is O2 gas at 100 kPa.",
+  "explanation": "The standard state of an element is its most stable form at 100 kPa and the stated temperature. For oxygen that is O₂(g), the diatomic gas. O₃ is ozone, and single oxygen atoms are not the stable form.",
   "sort_order": 7,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -15400,7 +15400,7 @@
    "2e^2 - 2"
   ],
   "correct_option": 0,
-  "explanation": "The integral is [e^(2x)/2] from 0 to 1 = (e^2 - 1)/2.",
+  "explanation": "The integral of e^(2x) is ½e^(2x). Evaluating from 0 to 1 gives ½e² − ½e⁰ = (e² − 1)/2. The ½ comes from integrating the exponent 2x, and it is what separates this from e^(2x) itself.",
   "sort_order": 14,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -15472,7 +15472,7 @@
    "5.0 J"
   ],
   "correct_option": 0,
-  "explanation": "q = m × c × ΔT = 50.0 × 4.18 × 10.0 = 2090 J.",
+  "explanation": "q = m × c × ΔT = 50.0 g × 4.18 J g⁻¹ K⁻¹ × 10.0 K = 2090 J. The 20 900 J option comes from using 500 g instead of 50.0 g, and 5.0 J is far too small.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -15706,7 +15706,7 @@
    "0.25 mol"
   ],
   "correct_option": 1,
-  "explanation": "n = 2.0 × (500 / 1000) = 1.0 mol.",
+  "explanation": "Moles = concentration x volume in dm^3 = 2.0 mol/dm^3 x 0.500 dm^3 = 1.0 mol. Convert 500 cm^3 to 0.500 dm^3 first, because the concentration is per dm^3.",
   "sort_order": 13,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -15778,7 +15778,7 @@
    "500 N"
   ],
   "correct_option": 2,
-  "explanation": "W = mg = 5 × 10 = 50 N (weight is a force, in newtons).",
+  "explanation": "Weight W = mg = 5 kg × 10 N/kg = 50 N. Weight is a force, so it is measured in newtons, not kilograms. The 0.5 N option comes from dividing by g instead of multiplying.",
   "sort_order": 1,
   "created_at": "2026-09-14 18:41:36.502442+00",
   "difficulty": "medium",
@@ -15850,7 +15850,7 @@
    "0.2 J"
   ],
   "correct_option": 3,
-  "explanation": "W = ½CV² = ½ × 10 × 10⁻⁶ × 200² = 0.20 J.",
+  "explanation": "Energy W = (1/2) C V^2 = 0.5 x 10 x 10^-6 x 200^2 = 0.20 J. Convert microfarads to farads first and square the voltage.",
   "sort_order": 105,
   "created_at": "2026-10-13 13:49:10.355822+00",
   "difficulty": "exam",
@@ -15958,7 +15958,7 @@
    "A"
   ],
   "correct_option": 1,
-  "explanation": "General plural statements take no article.",
+  "explanation": "General statements about a whole category, here dogs, take no article in English. 'The' or 'a' is used only for a specific or singular case.",
   "sort_order": 19,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -16138,7 +16138,7 @@
    "1/5"
   ],
   "correct_option": 2,
-  "explanation": "ln and exp are inverses, so ln(e^5) = 5.",
+  "explanation": "ln and exp are inverse functions, so ln(e^5) = 5. The logarithm undoes the exponential and leaves the power itself.",
   "sort_order": 18,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -16156,7 +16156,7 @@
    "'kids' (vs children)"
   ],
   "correct_option": 3,
-  "explanation": "'Kids' is colloquial; 'children' is neutral/formal.",
+  "explanation": "'Kids' is an informal, colloquial word for children. 'Children' is the neutral form, while 'offspring' and 'youth' are formal or technical. In formal writing, use the neutral word.",
   "sort_order": 16,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -16264,7 +16264,7 @@
    "2.5 x 10^-4"
   ],
   "correct_option": 3,
-  "explanation": "Strain = 0.0005/2 = 2.5 x 10^-4, with no units.",
+  "explanation": "Strain = extension ÷ original length = 0.5 mm ÷ 2 m. Convert both to metres: 0.0005 m ÷ 2 m = 2.5 × 10⁻⁴. Strain has no units because the units cancel.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
@@ -16336,7 +16336,7 @@
    "No correlation"
   ],
   "correct_option": 1,
-  "explanation": "r close to −1 indicates strong negative correlation.",
+  "explanation": "A correlation coefficient close to −1 means a strong negative linear correlation: as one variable rises, the other falls closely along a straight line. Values near 0 indicate weak or no linear correlation.",
   "sort_order": 9,
   "created_at": "2026-08-22 14:16:19.408591+00",
   "difficulty": "medium",
@@ -16480,7 +16480,7 @@
    "34 Ω"
   ],
   "correct_option": 0,
-  "explanation": "R = ρL/A = (1.7 × 10⁻⁸ × 2.0) ÷ (1.0 × 10⁻⁶) = 0.034 Ω.",
+  "explanation": "R = ρL/A = (1.7 × 10⁻⁸ Ω m × 2.0 m) ÷ (1.0 × 10⁻⁶ m²) = 3.4 × 10⁻⁸ ÷ 10⁻⁶ = 0.034 Ω. Resistance grows with length and falls as cross-sectional area increases.",
   "sort_order": 102,
   "created_at": "2026-10-13 13:42:55.802533+00",
   "difficulty": "exam",
@@ -16696,7 +16696,7 @@
    "7.00"
   ],
   "correct_option": 0,
-  "explanation": "At half-neutralisation [A⁻] = [HA], so pH = pKa = 4.76.",
+  "explanation": "At half-neutralisation the concentrations of HA and A⁻ are equal, so the Henderson-Hasselbalch equation gives pH = pKa. Here pH = 4.76. The value 2.38 is half the pKa and is not a pH result here.",
   "sort_order": 8,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -16804,7 +16804,7 @@
    "Golgi apparatus"
   ],
   "correct_option": 2,
-  "explanation": "Aerobic respiration takes place in the mitochondria.",
+  "explanation": "Aerobic respiration takes place in the mitochondria, which use oxygen to release energy from glucose through the Krebs cycle and the electron transport chain. Ribosomes make proteins, lysosomes digest material and Golgi bodies package it.",
   "sort_order": 2,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -16930,7 +16930,7 @@
    "31"
   ],
   "correct_option": 1,
-  "explanation": "n(A ∪ B) = n(A) + n(B) − n(A ∩ B) = 15 + 12 − 4 = 23.",
+  "explanation": "Use n(A ∪ B) = n(A) + n(B) − n(A ∩ B) = 15 + 12 − 4 = 23. The intersection is subtracted because those four elements are counted in both sets. Adding without subtracting gives 27.",
   "sort_order": 4,
   "created_at": "2026-08-22 13:58:46.563963+00",
   "difficulty": "medium",
@@ -17074,7 +17074,7 @@
    "3 units right, 2 units up"
   ],
   "correct_option": 0,
-  "explanation": "Vector (−3; −2) means −3 (left) and −2 (down).",
+  "explanation": "A column vector (x; y) translates by x units horizontally, positive to the right, and y units vertically, positive upwards. For (−3; −2), the −3 means 3 units left and the −2 means 2 units down.",
   "sort_order": 5,
   "created_at": "2026-08-22 14:11:37.011493+00",
   "difficulty": "medium",
@@ -17092,7 +17092,7 @@
    "after"
   ],
   "correct_option": 3,
-  "explanation": "'Look after' = take care of (phrasal verb collocation).",
+  "explanation": "'Look after' is a phrasal verb meaning to take care of someone or something, as in 'look after my cat'. 'Look at' means to view something, and 'look for' means to search.",
   "sort_order": 10,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "exam",
@@ -17470,7 +17470,7 @@
    "8"
   ],
   "correct_option": 2,
-  "explanation": "Ordered: 2, 3, 5, 7, 8. Middle value = 5.",
+  "explanation": "Ordered: 2, 3, 5, 7, 8. With five values the median is the third, which is 5. The other options are not the middle value of this ordered list.",
   "sort_order": 2,
   "created_at": "2026-08-22 14:16:03.648241+00",
   "difficulty": "medium",
@@ -17668,7 +17668,7 @@
    "3"
   ],
   "correct_option": 3,
-  "explanation": "Inverse is f⁻¹(x) = √(x + 4), so f⁻¹(5) = √9 = 3.",
+  "explanation": "Swap x and y in y = x² − 4 and solve: y = √(x + 4), taking the positive root because the domain x ≥ 0 makes the outputs non-negative. Then f⁻¹(5) = √9 = 3. Check: f(3) = 9 − 4 = 5.",
   "sort_order": 101,
   "created_at": "2026-10-13 14:26:08.422261+00",
   "difficulty": "exam",
@@ -17776,7 +17776,7 @@
    "An"
   ],
   "correct_option": 1,
-  "explanation": "Specific students (of my class) take 'the'.",
+  "explanation": "A specific group, 'the students in my class', takes 'the'. A general or indefinite reference would take 'a' or no article.",
   "sort_order": 12,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -17884,7 +17884,7 @@
    "useful output / total input"
   ],
   "correct_option": 3,
-  "explanation": "Always a fraction of input, then × 100%.",
+  "explanation": "Efficiency = useful output / total input, often written as a percentage by multiplying by 100. Output minus input is not efficiency, and energy is never created.",
   "sort_order": 6,
   "created_at": "2026-09-20 18:41:59.437368+00",
   "difficulty": "medium",
@@ -17920,7 +17920,7 @@
    "a ketone"
   ],
   "correct_option": 2,
-  "explanation": "LiAlH₄ reduces –COOH all the way to –CH₂OH.",
+  "explanation": "LiAlH4 reduces a carboxylic acid all the way to a primary alcohol, turning -COOH into -CH2OH. Esters, amides and ketones are not formed by this reduction.",
   "sort_order": 9,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -18010,7 +18010,7 @@
    "30°"
   ],
   "correct_option": 0,
-  "explanation": "Range = u² sin 2θ/g, maximised when 2θ = 90°.",
+  "explanation": "For a projectile landing at its launch height, the range is u² sin 2θ/g. sin 2θ is largest, equal to 1, when 2θ = 90°, so θ = 45° gives the maximum range. Angles of 30° and 60° give the same range, but less than the maximum.",
   "sort_order": 10,
   "created_at": "2026-09-20 18:41:53.373069+00",
   "difficulty": "medium",
@@ -18118,7 +18118,7 @@
    "x = 1.00"
   ],
   "correct_option": 2,
-  "explanation": "x = e^(-1) = 0.36787..., so x = 0.368 to 3 s.f.",
+  "explanation": "ln x = −1 means x = e⁻¹ = 1/e = 0.36788…, which to 3 significant figures is 0.368. A logarithm is only defined for positive x, so the negative value −2.72 cannot be the answer.",
   "sort_order": 13,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -18424,7 +18424,7 @@
    "{1, 2, 4, 5}"
   ],
   "correct_option": 2,
-  "explanation": "A ∪ B contains elements in A OR B: {1, 2, 3, 4, 5}.",
+  "explanation": "The union A ∪ B contains every element in A or in B, or both. A = {1, 2, 3} and B = {3, 4, 5} combine to {1, 2, 3, 4, 5}, with 3 listed once. The intersection would be {3}, which is a different set.",
   "sort_order": 2,
   "created_at": "2026-08-22 13:58:45.796154+00",
   "difficulty": "medium",
@@ -18496,7 +18496,7 @@
    "0.5 mol"
   ],
   "correct_option": 2,
-  "explanation": "n = c × V = 0.200 × (25.0 / 1000) = 0.005 mol.",
+  "explanation": "Convert the volume to dm³ first: 25.0 cm³ ÷ 1000 = 0.0250 dm³. Then n = c × V = 0.200 × 0.0250 = 0.005 mol. Forgetting the conversion gives 0.5 mol, which is 100 times too large.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -18550,7 +18550,7 @@
    "0.6 N"
   ],
   "correct_option": 2,
-  "explanation": "M1: F = BIL sin 90°\nA1: F = 0.2 × 3 × 0.5 = 0.3 N",
+  "explanation": "A current at right angles to a field feels F = BIL sin θ with θ = 90°, so sin θ = 1 and F = 0.2 T × 3 A × 0.5 m = 0.3 N. Keep all three values and the field strength in the calculation.",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:19.704692+00",
   "difficulty": "medium",
@@ -18658,7 +18658,7 @@
    "the species that loses electrons (is oxidised)"
   ],
   "correct_option": 3,
-  "explanation": "The reducing agent donates electrons and is oxidised.",
+  "explanation": "The reducing agent is the species that is oxidised: it loses electrons and so causes another species to be reduced. It need not be a metal, and the species that gains electrons is the oxidising agent.",
   "sort_order": 12,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -18694,7 +18694,7 @@
    "0.375"
   ],
   "correct_option": 3,
-  "explanation": "P(X = 2) = C(4,2) x 0.5^2 x 0.5^2 = 6 x 0.0625 = 0.375.",
+  "explanation": "P(X = 2) = C(4, 2) × 0.5² × 0.5² = 6 × 0.0625 = 0.375. The coefficient C(4, 2) = 6 counts the arrangements of two successes in four trials, and 0.5⁴ = 0.0625.",
   "sort_order": 17,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -18712,7 +18712,7 @@
    "−4.76"
   ],
   "correct_option": 0,
-  "explanation": "pKa = −log10(1.74 × 10⁻⁵) = 4.76.",
+  "explanation": "pKa = -log10(Ka) = -log10(1.74 x 10^-5) = 4.76. Take the logarithm of Ka, not Ka itself, and keep the sign so the pKa is positive.",
   "sort_order": 12,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -18766,7 +18766,7 @@
    "Adding a catalyst"
   ],
   "correct_option": 1,
-  "explanation": "Only temperature changes the equilibrium constant.",
+  "explanation": "The equilibrium constant Kc changes only when the temperature changes. Concentration, pressure and catalysts shift the position of equilibrium or change the rate, but they leave Kc unchanged.",
   "sort_order": 8,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -18784,7 +18784,7 @@
    "Microwave, radio, gamma, visible, X-ray, ultraviolet, infrared"
   ],
   "correct_option": 0,
-  "explanation": "Radio waves are longest; gamma rays are shortest.",
+  "explanation": "Wavelength increases from gamma rays to radio waves. The list from longest to shortest is radio, microwave, infrared, visible, ultraviolet, X-ray, gamma. Radio waves have the longest wavelength and gamma rays the shortest.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:45.781189+00",
   "difficulty": "exam",
@@ -18802,7 +18802,7 @@
    "Adjectives"
   ],
   "correct_option": 2,
-  "explanation": "'-tion/-sion' are noun-forming suffixes.",
+  "explanation": "The suffix -tion (and -sion) forms nouns from verbs, such as education. Adverbs usually end in -ly, verbs in -ize, and adjectives in -ful or -ous.",
   "sort_order": 20,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -18820,7 +18820,7 @@
    "Again"
   ],
   "correct_option": 3,
-  "explanation": "'Re-' = again: redo, rebuild, reconsider.",
+  "explanation": "'Re-' means again, as in redo, rebuild and reconsider, so 'rewrite' means to write again. 'Pre-' and 'un-' give different meanings.",
   "sort_order": 13,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -19072,7 +19072,7 @@
    "y⁹"
   ],
   "correct_option": 2,
-  "explanation": "Subtract the powers: 7 − 2 = 5. So y⁷ ÷ y² = y⁵.",
+  "explanation": "When dividing powers with the same base, subtract the exponents: y⁷ ÷ y² = y^(7 − 2) = y⁵. Dividing the exponents or adding them, which gives y¹⁴ or y⁹, are common mistakes.",
   "sort_order": 2,
   "created_at": "2026-08-22 13:58:40.585813+00",
   "difficulty": "medium",
@@ -19468,7 +19468,7 @@
    "96 dm^3"
   ],
   "correct_option": 1,
-  "explanation": "V = n x 24 = 0.25 x 24 = 6.0 dm^3.",
+  "explanation": "V = n x 24 = 0.25 x 24 = 6.0 dm^3, multiplying by the molar volume. The 96 dm^3 option comes from dividing by 0.25 instead of multiplying.",
   "sort_order": 18,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "exam",
@@ -19648,7 +19648,7 @@
    "2.5"
   ],
   "correct_option": 1,
-  "explanation": "E(X) = 1(0.2) + 2(0.5) + 3(0.3) = 0.2 + 1 + 0.9 = 2.1.",
+  "explanation": "The expected value is the sum of each value times its probability: E(X) = 1(0.2) + 2(0.5) + 3(0.3) = 0.2 + 1.0 + 0.9 = 2.1. The probabilities sum to 1, which confirms the weighting.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -19774,7 +19774,7 @@
    "its engine"
   ],
   "correct_option": 2,
-  "explanation": "v = √(GM/r), independent of satellite mass.",
+  "explanation": "Orbital speed v = sqrt(GM/r) depends on the mass of the body being orbited and on the orbit radius. The satellite's own mass, shape and engine do not appear in the formula.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:12.397653+00",
   "difficulty": "medium",
@@ -19810,7 +19810,7 @@
    "4600 V"
   ],
   "correct_option": 2,
-  "explanation": "Vs = 230 x 100/2000 = 11.5 V. It steps down.",
+  "explanation": "For an ideal transformer, Vs/Vp = Ns/Np, so Vs = 230 × 100/2000 = 11.5 V. Fewer secondary turns means a step-down transformer, so the output voltage must be lower than 230 V.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:28:47.728732+00",
   "difficulty": "exam",
@@ -20008,7 +20008,7 @@
    "failed"
   ],
   "correct_option": 1,
-  "explanation": "After 'a complete' a noun is needed: failure.",
+  "explanation": "'A complete' is followed by a noun, so the form must be a noun. 'Failure' fits. The verb forms 'fails' and 'failed' and the participle 'failing' cannot follow 'a complete' directly.",
   "sort_order": 10,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "exam",
@@ -20224,7 +20224,7 @@
    "200°"
   ],
   "correct_option": 2,
-  "explanation": "Angles at a point = 360°. x = 360° − 200° = 160°.",
+  "explanation": "Angles at a point add up to 360°, so x = 360° − 200° = 160°. The 180° option would be a straight line, which is a different situation from angles around a point.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:11:14.525923+00",
   "difficulty": "medium",
@@ -20242,7 +20242,7 @@
    "25"
   ],
   "correct_option": 2,
-  "explanation": "By the power law n ln a = ln(a^n): 2 ln 5 = ln 25.",
+  "explanation": "The power law for logarithms gives n ln a = ln(aⁿ), so 2 ln 5 = ln(5²) = ln 25. Logarithms cannot be combined term by term, so ln 7 and ln 10 are not equal to 2 ln 5.",
   "sort_order": 9,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -20332,7 +20332,7 @@
    "3/16"
   ],
   "correct_option": 2,
-  "explanation": "(1/2)(-1/2)(-3/2)/6 = (3/8)/6 = 1/16.",
+  "explanation": "The x^3 coefficient of (1 + x)^(1/2) is (1/2)(-1/2)(-3/2) / 3! = (3/8) / 6 = 1/16. Two negative factors make the product positive, so the sign is +.",
   "sort_order": 10,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -20368,7 +20368,7 @@
    "ΔG = TΔH − ΔS"
   ],
   "correct_option": 1,
-  "explanation": "The Gibbs energy change is ΔG = ΔH − TΔS.",
+  "explanation": "The Gibbs equation is delta G = delta H - T delta S: the entropy term is subtracted, multiplied by temperature. Reversing the sign of either term gives an incorrect relation.",
   "sort_order": 1,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -20530,7 +20530,7 @@
    "0.35"
   ],
   "correct_option": 0,
-  "explanation": "P(F ∪ S) = 0.6 + 0.4 − 0.25 = 0.75, so neither = 0.25.",
+  "explanation": "P(F ∪ S) = P(F) + P(S) − P(F ∩ S) = 0.6 + 0.4 − 0.25 = 0.75. Students who study neither language lie outside the union, so P(neither) = 1 − 0.75 = 0.25.",
   "sort_order": 9,
   "created_at": "2026-09-21 17:56:54.538761+00",
   "difficulty": "medium",
@@ -20602,7 +20602,7 @@
    "64"
   ],
   "correct_option": 3,
-  "explanation": "Kc = 1.60² / (0.20 × 0.20) = 2.56 / 0.04 = 64.",
+  "explanation": "Kc = [HI]²/([H₂][I₂]) = 1.60²/(0.20 × 0.20) = 2.56/0.040 = 64. The HI concentration is squared because the equation has 2HI as the product.",
   "sort_order": 1,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -20836,7 +20836,7 @@
    "π apart"
   ],
   "correct_option": 3,
-  "explanation": "Roots are 2π/n apart; for n = 2 that is π.",
+  "explanation": "The two square roots of a complex number lie half a turn apart on the Argand diagram, so their arguments differ by pi. They are opposite, not equal.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:55.967696+00",
   "difficulty": "medium",
@@ -20980,7 +20980,7 @@
    "low breaking stress"
   ],
   "correct_option": 0,
-  "explanation": "Stiffness is measured by the Young modulus.",
+  "explanation": "Stiffness is measured by the Young modulus E: a high E means the material resists stretching for a given stress. Density and breaking stress are different properties.",
   "sort_order": 10,
   "created_at": "2026-09-20 18:42:01.101226+00",
   "difficulty": "medium",
@@ -21034,7 +21034,7 @@
    "360°"
   ],
   "correct_option": 1,
-  "explanation": "The interior angles of any triangle always sum to 180°.",
+  "explanation": "The interior angles of any triangle always sum to 180°. The sum of 360° applies to a quadrilateral, not a triangle, and 90° is the angle in a right-angled corner.",
   "sort_order": 1,
   "created_at": "2026-08-22 14:11:11.70286+00",
   "difficulty": "medium",
@@ -21196,7 +21196,7 @@
    "Four carbon atoms"
   ],
   "correct_option": 0,
-  "explanation": "Pent- indicates five carbon atoms in the longest chain.",
+  "explanation": "The prefix pent- means five, so a pentane molecule has five carbon atoms in its longest chain. Hex- means six, but- means four and prop- means three.",
   "sort_order": 14,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -21250,7 +21250,7 @@
    "25%"
   ],
   "correct_option": 1,
-  "explanation": "Percentage yield = 7.5 / 10.0 × 100 = 75%.",
+  "explanation": "Percentage yield = actual / theoretical x 100 = 7.5 / 10.0 x 100 = 75%. The 133% option divides the wrong way round, and a real yield cannot exceed 100%.",
   "sort_order": 8,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -21322,7 +21322,7 @@
    "Distance"
   ],
   "correct_option": 0,
-  "explanation": "Gradient = change in distance / change in time = speed.",
+  "explanation": "On a distance–time graph, the gradient is the rate of change of distance with time, which is speed. Acceleration is the gradient of a velocity–time graph, and the area under a velocity–time graph gives displacement.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:07:25.126002+00",
   "difficulty": "medium",
@@ -21520,7 +21520,7 @@
    "Use less memory"
   ],
   "correct_option": 0,
-  "explanation": "SEO improves visibility in search engines like Google.",
+  "explanation": "SEO, search engine optimisation, improves a site's visibility so that it ranks higher in search results. It does not protect against viruses, speed up loading directly or reduce memory use.",
   "sort_order": 8,
   "created_at": "2026-09-18 14:13:15.118559+00",
   "difficulty": "medium",
@@ -21736,7 +21736,7 @@
    "-800 J"
   ],
   "correct_option": 0,
-  "explanation": "First law: delta U = 500 - 300 = +200 J.",
+  "explanation": "First law: change in U = Q - W = 500 - 300 = +200 J, where Q is heat added and W is work done by the gas. Adding 500 and 300 gives 800 J, which mixes up the sign of the work.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:36:29.136796+00",
   "difficulty": "exam",
@@ -21754,7 +21754,7 @@
    "1.0 × 10³ mol dm⁻³"
   ],
   "correct_option": 2,
-  "explanation": "[H⁺] = 10⁻³ mol dm⁻³ when pH = 3.",
+  "explanation": "pH is a logarithm, so [H+] = 10^(-pH) = 10^-3 mol/dm^3 at pH 3. The concentration is an inverse power of ten, not the pH value itself.",
   "sort_order": 10,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -21826,7 +21826,7 @@
    "(e, 1)"
   ],
   "correct_option": 1,
-  "explanation": "e^0 = 1, so the y-intercept is (0, 1).",
+  "explanation": "At x = 0, y = e^0 = 1, so the curve crosses the y-axis at (0, 1). The point (0, 0) is wrong because e^x is never zero.",
   "sort_order": 11,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -21898,7 +21898,7 @@
    "36"
   ],
   "correct_option": 1,
-  "explanation": "The standard error is sigma/sqrt(n) = 6/sqrt(36) = 1.",
+  "explanation": "The standard error of the sample mean is σ/√n = 6/√36 = 6/6 = 1. The square root of the sample size is used, not the sample size itself. Dividing by 36 would give 0.167, which is wrong.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -22006,7 +22006,7 @@
    "at"
   ],
   "correct_option": 3,
-  "explanation": "'Good at' a subject or skill.",
+  "explanation": "'Good at' is the fixed pattern for a skill or school subject, so the answer is 'at'. 'In' is wrong here because the phrase is good at, not good in.",
   "sort_order": 11,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -22114,7 +22114,7 @@
    "1/e"
   ],
   "correct_option": 0,
-  "explanation": "dy/dx = e^x, and e^0 = 1.",
+  "explanation": "Differentiating gives dy/dx = e^x, and at x = 0 this is e^0 = 1. The gradient of e^x equals e only at x = 1, so e would be the wrong answer here.",
   "sort_order": 15,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -22168,7 +22168,7 @@
    "K mol⁻¹"
   ],
   "correct_option": 2,
-  "explanation": "Entropy is measured in joules per kelvin per mole.",
+  "explanation": "Molar entropy is measured in joules per kelvin per mole, J K⁻¹ mol⁻¹. Enthalpy is measured in kJ mol⁻¹, which is a different quantity, so the unit tells you which quantity you are dealing with.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -22330,7 +22330,7 @@
    "70.0"
   ],
   "correct_option": 1,
-  "explanation": "BMI = 70 ÷ (1.75)² = 70 ÷ 3.0625 = 22.9.",
+  "explanation": "BMI = mass / height^2 = 70 / (1.75)^2 = 70 / 3.0625 = 22.9 kg/m^2. Dividing by the height rather than its square gives 40.0, which is wrong.",
   "sort_order": 15,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -22438,7 +22438,7 @@
    "x-axis"
   ],
   "correct_option": 0,
-  "explanation": "Negating the input reflects in the y-axis.",
+  "explanation": "Replacing x with -x reflects the graph in the y-axis. Reflecting in the x-axis would change the sign of the output instead, from f(x) to -f(x).",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:37.251728+00",
   "difficulty": "medium",
@@ -22510,7 +22510,7 @@
    "Adding a catalyst"
   ],
   "correct_option": 0,
-  "explanation": "Equilibrium constants depend only on temperature.",
+  "explanation": "The equilibrium constant Kp depends only on temperature. Changing concentration or pressure shifts the position of equilibrium but leaves the constant unchanged, and a catalyst speeds both directions equally, so it also leaves Kp unchanged.",
   "sort_order": 19,
   "created_at": "2026-10-19 10:05:40.927242+00",
   "difficulty": "exam",
@@ -22618,7 +22618,7 @@
    "1"
   ],
   "correct_option": 0,
-  "explanation": "Equate exponents: 2x = 5, so x = 2.5.",
+  "explanation": "Equate the exponents: 2x = 5, so x = 5 / 2 = 2.5. The value 10 would come from multiplying 2 by 5 instead of dividing.",
   "sort_order": 8,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -22834,7 +22834,7 @@
    "Small"
   ],
   "correct_option": 0,
-  "explanation": "'Dis-' negates: disagree, dislike, disobey.",
+  "explanation": "'Dis-' is a negating prefix, so disagree means not agree, and dislike and disobey follow the same pattern. The other prefixes have different meanings.",
   "sort_order": 17,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -22924,7 +22924,7 @@
    "File management"
   ],
   "correct_option": 0,
-  "explanation": "CSS controls colours, fonts, layout, and visual design.",
+  "explanation": "CSS, or cascading style sheets, controls the presentation of a web page: colours, fonts, spacing and layout. HTML gives the structure, SQL queries databases, and file management is done by the operating system.",
   "sort_order": 2,
   "created_at": "2026-09-18 14:13:15.118559+00",
   "difficulty": "medium",
@@ -23014,7 +23014,7 @@
    "Partial pressures of gases"
   ],
   "correct_option": 3,
-  "explanation": "Kp is written using the partial pressures of the gases.",
+  "explanation": "Kp is the equilibrium constant expressed in terms of the partial pressures of the gases in the mixture. Solids and pure liquids are left out, and Kc uses concentrations in mol dm⁻³ instead.",
   "sort_order": 4,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -23068,7 +23068,7 @@
    "7n - 2"
   ],
   "correct_option": 1,
-  "explanation": "a_n = 2 + (n - 1)7 = 2 + 7n - 7 = 7n - 5.",
+  "explanation": "a_n = a + (n - 1)d = 2 + (n - 1)7 = 7n - 5. The first term is 2, and each step adds 7, so the nth term has n - 1 steps.",
   "sort_order": 3,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "exam",
@@ -23374,7 +23374,7 @@
    "(0, 9)"
   ],
   "correct_option": 3,
-  "explanation": "Solve 1 + (y−2)² = 25 + (y−4)²: 4y = 36, y = 9.",
+  "explanation": "A point (0, y) is equidistant from A and B when the squared distances match: 1 + (y − 2)² = 25 + (y − 4)². Expanding gives 4y = 36, so y = 9 and the point is (0, 9). Check: squared distance to A is 1 + 49 = 50, and to B is 25 + 25 = 50.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:38.836972+00",
   "difficulty": "medium",
@@ -23482,7 +23482,7 @@
    "2"
   ],
   "correct_option": 2,
-  "explanation": "Mode = most frequent value = 3 (appears 3 times).",
+  "explanation": "The mode is the most frequent value. In 2, 3, 3, 5, 7, 3, the value 3 appears three times, more than any other value. The mode is a value from the data, so 4 and 5 are not modes here.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:16:04.084885+00",
   "difficulty": "medium",
@@ -23500,7 +23500,7 @@
    "400000 J"
   ],
   "correct_option": 0,
-  "explanation": "Half m v squared = 0.5 x 1000 x 400 = 200000 J.",
+  "explanation": "Kinetic energy = ½mv² = ½ × 1000 × 20² = ½ × 1000 × 400 = 200 000 J. Use v² (400) in the formula, not v (20), which would give a much smaller value.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:28:47.728732+00",
   "difficulty": "exam",
@@ -23716,7 +23716,7 @@
    "A linear complex"
   ],
   "correct_option": 1,
-  "explanation": "Cisplatin is the cis isomer of a square planar complex.",
+  "explanation": "Cisplatin is the cis isomer of [Pt(NH₃)₂Cl₂], a square planar platinum(II) complex in which the two chloride ligands sit next to each other. In the trans isomer they are opposite, and only the cis form is the anticancer drug.",
   "sort_order": 5,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -23788,7 +23788,7 @@
    "11.1%"
   ],
   "correct_option": 2,
-  "explanation": "Mr of H2O = 18; 16 / 18 × 100 = 88.9%.",
+  "explanation": "Mr(H2O) = 2(1.0) + 16.0 = 18. Percentage by mass = 16.0 / 18.0 x 100 = 88.9%. Use the whole formula mass in the denominator; 16.0% ignores the two hydrogens.",
   "sort_order": 14,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -24112,7 +24112,7 @@
    "36 ohm"
   ],
   "correct_option": 0,
-  "explanation": "Equal pair in parallel halves: 6/2 = 3 ohm.",
+  "explanation": "Two equal 6 ohm resistors in parallel: 1/R = 1/6 + 1/6 = 1/3, so R = 3 ohm. In series they would give 12 ohm, which is not the parallel case.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
@@ -24598,7 +24598,7 @@
    "x = 1.5 or 2"
   ],
   "correct_option": 0,
-  "explanation": "Factorising: (2x − 1)(x − 3) = 0, so x = 1/2 or 3.",
+  "explanation": "Factorise 2x² − 7x + 3 = (2x − 1)(x − 3). Check: 2x² − 6x − x + 3 = 2x² − 7x + 3. So x = 1/2 or x = 3. The negative roots in the other options do not satisfy the equation.",
   "sort_order": 6,
   "created_at": "2026-09-20 17:50:35.834642+00",
   "difficulty": "medium",
@@ -24634,7 +24634,7 @@
    "x³⁵"
   ],
   "correct_option": 0,
-  "explanation": "Add the powers: 3 + 5 = 8. So x³ × x⁵ = x⁸.",
+  "explanation": "x^3 x x^5 = x^(3+5) = x^8. Multiplying powers of the same base adds the indices; x^15 multiplies them instead.",
   "sort_order": 1,
   "created_at": "2026-08-22 13:58:40.196359+00",
   "difficulty": "medium",
@@ -24652,7 +24652,7 @@
    "Retrieve data from the server"
   ],
   "correct_option": 3,
-  "explanation": "GET requests data (e.g., loading a webpage).",
+  "explanation": "GET is the HTTP method a browser uses to ask the server for a resource, such as when a web page loads. Sending form data uses POST, and changing or deleting stored data uses other methods such as PUT or DELETE.",
   "sort_order": 5,
   "created_at": "2026-09-18 14:13:15.118559+00",
   "difficulty": "medium",
@@ -24724,7 +24724,7 @@
    "In the title only"
   ],
   "correct_option": 0,
-  "explanation": "Topic sentences typically open or close paragraphs.",
+  "explanation": "A paragraph's main idea is usually stated in a topic sentence at the beginning, and sometimes at the end. The middle sentences develop it with evidence. Footnotes and titles do not carry a paragraph's main idea.",
   "sort_order": 12,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -25120,7 +25120,7 @@
    "To add a paragraph to a web page"
   ],
   "correct_option": 2,
-  "explanation": "The table tag is used to add a table to a web page.",
+  "explanation": "The table tag in HTML defines a table, and rows and cells are added inside it with tr and td. Images use img, links use a, and paragraphs use p.",
   "sort_order": 10,
   "created_at": "2026-10-10 06:07:42.61206+00",
   "difficulty": "check",
@@ -25210,7 +25210,7 @@
    "1.00"
   ],
   "correct_option": 2,
-  "explanation": "P(0.5 < X < 1) = F(1) - F(0.5) = 1 - 0.25 = 0.75.",
+  "explanation": "P(0.5 < X < 1) = F(1) − F(0.5) = 1 − 0.5² = 1 − 0.25 = 0.75. For a continuous variable the probability over an interval is the difference of the cumulative distribution at the two ends. The 0.25 option is F(0.5) alone.",
   "sort_order": 17,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -25264,7 +25264,7 @@
    "cos A + cos B"
   ],
   "correct_option": 0,
-  "explanation": "Compound-angle formula with the minus form.",
+  "explanation": "cos(A - B) = cos A cos B + sin A sin B. The minus sign in the angle changes the sign of the sin product, so the other option with reversed signs is the form for cos(A + B).",
   "sort_order": 9,
   "created_at": "2026-09-20 17:50:51.51593+00",
   "difficulty": "medium",
@@ -25282,7 +25282,7 @@
    "−4/3"
   ],
   "correct_option": 1,
-  "explanation": "Rearranging: y = 3 − (3/4)x, gradient −3/4.",
+  "explanation": "3x + 4y = 12 rearranges to y = 3 - (3/4)x, so the gradient is -3/4. The reciprocal -4/3 comes from reading the coefficients the wrong way round.",
   "sort_order": 1,
   "created_at": "2026-09-20 17:50:38.836972+00",
   "difficulty": "medium",
@@ -25372,7 +25372,7 @@
    "3.01 × 10²³"
   ],
   "correct_option": 3,
-  "explanation": "N = nN_A = 0.50 × 6.02 × 10²³ = 3.01 × 10²³.",
+  "explanation": "N = n × N_A = 0.50 × 6.02 × 10²³ = 3.01 × 10²³ molecules. Avogadro's constant gives the number of particles in one mole, so half a mole contains half that number.",
   "sort_order": 102,
   "created_at": "2026-10-13 13:49:09.570913+00",
   "difficulty": "exam",
@@ -25516,7 +25516,7 @@
    "0.1"
   ],
   "correct_option": 0,
-  "explanation": "P(A and B) = P(A) x P(B given A) = 0.6 x 0.5 = 0.3.",
+  "explanation": "The multiplication rule gives P(A and B) = P(A) × P(B given A) = 0.6 × 0.5 = 0.3. Adding the probabilities to get 1.1 would be wrong, because a probability cannot exceed 1.",
   "sort_order": 18,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -25552,7 +25552,7 @@
    "Octahedral, blue"
   ],
   "correct_option": 0,
-  "explanation": "[CuCl₄]²⁻ is tetrahedral and yellow-green.",
+  "explanation": "Adding concentrated HCl converts the hexaaqua copper(II) ion into tetrachlorocuprate(II), which is tetrahedral and yellow-green. The octahedral blue ion is the starting complex.",
   "sort_order": 4,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -25570,7 +25570,7 @@
    "10⁻⁵"
   ],
   "correct_option": 1,
-  "explanation": "pKa = −log10(1.0 × 10⁻⁵) = 5.",
+  "explanation": "pKa = -log10(Ka) = -log10(1.0 x 10^-5) = 5. pKa is the negative logarithm of Ka, so the answer is positive; the Ka value itself is not a pKa.",
   "sort_order": 2,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -25750,7 +25750,7 @@
    "5x + 4"
   ],
   "correct_option": 1,
-  "explanation": "Swap and solve: x = 5y − 4 gives y = (x + 4)/5.",
+  "explanation": "To find the inverse, write y = 5x − 4 and swap x and y: x = 5y − 4. Solve for y to get y = (x + 4)/5. Check: f((x + 4)/5) = 5 × (x + 4)/5 − 4 = x.",
   "sort_order": 3,
   "created_at": "2026-09-20 17:50:37.251728+00",
   "difficulty": "medium",
@@ -25876,7 +25876,7 @@
    "Methylpropane"
   ],
   "correct_option": 0,
-  "explanation": "Four carbons in a straight chain form butane.",
+  "explanation": "Alkanes with four carbons in a straight chain are named butane, C₄H₁₀. The prefix 'but-' means four carbons. Pentane has five carbons, propane has three, and methylpropane is a branched isomer of butane.",
   "sort_order": 2,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -25894,7 +25894,7 @@
    "52"
   ],
   "correct_option": 1,
-  "explanation": "Neutrons = mass number - atomic number = 35 - 17 = 18.",
+  "explanation": "Neutrons = mass number − atomic number = 35 − 17 = 18. The atomic number gives the protons, and the mass number is protons plus neutrons, so chlorine-35 has 18 neutrons.",
   "sort_order": 17,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "exam",
@@ -25948,7 +25948,7 @@
    "tracks photosynthesis"
   ],
   "correct_option": 1,
-  "explanation": "It classifies species from least concern to extinct.",
+  "explanation": "The IUCN Red List assesses species and classifies them by conservation status, from Least Concern to Extinct. It does not identify genes, measure rainfall or track photosynthesis, so its subject is the conservation status of species.",
   "sort_order": 15,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -26074,7 +26074,7 @@
    "Look at font"
   ],
   "correct_option": 0,
-  "explanation": "Purpose shapes tone, structure and language choices.",
+  "explanation": "Identify purpose by asking what the writer wants the reader to do or feel: inform, persuade, entertain or describe. Purpose shapes tone, structure and word choice, so counting words, checking dates or looking at fonts does not reveal it.",
   "sort_order": 14,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -26254,7 +26254,7 @@
    "2^(n+1) - 1"
   ],
   "correct_option": 0,
-  "explanation": "S_n = 2(2^n - 1)/(2 - 1) = 2^(n+1) - 2.",
+  "explanation": "S_n = a(r^n - 1) / (r - 1) with a = 2 and r = 2 gives 2(2^n - 1) = 2^(n+1) - 2. Check n = 2: 2 + 4 = 6 = 2^3 - 2.",
   "sort_order": 7,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -26380,7 +26380,7 @@
    "a"
   ],
   "correct_option": 2,
-  "explanation": "Superlatives and ordinal numbers take 'the'.",
+  "explanation": "'The' goes before ordinal numbers and superlatives such as 'first', 'best' or 'last'. 'An' and 'a' are indefinite and cannot precede 'first' in this sentence, so 'the first time' is correct.",
   "sort_order": 16,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -26470,7 +26470,7 @@
    "4.0 x 10^-3 mol"
   ],
   "correct_option": 0,
-  "explanation": "n = cV = 0.100 x 0.0250 = 2.5 x 10^-3 mol.",
+  "explanation": "Moles n = c x V = 0.100 mol/dm^3 x 0.0250 dm^3 = 2.5 x 10^-3 mol. The 25.0 cm^3 must be divided by 1000 to convert it to dm^3 first.",
   "sort_order": 19,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "exam",
@@ -26506,7 +26506,7 @@
    "4.47"
   ],
   "correct_option": 1,
-  "explanation": "s² = Σ(x − x̄)²/(n − 1) = 20/(5 − 1) = 5.",
+  "explanation": "Unbiased variance estimate s^2 = (sum of squared deviations) / (n - 1) = 20 / 4 = 5. Dividing by n = 5 gives the biased value 4, which is the common error.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:35:09.159928+00",
   "difficulty": "exam",
@@ -26560,7 +26560,7 @@
    "16"
   ],
   "correct_option": 2,
-  "explanation": "[x³ + 2x] from 0 to 2 = (8 + 4) − 0 = 12.",
+  "explanation": "The integral of 3x^2 + 2 is x^3 + 2x. Evaluating from 0 to 2 gives (8 + 4) - 0 = 12. Forgetting the 2x term gives 8.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:26:08.422261+00",
   "difficulty": "exam",
@@ -26614,7 +26614,7 @@
    "10 km"
   ],
   "correct_option": 1,
-  "explanation": "North component = 10 × cos 60° = 10 × 0.5 = 5 km.",
+  "explanation": "A bearing is measured clockwise from north. The north component of a displacement d at bearing θ is d cos θ, so 10 × cos 60° = 10 × 0.5 = 5 km. The east component would be d sin θ, which is about 8.66 km.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:15:50.954274+00",
   "difficulty": "medium",
@@ -26704,7 +26704,7 @@
    "7"
   ],
   "correct_option": 2,
-  "explanation": "Manganese changes from +7 to +2, a gain of 5 electrons.",
+  "explanation": "Manganese changes from +7 in MnO₄⁻ to +2 in Mn²⁺, a gain of 5 electrons. This matches the 5e⁻ in the half-equation MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O. So 5 mol of electrons are gained per mole of MnO₄⁻ reduced.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -26758,7 +26758,7 @@
    "0.0456"
   ],
   "correct_option": 1,
-  "explanation": "P(Z > 2) = 1 - P(Z < 2) = 1 - 0.9772 = 0.0228.",
+  "explanation": "P(Z > 2) = 1 − P(Z < 2) = 1 − 0.9772 = 0.0228, using standard normal tables. The 0.9772 option is P(Z < 2) itself, which is not the probability asked for.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -26830,7 +26830,7 @@
    "0.5 mol"
   ],
   "correct_option": 0,
-  "explanation": "n = V / 24 = 48 / 24 = 2.0 mol.",
+  "explanation": "Moles = volume / molar volume = 48 / 24 = 2.0 mol at room temperature and pressure. The molar volume is 24 dm^3 per mole, so dividing the other way round gives 0.5 mol.",
   "sort_order": 15,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -26992,7 +26992,7 @@
    "dm³"
   ],
   "correct_option": 1,
-  "explanation": "Rate is the change in concentration per unit time.",
+  "explanation": "Rate of reaction is the change in concentration per unit time, so with concentration in mol dm⁻³ the units are mol dm⁻³ s⁻¹. A bare mol or s is not a rate unit, and dm³ is a volume.",
   "sort_order": 12,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -27082,7 +27082,7 @@
    "Mg(OH)₂"
   ],
   "correct_option": 2,
-  "explanation": "Cr(OH)₃ dissolves in excess alkali to form [Cr(OH)₆]³⁻.",
+  "explanation": "Cr(OH)₃ is amphoteric: it dissolves in both acid and excess alkali, forming the complex [Cr(OH)₆]³⁻. Mg(OH)₂ and Fe(OH)₂ are only basic, so they do not dissolve in excess alkali.",
   "sort_order": 13,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -27406,7 +27406,7 @@
    "155"
   ],
   "correct_option": 1,
-  "explanation": "S_5 = 3(2^5 - 1)/(2 - 1) = 3(31) = 93.",
+  "explanation": "S5 = a(r^5 - 1) / (r - 1) = 3(2^5 - 1) / (2 - 1) = 3 x 31 = 93. Check by adding the terms: 3 + 6 + 12 + 24 + 48 = 93.",
   "sort_order": 4,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "exam",
@@ -27496,7 +27496,7 @@
    "Q₃ − Q₁"
   ],
   "correct_option": 3,
-  "explanation": "IQR = Q₃ − Q₁ = upper quartile − lower quartile.",
+  "explanation": "The interquartile range measures the spread of the middle half of the data: IQR = Q₃ − Q₁, the upper quartile minus the lower quartile. The range uses maximum minus minimum, and the median is a single average, not a spread.",
   "sort_order": 8,
   "created_at": "2026-08-22 14:16:06.813487+00",
   "difficulty": "medium",
@@ -27640,7 +27640,7 @@
    "5"
   ],
   "correct_option": 2,
-  "explanation": "n(n−1)/2 = 15 gives n = 6 (or −5, rejected).",
+  "explanation": "nC2 = n(n − 1)/2 = 15, so n(n − 1) = 30. Testing n = 6 gives 6 × 5 = 30, which works. The other root, n = −5, is rejected because a number of objects cannot be negative.",
   "sort_order": 6,
   "created_at": "2026-09-21 17:56:48.237815+00",
   "difficulty": "medium",
@@ -27748,7 +27748,7 @@
    "a¹²"
   ],
   "correct_option": 3,
-  "explanation": "Multiply the powers: 3 × 4 = 12. So (a³)⁴ = a¹².",
+  "explanation": "For a power of a power, multiply the exponents: (a³)⁴ = a^(3 × 4) = a¹². Adding the exponents instead gives a⁷, which is a different power and is wrong here.",
   "sort_order": 3,
   "created_at": "2026-08-22 13:58:40.975802+00",
   "difficulty": "medium",
@@ -27838,7 +27838,7 @@
    "7"
   ],
   "correct_option": 0,
-  "explanation": "\"Python\" has 6 characters (P-y-t-h-o-n).",
+  "explanation": "len counts characters: P, y, t, h, o, n gives 6. The quotation marks are not part of the string, so the answer is not 7.",
   "sort_order": 5,
   "created_at": "2026-09-18 14:13:06.822099+00",
   "difficulty": "medium",
@@ -27892,7 +27892,7 @@
    "(3 + i)/10"
   ],
   "correct_option": 3,
-  "explanation": "Multiply by the conjugate: (3 + i)/((3)² + 1).",
+  "explanation": "Multiply top and bottom by the conjugate 3 + i: (3 + i)/((3 − i)(3 + i)) = (3 + i)/(9 + 1) = (3 + i)/10. The denominator becomes real because i² = −1.",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:55.967696+00",
   "difficulty": "medium",
@@ -28054,7 +28054,7 @@
    "0"
   ],
   "correct_option": 2,
-  "explanation": "With indexes from 0 to 7, the last element has index 7.",
+  "explanation": "Indexes start at 0 in most languages, so an array of 8 elements uses indices 0 to 7. The last element is at index 7, which is one less than the length of 8.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:02:47.539724+00",
   "difficulty": "exam",
@@ -28072,7 +28072,7 @@
    "2.7 K"
   ],
   "correct_option": 3,
-  "explanation": "B1: CMB corresponds to a black-body temperature ≈ 2.7 K",
+  "explanation": "The cosmic microwave background is thermal radiation left over from the early universe, now redshifted into the microwave range. Its black-body temperature today is about 2.7 K, a little above absolute zero.",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:33.63561+00",
   "difficulty": "medium",
@@ -28180,7 +28180,7 @@
    "e^x"
   ],
   "correct_option": 1,
-  "explanation": "With k = -1: d/dx (e^(-x)) = -e^(-x).",
+  "explanation": "d/dx e^(kx) = k e^(kx), and here k = -1, so d/dx e^(-x) = -e^(-x). The minus sign from the chain rule is what separates this from e^(-x).",
   "sort_order": 6,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -28306,7 +28306,7 @@
    "Purple to colourless"
   ],
   "correct_option": 2,
-  "explanation": "Cr2O7²⁻ (orange) is reduced to Cr³⁺ (green).",
+  "explanation": "Acidified dichromate(VI) is orange, Cr₂O₇²⁻. When it oxidises a primary or secondary alcohol, it is reduced to Cr³⁺, which is green. Tertiary alcohols do not react, so no colour change occurs with them.",
   "sort_order": 15,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -28720,7 +28720,7 @@
    "y = −3x + 2"
   ],
   "correct_option": 0,
-  "explanation": "y = mx + c. m = −2, c = 3. So y = −2x + 3.",
+  "explanation": "y = mx + c with m = -2 and c = 3, the y-intercept from the point (0, 3), so y = -2x + 3. The option y = -3x + 2 swaps the gradient and intercept.",
   "sort_order": 6,
   "created_at": "2026-08-22 14:07:24.581323+00",
   "difficulty": "medium",
@@ -28828,7 +28828,7 @@
    "0.15"
   ],
   "correct_option": 1,
-  "explanation": "⁵C₂ × 0.3² × 0.7³ = 10 × 0.09 × 0.343 = 0.3087.",
+  "explanation": "For X ~ B(n, p), P(X = r) = ⁿCᵣ pʳ(1 − p)ⁿ⁻ʳ. Here P(X = 2) = ⁵C₂ × 0.3² × 0.7³ = 10 × 0.09 × 0.343 = 0.3087. The 0.3 option is just p, not the binomial probability.",
   "sort_order": 5,
   "created_at": "2026-09-21 17:57:04.36356+00",
   "difficulty": "medium",
@@ -29332,7 +29332,7 @@
    "1"
   ],
   "correct_option": 1,
-  "explanation": "4k = 1 so k = 0.25 (the uniform density).",
+  "explanation": "The density is uniform on 0 to 4, so the total area must be 1: k x 4 = 1, giving k = 0.25. Taking k = 1 ignores the width of the interval.",
   "sort_order": 3,
   "created_at": "2026-09-21 17:57:08.743662+00",
   "difficulty": "medium",
@@ -29548,7 +29548,7 @@
    "9.5 m s⁻²"
   ],
   "correct_option": 1,
-  "explanation": "a₀ = ω²x₀ = (2π × 2.0)² × 0.030 ≈ 4.7 m s⁻².",
+  "explanation": "Maximum acceleration in SHM is a₀ = ω²x₀, where ω = 2πf = 2π × 2.0 ≈ 12.6 rad s⁻¹. So a₀ = 12.6² × 0.030 ≈ 4.7 m s⁻². Use the amplitude, because the maximum acceleration occurs at the extremes of the motion.",
   "sort_order": 100,
   "created_at": "2026-10-13 13:54:32.087537+00",
   "difficulty": "exam",
@@ -29998,7 +29998,7 @@
    "6.6 × 10⁻³⁴ m"
   ],
   "correct_option": 0,
-  "explanation": "λ = h/p = 6.63 × 10⁻³⁴ / 3.0 × 10⁻²⁴ ≈ 2.2 × 10⁻¹⁰ m.",
+  "explanation": "de Broglie wavelength λ = h/p = 6.63 × 10⁻³⁴ ÷ 3.0 × 10⁻²⁴ = 2.2 × 10⁻¹⁰ m. Track the powers of ten carefully: −34 minus −24 gives −10.",
   "sort_order": 103,
   "created_at": "2026-10-13 13:51:17.069737+00",
   "difficulty": "exam",
@@ -30430,7 +30430,7 @@
    "160 kg"
   ],
   "correct_option": 0,
-  "explanation": "Moments balance: 40 x 2 = m x 1, so m = 80 kg.",
+  "explanation": "Balance the moments about the pivot: 40 kg × 2 m = m × 1 m, so m = 80 kg. A moment is force times distance, and for the see-saw to balance the two moments must be equal.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:28:47.728732+00",
   "difficulty": "exam",
@@ -30520,7 +30520,7 @@
    "100°"
   ],
   "correct_option": 0,
-  "explanation": "Angles sum to 180°: Z = 180° − 35° − 55° = 90°.",
+  "explanation": "The angles in a triangle sum to 180°, so Z = 180° − 35° − 55° = 90°. The triangle is therefore right-angled at Z. The side length x = 10 is not needed to find the angle.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:15:57.649138+00",
   "difficulty": "medium",
@@ -30700,7 +30700,7 @@
    "32"
   ],
   "correct_option": 3,
-  "explanation": "nth term = 3n + 2. When n = 10: 3(10) + 2 = 32.",
+  "explanation": "The sequence starts at 5 with common difference 3, so the nth term is a + (n − 1)d = 5 + 3(n − 1) = 3n + 2. For n = 10: 3 × 10 + 2 = 32, which matches counting on from 5 by threes.",
   "sort_order": 2,
   "created_at": "2026-08-22 14:07:13.595323+00",
   "difficulty": "medium",
@@ -30844,7 +30844,7 @@
    "x = 2, y = 1"
   ],
   "correct_option": 3,
-  "explanation": "Add both: 3x = 6 → x = 2. Then y = 5 − 4 = 1.",
+  "explanation": "Adding the two equations eliminates y: 3x = 6, so x = 2. Substituting into x − y = 1 gives y = 1. Check in 2x + y = 5: 4 + 1 = 5, which holds.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:07:04.292222+00",
   "difficulty": "medium",
@@ -30898,7 +30898,7 @@
    "v = Hd²"
   ],
   "correct_option": 0,
-  "explanation": "B1: Hubble: recession speed v = Hd (H₀ Hubble constant)",
+  "explanation": "Hubble's law states that a galaxy's recession speed v is proportional to its distance d, so v = H₀d, where H₀ is the Hubble constant. A larger distance gives a larger recession speed.",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:33.63561+00",
   "difficulty": "medium",
@@ -31204,7 +31204,7 @@
    "It doubles"
   ],
   "correct_option": 3,
-  "explanation": "Current is directly proportional to drift velocity.",
+  "explanation": "In I = nAvq, current is directly proportional to the drift velocity v when n, A and q are fixed. Doubling v therefore doubles the current. Halving or quadrupling would need a different change to the variables.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
@@ -31222,7 +31222,7 @@
    "(x, y) → (y, x)"
   ],
   "correct_option": 0,
-  "explanation": "180° rotation about origin: (x, y) → (−x, −y).",
+  "explanation": "A 180° rotation about the origin sends each point to the opposite point through the origin, so (x, y) → (−x, −y). A reflection in an axis changes only one sign, and (x, y) → (−y, x) is a 90° rotation.",
   "sort_order": 7,
   "created_at": "2026-08-22 14:11:37.911889+00",
   "difficulty": "medium",
@@ -31402,7 +31402,7 @@
    "Is faster"
   ],
   "correct_option": 0,
-  "explanation": "HTTPS adds SSL/TLS encryption for secure communication.",
+  "explanation": "HTTPS is HTTP with encryption added, using SSL or TLS, so data exchanged between browser and server is protected. It normally uses port 443 rather than port 80, but encryption is the essential difference.",
   "sort_order": 4,
   "created_at": "2026-09-18 14:13:01.226069+00",
   "difficulty": "medium",
@@ -31474,7 +31474,7 @@
    "Carbon dioxide"
   ],
   "correct_option": 1,
-  "explanation": "Photolysis splits water and releases oxygen.",
+  "explanation": "In photosynthesis, light splits water in the light-dependent reactions. This photolysis releases oxygen as a by-product. Nitrogen is not produced, and carbon dioxide is taken in, not released, by this reaction.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -31618,7 +31618,7 @@
    "lignified"
   ],
   "correct_option": 0,
-  "explanation": "Turgid guard cells bend apart and open the stoma.",
+  "explanation": "Stomata open when the two guard cells become turgid. Water enters them by osmosis, and the swollen cells bow apart, opening the pore between them. When they become flaccid, the pore closes.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -31636,7 +31636,7 @@
    "10 N"
   ],
   "correct_option": 2,
-  "explanation": "Weight = mg = 2 x 9.8 = 19.6 N.",
+  "explanation": "Weight W = mg = 2 kg x 9.8 = 19.6 N. The 9.8 N option is the weight of 1 kg, so it has the mass wrong.",
   "sort_order": 7,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -31744,7 +31744,7 @@
    "30"
   ],
   "correct_option": 3,
-  "explanation": "5 letters with L twice and E twice: 5!/(2!·2!) = 30.",
+  "explanation": "LEVEL has 5 letters, with L twice and E twice. Arrangements = 5!/(2! × 2!) = 120/4 = 30. Divide by 2! for each repeated letter, because swapping identical letters gives the same arrangement. The 120 option ignores the repeats.",
   "sort_order": 3,
   "created_at": "2026-09-21 17:56:48.237815+00",
   "difficulty": "medium",
@@ -31780,7 +31780,7 @@
    "66"
   ],
   "correct_option": 0,
-  "explanation": "Capital A = 65 in ASCII. Lowercase a = 97.",
+  "explanation": "The ASCII code of capital A is 65. Lowercase a is 97, which is 65 + 32, so the two differ by 32.",
   "sort_order": 4,
   "created_at": "2026-09-18 14:12:53.889057+00",
   "difficulty": "medium",
@@ -31798,7 +31798,7 @@
    "160%"
   ],
   "correct_option": 0,
-  "explanation": "Percentage yield = 5.0/8.0 x 100 = 62.5%.",
+  "explanation": "Percentage yield = actual / theoretical x 100 = 5.0 / 8.0 x 100 = 62.5%. The actual yield is divided by the theoretical maximum, not the other way round.",
   "sort_order": 23,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "drill",
@@ -31834,7 +31834,7 @@
    "Downloading files"
   ],
   "correct_option": 2,
-  "explanation": "The OS organizes, stores, and controls access to files.",
+  "explanation": "File management is part of the operating system's work: it organises files in directories, stores them and controls who can access or change them through permissions. Creating websites, playing videos and downloading are tasks run by applications.",
   "sort_order": 7,
   "created_at": "2026-09-18 14:13:02.843808+00",
   "difficulty": "medium",
@@ -32140,7 +32140,7 @@
    "1"
   ],
   "correct_option": 1,
-  "explanation": "Each bisection halves the width: 2 x (1/2)^3 = 0.25.",
+  "explanation": "The interval (1, 3) has width 2. Each bisection halves the width, so after three bisections the width is 2 × (1/2)³ = 0.25. The 0.5 option is the width after only two bisections, and 0.125 is one step too far.",
   "sort_order": 10,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -32158,7 +32158,7 @@
    "60 N s"
   ],
   "correct_option": 3,
-  "explanation": "Impulse = Ft = 20 x 3 = 60 N s.",
+  "explanation": "Impulse equals force times time: 20 N x 3 s = 60 N s. Quoting only the force (20 N s) forgets the time over which it acts.",
   "sort_order": 13,
   "created_at": "2026-10-19 09:48:57.940153+00",
   "difficulty": "drill",
@@ -32176,7 +32176,7 @@
    "in the manner of"
   ],
   "correct_option": 0,
-  "explanation": "-less means without, so careless means without care.",
+  "explanation": "The suffix -less means without, so careless means without care and hopeless means without hope. The suffix -ful means full of, as in careful, which is the opposite meaning.",
   "sort_order": 5,
   "created_at": "2026-10-17 10:32:59.926052+00",
   "difficulty": "medium",
@@ -32428,7 +32428,7 @@
    "{4, 5, 6, 7}"
   ],
   "correct_option": 0,
-  "explanation": "A ∩ B contains elements in BOTH A and B: {4, 6}.",
+  "explanation": "The intersection A ∩ B holds only the elements in both sets. The elements common to {2, 4, 6, 8} and {4, 5, 6, 7} are 4 and 6, so A ∩ B = {4, 6}. The union would include every element from both sets.",
   "sort_order": 1,
   "created_at": "2026-08-22 13:58:45.427523+00",
   "difficulty": "medium",
@@ -32572,7 +32572,7 @@
    "6.02 x 10^23"
   ],
   "correct_option": 1,
-  "explanation": "Number = n x L = 0.10 x 6.02 x 10^23 = 6.02 x 10^22.",
+  "explanation": "Number of particles = n × L = 0.10 mol × 6.02 × 10²³ mol⁻¹ = 6.02 × 10²² particles. Multiplying by 0.10 gives one tenth of the Avogadro number, so the answer is 6.02 × 10²², not 10²⁴ or 10²³.",
   "sort_order": 25,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "drill",
@@ -32932,7 +32932,7 @@
    "9x² − 12x + 4"
   ],
   "correct_option": 3,
-  "explanation": "(3x − 2)² = (3x)² − 2(3x)(2) + 2² = 9x² − 12x + 4.",
+  "explanation": "Use (a − b)² = a² − 2ab + b² with a = 3x and b = 2: (3x)² = 9x², 2ab = 2 × 3x × 2 = 12x, and b² = 4. So (3x − 2)² = 9x² − 12x + 4. The middle term is negative.",
   "sort_order": 8,
   "created_at": "2026-08-22 14:06:59.038275+00",
   "difficulty": "medium",
@@ -32968,7 +32968,7 @@
    "use"
   ],
   "correct_option": 1,
-  "explanation": "After 'was very' an adjective is needed: useful.",
+  "explanation": "After 'was very' the word must be an adjective. 'Useful' is the adjective from 'use', so the sentence reads 'The information was very useful.' 'Used' and 'use' are verb forms and do not fit this slot.",
   "sort_order": 18,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -33130,7 +33130,7 @@
    "Al(OH)₃, brown"
   ],
   "correct_option": 0,
-  "explanation": "Copper(II) hydroxide is a pale blue precipitate.",
+  "explanation": "Adding dilute NaOH to copper(II) ions precipitates copper(II) hydroxide, Cu(OH)₂, a pale blue solid. Iron(III) hydroxide is a rust-brown precipitate, and aluminium hydroxide is white, so those options are wrong.",
   "sort_order": 11,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -33436,7 +33436,7 @@
    "About 0.5 s"
   ],
   "correct_option": 0,
-  "explanation": "T = 2 pi root(1/10) = 2 pi x 0.316 = 1.99 s.",
+  "explanation": "T = 2π√(L/g) = 2π√(1.0/10) = 2π × 0.316 ≈ 1.99 s, which is about 2.0 s. For a small swing, the period depends only on length and g, not on the mass of the bob.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:35:52.834633+00",
   "difficulty": "exam",
@@ -33688,7 +33688,7 @@
    "720"
   ],
   "correct_option": 1,
-  "explanation": "Order does not matter, so 6C2 = 6!/(2! 4!) = 15.",
+  "explanation": "Order does not matter when choosing a group, so use combinations: 6C2 = 6!/(2! × 4!) = (6 × 5)/(2 × 1) = 15. The 30 option counts ordered pairs, which double-counts each group.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:35:09.159928+00",
   "difficulty": "exam",
@@ -33742,7 +33742,7 @@
    "boiled"
   ],
   "correct_option": 1,
-  "explanation": "General truths use the present simple.",
+  "explanation": "General truths, such as water boiling at a fixed temperature, use the present simple: 'water boils'. The present continuous 'is boiling' describes something happening at this moment.",
   "sort_order": 13,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -33832,7 +33832,7 @@
    "the same body"
   ],
   "correct_option": 0,
-  "explanation": "Action and reaction act on different bodies.",
+  "explanation": "Newton's third law pairs are a force on one body and an equal, opposite force on a different body, so they never cancel. Two forces acting on the same body are a different situation, such as weight and normal reaction.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:41:55.778375+00",
   "difficulty": "medium",
@@ -33922,7 +33922,7 @@
    "£7.00"
   ],
   "correct_option": 3,
-  "explanation": "1 notebook = £0.70. 10 notebooks = £7.00.",
+  "explanation": "1 notebook = 2.80 / 4 = 0.70 pounds, so 10 notebooks cost 10 x 0.70 = 7.00 pounds. Find the unit price before scaling up.",
   "sort_order": 3,
   "created_at": "2026-08-22 13:58:34.069816+00",
   "difficulty": "medium",
@@ -33940,7 +33940,7 @@
    "80"
   ],
   "correct_option": 3,
-  "explanation": "Speed = Distance ÷ Time = 240 ÷ 3 = 80 km/h.",
+  "explanation": "Speed = distance ÷ time = 240 km ÷ 3 h = 80 km h⁻¹. The 720 option comes from multiplying instead of dividing, and 70 and 60 are not 240 divided by 3.",
   "sort_order": 6,
   "created_at": "2026-08-22 13:58:35.465005+00",
   "difficulty": "medium",
@@ -34480,7 +34480,7 @@
    "DELETE"
   ],
   "correct_option": 1,
-  "explanation": "SELECT is used to retrieve/query data from a database.",
+  "explanation": "SELECT retrieves data from a database, as in SELECT name FROM students. INSERT adds rows, UPDATE changes existing rows and DELETE removes them.",
   "sort_order": 3,
   "created_at": "2026-09-18 14:13:04.47368+00",
   "difficulty": "medium",
@@ -34984,7 +34984,7 @@
    "Time"
   ],
   "correct_option": 0,
-  "explanation": "'Therefore, thus, consequently' introduce results.",
+  "explanation": "'Therefore', 'thus' and 'consequently' are connectives that show a result, leading from a cause to its consequence. Contrast words such as 'however' mark an opposite idea, and example words introduce an illustration.",
   "sort_order": 12,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -35056,7 +35056,7 @@
    "13/52"
   ],
   "correct_option": 0,
-  "explanation": "13 hearts in 52 cards. 13/52 = 1/4. Both are correct.",
+  "explanation": "A standard pack has 52 cards, 13 of them hearts. P(heart) = 13/52, which reduces to 1/4. Both forms give the same probability, so both options are correct.",
   "sort_order": 4,
   "created_at": "2026-08-22 14:16:10.687195+00",
   "difficulty": "medium",
@@ -35524,7 +35524,7 @@
    "+7"
   ],
   "correct_option": 2,
-  "explanation": "2x + 7(−2) = −2, so x = +6.",
+  "explanation": "Let the oxidation state of Cr be x. The seven O atoms contribute 7 x (-2) = -14 in total, so 2x - 14 = -2, which gives x = +6.",
   "sort_order": 9,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -35614,7 +35614,7 @@
    "x ln x + c"
   ],
   "correct_option": 0,
-  "explanation": "The antiderivative of 1/x is ln x + c for x > 0.",
+  "explanation": "The antiderivative of 1/x is ln x + c for x > 0. Differentiating ln x gives 1/x, which confirms it. The other options do not differentiate back to 1/x, and the 1/x option is the integrand itself.",
   "sort_order": 7,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -35722,7 +35722,7 @@
    "NaBH4"
   ],
   "correct_option": 3,
-  "explanation": "NaBH4 reduces a ketone to a secondary alcohol.",
+  "explanation": "NaBH₄ is a mild reducing agent. It reduces the C=O group of a ketone to a secondary alcohol. Concentrated sulfuric acid dehydrates alcohols, and bromine adds across double bonds, so neither makes an alcohol from a ketone.",
   "sort_order": 15,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -35992,7 +35992,7 @@
    "10"
   ],
   "correct_option": 0,
-  "explanation": "a.b = 4 - 2 + 6 = 8.",
+  "explanation": "Multiply matching components and add: (1)(4) + (2)(-1) + (3)(2) = 4 - 2 + 6 = 8. Keep the minus sign on the middle product; forgetting it gives 12.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -36100,7 +36100,7 @@
    "H₀ is not proven, just not contradicted"
   ],
   "correct_option": 3,
-  "explanation": "Absence of evidence is not proof of the null.",
+  "explanation": "Failing to reject H₀ means the data are consistent with H₀ but do not contradict it. This is weaker than proving H₀, and it does not show H₁ is true or that α was wrong.",
   "sort_order": 6,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
@@ -36370,7 +36370,7 @@
    "42 J"
   ],
   "correct_option": 2,
-  "explanation": "M1: Q = mcΔθ\nA1: Q = 0.5 × 4200 × 20 = 42 000 J = 42 kJ",
+  "explanation": "Energy Q = mcΔθ = 0.5 kg × 4200 J kg⁻¹ K⁻¹ × 20 K = 42 000 J = 42 kJ. Convert J to kJ at the end. Dividing by 1000 by mistake gives the 42 J option.",
   "sort_order": 2,
   "created_at": "2026-09-20 18:42:16.23458+00",
   "difficulty": "medium",
@@ -36424,7 +36424,7 @@
    "0"
   ],
   "correct_option": 3,
-  "explanation": "AND: output 1 only when BOTH inputs are 1. 1 AND 0 = 0.",
+  "explanation": "An AND gate outputs 1 only when both inputs are 1. With A = 1 and B = 0, not both inputs are 1, so the output is 0. An OR gate would give 1 here.",
   "sort_order": 1,
   "created_at": "2026-09-18 14:13:11.951498+00",
   "difficulty": "medium",
@@ -36496,7 +36496,7 @@
    "840 J"
   ],
   "correct_option": 2,
-  "explanation": "Q = mc&Delta;T = 2 × 4200 × 10 = 84 000 J.",
+  "explanation": "Q = m c delta T = 2 kg x 4200 J/(kg K) x 10 K = 84 000 J. The 8400 J option comes from dropping a factor of 10.",
   "sort_order": 423,
   "created_at": "2026-10-13 14:13:02.496566+00",
   "difficulty": "exam",
@@ -36514,7 +36514,7 @@
    "Therefore"
   ],
   "correct_option": 0,
-  "explanation": "'However' introduces a contrasting or opposing point.",
+  "explanation": "'However' introduces a contrasting or opposing point. 'Furthermore' adds a point, 'for example' introduces an illustration, and 'therefore' introduces a conclusion. Match the connective to the relationship between the ideas.",
   "sort_order": 19,
   "created_at": "2026-10-19 10:17:40.897405+00",
   "difficulty": "drill",
@@ -36568,7 +36568,7 @@
    "0.4 m/s"
   ],
   "correct_option": 1,
-  "explanation": "v = omega r = 5 x 2 = 10 m/s.",
+  "explanation": "Linear speed v = omega x r = 5 rad/s x 2 m = 10 m/s. Multiplying angular speed by radius gives speed; dividing by the radius would give 2.5 m/s.",
   "sort_order": 16,
   "created_at": "2026-10-19 09:48:57.940153+00",
   "difficulty": "drill",
@@ -36712,7 +36712,7 @@
    "2x + 10"
   ],
   "correct_option": 1,
-  "explanation": "(x + 5)² = x² + 2(5)x + 5² = x² + 10x + 25.",
+  "explanation": "(x + 5)^2 = x^2 + 2(5)x + 5^2 = x^2 + 10x + 25. The middle term is twice the product of 5 and x, which x^2 + 25 leaves out.",
   "sort_order": 5,
   "created_at": "2026-08-22 14:06:57.610242+00",
   "difficulty": "medium",
@@ -37108,7 +37108,7 @@
    "10%"
   ],
   "correct_option": 0,
-  "explanation": "Change = £10. Percentage = (10/50) × 100% = 20%.",
+  "explanation": "The increase is £60 − £50 = £10. The percentage change is measured against the original price: (10 ÷ 50) × 100% = 20%. Dividing by the new price instead gives about 17%, which is not an option.",
   "sort_order": 7,
   "created_at": "2026-08-22 13:58:30.804461+00",
   "difficulty": "medium",
@@ -37306,7 +37306,7 @@
    "ethanal"
   ],
   "correct_option": 0,
-  "explanation": "HBr adds across the C=C bond to give bromoethane.",
+  "explanation": "Ethene is an alkene. HBr adds across the C=C double bond in an addition reaction, giving bromoethane, CH₃CH₂Br. A dibromo product would need Br₂, and ethanol or ethanal need different reagents.",
   "sort_order": 8,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -37342,7 +37342,7 @@
    "x = 26/7"
   ],
   "correct_option": 3,
-  "explanation": "Expand: 10x − 15 = 3x + 11, so 7x = 26 and x = 26/7.",
+  "explanation": "Expand the brackets: 10x − 15 = 3x + 11. Collect the x terms: 7x = 26, so x = 26/7. Check: 5(2x − 3) = 5 × 31/7 = 155/7, and 3x + 11 = 155/7.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:36:19.987761+00",
   "difficulty": "exam",
@@ -37396,7 +37396,7 @@
    "increases"
   ],
   "correct_option": 3,
-  "explanation": "More lattice vibration scatters electrons.",
+  "explanation": "Metal ions vibrate more strongly as temperature rises. These vibrations scatter the conduction electrons more, so the resistance increases.",
   "sort_order": 7,
   "created_at": "2026-09-20 18:42:11.000221+00",
   "difficulty": "medium",
@@ -37486,7 +37486,7 @@
    "f(x) ≥ 1"
   ],
   "correct_option": 3,
-  "explanation": "(x − 3)² + 1 has minimum 1, so f(x) ≥ 1.",
+  "explanation": "Complete the square: x^2 - 6x + 10 = (x - 3)^2 + 1. A squared term is never negative, so the minimum is 1 and the range is f(x) >= 1.",
   "sort_order": 7,
   "created_at": "2026-09-20 17:50:35.834642+00",
   "difficulty": "medium",
@@ -37576,7 +37576,7 @@
    "undefined"
   ],
   "correct_option": 1,
-  "explanation": "Single points have zero probability under a density.",
+  "explanation": "For a continuous random variable, probability is an area under the density curve over an interval. A single point has zero width, so P(X = 3) = 0. Probabilities of intervals, such as P(X ≤ 3), can be non-zero.",
   "sort_order": 10,
   "created_at": "2026-09-21 17:56:51.180879+00",
   "difficulty": "medium",
@@ -37720,7 +37720,7 @@
    "14"
   ],
   "correct_option": 3,
-  "explanation": "Range = largest - smallest = 19 - 5 = 14.",
+  "explanation": "Range = largest - smallest = 19 - 5 = 14. The largest value alone (19) is not the range.",
   "sort_order": 9,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -37756,7 +37756,7 @@
    "1.7 × 10⁻⁵ s⁻¹"
   ],
   "correct_option": 0,
-  "explanation": "λ = ln 2 / t½ = 0.693 / (5.0 × 3600) ≈ 3.9 × 10⁻⁵ s⁻¹.",
+  "explanation": "λ = ln 2 / t½. With t½ = 5.0 h = 5.0 × 3600 s = 18 000 s, λ = 0.693 / 18 000 ≈ 3.9 × 10⁻⁵ s⁻¹. Convert hours to seconds first so the units match the decay constant in s⁻¹.",
   "sort_order": 103,
   "created_at": "2026-10-13 13:54:31.315752+00",
   "difficulty": "exam",
@@ -37774,7 +37774,7 @@
    "50 °C"
   ],
   "correct_option": 3,
-  "explanation": "Nitration of benzene is carried out at about 50 °C.",
+  "explanation": "Benzene is nitrated by concentrated nitric and sulfuric acids at about 50 °C. Much higher temperatures lead to more substitution and side products, and room temperature is too slow to give a good yield.",
   "sort_order": 4,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -37954,7 +37954,7 @@
    "1.20 × 10²⁴"
   ],
   "correct_option": 2,
-  "explanation": "0.50 × 6.02 × 10²³ = 3.01 × 10²³ molecules.",
+  "explanation": "Each mole has 6.02 x 10^23 molecules, so 0.50 mol contains 0.50 x 6.02 x 10^23 = 3.01 x 10^23 molecules. 6.02 x 10^22 is a tenth of the Avogadro constant, which is the slip.",
   "sort_order": 10,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -37990,7 +37990,7 @@
    "|x| > 1/2"
   ],
   "correct_option": 2,
-  "explanation": "We need |-2x| < 1, i.e. |x| < 1/2.",
+  "explanation": "The binomial series for (1 + u)^(1/2) converges when |u| < 1. Here u = -2x, so |-2x| < 1 gives |x| < 1/2.",
   "sort_order": 14,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -38188,7 +38188,7 @@
    "(1, 0)"
   ],
   "correct_option": 1,
-  "explanation": "90° clockwise: (x, y) → (y, −x). (1, 0) → (0, −1).",
+  "explanation": "A 90° clockwise rotation about the origin maps (x, y) to (y, −x). So (1, 0) maps to (0, −1). An anticlockwise rotation would send (1, 0) to (0, 1), which is the wrong direction here.",
   "sort_order": 2,
   "created_at": "2026-08-22 14:11:35.41691+00",
   "difficulty": "medium",
@@ -38206,7 +38206,7 @@
    "5"
   ],
   "correct_option": 2,
-  "explanation": "f(−1) = 3(−1)² − 2(−1) + 4 = 3 + 2 + 4 = 9.",
+  "explanation": "f(-1) = 3(-1)^2 - 2(-1) + 4 = 3 + 2 + 4 = 9. Squaring -1 gives +1, so the squared term is positive.",
   "sort_order": 10,
   "created_at": "2026-08-22 14:06:59.70692+00",
   "difficulty": "medium",
@@ -38224,7 +38224,7 @@
    "temperature"
   ],
   "correct_option": 3,
-  "explanation": "B1: thermistor: temperature-dependent resistance sensor",
+  "explanation": "A thermistor is a resistor whose resistance changes with temperature, so it is used as a temperature sensor. A light sensor uses an LDR, a pressure sensor uses a diaphragm, and humidity uses a humidity sensor.",
   "sort_order": 7,
   "created_at": "2026-09-20 18:43:05.243725+00",
   "difficulty": "medium",
@@ -38350,7 +38350,7 @@
    "[Ar] 3d⁴"
   ],
   "correct_option": 1,
-  "explanation": "The 4s electrons are removed first, leaving [Ar] 3d⁶.",
+  "explanation": "When a transition metal forms an ion, the 4s electrons are removed before the 3d electrons. Fe is [Ar] 3d⁶ 4s², so Fe²⁺ is [Ar] 3d⁶, having lost the two 4s electrons.",
   "sort_order": 13,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -38458,7 +38458,7 @@
    "∫₁² 4u² du = 28/3"
   ],
   "correct_option": 3,
-  "explanation": "du = 3x² dx, so 12x² dx = 4 du; limits become 1 to 2.",
+  "explanation": "Let u = x³ + 1, so du = 3x² dx and 12x² dx = 4 du. The limits change: x = 0 gives u = 1 and x = 1 gives u = 2. The integral becomes ∫₁² 4u² du, which equals 4 × (8 − 1)/3 = 28/3.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:54.567992+00",
   "difficulty": "medium",
@@ -38476,7 +38476,7 @@
    "(no article)"
   ],
   "correct_option": 0,
-  "explanation": "'Interesting' begins with a vowel sound, so 'an'.",
+  "explanation": "The article depends on the sound of the next word, not its spelling. 'Interesting' starts with a vowel sound, so 'an' is used: 'an interesting film'. 'A' is used before a consonant sound.",
   "sort_order": 11,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -38548,7 +38548,7 @@
    "12"
   ],
   "correct_option": 0,
-  "explanation": "New sum = 40 + 20 = 60 over 6 values: 10.",
+  "explanation": "The original total is 5 x 8 = 40. Adding 20 gives 60 over 6 values, so the new mean is 10. Averaging 8 and 20 directly gives 14, which ignores the other five values.",
   "sort_order": 9,
   "created_at": "2026-09-21 17:56:57.623042+00",
   "difficulty": "medium",
@@ -38656,7 +38656,7 @@
    "2 Ω"
   ],
   "correct_option": 1,
-  "explanation": "In series the resistances add: 4 + 6 = 10 Ω.",
+  "explanation": "In series, resistances add: R = 4 Ω + 6 Ω = 10 Ω. The 2.4 Ω value is the parallel combination of the two resistors, which is smaller than either one, so it does not apply to a series pair.",
   "sort_order": 319,
   "created_at": "2026-10-13 14:08:56.63165+00",
   "difficulty": "exam",
@@ -39196,7 +39196,7 @@
    "500"
   ],
   "correct_option": 1,
-  "explanation": "N = (40 × 50) ÷ 10 = 200.",
+  "explanation": "Lincoln index: N = (marked in first sample x size of second sample) / marked in second sample = (40 x 50) / 10 = 200. The 10 recaptures belong in the denominator, not the numerator.",
   "sort_order": 10,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -39268,7 +39268,7 @@
    "5 m/s"
   ],
   "correct_option": 3,
-  "explanation": "Speed = distance / time = 100 / 20 = 5 m/s.",
+  "explanation": "Average speed is distance divided by time: 100 m ÷ 20 s = 5 m s⁻¹. The value 0.2 is time divided by distance, the reciprocal, and is not a speed.",
   "sort_order": 315,
   "created_at": "2026-10-13 14:08:56.63165+00",
   "difficulty": "exam",
@@ -39286,7 +39286,7 @@
    "Dichloroethene"
   ],
   "correct_option": 2,
-  "explanation": "PVC is made from chloroethene, CH2=CHCl.",
+  "explanation": "PVC is made by addition polymerisation of its monomer, chloroethene, CH2=CHCl. Chloroethane has no double bond, so it cannot form this polymer.",
   "sort_order": 11,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -39412,7 +39412,7 @@
    "Allocating RAM to programs"
   ],
   "correct_option": 3,
-  "explanation": "The OS decides which programs get which parts of RAM.",
+  "explanation": "Memory management is the operating system's job of allocating RAM to programs and reclaiming it when they finish. WiFi connections, audio playback and saving files are separate functions, even though the OS is involved in them.",
   "sort_order": 2,
   "created_at": "2026-09-18 14:13:02.843808+00",
   "difficulty": "medium",
@@ -40006,7 +40006,7 @@
    "0.0183"
   ],
   "correct_option": 0,
-  "explanation": "P(X = 0) = e^(-2) = 0.1353 to 4 decimal places.",
+  "explanation": "For X ~ Po(λ), P(X = r) = e^(−λ) λʳ / r!. With λ = 2 and r = 0, P(X = 0) = e^(−2) = 0.1353 to 4 decimal places. The 0.8647 option is 1 − P(X = 0), which is P(X ≥ 1).",
   "sort_order": 16,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -40132,7 +40132,7 @@
    "18 m/s^2"
   ],
   "correct_option": 3,
-  "explanation": "a = omega^2 r = 36 x 0.5 = 18 m/s^2.",
+  "explanation": "Centripetal acceleration a = omega^2 r = 6^2 x 0.5 = 36 x 0.5 = 18 m/s^2. Square the angular speed; the 12 option comes from multiplying 6 by 2 instead.",
   "sort_order": 9,
   "created_at": "2026-10-19 09:48:57.940153+00",
   "difficulty": "exam",
@@ -40474,7 +40474,7 @@
    "An output device"
   ],
   "correct_option": 1,
-  "explanation": "A constant's value is set once and cannot be modified.",
+  "explanation": "A constant is a named value that cannot be changed once it is set, whereas a variable's value can change during the program. A constant is not a loop type or a device.",
   "sort_order": 5,
   "created_at": "2026-09-18 14:12:56.177001+00",
   "difficulty": "medium",
@@ -40492,7 +40492,7 @@
    "at"
   ],
   "correct_option": 0,
-  "explanation": "'Congratulate someone on something'.",
+  "explanation": "'Congratulate someone on something', so the answer is 'on'. 'For' goes with 'thank', not with 'congratulate'.",
   "sort_order": 17,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -40636,7 +40636,7 @@
    "in"
   ],
   "correct_option": 3,
-  "explanation": "The fixed phrase is interested in.",
+  "explanation": "The fixed phrase is 'interested in', so the answer is 'in'. 'Interested on' and 'interested at' are not standard English.",
   "sort_order": 2,
   "created_at": "2026-10-17 10:32:56.479791+00",
   "difficulty": "medium",
@@ -40690,7 +40690,7 @@
    "Propan-2-ol"
   ],
   "correct_option": 1,
-  "explanation": "Substitution replaces Br with OH, giving propan-1-ol.",
+  "explanation": "In aqueous NaOH, the bromine in 1-bromopropane is replaced by OH⁻ in nucleophilic substitution, forming propan-1-ol. Propene would need elimination with hot ethanolic NaOH, and propanal would need oxidation.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -40726,7 +40726,7 @@
    "(x + 3) ln(x + 3)"
   ],
   "correct_option": 2,
-  "explanation": "The integral of 1/(x + a) is ln|x + a| + C.",
+  "explanation": "The integral of 1/(x + a) is ln|x + a| + C, so with a = 3 the answer is ln|x + 3| + C. Differentiating ln|x + 3| gives 1/(x + 3), which confirms it. The modulus bars are needed because the logarithm is only defined for positive values, so the absolute value keeps it defined for negative x + 3.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -40906,7 +40906,7 @@
    "1/3"
   ],
   "correct_option": 1,
-  "explanation": "6/2 = 3 and 18/6 = 3, so r = 3.",
+  "explanation": "The common ratio is the second term divided by the first: r = 6 / 2 = 3. Check it with the third term: 6 x 3 = 18. Dividing the other way gives 1/3, which would shrink the sequence.",
   "sort_order": 7,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -41302,7 +41302,7 @@
    "2 ln 3"
   ],
   "correct_option": 1,
-  "explanation": "By the quotient law ln 6 - ln 3 = ln(6/3) = ln 2.",
+  "explanation": "The quotient law gives ln a − ln b = ln(a/b), so ln 6 − ln 3 = ln(6/3) = ln 2. Subtracting logs does not give the log of the difference, so ln 3 and 2 ln 3 are wrong.",
   "sort_order": 8,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -41320,7 +41320,7 @@
    "3.83"
   ],
   "correct_option": 1,
-  "explanation": "x1 = 3 - (9 - 4)/6 = 3 - 0.8333 = 2.17 (3 s.f.).",
+  "explanation": "Newton-Raphson: x₁ = x₀ − f(x₀)/f′(x₀). With f(x) = x² − 4, f(3) = 5 and f′(3) = 6, so x₁ = 3 − 5/6 = 3 − 0.833 = 2.17 to 3 s.f. The exact root is 2, but one step gives 2.17.",
   "sort_order": 7,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -41338,7 +41338,7 @@
    "Huffman coding"
   ],
   "correct_option": 2,
-  "explanation": "Lossy compression removes data (e.g., JPEG, MP3).",
+  "explanation": "Lossy compression permanently removes some data to reduce file size, as in JPEG images and MP3 audio. Lossless methods such as run-length encoding and Huffman coding can rebuild the original exactly.",
   "sort_order": 7,
   "created_at": "2026-09-18 14:12:53.889057+00",
   "difficulty": "medium",
@@ -41356,7 +41356,7 @@
    "F/Δt"
   ],
   "correct_option": 2,
-  "explanation": "Impulse = change in momentum = force × time.",
+  "explanation": "Impulse is the change in momentum. By Newton's second law, F = Δp/Δt, so impulse = FΔt, with units of N s. The option F/Δt is a rate of change of force, not an impulse.",
   "sort_order": 7,
   "created_at": "2026-09-20 18:41:55.778375+00",
   "difficulty": "medium",
@@ -41428,7 +41428,7 @@
    "(4, 5)"
   ],
   "correct_option": 0,
-  "explanation": "x² − 8x + 11 = (x − 4)² − 5, so the vertex is (4, −5).",
+  "explanation": "Complete the square: x² − 8x + 11 = (x − 4)² − 16 + 11 = (x − 4)² − 5. The vertex of y = (x − a)² + b is at (a, b), so the vertex is (4, −5).",
   "sort_order": 1,
   "created_at": "2026-09-20 17:50:35.834642+00",
   "difficulty": "medium",
@@ -41482,7 +41482,7 @@
    "2.0 mol"
   ],
   "correct_option": 1,
-  "explanation": "n = mass/Mr = 8.0/40.0 = 0.2 mol.",
+  "explanation": "Moles n = 8.0 g / 40.0 g per mol = 0.20 mol. Check it by multiplying back: 0.2 mol x 40 g per mol returns the original 8.0 g.",
   "sort_order": 16,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "exam",
@@ -41716,7 +41716,7 @@
    "NO₂⁺"
   ],
   "correct_option": 3,
-  "explanation": "The nitronium ion, NO₂⁺, is formed from HNO₃ and H₂SO₄.",
+  "explanation": "In nitration, the electrophile is the nitronium ion, NO₂⁺, formed when concentrated sulfuric acid protonates nitric acid and water leaves. NO₂⁺ attacks the benzene ring. NO₃⁻ and NO₂⁻ are not the electrophile.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -41842,7 +41842,7 @@
    "7.5 x 10^47 J"
   ],
   "correct_option": 1,
-  "explanation": "E = hf = 6.63x10^-34 x 5.0x10^14 = 3.3 x 10^-19 J.",
+  "explanation": "Photon energy E = hf = 6.63 × 10⁻³⁴ J s × 5.0 × 10¹⁴ Hz = 3.3 × 10⁻¹⁹ J. Multiply h by the frequency, and keep the power of ten correct, since the 10⁻¹⁴ option is off by a factor of 10⁵.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:36:29.136796+00",
   "difficulty": "exam",
@@ -41860,7 +41860,7 @@
    "the acceptance zone"
   ],
   "correct_option": 1,
-  "explanation": "It is the rejection zone of the test statistic.",
+  "explanation": "The critical region is the set of values of the test statistic for which H₀ is rejected. If the observed statistic falls inside it, the result is significant at the chosen level. A p-value is a probability, not a region of values.",
   "sort_order": 5,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
@@ -41932,7 +41932,7 @@
    "3e^(2x) + c"
   ],
   "correct_option": 2,
-  "explanation": "d/dx (e^(2x)) = 2e^(2x), so d/dx (3e^(2x)) = 6e^(2x).",
+  "explanation": "d/dx(eᵏˣ) = k·eᵏˣ. For 3e^(2x), the derivative is 3 × 2e^(2x) = 6e^(2x). The constant 3 is kept, and the 2 from the chain rule multiplies the result.",
   "sort_order": 1,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "exam",
@@ -41950,7 +41950,7 @@
    "5 m/s^2"
   ],
   "correct_option": 0,
-  "explanation": "Resultant = 10 - 4 = 6 N; a = 6/2 = 3 m/s^2.",
+  "explanation": "Resultant force = 10 N − 4 N = 6 N forward. Newton's second law gives a = F/m = 6 N ÷ 2 kg = 3 m s⁻². The acceleration uses the net force, not the applied force alone.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
@@ -42148,7 +42148,7 @@
    "0.5"
   ],
   "correct_option": 2,
-  "explanation": "P(B given A) = P(A and B)/P(A) = 0.2/0.5 = 0.4.",
+  "explanation": "Conditional probability: P(B | A) = P(A ∩ B) ÷ P(A) = 0.2 ÷ 0.5 = 0.4. Dividing by P(A) restricts attention to the outcomes in which A has already happened.",
   "sort_order": 17,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -42544,7 +42544,7 @@
    "Hexane"
   ],
   "correct_option": 1,
-  "explanation": "A methyl branch on C2 of butane gives 2-methylbutane.",
+  "explanation": "A methyl branch on C2 of a four-carbon chain gives 2-methylbutane, C₅H₁₂. Pentane is the unbranched isomer, and 2,2-dimethylpropane has its branching on a three-carbon chain.",
   "sort_order": 11,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -42634,7 +42634,7 @@
    "(4/5, 3/5)"
   ],
   "correct_option": 0,
-  "explanation": "The magnitude is 5, so the unit vector is (3/5, 4/5).",
+  "explanation": "The magnitude of (3, 4) is √(9 + 16) = 5. A unit vector is the vector divided by its magnitude: (3/5, 4/5). Dividing by 7, or leaving the components unchanged, gives the wrong result.",
   "sort_order": 18,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -42706,7 +42706,7 @@
    "Unknown"
   ],
   "correct_option": 2,
-  "explanation": "OR: output 1 when AT LEAST ONE input is 1. 0 OR 1 = 1.",
+  "explanation": "An OR gate outputs 1 when at least one input is 1. With A = 0 and B = 1 one input is 1, so the output is 1. An AND gate would give 0 here.",
   "sort_order": 2,
   "created_at": "2026-09-18 14:13:11.951498+00",
   "difficulty": "medium",
@@ -42724,7 +42724,7 @@
    "on"
   ],
   "correct_option": 3,
-  "explanation": "'On holiday' is the fixed collocation.",
+  "explanation": "'On holiday' is the fixed collocation for being away on a holiday, so the answer is 'on'. 'In holiday' and 'at holiday' are not used in English.",
   "sort_order": 13,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -42976,7 +42976,7 @@
    "hf/c"
   ],
   "correct_option": 0,
-  "explanation": "B1: de Broglie λ = h/(mv) = h/p — matter waves",
+  "explanation": "de Broglie proposed λ = h/p = h/(mv), giving the wavelength associated with a moving particle. The wavelength is inversely proportional to momentum, so faster particles have shorter wavelengths.",
   "sort_order": 6,
   "created_at": "2026-09-20 18:42:27.41632+00",
   "difficulty": "medium",
@@ -43174,7 +43174,7 @@
    "pV = RT/n"
   ],
   "correct_option": 2,
-  "explanation": "B1: pV = nRT for n moles; (pV = NkT for molecules)",
+  "explanation": "The ideal gas equation for n moles is pV = nRT. For N molecules the equivalent form is pV = NkT. The other options are not rearrangements of either form.",
   "sort_order": 4,
   "created_at": "2026-09-20 18:42:16.23458+00",
   "difficulty": "medium",
@@ -43300,7 +43300,7 @@
    "It reflects backward"
   ],
   "correct_option": 0,
-  "explanation": "Slower speed in glass bends the ray toward the normal.",
+  "explanation": "When light enters a denser medium such as glass, it slows down and refracts towards the normal. The ray does not stop, and although some light is reflected, the transmitted ray bends towards the normal.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:29:14.178541+00",
   "difficulty": "exam",
@@ -43354,7 +43354,7 @@
    "It stays the same"
   ],
   "correct_option": 1,
-  "explanation": "Liquid pressure is proportional to depth (h rho g).",
+  "explanation": "The pressure from a liquid column is ρgh, so it is directly proportional to depth. Doubling the depth doubles the water pressure, although the atmosphere adds a constant amount on top.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:29:14.178541+00",
   "difficulty": "exam",
@@ -43390,7 +43390,7 @@
    "C6H12O6"
   ],
   "correct_option": 3,
-  "explanation": "Mr of CH2O = 30; 180 / 30 = 6, so C6H12O6.",
+  "explanation": "Mr of CH2O = 30, and 180 / 30 = 6, so the molecular formula is (CH2O)6 = C6H12O6. C2H4O2 is only the empirical formula doubled, which gives the wrong Mr.",
   "sort_order": 12,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -43642,7 +43642,7 @@
    "11.7 g"
   ],
   "correct_option": 1,
-  "explanation": "Mr of NaCl = 58.5, so mass = 0.50 × 58.5 = 29.25 g.",
+  "explanation": "Mr of NaCl = 23.0 + 35.5 = 58.5 g mol⁻¹. Mass = n × Mr = 0.50 × 58.5 = 29.25 g. The 117 g option is 2 mol, and 11.7 g is the mass of 0.2 mol.",
   "sort_order": 1,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -43750,7 +43750,7 @@
    "185"
   ],
   "correct_option": 3,
-  "explanation": "S₁₀ = 10/2 [2(5) + 9(3)] = 5 × 37 = 185.",
+  "explanation": "S10 = (10/2)[2(5) + 9(3)] = 5 x 37 = 185. The sum uses the first term and the 9 common differences between the first and tenth terms.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:26:08.422261+00",
   "difficulty": "exam",
@@ -43786,7 +43786,7 @@
    "30"
   ],
   "correct_option": 2,
-  "explanation": "C(6, 2) = 6 x 5 / 2 = 15.",
+  "explanation": "C(6, 2) = (6 x 5) / 2 = 15 ways to choose 2 items from 6 when order does not matter. Stopping at 6 x 5 = 30 counts each pair twice.",
   "sort_order": 12,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -43948,7 +43948,7 @@
    "1/6"
   ],
   "correct_option": 3,
-  "explanation": "One wanted face out of six equally likely: 1/6.",
+  "explanation": "A fair die has six equally likely faces, and only one shows 5. So P(5) = 1/6 ≈ 0.167. The 5/6 option is the chance of not rolling a 6, and 1/5 would need a five-faced die.",
   "sort_order": 101,
   "created_at": "2026-10-12 11:23:40.633248+00",
   "difficulty": "check",
@@ -44056,7 +44056,7 @@
    "Po(1.2)"
   ],
   "correct_option": 1,
-  "explanation": "Independent Poissons add rates: 1.2 + 0.8.",
+  "explanation": "Independent Poisson variables add their means: X + Y ~ Po(1.2 + 0.8) = Po(2). The sum stays Poisson, so the binomial option is not correct.",
   "sort_order": 4,
   "created_at": "2026-09-21 17:57:06.555815+00",
   "difficulty": "medium",
@@ -44092,7 +44092,7 @@
    "NH₃ is a weaker ligand than H₂O"
   ],
   "correct_option": 0,
-  "explanation": "NH₃ binds more strongly, so it replaces water ligands.",
+  "explanation": "NH₃ is a stronger ligand than H₂O, so it binds more strongly to Cu²⁺ and displaces water ligands from [Cu(H₂O)₆]²⁺. Water is therefore the weaker ligand here, not the stronger one.",
   "sort_order": 14,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -44434,7 +44434,7 @@
    "{1, 2, 3, 4, 5}"
   ],
   "correct_option": 2,
-  "explanation": "A' contains elements in U but NOT in A: {2, 4}.",
+  "explanation": "The complement A′ holds the elements of the universal set U that are not in A. With U = {1, 2, 3, 4, 5} and A = {1, 3, 5}, A′ = {2, 4}. The complement is never the whole of U unless A is empty.",
   "sort_order": 3,
   "created_at": "2026-08-22 13:58:46.197348+00",
   "difficulty": "medium",
@@ -44470,7 +44470,7 @@
    "quickly"
   ],
   "correct_option": 3,
-  "explanation": "'-ly' typically forms adverbs from adjectives.",
+  "explanation": "Most adverbs are formed by adding '-ly' to an adjective, so quick becomes quickly. 'Quicker' is a comparative adjective and 'quickness' is a noun, so neither is an adverb.",
   "sort_order": 14,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -44578,7 +44578,7 @@
    "About 1.0 s"
   ],
   "correct_option": 0,
-  "explanation": "T = 2 pi root(1/100) = 2 pi /10 = 0.63 s.",
+  "explanation": "Period T = 2 pi sqrt(m/k) = 2 pi sqrt(1/100) = 2 pi / 10 = 0.63 s. Leaving out the 2 pi gives 0.1 s, which is the wrong order of magnitude.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:35:52.834633+00",
   "difficulty": "exam",
@@ -44668,7 +44668,7 @@
    "2.50"
   ],
   "correct_option": 1,
-  "explanation": "x1 = (2(2) + 5/2)/2 = (4 + 2.5)/2 = 3.25.",
+  "explanation": "x1 = (2 x 2 + 5/2) / 2 = (4 + 2.5) / 2 = 3.25. Each iteration averages x and 5/x, which moves the estimate towards sqrt(5).",
   "sort_order": 3,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "exam",
@@ -44902,7 +44902,7 @@
    "2 x 3n"
   ],
   "correct_option": 1,
-  "explanation": "a_n = a r^(n-1) = 2 x 3^(n-1).",
+  "explanation": "The nth term of a GP is a r^(n-1) = 2 x 3^(n-1), with first term 2 and common ratio 3. The exponent is n - 1 because the first term has no factor of r.",
   "sort_order": 9,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -44938,7 +44938,7 @@
    "ln(6x)"
   ],
   "correct_option": 0,
-  "explanation": "By the chain rule, dy/dx = 6x / (3x^2 + 1).",
+  "explanation": "Use the chain rule on ln(u) with u = 3x² + 1: dy/dx = (1/u) × du/dx = 6x/(3x² + 1). The derivative of the inside, 6x, goes on the top of the fraction, and the denominator stays as 3x² + 1.",
   "sort_order": 14,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -45046,7 +45046,7 @@
    "40"
   ],
   "correct_option": 3,
-  "explanation": "Multiply λ by the interval factor: 4 × 10.",
+  "explanation": "Multiply the rate per minute by the interval: lambda = 4 x 10 = 40 per 10 minutes. Dividing by 10 gives 0.4, which goes the wrong way.",
   "sort_order": 10,
   "created_at": "2026-09-21 17:57:06.555815+00",
   "difficulty": "medium",
@@ -45136,7 +45136,7 @@
    "CH2Cl2"
   ],
   "correct_option": 1,
-  "explanation": "Two methyl radicals combine to give ethane, C2H6.",
+  "explanation": "In the termination step of free-radical chlorination, two radicals combine. Two methyl radicals, CH₃•, join to form ethane, C₂H₆. CH₃Cl and CH₂Cl₂ come from propagation steps instead.",
   "sort_order": 12,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -45244,7 +45244,7 @@
    "3"
   ],
   "correct_option": 2,
-  "explanation": "[e^x] from 0 to ln 2 = e^(ln 2) - e^0 = 2 - 1 = 1.",
+  "explanation": "The antiderivative of eˣ is eˣ, so the integral from 0 to ln 2 is e^(ln 2) − e⁰ = 2 − 1 = 1. The e^(ln 2) term equals 2 because the exponential and natural log are inverses.",
   "sort_order": 13,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -45334,7 +45334,7 @@
    "An exaggeration"
   ],
   "correct_option": 2,
-  "explanation": "Similes compare explicitly: 'as cold as ice'.",
+  "explanation": "A simile is a comparison that uses 'like' or 'as', such as 'as cold as ice'. A metaphor makes the comparison directly, without those words. Repetition, contradiction and exaggeration are other devices.",
   "sort_order": 11,
   "created_at": "2026-10-19 10:17:40.897405+00",
   "difficulty": "drill",
@@ -45568,7 +45568,7 @@
    "2"
   ],
   "correct_option": 1,
-  "explanation": "pOH = 2, so pH = 14 − 2 = 12.",
+  "explanation": "pOH = -log10(0.01) = 2, so pH = 14 - 2 = 12. A solution with a high hydroxide concentration is alkaline, so its pH is above 7.",
   "sort_order": 15,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -45622,7 +45622,7 @@
    "7.2 × 10⁻² F"
   ],
   "correct_option": 2,
-  "explanation": "C = Q/V = 6.0 × 10⁻³ / 12 = 5.0 × 10⁻⁴ F (500 μF).",
+  "explanation": "Capacitance C = Q/V = 6.0 × 10⁻³ C ÷ 12 V = 5.0 × 10⁻⁴ F, which is 500 μF. Convert 6.0 mC to C first, since 1 mC = 10⁻³ C.",
   "sort_order": 104,
   "created_at": "2026-10-13 13:49:10.355822+00",
   "difficulty": "exam",
@@ -46144,7 +46144,7 @@
    "for"
   ],
   "correct_option": 2,
-  "explanation": "The adjective phrase is good at a subject or skill.",
+  "explanation": "The adjective 'good' takes the preposition 'at' before a subject or skill: good at mathematics. 'Good in' and 'good for' are not the standard fixed collocations for a skill.",
   "sort_order": 5,
   "created_at": "2026-10-17 10:32:56.479791+00",
   "difficulty": "medium",
@@ -46324,7 +46324,7 @@
    "25"
   ],
   "correct_option": 1,
-  "explanation": "|z| = sqrt(3^2 + 4^2) = sqrt(25) = 5.",
+  "explanation": "|z| = sqrt(3^2 + 4^2) = sqrt(25) = 5. The modulus is the length of the vector (3, 4); 25 is the value before taking the square root.",
   "sort_order": 15,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -46396,7 +46396,7 @@
    "To add a link to a web page"
   ],
   "correct_option": 0,
-  "explanation": "The img tag is used to add an image to a web page.",
+  "explanation": "The img tag inserts an image into a web page, and its src attribute gives the image's location. Tables use the table tag, paragraphs use p, and links use a.",
   "sort_order": 8,
   "created_at": "2026-10-10 06:07:42.61206+00",
   "difficulty": "check",
@@ -46468,7 +46468,7 @@
    "3 m/s"
   ],
   "correct_option": 2,
-  "explanation": "Momentum 6 kg m/s conserved over 3 kg gives 2 m/s.",
+  "explanation": "Momentum is conserved in the collision: 2 kg × 3 m/s + 1 kg × 0 = 6 kg m/s before. Afterwards the combined 3 kg moves together, so v = 6 ÷ 3 = 2 m/s. The 1.5 m/s option comes from dividing by 4 kg.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
@@ -46522,7 +46522,7 @@
    "Cannot tell"
   ],
   "correct_option": 2,
-  "explanation": "Lower pKa means stronger acid: pKa 4 < pKa 5.",
+  "explanation": "pKa = −log₁₀Ka, so Ka = 10⁻⁴ gives pKa = 4. A lower pKa means a larger Ka and a stronger acid. pKa 4 is lower than pKa 5, so the Ka = 10⁻⁴ acid is the stronger one.",
   "sort_order": 24,
   "created_at": "2026-10-19 10:05:40.927242+00",
   "difficulty": "drill",
@@ -46702,7 +46702,7 @@
    "4:1"
   ],
   "correct_option": 3,
-  "explanation": "Area ratio = k² = 2² = 4. So area ratio is 4:1.",
+  "explanation": "For similar shapes, lengths scale by k, areas by k², and volumes by k³. With scale factor 2, the area ratio is 2² = 4, so the areas are in the ratio 4 : 1. The length ratio would be 2 : 1.",
   "sort_order": 2,
   "created_at": "2026-08-22 14:11:18.536495+00",
   "difficulty": "medium",
@@ -46720,7 +46720,7 @@
    "14 g"
   ],
   "correct_option": 1,
-  "explanation": "mass = n x Ar = 0.50 x 56 = 28 g.",
+  "explanation": "Mass = n x Ar = 0.50 mol x 56 g per mol = 28 g. Multiplying moles by the relative atomic mass gives a mass; 112 g is the mass of 2 mol, not 0.5 mol.",
   "sort_order": 22,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "drill",
@@ -46828,7 +46828,7 @@
    "20"
   ],
   "correct_option": 1,
-  "explanation": "⁵P₃ = 5×4×3 = 60; order matters in a code.",
+  "explanation": "The number of ordered 3-letter codes without repetition is 5P3 = 5 x 4 x 3 = 60. Order matters in a code, so the combination count of 10 is wrong.",
   "sort_order": 9,
   "created_at": "2026-09-21 17:56:48.237815+00",
   "difficulty": "medium",
@@ -46846,7 +46846,7 @@
    "0"
   ],
   "correct_option": 1,
-  "explanation": "It is the fundamental identity, equal to 1.",
+  "explanation": "sin²θ + cos²θ = 1 for every angle θ. This is the fundamental Pythagorean identity, which comes from x² + y² = 1 on the unit circle. The other options are different identities, not this one.",
   "sort_order": 5,
   "created_at": "2026-09-20 17:50:42.560292+00",
   "difficulty": "medium",
@@ -47116,7 +47116,7 @@
    "84"
   ],
   "correct_option": 0,
-  "explanation": "Mr = 40 + 12 + 3(16) = 100.",
+  "explanation": "Mr(CaCO3) = 40 + 12 + 3 x 16 = 100, counting one calcium, one carbon and three oxygen atoms. Each atom's relative atomic mass is added once for every atom present.",
   "sort_order": 21,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "drill",
@@ -47746,7 +47746,7 @@
    "3:1"
   ],
   "correct_option": 1,
-  "explanation": "Volume ratio = k³ = 3³ = 27. Volume ratio is 27:1.",
+  "explanation": "For similar solids, lengths scale by k, so volumes scale by k³. With scale factor 3, the volume ratio is 3³ = 27, so 27 : 1. The area ratio would be k² = 9, which is not the volume ratio.",
   "sort_order": 5,
   "created_at": "2026-08-22 14:11:19.667716+00",
   "difficulty": "medium",
@@ -47836,7 +47836,7 @@
    "Black"
   ],
   "correct_option": 1,
-  "explanation": "Silver bromide is a cream precipitate.",
+  "explanation": "Silver bromide, AgBr, is the cream precipitate. Silver chloride is white and silver iodide is yellow, so the halide ion decides the colour.",
   "sort_order": 9,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -47962,7 +47962,7 @@
    "ln x + 1"
   ],
   "correct_option": 3,
-  "explanation": "Product rule: 1 x ln x + x x (1/x) = ln x + 1.",
+  "explanation": "Product rule: d/dx(uv) = u′v + uv′, with u = x and v = ln x. This gives 1 × ln x + x × (1/x) = ln x + 1. The 1/x option is only the derivative of ln x on its own.",
   "sort_order": 10,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -47980,7 +47980,7 @@
    "No absorption above 2500 cm⁻¹"
   ],
   "correct_option": 0,
-  "explanation": "The broad O–H stretch appears in this region.",
+  "explanation": "The O–H stretch in an alcohol gives a broad absorption between about 3200 and 3550 cm⁻¹, because hydrogen bonding spreads the band out. A sharp peak near 1700 cm⁻¹ is C=O, not O–H.",
   "sort_order": 9,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -48124,7 +48124,7 @@
    "0.10 J"
   ],
   "correct_option": 0,
-  "explanation": "E = ½mω²x₀² = ½ × 0.20 × 10² × 0.050² = 0.025 J.",
+  "explanation": "The total energy in SHM is E = ½mω²x₀². Here ½ × 0.20 × 10² × 0.050² = ½ × 0.20 × 100 × 0.0025 = 0.025 J. Square the amplitude, and keep ω squared as well.",
   "sort_order": 103,
   "created_at": "2026-10-13 13:54:32.087537+00",
   "difficulty": "exam",
@@ -48340,7 +48340,7 @@
    "37.0"
   ],
   "correct_option": 2,
-  "explanation": "Ar = (75 x 35 + 25 x 37)/100 = 35.5.",
+  "explanation": "Ar = (75 x 35 + 25 x 37) / 100 = (2625 + 925) / 100 = 35.5. Weight each isotope by its abundance; the simple average of 35 and 37 is 36, which ignores the 75%.",
   "sort_order": 23,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "drill",
@@ -48358,7 +48358,7 @@
    "40 and 4"
   ],
   "correct_option": 2,
-  "explanation": "Mean scales by 2, s scales by 2: 40 and 8.",
+  "explanation": "Multiplying every value by 2 doubles the mean, to 40, and doubles the standard deviation, to 8. Adding 2 would change the mean but not the spread.",
   "sort_order": 9,
   "created_at": "2026-09-21 17:57:00.02858+00",
   "difficulty": "medium",
@@ -48394,7 +48394,7 @@
    "the magnitude"
   ],
   "correct_option": 2,
-  "explanation": "Geometric definition of the dot product.",
+  "explanation": "a.b = |a||b| cos theta is the scalar (dot) product, which gives a number. The vector product gives a vector perpendicular to both vectors, so it is a different operation.",
   "sort_order": 8,
   "created_at": "2026-09-20 17:50:57.30488+00",
   "difficulty": "medium",
@@ -48448,7 +48448,7 @@
    "10 000 g/cm³"
   ],
   "correct_option": 1,
-  "explanation": "Density = mass / volume = 200 / 50 = 4 g/cm³.",
+  "explanation": "Density = mass ÷ volume = 200 g ÷ 50 cm³ = 4 g cm⁻³. Keep the units with the number: grams divided by cubic centimetres gives g/cm³.",
   "sort_order": 300,
   "created_at": "2026-10-13 14:08:56.63165+00",
   "difficulty": "exam",
@@ -48466,7 +48466,7 @@
    "1 Hz"
   ],
   "correct_option": 2,
-  "explanation": "f = 1/T = 1/0.5 = 2 Hz.",
+  "explanation": "Frequency is the reciprocal of period: f = 1/T = 1/0.5 = 2 Hz, so 2 full cycles are completed every second. Quoting the period itself as the frequency (0.5 Hz) is the common slip.",
   "sort_order": 20,
   "created_at": "2026-10-19 09:48:57.940153+00",
   "difficulty": "drill",
@@ -48628,7 +48628,7 @@
    "(3; 2)"
   ],
   "correct_option": 0,
-  "explanation": "Add components: (2 + (−1), 5 + 3) = (1, 8).",
+  "explanation": "Add the components separately: (2 + (−1); 5 + 3) = (1; 8). Vector addition adds the x-components together and the y-components together, so each component is handled on its own.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:11:35.860309+00",
   "difficulty": "medium",
@@ -48844,7 +48844,7 @@
    "13"
   ],
   "correct_option": 2,
-  "explanation": "|⃗a| = √(6² + 8²) = √(36 + 64) = √100 = 10.",
+  "explanation": "The magnitude of (x; y) is √(x² + y²) = √(36 + 64) = √100 = 10. Adding the components, 6 + 8 = 14, is not the magnitude, so use the formula.",
   "sort_order": 4,
   "created_at": "2026-08-22 14:11:36.32038+00",
   "difficulty": "medium",
@@ -49096,7 +49096,7 @@
    "4/(x − 1)"
   ],
   "correct_option": 2,
-  "explanation": "A(x + 1) + B(x − 1) = 4x gives A = B = 2.",
+  "explanation": "Write 4x / ((x - 1)(x + 1)) = A/(x - 1) + B/(x + 1). Then A(x + 1) + B(x - 1) = 4x gives A + B = 4 and A - B = 0, so A = B = 2.",
   "sort_order": 10,
   "created_at": "2026-09-20 17:50:50.070682+00",
   "difficulty": "medium",
@@ -49150,7 +49150,7 @@
    "Unknown"
   ],
   "correct_option": 0,
-  "explanation": "XOR: output 0 when inputs are the SAME. 1 XOR 1 = 0.",
+  "explanation": "An XOR gate outputs 1 only when its inputs differ and 0 when they are the same. With A = 1 and B = 1 the inputs are the same, so the output is 0. An OR gate would give 1 here.",
   "sort_order": 4,
   "created_at": "2026-09-18 14:13:11.951498+00",
   "difficulty": "medium",
@@ -49240,7 +49240,7 @@
    "a shift 2 up"
   ],
   "correct_option": 0,
-  "explanation": "Replacing x with x − 2 shifts the graph 2 units right.",
+  "explanation": "Replacing x with x − 2 in f(x) shifts the graph 2 units to the right. A shift of x + 2 would move it to the left. The transformation acts on the x-values, not the y-values.",
   "sort_order": 5,
   "created_at": "2026-09-20 17:50:37.251728+00",
   "difficulty": "medium",
@@ -49438,7 +49438,7 @@
    "13.4 kJ"
   ],
   "correct_option": 1,
-  "explanation": "M1: Q = mL\nA1: Q = 0.2 × 334 000 = 66 800 J ≈ 67 kJ",
+  "explanation": "The energy to melt ice is Q = mL, where L is the specific latent heat of fusion. Q = 0.2 kg × 334 000 J kg⁻¹ = 66 800 J, which is about 67 kJ. Latent heat is used during a change of state, so the temperature stays constant.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:16.23458+00",
   "difficulty": "medium",
@@ -49582,7 +49582,7 @@
    "an amide"
   ],
   "correct_option": 2,
-  "explanation": "The amine accepts H⁺, forming an alkylammonium salt.",
+  "explanation": "An amine is a base, so it accepts a proton from HCl and forms an alkylammonium salt, for example CH₃NH₃⁺Cl⁻. The product is a salt, not an ester, an amide or an alkyl chloride, which would need different reactants.",
   "sort_order": 11,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -49690,7 +49690,7 @@
    "rejecting H₀ when it is true"
   ],
   "correct_option": 3,
-  "explanation": "That is the definition of a Type I error rate.",
+  "explanation": "The significance level α is the probability of a Type I error: rejecting H₀ when H₀ is actually true. It is chosen before the test is carried out. A Type II error is accepting H₀ when H₁ is true.",
   "sort_order": 1,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
@@ -49762,7 +49762,7 @@
    "y = 8x"
   ],
   "correct_option": 1,
-  "explanation": "m = 8/4 = 2; y = 2x passes through both points.",
+  "explanation": "The gradient is m = (10 − 2)/(5 − 1) = 8/4 = 2. Using y − 2 = 2(x − 1) gives y = 2x. Check: (5, 10) gives 2 × 5 = 10, and (1, 2) gives 2 × 1 = 2, as required.",
   "sort_order": 2,
   "created_at": "2026-09-20 17:50:38.836972+00",
   "difficulty": "medium",
@@ -50122,7 +50122,7 @@
    "y = 4x − 3"
   ],
   "correct_option": 1,
-  "explanation": "y − 1 = 4(x − 2) → y = 4x − 8 + 1 = 4x − 7.",
+  "explanation": "Use y − y₁ = m(x − x₁) with m = 4 and the point (2, 1): y − 1 = 4(x − 2), so y = 4x − 8 + 1 = 4x − 7. Check: at x = 2, y = 8 − 7 = 1, as required.",
   "sort_order": 9,
   "created_at": "2026-08-22 14:07:25.901902+00",
   "difficulty": "medium",
@@ -50140,7 +50140,7 @@
    "AI being too slow"
   ],
   "correct_option": 2,
-  "explanation": "AI trained on biased data produces biased outcomes.",
+  "explanation": "A key ethical concern with AI is algorithmic bias. A model trained on biased or unrepresentative data reproduces and can amplify those biases in its outcomes, which can treat people unfairly. Power use and speed are technical issues rather than ethical ones.",
   "sort_order": 4,
   "created_at": "2026-09-18 14:13:17.38194+00",
   "difficulty": "medium",
@@ -50158,7 +50158,7 @@
    "10⁻⁶"
   ],
   "correct_option": 3,
-  "explanation": "The prefix micro means one millionth: 1 μm = 10⁻⁶ m.",
+  "explanation": "The micro prefix (μ) means one millionth, 10⁻⁶, so 1 μm = 10⁻⁶ m. Milli is 10⁻³, nano is 10⁻⁹ and centi is 10⁻².",
   "sort_order": 5,
   "created_at": "2026-09-14 18:41:34.736169+00",
   "difficulty": "medium",
@@ -50500,7 +50500,7 @@
    "thymine"
   ],
   "correct_option": 3,
-  "explanation": "Adenine pairs with thymine by two hydrogen bonds.",
+  "explanation": "In DNA, adenine (A) pairs with thymine (T), joined by two hydrogen bonds, and guanine pairs with cytosine. Uracil replaces thymine only in RNA.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -50518,7 +50518,7 @@
    "They become neutral"
   ],
   "correct_option": 1,
-  "explanation": "Like poles repel and unlike poles attract.",
+  "explanation": "Like magnetic poles repel and unlike poles attract. Bringing two like poles together does not make them neutral or cancel their effect.",
   "sort_order": 406,
   "created_at": "2026-10-13 14:13:02.496566+00",
   "difficulty": "exam",
@@ -50554,7 +50554,7 @@
    "3.0"
   ],
   "correct_option": 2,
-  "explanation": "Var(X) = np(1 - p) = 5 x 0.4 x 0.6 = 1.2.",
+  "explanation": "Var(X) = np(1 - p) = 5 x 0.4 x 0.6 = 1.2. The mean np = 2.0 is a different quantity and is not the variance.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -50626,7 +50626,7 @@
    "at 45°"
   ],
   "correct_option": 1,
-  "explanation": "Compression along the propagation direction.",
+  "explanation": "In a longitudinal wave, particles oscillate parallel to the direction the wave travels, creating compressions and rarefactions. Sound in air is the standard example. Transverse waves are the ones that oscillate perpendicular to travel.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:02.780225+00",
   "difficulty": "medium",
@@ -50680,7 +50680,7 @@
    "50 s"
   ],
   "correct_option": 3,
-  "explanation": "M1: τ = RC\nA1: τ = (100 × 10³)(500 × 10⁻⁶) = 50 s",
+  "explanation": "The time constant is τ = RC. With R = 100 kΩ = 1.0 × 10⁵ Ω and C = 500 μF = 5.0 × 10⁻⁴ F, τ = 1.0 × 10⁵ × 5.0 × 10⁻⁴ = 50 s. Convert the prefixes first, because kΩ and μF are not base units.",
   "sort_order": 10,
   "created_at": "2026-09-20 18:42:18.177385+00",
   "difficulty": "medium",
@@ -50896,7 +50896,7 @@
    "as"
   ],
   "correct_option": 2,
-  "explanation": "'Famous for' the quality or achievement.",
+  "explanation": "'Famous for' introduces the reason someone is known, here his generosity. 'Famous by' and 'famous with' are not the standard collocations.",
   "sort_order": 18,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -50986,7 +50986,7 @@
    "48"
   ],
   "correct_option": 2,
-  "explanation": "Scale factor = 15/5 = 3. EF = 8 × 3 = 24.",
+  "explanation": "Similar triangles scale every side by the same factor: DE / AB = 15 / 5 = 3. So EF = BC x 3 = 8 x 3 = 24. The 12 option divides instead of multiplying, which reverses the scale factor.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:11:18.909397+00",
   "difficulty": "medium",
@@ -51058,7 +51058,7 @@
    "+2"
   ],
   "correct_option": 1,
-  "explanation": "2(+1) + 2x + 7(-2) = 0 gives 2x = 12, so x = +6.",
+  "explanation": "Oxidation numbers sum to zero in a neutral compound. In K₂Cr₂O₇: 2(+1) + 2x + 7(−2) = 0, so 2x = 12 and x = +6. Each chromium is +6, the state that makes dichromate(VI) an oxidising agent.",
   "sort_order": 20,
   "created_at": "2026-10-19 09:56:24.235503+00",
   "difficulty": "exam",
@@ -51148,7 +51148,7 @@
    "LiAlH₄ or H₂ with a Ni catalyst"
   ],
   "correct_option": 3,
-  "explanation": "Both reductions convert –CN into –CH₂NH₂.",
+  "explanation": "Nitriles are reduced to primary amines by LiAlH4, or by hydrogen with a nickel catalyst, turning -CN into -CH2NH2. NaBH4 alone is too weak, and dilute HCl or bromine water do not reduce nitriles.",
   "sort_order": 11,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -51310,7 +51310,7 @@
    "always negative"
   ],
   "correct_option": 3,
-  "explanation": "Zero at infinity, negative in the field.",
+  "explanation": "Gravitational potential is zero at infinity and negative everywhere in a gravitational field, because work must be done against gravity to move a mass out to infinity. It is never positive.",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:12.397653+00",
   "difficulty": "medium",
@@ -51382,7 +51382,7 @@
    "4"
   ],
   "correct_option": 2,
-  "explanation": "z = (52 - 50)/(8/sqrt(16)) = 2/2 = 1.",
+  "explanation": "z = (52 - 50) / (8 / sqrt(16)) = 2 / (8 / 4) = 2 / 2 = 1. The standard error uses sqrt(16) = 4, not 16.",
   "sort_order": 18,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -51580,7 +51580,7 @@
    "1s² 2s² 2p⁶"
   ],
   "correct_option": 2,
-  "explanation": "Eight electrons fill 1s² 2s² and leave four in 2p.",
+  "explanation": "Oxygen has atomic number 8, so eight electrons fill 1s² 2s² 2p⁴. The first shell takes two electrons and the second shell's 2s takes two more, with the remaining four in 2p. The second shell has no 2d subshell.",
   "sort_order": 3,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -51904,7 +51904,7 @@
    "130"
   ],
   "correct_option": 1,
-  "explanation": "S_10 = 10/2 [2(5) + 9(2)] = 5 [10 + 18] = 140.",
+  "explanation": "S_n = n/2 [2a + (n − 1)d]. With a = 5, d = 2, n = 10: S₁₀ = 5 × (10 + 18) = 5 × 28 = 140. Check: the 10th term is 23, and 10/2 × (5 + 23) = 140.",
   "sort_order": 6,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -52156,7 +52156,7 @@
    "9"
   ],
   "correct_option": 2,
-  "explanation": "Sum = 30 over 4 values, so the mean is 7.5.",
+  "explanation": "Mean = sum ÷ number of values = (4 + 7 + 9 + 10) ÷ 4 = 30 ÷ 4 = 7.5. The median of the same four numbers is 8, which is a different average and is not the answer here.",
   "sort_order": 6,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -52228,7 +52228,7 @@
    "x ≤ 3"
   ],
   "correct_option": 3,
-  "explanation": "−2x ≥ −6 → x ≤ 3 (divide by −2, reverse sign).",
+  "explanation": "Subtract 7 from both sides: −2x ≥ −6. Divide by −2 and reverse the inequality sign: x ≤ 3. Check: x = 3 gives 7 − 6 = 1, which satisfies ≥ 1.",
   "sort_order": 9,
   "created_at": "2026-08-22 14:07:10.636431+00",
   "difficulty": "medium",
@@ -52552,7 +52552,7 @@
    "return"
   ],
   "correct_option": 3,
-  "explanation": "The return statement sends a value back to the caller.",
+  "explanation": "The return statement sends a value back from a function to the code that called it. print displays output without sending a value back, and yield is used in generators.",
   "sort_order": 3,
   "created_at": "2026-09-18 14:13:06.822099+00",
   "difficulty": "medium",
@@ -52588,7 +52588,7 @@
    "IF"
   ],
   "correct_option": 0,
-  "explanation": "REPEAT...UNTIL runs at least once before testing.",
+  "explanation": "A REPEAT ... UNTIL loop runs its body first and tests the condition at the end, so it always runs at least once. A WHILE loop tests before each iteration, so it may not run at all.",
   "sort_order": 2,
   "created_at": "2026-09-18 14:12:56.177001+00",
   "difficulty": "medium",
@@ -52858,7 +52858,7 @@
    "Golgi body"
   ],
   "correct_option": 1,
-  "explanation": "The DNA is in the nucleus, where mRNA is made.",
+  "explanation": "Transcription, making mRNA from a DNA template, happens in the nucleus of a eukaryotic cell. The mRNA then leaves through the nuclear pores to the cytoplasm, where translation takes place at ribosomes.",
   "sort_order": 7,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -52948,7 +52948,7 @@
    "42 000 J/(kg K)"
   ],
   "correct_option": 0,
-  "explanation": "c = Q / (m&Delta;T) = 4200 / (1 × 1) = 4200 J/(kg K).",
+  "explanation": "Specific heat capacity c = Q/(mΔT) = 4200 J ÷ (1 kg × 1 K) = 4200 J kg⁻¹ K⁻¹. This is the known value for water, about 4200 J kg⁻¹ K⁻¹.",
   "sort_order": 420,
   "created_at": "2026-10-13 14:13:02.496566+00",
   "difficulty": "exam",
@@ -53038,7 +53038,7 @@
    "−24"
   ],
   "correct_option": 0,
-  "explanation": "Negative × negative = positive. So (−4) × (−6) = 24.",
+  "explanation": "Multiplying two negative numbers gives a positive result: (−4) × (−6) = +24. The magnitudes multiply to 4 × 6 = 24 and the two negative signs combine to positive. The −24 option keeps a single negative sign.",
   "sort_order": 7,
   "created_at": "2026-08-22 13:58:25.319125+00",
   "difficulty": "medium",
@@ -53092,7 +53092,7 @@
    "equal amplitude"
   ],
   "correct_option": 0,
-  "explanation": "Coherence needs constant phase relation.",
+  "explanation": "Coherent sources keep a constant phase difference, so their waves interfere steadily. Equal amplitude or intensity helps but is not what makes sources coherent.",
   "sort_order": 3,
   "created_at": "2026-09-20 18:42:05.134118+00",
   "difficulty": "medium",
@@ -53182,7 +53182,7 @@
    "70"
   ],
   "correct_option": 0,
-  "explanation": "C(7, 3) = 7!/(3! 4!) = 35.",
+  "explanation": "C(7, 3) = 7! / (3! x 4!) = (7 x 6 x 5) / (3 x 2 x 1) = 35. Dividing the ordered count 210 by 3! = 6 removes the order of the three chosen items.",
   "sort_order": 15,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -53326,7 +53326,7 @@
    "36.9°"
   ],
   "correct_option": 3,
-  "explanation": "tan θ = 3/4 = 0.75. θ = tan⁻¹(0.75) ≈ 36.9°.",
+  "explanation": "tan θ = opposite/adjacent = 3/4 = 0.75, so θ = tan⁻¹(0.75) ≈ 36.9°. Check with Pythagoras: the slope length is 5 m, and sin 36.9° = 0.6 = 3/5.",
   "sort_order": 9,
   "created_at": "2026-08-22 14:15:51.886932+00",
   "difficulty": "medium",
@@ -53452,7 +53452,7 @@
    "0.1 s"
   ],
   "correct_option": 0,
-  "explanation": "t½ = ln 2 / k = 0.693 / 0.0693 = 10 s.",
+  "explanation": "t1/2 = ln 2 / k = 0.693 / 0.0693 = 10 s. Dividing ln 2 by k gives the half-life directly; 0.693 on its own is ln 2, not the half-life.",
   "sort_order": 4,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -53560,7 +53560,7 @@
    "median"
   ],
   "correct_option": 3,
-  "explanation": "Skew drags the mean; the median resists outliers.",
+  "explanation": "The mean is pulled towards the long tail of a skewed distribution, while the median stays near the middle of the data. For a slightly skewed salary distribution the median is therefore the most representative average. The range measures spread, not the average.",
   "sort_order": 10,
   "created_at": "2026-09-21 17:56:57.623042+00",
   "difficulty": "medium",
@@ -53794,7 +53794,7 @@
    "1.0 × 10⁵ Pa"
   ],
   "correct_option": 0,
-  "explanation": "Stress = F ÷ A = 500 ÷ (2.0 × 10⁻⁴) = 2.5 × 10⁶ Pa.",
+  "explanation": "Stress = F/A = 500 N ÷ (2.0 × 10⁻⁴ m²) = 2.5 × 10⁶ Pa. Stress is force per unit area, measured in pascals. Using the wrong power of ten gives the other options.",
   "sort_order": 100,
   "created_at": "2026-10-13 13:42:53.681236+00",
   "difficulty": "exam",
@@ -53956,7 +53956,7 @@
    "Sending email"
   ],
   "correct_option": 3,
-  "explanation": "SMTP = Simple Mail Transfer Protocol — sends email.",
+  "explanation": "SMTP, the Simple Mail Transfer Protocol, is used to send email from a client to a server and between mail servers. Receiving email uses protocols such as POP3 or IMAP, which is why the other options are wrong.",
   "sort_order": 5,
   "created_at": "2026-09-18 14:13:01.226069+00",
   "difficulty": "medium",
@@ -54118,7 +54118,7 @@
    "−2"
   ],
   "correct_option": 0,
-  "explanation": "x + 6(−1) = −4, so x = +2.",
+  "explanation": "Let the oxidation state of Fe be x. The complex has charge -4 and each CN ligand is -1, so x + 6(-1) = -4 gives x = +2.",
   "sort_order": 15,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -54172,7 +54172,7 @@
    "for"
   ],
   "correct_option": 0,
-  "explanation": "'Concentrate on' is the standard pairing.",
+  "explanation": "'Concentrate on' is the standard pairing for focusing attention on something, so the answer is 'on'.",
   "sort_order": 15,
   "created_at": "2026-10-19 10:20:13.94637+00",
   "difficulty": "drill",
@@ -54316,7 +54316,7 @@
    "1.0 x 10^10 Bq"
   ],
   "correct_option": 3,
-  "explanation": "A = lambda N = 0.01 x 1.0x10^12 = 1.0 x 10^10 Bq.",
+  "explanation": "Activity A = λN = 0.01 s⁻¹ × 1.0 × 10¹² = 1.0 × 10¹⁰ Bq. Activity is the number of decays per second, measured in becquerels. The 10¹² option is N itself, not the activity.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:36:29.136796+00",
   "difficulty": "exam",
@@ -54514,7 +54514,7 @@
    "4"
   ],
   "correct_option": 1,
-  "explanation": "17 ÷ 5 = 3 remainder 2. MOD returns the remainder.",
+  "explanation": "MOD gives the remainder after division. 17 ÷ 5 = 3 remainder 2, since 5 × 3 = 15 and 17 − 15 = 2. The quotient 3 is what the integer division operation returns, not MOD.",
   "sort_order": 4,
   "created_at": "2026-09-18 14:12:56.177001+00",
   "difficulty": "medium",
@@ -54676,7 +54676,7 @@
    "240°"
   ],
   "correct_option": 1,
-  "explanation": "Co-interior angles sum to 180°: 180° − 120° = 60°.",
+  "explanation": "Co-interior angles on the same side of a transversal between parallel lines add up to 180°. So the angle is 180° − 120° = 60°. Alternate and corresponding angles would be equal to 120°, not supplementary.",
   "sort_order": 5,
   "created_at": "2026-08-22 14:11:13.609293+00",
   "difficulty": "medium",
@@ -54766,7 +54766,7 @@
    "2: 3"
   ],
   "correct_option": 0,
-  "explanation": "HCF of 18 and 24 is 6. 18÷6 : 24÷6 = 3 : 4.",
+  "explanation": "The highest common factor of 18 and 24 is 6. Divide both parts by 6: 18 ÷ 6 : 24 ÷ 6 = 3 : 4. A ratio is simplified fully when the two parts share no common factor.",
   "sort_order": 1,
   "created_at": "2026-08-22 13:58:33.403246+00",
   "difficulty": "medium",
@@ -55000,7 +55000,7 @@
    "0.5000"
   ],
   "correct_option": 1,
-  "explanation": "From the standard normal tables, P(Z < 1) = 0.8413.",
+  "explanation": "For Z ~ N(0, 1), P(Z < 1) is read from the standard normal tables as Φ(1) = 0.8413 to 4 decimal places. The value 0.1587 is P(Z > 1), the tail beyond 1, which is 1 minus this.",
   "sort_order": 15,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -55108,7 +55108,7 @@
    "3x"
   ],
   "correct_option": 3,
-  "explanation": "ln and exp are inverse functions, so ln(e^(3x)) = 3x.",
+  "explanation": "ln and eˣ are inverse functions, so ln(eᵘ) = u. Here u = 3x, giving ln(e^(3x)) = 3x. The result is the exponent itself, not x/3 or 3eˣ.",
   "sort_order": 9,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -55144,7 +55144,7 @@
    "7"
   ],
   "correct_option": 2,
-  "explanation": "a_4 = 10 + 3(-3) = 10 - 9 = 1.",
+  "explanation": "The 4th term is a + 3d = 10 + 3(-3) = 10 - 9 = 1. There are three steps of d from the first term to the fourth, not four.",
   "sort_order": 11,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -55270,7 +55270,7 @@
    "rⁿ cis θ"
   ],
   "correct_option": 1,
-  "explanation": "Powers raise the modulus and multiply the argument.",
+  "explanation": "De Moivre's theorem states (r cis θ)ⁿ = rⁿ cis nθ. The modulus is raised to the power n and the argument is multiplied by n. The argument is not raised to the nth power.",
   "sort_order": 8,
   "created_at": "2026-09-20 17:50:55.967696+00",
   "difficulty": "medium",
@@ -55288,7 +55288,7 @@
    "−10"
   ],
   "correct_option": 3,
-  "explanation": "Adding two negative numbers: (−3) + (−7) = −10.",
+  "explanation": "Adding two negative numbers: the magnitudes add and the sign stays negative. So (−3) + (−7) = −(3 + 7) = −10. Adding two negatives can never give a positive result.",
   "sort_order": 6,
   "created_at": "2026-08-22 13:58:24.881483+00",
   "difficulty": "medium",
@@ -55306,7 +55306,7 @@
    "2i"
   ],
   "correct_option": 3,
-  "explanation": "z^2 = (1 + i)^2 = 1 + 2i + i^2 = 2i.",
+  "explanation": "z^2 = (1 + i)^2 = 1 + 2i + i^2 = 1 + 2i - 1 = 2i, using i^2 = -1. Leaving out the i^2 term gives the distractor 1 + 2i.",
   "sort_order": 17,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
@@ -55414,7 +55414,7 @@
    "1"
   ],
   "correct_option": 2,
-  "explanation": "Arrays are zero-indexed — first element is at index 0.",
+  "explanation": "In most programming languages, including Python, Java and C, array indices start at 0. The first element is at index 0, the second at index 1, and so on.",
   "sort_order": 1,
   "created_at": "2026-09-18 14:13:06.822099+00",
   "difficulty": "medium",
@@ -55486,7 +55486,7 @@
    "6"
   ],
   "correct_option": 2,
-  "explanation": "a²Var: 9×2 = 18; the +1 contributes nothing.",
+  "explanation": "Adding a constant does not change the variance, and scaling by a multiplies the variance by a². So Var(3X + 1) = 3² × Var(X) = 9 × 2 = 18. The value 19 would come from adding the constant 1 to the variance, which is wrong.",
   "sort_order": 5,
   "created_at": "2026-09-21 17:57:02.406881+00",
   "difficulty": "medium",
@@ -55540,7 +55540,7 @@
    "6.0 g mol⁻¹"
   ],
   "correct_option": 1,
-  "explanation": "M = m / n = 3.0 / 0.050 = 60 g mol⁻¹.",
+  "explanation": "Molar mass M = m / n = 3.0 g / 0.050 mol = 60 g per mol. Divide the mass by the moles; 6.0 comes from dividing by 0.5 instead of 0.050.",
   "sort_order": 9,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -55612,7 +55612,7 @@
    "motor unit"
   ],
   "correct_option": 2,
-  "explanation": "A sarcomere lies between two adjacent Z lines.",
+  "explanation": "A sarcomere is the unit between two adjacent Z lines in a myofibril. The Z line marks the boundary of each sarcomere, not the whole myofibril, the nucleus or a motor unit.",
   "sort_order": 17,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -55900,7 +55900,7 @@
    "4"
   ],
   "correct_option": 1,
-  "explanation": "a_5/a_2 = r^3 = 48/6 = 8, so r = 2.",
+  "explanation": "The 2nd term is ar = 6 and the 5th term is ar^4 = 48, so r^3 = 48 / 6 = 8 and r = 2. The value r = 3 would give r^3 = 27, not 8.",
   "sort_order": 14,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -56062,7 +56062,7 @@
    "Some"
   ],
   "correct_option": 2,
-  "explanation": "The sun is unique, so the definite article is used.",
+  "explanation": "The sun is a unique object, so it takes the definite article 'The'. 'A' and 'An' are used for countable nouns that are not unique, and 'some' does not fit a singular unique noun like this.",
   "sort_order": 2,
   "created_at": "2026-10-17 10:32:55.218863+00",
   "difficulty": "medium",
@@ -56206,7 +56206,7 @@
    "(−3; 2)"
   ],
   "correct_option": 1,
-  "explanation": "Add the components: (3 + (−1); −2 + 5) = (2; 3).",
+  "explanation": "Add column vectors component by component: (3 + (−1); −2 + 5) = (2; 3). Subtracting instead of adding, or mixing up the components, gives the other options.",
   "sort_order": 100,
   "created_at": "2026-10-13 14:36:19.987761+00",
   "difficulty": "exam",
@@ -56260,7 +56260,7 @@
    "x = 5, y = 5"
   ],
   "correct_option": 0,
-  "explanation": "Add both: 2x = 14 → x = 7. Then y = 10 − 7 = 3.",
+  "explanation": "Add the two equations to eliminate y: 2x = 14, so x = 7. Then y = 10 − 7 = 3. Check in x − y = 4: 7 − 3 = 4, which holds.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:07:02.239908+00",
   "difficulty": "medium",
@@ -56314,7 +56314,7 @@
    "the source"
   ],
   "correct_option": 3,
-  "explanation": "The medium sets speed, the source sets frequency.",
+  "explanation": "The source determines the frequency of a wave, and the frequency stays the same when the wave crosses into another medium. The medium changes the wave speed and wavelength, and amplitude relates to energy rather than frequency.",
   "sort_order": 9,
   "created_at": "2026-09-20 18:42:02.780225+00",
   "difficulty": "medium",
@@ -56566,7 +56566,7 @@
    "sum"
   ],
   "correct_option": 0,
-  "explanation": "The median depends on position, not magnitude.",
+  "explanation": "The median depends only on the ordered position of the values, not on their size, so an extreme value barely moves it. The mean uses every value, so a single outlier can shift it a lot.",
   "sort_order": 5,
   "created_at": "2026-09-21 17:56:57.623042+00",
   "difficulty": "medium",
@@ -56638,7 +56638,7 @@
    "5"
   ],
   "correct_option": 2,
-  "explanation": "n(T ∪ C) = 30 + 25 − 15 = 40. Neither = 50 − 40 = 10.",
+  "explanation": "The number who like tea or coffee or both is n(T ∪ C) = 30 + 25 − 15 = 40. Those who like neither = 50 − 40 = 10. The 15 who like both are subtracted once to avoid double counting them.",
   "sort_order": 7,
   "created_at": "2026-08-22 13:58:47.823689+00",
   "difficulty": "medium",
@@ -56656,7 +56656,7 @@
    "0.16 mol"
   ],
   "correct_option": 1,
-  "explanation": "n = m / M = 4.0 / 40 = 0.10 mol.",
+  "explanation": "Moles n = mass / Mr = 4.0 g / 40 g per mol = 0.10 mol. Moles come from dividing the mass by the molar mass, not multiplying them.",
   "sort_order": 2,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -56674,7 +56674,7 @@
    "kilometre"
   ],
   "correct_option": 1,
-  "explanation": "The SI base unit of length is the metre.",
+  "explanation": "The SI base unit of length is the metre. Centimetres, millimetres and kilometres are prefixed multiples or divisions of the metre, not the base unit.",
   "sort_order": 324,
   "created_at": "2026-10-13 14:08:56.63165+00",
   "difficulty": "exam",
@@ -56818,7 +56818,7 @@
    "10%"
   ],
   "correct_option": 2,
-  "explanation": "0.80 × 0.70 = 0.56, so the overall yield is 56%.",
+  "explanation": "The overall yield over consecutive steps is the product of the step yields: 0.80 × 0.70 = 0.56, so 56%. Adding the yields to get 150% is wrong, because the losses compound and a yield cannot exceed 100%.",
   "sort_order": 1,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -56944,7 +56944,7 @@
    "198 cm³"
   ],
   "correct_option": 0,
-  "explanation": "V = (1/3)πr²h = (1/3) × (22/7) × 9 × 14 = 132 cm³.",
+  "explanation": "The volume of a cone is V = (1/3)πr²h = (1/3) × (22/7) × 3² × 14 = 132 cm³. The 396 cm³ option is the volume of a cylinder with the same radius and height.",
   "sort_order": 8,
   "created_at": "2026-08-22 14:11:27.036748+00",
   "difficulty": "medium",
@@ -57610,7 +57610,7 @@
    "17th"
   ],
   "correct_option": 3,
-  "explanation": "nth term = 3n − 1. 3n − 1 = 50 → 3n = 51 → n = 17.",
+  "explanation": "The sequence has first term 2 and common difference 3, so the nth term is 3n − 1. Setting 3n − 1 = 50 gives n = 17, so 50 is the 17th term. Check: 3 × 17 − 1 = 50.",
   "sort_order": 3,
   "created_at": "2026-08-22 14:07:14.178118+00",
   "difficulty": "medium",
@@ -57754,7 +57754,7 @@
    "12.70"
   ],
   "correct_option": 3,
-  "explanation": "[OH⁻] = 0.050, pOH = 1.30, pH = 14.00 − 1.30 = 12.70.",
+  "explanation": "NaOH is a strong base that dissociates fully, so [OH⁻] = 0.050 mol dm⁻³. pOH = −log₁₀(0.050) = 1.30, and pH = 14.00 − 1.30 = 12.70. A pH of 2.00 would describe an acid.",
   "sort_order": 4,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -57772,7 +57772,7 @@
    "28"
   ],
   "correct_option": 1,
-  "explanation": "3(1 + 2 + 3 + 4) + 4(1) = 3(10) + 4 = 34.",
+  "explanation": "Sum of (3r + 1) for r = 1 to 4 = 3(1 + 2 + 3 + 4) + 4 = 3 x 10 + 4 = 34. The constant 1 is added once for each of the four terms, which is why the 4 appears.",
   "sort_order": 10,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -57808,7 +57808,7 @@
    "1"
   ],
   "correct_option": 1,
-  "explanation": "e^(ln x) = x for x > 0, so e^(ln 4) = 4.",
+  "explanation": "e^(ln x) = x for x > 0, so e^(ln 4) = 4. The exponential undoes the natural logarithm and leaves the number inside it.",
   "sort_order": 19,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -57934,7 +57934,7 @@
    "0.5"
   ],
   "correct_option": 1,
-  "explanation": "|3(0) + 4(0) - 10| / sqrt(9 + 16) = 10/5 = 2.",
+  "explanation": "The distance from (x₀, y₀) to ax + by + c = 0 is |ax₀ + by₀ + c| ÷ √(a² + b²). With the origin, this is |−10| ÷ √(9 + 16) = 10 ÷ 5 = 2. Only the constant term matters when x₀ and y₀ are zero.",
   "sort_order": 12,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "drill",
@@ -58366,7 +58366,7 @@
    "variance"
   ],
   "correct_option": 0,
-  "explanation": "That boundary value defines the critical region start.",
+  "explanation": "The critical value is the first value of k at which the tail probability P(X ≥ k) falls below the significance level of 0.05. It defines the start of the critical region. The mean of B(20, 0.3) is np = 6, which is a different quantity.",
   "sort_order": 7,
   "created_at": "2026-09-21 17:57:15.557059+00",
   "difficulty": "medium",
@@ -58474,7 +58474,7 @@
    "at / on"
   ],
   "correct_option": 2,
-  "explanation": "A day takes on and a clock time takes at.",
+  "explanation": "Days take 'on' and clock times take 'at', so the meeting is on Monday at 10 a.m. Using 'in' with a day, or 'at' with a day, is the common mistake.",
   "sort_order": 1,
   "created_at": "2026-10-17 10:32:56.479791+00",
   "difficulty": "medium",
@@ -58510,7 +58510,7 @@
    "\"Hel\""
   ],
   "correct_option": 1,
-  "explanation": "s[1:4] extracts characters at indices 1, 2, 3 = \"ell\".",
+  "explanation": "In Python-style slicing, s[1:4] takes the characters at indices 1, 2 and 3 and stops before index 4. For 'Hello', index 1 is e, 2 is l and 3 is l, giving 'ell'. Indexing starts from 0.",
   "sort_order": 7,
   "created_at": "2026-09-18 14:13:06.822099+00",
   "difficulty": "medium",
@@ -58726,7 +58726,7 @@
    "15"
   ],
   "correct_option": 1,
-  "explanation": "The mean of 3x + 1 is 3 x 5 + 1 = 16.",
+  "explanation": "The mean of 3x + 1 is 3 x 5 + 1 = 16, because a linear change applies to the mean too. The answer 5 would ignore the transformation entirely.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -58888,7 +58888,7 @@
    "To specify the color of the link"
   ],
   "correct_option": 1,
-  "explanation": "The href attribute specifies the URL of the link.",
+  "explanation": "In HTML, the href attribute of an anchor (a) element holds the URL the link points to. The visible link text sits between the tags, and colour and title are controlled by other means.",
   "sort_order": 5,
   "created_at": "2026-10-10 06:07:42.61206+00",
   "difficulty": "check",
@@ -58924,7 +58924,7 @@
    "2(x + 3)² + 1"
   ],
   "correct_option": 3,
-  "explanation": "2(x² + 6x) + 19 = 2(x + 3)² − 18 + 19 = 2(x + 3)² + 1.",
+  "explanation": "Factor 2 out of the first two terms: 2(x² + 6x) + 19. Complete the square inside: x² + 6x = (x + 3)² − 9. So 2(x + 3)² − 18 + 19 = 2(x + 3)² + 1.",
   "sort_order": 8,
   "created_at": "2026-09-20 17:50:35.834642+00",
   "difficulty": "medium",
@@ -59392,7 +59392,7 @@
    "sqrt(5)"
   ],
   "correct_option": 0,
-  "explanation": "|a| = sqrt(1 + 4 + 4) = sqrt(9) = 3.",
+  "explanation": "|a| = sqrt(1^2 + 2^2 + 2^2) = sqrt(9) = 3. The magnitude is the square root of the sum of the squared components; sqrt(5) comes from leaving out one component.",
   "sort_order": 15,
   "created_at": "2026-10-16 07:30:56.98705+00",
   "difficulty": "drill",
@@ -59572,7 +59572,7 @@
    "Sorted"
   ],
   "correct_option": 3,
-  "explanation": "Binary search only works on sorted data.",
+  "explanation": "Binary search halves the range of possible positions at each step, which only works if the data is sorted. On random data the midpoint test tells you nothing about where a value is.",
   "sort_order": 3,
   "created_at": "2026-09-18 14:12:56.177001+00",
   "difficulty": "medium",
@@ -59662,7 +59662,7 @@
    "1440 microJ"
   ],
   "correct_option": 0,
-  "explanation": "Half C V squared = 0.5 x 10 x 144 = 720 microJ.",
+  "explanation": "Energy stored in a capacitor is E = ½CV² = ½ × 10 × 10⁻⁶ × 12² = ½ × 10 × 10⁻⁶ × 144 = 720 × 10⁻⁶ J = 720 μJ. The 1440 μJ option is what you get by forgetting the ½.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:35:52.834633+00",
   "difficulty": "exam",
@@ -59698,7 +59698,7 @@
    "Colourless"
   ],
   "correct_option": 2,
-  "explanation": "Hydrated copper(II) ions give a blue solution.",
+  "explanation": "The hexaaquacopper(II) ion, [Cu(H₂O)₆]²⁺, absorbs in the red part of the spectrum and transmits blue light, so its aqueous solution looks blue. Colourless would mean no absorption in the visible region.",
   "sort_order": 1,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -59824,7 +59824,7 @@
    "A measure of disorder, or the number of ways energy can be dispersed"
   ],
   "correct_option": 3,
-  "explanation": "Entropy measures how energy and matter are dispersed.",
+  "explanation": "Entropy is a measure of disorder, or more precisely of the number of ways energy and matter can be dispersed. It is not temperature, mass or bond energy. A process that spreads energy out increases entropy.",
   "sort_order": 13,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -59842,7 +59842,7 @@
    "lignified walls"
   ],
   "correct_option": 0,
-  "explanation": "Sieve plates allow sap to flow between cells.",
+  "explanation": "Sieve tube elements have perforated sieve plates in their end walls, which let sap flow from cell to cell. Mature sieve tubes have few organelles, and companion cells help keep them alive.",
   "sort_order": 2,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -60112,7 +60112,7 @@
    "2R"
   ],
   "correct_option": 2,
-  "explanation": "R = rho L/A; doubling both keeps the ratio unchanged.",
+  "explanation": "Resistance R = ρL/A. Doubling the length doubles R, and doubling the area halves it. So R_new = ρ(2L)/(2A) = ρL/A = R. The ratio L/A is unchanged, so the resistance stays the same.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
@@ -60202,7 +60202,7 @@
    "8"
   ],
   "correct_option": 3,
-  "explanation": "|r| = 0.5 < 1, so S_inf = a/(1 - r) = 4/0.5 = 8.",
+  "explanation": "The sum to infinity exists only when |r| < 1, and here r = 0.5. So S∞ = a/(1 − r) = 4/(1 − 0.5) = 4/0.5 = 8. The 4 option is the first term alone, not the sum.",
   "sort_order": 2,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "difficulty": "exam",
@@ -60580,7 +60580,7 @@
    "Indexing"
   ],
   "correct_option": 1,
-  "explanation": "Concurrent transactions do not interfere.",
+  "explanation": "The I in ACID stands for Isolation: concurrent transactions do not interfere with each other. Integrity and indexing belong to other database topics.",
   "sort_order": 5,
   "created_at": "2026-09-20 18:42:55.523875+00",
   "difficulty": "medium",
@@ -60616,7 +60616,7 @@
    "0.24 dm³"
   ],
   "correct_option": 1,
-  "explanation": "V = n × 24 = 0.10 × 24 = 2.4 dm³.",
+  "explanation": "V = n x 24 dm^3 per mol = 0.10 x 24 = 2.4 dm^3 at room temperature and pressure. Each mole occupies 24 dm^3, so a tenth of a mole fills a tenth of that volume.",
   "sort_order": 5,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "difficulty": "medium",
@@ -60742,7 +60742,7 @@
    "80 kg and 128 N"
   ],
   "correct_option": 3,
-  "explanation": "Mass is unchanged at 80 kg; weight = 80 x 1.6 = 128 N.",
+  "explanation": "Mass is a measure of matter and does not change with location, so it stays 80 kg. Weight is W = mg = 80 × 1.6 = 128 N on the Moon. The 800 N option uses Earth's gravitational field strength.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:28:47.728732+00",
   "difficulty": "exam",
@@ -60886,7 +60886,7 @@
    "top"
   ],
   "correct_option": 2,
-  "explanation": "B1: queue = FIFO; enqueue at rear, dequeue at front",
+  "explanation": "A queue is first in, first out: items join at the rear and leave from the front, which is why queues suit waiting lines. A stack works from the top, and a root is a tree concept, so neither fits the question.",
   "sort_order": 4,
   "created_at": "2026-09-20 18:43:00.821077+00",
   "difficulty": "medium",
@@ -61282,7 +61282,7 @@
    "14 m/s"
   ],
   "correct_option": 0,
-  "explanation": "v squared = 2 x 10 x 20 = 400, so v = 20 m/s.",
+  "explanation": "For constant acceleration, v² = u² + 2as. With u = 0, a = 10 m s⁻² and s = 20 m: v² = 2 × 10 × 20 = 400, so v = 20 m s⁻¹. The 14 m s⁻¹ option comes from using a distance of 10 m instead of 20 m.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:33:22.955585+00",
   "difficulty": "exam",
@@ -61462,7 +61462,7 @@
    "0.7"
   ],
   "correct_option": 2,
-  "explanation": "1 − 0.7 = 0.3; probabilities must total 1.",
+  "explanation": "The probabilities must sum to 1, so the missing value is 1 - (0.1 + 0.4 + 0.2) = 1 - 0.7 = 0.3. Using 1.0 ignores the other three values.",
   "sort_order": 6,
   "created_at": "2026-09-21 17:57:02.406881+00",
   "difficulty": "medium",
@@ -61534,7 +61534,7 @@
    "2.25"
   ],
   "correct_option": 1,
-  "explanation": "IQR = Q3 - Q1 = 9 - 4 = 5.",
+  "explanation": "IQR = Q3 - Q1 = 9 - 4 = 5. Adding the quartiles (13) or dividing them (2.25) does not measure the spread between them.",
   "sort_order": 16,
   "created_at": "2026-10-16 07:27:39.162171+00",
   "difficulty": "drill",
