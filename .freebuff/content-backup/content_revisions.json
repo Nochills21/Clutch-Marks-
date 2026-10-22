@@ -4755,6 +4755,21 @@
   "created_at": "2026-10-16 07:09:52.679021+00"
  },
  {
+  "id": "5a0bf5fc-1b15-46a2-a7e9-8d31332f8237",
+  "entity_type": "material",
+  "entity_id": "21ef6ff1-d787-46c4-bc23-77b77fd82f8e",
+  "title": "Tenses in Context — Study Notes",
+  "content": "<p>A bare update with returning  probe1792605478273</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 4,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-21 17:58:44.851959+00"
+ },
+ {
   "id": "5a1fbcc1-a791-4645-b849-064c02a8429e",
   "entity_type": "material",
   "entity_id": "4e59efe4-7386-4b2f-92cf-1c627eb63269",
@@ -10635,6 +10650,21 @@
   "created_at": "2026-10-20 12:15:24.83917+00"
  },
  {
+  "id": "d3ab458b-8ba4-438f-aaa9-5bc18b514b29",
+  "entity_type": "material",
+  "entity_id": "21ef6ff1-d787-46c4-bc23-77b77fd82f8e",
+  "title": "Tenses in Context — Study Notes",
+  "content": "<p>Single-quoted revert test</p>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 3,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-21 17:57:57.182382+00"
+ },
+ {
   "id": "d420abdb-245f-407a-b920-1a4695888bc6",
   "entity_type": "material",
   "entity_id": "0f02b6a6-e605-4244-b79a-ae4b44c853c6",
@@ -12240,6 +12270,21 @@
   "created_at": "2026-10-15 10:39:28.001861+00"
  },
  {
+  "id": "f99f47af-667e-439a-b7e1-3ae3462d8549",
+  "entity_type": "material",
+  "entity_id": "21ef6ff1-d787-46c4-bc23-77b77fd82f8e",
+  "title": "Tenses in Context — Study Notes",
+  "content": "<p>Tense choice depends on time, not only on the verb. The same action can be described with different tenses, and the difference changes the meaning. Learn the tenses by the situations where you use them.</p>\n<h2>Present simple</h2>\n<p>Use the present simple for facts, general truths and routines.</p>\n<ul>\n<li>Water boils at 100 degrees Celsius.</li>\n<li>The bus leaves at seven every morning.</li>\n</ul>\n<h2>Past simple</h2>\n<p>Use the past simple for a finished action at a stated or clearly understood past time.</p>\n<ul>\n<li>She went to the cinema yesterday evening.</li>\n<li>We moved to Leeds in 2015.</li>\n</ul>\n<h2>Present perfect</h2>\n<p>Use the present perfect for an action connected to now. It is common with since, for and ever, and when the exact time is not important.</p>\n<ul>\n<li>I have lived in London since 2019. (It continues now.)</li>\n<li>Have you ever tried sushi?</li>\n</ul>\n<p>Compare: I lived in London in 2019. This finishes in the past and does not connect to now.</p>\n<h2>Past continuous</h2>\n<p>Use the past continuous for an action in progress at a past moment, often interrupted by a shorter action.</p>\n<ul>\n<li>When the phone rang, I was taking a shower.</li>\n</ul>\n<h2>Future forms</h2>\n<p>Use will have plus a past participle for an action completed before a future time.</p>\n<ul>\n<li>By next summer, they will have finished the course.</li>\n</ul>\n<h2>Common errors</h2>\n<ul>\n<li>Using the past simple with since: write \"I have lived here since 2019\", not \"I lived here since 2019\".</li>\n<li>Forgetting that a general fact uses the present simple even in a past context.</li>\n</ul>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-21 17:55:31.622284+00"
+ },
+ {
   "id": "f9ba7152-1c1c-42f8-83a3-963e8f4e8a3d",
   "entity_type": "material",
   "entity_id": "3176742d-bd54-4b51-bb7a-9f3b9c76938b",
@@ -12448,6 +12493,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-15 10:39:28.001861+00"
+ },
+ {
+  "id": "fd9aa33d-3439-4f24-95c4-df5faa779515",
+  "entity_type": "material",
+  "entity_id": "21ef6ff1-d787-46c4-bc23-77b77fd82f8e",
+  "title": "Tenses in Context — Study Notes",
+  "content": "<h1>Dollar quoted test</h1>",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-21 17:55:32.585924+00"
  },
  {
   "id": "fdb69cb4-b6a9-4623-9a19-a6a5c64bcab5",
