@@ -98,13 +98,30 @@ export default function AdminUsers() {
   const [file, setFile] = useState<File | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // supabase-js only says "Edge Function returned a non-2xx status code" for a
+  // rejected call: the function's own JSON `{ error }` sits unread on
+  // `error.context`, so "password must be at least 12 characters" reached the
+  // admin as a useless toast and every rejection looked like a broken function.
+  const functionErrorMessage = async (error: unknown): Promise<string> => {
+    const context = (error as { context?: { json?: () => Promise<unknown> } } | null)?.context;
+    if (context?.json) {
+      try {
+        const body = (await context.json()) as { error?: string; message?: string } | null;
+        if (body?.error) return body.error;
+        if (body?.message) return body.message;
+      } catch {
+        // Not JSON (a gateway 401, say) — fall through to the generic message.
+      }
+    }
+    return (error as { message?: string } | null)?.message ?? "Unknown error";
+  };
+
   const invoke = async (action: string, body: Record<string, unknown>) => {
     const { data, error } = await supabase.functions.invoke("manage-accounts", {
       body: { action, ...body },
     });
-    if (error || data?.error) {
-      throw new Error(data?.error || error?.message || "Unknown error");
-    }
+    if (error) throw new Error(await functionErrorMessage(error));
+    if (data?.error) throw new Error(data.error);
     return data;
   };
 
@@ -275,9 +292,8 @@ export default function AdminUsers() {
       const { data, error } = await supabase.functions.invoke("promote-admin", {
         body: { email: promoteEmail.trim() },
       });
-      if (error || data?.error) {
-        throw new Error(data?.error || error?.message || "Failed to promote user");
-      }
+      if (error) throw new Error(await functionErrorMessage(error));
+      if (data?.error) throw new Error(data.error);
       toast({ title: "Promoted", description: `${promoteEmail} is now an admin.` });
       setPromoteEmail("");
       setPromoteOpen(false);
@@ -309,7 +325,7 @@ export default function AdminUsers() {
   };
 
   const handleResetPassword = async () => {
-    if (!resetTarget || resetPassword.length < 6) return;
+    if (!resetTarget || resetPassword.length < 8) return;
     setResetting(true);
     try {
       await invoke("update_credentials", { user_id: resetTarget.user_id, password: resetPassword });
@@ -741,14 +757,22 @@ export default function AdminUsers() {
                 </div>
                 <div className="space-y-2">
                   <Label>Password</Label>
+                  {/* The server enforces 8+ characters with upper, lower, digit
+                      and symbol (and rejects breached passwords); the field used
+                      to promise 6, so a valid-looking attempt failed with a
+                      message the toast swallowed. */}
                   <Input
                     type="password"
-                    placeholder="Min. 6 characters"
+                    placeholder="Min. 8 characters, with upper, lower, number & symbol"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     required
-                    minLength={6}
+                    minLength={8}
                   />
+                  <p className="text-xs text-muted-foreground">
+                    Must include an uppercase letter, a lowercase letter, a number and a
+                    symbol, and must not be a known breached password.
+                  </p>
                 </div>
                 <div className="space-y-2">
                   <Label>Role</Label>
@@ -848,17 +872,21 @@ export default function AdminUsers() {
             <Label>New Password</Label>
             <Input
               type="password"
-              placeholder="Min. 6 characters"
+              placeholder="Min. 8 characters, with upper, lower, number & symbol"
               value={resetPassword}
               onChange={(e) => setResetPassword(e.target.value)}
-              minLength={6}
+              minLength={8}
             />
+            <p className="text-xs text-muted-foreground">
+              Admins need 12+ characters. Every password needs an uppercase letter, a
+              lowercase letter, a number and a symbol.
+            </p>
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setResetTarget(null)}>Cancel</Button>
             <Button
               onClick={handleResetPassword}
-              disabled={resetting || resetPassword.length < 6}
+              disabled={resetting || resetPassword.length < 8}
               className="gap-2"
             >
               {resetting && <Loader2 className="h-4 w-4 animate-spin" />}
