@@ -1,5 +1,5 @@
 {
- "dumped_at": "2026-10-22T05:38:01.057Z",
+ "dumped_at": "2026-10-22T06:38:17.009Z",
  "project_ref": "zzliiazovezhxbmfeqco",
  "tables": [
   "subjects",
@@ -27,7 +27,7 @@
   "past_papers": 1095,
   "flashcard_sets": 178,
   "flashcards": 2348,
-  "announcements": 3,
+  "announcements": 2,
   "content_revisions": 843,
   "content_file_versions": 0
  }
