@@ -14,6 +14,7 @@ import type { Tables } from "@/integrations/supabase/types";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
 import { addMonths, format } from "date-fns";
+import { planById, totalOf } from "@/lib/plans";
 import { Check, X, RefreshCw, Landmark, Wallet, ReceiptText, Download } from "lucide-react";
 
 /** A subscription row with its plan embed. The profile is looked up by user_id
@@ -23,7 +24,22 @@ type SubscriptionRow = Tables<"subscriptions"> & {
 };
 type ProfileContact = { username: string | null; full_name: string | null; email: string | null };
 
-const PLAN_PRICE: Record<string, string> = { free: "—", monthly: "$40/mo", quarterly: "$60 / 3mo", annual: "$80 / yr" };
+/** Price shown beside the plan in the requests table, read from the plan
+ *  snapshot so the console and the pricing page can never quote different money. */
+function planPriceLabel(id: string): string {
+  const plan = planById(id);
+  if (!plan || plan.priceTotal === 0) return "—";
+  if (plan.months === 1) return `${totalOf(plan)}/mo`;
+  if (plan.months === 12) return `${totalOf(plan)} / yr`;
+  return `${totalOf(plan)} / ${plan.months}mo`;
+}
+
+const PLAN_PRICE: Record<string, string> = {
+  free: planPriceLabel("free"),
+  monthly: planPriceLabel("monthly"),
+  quarterly: planPriceLabel("quarterly"),
+  annual: planPriceLabel("annual"),
+};
 
 const METHOD_LABEL: Record<string, string> = {
   bank_transfer: "Bank Transfer",

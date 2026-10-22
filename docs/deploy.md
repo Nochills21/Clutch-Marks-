@@ -47,7 +47,7 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 
 ```sh
 supabase functions deploy study-planner quiz-feedback generate-questions \
-  manage-accounts promote-admin resolve-login-email serve-material \
+  manage-accounts resolve-login-email serve-material \
   serve-external-paper welcome-email weekly-digest email-events feedback-alert \
   past-papers-harvest ai-correction
 ```

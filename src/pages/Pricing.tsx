@@ -1,4 +1,8 @@
-// Pricing: preview tier + three paid plans ($40/mo, $20/mo billed quarterly ($60), $6.67/mo billed annually).
+// Pricing: preview tier + three paid plans. Every figure shown here (and in the
+// FAQ and the Course/Offer JSON-LD) comes from `@/lib/plans`, which reads the
+// generated snapshot of the `plans` table — change a price in the database,
+// regenerate, and this page follows. Nothing below hardcodes money.
+//
 // Exactly two payment methods: Bank Transfer or E-Wallet (Urpay). Requesting a
 // plan captures the payer's full name and a transaction receipt; an admin then
 // activates the subscription from Admin Payments.
@@ -16,7 +20,24 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
 import { validateUploadFile } from "@/lib/fileValidation";
+import { planById, money, billedLabel, savingsVsMonthly } from "@/lib/plans";
 import { Check, Copy, Sparkles, Loader2, Clock, Landmark, Wallet, Upload, FileText, ShieldCheck } from "lucide-react";
+
+// Marketing copy lives here; every number is read from the plan snapshot.
+const monthlyPlan = planById("monthly");
+const quarterlyPlan = planById("quarterly");
+const annualPlan = planById("annual");
+const quarterlySave = quarterlyPlan ? savingsVsMonthly(quarterlyPlan) : null;
+const annualSave = annualPlan ? savingsVsMonthly(annualPlan) : null;
+
+const UNLOCKED_FEATURES = [
+  "Everything unlocked",
+  "All levels: IGCSE, AS Level & A2 Level",
+  "Every lesson, note, quiz & past paper",
+  "AI marking of your handwritten scripts",
+  "AI study planner",
+  "Flashcards & smart revision",
+];
 
 const PLANS = [
   {
@@ -27,34 +48,50 @@ const PLANS = [
     blurb: "A taste of everything — see if Clutch Marks works for you.",
     features: ["A preview of every level (IGCSE, AS Level & A2 Level)", "Sample lessons & notes in each subject", "Progress tracking", "Upgrade any time for full access"],
     cta: null as string | null,
-  },
-  {
-    id: "monthly",
-    name: "Monthly",
-    price: "$40",
-    per: "/month",
-    blurb: "Full access, month to month.",
-    features: ["Everything unlocked", "All levels: IGCSE, AS Level & A2 Level", "Every lesson, note, quiz & past paper", "AI marking of your handwritten scripts", "AI study planner", "Flashcards & smart revision"],
     highlight: false,
   },
-  {
-    id: "quarterly",
-    name: "3 Months",
-    price: "$20",
-    per: "/month · billed $60",
-    blurb: "Save 50% with a quarterly subscription.",
-    features: ["Everything in Monthly", "Save $20/month vs monthly plan"],
-    highlight: true,
-  },
-  {
-    id: "annual",
-    name: "Annual",
-    price: "$6.67",
-    per: "/month · billed $80",
-    blurb: "Best value — a full year of A* prep.",
-    features: ["Everything in Monthly", "Save $33.33/month vs monthly plan", "Priority support"],
-    highlight: false,
-  },
+  ...(monthlyPlan
+    ? [{
+        id: monthlyPlan.id,
+        name: monthlyPlan.name,
+        price: money(monthlyPlan.priceMonthly),
+        per: billedLabel(monthlyPlan),
+        blurb: "Full access, month to month.",
+        features: UNLOCKED_FEATURES,
+        highlight: false,
+      }]
+    : []),
+  ...(quarterlyPlan
+    ? [{
+        id: quarterlyPlan.id,
+        name: quarterlyPlan.name,
+        price: money(quarterlyPlan.priceMonthly),
+        per: billedLabel(quarterlyPlan),
+        blurb: quarterlySave
+          ? `Save ${quarterlySave.percent}% with a quarterly subscription.`
+          : "A term at a time.",
+        features: [
+          "Everything in Monthly",
+          quarterlySave ? `Save ${quarterlySave.label}/month vs monthly plan` : "A term at a time",
+        ],
+        highlight: true,
+      }]
+    : []),
+  ...(annualPlan
+    ? [{
+        id: annualPlan.id,
+        name: annualPlan.name,
+        price: money(annualPlan.priceMonthly),
+        per: billedLabel(annualPlan),
+        blurb: "Best value — a full year of A* prep.",
+        features: [
+          "Everything in Monthly",
+          annualSave ? `Save ${annualSave.label}/month vs monthly plan` : "A full year of access",
+          "Priority support",
+        ],
+        highlight: false,
+      }]
+    : []),
 ];
 
 type PaymentMethod = "bank_transfer" | "ewallet_urpay";

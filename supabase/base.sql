@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-21T09:12:46.790Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-22T08:28:07.670Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -211,10 +211,12 @@ create table if not exists public."parent_link_invites" (
 create table if not exists public."plans" (
   "id" text not null,
   "name" text not null,
-  "price_monthly" numeric(10,0) not null,
+  "price_monthly" numeric(10,2) not null,
   "months" integer default 1 not null,
   "description" text,
-  constraint "plans_pkey" PRIMARY KEY (id)
+  "price_total" numeric(10,2) default 0 not null,
+  constraint "plans_pkey" PRIMARY KEY (id),
+  constraint "plans_price_total_non_negative" CHECK (price_total >= 0::numeric)
 );
 create table if not exists public."practice_attempts" (
   "id" uuid default gen_random_uuid() not null,
@@ -1436,18 +1438,30 @@ CREATE OR REPLACE FUNCTION public.enforce_user_roles_writer()
  SECURITY DEFINER
  SET search_path TO 'public'
 AS $function$
-BEGIN
-  IF current_user IN ('service_role', 'postgres') THEN
-    RETURN COALESCE(NEW, OLD);
-  END IF;
-  IF EXISTS (
-    SELECT 1 FROM public.user_roles r
-    WHERE r.user_id = auth.uid() AND r.role = 'admin' AND r.is_approved = true
-  ) THEN
-    RETURN COALESCE(NEW, OLD);
-  END IF;
-  RAISE EXCEPTION 'Only approved admins can modify user roles';
-END;
+begin
+  -- No end-user JWT: service-role edge functions, SQL, and auth triggers.
+  if auth.uid() is null then
+    return coalesce(new, old);
+  end if;
+
+  -- A real signed-in session. Admin rows are off limits to every one of them,
+  -- the owner included: admins are provisioned by SQL only.
+  if (tg_op = 'DELETE' and old.role = 'admin')
+     or (tg_op = 'UPDATE' and old.role = 'admin')
+     or (tg_op <> 'DELETE' and new.role = 'admin') then
+    raise exception 'admin role rows can only be changed by the site owner'
+      using errcode = '42501';
+  end if;
+
+  if exists (
+    select 1 from public.user_roles r
+    where r.user_id = auth.uid() and r.role = 'admin' and r.is_approved = true
+  ) then
+    return coalesce(new, old);
+  end if;
+  raise exception 'Only approved admins can modify user roles'
+    using errcode = '42501';
+end;
 $function$;
 
 CREATE OR REPLACE FUNCTION public.export_my_data()
@@ -1956,6 +1970,7 @@ DECLARE
   v_avatar text;
   v_privacy_version text;
   v_terms_version text;
+  v_username text;
 BEGIN
   -- Google sends `name`; the signup form sends `full_name`. Prefer the explicit
   -- full name, then Google's, then the email prefix so a name is always shown.
@@ -1970,20 +1985,34 @@ BEGIN
     ''
   )), '');
 
-  -- Profiles first (satisfies the auth.users trigger contract). Username only
-  -- when an admin deliberately provisioned one; public signup stays email-only.
+  -- Username claimed at signup (students only; a parent or Google sign-up
+  -- simply sends none, and the account stays email-only).
+  v_username := regexp_replace(
+    lower(btrim(COALESCE(NEW.raw_user_meta_data->>'username', ''))),
+    '[^a-z0-9._-]', '', 'g'
+  );
+  IF length(v_username) < 3 OR length(v_username) > 32 THEN
+    v_username := NULL;
+  END IF;
+  -- Taken (case-insensitively): keep their choice readable and add a short,
+  -- id-derived suffix rather than raising on the unique index.
+  IF v_username IS NOT NULL
+     AND EXISTS (SELECT 1 FROM public.profiles p WHERE lower(p.username) = v_username) THEN
+    v_username := left(v_username, 26) || '-' || left(replace(NEW.id::text, '-', ''), 5);
+  END IF;
+
   INSERT INTO public.profiles (user_id, full_name, username, email, avatar_url)
   VALUES (
     NEW.id,
     v_full_name,
-    NULLIF(btrim(COALESCE(NEW.raw_user_meta_data->>'username', '')), ''),
+    v_username,
     NEW.email,
     v_avatar
   );
 
   -- PDPL: record which privacy/terms version this account accepted, and when the
   -- server accepted it. Absent for provider sign-ups (Google) and for accounts an
-  -- admin provisions, which is itself the honest record â€” nothing was ticked.
+  -- admin provisions, which is itself the honest record — nothing was ticked.
   v_privacy_version := NULLIF(btrim(COALESCE(NEW.raw_user_meta_data->'consent'->>'privacy_version', '')), '');
   v_terms_version := NULLIF(btrim(COALESCE(NEW.raw_user_meta_data->'consent'->>'terms_version', '')), '');
   IF v_privacy_version IS NOT NULL THEN
@@ -2000,7 +2029,7 @@ BEGIN
   -- SECURITY: Never trust client-sent role. Everyone starts as a student on
   -- the free plan; only admins can elevate roles afterwards. The ONLY public
   -- elevation is self-registering as a parent (limited view of linked
-  -- children); 'admin' in public metadata is ignored â€” manage-accounts
+  -- children); 'admin' in public metadata is ignored — manage-accounts
   -- provisions admins with a verified service-role update after creation.
   INSERT INTO public.user_roles (user_id, role, is_approved)
   VALUES (NEW.id, 'student', true);
@@ -2011,7 +2040,7 @@ BEGIN
 
   -- Optional parent email at student signup: link instantly if the parent
   -- account exists, otherwise park an invite that auto-links on parent signup.
-  -- (Variables carry a v_ prefix â€” bare `parent_email` collides with the
+  -- (Variables carry a v_ prefix — bare `parent_email` collides with the
   -- parent_link_invites column in the statements below and breaks signup.)
   v_parent_email := lower(btrim(COALESCE(NEW.raw_user_meta_data->>'parent_email', '')));
   IF v_parent_email <> '' AND NEW.email IS NOT NULL AND lower(NEW.email) <> v_parent_email THEN
@@ -3472,9 +3501,9 @@ alter table public."quiz_attempts" enable row level security;
 alter table public."subjects" enable row level security;
 alter table public."subject_levels" enable row level security;
 alter table public."topics" enable row level security;
+alter table public."plans" enable row level security;
 alter table public."streaks" enable row level security;
 alter table public."ai_correction" enable row level security;
-alter table public."plans" enable row level security;
 alter table public."announcement_reads" enable row level security;
 alter table public."subscriptions" enable row level security;
 alter table public."feedback_messages" enable row level security;
@@ -3812,8 +3841,8 @@ drop policy if exists "Anyone authenticated can view topics" on public."topics";
 create policy "Anyone authenticated can view topics" on public."topics" for select to "authenticated" using (true);
 drop policy if exists "Anyone can view topics" on public."topics";
 create policy "Anyone can view topics" on public."topics" for select to "anon" using (true);
-drop policy if exists "Admins can manage all roles" on public."user_roles";
-create policy "Admins can manage all roles" on public."user_roles" for all using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+drop policy if exists "Admins can read all roles" on public."user_roles";
+create policy "Admins can read all roles" on public."user_roles" for select using (has_role(auth.uid(), 'admin'::app_role));
 drop policy if exists "Parents can verify student roles" on public."user_roles";
 create policy "Parents can verify student roles" on public."user_roles" for select using ((i_am_parent() AND (role = 'student'::app_role)));
 drop policy if exists "Users can view own roles" on public."user_roles";

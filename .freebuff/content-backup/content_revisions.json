@@ -240,6 +240,21 @@
   "created_at": "2026-10-15 10:28:17.375781+00"
  },
  {
+  "id": "05768d23-b280-477d-893e-715a3378b2e8",
+  "entity_type": "material",
+  "entity_id": "b43306b7-ef00-4507-9aac-7f10d5b32897",
+  "title": "Formulae, Equations and Amount of Substance — Study Notes",
+  "content": "<h2>Formulae, Equations and Amount of Substance</h2>\n<p>Edexcel IAL Chemistry WCH11, Topic 1. The mole is the bridge between the mass you can weigh and the number of particles a reaction actually uses, so every quantitative question in the course depends on it.</p>\n<h3>Relative masses and the mole</h3>\n<ul>\n<li>Relative atomic mass (Ar) and relative molecular mass (Mr) are based on the carbon-12 scale.</li>\n<li>One mole contains the Avogadro constant, 6.02 × 10²³ particles, and the molar mass in g mol⁻¹ equals Mr numerically.</li>\n<li>Moles: n = m / M. Rearrange to find mass (m = n × M) or molar mass (M = m / n).</li>\n</ul>\n<h3>Empirical and molecular formulae</h3>\n<ul>\n<li>Convert percentage (or mass) composition to moles, divide by the smallest value and multiply until the ratios are whole numbers.</li>\n<li>The molecular formula is a whole-number multiple of the empirical formula: n = Mr / Mr(empirical formula).</li>\n</ul>\n<h3>Equations and reacting masses</h3>\n<ul>\n<li>Balance equations by conserving each element, then use the coefficients as mole ratios.</li>\n<li>Limiting reagent: work out the moles each reactant could give, then take the smallest.</li>\n<li>Percentage yield = actual yield / theoretical yield × 100.</li>\n</ul>\n<h3>Solutions and gases</h3>\n<ul>\n<li>Concentration c = n / V, with V in dm³ (cm³ ÷ 1000). Titration data follow the same route.</li>\n<li>At room temperature and pressure one mole of gas occupies 24 dm³, so n = V / 24.</li>\n</ul>\n<p>Exam tip: write the unit on every line of working, and check that your final answer has the same number of significant figures as the least precise data given.</p><h3>A* extension: worked reasoning and calculations</h3>\n<ul>\n<li>Empirical formula, applied to 40.0% C, 6.7% H and 53.3% O by mass: divide each percentage by its relative atomic mass to get 3.33 : 6.7 : 3.33. Divide by the smallest, 3.33, giving 1 : 2 : 1, so the empirical formula is CH₂O. Check whether the question asks for the molecular formula as well.</li>\n<li>Limiting reagent, applied to a reaction: calculate the moles of each reactant, divide by its coefficient in the balanced equation, and take the smallest result. That reactant limits the product. Working from the reactant in excess gives a wrong answer.</li>\n<li>Concentration from titration: c = n ÷ V, with V in dm³. Converting 25.0 cm³ to dm³ is 0.0250 dm³. A solution containing 0.0400 mol in 0.0250 dm³ has a concentration of 1.60 mol dm⁻³. Most errors here come from forgetting to convert cm³ to dm³.</li>\n<li>Percentage yield: actual yield ÷ theoretical yield × 100. The theoretical yield comes from the limiting reagent, so the calculation depends on the first step being correct.</li>\n</ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-22 08:52:43.333155+00"
+ },
+ {
   "id": "05e51d54-5557-46b5-96a0-19d0244d452d",
   "entity_type": "material",
   "entity_id": "4c83eff4-82e2-473c-83a2-dc959f0ca347",
@@ -268,6 +283,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-21 04:40:20.373795+00"
+ },
+ {
+  "id": "06c10fb9-7d7b-4897-a666-e765d1b87242",
+  "entity_type": "material",
+  "entity_id": "77dc68f0-c9d0-4be8-9750-22f6d69602de",
+  "title": "Organic Chemistry: Halogenoalkanes, Alcohols and Spectra — Study Notes",
+  "content": "<h2>Organic Chemistry: Halogenoalkanes, Alcohols and Spectra</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 10. Halogenoalkanes and alcohols are the first families where a functional group changes the reactivity of the molecule. Spectra are the tools that identify those groups in an unknown compound.</p>\n<h3>Halogenoalkanes</h3>\n<ul>\n<li>A halogenoalkane has a halogen atom bonded to a carbon atom. The C–X bond is polar because the halogen is more electronegative, so the carbon is slightly positive.</li>\n<li>Reactivity rises down the group because the C–X bond gets weaker (C–I is weakest), so the iodoalkane reacts fastest.</li>\n<li>Nucleophilic substitution with aqueous hydroxide ions gives an alcohol. The nucleophile donates a pair of electrons to the carbon atom.</li>\n<li>Halogenoalkanes can be tested by warming with aqueous silver nitrate in ethanol: the precipitate forms at different rates, and iodoalkanes react fastest.</li>\n</ul>\n<h3>Alcohols</h3>\n<ul>\n<li>Alcohols contain the –OH group. Primary, secondary and tertiary alcohols depend on how many other carbons are attached to the carbon bearing the –OH.</li>\n<li>Oxidation of primary alcohols with acidified potassium dichromate(VI) gives aldehydes, which can be oxidised further to carboxylic acids; excess oxidant and heat give the acid.</li>\n<li>Secondary alcohols oxidise to ketones; tertiary alcohols are not oxidised under these conditions.</li>\n<li>Dehydration with hot concentrated sulfuric acid or aluminium oxide forms an alkene.</li>\n</ul>\n<h3>Mass spectrometry</h3>\n<ul>\n<li>The molecular ion peak gives the relative molecular mass. Fragmentation patterns reveal structural features.</li>\n<li>Peaks at m/z 15 and 29 can indicate CH3 and C2H5 fragments.</li>\n</ul>\n<h3>Infrared spectroscopy</h3>\n<ul>\n<li>Bonds absorb infrared radiation at characteristic wavenumbers. A broad absorption near 3200–3550 cm⁻¹ indicates an O–H group in an alcohol. A strong absorption near 1700 cm⁻¹ indicates a C=O group.</li>\n<li>Use tables of characteristic absorptions with the spectrum, rather than memorised single values.</li>\n</ul>\n<h3>NMR (introduced)</h3>\n<ul>\n<li>The number of peaks in a proton NMR spectrum gives the number of environments of hydrogen atoms; the relative areas give the ratio of hydrogens.</li>\n</ul>\n<p>Exam tip: when identifying an unknown, combine evidence: the molecular formula from mass spectrometry, the functional groups from infrared, and the environments from NMR.</p><h3>A* extension: worked reasoning and calculations</h3>\n<ul>\n<li>Reactivity of halogenoalkanes: the C–I bond is the weakest and the C–F bond the strongest, so reactivity rises from fluoro to iodo. Use bond enthalpy to explain the trend, not the electronegativity of the halogen.</li>\n<li>Silver nitrate test: a halogenoalkane in ethanol with aqueous silver nitrate gives a precipitate of AgCl (white), AgBr (cream) or AgI (yellow). The rate of precipitate formation also shows the reactivity trend, so iodoalkanes precipitate fastest.</li>\n<li>Alcohol classification: a primary alcohol oxidises to an aldehyde and then to a carboxylic acid when heated under reflux with excess acidified dichromate. A secondary alcohol gives a ketone. A tertiary alcohol does not oxidise under these conditions. Distillation stops the oxidation at the aldehyde.</li>\n<li>Mass spectrum: the molecular ion gives the relative molecular mass. A chlorine-containing compound shows an M+2 peak about one third the height of the M peak, from ³⁷Cl. Use the M+2 peak to identify chlorine, and the M+2 peak for bromine is equal in height to M.</li>\n</ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-22 08:52:43.333155+00"
  },
  {
   "id": "073bcaf2-c7c3-4375-9169-27b5b8d10810",
@@ -1648,6 +1678,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-16 07:03:00.465532+00"
+ },
+ {
+  "id": "22f61686-4c34-4742-b29d-39b6e180dea6",
+  "entity_type": "material",
+  "entity_id": "7782b9f5-a0e8-4eb1-9179-6b98a1c02b52",
+  "title": "Intermolecular Forces — Study Notes",
+  "content": "<h2>Intermolecular Forces</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 7. Intermolecular forces are the attractions between molecules, not the bonds inside them. They determine boiling points, solubility and how molecules pack together.</p>\n<h3>Types of intermolecular force</h3>\n<ul>\n<li>London (instantaneous dipole–induced dipole) forces exist in all molecules. They grow with the number of electrons, so larger molecules have higher boiling points.</li>\n<li>Permanent dipole–dipole forces occur between polar molecules, where the partial positive and negative charges attract one another.</li>\n<li>Hydrogen bonding is a strong dipole–dipole attraction. It occurs when H is bonded to N, O or F and attracts a lone pair on another N, O or F.</li>\n</ul>\n<h3>Effect on physical properties</h3>\n<ul>\n<li>Boiling point depends on the strength of intermolecular forces: more energy is needed to separate molecules that attract strongly.</li>\n<li>Water boils at a much higher temperature than hydrogen sulfide because hydrogen bonding is much stronger than the dipole forces between H2S molecules.</li>\n<li>Branched alkanes have lower boiling points than straight-chain isomers because they have a smaller surface area for London forces.</li>\n</ul>\n<h3>Solubility</h3>\n<ul>\n<li>Substances dissolve when the new attractions between solute and solvent replace the attractions within each.</li>\n<li>Polar solvents such as water dissolve ionic and polar solutes; non-polar solvents dissolve non-polar solutes.</li>\n<li>Ethanol is miscible with water because its –OH group forms hydrogen bonds with water.</li>\n</ul>\n<h3>Ideal and real gases</h3>\n<ul>\n<li>A real gas deviates from ideal behaviour at high pressure and low temperature, because molecules have volume and attract one another.</li>\n</ul>\n<p>Exam tip: when comparing boiling points, name the type of intermolecular force, state whether it is stronger or weaker, and say how much energy is needed to overcome it. Do not say that \"bonds break\" when a liquid boils.</p><h3>A* extension: worked reasoning and calculations</h3>\n<ul>\n<li>Boiling point, applied to the alkanes: longer chains have more London forces, so boiling point rises with chain length. Branching makes the molecule more compact and lowers the surface contact, so a branched isomer boils at a lower temperature than the straight-chain isomer.</li>\n<li>Hydrogen bonding, applied to water and H₂S: water boils at 100 °C while H₂S boils at about −60 °C, because water forms hydrogen bonds and H₂S does not. Name the hydrogen bond between a lone pair on O or N and an H attached to O, N or F.</li>\n<li>Solubility, applied to ethanol and hexane in water: ethanol dissolves because it forms hydrogen bonds with water. Hexane does not, because it has only London forces and cannot replace the hydrogen bonds between water molecules. Use the phrase like dissolves like with the reason attached.</li>\n<li>Ideal gas assumptions: no intermolecular forces and negligible molecular volume. Real gases deviate at high pressure, where molecules are close, and at low temperature, where attractions matter. State the conditions under which the deviation is largest.</li>\n</ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-22 08:52:43.333155+00"
  },
  {
   "id": "234196d8-254b-4a64-a316-27a841c083d2",
@@ -8355,6 +8400,21 @@
   "created_at": "2026-10-16 07:14:17.708427+00"
  },
  {
+  "id": "a5236233-e204-40e1-a3bf-c364c32fc818",
+  "entity_type": "material",
+  "entity_id": "d4516bc0-b215-49ea-904f-286fef0f33bc",
+  "title": "Introduction to Kinetics and Equilibria — Study Notes",
+  "content": "<h2>Introduction to Kinetics and Equilibria</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 9. Kinetics asks how fast a reaction goes, and equilibria asks how far it goes before the forward and backward reactions balance. Both depend on the same collision ideas.</p>\n<h3>Rates and collision theory</h3>\n<ul>\n<li>For a reaction to occur, particles must collide with enough energy (the activation energy, Ea) and in the correct orientation.</li>\n<li>Increasing concentration or pressure increases the frequency of collisions. Increasing temperature raises the proportion of particles with energy above Ea, which has a larger effect than the increase in collision frequency.</li>\n<li>A catalyst provides an alternative route with a lower Ea; it is not used up.</li>\n</ul>\n<h3>Measuring rates</h3>\n<ul>\n<li>Rates can be found from the gradient of a concentration–time graph at the start of the reaction (the initial rate).</li>\n<li>Methods include measuring the volume of gas produced, the change in mass, or the time for a colour change to occur (1/time gives a relative rate).</li>\n</ul>\n<h3>Dynamic equilibrium</h3>\n<ul>\n<li>In a closed system, the forward and reverse rates become equal. Concentrations stop changing, but the reaction has not stopped.</li>\n<li>Equilibrium constant Kc = [products]^n / [reactants]^m, with each concentration raised to the power of its coefficient. Kc is constant for a given temperature.</li>\n</ul>\n<h3>Le Chatelier's principle</h3>\n<ul>\n<li>If a system at equilibrium is disturbed, the position shifts to oppose the change.</li>\n<li>Increasing temperature favours the endothermic direction. Increasing pressure favours the side with fewer gas molecules. Adding a reactant shifts the position towards products.</li>\n<li>A catalyst speeds up both directions equally, so it changes the rate of reaching equilibrium but not the equilibrium position or Kc.</li>\n</ul>\n<p>Exam tip: say which direction is favoured and why, using the principle. Do not claim that a catalyst increases the yield.</p><h3>A* extension: worked reasoning and calculations</h3>\n<ul>\n<li>Collision theory, applied to a rate change: raising the temperature increases the fraction of molecules with energy above the activation energy. The number of collisions barely changes, so the increase in rate comes from the larger fraction of successful collisions. Name the activation energy in the answer.</li>\n<li>Le Chatelier and the Haber process, applied to N₂ + 3H₂ ⇌ 2NH₃ with ΔH negative: a low temperature favours the product, but the rate is slow, so a compromise temperature of about 450 °C is used with an iron catalyst. The catalyst changes the rate, not the yield.</li>\n<li>Dynamic equilibrium: the forward and backward rates are equal, and the concentrations are constant. The equilibrium is dynamic, not static, so state both rates are equal and the reactions have not stopped.</li>\n<li>Common mistake: saying that a catalyst shifts the equilibrium to increase yield. A catalyst lowers the activation energy for both directions, so it reaches equilibrium faster but does not change the yield.</li>\n</ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-22 08:52:43.333155+00"
+ },
+ {
   "id": "a5314d55-f972-4934-97c3-51a077bf9850",
   "entity_type": "material",
   "entity_id": "bfb3a5da-592c-4c27-b57d-df44885a19d9",
@@ -10155,6 +10215,21 @@
   "created_at": "2026-10-16 07:09:52.679021+00"
  },
  {
+  "id": "c5d72bf8-7441-4728-98f3-01a4b901a937",
+  "entity_type": "material",
+  "entity_id": "71c55ef2-c940-4622-9f26-8a46aa507130",
+  "title": "Introductory Organic Chemistry and Alkanes — Study Notes",
+  "content": "<h2>Introductory Organic Chemistry and Alkanes</h2>\n<p>Edexcel IAL Chemistry WCH11, Topic 4. Organic chemistry is the chemistry of carbon compounds. Alkanes are the simplest family, and their reactions introduce the radical substitution mechanism used throughout the course.</p>\n<h3>Naming and formulae</h3>\n<ul>\n<li>A homologous series has the same general formula, similar chemical properties and a gradual change in physical properties.</li>\n<li>Alkanes have the general formula CnH2n+2. Names depend on the longest carbon chain: meth-, eth-, prop-, but-, pent-, hex-.</li>\n<li>Structural isomers have the same molecular formula but different connectivity, such as butane and methylpropane.</li>\n</ul>\n<h3>Fossil fuels and cracking</h3>\n<ul>\n<li>Alkanes are obtained from crude oil by fractional distillation; the fractions separate by boiling point, which rises with chain length.</li>\n<li>Cracking breaks long chains into shorter, more useful alkanes and alkenes, using heat or a catalyst.</li>\n</ul>\n<h3>Radical substitution</h3>\n<ul>\n<li>Alkanes react with chlorine or bromine under UV light by free-radical substitution.</li>\n<li>The three stages are initiation (Cl2 → 2Cl•), propagation (a radical reacts with an alkane, regenerating a radical) and termination (two radicals combine).</li>\n<li>Propagation steps form the product; termination steps are rare, so they do not appear in the main yield.</li>\n</ul>\n<h3>Combustion</h3>\n<ul>\n<li>Complete combustion gives carbon dioxide and water; limited oxygen gives carbon monoxide or carbon (soot).</li>\n</ul>\n<p>Exam tip: when writing a radical mechanism, use a single-headed arrow for each electron moved and always show the radical dot.</p><h3>A* extension: worked reasoning and calculations</h3>\n<ul>\n<li>Radical substitution, applied to methane and chlorine under UV light: initiation Cl₂ → 2Cl• (homolytic fission, UV required); propagation CH₄ + Cl• → CH₃• + HCl, then CH₃• + Cl₂ → CH₃Cl + Cl•; termination when two radicals combine. Each step needs its own equation for the marks.</li>\n<li>Why a mixture forms: radical substitution is not selective, so chloromethane, dichloromethane and so on all form. Excess methane favours monosubstitution, because a chlorine radical is more likely to meet a methane molecule than a chloromethane molecule.</li>\n<li>Combustion: complete combustion gives CO₂ and H₂O. Incomplete combustion, with limited oxygen, gives CO, which is toxic because it binds haemoglobin more strongly than oxygen does. State the limited oxygen supply in the answer.</li>\n<li>Naming: the longest carbon chain gives the parent, and the lowest possible number goes to the first branch. Name branches alphabetically with their numbers, and use di-, tri- for repeated branches, for example 2,2-dimethylpropane.</li>\n</ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-22 08:52:43.333155+00"
+ },
+ {
   "id": "c68cc2b0-890e-48e0-8a66-839e83233af6",
   "entity_type": "material",
   "entity_id": "87af1d72-2a4f-41be-b34d-ae7156bc8ac9",
@@ -10738,6 +10813,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-13 14:35:31.529055+00"
+ },
+ {
+  "id": "d66355b4-5548-46e5-9976-fa58011b96c2",
+  "entity_type": "material",
+  "entity_id": "da7c9bd7-2551-4f16-91a9-4f446f20ae69",
+  "title": "Energetics — Study Notes",
+  "content": "<h2>Energetics</h2>\n<p>Edexcel IAL Chemistry WCH12, Topic 6. Energetics explains why reactions release or absorb heat, and it provides the enthalpy data that later decides whether a reaction is feasible.</p>\n<h3>Enthalpy change and types of reaction</h3>\n<ul>\n<li>The enthalpy change ΔH is the heat energy transferred at constant pressure. Exothermic reactions have a negative ΔH; endothermic reactions have a positive ΔH.</li>\n<li>Standard conditions are 100 kPa and a stated temperature, usually 298 K, with substances in their standard states.</li>\n<li>Important definitions include standard enthalpy of formation, combustion and neutralisation. Each is written for one mole of the stated substance.</li>\n</ul>\n<h3>Measuring enthalpy changes</h3>\n<ul>\n<li>In a calorimetry experiment, q = m × c × ΔT, where m is the mass of solution (usually assumed to be 4.18 J g⁻¹ K⁻¹ for water-based solutions).</li>\n<li>Convert heat to enthalpy change using moles: ΔH = −q / n. The sign is negative for an exothermic reaction.</li>\n<li>Sources of error include heat loss to the surroundings and incomplete combustion; the answer is always lower than the data book value for combustion.</li>\n</ul>\n<h3>Hess's law</h3>\n<ul>\n<li>The total enthalpy change is independent of the route taken. Enthalpy cycles let you find an unknown ΔH from known values.</li>\n<li>For formation values: ΔH = Σ ΔHf(products) − Σ ΔHf(reactants).</li>\n</ul>\n<h3>Bond enthalpies</h3>\n<ul>\n<li>Breaking bonds is endothermic; making bonds is exothermic. ΔH ≈ Σ bonds broken − Σ bonds formed.</li>\n<li>Bond enthalpies are averages over many compounds, so values from bond enthalpy calculations differ from accurate formation data.</li>\n</ul>\n<h3>Entropy and free energy (introduced)</h3>\n<ul>\n<li>A reaction that increases disorder (more gas molecules, for example) has a positive entropy change, which favours spontaneous change.</li>\n</ul>\n<p>Exam tip: a common mistake is to use the wrong sign for ΔH. Always check whether the process is releasing or taking in heat before writing the value.</p><h3>A* extension: worked reasoning and calculations</h3>\n<ul>\n<li>Calorimetry, applied to burning a fuel: q = m c ΔT. Heating 100 g of water by 10.0 °C gives q = 100 × 4.18 × 10.0 = 4180 J. If 0.0100 mol of fuel was burnt, ΔH = −4180 J ÷ 0.0100 mol = −418 kJ mol⁻¹. The minus sign is required, because the reaction is exothermic.</li>\n<li>Hess's law, applied to a cycle: ΔH = sum of ΔH(products) − sum of ΔH(reactants), with each enthalpy change taken in its direction in the cycle. Reversing a step changes the sign. Draw the cycle first, then write the equation, so the signs follow from the arrows.</li>\n<li>Bond enthalpies: ΔH ≈ energy to break bonds − energy released when bonds form. For CH₄ + 2O₂ → CO₂ + 2H₂O, use mean values for the bonds involved. The answer is an estimate, because the values are averages across different molecules.</li>\n<li>Common losses of marks: forgetting that calorimetry gives the heat absorbed by the water, so the sign of ΔH is the opposite of q. Mixing up the units of kJ and J, and giving the answer per gram instead of per mole.</li>\n</ul>\n",
+  "extra": {
+   "file_url": null,
+   "material_type": "notes"
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-22 08:52:43.333155+00"
  },
  {
   "id": "d6b517f7-7ff1-40c4-995b-eb92c07e6f98",

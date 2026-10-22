@@ -3,7 +3,11 @@
 // for a session server-side by the `login-with-username` edge function, which
 // verifies the password and never hands the account's email back to the client.
 // Optional parent email at signup auto-links the child to that parent account
-// (instant if it exists, queued if not). Includes a forgot-password flow.
+// (instant if it exists, queued if not). Students may also claim a username at
+// signup — it becomes their login handle and leaderboard name; the auth trigger
+// normalises it to lower case and suffixes a name someone already has, so the
+// signup itself can never fail on `profiles_username_unique_idx`.
+// Includes a forgot-password flow.
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -87,11 +91,19 @@ export default function Auth() {
   // supabase/migrations/20261008120000_pdpl_consent_export_and_requests.sql).
   const [consentAccepted, setConsentAccepted] = useState(false);
   const [signupPassword, setSignupPassword] = useState("");
+  const [signupUsername, setSignupUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [parentEmail, setParentEmail] = useState("");
   const [role, setRole] = useState<string>("student");
 
   const GENERIC_LOGIN_ERROR = "Invalid email/username or password";
+
+  // Usernames are login handles, so the shape is deliberately narrow: the same
+  // characters `login-with-username` and the admin console accept, lower-cased
+  // so `Jane.Doe` and `jane.doe` cannot become two accounts. The database
+  // sanitises again — this is what the student is told, not the only guard.
+  const normalizeUsername = (raw: string) => raw.trim().replace(/^@+/, "").toLowerCase();
+  const USERNAME_RE = /^[a-z0-9._-]{3,32}$/;
 
   // Username sign-in: the edge function resolves the identifier, checks the
   // password against the auth server and returns only a session. There is no
@@ -189,6 +201,19 @@ export default function Auth() {
       setLoading(false);
       return;
     }
+    // Username (students only): optional, but if given it must be usable as a
+    // login handle — refuse here rather than let the trigger silently drop it.
+    const username = role === "student" ? normalizeUsername(signupUsername) : "";
+    if (username && !USERNAME_RE.test(username)) {
+      toast({
+        title: "Choose a different username",
+        description:
+          "Usernames are 3–32 characters: lowercase letters, numbers, dots, dashes or underscores.",
+        variant: "destructive",
+      });
+      setLoading(false);
+      return;
+    }
     const email = signupEmail.toLowerCase().trim();
     // Parent link: students may attach a parent's email. It must differ from
     // their own — the server ignores equal emails, we block it here with a
@@ -211,6 +236,9 @@ export default function Auth() {
         data: {
           full_name: fullName,
           role,
+          // Only sent when the student claimed one; the trigger treats it as
+          // untrusted input and normalises/de-duplicates it.
+          username: username || undefined,
           // Only sent for students; ignored server-side otherwise.
           parent_email: role === "student" && parent ? parent : undefined,
           // Blog/ad attribution (first-touch UTM), stored in user metadata.
@@ -227,13 +255,31 @@ export default function Auth() {
       toast({ title: "Signup failed", description: error.message, variant: "destructive" });
       return;
     }
+    // The trigger may have suffixed a username someone else already had. Read
+    // back what was actually stored so the student is told the handle they can
+    // log in with, instead of discovering a different one on their next visit.
+    let grantedUsername = username;
+    if (data.session && data.user && username) {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("username")
+        .eq("user_id", data.user.id)
+        .maybeSingle();
+      grantedUsername = profile?.username ?? username;
+    }
+    const usernameNote = grantedUsername
+      ? grantedUsername === username
+        ? `You can sign in with @${grantedUsername} or your email.`
+        : `@${username} was already taken, so your username is @${grantedUsername} — sign in with that or your email.`
+      : null;
+    const baseDescription = role === "parent"
+      ? "Children who signed up with your email are linked automatically."
+      : parent
+        ? "Account ready — we've linked your parent's account to yours."
+        : "Your account is ready — pick your subjects and start studying.";
     toast({
       title: role === "parent" ? "Parent account created" : "Welcome to Clutch Marks!",
-      description: role === "parent"
-        ? "Children who signed up with your email are linked automatically."
-        : parent
-          ? "Account ready — we've linked your parent's account to yours."
-          : "Your account is ready — pick your subjects and start studying.",
+      description: usernameNote ? `${baseDescription} ${usernameNote}` : baseDescription,
     });
     // Signup used to end here: the account existed and, with email confirmation
     // off, the session was already live, but the student stayed on the form with
@@ -288,6 +334,12 @@ export default function Auth() {
                   <span className="font-medium text-foreground">{awaitingConfirmation}</span>. Open it
                   to finish setting up your account, then sign in.
                 </p>
+                {normalizeUsername(signupUsername) && (
+                  <p className="text-xs text-muted-foreground">
+                    Your username <span className="font-medium text-foreground">@{normalizeUsername(signupUsername)}</span>{" "}
+                    is saved — once the address is confirmed you can sign in with it or your email.
+                  </p>
+                )}
                 <p className="text-xs text-muted-foreground">
                   Nothing after a few minutes? Check your spam folder, then try signing in — if the
                   address already had an account, your password still works.
@@ -362,6 +414,27 @@ export default function Auth() {
                     <Label htmlFor="signup-email" className="text-sm font-medium">Email</Label>
                     <Input id="signup-email" type="email" placeholder="you@example.com" value={signupEmail} onChange={e => setSignupEmail(e.target.value)} required className={inputClasses} />
                   </div>
+                  {role === "student" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="signup-username" className="text-sm font-medium">
+                        Username <span className="text-muted-foreground font-normal">(optional)</span>
+                      </Label>
+                      <Input
+                        id="signup-username"
+                        type="text"
+                        autoComplete="username"
+                        placeholder="yourname"
+                        value={signupUsername}
+                        onChange={e => setSignupUsername(e.target.value)}
+                        maxLength={32}
+                        className={inputClasses}
+                      />
+                      <p className="text-xs text-muted-foreground">
+                        Sign in with this instead of your email, and it's the name on the leaderboard.
+                        3–32 lowercase letters, numbers, dots, dashes or underscores.
+                      </p>
+                    </div>
+                  )}
                   <div className="space-y-2">
                     <Label htmlFor="signup-password" className="text-sm font-medium">Password</Label>
                     <Input id="signup-password" type="password" placeholder="6+ chars, mixed case, number, symbol" value={signupPassword} onChange={e => setSignupPassword(e.target.value)} required minLength={6} className={inputClasses} />
