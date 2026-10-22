@@ -23,11 +23,19 @@ const GROUPS: Array<[RegExp, string]> = [
  * Validate a password for a given role. Returns null when valid, otherwise a
  * human-readable reason. Complexity is required for every account; admins must
  * additionally use at least 12 characters.
+ *
+ * `minLength` raises the floor rather than replacing it: admin-created accounts
+ * are held to 8 characters by `manage-accounts` even though self-signup still
+ * accepts 6, and the console needs to reject exactly what the server would.
  */
-export function validatePassword(password: string, role: "student" | "admin"): string | null {
+export function validatePassword(
+  password: string,
+  role: "student" | "admin",
+  minLength?: number,
+): string | null {
   // Students keep their existing 6-character minimum but now need character
   // variety; admins must use at least 12 characters on top of that.
-  const min = role === "admin" ? 12 : 6;
+  const min = Math.max(role === "admin" ? 12 : 6, minLength ?? 0);
   if (password.length < min) {
     return role === "admin"
       ? `Admin passwords must be at least ${min} characters.`

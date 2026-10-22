@@ -176,7 +176,17 @@ Deno.serve(async (req) => {
       if (cleanUsername && !USERNAME_RE.test(cleanUsername)) {
         return json({ error: "Username must be 3-32 characters (letters, numbers, . _ -)" }, 400);
       }
-      const userRole = role === "admin" ? "admin" : "student";
+      // The site owner is the only admin. Admin rows are provisioned by SQL —
+      // never by this console, and never from a browser session: even a
+      // hijacked admin session must not be able to mint a second admin, which
+      // the user_roles trigger also enforces (20261022150000).
+      if (role === "admin") {
+        return json({ error: "Admin accounts can only be provisioned by the site owner." }, 403);
+      }
+      // 'parent' is a real role (public.app_role) and the console offers it:
+      // coercing anything non-admin to 'student' silently created students for
+      // every parent account the panel made.
+      const userRole: "parent" | "student" = role === "parent" ? "parent" : "student";
 
       // Enforce the per-role password policy before creating anything.
       const pwError = await passwordPolicyError(password, userRole === "admin" ? "admin" : "other");
@@ -206,7 +216,9 @@ Deno.serve(async (req) => {
           full_name,
           ...(cleanUsername ? { username: cleanUsername } : {}),
           // Never publish 'admin' through metadata — the trigger ignores it.
-          ...(userRole === "student" ? { role: userRole } : {}),
+          // The trigger copies 'parent' out of metadata; 'admin' is never
+          // published here (it is granted by the service-role update below).
+          ...(userRole !== "admin" ? { role: userRole } : {}),
         },
       });
       if (createError) return json({ error: createError.message }, 500);

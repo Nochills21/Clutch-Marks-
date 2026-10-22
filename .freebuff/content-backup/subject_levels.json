@@ -44,20 +44,20 @@
   "subject_id": "66507374-12d9-4849-8f93-e69127bcc214",
   "level": "AS",
   "description": null,
-  "is_active": false,
+  "is_active": true,
   "sort_order": 1,
   "created_at": "2026-10-18 05:27:55.845031+00",
-  "updated_at": "2026-10-19 19:11:35.870746+00"
+  "updated_at": "2026-10-22 07:07:46.163354+00"
  },
  {
   "id": "7dfc0d52-ca74-467b-bf4d-a141b885fa09",
   "subject_id": "48937e9d-30b1-43c6-92f5-b43765690b35",
   "level": "AS",
   "description": null,
-  "is_active": false,
+  "is_active": true,
   "sort_order": 1,
   "created_at": "2026-10-18 05:27:55.845031+00",
-  "updated_at": "2026-10-19 19:11:41.002746+00"
+  "updated_at": "2026-10-22 07:07:46.163354+00"
  },
  {
   "id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
@@ -74,10 +74,10 @@
   "subject_id": "48937e9d-30b1-43c6-92f5-b43765690b35",
   "level": "A2",
   "description": null,
-  "is_active": false,
+  "is_active": true,
   "sort_order": 2,
   "created_at": "2026-10-18 05:27:55.845031+00",
-  "updated_at": "2026-10-19 19:11:39.695787+00"
+  "updated_at": "2026-10-22 07:07:46.163354+00"
  },
  {
   "id": "9b3131f1-e89d-46b6-9a16-98ea88f100df",
@@ -94,10 +94,10 @@
   "subject_id": "66507374-12d9-4849-8f93-e69127bcc214",
   "level": "A2",
   "description": null,
-  "is_active": false,
+  "is_active": true,
   "sort_order": 2,
   "created_at": "2026-10-18 05:27:55.845031+00",
-  "updated_at": "2026-10-19 19:11:37.809563+00"
+  "updated_at": "2026-10-22 07:07:46.163354+00"
  },
  {
   "id": "b8100a48-b4f7-414b-a796-528259b28a84",

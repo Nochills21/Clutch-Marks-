@@ -1013,6 +1013,8 @@ export type Database = {
           months: number
           name: string
           price_monthly: number
+          /** What is actually billed for the whole term (e.g. 60 for 3 months). */
+          price_total: number
         }
         Insert: {
           description?: string | null
@@ -1020,6 +1022,7 @@ export type Database = {
           months?: number
           name: string
           price_monthly: number
+          price_total?: number
         }
         Update: {
           description?: string | null
@@ -1027,6 +1030,7 @@ export type Database = {
           months?: number
           name?: string
           price_monthly?: number
+          price_total?: number
         }
         Relationships: []
       }

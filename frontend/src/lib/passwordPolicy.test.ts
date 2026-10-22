@@ -26,6 +26,20 @@ describe("validatePassword", () => {
     expect(validatePassword(password, role as "student" | "admin")).toBeNull();
   });
 
+  // The console holds admin-created accounts to 8 characters (manage-accounts),
+  // so it passes that floor explicitly; the role default still applies on top.
+  const floored: Array<[string, string, number, RegExp | null]> = [
+    ["student", "Aa1!Aa", 8, /at least 8/],
+    ["student", "Aa1!Aa1!", 8, null],
+    ["admin", "Aa1!Aa1!", 8, /Admin passwords must be at least 12/],
+    ["admin", "Aa1!Aa1!Aa1!", 8, null],
+  ];
+  it.each(floored)("applies an 8-char floor to a %s password %j", (role, password, floor, pattern) => {
+    const result = validatePassword(password, role as "student" | "admin", floor);
+    if (pattern) expect(result).toMatch(pattern);
+    else expect(result).toBeNull();
+  });
+
   it("reports every missing group in one message", () => {
     // Lowercase-only input: uppercase, number, and symbol all missing together.
     expect(validatePassword("abcdef", "student")).toBe(

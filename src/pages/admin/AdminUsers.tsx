@@ -26,6 +26,7 @@ import {
 import { SEOHead } from "@/components/SEOHead";
 import { addMonths } from "date-fns";
 import { validateUploadFile, getSafeUploadExtension } from "@/lib/fileValidation";
+import { validatePassword } from "@/lib/passwordPolicy";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
 
@@ -69,16 +70,12 @@ export default function AdminUsers() {
   const [newPassword, setNewPassword] = useState("");
   const [newRole, setNewRole] = useState("student");
   const [creating, setCreating] = useState(false);
+  const [createPasswordError, setCreatePasswordError] = useState<string | null>(null);
 
   // Reset password
   const [resetTarget, setResetTarget] = useState<UserRow | null>(null);
   const [resetPassword, setResetPassword] = useState("");
   const [resetting, setResetting] = useState(false);
-
-  // Promote admin
-  const [promoteOpen, setPromoteOpen] = useState(false);
-  const [promoteEmail, setPromoteEmail] = useState("");
-  const [promoting, setPromoting] = useState(false);
 
   // Assign username
   const [usernameTarget, setUsernameTarget] = useState<UserRow | null>(null);
@@ -219,22 +216,6 @@ export default function AdminUsers() {
     setActionLoading(null);
   };
 
-  const handleDemoteAdmin = async (row: UserRow) => {
-    if (!confirm(`Remove admin privileges from ${row.full_name}?`)) return;
-    setActionLoading(row.user_id);
-    const { error } = await supabase
-      .from("user_roles")
-      .update({ role: "student" })
-      .eq("id", row.role_id);
-    if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
-    } else {
-      toast({ title: "Admin removed", description: `${row.full_name} is now a student.` });
-      load();
-    }
-    setActionLoading(null);
-  };
-
   // Toggle paid access for a student: grant a 1-month (calendar) active
   // subscription or cancel the existing one. Admins pass subscriptions RLS via dedicated
   // policies.
@@ -267,46 +248,14 @@ export default function AdminUsers() {
     setActionLoading(null);
   };
 
-  // Promote an approved student/parent to admin (admins pass user_roles RLS
-  // via "Admins can manage all roles").
-  const handleMakeAdmin = async (row: UserRow) => {
-    if (!confirm(`Promote ${row.full_name} to admin? They will have full console access.`)) return;
-    setActionLoading(row.user_id);
-    const { error } = await supabase
-      .from("user_roles")
-      .update({ role: "admin" })
-      .eq("id", row.role_id);
-    if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
-    } else {
-      toast({ title: "Promoted to admin", description: `${row.full_name} now has admin privileges.` });
-      load();
-    }
-    setActionLoading(null);
-  };
-
-  const handlePromoteAdmin = async () => {
-    if (!promoteEmail.trim()) return;
-    setPromoting(true);
-    try {
-      const { data, error } = await supabase.functions.invoke("promote-admin", {
-        body: { email: promoteEmail.trim() },
-      });
-      if (error) throw new Error(await functionErrorMessage(error));
-      if (data?.error) throw new Error(data.error);
-      toast({ title: "Promoted", description: `${promoteEmail} is now an admin.` });
-      setPromoteEmail("");
-      setPromoteOpen(false);
-      load();
-    } catch (e) {
-      toast({ title: "Error", description: e.message, variant: "destructive" });
-    }
-    setPromoting(false);
-  };
-
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newEmail.trim() || !newFullName.trim() || !newPassword.trim()) return;
+    // Same rule the function enforces (8+, every character group), checked here
+    // so a weak password is named inline instead of coming back as a failed call.
+    const policyError = validatePassword(newPassword, "student", 8);
+    setCreatePasswordError(policyError);
+    if (policyError) return;
     setCreating(true);
     try {
       await invoke("create", {
@@ -325,7 +274,13 @@ export default function AdminUsers() {
   };
 
   const handleResetPassword = async () => {
-    if (!resetTarget || resetPassword.length < 8) return;
+    if (!resetTarget) return;
+    // Admins need 12+ on top of the 8-character floor for everyone else.
+    const policyError = validatePassword(resetPassword, resetTarget.role === "admin" ? "admin" : "student", 8);
+    if (policyError) {
+      toast({ title: "Choose a stronger password", description: policyError, variant: "destructive" });
+      return;
+    }
     setResetting(true);
     try {
       await invoke("update_credentials", { user_id: resetTarget.user_id, password: resetPassword });
@@ -453,19 +408,15 @@ export default function AdminUsers() {
     toast({ title: "Report deleted" });
   };
 
+  // Admins are read-only here: no browser session can create, promote, demote
+  // or delete an admin row (user_roles is write-locked to the service role, see
+  // 20261022150000). Admin access is provisioned by the site owner in SQL.
   const renderActions = (r: UserRow) => {
     if (r.role === "admin") {
       return (
-        <Button
-          size="sm"
-          variant="destructive"
-          className="gap-1"
-          disabled={actionLoading === r.user_id || r.user_id === user?.id}
-          onClick={() => handleDemoteAdmin(r)}
-        >
-          <Trash2 className="h-4 w-4" />
-          {r.user_id === user?.id ? "You" : "Remove Admin"}
-        </Button>
+        <Badge variant="outline" className="border-primary/30 text-primary">
+          <ShieldCheck className="mr-1 h-3.5 w-3.5" /> {r.user_id === user?.id ? "You" : "Owner-provisioned"}
+        </Badge>
       );
     }
     return (
@@ -503,15 +454,6 @@ export default function AdminUsers() {
             </Button>
           )
         )}
-        <Button
-          size="sm"
-          variant="outline"
-          className="gap-1"
-          disabled={actionLoading === r.user_id}
-          onClick={() => handleMakeAdmin(r)}
-        >
-          <ShieldCheck className="h-4 w-4" /> Make Admin
-        </Button>
         <Button
           size="sm"
           variant="outline"
@@ -610,7 +552,8 @@ export default function AdminUsers() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Accounts</h1>
           <p className="text-muted-foreground">
-            Approve signups, manage students, parents &amp; admins, grant paid access, promote to admin, reset passwords, and upload weekly reports.
+            Manage students and parents, grant paid access, reset passwords, and upload weekly reports.
+            Admin access is provisioned by the site owner only and cannot be granted here.
           </p>
         </div>
       </div>
@@ -713,13 +656,15 @@ export default function AdminUsers() {
         <TabsContent value="admins">
           <Card>
             <CardContent className="p-4 space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-4">
                 <p className="text-sm text-muted-foreground">
                   {admins.length} admin{admins.length === 1 ? "" : "s"}
                 </p>
-                <Button size="sm" className="gap-2" onClick={() => setPromoteOpen(true)}>
-                  <UserPlus className="h-4 w-4" /> Promote Admin
-                </Button>
+                {/* No promote control on purpose: admin access is provisioned by
+                    the site owner in SQL and user_roles rejects browser writes. */}
+                <Badge variant="outline" className="gap-1.5 text-muted-foreground">
+                  <Shield className="h-3.5 w-3.5" /> Owner-provisioned — cannot be granted here
+                </Badge>
               </div>
               <div className="border rounded-md">
                 <UserTable
@@ -765,14 +710,22 @@ export default function AdminUsers() {
                     type="password"
                     placeholder="Min. 8 characters, with upper, lower, number & symbol"
                     value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
+                    onChange={(e) => {
+                      setNewPassword(e.target.value);
+                      if (createPasswordError) setCreatePasswordError(null);
+                    }}
                     required
                     minLength={8}
+                    aria-invalid={!!createPasswordError}
                   />
-                  <p className="text-xs text-muted-foreground">
-                    Must include an uppercase letter, a lowercase letter, a number and a
-                    symbol, and must not be a known breached password.
-                  </p>
+                  {createPasswordError ? (
+                    <p className="text-xs text-destructive">{createPasswordError}</p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground">
+                      Must include an uppercase letter, a lowercase letter, a number and a
+                      symbol, and must not be a known breached password.
+                    </p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label>Role</Label>
@@ -784,7 +737,8 @@ export default function AdminUsers() {
                     </SelectContent>
                   </Select>
                   <p className="text-xs text-muted-foreground">
-                    To create an admin, create a student/parent account first, then promote it from the Admins tab.
+                    Only students and parents can be created here. Admin access is provisioned by the
+                    site owner and cannot be granted from this console.
                   </p>
                 </div>
                 <Button type="submit" disabled={creating} className="gap-2">
@@ -796,37 +750,6 @@ export default function AdminUsers() {
           </Card>
         </TabsContent>
       </Tabs>
-
-      {/* Promote Admin Dialog */}
-      <Dialog open={promoteOpen} onOpenChange={setPromoteOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Promote User to Admin</DialogTitle>
-            <DialogDescription>
-              Enter the email of an existing user to grant them admin privileges.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-2">
-            <Label>User Email</Label>
-            <Input
-              placeholder="user@example.com"
-              value={promoteEmail}
-              onChange={(e) => setPromoteEmail(e.target.value)}
-            />
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setPromoteOpen(false)}>Cancel</Button>
-            <Button
-              onClick={handlePromoteAdmin}
-              disabled={promoting || !promoteEmail.trim()}
-              className="gap-2"
-            >
-              {promoting && <Loader2 className="h-4 w-4 animate-spin" />}
-              Promote to Admin
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
 
       {/* Assign Username Dialog */}
       <Dialog open={!!usernameTarget} onOpenChange={(open) => { if (!open) setUsernameTarget(null); }}>

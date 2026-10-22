@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Lock, Sparkles } from "lucide-react";
 import { FREE_PREVIEW_LIMIT, usePlanAccess } from "@/hooks/useSubscription";
+import { cheapestPerMonth } from "@/lib/plans";
 
 /** Slice a list to the plan's preview limit. */
 export function usePreviewSlice<T>(items: T[]): T[] {
@@ -44,6 +45,9 @@ export function PreviewLimit({
 }) {
   const { isPreview, loading } = usePlanAccess();
   if (loading || !isPreview || hiddenCount <= 0) return null;
+  // "from $6.67/month" — the cheapest rate on offer, straight from the plan
+  // snapshot rather than a number that has to be remembered here.
+  const cheapest = cheapestPerMonth();
 
   return (
     <Card className="neon-border border-dashed">
@@ -56,7 +60,8 @@ export function PreviewLimit({
         </h3>
         <p className="text-sm text-muted-foreground max-w-md mb-5">
           You're seeing a preview. The full plan unlocks everything — every note,
-          quiz, past paper and practice set — from $6.67/month on the annual plan.
+          quiz, past paper and practice set — from {cheapest?.label ?? "the paid plan"}/month on the{" "}
+          {cheapest?.plan.name.toLowerCase() ?? "annual"} plan.
         </p>
         <Button asChild size="sm" className="gap-2 bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground">
           <Link to="/pricing"><Sparkles className="h-4 w-4" /> View plans</Link>

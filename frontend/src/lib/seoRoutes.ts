@@ -7,6 +7,8 @@
  *  - page components via <SEOHead />
  */
 
+import { PAID_PLAN_IDS, cheapestPerMonth, planById, perMonthOf, totalOf } from "./plans";
+
 // Read Vite's env defensively: this module is imported by the build-time
 // prerender plugin, and inside the bundled vite.config the `import.meta.env`
 // define is not applied — so the bare property access used to throw at config
@@ -71,6 +73,23 @@ export function ogImageUrl(meta: Pick<RouteMeta, "ogImage">): string {
   return `${SITE_URL}${meta.ogImage ?? DEFAULT_OG_IMAGE}`;
 }
 
+/**
+ * "Full access is $40/month, $20/month when billed quarterly ($60), …" — the
+ * one sentence the FAQ and the JSON-LD both use, assembled from `plans`.
+ */
+function priceAnswer(): string {
+  const monthly = planById("monthly");
+  const quarterly = planById("quarterly");
+  const annual = planById("annual");
+  if (!monthly || !quarterly || !annual) return "See the pricing page for the current price list.";
+  const term = (months: number, singular: string, plural: string) =>
+    months === 1 ? singular : months === 12 ? "annually" : months === 3 ? "quarterly" : `${plural} ${months} months`;
+  const paid = `${perMonthOf(monthly)}/month`;
+  const quarter = `${perMonthOf(quarterly)}/month when billed ${term(quarterly.months, "monthly", "every")} (${totalOf(quarterly)})`;
+  const year = `${perMonthOf(annual)}/month when billed ${term(annual.months, "monthly", "every")} (${totalOf(annual)})`;
+  return `You can preview every level for free. Full access is ${paid}, ${quarter}, or ${year}.`;
+}
+
 /** Shared FAQ copy — also rendered on /pricing. Keep answers factual. */
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
@@ -79,7 +98,10 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "How much does Clutch Marks cost?",
-    a: "You can preview every level for free. Full access is $40/month, $20/month when billed quarterly ($60), or $6.67/month when billed annually ($80).",
+    // Built from the plan snapshot, so a price change cannot leave the FAQ
+    // quoting last month's money. Google ignores FAQ markup that disagrees with
+    // the visible page, and this answer is the one rendered on /pricing.
+    a: priceAnswer(),
   },
   {
     q: "How do I pay?",
@@ -117,11 +139,15 @@ const course = {
   inLanguage: "en",
   educationalLevel: ["IGCSE", "AS Level", "A2 Level"],
   provider: organization,
-  offers: [
-    { "@type": "Offer", name: "Monthly", price: "40", priceCurrency: "USD" },
-    { "@type": "Offer", name: "3 Months", price: "60", priceCurrency: "USD" },
-    { "@type": "Offer", name: "Annual", price: "80", priceCurrency: "USD" },
-  ],
+  // One Offer per paid plan, priced at what is actually billed for the term.
+  offers: PAID_PLAN_IDS.map((id) => planById(id))
+    .filter((plan) => plan !== null)
+    .map((plan) => ({
+      "@type": "Offer",
+      name: plan!.name,
+      price: String(plan!.priceTotal),
+      priceCurrency: "USD",
+    })),
 };
 
 /** Pricing-page structured data. Keep in sync with the visible FAQ on /pricing
@@ -362,7 +388,7 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/pricing",
     title: "Plans & Pricing — Clutch Marks",
     description:
-      "Unlock every subject and level from $6.67/month — preview any level free. Pay by bank transfer or Urpay; plans activate within 24 hours.",
+      `Unlock every subject and level from ${cheapestPerMonth()?.label ?? "the annual plan"}/month — preview any level free. Pay by bank transfer or Urpay; plans activate within 24 hours.`,
     ogImage: "/og/pricing.png",
     jsonLd: PRICING_JSON_LD,
   },

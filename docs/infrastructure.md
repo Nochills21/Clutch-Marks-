@@ -41,7 +41,7 @@ Resend sends email. **No shared hosting anywhere.**
   password resets.
 - **Edge Functions** (Deno) — `resolve-login-email`, `welcome-email`,
   `weekly-digest`, `feedback-alert`, `email-events` (Resend webhooks),
-  `manage-accounts`, `promote-admin`, `quiz-feedback`, `generate-questions`,
+  `manage-accounts`, `quiz-feedback`, `generate-questions`,
   `study-planner`, `past-papers-harvest`.
 - **pg_cron + pg_net** — nightly audit-log archiving; weekly parent digest
   (Mondays 07:00 UTC); weekly past-paper link check / harvest (Mondays 06:00 UTC).
