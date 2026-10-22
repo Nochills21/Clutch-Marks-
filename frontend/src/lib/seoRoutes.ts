@@ -433,6 +433,15 @@ export const ROUTE_META: RouteMeta[] = [
     noindex: true,
   },
   {
+    path: "/settings",
+    title: "Account settings — Clutch Marks",
+    description:
+      "Change your Clutch Marks username, and see the email you sign in with.",
+    // Account-scoped: the page is the student's own identity, so there is
+    // nothing here for an index to hold beyond the sign-in redirect.
+    noindex: true,
+  },
+  {
     path: "/mastery",
     title: "Mastery — Clutch Marks",
     description:

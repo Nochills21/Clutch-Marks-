@@ -5,6 +5,7 @@ import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
   Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
   ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge, PenLine, CalendarDays, LogIn,
+  Settings as SettingsIcon,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -54,6 +55,8 @@ const studentLinkGroups = [
   {
     title: "Account",
     links: [
+      // Identity first: the username is also the sign-in handle.
+      { title: "Settings", url: "/settings", icon: SettingsIcon },
       { title: "Feedback", url: "/feedback", icon: MessageSquareHeart },
       { title: "Upgrade", url: "/pricing", icon: CreditCard },
     ],
@@ -99,6 +102,7 @@ const APP_VERSION = "1.0.0";
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Child Progress", url: "/progress", icon: BarChart3 },
+  { title: "Settings", url: "/settings", icon: SettingsIcon },
   { title: "Feedback", url: "/feedback", icon: MessageSquareHeart },
 ];
 

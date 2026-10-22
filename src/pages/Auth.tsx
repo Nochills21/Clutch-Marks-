@@ -24,6 +24,9 @@ import { SEOHead } from "@/components/SEOHead";
 import { postLoginPath } from "@/lib/returnTo";
 import { captureAttribution, getAttribution, trackSignup } from "@/lib/analytics";
 import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib/passwordPolicy";
+// Usernames are login handles, so their shape is shared with account settings
+// and the database: one definition in @/lib/username, not three copies.
+import { USERNAME_MAX, USERNAME_RE, USERNAME_RULES, normalizeUsername } from "@/lib/username";
 import { buildSignupConsent } from "@/lib/legal";
 import { fetchEnabledProviders, signInWithGoogle, NO_PROVIDERS } from "@/lib/oauthProviders";
 import { ArrowLeft, Sparkles, Mail } from "lucide-react";
@@ -98,12 +101,6 @@ export default function Auth() {
 
   const GENERIC_LOGIN_ERROR = "Invalid email/username or password";
 
-  // Usernames are login handles, so the shape is deliberately narrow: the same
-  // characters `login-with-username` and the admin console accept, lower-cased
-  // so `Jane.Doe` and `jane.doe` cannot become two accounts. The database
-  // sanitises again — this is what the student is told, not the only guard.
-  const normalizeUsername = (raw: string) => raw.trim().replace(/^@+/, "").toLowerCase();
-  const USERNAME_RE = /^[a-z0-9._-]{3,32}$/;
 
   // Username sign-in: the edge function resolves the identifier, checks the
   // password against the auth server and returns only a session. There is no
@@ -426,12 +423,12 @@ export default function Auth() {
                         placeholder="yourname"
                         value={signupUsername}
                         onChange={e => setSignupUsername(e.target.value)}
-                        maxLength={32}
+                        maxLength={USERNAME_MAX}
                         className={inputClasses}
                       />
                       <p className="text-xs text-muted-foreground">
                         Sign in with this instead of your email, and it's the name on the leaderboard.
-                        3–32 lowercase letters, numbers, dots, dashes or underscores.
+                        {USERNAME_RULES}
                       </p>
                     </div>
                   )}

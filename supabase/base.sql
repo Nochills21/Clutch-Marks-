@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-22T08:28:07.670Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-22T09:28:31.388Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -1987,13 +1987,7 @@ BEGIN
 
   -- Username claimed at signup (students only; a parent or Google sign-up
   -- simply sends none, and the account stays email-only).
-  v_username := regexp_replace(
-    lower(btrim(COALESCE(NEW.raw_user_meta_data->>'username', ''))),
-    '[^a-z0-9._-]', '', 'g'
-  );
-  IF length(v_username) < 3 OR length(v_username) > 32 THEN
-    v_username := NULL;
-  END IF;
+  v_username := public.username_sanitize(NEW.raw_user_meta_data->>'username');
   -- Taken (case-insensitively): keep their choice readable and add a short,
   -- id-derived suffix rather than raising on the unique index.
   IF v_username IS NOT NULL
@@ -2603,7 +2597,9 @@ CREATE OR REPLACE FUNCTION public.protect_profile_identity_fields()
 AS $function$
 DECLARE
   _identity_changed boolean;
-  _is_service boolean;
+  _uid uuid := auth.uid();
+  _is_admin boolean;
+  _is_end_user boolean;
 BEGIN
   _identity_changed :=
        NEW.user_id  IS DISTINCT FROM OLD.user_id
@@ -2614,25 +2610,50 @@ BEGIN
     RETURN NEW;
   END IF;
 
-  _is_service := current_setting('request.jwt.claim.role', true) = 'service_role'
-                 OR current_setting('role', true) IN ('service_role', 'postgres')
-                 OR session_user IN ('postgres', 'supabase_admin');
+  -- SECURITY: do not ask `current_setting('role')` or `session_user` here. This
+  -- function is SECURITY DEFINER, so both report the owner (postgres) whatever
+  -- the caller is; that mistake made the whole guard return early for every
+  -- request. A service-role call is the one with no `sub` claim.
+  _is_end_user := _uid IS NOT NULL;
+  _is_admin := _is_end_user AND public.has_role(_uid, 'admin');
 
-  IF _is_service THEN
-    RETURN NEW;
-  END IF;
-
-  IF auth.uid() IS NOT NULL AND public.has_role(auth.uid(), 'admin') THEN
-    RETURN NEW;
-  END IF;
-
-  IF NEW.user_id IS DISTINCT FROM OLD.user_id THEN
+  IF NEW.user_id IS DISTINCT FROM OLD.user_id AND _is_end_user AND NOT _is_admin THEN
     RAISE EXCEPTION 'Only an administrator can change a profile owner';
   END IF;
-  IF NEW.username IS DISTINCT FROM OLD.username THEN
-    RAISE EXCEPTION 'Only an administrator can change your username';
+
+  IF NEW.email IS DISTINCT FROM OLD.email AND _is_end_user AND NOT _is_admin THEN
+    RAISE EXCEPTION 'Only an administrator can change your email';
   END IF;
-  RAISE EXCEPTION 'Only an administrator can change your email';
+
+  IF NEW.username IS DISTINCT FROM OLD.username THEN
+    -- A malformed handle is refused however it arrives, from any role except a
+    -- direct database session: the same rule signup and account settings apply.
+    IF NEW.username IS NOT NULL AND NOT public.username_is_canonical(NEW.username) THEN
+      RAISE EXCEPTION 'Invalid username: use 3 to 32 lowercase letters, numbers, dots, dashes or underscores';
+    END IF;
+
+    IF _is_end_user AND NOT _is_admin THEN
+      -- Removing a handle ends username sign-in and frees the name for anyone to
+      -- claim, so it is not part of self-service.
+      IF NEW.username IS NULL THEN
+        RAISE EXCEPTION 'Only an administrator can remove your username';
+      END IF;
+      IF _uid IS DISTINCT FROM OLD.user_id THEN
+        RAISE EXCEPTION 'You can only change your own username';
+      END IF;
+      -- Impersonation trail: a student can release a handle and someone else can
+      -- take it, so the old and new values are kept where an admin can see them.
+      INSERT INTO public.admin_audit_log
+        (actor_id, actor_username, action, entity, entity_id, entity_label, details)
+      VALUES (
+        _uid, OLD.username, 'update', 'profile', OLD.user_id,
+        COALESCE(NEW.username, OLD.full_name),
+        jsonb_build_object('field', 'username', 'old', OLD.username, 'new', NEW.username, 'self_service', true)
+      );
+    END IF;
+  END IF;
+
+  RETURN NEW;
 END;
 $function$;
 
@@ -2951,6 +2972,56 @@ BEGIN
   END;
 
   RETURN NEW;
+END;
+$function$;
+
+CREATE OR REPLACE FUNCTION public.set_my_username(_username text)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  _uid uuid := auth.uid();
+  _clean text;
+  _current text;
+BEGIN
+  IF _uid IS NULL THEN
+    RAISE EXCEPTION 'Not authenticated';
+  END IF;
+
+  -- Same normalisation the signup form and login do: drop a leading @, trim,
+  -- lower-case. Anything else the caller typed is refused rather than silently
+  -- rewritten, so the student knows what was stored.
+  _clean := regexp_replace(lower(btrim(COALESCE(_username, ''))), '^@+', '');
+
+  IF NOT public.username_is_canonical(_clean) THEN
+    RETURN jsonb_build_object(
+      'ok', false,
+      'error', 'invalid',
+      'message', 'Use 3 to 32 characters: lowercase letters, numbers, dots, dashes or underscores.'
+    );
+  END IF;
+
+  SELECT p.username INTO _current
+  FROM public.profiles p
+  WHERE p.user_id = _uid
+  FOR UPDATE;
+
+  IF _current IS NULL AND NOT FOUND THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'missing', 'message', 'No profile found for this account.');
+  END IF;
+
+  IF _current = _clean THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'unchanged', 'message', 'That is already your username.');
+  END IF;
+
+  BEGIN
+    UPDATE public.profiles SET username = _clean WHERE user_id = _uid;
+  EXCEPTION WHEN unique_violation THEN
+    RETURN jsonb_build_object('ok', false, 'error', 'taken', 'message', 'That username is already taken.');
+  END;
+
+  RETURN jsonb_build_object('ok', true, 'username', _clean);
 END;
 $function$;
 
@@ -3284,6 +3355,30 @@ BEGIN
   NEW.updated_at = now();
   RETURN NEW;
 END;
+$function$;
+
+CREATE OR REPLACE FUNCTION public.username_is_canonical(raw text)
+ RETURNS boolean
+ LANGUAGE sql
+ IMMUTABLE
+ SET search_path TO 'public'
+AS $function$
+  select raw is not null and raw ~ '^[a-z0-9._-]{3,32}$';
+$function$;
+
+CREATE OR REPLACE FUNCTION public.username_sanitize(raw text)
+ RETURNS text
+ LANGUAGE sql
+ IMMUTABLE
+ SET search_path TO 'public'
+AS $function$
+  select case
+    when length(
+           regexp_replace(lower(btrim(coalesce(raw, ''))), '[^a-z0-9._-]', '', 'g')
+         ) between 3 and 32
+    then regexp_replace(lower(btrim(coalesce(raw, ''))), '[^a-z0-9._-]', '', 'g')
+    else null
+  end;
 $function$;
 
 CREATE OR REPLACE FUNCTION public.write_admin_audit_log()

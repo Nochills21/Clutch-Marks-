@@ -51,6 +51,9 @@ const TermsOfService = lazy(() =>
 );
 const Downloads = lazy(() => import("./pages/Downloads"));
 const ProgressPage = lazy(() => import("./pages/ProgressPage"));
+// Account settings: the student's own username, with the signup rules enforced
+// by public.set_my_username rather than by the form.
+const Settings = lazy(() => import("./pages/Settings"));
 const Announcements = lazy(() => import("./pages/Announcements"));
 
 const AdminLessons = lazy(() => import("./pages/admin/AdminLessons"));
@@ -191,6 +194,7 @@ const App = () => (
                   <Route path="/practice" element={<Practice />} />
                   <Route path="/study-planner" element={<StudyPlanner />} />
                   <Route path="/progress" element={<ProgressPage />} />
+                  <Route path="/settings" element={<Settings />} />
                   <Route path="/mastery" element={<Mastery />} />
                   <Route path="/command-words" element={<CommandWords />} />
                   <Route path="/exam-plan" element={<ExamPlan />} />
