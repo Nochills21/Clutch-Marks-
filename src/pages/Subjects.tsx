@@ -99,7 +99,10 @@ export default function Subjects() {
           {ordered.map((o) => {
             const isYours = !isAdmin && !!user && pickedIds.has(o.id);
             const Icon = subjectIcon(o.subjectName);
-            const href = `/study/${o.subjectSlug}/${o.level}`;
+            // Lowercase, as topicUrls/levelSeo build every other study URL: the
+            // catalog used to send people to /study/…/IGCSE while the canonical
+            // (and prerendered) page is /study/…/igcse.
+            const href = `/study/${o.subjectSlug}/${o.level.toLowerCase()}`;
 
             const inner = (
               <CardContent className="flex items-center gap-3 py-5">
