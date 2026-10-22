@@ -373,8 +373,15 @@ export default function Notes() {
                             <span className="eyebrow">{LEVEL_LABELS[n.level as "OL"] ?? n.level}</span>
                           </>
                         )}
-                        <span className="text-muted-foreground/30">·</span>
-                        <span className="min-w-0 text-xs text-muted-foreground truncate">{n.topic_name}</span>
+                        {/* The topic is already the group heading above the entry;
+                            repeating it beside a title that is usually the topic
+                            name printed the same words twice in one row. */}
+                        {n.topic_name !== n.title && (
+                          <>
+                            <span className="text-muted-foreground/30">·</span>
+                            <span className="min-w-0 text-xs text-muted-foreground truncate">{n.topic_name}</span>
+                          </>
+                        )}
                         {n.material_type === "summary" && (
                           <Badge variant="outline" className="text-[10px] capitalize">Summary</Badge>
                         )}
