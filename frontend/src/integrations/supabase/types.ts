@@ -1883,6 +1883,17 @@ export type Database = {
       }
     }
     Functions: {
+      // Self-service username change, under the signup rules
+      // (supabase/migrations/20261022170000_self_service_username.sql).
+      set_my_username: {
+        Args: { _username: string }
+        Returns: {
+          ok: boolean
+          username?: string
+          error?: "invalid" | "taken" | "unchanged" | "missing"
+          message?: string
+        }
+      }
       approve_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       dismiss_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       resolve_paper_link: { Args: { p_check_id: string }; Returns: Json }

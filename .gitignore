@@ -65,6 +65,15 @@ dist-ssr
 # is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
 # author to run it before a topic's objectives are published.
 !.freebuff/gate-objectives.cjs
+# The notes-depth gate is content pipeline too: it is the enforcement behind
+# docs/notes-depth.md, and AGENTS.md tells an author to run it before a deepened
+# note is published.
+!.freebuff/gate-notes-depth.cjs
+# The two notes-depth pipeline steps the docs and AGENTS.md tell an author to
+# run: fetch a unit's notes + board statements, then turn a content module into
+# guarded SQL. Without them a fresh clone cannot follow docs/notes-depth.md.
+!.freebuff/deepen-fetch.cjs
+!.freebuff/deepen-materials.cjs
 # The edge-function deploy path: ships every .ts file in the function dir so
 # relative imports (ai-correction's ./marks.ts) bundle. Without this a fresh
 # clone deploys an ai-correction that cannot resolve its own imports.
