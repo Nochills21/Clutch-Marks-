@@ -61,28 +61,59 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Find user by email using admin API
-    const { data: { users }, error: listError } = await adminClient.auth.admin.listUsers();
-    if (listError) {
-      return new Response(JSON.stringify({ error: listError.message }), {
+    // Find the account. `profiles` carries the email and is indexed, so this is
+    // one query instead of paging through every auth user; the old code called
+    // `listUsers()` once and only searched its first page (50 accounts), so any
+    // account past that was reported as "No account found".
+    const wanted = email.toLowerCase().trim();
+    let targetId: string | null = null;
+
+    const { data: profile, error: profileError } = await adminClient
+      .from("profiles")
+      .select("user_id, username, email")
+      .ilike("email", wanted)
+      .maybeSingle();
+    if (profileError) {
+      return new Response(JSON.stringify({ error: profileError.message }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+    targetId = profile?.user_id ?? null;
 
-    const targetUser = users.find((u) => u.email?.toLowerCase() === email.toLowerCase());
-    if (!targetUser) {
-      return new Response(JSON.stringify({ error: "No account found with that email" }), {
+    // Fallback: an auth user with no profile row yet. Page through the admin API
+    // until the email is found, rather than trusting a single page.
+    if (!targetId) {
+      for (let page = 1; page <= 20 && !targetId; page++) {
+        const { data, error: listError } = await adminClient.auth.admin.listUsers({ page, perPage: 200 });
+        if (listError) {
+          return new Response(JSON.stringify({ error: listError.message }), {
+            status: 500,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
+        }
+        const match = data?.users?.find((u) => u.email?.toLowerCase() === wanted);
+        if (match) targetId = match.id;
+        if (!data?.users?.length) break;
+      }
+    }
+
+    if (!targetId) {
+      return new Response(JSON.stringify({ error: `No account found with the email ${wanted}` }), {
         status: 404,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    // Update role to admin
-    const { error: updateError } = await adminClient
+    // Update every role row the account has; the table's primary key is `id`
+    // without a unique user_id, so more than one row can exist. If it has none
+    // (an account created outside the signup trigger), insert one instead of
+    // reporting a success that changed nothing.
+    const { data: updated, error: updateError } = await adminClient
       .from("user_roles")
       .update({ role: "admin", is_approved: true })
-      .eq("user_id", targetUser.id);
+      .eq("user_id", targetId)
+      .select("id");
 
     if (updateError) {
       return new Response(JSON.stringify({ error: updateError.message }), {
@@ -90,8 +121,37 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+    if (!updated || updated.length === 0) {
+      const { error: insertError } = await adminClient
+        .from("user_roles")
+        .insert({ user_id: targetId, role: "admin", is_approved: true });
+      if (insertError) {
+        return new Response(JSON.stringify({ error: insertError.message }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+    }
 
-    return new Response(JSON.stringify({ success: true }), {
+    // Service-role writes leave a null actor on the audit trail; attribute the
+    // promotion to the admin who made it, as manage-accounts does.
+    const { data: callerProfile } = await adminClient
+      .from("profiles")
+      .select("username")
+      .eq("user_id", caller.id)
+      .maybeSingle();
+    await adminClient.rpc("audit_admin_action", {
+      p_action: "role_change",
+      p_entity: "user",
+      p_entity_id: targetId,
+      p_entity_label: profile?.username ?? wanted,
+      p_details: { promoted_to: "admin" },
+      p_actor_id: caller.id,
+      p_actor_username: callerProfile?.username ?? caller.email ?? null,
+    });
+
+    return new Response(JSON.stringify({ success: true, user_id: targetId }), {
+      status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {
