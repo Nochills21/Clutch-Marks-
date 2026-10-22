@@ -61,6 +61,10 @@ dist-ssr
 # the U+FFFD replacement character.
 !.freebuff/sql.cjs
 !.freebuff/audit-fffd.cjs
+# Live verifier for self-service usernames: it asserts the identity rules the
+# database owns, with throwaway accounts, and AGENTS.md names it as the check to
+# re-run after any change to those rules.
+!.freebuff/probe-username-selfservice-live.cjs
 # The objectives review gate is content pipeline, not a one-off debug script: it
 # is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
 # author to run it before a topic's objectives are published.

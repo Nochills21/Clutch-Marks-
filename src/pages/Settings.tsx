@@ -42,7 +42,10 @@ export default function Settings() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [draft, setDraft] = useState("");
   const [saving, setSaving] = useState(false);
-  const [problem, setProblem] = useState<string | null>(null);
+  // Only server answers live here. The shape check is derived, so a student who
+  // types an unusable handle is told why while typing instead of being left with
+  // a disabled Save button and no explanation.
+  const [serverError, setServerError] = useState<string | null>(null);
   const [saved, setSaved] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -77,15 +80,18 @@ export default function Settings() {
   const unchanged = candidate === current;
   const check = validateUsername(draft);
   const canSave = !!user && !saving && !unchanged && check.status === "valid";
+  const invalidMessage = check.status === "invalid" ? check.message : null;
+  const problem = serverError ?? (unchanged ? null : invalidMessage);
 
   const save = async (event: React.FormEvent) => {
     event.preventDefault();
     setSaved(null);
     if (check.status === "invalid") {
-      setProblem(check.message);
+      // Already visible in the field's feedback; keep focus where the error is.
+      document.getElementById("username")?.focus();
       return;
     }
-    setProblem(null);
+    setServerError(null);
     setSaving(true);
     // The server re-validates and owns the uniqueness check; the client check is
     // only there to answer before a round trip.
@@ -94,7 +100,7 @@ export default function Settings() {
 
     if (error) {
       const message = "We could not save that just now. Please try again.";
-      setProblem(message);
+      setServerError(message);
       toast({ title: "Username not changed", description: message, variant: "destructive" });
       return;
     }
@@ -102,7 +108,7 @@ export default function Settings() {
     const result = data as SetUsernameResult | null;
     if (!result?.ok) {
       const message = result?.message ?? "We could not save that username.";
-      setProblem(message);
+      setServerError(message);
       toast({ title: "Username not changed", description: message, variant: "destructive" });
       return;
     }
@@ -178,7 +184,7 @@ export default function Settings() {
                       value={draft}
                       onChange={(e) => {
                         setDraft(e.target.value);
-                        setProblem(null);
+                        setServerError(null);
                         setSaved(null);
                       }}
                       placeholder="yourname"
