@@ -18,6 +18,26 @@ type GeneratedQuestion = {
   explanation?: unknown;
 };
 
+/**
+ * The assurance level of the caller, from the JWT the gateway already verified.
+ * A verified TOTP code is what puts `aal2` in this token; a password alone gives
+ * `aal1`. Signature verification is the platform's job and has already happened,
+ * so decoding here is safe — the same reasoning as draft-content's bearerRole, and
+ * the same caveat: it is only safe while verify_jwt stays on.
+ */
+function bearerAal(req: Request): string {
+  const token = (req.headers.get("Authorization") ?? "").replace(/^Bearer\s+/i, "").trim();
+  const payload = token.split(".")[1];
+  if (!payload) return "aal1";
+  try {
+    const padded = payload.replace(/-/g, "+").replace(/_/g, "/");
+    const claims = JSON.parse(atob(padded));
+    return typeof claims?.aal === "string" ? claims.aal : "aal1";
+  } catch {
+    return "aal1";
+  }
+}
+
 // Model output is untrusted: keep only well-formed 4-option questions.
 const isGeneratedQuestion = (q: unknown): q is GeneratedQuestion => {
   if (!q || typeof q !== "object") return false;
@@ -51,6 +71,12 @@ Deno.serve(async (req) => {
       .maybeSingle();
     if (roleRow?.role !== "admin" || !roleRow?.is_approved) {
       return json({ error: "Admins only" }, 403);
+    }
+    // Writes here bypass RLS (service role), so the second factor is checked in
+    // this function too: a stolen password can hold the admin role and still not
+    // be allowed to put questions into the bank.
+    if (bearerAal(req) !== "aal2") {
+      return json({ error: "Two-factor authentication required", code: "mfa_required" }, 403);
     }
 
     const body = await req.json().catch(() => ({}));

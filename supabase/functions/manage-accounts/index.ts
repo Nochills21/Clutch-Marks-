@@ -43,6 +43,25 @@ Deno.serve(async (req) => {
       .single();
     if (!callerRole) return json({ error: "Only approved admins can manage accounts" }, 403);
 
+    // A stolen password must not be enough to mint, reset or delete an account.
+    // `aal2` in the access token means a TOTP code was verified for this session;
+    // getUser() above already validated the token, so reading the claim is safe.
+    // The database enforces the same rule for direct writes (public.is_admin).
+    const aal = (() => {
+      const token = authHeader.replace(/^Bearer\s+/i, "").trim();
+      const payload = token.split(".")[1];
+      if (!payload) return "aal1";
+      try {
+        const claims = JSON.parse(atob(payload.replace(/-/g, "+").replace(/_/g, "/")));
+        return typeof claims?.aal === "string" ? claims.aal : "aal1";
+      } catch {
+        return "aal1";
+      }
+    })();
+    if (aal !== "aal2") {
+      return json({ error: "Two-factor authentication required", code: "mfa_required" }, 403);
+    }
+
     const { action, user_id, username, full_name, password, role, email: emailInput } =
       await req.json();
 
