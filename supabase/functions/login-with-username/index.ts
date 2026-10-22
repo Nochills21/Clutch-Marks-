@@ -61,7 +61,11 @@ Deno.serve(async (req) => {
     if (req.method !== "POST") return await settle({ error: "method_not_allowed" }, 405);
 
     const body = await req.json().catch(() => ({}));
-    const identifier = typeof body?.identifier === "string" ? body.identifier.trim() : "";
+    // A handle is shown as @name everywhere in the app (settings, leaderboard,
+    // admin console), so students type the sigil back in on the login form. Strip
+    // it before deciding whether the value is an email or a username: an address
+    // can never start with @, so this costs an email nothing.
+    const identifier = (typeof body?.identifier === "string" ? body.identifier.trim() : "").replace(/^@+/, "");
     const password = typeof body?.password === "string" ? body.password : "";
 
     // Malformed input is answered exactly like a wrong password.

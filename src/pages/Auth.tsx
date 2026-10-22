@@ -29,6 +29,11 @@ import { PASSWORD_RULES_TEXT, validatePassword, isBreachedPassword } from "@/lib
 import { USERNAME_MAX, USERNAME_RE, USERNAME_RULES, normalizeUsername } from "@/lib/username";
 import { buildSignupConsent } from "@/lib/legal";
 import { fetchEnabledProviders, signInWithGoogle, NO_PROVIDERS } from "@/lib/oauthProviders";
+// The password step is not the last step for an account with a second factor:
+// GoTrue hands back an AAL1 session and the admin console (and every admin write)
+// stays shut until a code is verified here.
+import { listTotpFactors, readAssurance } from "@/lib/mfa";
+import { TotpCodeForm } from "@/components/TwoFactor";
 import { ArrowLeft, Sparkles, Mail } from "lucide-react";
 import { BrandMark } from "@/components/BrandMark";
 import { ForgotPasswordDialog } from "@/components/ForgotPasswordDialog";
@@ -83,6 +88,8 @@ export default function Auth() {
 
   const [loginIdentifier, setLoginIdentifier] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  // Set when the password was accepted but the session still owes a TOTP code.
+  const [mfaFactorId, setMfaFactorId] = useState<string | null>(null);
 
   // Set only when the signup succeeded but the project requires the student to
   // confirm their email first: the account exists, there is no session yet, so
@@ -136,7 +143,10 @@ export default function Auth() {
 
     setLoading(true);
     try {
-      const identifier = loginIdentifier.trim();
+      // Handles are displayed as @name (settings, leaderboard, admin console),
+      // so the sigil is stripped here before deciding what was typed — otherwise
+      // "@sam" looks like an address and is sent to the auth server as an email.
+      const identifier = normalizeUsername(loginIdentifier);
       // Emails go straight to the auth server; anything else is a username.
       const result = identifier.includes("@")
         ? {
@@ -160,6 +170,18 @@ export default function Auth() {
         // Always the same generic message — never reveal whether the account exists
         toast({ title: "Login failed", description: GENERIC_LOGIN_ERROR, variant: "destructive" });
       } else {
+        // A verified factor turns the password grant into a two-step sign-in.
+        // Ask for the code here rather than letting them wander into a console
+        // whose every request the database will refuse.
+        const assurance = await readAssurance();
+        if (assurance.nextLevel === "aal2" && assurance.currentLevel !== "aal2") {
+          const [factor] = (await listTotpFactors()).filter((f) => f.verified);
+          if (factor) {
+            setMfaFactorId(factor.id);
+            setLoading(false);
+            return;
+          }
+        }
         // Return the visitor to the page that sent them here, not to the hub.
         navigate(postLoginPath(searchParams.get("next")), { replace: true });
       }
@@ -379,6 +401,35 @@ export default function Auth() {
             </CardHeader>
 
             <TabsContent value="login">
+              {mfaFactorId ? (
+                <CardContent className="space-y-4 pt-0">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">Two-factor authentication</p>
+                    <p className="text-xs text-muted-foreground">
+                      Your password was accepted. Enter the code from your authenticator app to finish
+                      signing in.
+                    </p>
+                  </div>
+                  <TotpCodeForm
+                    factorId={mfaFactorId}
+                    submitLabel="Sign in"
+                    onVerified={() => navigate(postLoginPath(searchParams.get("next")), { replace: true })}
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => {
+                      setMfaFactorId(null);
+                      setLoginPassword("");
+                      void supabase.auth.signOut({ scope: "local" });
+                    }}
+                  >
+                    Use a different account
+                  </Button>
+                </CardContent>
+              ) : (
               <form onSubmit={handleLogin}>
                 <CardContent className="space-y-4 pt-0">
                   <div className="space-y-2">
@@ -398,6 +449,7 @@ export default function Auth() {
                   </p>
                 </CardContent>
               </form>
+              )}
             </TabsContent>
 
             <TabsContent value="signup">

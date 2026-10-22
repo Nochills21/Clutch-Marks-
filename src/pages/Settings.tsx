@@ -18,6 +18,9 @@ import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/lib/auth";
 import { useToast } from "@/hooks/useToast";
 import { USERNAME_MAX, USERNAME_RULES, normalizeUsername, validateUsername } from "@/lib/username";
+// Enrolled here, required for /admin: the console asks for the code the same way
+// the login form does, and the database refuses admin work without it.
+import { TwoFactorSettings } from "@/components/TwoFactor";
 import { AtSign, Check, Loader2, Lock, Mail, KeyRound, UserRound } from "lucide-react";
 
 type ProfileRow = {
@@ -246,6 +249,8 @@ export default function Settings() {
           </div>
         </CardContent>
       </Card>
+
+      <TwoFactorSettings />
 
       <p className="flex items-start gap-2 pb-6 text-xs text-muted-foreground">
         <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" />

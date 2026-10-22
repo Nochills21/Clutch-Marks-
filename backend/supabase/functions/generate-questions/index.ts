@@ -18,6 +18,26 @@ type GeneratedQuestion = {
   explanation?: unknown;
 };
 
+/**
+ * The assurance level of the caller, from the JWT the gateway already verified.
+ * A verified TOTP code is what puts `aal2` in this token; a password alone gives
+ * `aal1`. Signature verification is the platform's job and has already happened,
+ * so decoding here is safe — the same reasoning as draft-content's bearerRole, and
+ * the same caveat: it is only safe while verify_jwt stays on.
+ */
+function bearerAal(req: Request): string {
+  const token = (req.headers.get("Authorization") ?? "").replace(/^Bearer\s+/i, "").trim();
+  const payload = token.split(".")[1];
+  if (!payload) return "aal1";
+  try {
+    const padded = payload.replace(/-/g, "+").replace(/_/g, "/");
+    const claims = JSON.parse(atob(padded));
+    return typeof claims?.aal === "string" ? claims.aal : "aal1";
+  } catch {
+    return "aal1";
+  }
+}
+
 // Model output is untrusted: keep only well-formed 4-option questions.
 const isGeneratedQuestion = (q: unknown): q is GeneratedQuestion => {
   if (!q || typeof q !== "object") return false;
@@ -52,6 +72,12 @@ Deno.serve(async (req) => {
     if (roleRow?.role !== "admin" || !roleRow?.is_approved) {
       return json({ error: "Admins only" }, 403);
     }
+    // Writes here bypass RLS (service role), so the second factor is checked in
+    // this function too: a stolen password can hold the admin role and still not
+    // be allowed to put questions into the bank.
+    if (bearerAal(req) !== "aal2") {
+      return json({ error: "Two-factor authentication required", code: "mfa_required" }, 403);
+    }
 
     const body = await req.json().catch(() => ({}));
     const topicId: string | undefined = body?.topicId;
@@ -65,6 +91,17 @@ Deno.serve(async (req) => {
       .eq("id", topicId)
       .maybeSingle();
     if (!topic) return json({ error: "Topic not found" }, 404);
+
+    // Study notes live in study_materials (material_type='notes') — ground the
+    // questions in the topic's actual notes rather than inventing content.
+    const { data: notesRow } = await admin
+      .from("study_materials")
+      .select("content")
+      .eq("topic_id", topicId)
+      .eq("material_type", "notes")
+      .limit(1)
+      .maybeSingle();
+    const notes = typeof notesRow?.content === "string" ? notesRow.content : "";
 
     let subjectName = "General Studies";
     let level = "OL";
@@ -84,12 +121,23 @@ Deno.serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) return json({ error: "AI is not configured" }, 500);
 
-    const prompt = `Create ${count} ${difficulty}-difficulty multiple-choice exam questions for ${levelLabel} ${subjectName}.
-Topic: "${topic.name}".${topic.description ? ` Topic notes: ${topic.description}` : ""}
+    // Notes can be very long — keep the prompt inside a sane window.
+    const notesExcerpt = notes.length > 12000
+      ? `${notes.slice(0, 12000)}\n[Notes truncated]`
+      : notes;
 
+    const prompt = `Create ${count} ${difficulty}-difficulty multiple-choice exam questions for ${levelLabel} ${subjectName}.
+Topic: "${topic.name}".${topic.description ? ` Topic summary: ${topic.description}` : ""}
+${notesExcerpt ? `
+Study notes for this topic (ground EVERY question strictly in this material; do not invent content beyond it):
+---
+${notesExcerpt}
+---
+` : ""}
 Rules:
 - Exactly 4 answer options per question, only one correct.
 - Exam-board style wording, unambiguous, syllabus appropriate for ${levelLabel}.
+- Test understanding of the notes: definitions, facts, worked-example techniques and common-errors traps they highlight.
 - Include a concise explanation (1-3 sentences) for the correct answer.
 - correct_option is the zero-based index of the correct option.`;
 

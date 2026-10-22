@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { retrySupabase } from "@/lib/net";
+import { readAssurance, type AssuranceLevel } from "@/lib/mfa";
 import type { User, Session } from "@supabase/supabase-js";
 import { useSyncExternalStore } from "react";
 
@@ -12,6 +13,14 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   role: AppRole | null;
+  /**
+   * What this session has proved: "aal2" only after a verified second factor.
+   * The dashboard and student pages do not care; the admin console and every
+   * admin write do — the database refuses them at AAL1 (public.is_admin).
+   */
+  aal: AssuranceLevel | null;
+  /** Re-read the assurance level, e.g. after a TOTP code was accepted. */
+  refreshAssurance: () => Promise<void>;
   loading: boolean;
   studentPreview: boolean;
   exitStudentPreview: () => void;
@@ -22,6 +31,8 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   session: null,
   role: null,
+  aal: null,
+  refreshAssurance: async () => {},
   loading: true,
   studentPreview: false,
   exitStudentPreview: () => {},
@@ -60,6 +71,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [role, setRole] = useState<AppRole | null>(null);
+  const [aal, setAal] = useState<AssuranceLevel | null>(null);
   const [sessionLoading, setSessionLoading] = useState(true);
   const [roleLoading, setRoleLoading] = useState(false);
 
@@ -68,6 +80,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // load. Coalesce them onto one in-flight request per user.
   const roleRequest = useRef<{ userId: string; promise: Promise<void> } | null>(null);
 
+  // AAL comes from the access token's own claim, so reading it is a local decode
+  // rather than a round trip; it changes on sign-in and when a code is verified.
+  const refreshAssurance = useCallback(async () => {
+    const { currentLevel } = await readAssurance();
+    setAal(currentLevel);
+  }, []);
+
   const fetchRole = useCallback((userId: string): Promise<void> => {
     if (roleRequest.current?.userId === userId) return roleRequest.current.promise;
 
@@ -75,18 +94,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setRoleLoading(true);
       try {
         // A transient blip must not silently demote an admin to a student.
+        //
+        // Read every row rather than one: `user_roles`' primary key is `id`, not
+        // `user_id`, so an account granted admin by SQL still carries the student
+        // row the signup trigger wrote. `maybeSingle()` answers that with 406 and
+        // null data, which hid the console from exactly the account that owns it.
+        // Admin wins, then parent, then student.
         const { data } = await retrySupabase(() =>
-          supabase
-            .from("user_roles")
-            .select("role")
-            .eq("user_id", userId)
-            .maybeSingle(),
+          supabase.from("user_roles").select("role").eq("user_id", userId),
         );
-        if (data) {
-          setRole(data.role as AppRole);
-        } else {
-          setRole(null);
-        }
+        const roles = (data ?? []).map((row) => row.role as AppRole);
+        setRole(
+          roles.includes("admin")
+            ? "admin"
+            : roles.includes("parent")
+              ? "parent"
+              : roles.includes("student")
+                ? "student"
+                : null,
+        );
       } catch (error) {
         console.error("auth: could not load role", error);
         setRole(null);
@@ -125,9 +151,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             if (roleRequest.current?.userId !== session.user!.id) setRoleLoading(true);
             fetchRole(session.user!.id);
           }, 0);
+          void refreshAssurance();
         } else {
           roleRequest.current = null;
           setRole(null);
+          setAal(null);
           setRoleLoading(false);
         }
         setSessionLoading(false);
@@ -154,7 +182,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const session = error ? null : data?.session ?? null;
         setSession(session);
         setUser(session?.user ?? null);
-        if (session?.user) fetchRole(session.user.id);
+        if (session?.user) {
+          fetchRole(session.user.id);
+          void refreshAssurance();
+        }
       })
       .catch((error) => {
         console.error("auth: could not restore session", error);
@@ -167,7 +198,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       active = false;
       subscription.unsubscribe();
     };
-  }, [fetchRole]);
+  }, [fetchRole, refreshAssurance]);
 
   // Kill preview mode whenever the signed-in user changes or signs out.
   useEffect(() => {
@@ -180,6 +211,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
     setSession(null);
     setRole(null);
+    setAal(null);
   };
 
   const loading = sessionLoading || (!!user && roleLoading);
@@ -196,6 +228,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // RLS still runs as the admin behind the scenes — this is UI-only,
         // so nothing privileged is ever exposed.
         role: isAdmin && previewOn ? "student" : role,
+        aal,
+        refreshAssurance,
         studentPreview: isAdmin && previewOn,
         exitStudentPreview: () => setPreviewActive(false),
         loading,
