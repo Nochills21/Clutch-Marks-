@@ -104,6 +104,15 @@ describe("teachToHtml", () => {
     }
   });
 
+  // 11 live exam-technique rows have a heading glued to the sentence before it;
+  // they printed the hashes inline instead of breaking the section out.
+  it("breaks a heading marker glued to the previous sentence", () => {
+    const html = teachToHtml("Write the trace before you finish.### Worked example\nFill every row.");
+    expect(html).toContain("<p>Write the trace before you finish.</p>");
+    expect(html).toContain("<h3>Worked example</h3>");
+    expect(html).not.toContain("###");
+  });
+
   it("is total: empty and missing input produce nothing rather than throwing", () => {
     expect(teachToHtml("")).toBe("");
     expect(teachToHtml(undefined as unknown as string)).toBe("");
@@ -126,6 +135,24 @@ describe("materialContentToHtml", () => {
     const html = materialContentToHtml("Use x < y and solve.");
     expect(html).toContain("x &lt; y");
     expect(html).not.toContain("<li>");
+  });
+
+  // 23 live summaries were written as HTML and then had `### Worked example`
+  // sections appended by a later pass; the page printed the hashes.
+  it("renders markdown headings appended to HTML content, leaving the HTML alone", () => {
+    const html = materialContentToHtml(
+      "<h2>Quick revision</h2>\n<p>Skim the list.</p>\n### Worked example\nSolve 3(x − 2) = 2x + 5.",
+    );
+    expect(html).toContain("<h2>Quick revision</h2>");
+    expect(html).toContain("<h3>Worked example</h3>");
+    expect(html).not.toContain("###");
+  });
+
+  it("escapes a markdown heading's text in HTML content", () => {
+    const html = materialContentToHtml("<p>x</p>\n### <script>alert(1)</script> & more");
+    expect(html).not.toContain("<script>");
+    expect(html).toContain("&lt;script&gt;");
+    expect(html).toContain("&amp; more");
   });
 });
 

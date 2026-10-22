@@ -113,45 +113,30 @@ export default function Lessons() {
     setProgress((p) => ({ ...p, [lessonId]: !isCompleted }));
   };
 
-  const { loading: planLoading, isPreview, previewLimit, hasPaid } = usePlanAccess();
-  const visibleTopics = useMemo(() => {
+  const { loading: planLoading, isPreview } = usePlanAccess();
+  // Signed-in students are scoped to the subjects they picked. An anonymous
+  // visitor has no picks, and an empty pick set would filter the whole index
+  // away — they see every subject, cut down per topic by the free-plan slice
+  // in the renderer below.
+  const scopedTopics = useMemo(() => {
     if (isAdmin || !prefsLoaded) return topics;
-    // Signed-in students are scoped to the subjects they picked. An anonymous
-    // visitor has no picks, and an empty pick set would filter the whole index
-    // away — they see every subject, still cut down by the free-plan slice
-    // below, exactly like a student on the free plan.
-    const picked = user
-      ? topics.filter((t) => pickedIds.has(t.subject_level_id))
-      : topics;
-    if (planLoading) return picked;
-    // Free plan: first 2 lessons per subject-level (preview limit)
-    if (!isPreview) {
-      const byLevel = new Map<string, Tables<"lessons">[]>();
-      for (const t of picked) {
-        const qs = lessons.filter((l) => l.topic_id === t.id);
-        byLevel.set(t.id, qs);
-      }
-      const limited = new Map<string, Tables<"lessons">[]>();
-      for (const [levelId, qs] of byLevel) {
-        limited.set(levelId, qs.slice(0, FREE_PREVIEW_LIMIT));
-      }
-      return picked.filter((t) => limited.get(t.id)?.length > 0);
-    }
-    return picked;
-  }, [topics, pickedIds, prefsLoaded, isAdmin, lessons, planLoading, isPreview, FREE_PREVIEW_LIMIT, user]);
+    return user ? topics.filter((t) => pickedIds.has(t.subject_level_id)) : topics;
+  }, [topics, pickedIds, prefsLoaded, isAdmin, user]);
+  // The list of topics does not depend on the plan: a paid user used to lose
+  // every topic that had no lessons because the free-plan branch was written as
+  // `if (!isPreview)` and returned only `limited` (lesson-bearing) topics.
+  const visibleTopics = scopedTopics;
 
-  // Hidden lesson count for the free-plan upgrade prompt.
+  // Lessons the free plan is not showing, per topic. This is what the upgrade
+  // card claims, so it has to be the hidden count — it used to report every
+  // lesson of every picked topic, including the ones already on the page.
   const hiddenCount = useMemo(() => {
-    if (isAdmin || !prefsLoaded) return 0;
-    if (!isPreview) {
-      let total = 0;
-      for (const t of pickedIds ? topics.filter((t) => pickedIds.has(t.subject_level_id)) : topics) {
-        total += (lessons.filter((l) => l.topic_id === t.id)).length;
-      }
-      return total;
-    }
-    return 0;
-  }, [topics, pickedIds, lessons, isAdmin, isPreview]);
+    if (isAdmin || !prefsLoaded || planLoading || !isPreview) return 0;
+    return scopedTopics.reduce((total, t) => {
+      const count = lessons.filter((l) => l.topic_id === t.id).length;
+      return total + Math.max(0, count - FREE_PREVIEW_LIMIT);
+    }, 0);
+  }, [scopedTopics, lessons, isAdmin, isPreview, planLoading, prefsLoaded]);
 
   // Only signed-in students are gated: an anonymous visitor has picked no
   // subjects by definition and must still see the lesson index. That rule lives
@@ -250,9 +235,14 @@ export default function Lessons() {
       ) : (
         <Accordion type="multiple" className="space-y-3">
           {visibleTopics.map((topic) => {
-            const topicLessons = lessons.filter((l) => l.topic_id === topic.id);
+            const allTopicLessons = lessons.filter((l) => l.topic_id === topic.id);
+            // Free plan: the first FREE_PREVIEW_LIMIT lessons of each topic, with
+            // the rest counted into the upgrade card below.
+            const topicLessons = isPreview && !planLoading
+              ? allTopicLessons.slice(0, FREE_PREVIEW_LIMIT)
+              : allTopicLessons;
             const topicNotes = notes.filter((n) => n.topic_id === topic.id);
-            const completedCount = topicLessons.filter((l) => progress[l.id]).length;
+            const completedCount = allTopicLessons.filter((l) => progress[l.id]).length;
             const links = topicLinks[topic.id];
             const meta = topicMeta[topic.id];
             return (
@@ -264,7 +254,7 @@ export default function Lessons() {
                     </div>
                     <div>
                       <p className="font-semibold">{topic.name}</p>
-                      <p className="text-xs text-muted-foreground">{completedCount}/{topicLessons.length} lessons</p>
+                      <p className="text-xs text-muted-foreground">{completedCount}/{allTopicLessons.length} lessons</p>
                     </div>
                     {meta && (
                       <div className="ml-1 flex flex-wrap gap-1">
@@ -342,7 +332,7 @@ export default function Lessons() {
                         </button>
                       );
                     })}
-                    {topicLessons.length === 0 && (
+                    {allTopicLessons.length === 0 && (
                       <p className="text-sm text-muted-foreground px-3 py-2">No lessons in this topic yet.</p>
                     )}
                   </div>

@@ -57,7 +57,12 @@ export function teachToHtml(markdown: string): string {
     }
   };
 
-  for (const line of String(markdown ?? "").split("\n")) {
+  // A heading marker glued to the end of the previous sentence (`…finish.###
+  // Worked example`, in 11 live exam-technique materials) is a lost line break
+  // from an earlier repair pass, not prose: without this it prints the hashes.
+  const normalised = String(markdown ?? "").replace(/([.!?])(#{2,6})\s+/g, "$1\n$2 ");
+
+  for (const line of normalised.split("\n")) {
     const trimmed = line.trim();
 
     if (trimmed === "") {
@@ -222,7 +227,31 @@ export const smallMarkdownToHtml = teachToHtml;
 export function materialContentToHtml(content: string): string {
   const text = String(content ?? "");
   if (/^\s*<(h[1-6]|p|ul|ol|div|table|pre|blockquote|hr|img)\b/i.test(text)) {
-    return text;
+    return markdownHeadingsInHtml(text);
   }
   return teachToHtml(text);
+}
+
+/**
+ * HTML-shaped material content with markdown headings appended to it.
+ *
+ * The content pipeline wrote notes/summary bodies as HTML, then a later pass
+ * appended `### Worked example` sections to 23 of them. `materialContentToHtml`
+ * must not run the escaping converter over HTML, so those headings used to reach
+ * the page as literal `### Worked example` text. This converts only whole lines
+ * that are markdown headings and leaves every other line — real HTML — alone.
+ * The heading text goes through the same escape pass as `teachToHtml`, so the
+ * result stays safe for dangerouslySetInnerHTML.
+ */
+function markdownHeadingsInHtml(html: string): string {
+  return html
+    .split("\n")
+    .map((line) => {
+      const match = line.match(/^\s*(#{1,6})\s+(.+?)\s*$/);
+      if (!match) return line;
+      const depth = match[1].length;
+      const tag = depth <= 2 ? "h2" : depth === 3 ? "h3" : "h4";
+      return `<${tag}>${inline(match[2])}</${tag}>`;
+    })
+    .join("\n");
 }

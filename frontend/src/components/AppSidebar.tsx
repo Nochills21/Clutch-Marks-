@@ -4,7 +4,7 @@ import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, FileCheck,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
   Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
-  ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge, PenLine, CalendarDays,
+  ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge, PenLine, CalendarDays, LogIn,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth, enterStudentPreview } from "@/lib/auth";
@@ -103,7 +103,7 @@ const parentLinks = [
 ];
 
 export function AppSidebar() {
-  const { role, signOut, studentPreview, exitStudentPreview } = useAuth();
+  const { role, user, signOut, studentPreview, exitStudentPreview } = useAuth();
   // While previewing, role is masked to "student" — use the real admin flag for the toggle.
   const isAdmin = studentPreview || role === "admin";
   const linkGroups = role === "admin"
@@ -115,8 +115,11 @@ export function AppSidebar() {
   return (
     <Sidebar className="border-r-0">
       <SidebarHeader className="px-5 pt-6 pb-4">
-        <Link to={role === "admin" ? "/admin/subjects" : "/dashboard"} className="block">
-          <BrandLockup subtitle={role ?? "loading"} />
+        <Link to={role === "admin" ? "/admin/subjects" : user ? "/dashboard" : "/"} className="block">
+          {/* The public content pages render inside this shell for signed-out
+              visitors too, and the subtitle used to read "loading" forever for
+              them because it was `role ?? "loading"`. */}
+          <BrandLockup subtitle={role ?? (user ? "student" : "visitor")} />
         </Link>
       </SidebarHeader>
 
@@ -193,14 +196,25 @@ export function AppSidebar() {
         <Separator className="bg-sidebar-border/50" />
         <div className="flex items-center justify-between gap-2">
           <ThemeToggle variant="ghost" size="icon" />
-          <Button
-            variant="ghost"
-            size="sm"
-            className="shrink-0 gap-2 text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent text-xs"
-            onClick={signOut}
-          >
-            <LogOut className="h-4 w-4" /> Sign Out
-          </Button>
+          {/* Signed-out visitors reach this shell through the public study
+              pages, where an unconditional "Sign Out" offered to sign out of
+              nothing and there was no way in. */}
+          {user ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="shrink-0 gap-2 text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent text-xs"
+              onClick={signOut}
+            >
+              <LogOut className="h-4 w-4" /> Sign Out
+            </Button>
+          ) : (
+            <Button asChild variant="ghost" size="sm" className="shrink-0 gap-2 text-sidebar-foreground/60 hover:text-sidebar-foreground text-xs">
+              <Link to="/auth">
+                <LogIn className="h-4 w-4" /> Log in
+              </Link>
+            </Button>
+          )}
         </div>
         <div className="flex items-center justify-center gap-1">
             <a

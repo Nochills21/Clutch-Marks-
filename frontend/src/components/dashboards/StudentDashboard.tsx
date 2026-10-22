@@ -140,6 +140,12 @@ export function StudentDashboard() {
     { label: "Notes studied", value: `${counts.notesDone}/${counts.notes}`, icon: ClipboardList, to: "/notes" },
   ];
 
+  // A blank announcement row rendered an empty card on the dashboard — the
+  // table's guards stop replacement characters, not an empty title and body.
+  const showableAnnouncements = announcements.filter(
+    (a) => (a.title ?? "").trim() || (a.content ?? "").trim(),
+  );
+
   const quickActions = [
     { label: "Continue Lessons", icon: BookOpen, to: "/lessons", desc: "Pick up where you left off" },
     { label: "Practice Quiz", icon: Brain, to: "/quizzes", desc: "Test your knowledge" },
@@ -200,7 +206,7 @@ export function StudentDashboard() {
       )}
 
       {/* Notices sit at the top so new announcements are seen before anything else. */}
-      {announcements.length > 0 && (
+      {showableAnnouncements.length > 0 && (
         <section className="space-y-4">
           <div className="space-y-2">
             <p className="eyebrow flex items-center gap-2">
@@ -209,7 +215,7 @@ export function StudentDashboard() {
             <h2 className="font-display text-2xl font-normal tracking-tight">Announcements</h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {announcements.map((a) => (
+            {showableAnnouncements.map((a) => (
               <Card key={a.id} className="surface">
                 <CardContent className="p-5">
                   <p className="font-display text-base tracking-tight">{a.title}</p>
