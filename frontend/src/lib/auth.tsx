@@ -1,11 +1,33 @@
 // Auth context: Supabase session, role (admin/student/parent), approval state,
 // and the admin-only student-preview mode. Every gated component consumes this.
 import { createContext, useCallback, useContext, useEffect, useRef, useState, ReactNode } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { useLocation } from "react-router-dom";
 import { retrySupabase } from "@/lib/net";
-import { readAssurance, type AssuranceLevel } from "@/lib/mfa";
+import { shouldBootstrapAuth } from "@/lib/authBootstrap";
+import type { AssuranceLevel } from "@/lib/mfa";
 import type { User, Session } from "@supabase/supabase-js";
 import { useSyncExternalStore } from "react";
+
+type SupabaseClient = (typeof import("@/integrations/supabase/client"))["supabase"];
+
+/**
+ * The Supabase client, fetched only when something actually needs it.
+ *
+ * This used to be a static `import { supabase }`, which put
+ * @supabase/supabase-js (173 kB) in the entry chunk of every page — including
+ * the landing page, which never reads the session. A dynamic import is not just
+ * a smaller entry: it means the browser never *requests* the client until auth
+ * boots (see `authBootstrap.ts`) or a page runs its first query.
+ *
+ * Module-local singleton, so the client is still created once; concurrent
+ * callers await the same promise.
+ */
+let clientPromise: Promise<SupabaseClient> | null = null;
+
+function getSupabase(): Promise<SupabaseClient> {
+  clientPromise ??= import("@/integrations/supabase/client").then((module) => module.supabase);
+  return clientPromise;
+}
 
 type AppRole = "admin" | "student" | "parent";
 
@@ -21,6 +43,12 @@ interface AuthContextType {
   aal: AssuranceLevel | null;
   /** Re-read the assurance level, e.g. after a TOTP code was accepted. */
   refreshAssurance: () => Promise<void>;
+  /**
+   * False while a signed-in user's role is still being looked up. Guards must wait
+   * for it: `role === null` in that window means "not asked yet", and treating it
+   * as "not an admin" sent a hard reload of an /admin URL to /dashboard.
+   */
+  roleResolved: boolean;
   loading: boolean;
   studentPreview: boolean;
   exitStudentPreview: () => void;
@@ -33,6 +61,7 @@ const AuthContext = createContext<AuthContextType>({
   role: null,
   aal: null,
   refreshAssurance: async () => {},
+  roleResolved: false,
   loading: true,
   studentPreview: false,
   exitStudentPreview: () => {},
@@ -72,7 +101,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [role, setRole] = useState<AppRole | null>(null);
   const [aal, setAal] = useState<AssuranceLevel | null>(null);
-  const [sessionLoading, setSessionLoading] = useState(true);
+  const [roleResolved, setRoleResolved] = useState(false);
+  // Auth is deferred: this latches to true the first time the current page (or
+  // a navigation) needs a session. Until then `sessionLoading` is false and the
+  // provider reports a signed-out visitor without touching the network.
+  const location = useLocation();
+  const [booted, setBooted] = useState(() => shouldBootstrapAuth(location.pathname));
+  const [sessionLoading, setSessionLoading] = useState(booted);
+  // Resolved by the loader below; the restore effect waits for it.
+  const [client, setClient] = useState<SupabaseClient | null>(null);
   const [roleLoading, setRoleLoading] = useState(false);
 
   // Both `getSession()` and `onAuthStateChange` report the same signed-in user
@@ -83,6 +120,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // AAL comes from the access token's own claim, so reading it is a local decode
   // rather than a round trip; it changes on sign-in and when a code is verified.
   const refreshAssurance = useCallback(async () => {
+    // `mfa` reaches the client too, so it is loaded with it rather than ahead of it.
+    const { readAssurance } = await import("@/lib/mfa");
     const { currentLevel } = await readAssurance();
     setAal(currentLevel);
   }, []);
@@ -92,6 +131,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const promise = (async () => {
       setRoleLoading(true);
+      setRoleResolved(false);
       try {
         // A transient blip must not silently demote an admin to a student.
         //
@@ -100,6 +140,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // row the signup trigger wrote. `maybeSingle()` answers that with 406 and
         // null data, which hid the console from exactly the account that owns it.
         // Admin wins, then parent, then student.
+        const supabase = await getSupabase();
         const { data } = await retrySupabase(() =>
           supabase.from("user_roles").select("role").eq("user_id", userId),
         );
@@ -121,6 +162,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         roleRequest.current = null;
       } finally {
         setRoleLoading(false);
+        setRoleResolved(true);
       }
     })();
 
@@ -128,10 +170,38 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return promise;
   }, []);
 
+  // Navigate somewhere that needs a session — a gated page, the sign-in form —
+  // and this is the moment the client is worth downloading. Latched: walking
+  // back to a public page afterwards must not tear the session down.
   useEffect(() => {
+    if (booted || !shouldBootstrapAuth(location.pathname)) return;
+    setSessionLoading(true);
+    setBooted(true);
+  }, [booted, location.pathname]);
+
+  // The fetch itself. A failed chunk request must not leave the app behind a
+  // spinner forever, so the failure path clears `sessionLoading` too.
+  useEffect(() => {
+    if (!booted) return;
+    let active = true;
+    getSupabase()
+      .then((loaded) => {
+        if (active) setClient(loaded);
+      })
+      .catch((error) => {
+        console.error("auth: could not load the Supabase client", error);
+        if (active) setSessionLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [booted]);
+
+  useEffect(() => {
+    if (!client) return;
     let active = true;
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    const { data: { subscription } } = client.auth.onAuthStateChange(
       (_event, session) => {
         if (!active) return;
         setSession(session);
@@ -169,14 +239,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // `retrySupabase` retries a transient failure (which resolves with `error`)
     // and passes a definitive one through, so only a rejected token reaches the
     // branch below.
-    retrySupabase(() => supabase.auth.getSession(), { attempts: 3 })
+    retrySupabase(() => client.auth.getSession(), { attempts: 3 })
       .then(async ({ data, error }) => {
         if (!active) return;
         // A refresh token the server rejects (revoked, expired, or left over from
         // an old project) comes back as `error`. Keeping it means every visit
         // replays the same failing refresh, so clear the local copy.
         if (error) {
-          await supabase.auth.signOut({ scope: "local" }).catch(() => {});
+          await client.auth.signOut({ scope: "local" }).catch(() => {});
           if (!active) return;
         }
         const session = error ? null : data?.session ?? null;
@@ -198,7 +268,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       active = false;
       subscription.unsubscribe();
     };
-  }, [fetchRole, refreshAssurance]);
+  }, [client, fetchRole, refreshAssurance]);
 
   // Kill preview mode whenever the signed-in user changes or signs out.
   useEffect(() => {
@@ -207,11 +277,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     setPreviewActive(false);
-    await supabase.auth.signOut();
-    setUser(null);
-    setSession(null);
-    setRole(null);
-    setAal(null);
+    try {
+      const supabase = await getSupabase();
+      await supabase.auth.signOut();
+    } catch (error) {
+      // Still clear the local state: leaving someone signed in because a request
+      // failed is the worse outcome, and GoTrue has already dropped the token.
+      console.error("auth: sign-out request failed", error);
+    } finally {
+      setUser(null);
+      setSession(null);
+      setRole(null);
+      setAal(null);
+    }
   };
 
   const loading = sessionLoading || (!!user && roleLoading);
@@ -230,6 +308,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         role: isAdmin && previewOn ? "student" : role,
         aal,
         refreshAssurance,
+        roleResolved,
         studentPreview: isAdmin && previewOn,
         exitStudentPreview: () => setPreviewActive(false),
         loading,

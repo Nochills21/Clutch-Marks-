@@ -14,7 +14,6 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/lib/auth";
 import { isTransientError } from "@/lib/net";
-import { AppLayout } from "@/components/AppLayout";
 import { PublicShell } from "@/components/PublicShell";
 import { AdminRoute } from "@/components/AdminRoute";
 import { ApprovalGate } from "@/components/ApprovalGate";
@@ -28,6 +27,16 @@ import Index from "./pages/Index";
 // jsPDF/html2canvas export libraries — were pulled into a single 1.2 MB
 // initial chunk (341 kB gzip) that every visitor downloaded before seeing
 // anything.
+// The signed-in shell (sidebar, notification centre, content protection) is the
+// single biggest thing the landing page used to download for nothing: importing
+// it statically put every one of its ui primitives in the entry's graph, and
+// Lighthouse measured ~44 KiB of that chunk never executing on `/`. The shell is
+// still a route wrapper, so this is a lazy boundary like every page below —
+// Suspense already wraps the routes, and a visitor who is not signing in never
+// fetches it.
+const AppLayout = lazy(() =>
+  import("@/components/AppLayout").then((m) => ({ default: m.AppLayout })),
+);
 const Auth = lazy(() => import("./pages/Auth"));
 const AuthCallback = lazy(() => import("./pages/AuthCallback"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));

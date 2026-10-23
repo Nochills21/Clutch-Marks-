@@ -34,6 +34,20 @@ export function normalizeUsername(raw: string): string {
     .toLowerCase();
 }
 
+/**
+ * Escape a value for a case-insensitive LIKE lookup (PostgREST `ilike`).
+ *
+ * Handles and email addresses are matched case-insensitively but must match
+ * literally: `_` is legal in both alphabets and in SQL LIKE it matches any
+ * single character, so an unescaped `sam_1` also selects `samx1`. On the login
+ * path that made one student's handle resolve to another account; on the parent
+ * dashboard it could link the wrong child. Every `ilike` on a user-supplied
+ * identifier goes through this.
+ */
+export function escapeLike(raw: string): string {
+  return String(raw ?? "").replace(/([\\%_])/g, "\\$1");
+}
+
 export function usernameProblem(raw: string): UsernameProblem | null {
   const value = normalizeUsername(raw);
   if (!value) return "empty";

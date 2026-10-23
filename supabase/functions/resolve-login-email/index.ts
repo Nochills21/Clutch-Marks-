@@ -31,6 +31,13 @@ function clientKey(req: Request): string {
 
 const USERNAME_RE = /^[A-Za-z0-9._-]{2,64}$/;
 
+/**
+ * Case-insensitive, but literal: an underscore in a handle is a character, not a
+ * single-character wildcard, so `sam_1` must not also resolve `samx1`. See the
+ * same helper in login-with-username for the measured failure.
+ */
+const likeLiteral = (value: string) => value.replace(/([\\%_])/g, "\\$1");
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
@@ -86,7 +93,7 @@ Deno.serve(async (req) => {
     const { data, error } = await admin
       .from("profiles")
       .select("email")
-      .ilike("username", identifier)
+      .ilike("username", likeLiteral(identifier))
       .maybeSingle();
 
     if (error) {

@@ -7,16 +7,33 @@
 // with fewer pages rather than like someone one code away from the console. So the
 // AAL1 case gets the gate that explains itself and offers both paths (set up, or
 // enter the code).
+import { Suspense, lazy } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
-import { MfaGate } from "@/components/TwoFactor";
+
+// The gate is lazy because it drags in the TOTP client (`@/lib/mfa` → the
+// Supabase client) and a second-factor UI that only an admin at AAL1 ever sees.
+// Imported eagerly it sat in the entry's module graph, so the landing page paid
+// for it. Only renders below when the role and the missing factor are known.
+const MfaGate = lazy(() =>
+  import("@/components/TwoFactor").then((m) => ({ default: m.MfaGate })),
+);
 
 export function AdminRoute() {
-  const { role, aal, loading } = useAuth();
-  if (loading) return null;
+  const { role, aal, loading, roleResolved } = useAuth();
+  // `loading` covers the session; `roleResolved` covers the role lookup itself,
+  // which starts a tick later. Without the second check a hard reload of
+  // /admin/anything bounced to /dashboard before the admin row was read.
+  if (loading || !roleResolved) return null;
   if (role !== "admin") return <Navigate to="/dashboard" replace />;
   // `null` means the level could not be read; treat that as "not verified" rather
   // than as permission, so a failed call cannot open the console.
-  if (aal !== "aal2") return <MfaGate />;
+  if (aal !== "aal2") {
+    return (
+      <Suspense fallback={null}>
+        <MfaGate />
+      </Suspense>
+    );
+  }
   return <Outlet />;
 }

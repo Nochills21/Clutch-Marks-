@@ -50,27 +50,29 @@ describe("per-term copy", () => {
   it("quotes the billed total, not months × rate", () => {
     // 6.67 × 12 is 80.04; the plan is billed 80. The total is the column.
     expect(totalOf(annual)).toBe("$80");
-    expect(totalOf(quarterly)).toBe("$60");
-    expect(totalOf(monthly)).toBe("$40");
+    expect(totalOf(quarterly)).toBe("$45");
+    expect(totalOf(monthly)).toBe("$30");
   });
 
   it("derives the monthly rate from the total", () => {
-    expect(perMonthOf(quarterly)).toBe("$20");
+    expect(perMonthOf(quarterly)).toBe("$15");
     expect(perMonthOf(annual)).toBe("$6.67");
-    expect(perMonthOf(monthly)).toBe("$40");
+    expect(perMonthOf(monthly)).toBe("$30");
   });
 
   it("only names a billed amount for terms longer than a month", () => {
     expect(billedLabel(monthly)).toBe("/month");
-    expect(billedLabel(quarterly)).toBe("/month · billed $60");
+    expect(billedLabel(quarterly)).toBe("/month · billed $45");
     expect(billedLabel(annual)).toBe("/month · billed $80");
   });
 });
 
 describe("savings vs monthly", () => {
   it("computes the per-month saving and the percentage", () => {
-    expect(savingsVsMonthly(quarterly)).toEqual({ amount: 20, label: "$20", percent: 50 });
-    expect(savingsVsMonthly(annual)).toEqual({ amount: 33.33, label: "$33.33", percent: 83 });
+    // $15/month against the $30 monthly rate is half price; the annual tier is
+    // $6.67/month, a saving of $23.33 (78%) per month.
+    expect(savingsVsMonthly(quarterly)).toEqual({ amount: 15, label: "$15", percent: 50 });
+    expect(savingsVsMonthly(annual)).toEqual({ amount: 23.33, label: "$23.33", percent: 78 });
   });
 
   it("has nothing to compare the monthly plan to", () => {

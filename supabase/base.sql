@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-22T09:28:31.388Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-22T14:13:02.393Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -919,7 +919,7 @@ declare
   _paper_id uuid;
 begin
   if _uid is null then raise exception 'Not authenticated'; end if;
-  if not public.has_role(_uid, 'admin') then raise exception 'Admin only'; end if;
+  if not public.is_admin(_uid) then raise exception 'Admin only'; end if;
 
   select * into _c from public.past_paper_link_checks where id = p_check_id for update;
   if _c.id is null then raise exception 'Candidate not found'; end if;
@@ -1205,7 +1205,7 @@ declare
   _uid uuid := auth.uid();
 begin
   if _uid is null then raise exception 'Not authenticated'; end if;
-  if not public.has_role(_uid, 'admin') then raise exception 'Admin only'; end if;
+  if not public.is_admin(_uid) then raise exception 'Admin only'; end if;
 
   return query
 
@@ -1407,7 +1407,7 @@ declare
   _c record;
 begin
   if _uid is null then raise exception 'Not authenticated'; end if;
-  if not public.has_role(_uid, 'admin') then raise exception 'Admin only'; end if;
+  if not public.is_admin(_uid) then raise exception 'Admin only'; end if;
 
   select * into _c from public.past_paper_link_checks where id = p_check_id for update;
   if _c.id is null then raise exception 'Candidate not found'; end if;
@@ -1995,14 +1995,33 @@ BEGIN
     v_username := left(v_username, 26) || '-' || left(replace(NEW.id::text, '-', ''), 5);
   END IF;
 
-  INSERT INTO public.profiles (user_id, full_name, username, email, avatar_url)
-  VALUES (
-    NEW.id,
-    v_full_name,
-    v_username,
-    NEW.email,
-    v_avatar
-  );
+  BEGIN
+    INSERT INTO public.profiles (user_id, full_name, username, email, avatar_url)
+    VALUES (
+      NEW.id,
+      v_full_name,
+      v_username,
+      NEW.email,
+      v_avatar
+    );
+  EXCEPTION WHEN unique_violation THEN
+    -- Two sign-ups claiming the same handle can both pass the EXISTS check
+    -- above; the index is what actually decides. Retry once with the suffix so
+    -- the loser still gets an account, and let any other collision (a duplicate
+    -- email, an existing profile) surface as before.
+    IF v_username IS NULL THEN
+      RAISE;
+    END IF;
+    v_username := left(v_username, 26) || '-' || left(replace(NEW.id::text, '-', ''), 5);
+    INSERT INTO public.profiles (user_id, full_name, username, email, avatar_url)
+    VALUES (
+      NEW.id,
+      v_full_name,
+      v_username,
+      NEW.email,
+      v_avatar
+    );
+  END;
 
   -- PDPL: record which privacy/terms version this account accepted, and when the
   -- server accepted it. Absent for provider sign-ups (Google) and for accounts an
@@ -2020,8 +2039,8 @@ BEGIN
     ON CONFLICT DO NOTHING;
   END IF;
 
-  -- SECURITY: Never trust client-sent role. Everyone starts as a student on
-  -- the free plan; only admins can elevate roles afterwards. The ONLY public
+  -- SECURITY: Never trust client-sent role. Everyone starts as a student on the
+  -- free plan; only admins can elevate roles afterwards. The ONLY public
   -- elevation is self-registering as a parent (limited view of linked
   -- children); 'admin' in public metadata is ignored — manage-accounts
   -- provisions admins with a verified service-role update after creation.
@@ -2130,6 +2149,24 @@ AS $function$
     select 1 from public.user_roles
     where user_id = auth.uid() and role = 'parent'
   );
+$function$;
+
+CREATE OR REPLACE FUNCTION public.is_aal2()
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE
+ SET search_path TO 'public'
+AS $function$
+  select public.request_aal() = 'aal2'
+$function$;
+
+CREATE OR REPLACE FUNCTION public.is_admin(_user_id uuid)
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  select public.has_role(_user_id, 'admin'::app_role) and public.is_aal2()
 $function$;
 
 CREATE OR REPLACE FUNCTION public.is_linked_parent(_parent_auth_id uuid, _student_auth_id uuid)
@@ -2615,7 +2652,7 @@ BEGIN
   -- the caller is; that mistake made the whole guard return early for every
   -- request. A service-role call is the one with no `sub` claim.
   _is_end_user := _uid IS NOT NULL;
-  _is_admin := _is_end_user AND public.has_role(_uid, 'admin');
+  _is_admin := _is_end_user AND public.is_admin(_uid);
 
   IF NEW.user_id IS DISTINCT FROM OLD.user_id AND _is_end_user AND NOT _is_admin THEN
     RAISE EXCEPTION 'Only an administrator can change a profile owner';
@@ -2820,6 +2857,18 @@ BEGIN
 END;
 $function$;
 
+CREATE OR REPLACE FUNCTION public.request_aal()
+ RETURNS text
+ LANGUAGE sql
+ STABLE
+ SET search_path TO 'public'
+AS $function$
+  select coalesce(
+    nullif(current_setting('request.jwt.claims', true), '')::jsonb ->> 'aal',
+    'aal1'
+  )
+$function$;
+
 CREATE OR REPLACE FUNCTION public.resolve_paper_link(p_check_id uuid)
  RETURNS jsonb
  LANGUAGE plpgsql
@@ -2831,7 +2880,7 @@ declare
   _c record;
 begin
   if _uid is null then raise exception 'Not authenticated'; end if;
-  if not public.has_role(_uid, 'admin') then raise exception 'Admin only'; end if;
+  if not public.is_admin(_uid) then raise exception 'Admin only'; end if;
 
   select * into _c from public.past_paper_link_checks where id = p_check_id for update;
   if _c.id is null then raise exception 'Link check not found'; end if;
@@ -3206,7 +3255,7 @@ AS $function$
     left join per_topic pt on pt.id = st.topic_id
     left join public.subject_levels sl on sl.id = t.subject_level_id
     left join public.subjects sub on sub.id = sl.subject_id
-   where public.has_role(auth.uid(), 'admin'::app_role)
+   where public.is_admin(auth.uid())
    order by st.spec_code, st.sort_order, st.code;
 $function$;
 
@@ -3631,21 +3680,21 @@ alter table public."learning_objectives" enable row level security;
 drop policy if exists "Admin audit log read - approved admins only" on public."admin_audit_log";
 create policy "Admin audit log read - approved admins only" on public."admin_audit_log" for select using ((EXISTS ( SELECT 1
    FROM user_roles r
-  WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND (r.is_approved = true)))));
+  WHERE ((r.user_id = auth.uid()) AND ((r.role = 'admin'::app_role) AND is_aal2()) AND (r.is_approved = true)))));
 drop policy if exists "Archive read - approved admins only" on public."admin_audit_log_archive";
 create policy "Archive read - approved admins only" on public."admin_audit_log_archive" for select to "authenticated" using ((EXISTS ( SELECT 1
    FROM user_roles r
-  WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND r.is_approved))));
+  WHERE ((r.user_id = auth.uid()) AND ((r.role = 'admin'::app_role) AND is_aal2()) AND r.is_approved))));
 drop policy if exists "Admins can manage all AI audit log" on public."ai_audit_log";
-create policy "Admins can manage all AI audit log" on public."ai_audit_log" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage all AI audit log" on public."ai_audit_log" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Students can view own AI audit log" on public."ai_audit_log";
 create policy "Students can view own AI audit log" on public."ai_audit_log" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage all AI corrections" on public."ai_correction";
-create policy "Admins can manage all AI corrections" on public."ai_correction" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage all AI corrections" on public."ai_correction" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Students can insert own AI corrections" on public."ai_correction";
 create policy "Students can insert own AI corrections" on public."ai_correction" for insert to "authenticated" with check (((user_id = auth.uid()) AND ((EXISTS ( SELECT 1
    FROM user_roles
-  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role) AND (user_roles.is_approved = true)))) OR (EXISTS ( SELECT 1
+  WHERE ((user_roles.user_id = auth.uid()) AND ((user_roles.role = 'admin'::app_role) AND is_aal2()) AND (user_roles.is_approved = true)))) OR (EXISTS ( SELECT 1
    FROM subscriptions
   WHERE ((subscriptions.user_id = auth.uid()) AND (subscriptions.status = 'active'::text) AND ((subscriptions.ends_at IS NULL) OR (subscriptions.ends_at > now()))))))));
 drop policy if exists "Students can view own AI corrections" on public."ai_correction";
@@ -3659,7 +3708,7 @@ create policy "Users read own announcement state" on public."announcement_reads"
 drop policy if exists "Users update own announcement state" on public."announcement_reads";
 create policy "Users update own announcement state" on public."announcement_reads" for update to "authenticated" using ((user_id = auth.uid())) with check ((user_id = auth.uid()));
 drop policy if exists "Admins can manage announcements" on public."announcements";
-create policy "Admins can manage announcements" on public."announcements" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage announcements" on public."announcements" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Authenticated can view announcements" on public."announcements";
 create policy "Authenticated can view announcements" on public."announcements" for select to "authenticated" using (true);
 drop policy if exists "Users can delete own bookmarks" on public."bookmarks";
@@ -3669,23 +3718,23 @@ create policy "Users can insert own bookmarks" on public."bookmarks" for insert 
 drop policy if exists "Users can view own bookmarks" on public."bookmarks";
 create policy "Users can view own bookmarks" on public."bookmarks" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins read all consent records" on public."consent_records";
-create policy "Admins read all consent records" on public."consent_records" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins read all consent records" on public."consent_records" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Users read own consent records" on public."consent_records";
 create policy "Users read own consent records" on public."consent_records" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage all feedback" on public."content_feedback";
-create policy "Admins can manage all feedback" on public."content_feedback" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage all feedback" on public."content_feedback" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Users can insert own feedback" on public."content_feedback";
 create policy "Users can insert own feedback" on public."content_feedback" for insert to "authenticated" with check ((user_id = auth.uid()));
 drop policy if exists "Users can view own feedback" on public."content_feedback";
 create policy "Users can view own feedback" on public."content_feedback" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins manage content file versions" on public."content_file_versions";
-create policy "Admins manage content file versions" on public."content_file_versions" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins manage content file versions" on public."content_file_versions" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Content revisions read - approved admins only" on public."content_revisions";
 create policy "Content revisions read - approved admins only" on public."content_revisions" for select using ((EXISTS ( SELECT 1
    FROM user_roles r
-  WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND (r.is_approved = true)))));
+  WHERE ((r.user_id = auth.uid()) AND ((r.role = 'admin'::app_role) AND is_aal2()) AND (r.is_approved = true)))));
 drop policy if exists "Admins manage data requests" on public."data_requests";
-create policy "Admins manage data requests" on public."data_requests" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins manage data requests" on public."data_requests" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Users file own data requests" on public."data_requests";
 create policy "Users file own data requests" on public."data_requests" for insert to "authenticated" with check ((user_id = auth.uid()));
 drop policy if exists "Users read own data requests" on public."data_requests";
@@ -3695,11 +3744,11 @@ create policy "Users withdraw own pending request" on public."data_requests" for
 drop policy if exists "admins_clear_suppressions" on public."email_suppressions";
 create policy "admins_clear_suppressions" on public."email_suppressions" for delete to "authenticated" using ((EXISTS ( SELECT 1
    FROM user_roles r
-  WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND (r.is_approved = true)))));
+  WHERE ((r.user_id = auth.uid()) AND ((r.role = 'admin'::app_role) AND is_aal2()) AND (r.is_approved = true)))));
 drop policy if exists "admins_view_suppressions" on public."email_suppressions";
 create policy "admins_view_suppressions" on public."email_suppressions" for select to "authenticated" using ((EXISTS ( SELECT 1
    FROM user_roles r
-  WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND (r.is_approved = true)))));
+  WHERE ((r.user_id = auth.uid()) AND ((r.role = 'admin'::app_role) AND is_aal2()) AND (r.is_approved = true)))));
 drop policy if exists "delete own exam dates" on public."exam_dates";
 create policy "delete own exam dates" on public."exam_dates" for delete using ((auth.uid() = user_id));
 drop policy if exists "insert own exam dates" on public."exam_dates";
@@ -3709,9 +3758,9 @@ create policy "read own exam dates" on public."exam_dates" for select using ((au
 drop policy if exists "update own exam dates" on public."exam_dates";
 create policy "update own exam dates" on public."exam_dates" for update using ((auth.uid() = user_id)) with check ((auth.uid() = user_id));
 drop policy if exists "Admins post to any thread" on public."feedback_messages";
-create policy "Admins post to any thread" on public."feedback_messages" for insert to "authenticated" with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins post to any thread" on public."feedback_messages" for insert to "authenticated" with check (is_admin(auth.uid()));
 drop policy if exists "Thread participants read messages" on public."feedback_messages";
-create policy "Thread participants read messages" on public."feedback_messages" for select to "authenticated" using (((sender_id = auth.uid()) OR has_role(auth.uid(), 'admin'::app_role) OR (EXISTS ( SELECT 1
+create policy "Thread participants read messages" on public."feedback_messages" for select to "authenticated" using (((sender_id = auth.uid()) OR is_admin(auth.uid()) OR (EXISTS ( SELECT 1
    FROM content_feedback f
   WHERE ((f.id = feedback_messages.feedback_id) AND (f.user_id = auth.uid()))))));
 drop policy if exists "Users post to their own thread" on public."feedback_messages";
@@ -3719,7 +3768,7 @@ create policy "Users post to their own thread" on public."feedback_messages" for
    FROM content_feedback f
   WHERE ((f.id = feedback_messages.feedback_id) AND (f.user_id = auth.uid()))))));
 drop policy if exists "Admins can view all flashcard_progress" on public."flashcard_progress";
-create policy "Admins can view all flashcard_progress" on public."flashcard_progress" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can view all flashcard_progress" on public."flashcard_progress" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Users can insert own flashcard_progress" on public."flashcard_progress";
 create policy "Users can insert own flashcard_progress" on public."flashcard_progress" for insert to "authenticated" with check ((user_id = auth.uid()));
 drop policy if exists "Users can update own flashcard_progress" on public."flashcard_progress";
@@ -3727,19 +3776,19 @@ create policy "Users can update own flashcard_progress" on public."flashcard_pro
 drop policy if exists "Users can view own flashcard_progress" on public."flashcard_progress";
 create policy "Users can view own flashcard_progress" on public."flashcard_progress" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage flashcard_sets" on public."flashcard_sets";
-create policy "Admins can manage flashcard_sets" on public."flashcard_sets" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage flashcard_sets" on public."flashcard_sets" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Authenticated can view flashcard_sets" on public."flashcard_sets";
 create policy "Authenticated can view flashcard_sets" on public."flashcard_sets" for select to "authenticated" using (true);
 drop policy if exists "Admins can manage flashcards" on public."flashcards";
-create policy "Admins can manage flashcards" on public."flashcards" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage flashcards" on public."flashcards" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Authenticated can view flashcards" on public."flashcards";
 create policy "Authenticated can view flashcards" on public."flashcards" for select to "authenticated" using (true);
 drop policy if exists "Admins can manage homework" on public."homework";
-create policy "Admins can manage homework" on public."homework" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage homework" on public."homework" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view homework" on public."homework";
 create policy "Anyone authenticated can view homework" on public."homework" for select to "authenticated" using (true);
 drop policy if exists "Admins can manage all submissions" on public."homework_submissions";
-create policy "Admins can manage all submissions" on public."homework_submissions" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage all submissions" on public."homework_submissions" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Parents can view linked student submissions" on public."homework_submissions";
 create policy "Parents can view linked student submissions" on public."homework_submissions" for select to "authenticated" using ((has_role(auth.uid(), 'parent'::app_role) AND is_linked_parent(auth.uid(), user_id)));
 drop policy if exists "Users can insert own submissions" on public."homework_submissions";
@@ -3749,13 +3798,13 @@ create policy "Users can update own submissions" on public."homework_submissions
 drop policy if exists "Users can view own submissions" on public."homework_submissions";
 create policy "Users can view own submissions" on public."homework_submissions" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage objectives" on public."learning_objectives";
-create policy "Admins can manage objectives" on public."learning_objectives" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage objectives" on public."learning_objectives" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view objectives" on public."learning_objectives";
 create policy "Anyone authenticated can view objectives" on public."learning_objectives" for select to "authenticated" using (true);
 drop policy if exists "Anyone can view objectives" on public."learning_objectives";
 create policy "Anyone can view objectives" on public."learning_objectives" for select to "anon" using (true);
 drop policy if exists "Admins can view all progress" on public."lesson_progress";
-create policy "Admins can view all progress" on public."lesson_progress" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can view all progress" on public."lesson_progress" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Parents can view linked student progress" on public."lesson_progress";
 create policy "Parents can view linked student progress" on public."lesson_progress" for select to "authenticated" using ((has_role(auth.uid(), 'parent'::app_role) AND is_linked_parent(auth.uid(), user_id)));
 drop policy if exists "Users can insert own progress" on public."lesson_progress";
@@ -3765,7 +3814,7 @@ create policy "Users can update own progress" on public."lesson_progress" for up
 drop policy if exists "Users can view own progress" on public."lesson_progress";
 create policy "Users can view own progress" on public."lesson_progress" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage lessons" on public."lessons";
-create policy "Admins can manage lessons" on public."lessons" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage lessons" on public."lessons" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view lessons" on public."lessons";
 create policy "Anyone authenticated can view lessons" on public."lessons" for select to "authenticated" using (true);
 drop policy if exists "Anyone can view lessons" on public."lessons";
@@ -3775,19 +3824,19 @@ create policy "No client access to login throttle" on public."login_lookup_throt
 drop policy if exists "Users manage own material progress" on public."material_progress";
 create policy "Users manage own material progress" on public."material_progress" for all using ((auth.uid() = user_id)) with check ((auth.uid() = user_id));
 drop policy if exists "Admins can manage all notifications" on public."notifications";
-create policy "Admins can manage all notifications" on public."notifications" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage all notifications" on public."notifications" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Users can update own notifications" on public."notifications";
 create policy "Users can update own notifications" on public."notifications" for update to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Users can view own notifications" on public."notifications";
 create policy "Users can view own notifications" on public."notifications" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage review schedules" on public."objective_reviews";
-create policy "Admins can manage review schedules" on public."objective_reviews" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage review schedules" on public."objective_reviews" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Students can view their own review schedule" on public."objective_reviews";
 create policy "Students can view their own review schedule" on public."objective_reviews" for select to "authenticated" using ((auth.uid() = user_id));
 drop policy if exists "Service role only" on public."parent_link_invites";
 create policy "Service role only" on public."parent_link_invites" for all to "anon", "authenticated" using (false) with check (false);
 drop policy if exists "Admins can manage all links" on public."parent_student_links";
-create policy "Admins can manage all links" on public."parent_student_links" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage all links" on public."parent_student_links" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Parents can create own links" on public."parent_student_links";
 create policy "Parents can create own links" on public."parent_student_links" for insert with check ((has_role(auth.uid(), 'parent'::app_role) AND (parent_id = auth.uid())));
 drop policy if exists "Parents can remove own links" on public."parent_student_links";
@@ -3797,19 +3846,19 @@ create policy "Parents can view own links" on public."parent_student_links" for 
 drop policy if exists "Students can view own links" on public."parent_student_links";
 create policy "Students can view own links" on public."parent_student_links" for select to "authenticated" using ((student_id = auth.uid()));
 drop policy if exists "past paper attempts read own" on public."past_paper_attempts";
-create policy "past paper attempts read own" on public."past_paper_attempts" for select to "authenticated" using (((user_id = auth.uid()) OR has_role(auth.uid(), 'admin'::app_role)));
+create policy "past paper attempts read own" on public."past_paper_attempts" for select to "authenticated" using (((user_id = auth.uid()) OR is_admin(auth.uid())));
 drop policy if exists "past paper link checks read - approved admins only" on public."past_paper_link_checks";
 create policy "past paper link checks read - approved admins only" on public."past_paper_link_checks" for select using ((EXISTS ( SELECT 1
    FROM user_roles r
-  WHERE ((r.user_id = auth.uid()) AND (r.role = 'admin'::app_role) AND (r.is_approved = true)))));
+  WHERE ((r.user_id = auth.uid()) AND ((r.role = 'admin'::app_role) AND is_aal2()) AND (r.is_approved = true)))));
 drop policy if exists "Admins manage past papers" on public."past_papers";
-create policy "Admins manage past papers" on public."past_papers" for all using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins manage past papers" on public."past_papers" for all using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Anyone can view past papers" on public."past_papers";
 create policy "Anyone can view past papers" on public."past_papers" for select to "anon" using (true);
 drop policy if exists "Authenticated users can view past papers" on public."past_papers";
 create policy "Authenticated users can view past papers" on public."past_papers" for select using ((auth.uid() IS NOT NULL));
 drop policy if exists "Admins can view all practice_attempts" on public."practice_attempts";
-create policy "Admins can view all practice_attempts" on public."practice_attempts" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can view all practice_attempts" on public."practice_attempts" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Users can insert own practice_attempts" on public."practice_attempts";
 create policy "Users can insert own practice_attempts" on public."practice_attempts" for insert to "authenticated" with check ((user_id = auth.uid()));
 drop policy if exists "Users can update own practice_attempts" on public."practice_attempts";
@@ -3817,9 +3866,9 @@ create policy "Users can update own practice_attempts" on public."practice_attem
 drop policy if exists "Users can view own practice_attempts" on public."practice_attempts";
 create policy "Users can view own practice_attempts" on public."practice_attempts" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can update all profiles" on public."profiles";
-create policy "Admins can update all profiles" on public."profiles" for update to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can update all profiles" on public."profiles" for update to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Admins can view all profiles" on public."profiles";
-create policy "Admins can view all profiles" on public."profiles" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can view all profiles" on public."profiles" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Parents can view linked and findable students" on public."profiles";
 create policy "Parents can view linked and findable students" on public."profiles" for select using (i_am_parent());
 drop policy if exists "System inserts profiles" on public."profiles";
@@ -3829,21 +3878,21 @@ create policy "Users can update own profile" on public."profiles" for update to 
 drop policy if exists "Users can view own profile" on public."profiles";
 create policy "Users can view own profile" on public."profiles" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins view all question bookmarks" on public."question_bookmarks";
-create policy "Admins view all question bookmarks" on public."question_bookmarks" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins view all question bookmarks" on public."question_bookmarks" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Users manage own question bookmarks" on public."question_bookmarks";
 create policy "Users manage own question bookmarks" on public."question_bookmarks" for all to "authenticated" using ((user_id = auth.uid())) with check ((user_id = auth.uid()));
 drop policy if exists "admins read all question timings" on public."question_timings";
-create policy "admins read all question timings" on public."question_timings" for select using (has_role(auth.uid(), 'admin'::app_role));
+create policy "admins read all question timings" on public."question_timings" for select using (is_admin(auth.uid()));
 drop policy if exists "insert own question timings" on public."question_timings";
 create policy "insert own question timings" on public."question_timings" for insert with check ((auth.uid() = user_id));
 drop policy if exists "read own question timings" on public."question_timings";
 create policy "read own question timings" on public."question_timings" for select using ((auth.uid() = user_id));
 drop policy if exists "Admins can manage questions" on public."questions";
-create policy "Admins can manage questions" on public."questions" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage questions" on public."questions" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view questions" on public."questions";
 create policy "Anyone authenticated can view questions" on public."questions" for select to "authenticated" using (true);
 drop policy if exists "Admins can view all attempts" on public."quiz_attempts";
-create policy "Admins can view all attempts" on public."quiz_attempts" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can view all attempts" on public."quiz_attempts" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Parents can view linked student attempts" on public."quiz_attempts";
 create policy "Parents can view linked student attempts" on public."quiz_attempts" for select to "authenticated" using ((has_role(auth.uid(), 'parent'::app_role) AND is_linked_parent(auth.uid(), user_id)));
 drop policy if exists "Users can insert own attempts" on public."quiz_attempts";
@@ -3853,13 +3902,13 @@ create policy "Users can update own attempts" on public."quiz_attempts" for upda
 drop policy if exists "Users can view own attempts" on public."quiz_attempts";
 create policy "Users can view own attempts" on public."quiz_attempts" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage quizzes" on public."quizzes";
-create policy "Admins can manage quizzes" on public."quizzes" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage quizzes" on public."quizzes" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view published quizzes" on public."quizzes";
-create policy "Anyone authenticated can view published quizzes" on public."quizzes" for select to "authenticated" using (((is_published = true) OR has_role(auth.uid(), 'admin'::app_role)));
+create policy "Anyone authenticated can view published quizzes" on public."quizzes" for select to "authenticated" using (((is_published = true) OR is_admin(auth.uid())));
 drop policy if exists "Anyone can view published quizzes" on public."quizzes";
-create policy "Anyone can view published quizzes" on public."quizzes" for select to "anon" using (((is_published = true) OR has_role(auth.uid(), 'admin'::app_role)));
+create policy "Anyone can view published quizzes" on public."quizzes" for select to "anon" using (((is_published = true) OR is_admin(auth.uid())));
 drop policy if exists "prefs read own" on public."student_prefs";
-create policy "prefs read own" on public."student_prefs" for select using (((user_id = auth.uid()) OR has_role(auth.uid(), 'admin'::app_role)));
+create policy "prefs read own" on public."student_prefs" for select using (((user_id = auth.uid()) OR is_admin(auth.uid())));
 drop policy if exists "prefs update own" on public."student_prefs";
 create policy "prefs update own" on public."student_prefs" for update using ((user_id = auth.uid())) with check ((user_id = auth.uid()));
 drop policy if exists "prefs write own" on public."student_prefs";
@@ -3869,15 +3918,15 @@ create policy "Read own subject prefs" on public."student_subject_prefs" for sel
 drop policy if exists "Write own subject prefs" on public."student_subject_prefs";
 create policy "Write own subject prefs" on public."student_subject_prefs" for all using ((auth.uid() = user_id)) with check ((auth.uid() = user_id));
 drop policy if exists "Admins can manage materials" on public."study_materials";
-create policy "Admins can manage materials" on public."study_materials" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage materials" on public."study_materials" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone can view study materials" on public."study_materials";
-create policy "Anyone can view study materials" on public."study_materials" for select to "anon" using (((file_url IS NULL) OR has_role(auth.uid(), 'admin'::app_role)));
+create policy "Anyone can view study materials" on public."study_materials" for select to "anon" using (((file_url IS NULL) OR is_admin(auth.uid())));
 drop policy if exists "Authenticated can view study materials" on public."study_materials";
 create policy "Authenticated can view study materials" on public."study_materials" for select to "authenticated" using (true);
 drop policy if exists "Admins can manage all study plans" on public."study_plans";
-create policy "Admins can manage all study plans" on public."study_plans" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage all study plans" on public."study_plans" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Admins can view all study plans" on public."study_plans";
-create policy "Admins can view all study plans" on public."study_plans" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can view all study plans" on public."study_plans" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Students can insert own study plans" on public."study_plans";
 create policy "Students can insert own study plans" on public."study_plans" for insert to "authenticated" with check ((user_id = auth.uid()));
 drop policy if exists "Students can update own study plans" on public."study_plans";
@@ -3895,55 +3944,55 @@ create policy "Users can view own study plans" on public."study_plans" for selec
 drop policy if exists "sessions insert own" on public."study_sessions";
 create policy "sessions insert own" on public."study_sessions" for insert with check ((user_id = auth.uid()));
 drop policy if exists "sessions read own" on public."study_sessions";
-create policy "sessions read own" on public."study_sessions" for select using (((user_id = auth.uid()) OR has_role(auth.uid(), 'admin'::app_role)));
+create policy "sessions read own" on public."study_sessions" for select using (((user_id = auth.uid()) OR is_admin(auth.uid())));
 drop policy if exists "sessions update own" on public."study_sessions";
 create policy "sessions update own" on public."study_sessions" for update using ((user_id = auth.uid())) with check ((user_id = auth.uid()));
 drop policy if exists "Admins manage subject levels" on public."subject_levels";
-create policy "Admins manage subject levels" on public."subject_levels" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins manage subject levels" on public."subject_levels" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Anyone can view active subject levels" on public."subject_levels";
-create policy "Anyone can view active subject levels" on public."subject_levels" for select using (((is_active = true) OR ((auth.uid() IS NOT NULL) AND has_role(auth.uid(), 'admin'::app_role))));
+create policy "Anyone can view active subject levels" on public."subject_levels" for select using (((is_active = true) OR ((auth.uid() IS NOT NULL) AND is_admin(auth.uid()))));
 drop policy if exists "Admins manage subjects" on public."subjects";
-create policy "Admins manage subjects" on public."subjects" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins manage subjects" on public."subjects" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Anyone can view active subjects" on public."subjects";
-create policy "Anyone can view active subjects" on public."subjects" for select using (((is_active = true) OR ((auth.uid() IS NOT NULL) AND has_role(auth.uid(), 'admin'::app_role))));
+create policy "Anyone can view active subjects" on public."subjects" for select using (((is_active = true) OR ((auth.uid() IS NOT NULL) AND is_admin(auth.uid()))));
 drop policy if exists "Admins insert subscriptions" on public."subscriptions";
-create policy "Admins insert subscriptions" on public."subscriptions" for insert to "authenticated" with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins insert subscriptions" on public."subscriptions" for insert to "authenticated" with check (is_admin(auth.uid()));
 drop policy if exists "Admins manage subscriptions" on public."subscriptions";
 create policy "Admins manage subscriptions" on public."subscriptions" for update using ((EXISTS ( SELECT 1
    FROM user_roles ur
-  WHERE ((ur.user_id = auth.uid()) AND (ur.role = 'admin'::app_role)))));
+  WHERE ((ur.user_id = auth.uid()) AND ((ur.role = 'admin'::app_role) AND is_aal2())))));
 drop policy if exists "Admins read all subscriptions" on public."subscriptions";
 create policy "Admins read all subscriptions" on public."subscriptions" for select using ((EXISTS ( SELECT 1
    FROM user_roles ur
-  WHERE ((ur.user_id = auth.uid()) AND (ur.role = 'admin'::app_role)))));
+  WHERE ((ur.user_id = auth.uid()) AND ((ur.role = 'admin'::app_role) AND is_aal2())))));
 drop policy if exists "Admins select all subscriptions" on public."subscriptions";
-create policy "Admins select all subscriptions" on public."subscriptions" for select to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins select all subscriptions" on public."subscriptions" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Users create own subscription request" on public."subscriptions";
 create policy "Users create own subscription request" on public."subscriptions" for insert to "authenticated" with check (((auth.uid() = user_id) AND (status = 'pending_payment'::text) AND ((payment_method = ANY (ARRAY['bank_transfer'::text, 'ewallet_urpay'::text])) OR (payment_method IS NULL))));
 drop policy if exists "Users read own subscription" on public."subscriptions";
 create policy "Users read own subscription" on public."subscriptions" for select using ((auth.uid() = user_id));
 drop policy if exists "Users update own pending subscription" on public."subscriptions";
-create policy "Users update own pending subscription" on public."subscriptions" for update to "authenticated" using (((auth.uid() = user_id) AND (status = 'pending_payment'::text))) with check (((auth.uid() = user_id) AND (status = 'pending_payment'::text) AND ((payment_method = ANY (ARRAY['bank_transfer'::text, 'ewallet_urpay'::text])) OR (payment_method IS NULL)) AND (has_role(auth.uid(), 'admin'::app_role) OR ((full_name IS NOT NULL) AND ((receipt_path IS NOT NULL) OR (receipt_url IS NOT NULL))))));
+create policy "Users update own pending subscription" on public."subscriptions" for update to "authenticated" using (((auth.uid() = user_id) AND (status = 'pending_payment'::text))) with check (((auth.uid() = user_id) AND (status = 'pending_payment'::text) AND ((payment_method = ANY (ARRAY['bank_transfer'::text, 'ewallet_urpay'::text])) OR (payment_method IS NULL)) AND (is_admin(auth.uid()) OR ((full_name IS NOT NULL) AND ((receipt_path IS NOT NULL) OR (receipt_url IS NOT NULL))))));
 drop policy if exists "Admins can manage syllabus statements" on public."syllabus_statements";
-create policy "Admins can manage syllabus statements" on public."syllabus_statements" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage syllabus statements" on public."syllabus_statements" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view syllabus statements" on public."syllabus_statements";
 create policy "Anyone authenticated can view syllabus statements" on public."syllabus_statements" for select to "authenticated" using (true);
 drop policy if exists "Anyone can view syllabus statements" on public."syllabus_statements";
 create policy "Anyone can view syllabus statements" on public."syllabus_statements" for select to "anon" using (true);
 drop policy if exists "Admins can manage topics" on public."topics";
-create policy "Admins can manage topics" on public."topics" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage topics" on public."topics" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view topics" on public."topics";
 create policy "Anyone authenticated can view topics" on public."topics" for select to "authenticated" using (true);
 drop policy if exists "Anyone can view topics" on public."topics";
 create policy "Anyone can view topics" on public."topics" for select to "anon" using (true);
 drop policy if exists "Admins can read all roles" on public."user_roles";
-create policy "Admins can read all roles" on public."user_roles" for select using (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can read all roles" on public."user_roles" for select using (is_admin(auth.uid()));
 drop policy if exists "Parents can verify student roles" on public."user_roles";
 create policy "Parents can verify student roles" on public."user_roles" for select using ((i_am_parent() AND (role = 'student'::app_role)));
 drop policy if exists "Users can view own roles" on public."user_roles";
 create policy "Users can view own roles" on public."user_roles" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage weekly reports" on public."weekly_reports";
-create policy "Admins can manage weekly reports" on public."weekly_reports" for all to "authenticated" using (has_role(auth.uid(), 'admin'::app_role)) with check (has_role(auth.uid(), 'admin'::app_role));
+create policy "Admins can manage weekly reports" on public."weekly_reports" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Parents can view linked student reports" on public."weekly_reports";
 create policy "Parents can view linked student reports" on public."weekly_reports" for select to "authenticated" using ((has_role(auth.uid(), 'parent'::app_role) AND is_linked_parent(auth.uid(), student_user_id)));
 drop policy if exists "Students can view own reports" on public."weekly_reports";
@@ -4131,19 +4180,19 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values ('study-materials', 'study-materials', false, 52428800, array['application/pdf','image/png','image/jpeg','image/webp','image/gif','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/vnd.openxmlformats-officedocument.presentationml.presentation','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','text/plain','text/markdown','text/csv']::text[])
 on conflict (id) do update set public = excluded.public, file_size_limit = excluded.file_size_limit, allowed_mime_types = excluded.allowed_mime_types;
 drop policy if exists "Admins can delete lesson resources" on "storage"."objects";
-create policy "Admins can delete lesson resources" on "storage"."objects" for delete to "authenticated" using (((bucket_id = 'lesson-resources'::text) AND has_role(auth.uid(), 'admin'::app_role)));
+create policy "Admins can delete lesson resources" on "storage"."objects" for delete to "authenticated" using (((bucket_id = 'lesson-resources'::text) AND is_admin(auth.uid())));
 drop policy if exists "Admins can delete past paper files" on "storage"."objects";
-create policy "Admins can delete past paper files" on "storage"."objects" for delete using (((bucket_id = 'past-papers'::text) AND has_role(auth.uid(), 'admin'::app_role)));
+create policy "Admins can delete past paper files" on "storage"."objects" for delete using (((bucket_id = 'past-papers'::text) AND is_admin(auth.uid())));
 drop policy if exists "Admins can update past paper files" on "storage"."objects";
-create policy "Admins can update past paper files" on "storage"."objects" for update using (((bucket_id = 'past-papers'::text) AND has_role(auth.uid(), 'admin'::app_role)));
+create policy "Admins can update past paper files" on "storage"."objects" for update using (((bucket_id = 'past-papers'::text) AND is_admin(auth.uid())));
 drop policy if exists "Admins can upload lesson resources" on "storage"."objects";
-create policy "Admins can upload lesson resources" on "storage"."objects" for insert to "authenticated" with check (((bucket_id = 'lesson-resources'::text) AND has_role(auth.uid(), 'admin'::app_role)));
+create policy "Admins can upload lesson resources" on "storage"."objects" for insert to "authenticated" with check (((bucket_id = 'lesson-resources'::text) AND is_admin(auth.uid())));
 drop policy if exists "Admins can upload past paper files" on "storage"."objects";
-create policy "Admins can upload past paper files" on "storage"."objects" for insert with check (((bucket_id = 'past-papers'::text) AND has_role(auth.uid(), 'admin'::app_role)));
+create policy "Admins can upload past paper files" on "storage"."objects" for insert with check (((bucket_id = 'past-papers'::text) AND is_admin(auth.uid())));
 drop policy if exists "Admins manage quiz files" on "storage"."objects";
-create policy "Admins manage quiz files" on "storage"."objects" for all to "authenticated" using (((bucket_id = 'quiz-files'::text) AND has_role(auth.uid(), 'admin'::app_role))) with check (((bucket_id = 'quiz-files'::text) AND has_role(auth.uid(), 'admin'::app_role)));
+create policy "Admins manage quiz files" on "storage"."objects" for all to "authenticated" using (((bucket_id = 'quiz-files'::text) AND is_admin(auth.uid()))) with check (((bucket_id = 'quiz-files'::text) AND is_admin(auth.uid())));
 drop policy if exists "Admins manage study materials" on "storage"."objects";
-create policy "Admins manage study materials" on "storage"."objects" for all to "authenticated" using (((bucket_id = 'study-materials'::text) AND has_role(auth.uid(), 'admin'::app_role))) with check (((bucket_id = 'study-materials'::text) AND has_role(auth.uid(), 'admin'::app_role)));
+create policy "Admins manage study materials" on "storage"."objects" for all to "authenticated" using (((bucket_id = 'study-materials'::text) AND is_admin(auth.uid()))) with check (((bucket_id = 'study-materials'::text) AND is_admin(auth.uid())));
 drop policy if exists "Anyone can view lesson resources" on "storage"."objects";
 create policy "Anyone can view lesson resources" on "storage"."objects" for select using ((bucket_id = 'lesson-resources'::text));
 drop policy if exists "Authenticated read quiz files" on "storage"."objects";
@@ -4159,9 +4208,9 @@ create policy "Users can upload own homework files" on "storage"."objects" for i
 drop policy if exists "Users can upload payment receipts" on "storage"."objects";
 create policy "Users can upload payment receipts" on "storage"."objects" for insert to "authenticated" with check (((bucket_id = 'homework-uploads'::text) AND ((storage.foldername(name))[1] = 'payments'::text) AND ((storage.foldername(name))[2] = (auth.uid())::text)));
 drop policy if exists "Users can view own homework files" on "storage"."objects";
-create policy "Users can view own homework files" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND (((auth.uid())::text = (storage.foldername(name))[1]) OR has_role(auth.uid(), 'admin'::app_role))));
+create policy "Users can view own homework files" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND (((auth.uid())::text = (storage.foldername(name))[1]) OR is_admin(auth.uid()))));
 drop policy if exists "Users can view payment receipts" on "storage"."objects";
-create policy "Users can view payment receipts" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND ((storage.foldername(name))[1] = 'payments'::text) AND (((storage.foldername(name))[2] = (auth.uid())::text) OR has_role(auth.uid(), 'admin'::app_role))));
+create policy "Users can view payment receipts" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND ((storage.foldername(name))[1] = 'payments'::text) AND (((storage.foldername(name))[2] = (auth.uid())::text) OR is_admin(auth.uid()))));
 
 -- ============ comments ============
 comment on table public."objective_reviews" is $dd$Resurfacing schedule per student and objective; written by answers, never by the client.$dd$;

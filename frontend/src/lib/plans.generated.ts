@@ -24,7 +24,7 @@ export interface PlanRow {
 
 export const PLAN_ROWS: PlanRow[] = [
   { id: "free", name: "Free", priceMonthly: 0, priceTotal: 0, months: 1, description: "IGCSE lessons, quizzes and notes only" },
-  { id: "monthly", name: "Monthly", priceMonthly: 40, priceTotal: 40, months: 1, description: "Full access to every level, billed monthly" },
-  { id: "quarterly", name: "3 Months", priceMonthly: 20, priceTotal: 60, months: 3, description: "Full access for a 3-month term" },
+  { id: "monthly", name: "Monthly", priceMonthly: 30, priceTotal: 30, months: 1, description: "Full access to every level, billed monthly" },
+  { id: "quarterly", name: "3 Months", priceMonthly: 15, priceTotal: 45, months: 3, description: "Full access for a 3-month term" },
   { id: "annual", name: "Annual", priceMonthly: 6.67, priceTotal: 80, months: 12, description: "Full access for a full year" },
 ];
