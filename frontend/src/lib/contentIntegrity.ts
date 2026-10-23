@@ -46,6 +46,7 @@ export const CATEGORY_ORDER = [
   "replacement_character",
   "answer_index",
   "material_type_alias",
+  "material_title_body_in_title",
   "notes_recall_prompt",
 ] as const;
 
@@ -67,6 +68,12 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
     blurb:
       "Student pages read material_type 'notes'; the admin form used to write 'note'. The CHECK constraint accepts both, so the row saves, looks correct in the console, and is invisible to students.",
     fix: "Open the material and set its type to Notes (or Summary/Flashcard) so the student surfaces pick it up.",
+  },
+  material_title_body_in_title: {
+    label: "Material titles",
+    blurb:
+      "A study-material title that is pasted body prose, model or draft copy, an HTML tag, a newline, the replacement character, or a heading longer than 100 characters is damaged in the field students see first. The same check the local probe runs is now part of the admin report.",
+    fix: "Open the material in Manage Materials and retype the title as a short heading — from the material's own first heading or the topic name, not from the body.",
   },
   notes_recall_prompt: {
     label: "Notes-recall prompts",

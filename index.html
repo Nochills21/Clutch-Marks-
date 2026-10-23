@@ -15,8 +15,16 @@
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <title>Clutch Marks — Maths, Physics &amp; Computer Science Revision</title>
-    <meta name="description" content="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2." />
+    <!-- Title and description must equal ROUTE_META "/" in
+         frontend/src/lib/seoRoutes.ts: the prerenderer rewrites them per route,
+         but this file is what a crawler gets from any host that serves the shell
+         as-is, and seoConsistency.test.ts compares the two. They used to say
+         "Maths, Physics & Computer Science Revision" — the site's first three
+         subjects — months after Chemistry, Biology and English had pages. The
+         subject list is generated (frontend/src/lib/subjectCatalogue.ts), so when
+         a new subject ships, this line is the one thing still to update by hand. -->
+    <title>Clutch Marks — Revision Notes, Topic Questions &amp; Past Papers</title>
+    <meta name="description" content="Topic notes, exam-style questions with instant marking, and a past-paper archive for Maths, Physics, Chemistry, Biology and Computer Science at IGCSE, AS and A2, and English at IGCSE." />
 
     <!-- Default robots directives for the canonical host. Two documents are
          derived from this shell, and the prerender plugin gives each its own
@@ -38,8 +46,13 @@
          ship inside this bundle's CSS, and the two preloads below start the
          body/display faces downloading in parallel with the HTML itself.
          font-display: swap keeps text visible while they load. -->
-    <link rel="preload" href="/fonts/fraunces-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- One variable file per family (scripts/fetch-fonts.cjs): Google serves the
+         same woff2 for every weight, so the per-weight copies were the identical
+         bytes behind different URLs — four Fraunces and five Inter downloads on a
+         page that used two weights. These two are the ones first paint needs; the
+         mono face loads when a mark or timer actually renders. -->
+    <link rel="preload" href="/fonts/fraunces-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
     <meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#FFFDF9" media="(prefers-color-scheme: light)" />
 
@@ -65,8 +78,8 @@
          is not. Keep this file free of both. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Clutch Marks" />
-    <meta property="og:title" content="Clutch Marks — Maths, Physics &amp; Computer Science Revision" />
-    <meta property="og:description" content="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for IGCSE, AS and A Level." />
+    <meta property="og:title" content="Clutch Marks — Revision Notes, Topic Questions &amp; Past Papers" />
+    <meta property="og:description" content="Topic notes, exam-style questions with instant marking, and a past-paper archive for Maths, Physics, Chemistry, Biology and Computer Science at IGCSE, AS and A2, and English at IGCSE." />
     <!-- No og:url deliberately — see the note above: it is replaced per route. -->
     <meta property="og:image" content="https://clutchmarks.study/og.png" />
     <meta property="og:image:width" content="1200" />
@@ -74,8 +87,8 @@
     <meta property="og:image:alt" content="Clutch Marks — revision notes, topic questions and past papers" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Clutch Marks — Maths, Physics &amp; Computer Science Revision" />
-    <meta name="twitter:description" content="Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for IGCSE, AS and A Level." />
+    <meta name="twitter:title" content="Clutch Marks — Revision Notes, Topic Questions &amp; Past Papers" />
+    <meta name="twitter:description" content="Topic notes, exam-style questions with instant marking, and a past-paper archive for Maths, Physics, Chemistry, Biology and Computer Science at IGCSE, AS and A2, and English at IGCSE." />
     <meta name="twitter:image" content="https://clutchmarks.study/og.png" />
   </head>
 

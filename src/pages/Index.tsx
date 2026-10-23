@@ -1,17 +1,80 @@
 // Public landing page — the brand's front door. Ink canvas, gold used as a
 // precision accent, display serif for the headline, hairline rules instead of
 // glows, and content grounded in real counts from the platform.
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
-import { SubjectPicker } from "@/components/SubjectPicker";
 import { BrandLockup } from "@/components/BrandMark";
 import { SITE } from "@/lib/site";
 import {
   BookOpen, Brain, Archive, ArrowRight, Check,
-  FileText, Target, TrendingUp,
+  FileText, Settings2, Target, TrendingUp,
 } from "lucide-react";
+
+// The subject picker reads the signed-in student's saved picks, which means the
+// Supabase client. Imported statically it was in the landing page's module graph
+// — 173 kB of vendor code plus the picker's dialog, checkbox and toast chunks —
+// for a control that sits below the fold. It now loads when this section comes
+// into view (300px early, so in practice it is there before anyone can click);
+// until then the same-looking button points at /subjects, which owns the picker
+// anyway.
+const SubjectPicker = lazy(() =>
+  import("@/components/SubjectPicker").then((m) => ({ default: m.SubjectPicker })),
+);
+
+function SubjectPickerButton() {
+  return (
+    <Button asChild variant="outline" size="sm" className="gap-2">
+      <Link to="/subjects">
+        <Settings2 className="h-4 w-4" /> My subjects
+      </Link>
+    </Button>
+  );
+}
+
+function DeferredSubjectPicker() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || ready) return;
+    // A browser without IntersectionObserver (or a test harness without it) gets
+    // the picker directly: the deferral is an optimisation, not a requirement.
+    if (typeof IntersectionObserver === "undefined") {
+      setReady(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setReady(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [ready]);
+
+  return (
+    // Not `display: contents`: an element with no layout box never reports as
+    // intersecting, so the observer below would never fire and the picker would
+    // never mount. A plain wrapper is one flex item in the row either way.
+    <div ref={ref}>
+      {ready ? (
+        <Suspense fallback={<SubjectPickerButton />}>
+          <SubjectPicker />
+        </Suspense>
+      ) : (
+        <SubjectPickerButton />
+      )}
+    </div>
+  );
+}
 
 /** Counts verified against the live database — keep honest or update together. */
 const TRACKS = [
@@ -186,7 +249,7 @@ export default function Index() {
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <SubjectPicker />
+              <DeferredSubjectPicker />
               <Button asChild variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-foreground">
                 <Link to="/subjects">
                   Browse every subject and level <ArrowRight className="h-3.5 w-3.5" />

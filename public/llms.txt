@@ -1,8 +1,19 @@
 # Clutch Marks
 
-> Online learning platform for Maths, Physics, Chemistry, Biology, Computer Science and English students (IGCSE, AS Level, A2 Level) — lessons, quizzes, homework, flashcards, past papers, and AI-powered study tools.
+> Online revision platform for IGCSE, AS and A2 students of Maths, Physics, Chemistry, Biology, Computer Science and English — lessons, quizzes, homework, flashcards, past papers, and AI-powered study tools.
 
-A student-and-admin platform focused on revision for Maths, physics, chemistry, biology, Computer Science and English. Students work through structured lessons by topic, take auto-graded quizzes with AI feedback, submit homework, drill flashcards with spaced repetition, browse a past papers bank, and generate personalized AI study plans. Admins manage content, grade submissions, and track progress. Parents have read-only visibility into their linked student's progress.
+A student-and-admin platform for revision in Maths, Physics, Chemistry, Biology and Computer Science at IGCSE, AS and A2, and English at IGCSE. Students work through structured lessons by topic, take auto-graded quizzes with AI feedback, submit homework, drill flashcards with spaced repetition, browse a past papers bank, and generate personalized AI study plans. Admins manage content, grade submissions, and track progress. Parents have read-only visibility into their linked student's progress.
+
+## Subjects and levels
+
+Each subject has one hub page per level it is taught at, and each hub lists its topics with revision notes, exam-style questions and past papers.
+
+- [IGCSE Maths](/study/mathematics/ol), [AS Maths](/study/mathematics/as), [A2 Maths](/study/mathematics/a2)
+- [IGCSE Physics](/study/physics/ol), [AS Physics](/study/physics/as), [A2 Physics](/study/physics/a2)
+- [IGCSE Chemistry](/study/chemistry/ol), [AS Chemistry](/study/chemistry/as), [A2 Chemistry](/study/chemistry/a2)
+- [IGCSE Biology](/study/biology/ol), [AS Biology](/study/biology/as), [A2 Biology](/study/biology/a2)
+- [IGCSE Computer Science](/study/computer-science/ol), [AS Computer Science](/study/computer-science/as), [A2 Computer Science](/study/computer-science/a2)
+- [IGCSE English First Language](/study/english-first-language-cambridge/igcse), [IGCSE English as a Second Language](/study/english-as-a-second-language-oxford/igcse)
 
 ## Pages
 

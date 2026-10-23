@@ -7,14 +7,14 @@
  * URL — those should be migrated to SITE.url as each page is restyled.
  */
 import { SITE_URL } from "@/lib/env";
+import { subjectCoverage } from "@/lib/subjectCatalogue";
 
 export const SITE = {
   name: "Clutch Marks",
   /** Public origin, no trailing slash. Override with VITE_SITE_URL in CI. */
   url: SITE_URL,
   tagline: "Revise smarter. Score higher.",
-  description:
-    "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS Level and A2 Level.",
+  description: `Topic notes, exam-style questions with instant marking, and a past-paper archive for ${subjectCoverage()}.`,
   // The inbox the privacy notice, data-rights page and app shell all point at.
   // It must stay the address that is actually live (inbound routed via Resend —
   // see docs/infrastructure.md): a personal mailbox here silently publishes a

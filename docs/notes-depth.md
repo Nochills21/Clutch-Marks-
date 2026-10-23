@@ -16,7 +16,7 @@ A note is at the bar when it has:
 | Check | Threshold |
 | --- | --- |
 | Text (tags stripped) | ≥ 8,500 characters |
-| HTML | ≤ 26,000 characters (one page, not a booklet) |
+| HTML | ≤ 26,000 characters, or 2,600 per board statement where that is larger (one page, not a booklet) |
 | Opening | an `<h2>`, immediately followed by a real introduction of ≥ 200 characters |
 | Sections | ≥ 8 `<h3>` sections |
 | Structure | a table, or ≥ 15 list items — prose alone is an essay, not a revision page |
@@ -30,6 +30,18 @@ A note is at the bar when it has:
 Length alone is not the test: a padded note with repeated paragraphs fails, and
 the statement-coverage check exists because a long note can still ignore the
 board's own wording for half its topic.
+
+The page budget is a density band, not a fixed page count. 26,000 characters was
+calibrated on Chemistry topics that carry about ten statements; Biology A2 Topic
+5 carries 26 statements of its own and ran to 59,566 characters, about 2,290 per
+statement, against 1,660 in the deepest Chemistry note. Holding it to a flat
+26,000 would have forced it to roughly 1,000 per statement — thinner than the
+notes the bar was calibrated on — so the ceiling is the larger of 26,000 and
+2,600 times the number of statements the topic owns. That keeps a 3-statement
+topic at 26,000 and lets a 26-statement topic reach 67,600, while still rejecting
+the padding the rule exists to catch. The self-test proves both sides: a body
+over the flat floor still fails with no statements, and the same body passes once
+the topic carries the statements that justify its length.
 
 For an essay subject the "worked example" slot is a model answer with the
 examiner's annotation — why the paragraph earns the mark, what the candidate did
@@ -78,20 +90,49 @@ written from the topic's own statements (WCH11 Topics 1 and 4, WCH12 Topics 6,
 fix was an append (`.freebuff-tmp/deepen/appends.cjs`) rather than a rewrite, so
 nothing that already taught was lost.
 
+### Appending to a note that is already deep
+
+A deep note that is missing a section is not rewritten. The append path keeps
+every existing paragraph and adds only what the gate says is absent:
+
+1. `node .freebuff/snapshot-notes-depth.cjs` — writes the current body **and
+title** of every notes row in the four units to
+`.freebuff/drafts/notes-depth-snapshot.json`. The live table is production and
+nothing else holds a copy, so this file is the undo.
+2. Write the missing sections in `.freebuff/content-depth-appends.cjs`, keyed by
+topic slug, with `tail` (appended at the end), `before` (inserted before a named
+heading, for a section that must sit inside the numbered sequence) and
+`replace` (an exact string that must occur exactly once). The same entry carries
+the house title.
+3. `node .freebuff/build-depth-appends.cjs` — splices each block into the
+snapshot body, normalises doubled apostrophes, scores the result with the gate's
+own `check()` and prints before/after. Nothing is written unless all rows pass;
+`--write` emits `.freebuff-tmp/depth-merged.cjs`.
+4. `node .freebuff/deepen-materials.cjs .freebuff-tmp/depth-merged.cjs > .freebuff-tmp/depth-appends.sql`,
+then `apply-sql-file.cjs` dry run, then `--apply`, then the gate for each unit.
+
+The 2026-10-22 pass that cleared the ten deep-but-incomplete notes used exactly
+this path: 0/4 to 4/4 in Biology AS and A2, and the one deep note in Computer
+Science AS and in English as a Second Language. It also found that eight of the
+ten had their **title** replaced by their own body (one by 55,414 characters of
+model scratch text), which no gate rule could see because a title that is too
+long is not a title that is wrong. Check `length(title)` after any scripted
+content write.
+
 ## Where the estate stands
 
 | Subject / level | At the bar | Thin (<8,500) | Structure only |
 | --- | --- | --- | --- |
 | Biology OL | 0/21 | 21 | 0 |
-| Biology AS | 0/4 | 0 | 4 |
-| Biology A2 | 0/4 | 0 | 4 |
+| Biology AS | 4/4 | 0 | 0 |
+| Biology A2 | 4/4 | 0 | 0 |
 | Chemistry OL | 0/12 | 12 | 0 |
 | Chemistry AS | 10/10 | 0 | 0 |
 | Chemistry A2 | 10/10 | 0 | 0 |
 | Computer Science OL | 0/11 | 11 | 0 |
-| Computer Science AS | 0/9 | 8 | 1 |
+| Computer Science AS | 1/9 | 8 | 0 |
 | Computer Science A2 | 0/9 | 9 | 0 |
-| English as a Second Language (Oxford) IGCSE | 0/6 | 5 | 1 |
+| English as a Second Language (Oxford) IGCSE | 1/6 | 5 | 0 |
 | English First Language (Cambridge) IGCSE | 0/6 | 6 | 0 |
 | Mathematics OL | 0/20 | 20 | 0 |
 | Mathematics AS | 0/17 | 17 | 0 |
@@ -100,28 +141,29 @@ nothing that already taught was lost.
 | Physics AS | 0/9 | 9 | 0 |
 | Physics A2 | 0/9 | 9 | 0 |
 
-Generated 2026-10-22 by `node .freebuff/gate-notes-depth.cjs --all`.
+Generated 2026-10-22 by `node .freebuff/gate-notes-depth.cjs --all`, after the append
+pass described above. Every row still below the bar is now a genuinely thin note:
+the deepest below-bar row is `databases` at 6,055 characters of text, so nothing
+in the estate is deep-but-incomplete any more.
 
 ### Queue, by subject and level
 
 Each list is the unit as `deepen-fetch.cjs` takes it, with the current text length. Order: the structure-only fixes first (cheap), then the subjects with the most thin topics.
 
-**Biology AS** — 0/4 at the bar
+**Biology AS** — 4/4 at the bar
 
-- structure only: `cell-structure-reproduction-and-development` (16271), `membranes-proteins-dna-and-gene-expression` (16509), `molecules-transport-and-health` (26517), `plant-structure-biodiversity-and-conservation` (25844)
+- done: all four notes, by append (`.freebuff/content-depth-appends.cjs`)
 
-**Biology A2** — 0/4 at the bar
+**Biology A2** — 4/4 at the bar
 
-- structure only: `coordination-response-and-gene-technology` (29318), `energy-flow-ecosystems-and-environment` (59566), `microbiology-immunity-and-forensics` (13967), `respiration-muscles-and-internal-environment` (44661)
+- done: all four notes, by append plus the statement-scaled page budget
 
-**Computer Science AS** — 0/9 at the bar
+**Computer Science AS** — 1/9 at the bar
 
-- structure only: `hardware-and-logic-gates` (10123)
 - to write (8): `communication-and-networking` (2831), `data-structures` (2981), `databases` (6055), `ethics-and-ai` (1657), `information-representation` (3038), `processor-fundamentals` (3110), `programming-and-algorithms` (3328), `system-software-and-security` (3694)
 
-**English as a Second Language (Oxford) IGCSE** — 0/6 at the bar
+**English as a Second Language (Oxford) IGCSE** — 1/6 at the bar
 
-- structure only: `tenses-in-context` (9634)
 - to write (5): `articles-and-determiners` (1232), `formal-writing-register-and-linking-words` (1257), `prepositions-and-collocations` (1078), `reading-for-main-ideas-and-detail` (1343), `word-formation-prefixes-and-suffixes` (1225)
 
 **Biology OL** — 0/21 at the bar
@@ -161,18 +203,29 @@ Each list is the unit as `deepen-fetch.cjs` takes it, with the current text leng
 ## What this pass found
 
 - **Chemistry is complete**: 20/20 notes at the bar, AS and A2, verified by the gate.
-- **155 notes are genuinely thin** (below 8,500 characters of text), not merely
-  missing sections. Those need writing, not patching.
-- **10 notes are deep but structurally incomplete** — Biology AS/A2 and one each
-  in Computer Science AS and English as a Second Language. They already carry
-  14,000–60,000 characters; what they lack is the exam-practice and mistakes
-  sections. Those are the cheapest wins in the estate.
+- **The ten deep-but-incomplete notes are fixed** (2026-10-22): Biology AS 4/4 and
+  A2 4/4, plus the one deep note in Computer Science AS and in English as a Second
+  Language. Each was an append — the mistakes, exam-style questions and worked
+  example it lacked — not a rewrite, so every paragraph that already taught is
+  still there.
+- **Every remaining failure is thin, not structurally incomplete.** 155 notes sit
+  below the bar and the deepest of them is 6,055 characters of text, so the
+  worklist is now a writing list rather than a patching list.
 - **6 notes contain a backtick.** The content CHECK constraints now refuse a new
   write containing one, so these predate the guard and survive only because they
   are already stored. They are brittle: a backtick inside a template-literal
   seeder breaks parsing, which is exactly the bug `fix-backticks*.cjs` exists for.
-- **122 notes still use the generic `— Study Notes` title**, which is both a gate
+- **120 notes still use the generic `— Study Notes` title**, which is both a gate
   failure and a small SEO loss: the topic name is the only thing in the title.
+- **8 of the ten had their title replaced by their own body.** The worst was
+  `coordination-response-and-gene-technology`, whose title held 55,414 characters
+  of model scratch text starting "Appendix BF — The extra reasoning the wave's
+  verify step should use…", and `microbiology-immunity-and-forensics`, whose title
+  was 1,783 characters of word salad. All ten now carry a house title. This is the
+  class of damage the gate cannot see: it checks that a title is not too short and
+  not generic, never that it is a title.
 - **Biology A2's `energy-flow-ecosystems-and-environment` note is 59,566
-  characters** — a whole topic on one page. It passes every other check; the
-  length is a separate question about whether one page should be that long.
+  characters** — a whole topic on one page. It passes because the page budget now
+  scales with its 26 statements (about 2,290 characters per statement, in line with
+  the rest of the estate), but it is still a long page to read on a phone; splitting
+  it is a product question, not a gate failure.

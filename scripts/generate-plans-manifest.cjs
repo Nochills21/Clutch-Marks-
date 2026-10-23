@@ -18,6 +18,17 @@
  *
  * The Management API token is read from .freebuff/get-keys.cjs (gitignored) or
  * the SUPABASE_ACCESS_TOKEN env var.
+ *
+ * --check compares the committed file against the live table instead of writing.
+ * `npm run verify` runs it, because remembering step 3 is exactly what fails:
+ * the database and the page then quote different money, and the pricing page is
+ * prerendered, so the wrong number ships inside static HTML and survives until
+ * someone visits it. Exit codes are 0 = current, 1 = stale (or unreadable), and
+ * 2 = could not be checked (no token, network, API error) — 2 is distinct so
+ * `verify` can continue on a machine that cannot reach the database *loudly*
+ * rather than claiming the snapshot is fresh. The date line is excluded from
+ * the comparison: a snapshot generated yesterday is not stale, a snapshot with
+ * yesterday's prices is.
  */
 const fs = require("fs");
 const https = require("https");
@@ -25,6 +36,13 @@ const path = require("path");
 
 const REF = "zzliiazovezhxbmfeqco";
 const OUT = path.join(__dirname, "..", "frontend", "src", "lib", "plans.generated.ts");
+
+const CHECK = process.argv.includes("--check");
+// `verify` must still run on a checkout with no Management API token (a fork, a
+// fresh clone before .freebuff/get-keys.cjs exists). With this flag an
+// unreachable database is reported and skipped; without it the exit code stays
+// 2 so a CI step can demand a real answer.
+const ALLOW_UNAVAILABLE = process.argv.includes("--allow-unavailable");
 
 const SQL = `
 select json_agg(x order by x.rank, x.months, x.id)::text as manifest
@@ -151,21 +169,120 @@ function round2(n) {
   return Math.round(n * 100) / 100;
 }
 
-(async () => {
-  const token = readToken();
-  if (!token) {
-    console.error("No Management API token: set SUPABASE_ACCESS_TOKEN or keep .freebuff/get-keys.cjs");
+/**
+ * Everything in the file except the day it was generated. Line endings too: the
+ * file is written with \n, but a Windows checkout with autocrlf hands it back
+ * with \r\n, and that alone must not read as a price change.
+ */
+function normalise(text) {
+  return text
+    .replace(/\r\n/g, "\n")
+    .replace(/^\/\/ Generated: \d{4}-\d{2}-\d{2}/m, "// Generated: <date>");
+}
+
+/**
+ * Line-by-line comparison, so a drift report quotes the money that moved rather
+ * than dumping two whole files. Each plan is one line, which keeps this useful.
+ */
+function describeDrift(live, committed) {
+  const a = normalise(committed).split("\n");
+  const b = normalise(live).split("\n");
+  const rows = [];
+  for (let i = 0; i < Math.max(a.length, b.length); i += 1) {
+    if (a[i] !== b[i]) rows.push({ line: i + 1, committed: a[i], live: b[i] });
+  }
+  const shown = rows.slice(0, 12);
+  const out = [];
+  for (const r of shown) {
+    out.push(`  line ${r.line}`);
+    out.push(`    committed: ${r.committed === undefined ? "(nothing)" : r.committed.trim()}`);
+    out.push(`    live:      ${r.live === undefined ? "(nothing)" : r.live.trim()}`);
+  }
+  if (rows.length > shown.length) out.push(`  … and ${rows.length - shown.length} more differing line(s)`);
+  return out.join("\n");
+}
+
+const REL_OUT = path.relative(path.join(__dirname, ".."), OUT);
+
+/** No token or no answer is a *skipped* check, never a pass that nobody sees. */
+function unavailable(reason) {
+  if (!CHECK) {
+    // Regenerating: nothing was written, so the snapshot is exactly as stale as
+    // it was. That is a failure, never a skip.
+    console.error(`[plans] cannot read the plans table — ${reason}`);
+    console.error("Set SUPABASE_ACCESS_TOKEN or keep .freebuff/get-keys.cjs, then re-run the generator.");
     process.exit(1);
   }
-  const rows = await query(SQL, token);
-  const raw = rows[0]?.manifest;
-  if (!raw) throw new Error("query returned no manifest");
-  const entries = typeof raw === "string" ? JSON.parse(raw) : raw;
-  if (!Array.isArray(entries) || entries.length === 0) throw new Error("plans manifest is empty — refusing to write");
+  if (ALLOW_UNAVAILABLE) {
+    console.warn(`[plans] NOT CHECKED — ${reason}`);
+    console.warn(`[plans] the committed prices in ${REL_OUT} were not verified against the database`);
+    console.warn("[plans] run node scripts/generate-plans-manifest.cjs --check once the token is available");
+    process.exit(0);
+  }
+  console.error(`[plans] cannot check the price snapshot — ${reason}`);
+  console.error(
+    "[plans] set SUPABASE_ACCESS_TOKEN or keep .freebuff/get-keys.cjs, or pass --allow-unavailable to skip this check",
+  );
+  process.exit(2);
+}
 
-  fs.writeFileSync(OUT, serialise(entries));
-  console.log(`wrote ${entries.length} plans to ${path.relative(path.join(__dirname, ".."), OUT)}`);
+(async () => {
+  const token = readToken();
+  if (!token) unavailable("no Management API token");
+
+  let entries;
+  try {
+    const rows = await query(SQL, token);
+    const raw = rows[0]?.manifest;
+    if (!raw) throw new Error("query returned no manifest");
+    entries = typeof raw === "string" ? JSON.parse(raw) : raw;
+  } catch (err) {
+    unavailable(`the plans query failed (${err.message})`);
+  }
+  if (!Array.isArray(entries) || entries.length === 0) unavailable("the plans query returned nothing");
+
+  // A snapshot written from rows the generator itself rejects would be a file
+  // nobody should ship, so an invalid table fails the check outright — it is not
+  // an availability problem, and regenerating would not fix it either.
+  let live;
+  try {
+    live = serialise(entries);
+  } catch (err) {
+    console.error(`[plans] the live plans table is invalid: ${err.message}`);
+    console.error("[plans] fix public.plans first — the generator refuses to write this snapshot");
+    process.exit(1);
+  }
+
+  if (!CHECK) {
+    fs.writeFileSync(OUT, live);
+    console.log(`wrote ${entries.length} plans to ${REL_OUT}`);
+    return;
+  }
+
+  let committed;
+  try {
+    committed = fs.readFileSync(OUT, "utf8");
+  } catch {
+    console.error(`[plans] ${REL_OUT} is missing — the build would fail on it`);
+    console.error("[plans] run: node scripts/generate-plans-manifest.cjs");
+    process.exit(1);
+  }
+
+  if (normalise(committed) === normalise(live)) {
+    console.log(`[plans] ${REL_OUT} matches the live plans table (${entries.length} plans) — up to date`);
+    return;
+  }
+
+  console.error(`[plans] STALE — ${REL_OUT} does not match the live plans table:`);
+  console.error(describeDrift(live, committed));
+  console.error("[plans] regenerate and commit:");
+  console.error("  node scripts/generate-plans-manifest.cjs");
+  console.error(`  git add ${REL_OUT}`);
+  process.exit(1);
 })().catch((err) => {
+  // Anything that escaped the branches above is also an unanswered question, not
+  // a verdict on the prices.
+  if (CHECK) unavailable(`unexpected failure (${err.message})`);
   console.error("FAILED:", err.message);
   process.exit(1);
 });

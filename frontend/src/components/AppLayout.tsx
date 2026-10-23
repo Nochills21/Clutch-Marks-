@@ -8,28 +8,20 @@ import { NotificationCenter } from "@/components/NotificationCenter";
 import { ContentProtection } from "@/components/ContentProtection";
 import { SubjectFilterNotice } from "@/components/SubjectFilterNotice";
 import { useDeviceType } from "@/hooks/useDevice";
+import { isPublicContentPath } from "@/lib/authBootstrap";
 
-// Routes that must render without an account. Their content is readable by
-// anonymous callers (the tables allow anonymous SELECT) and they are the pages a
-// crawler has to be able to reach, so bouncing to /auth here would both hide the
-// content from visitors and hand a search engine a sign-in redirect instead of
-// the page. Personal routes keep the redirect below.
-const PUBLIC_CONTENT_PREFIXES = [
-  "/subjects",
-  "/lessons",
-  "/notes",
-  "/quizzes",
-  "/past-papers",
-  "/study/",
-];
+// Routes that must render without an account live in one list, shared with the
+// rule that decides whether auth boots at all (`authBootstrap.ts`). Their content
+// is readable by anonymous callers (the tables allow anonymous SELECT) and they
+// are the pages a crawler has to be able to reach, so bouncing to /auth here
+// would both hide the content from visitors and hand a search engine a sign-in
+// redirect instead of the page. Personal routes keep the redirect below.
 
 export function AppLayout() {
   const { user, loading } = useAuth();
   const device = useDeviceType();
   const { pathname, search } = useLocation();
-  const isPublicContent = PUBLIC_CONTENT_PREFIXES.some(
-    (prefix) => pathname === prefix.replace(/\/$/, "") || pathname.startsWith(prefix),
-  );
+  const isPublicContent = isPublicContentPath(pathname);
   // Carry the page they asked for through the sign-in form. Without this a
   // signed-out deep link ended on /dashboard and the visitor had to find the
   // page again; `postLoginPath` re-validates whatever comes back.

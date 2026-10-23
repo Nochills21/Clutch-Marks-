@@ -39,6 +39,18 @@ const FLOOR_MS = 400;
 
 const USERNAME_RE = /^[A-Za-z0-9._-]{2,64}$/;
 
+/**
+ * A handle is matched case-insensitively, but it must be matched LITERALLY.
+ *
+ * The canonical alphabet includes the underscore, and in SQL LIKE an underscore
+ * matches any single character. Passing the identifier to `ilike` unescaped made
+ * `sam_1` select `samx1` as well: two rows, `maybeSingle` answers with an error,
+ * no email is resolved, and the student who typed their own correct handle is
+ * locked out while the other account's handle is free to shadow it. Measured
+ * live before this fix (HTTP 401 for a valid handle, two rows matched).
+ */
+const likeLiteral = (value: string) => value.replace(/([\\%_])/g, "\\$1");
+
 function clientKey(req: Request): string {
   const fwd = req.headers.get("x-forwarded-for") ?? "";
   return (fwd.split(",")[0] || req.headers.get("cf-connecting-ip") || "unknown").trim();
@@ -105,7 +117,7 @@ Deno.serve(async (req) => {
       const { data, error } = await admin
         .from("profiles")
         .select("email, user_id")
-        .ilike("username", identifier)
+        .ilike("username", likeLiteral(identifier))
         .maybeSingle();
       if (error) console.error("login-with-username lookup error:", error.message);
       email = (data?.email ?? "").toLowerCase();

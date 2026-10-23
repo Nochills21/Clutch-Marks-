@@ -1,5 +1,25 @@
 import { describe, expect, it } from "vitest";
-import { normalizeUsername, USERNAME_RE, usernameProblem, validateUsername } from "./username";
+import { escapeLike, normalizeUsername, USERNAME_RE, usernameProblem, validateUsername } from "./username";
+
+describe("escapeLike", () => {
+  // The underscore is legal in a handle and in an email local part, and it is a
+  // single-character wildcard in SQL LIKE: unescaped, one account's identifier
+  // selects another's row. Measured on the login path before the fix.
+  it("escapes the wildcards an identifier can contain", () => {
+    expect(escapeLike("sam_1")).toBe("sam\\_1");
+    expect(escapeLike("a_b.c-d")).toBe("a\\_b.c-d");
+    expect(escapeLike("100%pure")).toBe("100\\%pure");
+  });
+
+  it("escapes a backslash so the escape itself cannot be swallowed", () => {
+    // One literal backslash in, two out.
+    expect(escapeLike("a\\b")).toBe("a\\\\b");
+  });
+
+  it("leaves an ordinary handle alone", () => {
+    expect(escapeLike("jane.doe-2")).toBe("jane.doe-2");
+  });
+});
 
 describe("normalizeUsername", () => {
   it("trims, lower-cases and drops a leading @", () => {

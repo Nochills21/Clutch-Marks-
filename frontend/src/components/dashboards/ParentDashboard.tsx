@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/useToast";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
+import { escapeLike } from "@/lib/username";
 import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { Heart, Link2, Unlink, RefreshCw, BookOpen, Brain, Activity } from "lucide-react";
@@ -147,10 +148,13 @@ export function ParentDashboard() {
         toast({ title: "That's your own email", description: "Enter your child's email instead.", variant: "destructive" });
         return;
       }
+      // Escaped on purpose: an email local part may contain an underscore, which
+      // SQL LIKE reads as "any single character", so an unescaped address could
+      // match a different parent's child (or fail to find the right one).
       const { data: profile, error: pErr } = await supabase
         .from("profiles")
         .select("user_id, full_name, email")
-        .ilike("email", email)
+        .ilike("email", escapeLike(email))
         .maybeSingle();
       if (pErr) throw pErr;
       if (!profile) { setNotFound(true); return; }

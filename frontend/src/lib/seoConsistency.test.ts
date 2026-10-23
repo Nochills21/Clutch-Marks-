@@ -13,12 +13,19 @@
 // back without failing the suite.
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { describe, it, expect } from "vitest";
-import { ROUTE_META, ROBOTS_INDEX, SITE_URL, getRouteMeta, headFor } from "./seoRoutes";
+import { FAQ_ITEMS, ROUTE_META, ROBOTS_INDEX, SITE_URL, getRouteMeta, headFor } from "./seoRoutes";
+import {
+  PUBLISHED_SUBJECTS,
+  levelPhrase,
+  subjectCoverage,
+  subjectList,
+} from "./subjectCatalogue";
 import { SPA_FALLBACK_PATH, SPA_FALLBACK_ROBOTS } from "./spaRoutes";
 import { LEVELS, levelLabel } from "./levels";
 import { TOPIC_MANIFEST } from "./topicManifest.generated";
 import { TOPIC_PAGE_KINDS, topicDisplayName, topicHead } from "./topicSeo";
 import { LEVEL_MANIFEST, levelHead, levelPath } from "./levelSeo";
+import { STATIC_HUB_INDEX_ID, SUBJECT_HUB_GROUPS, subjectHubIndexHtml } from "./subjectHubs";
 
 const root = process.cwd();
 const read = (p: string) => readFileSync(root + p, "utf8");
@@ -358,6 +365,131 @@ describe("study pages", () => {
 
     expect([...listed].sort()).toEqual(expected);
     expect(new Set(listed).size, "the sitemap repeats a URL").toBe(listed.length);
+  });
+});
+
+// ---- Subject coverage in copy --------------------------------------------
+// Clutch Marks started as a three-subject site (Maths, Physics, Computer
+// Science) and its crawler-facing copy never caught up: Chemistry, Biology and
+// English had 73 topics and 40 pages between them while the homepage title, its
+// OpenGraph/Twitter card, both JSON-LD blocks, the /subjects and /lessons
+// descriptions and llms.txt still sold three subjects. Nothing failed, because
+// no test knew what the site taught.
+//
+// The fix is that the lists are generated (`subjectCatalogue.ts`, from the topic
+// manifest) and these checks are what keep a surface from opting out of them.
+describe("subject coverage in copy", () => {
+  const meta = (path: string) => getRouteMeta(path)!;
+
+  it("names every published subject on every surface that enumerates them", () => {
+    // The generated sentence, not a hand-typed list: asserting on the sentence
+    // means a subject reaches the copy the moment its first topic page ships.
+    const surfaces: [string, string][] = [
+      ["FAQ subject answer", FAQ_ITEMS[0].a],
+      ["homepage description", meta("/").description],
+      ["/subjects description", meta("/subjects").description],
+      ["llms.txt", read("/public/llms.txt")],
+    ];
+    for (const [name, text] of surfaces) {
+      expect(text, `${name} does not name every subject (${subjectList()})`).toContain(subjectCoverage());
+    }
+
+    for (const [name, text] of [
+      ["/lessons description", meta("/lessons").description],
+      ["/auth description", meta("/auth").description],
+    ] as [string, string][]) {
+      expect(text, `${name} does not name every subject`).toContain(subjectList());
+    }
+  });
+
+  it("gives every subject+level hub a link in llms.txt", () => {
+    // llms.txt is the document AI crawlers read instead of guessing from the
+    // marketing copy; a hub page missing from it is a page those engines cannot
+    // find. Derived from the same manifest the build prerenders from.
+    const llms = read("/public/llms.txt");
+    expect(LEVEL_MANIFEST.length).toBeGreaterThan(10);
+    for (const level of LEVEL_MANIFEST) {
+      expect(llms, `llms.txt does not link ${levelPath(level)}`).toContain(levelPath(level));
+    }
+  });
+
+  it("links every subject+level hub once from the prerendered /subjects document", () => {
+    // /subjects renders its hub list client-side, so before this index the
+    // prerendered document was an empty <div id="root"> and a crawler had only
+    // sitemap.xml to find the 17 hubs. The index is built from the same manifest
+    // as the pages, and each hub must appear exactly once: a duplicated anchor or
+    // a hub the list forgot is how this surface would silently rot.
+    const html = subjectHubIndexHtml();
+    expect(html, "the index carries the id the page removes on mount").toContain(
+      `id="${STATIC_HUB_INDEX_ID}"`,
+    );
+    expect(SUBJECT_HUB_GROUPS.length, "one group per subject with topics").toBeGreaterThan(3);
+    for (const level of LEVEL_MANIFEST) {
+      const path = levelPath(level);
+      const occurrences = html.split(`href="${path}"`).length - 1;
+      expect(occurrences, `${path} is linked ${occurrences} times in the hub index`).toBe(1);
+    }
+  });
+
+  it("keeps the SPA shell's head equal to the homepage route", () => {
+    // The shell is what a host serves for any URL it has no page for, and it is
+    // the first thing a non-JS crawler can read of the homepage. It shipped a
+    // title from the three-subject era until this comparison existed — and a stale
+    // shell title is what Google shows when the prerendered file is not served.
+    const head = shell();
+    const unescape = (value: string) =>
+      value
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&amp;/g, "&");
+    const tag = (pattern: RegExp) => {
+      const value = head.match(pattern)?.[1];
+      expect(value, `index.html is missing ${pattern}`).toBeDefined();
+      return unescape(value!);
+    };
+
+    const home = meta("/");
+    expect(tag(/<title>([^<]*)<\/title>/)).toBe(home.title);
+    expect(tag(/<meta name="description" content="([^"]*)"/)).toBe(home.description);
+    expect(tag(/<meta property="og:title" content="([^"]*)"/)).toBe(home.title);
+    expect(tag(/<meta property="og:description" content="([^"]*)"/)).toBe(home.description);
+    expect(tag(/<meta name="twitter:title" content="([^"]*)"/)).toBe(home.title);
+    expect(tag(/<meta name="twitter:description" content="([^"]*)"/)).toBe(home.description);
+  });
+
+  it("names every subject in the homepage hero, not just the head", () => {
+    // The visible lede is the copy Google reads as body text on the one page it
+    // crawls most. It carried all six already; the check exists so the next
+    // subject cannot land in the meta tags but not on the page.
+    const hero = read("/src/pages/Index.tsx");
+    for (const subject of PUBLISHED_SUBJECTS) {
+      expect(hero, `Index.tsx never says "${subject.label}"`).toContain(subject.label);
+    }
+  });
+
+  it("claims only the levels each subject is actually taught at", () => {
+    // English has no AS or A2 course. "English at IGCSE, AS and A2" is one click
+    // from being disproved, and in a FAQ answer Google reads as structured data
+    // it is simply false — which is why the sentence groups by level rather than
+    // hanging one level list off six subject names.
+    const english = PUBLISHED_SUBJECTS.find((s) => s.family === "english");
+    expect(english, "English is missing from the published subjects").toBeDefined();
+    expect(english!.levels).toEqual(["IGCSE"]);
+
+    const coverage = subjectCoverage();
+    expect(coverage).toContain(`English at ${levelPhrase(english!.levels)}`);
+    expect(coverage).not.toMatch(/English at IGCSE, AS/);
+  });
+
+  it("phrases a level list the way the site writes it", () => {
+    // OL and IGCSE are the same qualification and the same word, so a subject
+    // carrying both rows must not read "IGCSE, IGCSE, AS and A2".
+    expect(levelPhrase(["OL", "AS", "A2"])).toBe("IGCSE, AS and A2");
+    expect(levelPhrase(["OL", "IGCSE", "AS", "A2"])).toBe("IGCSE, AS and A2");
+    expect(levelPhrase(["IGCSE"])).toBe("IGCSE");
+    expect(levelPhrase(["AS", "A2"])).toBe("AS and A2");
   });
 });
 

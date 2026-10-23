@@ -1,7 +1,7 @@
 {
   "name": "clutchmarks",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -16,7 +16,8 @@
     "build:single": "vite build --config vite.single.config.ts && node scripts/build-single-file.cjs",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
-    "verify": "npm run typecheck && npm run build && npm run test",
+    "verify": "npm run check:plans -- --allow-unavailable && npm run typecheck && npm run build && npm run test",
+    "check:plans": "node scripts/generate-plans-manifest.cjs --check",
     "backup:content": "node scripts/backup-content.cjs",
     "preview": "vite preview",
     "test": "vitest run",

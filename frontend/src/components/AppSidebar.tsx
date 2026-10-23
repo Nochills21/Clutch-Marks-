@@ -97,7 +97,9 @@ const adminLinks = [
 
 // App version shown in small writing at the bottom of the sidebar.
 // Keep in sync with package.json "version".
-const APP_VERSION = "1.0.0";
+// 1.1.0 — deferred auth bootstrap (the landing page no longer downloads the
+// Supabase client), generated SEO subject copy, and the notes gate's title rule.
+const APP_VERSION = "1.1.0";
 
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },

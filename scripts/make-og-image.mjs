@@ -78,7 +78,10 @@ const CARDS = [
     titleSize: 94,
     lines: ["Revision notes, topic questions with instant", "marking, and a full past-paper archive."],
   },
-  { out: "og/subjects.png", title: "Subjects & Levels", lines: ["Maths, Physics, Chemistry, Biology,", "Computer Science and English — IGCSE,", "AS and A2."] },
+  // No level claim here on purpose: English is IGCSE-only, so "… and English —
+  // IGCSE, AS and A2" would put a course that does not exist on the social card.
+  // The kicker above already names the six subjects, which is what the card is for.
+  { out: "og/subjects.png", title: "Subjects & Levels", lines: ["Maths, Physics, Chemistry, Biology,", "Computer Science and English — notes,", "questions and past papers."] },
   { out: "og/lessons.png", title: "Lessons", lines: ["Structured lessons covering the full syllabus,", "with video and text content."] },
   { out: "og/notes.png", title: "Topic Notes", lines: ["Search, filter and download topic notes for", "every subject, level and topic."] },
   { out: "og/quizzes.png", title: "Quizzes", lines: ["Timed topic quizzes with instant AI feedback", "on every answer."] },

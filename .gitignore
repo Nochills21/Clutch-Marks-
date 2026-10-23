@@ -56,6 +56,11 @@ dist-ssr
 !.freebuff/apply-mig2.cjs
 !.freebuff/get-envkey.cjs
 !.freebuff/auto-sync.cjs
+# Notes-depth pipeline (docs/notes-depth.md): take the pre-edit snapshot, then
+# splice the authored sections in .freebuff/content-depth-appends.cjs into it and
+# prove every row clears the gate before anything reaches the live table.
+!.freebuff/snapshot-notes-depth.cjs
+!.freebuff/build-depth-appends.cjs
 # Reusable read-only audit tools, not one-off debug scripts: sql.cjs runs a
 # probe file against the live DB, audit-fffd.cjs sweeps every text column for
 # the U+FFFD replacement character.
@@ -65,6 +70,15 @@ dist-ssr
 # database owns, with throwaway accounts, and AGENTS.md names it as the check to
 # re-run after any change to those rules.
 !.freebuff/probe-username-selfservice-live.cjs
+# Live verifier for the admin second factor: it measures what an AAL1 session can
+# and cannot do, then does the same at AAL2 with a real TOTP code. AGENTS.md names
+# it as the check to re-run after touching admin authority or the MFA helpers.
+!.freebuff/probe-admin-mfa-live.cjs
+# One handle, one account: the underscore-shadow case on the login path and two
+# simultaneous claims of the same handle. AGENTS.md names it as the check to
+# re-run after touching username resolution or the uniqueness rules.
+!.freebuff/probe-username-shadow.cjs
+!.freebuff/probe-signup-username-race.cjs
 # The objectives review gate is content pipeline, not a one-off debug script: it
 # is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
 # author to run it before a topic's objectives are published.

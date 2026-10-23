@@ -4,7 +4,7 @@
 // else — for an admin it rendered no interactive content at all — so the
 // sidebar's "Subjects" entry led to a blank page. It now lists every
 // subject-level, linking into /study/:slug/:level.
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SEOHead } from "@/components/SEOHead";
 import { SubjectPicker } from "@/components/SubjectPicker";
@@ -12,6 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { subjectIcon } from "@/lib/subjects";
+import { STATIC_HUB_INDEX_ID, SUBJECT_HUB_GROUPS } from "@/lib/subjectHubs";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useSubjectLevelOptions } from "@/hooks/useSubjectLevelOptions";
@@ -57,6 +58,19 @@ export default function Subjects() {
   const isPicked = (id: string) => isAdmin || !user || pickedIds.has(id);
   const ordered = [...options].sort((a, b) => Number(isPicked(b.id)) - Number(isPicked(a.id)));
   const pickedCount = options.filter((o) => pickedIds.has(o.id)).length;
+
+  // The same rule the cards use to decide link-or-button: a signed-out visitor
+  // and an admin open any subject straight away, a student may have to add it
+  // first, so they get the cards' behaviour rather than a bare list.
+  const showHubIndex = isAdmin || !user;
+
+  // The prerendered /subjects document carries a static copy of this index (real
+  // links, for crawlers and for anyone whose JS has not run). This page renders
+  // the same list below, so the copy leaves as soon as React owns the page —
+  // otherwise every visitor would read it twice.
+  useEffect(() => {
+    document.getElementById(STATIC_HUB_INDEX_ID)?.remove();
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -159,6 +173,44 @@ export default function Subjects() {
             );
           })}
         </div>
+      )}
+
+      {/* Every subject+level hub, as real links. The prerendered document carries
+          an identical list (frontend/src/lib/subjectHubs.ts) so a crawler, and
+          anyone whose JS has not run, reaches the study pages without going
+          through the sitemap; the copy is removed on mount, leaving this one. */}
+      {showHubIndex && (
+        <section aria-labelledby="hub-index-heading" className="space-y-5 pt-2">
+          <div className="space-y-1">
+            <h2 id="hub-index-heading" className="text-lg font-semibold">
+              Browse by subject and level
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Each subject and level has its own hub with the topic list, notes, quizzes and past papers.
+            </p>
+          </div>
+          <div className="space-y-4">
+            {SUBJECT_HUB_GROUPS.map((group) => (
+              <div key={group.subjectSlug} className="space-y-2">
+                <h3 className="text-sm font-semibold">{group.subjectName}</h3>
+                <ul className="flex flex-wrap gap-2">
+                  {group.hubs.map((hub) => (
+                    <li key={hub.path}>
+                      <Link
+                        to={hub.path}
+                        aria-label={`${group.subjectName} ${hub.levelLabel}`}
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-sm transition-colors hover:border-primary/50 hover:text-primary"
+                      >
+                        {hub.levelLabel}
+                        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   );

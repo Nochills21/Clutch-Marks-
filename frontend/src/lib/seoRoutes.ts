@@ -8,6 +8,7 @@
  */
 
 import { PAID_PLAN_IDS, cheapestPerMonth, planById, perMonthOf, totalOf } from "./plans";
+import { subjectCoverage, subjectList } from "./subjectCatalogue";
 
 // Read Vite's env defensively: this module is imported by the build-time
 // prerender plugin, and inside the bundled vite.config the `import.meta.env`
@@ -55,8 +56,10 @@ const organization = {
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: `${SITE_URL}/`,
-  description:
-    "Online revision platform for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2 — notes, exam-style topic questions with instant marking, and a past-paper archive.",
+  // Enumerated from the topic manifest, not typed by hand: the hand-typed
+  // version still said "Maths, Physics and Computer Science" after Chemistry,
+  // Biology and English shipped pages.
+  description: `Online revision platform for ${subjectCoverage()} — notes, exam-style topic questions with instant marking, and a past-paper archive.`,
   logo: {
     "@type": "ImageObject",
     url: `${SITE_URL}/icon-512.png`,
@@ -94,7 +97,19 @@ function priceAnswer(): string {
 export const FAQ_ITEMS: { q: string; a: string }[] = [
   {
     q: "What subjects and levels does Clutch Marks cover?",
-    a: "Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2. Every subject has topic notes, exam-style questions with instant marking, and a past-paper archive.",
+    // Every subject with topics, and each at the levels it is actually taught
+    // at (English has no AS/A2 course). Rendered on /pricing and emitted as
+    // FAQPage structured data — Google penalises an answer that disagrees with
+    // the page, so the sentence is generated once, here.
+    //
+    // The last clause is deliberately narrower than the others: the paper
+    // archive covers Maths, Physics and Computer Science only (Chemistry,
+    // Biology and English have notes and questions but no papers — see
+    // .freebuff/probe-subject-inventory.sql). Saying "every subject has a
+    // past-paper archive" in structured data was a claim seven clicks of
+    // browsing disprove, and an FAQ answer is exactly the kind of copy a
+    // prospective student checks before paying.
+    a: `${subjectCoverage()}. Every subject has topic notes and exam-style questions with instant marking; the past-paper archive covers Maths, Physics and Computer Science.`,
   },
   {
     q: "How much does Clutch Marks cost?",
@@ -132,9 +147,8 @@ const faqPage = () => ({
 const course = {
   "@context": "https://schema.org",
   "@type": "Course",
-  name: "Clutch Marks — Maths, Physics & Computer Science Revision",
-  description:
-    "Self-paced revision for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2: topic notes, exam-style questions with instant AI marking, flashcards and past papers.",
+  name: "Clutch Marks — IGCSE, AS and A2 Revision",
+  description: `Self-paced revision for ${subjectCoverage()}: topic notes, exam-style questions with instant AI marking, flashcards and past papers.`,
   url: `${SITE_URL}/pricing`,
   inLanguage: "en",
   educationalLevel: ["IGCSE", "AS Level", "A2 Level"],
@@ -211,8 +225,11 @@ export const ROUTE_META: RouteMeta[] = [
     // different titles depending on whether Google executed JavaScript — the
     // kind of inconsistency that leaves a stale title in the index for weeks.
     title: "Clutch Marks — Revision Notes, Topic Questions & Past Papers",
-    description:
-      "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2.",
+    // "a past-paper archive" rather than "past papers for every subject": the
+    // archive is real and grows, but it currently holds papers for Maths,
+    // Physics and Computer Science only. The precise per-subject claim is the
+    // FAQ answer's job, where it can be stated honestly in one sentence.
+    description: `Topic notes, exam-style questions with instant marking, and a past-paper archive for ${subjectCoverage()}.`,
     jsonLd: [
       {
         "@context": "https://schema.org",
@@ -222,8 +239,7 @@ export const ROUTE_META: RouteMeta[] = [
         // instead of whatever title a stale/odd crawl left behind.
         alternateName: ["ClutchMarks", "clutchmarks.study"],
         url: `${SITE_URL}/`,
-        description:
-          "Study Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2 with interactive lessons, practice quizzes and revision tools.",
+        description: `Study ${subjectCoverage()} with interactive lessons, practice quizzes and revision tools.`,
       },
       { "@context": "https://schema.org", ...organization },
     ],
@@ -231,8 +247,7 @@ export const ROUTE_META: RouteMeta[] = [
   {
     path: "/auth",
     title: "Log In or Sign Up — Clutch Marks",
-    description:
-      "Log in to Clutch Marks or create an account to access lessons, topic notes, quizzes and past papers for Maths, Physics, Chemistry, Biology, Computer Science and English.",
+    description: `Log in to Clutch Marks or create an account to access lessons, topic notes, quizzes and past papers for ${subjectList()}.`,
     // A sign-in page must never be what Google shows for the domain.
     noindex: true,
   },
@@ -248,15 +263,13 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/subjects",
     ogImage: "/og/subjects.png",
     title: "Subjects & Levels — Clutch Marks",
-    description:
-      "Choose Maths, Physics or Computer Science at IGCSE, AS or A2 and jump straight into lessons, materials, exams and the AI question bank.",
+    description: `${subjectCoverage()}: lessons, revision materials, exams and the AI question bank for every topic.`,
   },
   {
     path: "/lessons",
     ogImage: "/og/lessons.png",
     title: "Lessons — Clutch Marks",
-    description:
-      "Browse structured lessons covering the full syllabus with video and text content for Maths, Physics, Chemistry, Biology, Computer Science and English.",
+    description: `Browse structured lessons covering the full syllabus with video and text content for ${subjectList()}.`,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -279,8 +292,7 @@ export const ROUTE_META: RouteMeta[] = [
       "@type": "CollectionPage",
       name: "Topic Notes",
       url: `${SITE_URL}/notes`,
-      description:
-        "Downloadable topic notes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2.",
+      description: `Downloadable topic notes for ${subjectCoverage()}.`,
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       publisher: organization,
     },
@@ -397,8 +409,12 @@ export const ROUTE_META: RouteMeta[] = [
     title: "Downloads — Clutch Marks",
     // Names the actual qualifications and syllabus codes — this is what a
     // student searching "IGCSE 0580 formula sheet" matches against.
+    // Only the sheets the page actually lists: nine of them, for Maths,
+    // Physics and Computer Science. Naming Chemistry, Biology or English here
+    // would describe downloads that do not exist — the subject list generated
+    // for the other surfaces is not usable on a page with a fixed inventory.
     description:
-      "Download formula sheets and reference sheets for every subject and level: Cambridge IGCSE 0580/0625/0478, Edexcel IAL AS/A2 Maths and Physics, Cambridge 9618 Computer Science."
+      "Download formula and reference sheets for IGCSE Maths 0580, Physics 0625 and Computer Science 0478, plus Edexcel IAL AS/A2 Maths and Physics and Cambridge 9618 Computer Science."
   },
   {
     path: "/privacy",

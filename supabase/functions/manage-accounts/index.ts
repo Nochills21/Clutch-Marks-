@@ -92,6 +92,13 @@ Deno.serve(async (req) => {
 
     const USERNAME_RE = /^[a-zA-Z0-9._-]{3,32}$/;
     const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // The duplicate checks below are case-insensitive LIKE lookups, and both
+    // alphabets allow the underscore (and an email local part allows it too), so
+    // the value must be escaped before it becomes a pattern. Unescaped, the
+    // handle sam_1 reads as a wildcard that also matches samx1: the check calls a
+    // free handle taken, and an exact `.eq` on a legacy mixed-case row misses the
+    // row it should find.
+    const likeLiteral = (value: string) => value.replace(/([\\%_])/g, "\\$1");
 
     // ── Password policy ──
     // GoTrue enforces the global minimum length (6). Everything stronger than
@@ -215,14 +222,17 @@ Deno.serve(async (req) => {
       const { data: existingEmail } = await adminClient
         .from("profiles")
         .select("id")
-        .ilike("email", cleanEmail)
+        .ilike("email", likeLiteral(cleanEmail))
         .maybeSingle();
       if (existingEmail) return json({ error: "Email already in use" }, 409);
       if (cleanUsername) {
+        // Case-insensitive as well as escaped: a row written before the canonical
+        // guard can still carry a mixed-case handle, and an exact `.eq` would miss
+        // it here and then fail on the unique index with a raw database error.
         const { data: existingUname } = await adminClient
           .from("profiles")
           .select("id")
-          .eq("username", cleanUsername)
+          .ilike("username", likeLiteral(cleanUsername))
           .maybeSingle();
         if (existingUname) return json({ error: "Username already taken" }, 409);
       }
@@ -285,11 +295,10 @@ Deno.serve(async (req) => {
             return json({ error: "Username must be 3-32 characters (letters, numbers, . _ -)" }, 400);
           }
           const { data: taken } = await adminClient
-            .from("profiles")
-            .select("user_id")
-            .ilike("username", clean)
-            .neq("user_id", user_id)
-            .maybeSingle();
+            .from("profiles")          .select("user_id")
+          .ilike("username", likeLiteral(clean))
+          .neq("user_id", user_id)
+          .maybeSingle();
           if (taken) return json({ error: "Username already taken" }, 409);
           profileUpdates.username = clean;
         }
@@ -301,7 +310,7 @@ Deno.serve(async (req) => {
         const { data: taken } = await adminClient
           .from("profiles")
           .select("user_id")
-          .ilike("email", cleanEmail)
+          .ilike("email", likeLiteral(cleanEmail))
           .neq("user_id", user_id)
           .maybeSingle();
         if (taken) return json({ error: "Email already in use" }, 409);
@@ -339,7 +348,7 @@ Deno.serve(async (req) => {
           const { data: taken } = await adminClient
             .from("profiles")
             .select("user_id")
-            .ilike("username", clean)
+            .ilike("username", likeLiteral(clean))
             .neq("user_id", user_id)
             .maybeSingle();
           if (taken) return json({ error: "Username already taken" }, 409);

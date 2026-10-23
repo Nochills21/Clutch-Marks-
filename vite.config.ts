@@ -4,6 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { prerenderSeo } from "./plugins/prerender-seo";
 import { injectAnalytics } from "./plugins/inject-analytics";
+import { preconnectSupabase } from "./plugins/preconnect-supabase";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -44,6 +45,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     prerenderSeo(),
     injectAnalytics(),
+    preconnectSupabase(),
   ].filter(Boolean),
   build: {
     // minify aggressively and de-duplicate the two huge ancillaries (pdfExport
@@ -52,6 +54,14 @@ export default defineConfig(({ mode }) => ({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
+        // Rollup's default (true) adds every chunk its dynamic imports depend on
+        // as an empty `import "./chunk.js"` in the entry, so the browser can
+        // fetch them in parallel. That undid the laziness it was meant to help:
+        // it hoisted the Supabase vendor chunk into the entry, which is how the
+        // landing page ended up modulepreloading 173 kB it never runs. Vite's
+        // `__vitePreload` dependency map fetches a lazy chunk's deps in parallel
+        // without this, so turning it off costs nothing.
+        hoistTransitiveImports: false,
         manualChunks: {
           // react + react-dom shared chunk (kept separate from the app bundle)
           react: ["react", "react-dom", "react-router-dom", "react-helmet-async", "next-themes", "@tanstack/react-query", "react-resizable-panels"],
@@ -61,6 +71,14 @@ export default defineConfig(({ mode }) => ({
           // its own chunk stays cached across deploys instead of being
           // re-downloaded inside the entry chunk every release.
           supabase: ["@supabase/supabase-js"],
+          // tslib is shared: @supabase/supabase-js needs its helpers, and so do
+          // some radix packages. Without a chunk of its own Rollup parked it
+          // *inside* the supabase chunk, and the ui chunk then imported
+          // `{ __assign, __rest }` from there — a static edge from radix to the
+          // 173 kB Supabase bundle that made every page, landing page included,
+          // fetch it before first paint. One small chunk breaks that edge; the
+          // deferred client still imports it when it finally loads.
+          tslib: ["tslib"],
         },
       },
     },
