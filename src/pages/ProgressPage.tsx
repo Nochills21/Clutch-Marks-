@@ -13,7 +13,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SEOHead } from "@/components/SEOHead";
 import { SubjectGate } from "@/components/SubjectGate";
 import { QuestionTimeTrend } from "@/components/QuestionTimeTrend";
-import { subjectIcon, subjectAccent, LEVEL_LABELS, LEVELS, type SubjectLevelCode } from "@/lib/subjects";
+import {
+  subjectIcon, subjectAccent, LEVEL_LABELS, LEVEL_FILTER_LABELS, levelLabel, type SubjectLevelCode,
+} from "@/lib/subjects";
 import {
   BookOpen, Brain, ClipboardList, Sparkles, FileText, Bookmark, AlertCircle,
   ArrowRight, BarChart3, RotateCcw, Activity, TrendingUp, TrendingDown, Minus,
@@ -180,7 +182,11 @@ export default function ProgressPage() {
   const visible = useMemo(
     () => rows.filter((r) =>
       (isAdmin || !prefsLoaded || pickedIds.has(r.subject_level_id)) &&
-      (levelFilter === "all" || r.level === levelFilter) &&
+      // The picker offers one row per qualification name, and two codes share
+      // "IGCSE" (OL for 0580/0610/0620/0625/0478, IGCSE for English). Comparing
+      // the raw code against the chosen label would empty the page for every
+      // subject that uses the other code, so compare the label.
+      (levelFilter === "all" || levelLabel(r.level) === levelFilter) &&
       (subjectFilter === "all" || r.subject_id === subjectFilter)),
     [rows, levelFilter, subjectFilter, isAdmin, prefsLoaded, pickedIds],
   );
@@ -276,7 +282,7 @@ export default function ProgressPage() {
             <SelectTrigger className="w-[150px]"><SelectValue placeholder="Level" /></SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All levels</SelectItem>
-              {LEVELS.map((l) => <SelectItem key={l} value={l}>{LEVEL_LABELS[l]}</SelectItem>)}
+              {LEVEL_FILTER_LABELS.map((l) => <SelectItem key={l} value={l}>{l}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>

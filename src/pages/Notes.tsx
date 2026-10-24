@@ -15,7 +15,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { openProtectedFile } from "@/lib/contentFiles";
-import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
+import { LEVEL_FILTER_LABELS, LEVEL_LABELS, levelLabel } from "@/lib/subjects";
 import { toast } from "sonner";
 import { loadFailureMessage } from "@/lib/net";
 import {
@@ -167,7 +167,13 @@ export default function Notes() {
 
   const subjects = useMemo(() => {
     const seen = new Map<string, string>();
-    notes.forEach((n) => seen.set(n.subject_id, n.subject_name));
+    notes.forEach((n) => {
+      // A material with no topic carries the "General" fallback from
+      // fetchNotes. That is the absence of a subject, not a subject, so it was
+      // a filter option that promised a shelf which does not exist.
+      if (n.subject_id === "none") return;
+      seen.set(n.subject_id, n.subject_name);
+    });
     return [...seen.entries()];
   }, [notes]);
 
@@ -177,7 +183,10 @@ export default function Notes() {
       if (filtering && !pickedIds.has(n.subject_level_id)) return false;
       if (topicFilter && n.topic_id !== topicFilter) return false;
       if (subject !== "all" && n.subject_id !== subject) return false;
-      if (level !== "all" && n.level !== level) return false;
+      // Matched on the label, because two level codes are both shown as
+      // "IGCSE": filtering on the raw code made the filter show two identical
+      // entries and each one hide the other code's notes.
+      if (level !== "all" && levelLabel(n.level) !== level) return false;
       if (type !== "all" && n.material_type !== type) return false;
       if (!term) return true;
       // Search the body too, not just the title: students look for a term they
@@ -273,7 +282,9 @@ export default function Notes() {
           <SelectTrigger className="w-full sm:w-[160px]"><SelectValue placeholder="Level" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All levels</SelectItem>
-            {LEVELS.map((l) => <SelectItem key={l} value={l}>{LEVEL_LABELS[l]}</SelectItem>)}
+            {LEVEL_FILTER_LABELS.map((label) => (
+              <SelectItem key={label} value={label}>{label}</SelectItem>
+            ))}
           </SelectContent>
         </Select>
         <Select value={type} onValueChange={setType}>

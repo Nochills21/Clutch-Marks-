@@ -32,6 +32,20 @@ export const LEVEL_LABELS: Record<SubjectLevelCode, string> = {
   A2: "A2 Level",
 };
 
+/**
+ * The options a level picker should offer: one per *label*, not per code.
+ *
+ * Two codes carry the same label — "OL" (every subject that predates the IGCSE
+ * code: 0580, 0610, 0620, 0625, 0478) and "IGCSE" (English) are both shown as
+ * "IGCSE" — so listing LEVELS directly put two identical "IGCSE" rows in a
+ * dropdown, one of which matched nothing the other did not. A picker built from
+ * this list must compare `levelLabel(row)` with the chosen value, so one
+ * selection matches both codes.
+ */
+export const LEVEL_FILTER_LABELS: string[] = LEVELS.filter(
+  (l, i) => LEVELS.findIndex((o) => LEVEL_LABELS[o] === LEVEL_LABELS[l]) === i,
+).map((l) => LEVEL_LABELS[l]);
+
 export const LEVEL_DESCRIPTIONS: Record<SubjectLevelCode, string> = {
   OL: "IGCSE foundations",
   IGCSE: "IGCSE foundations",

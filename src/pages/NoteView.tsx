@@ -19,6 +19,7 @@ import { useAuth } from "@/lib/auth";
 import { exportLessonToPdf } from "@/lib/pdfExport";
 import { LEVEL_LABELS } from "@/lib/subjects";
 import { materialContentToHtml } from "@/lib/objectiveTeach";
+import { applyMathHtml } from "@/lib/mathText";
 import { topicNotesPath, topicSlugOf } from "@/lib/topicUrls";
 import { ArrowLeft, Download } from "lucide-react";
 
@@ -93,7 +94,10 @@ export default function NoteView() {
   const level = topic?.subject_levels?.level ?? "";
   const levelLabel = level ? (LEVEL_LABELS[level as "OL"] ?? level) : "";
   const topicHref = topic && subject && level ? topicNotesPath(subject.slug, level, topicSlugOf(topic)) : null;
-  const html = DOMPurify.sanitize(materialContentToHtml(material.content));
+  // Sanitise first, then typeset: the notes store maths as `\( ... \)` in the
+  // same corpus the questions use, and KaTeX's output is generated locally from
+  // that TeX, so it must not be run through the sanitizer.
+  const html = applyMathHtml(DOMPurify.sanitize(materialContentToHtml(material.content)));
 
   // Same branded PDF as a lesson: the export stamps the account watermark on
   // every page, so a downloaded copy always names who took it.

@@ -40,6 +40,7 @@ describe("summariseFindings", () => {
       { category: "replacement_character", count: 1 },
       { category: "answer_index", count: 2 },
       { category: "material_type_alias", count: 0 },
+      { category: "material_title_body_in_title", count: 0 },
       { category: "notes_recall_prompt", count: 0 },
     ]);
   });
@@ -103,6 +104,7 @@ describe("categoryMeta", () => {
       "Replacement characters",
       "Answer index",
       "Material type aliases",
+      "Material titles",
       "Notes-recall prompts",
     ]);
   });
