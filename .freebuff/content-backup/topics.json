@@ -160,6 +160,16 @@
   "slug": "cell-structure-reproduction-and-development"
  },
  {
+  "id": "14ea77ff-1fff-4eb6-96ae-6499d086bd9f",
+  "name": "Listening Strategies",
+  "description": "OxfordAQA International GCSE ESL Paper 3: monologues and dialogues, key-detail extraction and speaker attitude.",
+  "sort_order": 8,
+  "created_at": "2026-10-23 20:19:02.821335+00",
+  "updated_at": "2026-10-23 20:19:02.821335+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "listening-strategies"
+ },
+ {
   "id": "15a26a2d-cb1f-4059-810f-1698500fe548",
   "name": "Kinematics",
   "description": "Kinematics — Cambridge International AS Level Physics (9702)",
@@ -558,6 +568,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "complex-numbers"
+ },
+ {
+  "id": "4b882cb4-6e6e-4f2a-82e8-4e004eaf5af8",
+  "name": "Speaking Skills",
+  "description": "OxfordAQA International GCSE ESL Paper 4: photo-card discussion, general conversation and the spoken assessment criteria.",
+  "sort_order": 9,
+  "created_at": "2026-10-23 20:19:02.821335+00",
+  "updated_at": "2026-10-23 20:19:02.821335+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "speaking-skills"
  },
  {
   "id": "4bbf548c-f900-449c-9631-bc4b638d623d",
@@ -1278,6 +1298,16 @@
   "updated_at": "2026-10-21 05:43:57.755532+00",
   "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
   "slug": "coordination-and-response"
+ },
+ {
+  "id": "94dafd0c-5508-4cb6-a34b-518ff03e78f4",
+  "name": "Writing Tasks and Themes",
+  "description": "OxfordAQA International GCSE ESL Paper 1: the four writing tasks, the three themes, register and band criteria.",
+  "sort_order": 7,
+  "created_at": "2026-10-23 20:19:02.821335+00",
+  "updated_at": "2026-10-23 20:19:02.821335+00",
+  "subject_level_id": "9029c6e0-495a-4e7d-a4ec-ac3a61bde90b",
+  "slug": "writing-tasks-and-themes"
  },
  {
   "id": "95591ce6-a270-4b09-b12e-bd4ec21ca1a0",

@@ -9,7 +9,7 @@
 // Regenerate after adding, renaming or removing topics:
 //   node scripts/generate-topic-manifest.cjs
 //
-// Generated: 2026-10-21 · 185 topics
+// Generated: 2026-10-23 · 191 topics
 export interface TopicManifestEntry {
   subjectSlug: string;
   subjectName: string;
@@ -112,10 +112,13 @@ export const TOPIC_MANIFEST: TopicManifestEntry[] = [
   { subjectSlug: "computer-science", subjectName: "Computer Science", level: "OL", topicSlug: "web-technologies", topicName: "Web Technologies" },
   { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "articles-and-determiners", topicName: "Articles and Determiners" },
   { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "formal-writing-register-and-linking-words", topicName: "Formal Writing: Register and Linking Words" },
+  { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "listening-strategies", topicName: "Listening Strategies" },
   { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "prepositions-and-collocations", topicName: "Prepositions and Collocations" },
   { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "reading-for-main-ideas-and-detail", topicName: "Reading for Main Ideas and Detail" },
+  { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "speaking-skills", topicName: "Speaking Skills" },
   { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "tenses-in-context", topicName: "Tenses in Context" },
   { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "word-formation-prefixes-and-suffixes", topicName: "Word Formation: Prefixes and Suffixes" },
+  { subjectSlug: "english-as-a-second-language-oxford", subjectName: "English as a Second Language (Oxford)", level: "IGCSE", topicSlug: "writing-tasks-and-themes", topicName: "Writing Tasks and Themes" },
   { subjectSlug: "english-first-language-cambridge", subjectName: "English First Language (Cambridge)", level: "IGCSE", topicSlug: "analysing-language-choices", topicName: "Analysing Language Choices" },
   { subjectSlug: "english-first-language-cambridge", subjectName: "English First Language (Cambridge)", level: "IGCSE", topicSlug: "descriptive-writing", topicName: "Descriptive Writing" },
   { subjectSlug: "english-first-language-cambridge", subjectName: "English First Language (Cambridge)", level: "IGCSE", topicSlug: "narrative-writing", topicName: "Narrative Writing" },
@@ -127,6 +130,7 @@ export const TOPIC_MANIFEST: TopicManifestEntry[] = [
   { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "complex-numbers", topicName: "Complex Numbers" },
   { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "continuous-random-variables", topicName: "Continuous Random Variables" },
   { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "coordinate-geometry", topicName: "Coordinate Geometry" },
+  { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "differential-equations", topicName: "Differential Equations" },
   { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "differentiation-ii", topicName: "Differentiation" },
   { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "exponentials-and-logarithms", topicName: "Exponentials and Logarithms" },
   { subjectSlug: "mathematics", subjectName: "Mathematics", level: "A2", topicSlug: "further-algebra", topicName: "Algebra and Functions" },
@@ -182,6 +186,7 @@ export const TOPIC_MANIFEST: TopicManifestEntry[] = [
   { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "electric-fields-and-capacitance", topicName: "Electric Fields" },
   { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "further-mechanics", topicName: "Further Mechanics" },
   { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "magnetic-fields-and-electromagnetism", topicName: "Magnetic Fields" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "medical-physics", topicName: "Medical Physics" },
   { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "motion-in-a-circle-and-gravity", topicName: "Motion in a Circle and Gravity" },
   { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "nuclear-physics", topicName: "Nuclear and Particle Physics" },
   { subjectSlug: "physics", subjectName: "Physics", level: "A2", topicSlug: "oscillations-and-waves-ii", topicName: "Oscillations" },
@@ -191,6 +196,7 @@ export const TOPIC_MANIFEST: TopicManifestEntry[] = [
   { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "forces-and-equilibrium", topicName: "Forces and Equilibrium" },
   { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "kinematics", topicName: "Kinematics" },
   { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "materials-deformation", topicName: "Materials" },
+  { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "physical-quantities-and-measurement", topicName: "Physical Quantities and Measurement" },
   { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "quantum-physics", topicName: "Quantum Physics" },
   { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "superposition", topicName: "Superposition" },
   { subjectSlug: "physics", subjectName: "Physics", level: "AS", topicSlug: "waves", topicName: "Waves" },

@@ -21,6 +21,7 @@ import {
 import { FileText, BookOpen, Play, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
+import { applyMathHtml } from "@/lib/mathText";
 import { openProtectedFile } from "@/lib/contentFiles";
 import { topicMasterySummary } from "@/lib/topicMastery";
 import { TopicMasteryRing } from "@/components/TopicMasteryRing";
@@ -358,7 +359,7 @@ export default function TopicNotes() {
                 {!m.file_url && m.content && (
                   <div
                     className="cm-notes cm-m-inline"
-                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(materialContentToHtml(String(m.content))) }}
+                    dangerouslySetInnerHTML={{ __html: applyMathHtml(DOMPurify.sanitize(materialContentToHtml(String(m.content)))) }}
                   />
                 )}
               </div>
