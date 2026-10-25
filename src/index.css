@@ -731,6 +731,31 @@
     font-size: 0.92em;
   }
 
+  /* Multi-line working is written as <pre><code> and the lines are deliberately
+     kept whole. Without this, a long line escapes the column: measured at a
+     390 px viewport, a note with the bearing worked example scrolled 284 px
+     sideways and the page became wider than the phone. The block scrolls
+     inside itself instead, and the chip styling of inline code is removed
+     because the whole panel already carries the tint. */
+  .cm-notes pre {
+    margin: 1em 0;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0.5rem;
+    background: hsl(var(--gold) / 0.08);
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .cm-notes pre code {
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    white-space: pre;
+  }
+
   .cm-notes blockquote {
     margin: 1em 0;
     border-left: 3px solid hsl(var(--gold-soft));
@@ -739,14 +764,23 @@
     padding: 0.75rem 1rem;
   }
 
+  /* A wide comparison table (five columns of classification, or a titration
+     results grid) has a min-content width above a phone's: measured at 390 px,
+     one biology note rendered its table 596 px wide and pushed the page 245 px
+     sideways. `display: block` turns the table into a scroll container while
+     the rows keep their tabular layout, so the columns stay intact and the
+     student swipes sideways inside the table instead of losing the page. */
   .cm-notes table {
+    display: block;
     width: 100%;
+    max-width: 100%;
     margin: 1em 0;
     border: 1px solid hsl(var(--border));
     border-radius: 0.5rem;
     border-collapse: separate;
     border-spacing: 0;
-    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .cm-notes th {
