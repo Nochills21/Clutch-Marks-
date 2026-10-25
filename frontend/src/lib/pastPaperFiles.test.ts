@@ -152,10 +152,21 @@ describe("archiveBoard / archivePaperGroup", () => {
     expect(archiveBoard({ title: "Computer Science 9618 — Paper 1" })).toBe("Cambridge International");
   });
 
+  it("reads OxfordAQA from the source link, not the bare host", () => {
+    const esl = {
+      title: "OxfordAQA International GCSE English as a Second Language 9280 — Paper 1: Writing",
+      source_url: "https://www.oxfordaqa.com/qualification/international-gcse-english-as-a-second-language-9280/",
+    };
+    expect(archiveBoard(esl)).toBe("OxfordAQA");
+  });
+
   it("collapses numbered papers and keeps named modules", () => {
     expect(archivePaperGroup(maths("a", 2024, "May/June"))).toBe("Paper 2");
     expect(archivePaperGroup({ title: "Edexcel IAL Physics — Unit 3: Practical Skills in Physics I (WPH13/01)" })).toBe("Unit 3");
     expect(archivePaperGroup({ title: "Edexcel IAL Maths — Mechanics M1 (WME01/01)" })).toBe("Mechanics M1");
+    expect(
+      archivePaperGroup({ title: "OxfordAQA International GCSE English as a Second Language 9280 — Paper 3: Listening" }),
+    ).toBe("Paper 3");
     expect(archivePaperGroup({ title: "Edexcel IAL Maths — Pure Mathematics P1 (WMA11/01)" })).toBe("Pure Mathematics P1");
   });
 });
@@ -265,6 +276,9 @@ describe("boardLabel", () => {
   it("names the boards we link to", () => {
     expect(boardLabel("https://www.cambridgeinternational.org/programmes-and-qualifications/x/past-papers/")).toBe("Cambridge International");
     expect(boardLabel("https://qualifications.pearson.com/en/qualifications/x.html")).toBe("Pearson Edexcel");
+    expect(
+      boardLabel("https://www.oxfordaqa.com/qualification/international-gcse-english-as-a-second-language-9280/"),
+    ).toBe("OxfordAQA");
   });
 
   it("falls back to the host and tolerates junk", () => {

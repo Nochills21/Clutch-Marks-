@@ -1,6 +1,6 @@
 # Clutch Marks — Codebase Guide
 
-Cambridge IGCSE / AS / A-Level study platform (Maths 0580/9709, Physics 0625/9702, CS 0478/9618). React + Vite + Supabase. Every source file starts with a one-line comment saying what it does — read that first.
+Cambridge IGCSE / AS / A-Level study platform across six subjects — Maths (0580/9709), Physics (0625/9702), Chemistry (0620), Biology (0610), Computer Science (0478/9618) and English (Cambridge 0500, OxfordAQA 9280). React + Vite + Supabase. Every source file starts with a one-line comment saying what it does — read that first.
 
 ## Layout
 
@@ -27,8 +27,9 @@ supabase/
                           fixes recorded here). All are idempotent.
   functions/              Edge functions (Deno): manage-accounts, resolve-login-email
                           (username login), serve-material (watermarking proxy),
-                          study-planner, quiz-feedback, generate-questions,
-                          promote-admin. Deploy with .freebuff/deploy-functions.cjs.
+                          study-planner, quiz-feedback, generate-questions.
+                          Deploy with .freebuff/deploy-functions.cjs. (No
+                          promote-admin: admin access is SQL-provisioned only.)
   base.sql                Golden schema snapshot for bootstrapping fresh projects.
 .freebuff/                Ops tooling: content seeders, golden-dump.cjs,
                           auto-sync.cjs (hourly GitHub backup), pdftool.

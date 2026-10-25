@@ -6,7 +6,7 @@ A student-and-admin platform for revision in Maths, Physics, Chemistry, Biology 
 
 ## Subjects and levels
 
-Each subject has one hub page per level it is taught at, and each hub lists its topics with revision notes, exam-style questions and past papers.
+Each subject has one hub page per level it is taught at, and each hub lists its topics with revision notes and exam-style questions. The past-paper archive is catalogued for Maths, Physics and Computer Science; Chemistry, Biology and English have notes and questions but no papers yet.
 
 - [IGCSE Maths](/study/mathematics/ol), [AS Maths](/study/mathematics/as), [A2 Maths](/study/mathematics/a2)
 - [IGCSE Physics](/study/physics/ol), [AS Physics](/study/physics/as), [A2 Physics](/study/physics/a2)
@@ -26,7 +26,7 @@ Each subject has one hub page per level it is taught at, and each hub lists its 
 - [Flashcards](/flashcards): Spaced-repetition flashcard decks by topic.
 - [Topic Notes](/notes): Search and filter uploaded topic notes by subject, level and keyword.
 - [Revision](/revision): Study materials and notes.
-- [Past Papers](/past-papers): IGCSE past papers and mark schemes by year and topic.
+- [Past Papers](/past-papers): Past papers and mark schemes by subject, level, board, session and topic, each paper filed under a topic.
 - [Calendar](/calendar): Deadlines, quizzes, and lesson schedule.
 - [Study Planner](/study-planner): AI-generated personalized revision schedules.
 - [Progress](/progress): Performance tracking across lessons and quizzes.

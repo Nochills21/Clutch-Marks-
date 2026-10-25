@@ -103,7 +103,9 @@ type ArchivePaper = NonNullable<Awaited<ReturnType<typeof archivePapersPage>>["d
 
 // `paper_number` rows already read "Paper 1 (12)" — prefixing another "Paper"
 // rendered "Paper Paper 1 (12)".
-const paperLabel = (n: string | null) => (!n ? "—" : /^paper\b/i.test(n) ? n : `Paper ${n}`);
+// Cambridge rows store "Paper 2 (22)" and Edexcel IAL rows "Unit 3 (WBI13/01)", so
+// the prefix is only added when the value carries neither word.
+const paperLabel = (n: string | null) => (!n ? "—" : /^(paper|unit)\b/i.test(n) ? n : `Paper ${n}`);
 
 export default function PastPapers() {
   const { toast } = useToast();

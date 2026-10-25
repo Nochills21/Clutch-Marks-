@@ -3,7 +3,7 @@
 Notes for AI agents working in this repo. Keep entries terse; only record what code/docs can't tell you.
 
 ## Project
-Clutch Marks — Cambridge IGCSE/AS/A2 revision platform (Vite + React + TS + Supabase). Maths 0580/9709, Physics 0625/9702, CS 0478/9618. The live Supabase DB is production — treat it as such.
+Clutch Marks — Cambridge IGCSE/AS/A2 revision platform (Vite + React + TS + Supabase). Six subjects: Maths 0580/9709, Physics 0625/9702, Chemistry 0620, Biology 0610, CS 0478/9618, and English (Cambridge 0500 First Language, OxfordAQA 9280 ESL). Copy that enumerates subjects is generated from `frontend/src/lib/subjectCatalogue.ts` — see Content conventions. The live Supabase DB is production — treat it as such.
 
 ## Environment & commands
 - No Supabase CLI. All SQL goes through the Management API: `POST https://api.supabase.com/v1/projects/{REF}/database/query` with Bearer token `sbp_…` (read from `.freebuff/get-keys.cjs`); project ref + anon key come from `.env` (`VITE_SUPABASE_PROJECT_ID`, `VITE_SUPABASE_PUBLISHABLE_KEY`). Service key: `GET /v1/projects/{REF}/api-keys`.
@@ -43,6 +43,7 @@ Clutch Marks — Cambridge IGCSE/AS/A2 revision platform (Vite + React + TS + Su
 - `auth.admin.deleteUser` cascades profile/role rows — capture identity before deleting (audit trail needs it).
 
 ## Gotchas (misleading errors)
+- **A `past_papers` row with no `paper_url` is not a broken row.** Biology, Chemistry and both English qualifications have 126 catalogue rows whose PDFs are not in the `past-papers` bucket; the page renders them as "Not in our library yet — open it on the board's site" and routes through `serve-external-paper`. Seeded by `.freebuff/seed-past-papers-bio-chem-eng.cjs`, which is idempotent on title + year + session. Conversely, an `INSERT`/`UPDATE` through the Management API answers `201` whether it matched zero rows or not — assert the count afterwards (`select length(content)`, `select count(*)`), never the status code. `docs/past-papers.md` holds the inventory.
 - PostgREST embed `topics(name)` returns 400 if the FK is missing — embeds require real FKs (`flashcard_sets` lost its FK once and every list query 400'd).
 - Generic PL/pgSQL triggers spanning multiple tables: `NEW.name` throws at runtime on tables without that column (broke announcement inserts with an unhelpful 400) — use `to_jsonb(NEW)->>'field'`.
 - `pg_get_functiondef` output ends with a bare `$function$` line (no semicolon) — concatenating emitted SQL without terminating produces confusing downstream syntax errors.

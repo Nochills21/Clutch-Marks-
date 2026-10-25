@@ -1,7 +1,18 @@
 # Past papers: how files get attached
 
-The archive (`past_papers`, ~421 rows across Mathematics, Physics and Computer
-Science at OL / AS / A2) holds one file reference per slot: a path inside the
+The archive (`past_papers`, 1,221 rows) covers all six subjects: Mathematics,
+Physics and Computer Science at OL / AS / A2 with files attached, and Biology
+(0610), Chemistry (0620), both English qualifications (Cambridge 0500, OxfordAQA
+9280) and Edexcel IAL Biology / Chemistry (WBI11-16, WCH11-16) as metadata rows
+that carry the board's `source_url` but no PDF — the `past-papers` bucket holds
+nothing for those codes. Those rows therefore read "Not in our library yet —
+open it on the board's site", which is the honest state until the papers are
+sourced; adding a row is not a claim that we host the file. They were seeded by
+`.freebuff/seed-past-papers-bio-chem-eng.cjs`, whose series lists are sized so
+every subject-level has at least as many rows as topics. Every row is filed
+under a topic of its own subject-level (see
+`.freebuff/link-past-paper-topics.sql`), so a topic filter returns that topic's
+papers. It holds one file reference per slot: a path inside the
 private `past-papers` bucket (`papers/…` / `mark-schemes/…`, UUID filenames),
 attached either by an admin through the Past Papers Bank or by the bulk ingest
 that downloaded the sourced PDFs (see below).

@@ -1,7 +1,11 @@
-// Blog funnel: email-gated formula-sheet/reference downloads for every
-// subject-level. Entering an email reveals the direct PDF links; the email is
-// stored in localStorage so returning visitors skip the gate.
+// Blog funnel: email-gated formula-sheet/reference downloads. Nine sheets exist —
+// IGCSE Maths, Physics and Computer Science, then Edexcel IAL Maths and Physics at
+// AS and A2 — so the page says that plainly rather than implying a sheet per
+// subject; Chemistry, Biology and English are pointed at the notes, which is where
+// their worked formulas live. Entering an email reveals the direct PDF links; the
+// email is stored in localStorage so returning visitors skip the gate.
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { SEOHead } from "@/components/SEOHead";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -124,9 +128,14 @@ export default function Downloads() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Formula Sheets 📄</h1>
         <p className="text-muted-foreground mt-2">
-          Every formula, equation and must-recall fact on printable pages — matched to
-          the right exam board: <strong>Cambridge</strong> for IGCSE and Computer
-          Science, <strong>Edexcel</strong> for AS/A2 Maths and Physics.
+          Every formula, equation and must-recall fact worth memorising, on printable
+          pages and matched to the right exam board: <strong>Cambridge</strong> for
+          IGCSE Maths, Physics and Computer Science, <strong>Edexcel</strong> for AS/A2
+          Maths and Physics. Chemistry, Biology and English revision lives in the{" "}
+          <Link to="/notes" className="font-semibold text-primary underline decoration-primary/30 underline-offset-4">
+            topic notes
+          </Link>{" "}
+          for those subjects — every equation there carries its symbol key.
         </p>
       </div>
 

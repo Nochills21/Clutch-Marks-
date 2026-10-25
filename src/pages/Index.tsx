@@ -8,6 +8,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { SEOHead } from "@/components/SEOHead";
 import { BrandLockup } from "@/components/BrandMark";
 import { SITE } from "@/lib/site";
+import { PUBLISHED_SUBJECTS } from "@/lib/subjectCatalogue";
 import {
   BookOpen, Brain, Archive, ArrowRight, Check,
   FileText, Settings2, Target, TrendingUp,
@@ -76,11 +77,29 @@ function DeferredSubjectPicker() {
   );
 }
 
-/** Counts verified against the live database — keep honest or update together. */
+/**
+ * The homepage's four numbers.
+ *
+ * The subject tile is generated from the catalogue, because a typed pair went
+ * wrong exactly once: it read "7" over six names. English ships as two
+ * `subjects` rows (First Language, Second Language) and counts once, so seven
+ * was the row count with six labels under it. The paper figure is a floor
+ * rather than a total — the archive only grows, so "1,000+" stays true, while
+ * a precise count is wrong the next time an ingest runs (it stood at "700+"
+ * with 1,095 rows in the table). "12 exams" is the qualification count from
+ * `syllabus_statements`: 0580, 0625, 0620, 0610, 0478, 0500 and OxfordAQA 9280
+ * at IGCSE, plus 9709, 9702, 9618 and the Edexcel IAL Biology (9BI0) and
+ * Chemistry (9CH0) courses at AS/A2.
+ */
+const SUBJECT_TRACK = PUBLISHED_SUBJECTS.map((subject) =>
+  // The tile is a single line; the two-word subject is abbreviated there only.
+  subject.label === "Computer Science" ? "CS" : subject.label,
+).join(" · ");
+
 const TRACKS = [
-  { label: "Subjects", value: "7", detail: "Maths · Physics · Chemistry · Biology · CS · English" },
+  { label: "Subjects", value: String(PUBLISHED_SUBJECTS.length), detail: SUBJECT_TRACK },
   { label: "Levels", value: "IGCSE · AS · A2", detail: "IGCSE to A Level" },
-  { label: "Past papers", value: "700+", detail: "Catalogued with mark schemes" },
+  { label: "Past papers", value: "1,000+", detail: "Catalogued with mark schemes" },
   { label: "Exams covered", value: "12 exams", detail: "Cambridge · Edexcel · Oxford" },
 ];
 

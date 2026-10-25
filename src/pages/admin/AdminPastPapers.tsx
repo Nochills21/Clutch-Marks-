@@ -29,18 +29,28 @@ import { openSignedFile } from "@/lib/contentFiles";
 /** A past_papers row as loaded by the page, with its topic embed. */
 type PaperRow = Tables<"past_papers"> & { topics?: { name: string } | null };
 import { cn } from "@/lib/utils";
+import { SUBJECT_HUB_GROUPS } from "@/lib/subjectHubs";
 
 const SESSIONS = ["May/June", "Oct/Nov", "Feb/Mar"];
 const LEVELS = [
   { value: "OL", label: "IGCSE" },
+  // The archive stores four level codes but three names: "OL" is the IGCSE
+  // subjects that came first (0580, 0625, 0620, 0610, 0478) and "IGCSE" is what
+  // the two English subjects use. Two options both reading "IGCSE" would be the
+  // duplicate the public pickers had to have removed, and the code is what gets
+  // written, so the English one says so.
+  { value: "IGCSE", label: "IGCSE (English)" },
   { value: "AS", label: "AS Level" },
   { value: "A2", label: "A2 Level" },
 ];
-const SUBJECTS = [
-  { value: "mathematics", label: "Mathematics" },
-  { value: "physics", label: "Physics" },
-  { value: "computer-science", label: "Computer Science" },
-];
+// Every subject with topics, from the published catalogue rather than a typed
+// list: the hand-kept version still offered three — Maths, Physics and Computer
+// Science — so an admin could not file a paper under Chemistry, Biology or
+// either English subject at all.
+const SUBJECTS = SUBJECT_HUB_GROUPS.map((group) => ({
+  value: group.subjectSlug,
+  label: group.subjectName,
+}));
 const currentYear = new Date().getFullYear();
 const YEARS = Array.from({ length: 20 }, (_, i) => currentYear - i);
 

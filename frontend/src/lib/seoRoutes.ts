@@ -285,8 +285,11 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/notes",
     ogImage: "/og/notes.png",
     title: "Topic Notes — Clutch Marks",
-    description:
-      "Search and filter uploaded topic notes by subject, level and keyword, then open, download and track what you've studied.",
+    // Names the subjects: a student searching "igcse chemistry notes" is looking
+    // at this page's description in the result before they click, and a generic
+    // sentence gave the snippet nothing to match. Generated, so the sentence
+    // covers whatever the catalogue publishes rather than a typed list.
+    description: `Topic notes for ${subjectList()}: search by subject, level and keyword, open or download a note, and track what you've studied.`,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -301,22 +304,27 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/quizzes",
     ogImage: "/og/quizzes.png",
     title: "Quizzes — Clutch Marks",
-    description:
-      "Test your understanding with timed quizzes and instant AI feedback across every topic and level.",
+    description: `Timed exam-style topic quizzes with instant marking and worked answers for ${subjectList()}.`,
   },
   {
     path: "/past-papers",
     ogImage: "/og/past-papers.png",
     title: "Past Papers & Mark Schemes — Clutch Marks",
+    // No subject list on purpose: the archive holds Maths, Physics and Computer
+    // Science papers only (Chemistry, Biology and English have notes and
+    // questions but no papers yet), so "past papers for every subject" would be
+    // a claim the archive disproves.
     description:
-      "Download past exam papers and mark schemes by year, session and paper number to practise under exam conditions.",
+      "Past papers and mark schemes by subject, level, board, session and topic, with the board's own page where our archive has no file.",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "Past Papers & Mark Schemes",
       url: `${SITE_URL}/past-papers`,
+      // Same sentence as the meta description: structured data that disagrees
+      // with the page it describes is ignored at best.
       description:
-        "Past exam papers and mark schemes organised by year, session and paper number.",
+        "Past papers and mark schemes by subject, level, board, session and topic, with the board's own page where our archive has no file.",
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       publisher: organization,
     },

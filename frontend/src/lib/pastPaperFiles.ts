@@ -246,6 +246,10 @@ export function boardLabel(sourceUrl: string | null | undefined): string | null 
   }
   if (host.endsWith("cambridgeinternational.org")) return "Cambridge International";
   if (host.endsWith("pearson.com") || host.endsWith("edexcel.com")) return "Pearson Edexcel";
+  // OxfordAQA rows carry no board prefix ("OxfordAQA International GCSE …"), so
+  // this map is what keeps the board filter reading "OxfordAQA" instead of the
+  // bare host.
+  if (host.endsWith("oxfordaqa.com")) return "OxfordAQA";
   if (host.endsWith("ocr.org.uk")) return "OCR";
   if (host.endsWith("aqa.org.uk")) return "AQA";
   if (host.endsWith("wjec.co.uk")) return "WJEC";

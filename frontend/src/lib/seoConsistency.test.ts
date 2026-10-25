@@ -394,12 +394,31 @@ describe("subject coverage in copy", () => {
       expect(text, `${name} does not name every subject (${subjectList()})`).toContain(subjectCoverage());
     }
 
+    // The collection pages a subject-specific search lands on also name the
+    // subjects in their snippet: "igcse chemistry notes" is a phrase a student
+    // types, and a description that never says "Chemistry" cannot match it.
     for (const [name, text] of [
       ["/lessons description", meta("/lessons").description],
       ["/auth description", meta("/auth").description],
+      ["/notes description", meta("/notes").description],
+      ["/quizzes description", meta("/quizzes").description],
     ] as [string, string][]) {
       expect(text, `${name} does not name every subject`).toContain(subjectList());
     }
+  });
+
+  it("counts the subjects from the catalogue, not from a typed number", () => {
+    // The homepage's stats tile read "7" over six names for months: seven was
+    // the `subjects` row count (English ships as two rows) with one label per
+    // family underneath. A typed pair cannot stay in step, so the tile derives
+    // both from the same catalogue the rest of the copy uses.
+    const hero = read("/src/pages/Index.tsx");
+    expect(hero, "the subject tile should count PUBLISHED_SUBJECTS").toContain(
+      "value: String(PUBLISHED_SUBJECTS.length)",
+    );
+    expect(hero, "the subject tile should list the catalogue's labels").toContain(
+      "PUBLISHED_SUBJECTS.map((subject)",
+    );
   });
 
   it("gives every subject+level hub a link in llms.txt", () => {
