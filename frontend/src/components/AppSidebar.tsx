@@ -97,9 +97,11 @@ const adminLinks = [
 
 // App version shown in small writing at the bottom of the sidebar.
 // Keep in sync with package.json "version".
-// 1.1.0 — deferred auth bootstrap (the landing page no longer downloads the
-// Supabase client), generated SEO subject copy, and the notes gate's title rule.
-const APP_VERSION = "1.1.0";
+// 1.2.0 — every archive paper is filed under a topic of its own level, so the
+// past-paper archive's subject/topic/level pickers (and a topic page's "Past
+// papers" link) return real papers instead of widening to the subject; plus the
+// ⌘K search palette and the topic page's study links.
+const APP_VERSION = "1.2.0";
 
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
