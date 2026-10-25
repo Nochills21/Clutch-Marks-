@@ -6,6 +6,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { NotificationCenter } from "@/components/NotificationCenter";
 import { ContentProtection } from "@/components/ContentProtection";
+import { SearchPalette } from "@/components/SearchPalette";
 import { SubjectFilterNotice } from "@/components/SubjectFilterNotice";
 import { useDeviceType } from "@/hooks/useDevice";
 import { isPublicContentPath } from "@/lib/authBootstrap";
@@ -50,6 +51,10 @@ export function AppLayout() {
           <header className="sticky top-0 z-30 flex h-14 items-center gap-2 sm:gap-3 border-b border-border/60 bg-background/75 backdrop-blur-xl px-3 sm:px-4 lg:px-8">
             <SidebarTrigger />
             <div className="flex-1" />
+            {/* One way into any topic from any page. The component owns its own
+                ⌘K listener, so the palette exists even when this button is
+                scrolled past. */}
+            <SearchPalette />
             <ThemeToggle />
             <NotificationCenter />
           </header>
