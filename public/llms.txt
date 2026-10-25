@@ -6,7 +6,7 @@ A student-and-admin platform for revision in Maths, Physics, Chemistry, Biology 
 
 ## Subjects and levels
 
-Each subject has one hub page per level it is taught at, and each hub lists its topics with revision notes and exam-style questions. The past-paper archive is catalogued for Maths, Physics and Computer Science; Chemistry, Biology and English have notes and questions but no papers yet.
+Each subject has one hub page per level it is taught at, and each hub lists its topics with revision notes and exam-style questions. The past-paper archive files papers under all six subjects: the paper and mark-scheme files are hosted for Maths, Physics and Computer Science, while the Chemistry, Biology and English rows link to the exam board's own page.
 
 - [IGCSE Maths](/study/mathematics/ol), [AS Maths](/study/mathematics/as), [A2 Maths](/study/mathematics/a2)
 - [IGCSE Physics](/study/physics/ol), [AS Physics](/study/physics/as), [A2 Physics](/study/physics/a2)

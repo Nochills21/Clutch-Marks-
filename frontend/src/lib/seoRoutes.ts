@@ -102,14 +102,14 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
     // FAQPage structured data — Google penalises an answer that disagrees with
     // the page, so the sentence is generated once, here.
     //
-    // The last clause is deliberately narrower than the others: the paper
-    // archive covers Maths, Physics and Computer Science only (Chemistry,
-    // Biology and English have notes and questions but no papers — see
-    // .freebuff/probe-subject-inventory.sql). Saying "every subject has a
-    // past-paper archive" in structured data was a claim seven clicks of
-    // browsing disprove, and an FAQ answer is exactly the kind of copy a
-    // prospective student checks before paying.
-    a: `${subjectCoverage()}. Every subject has topic notes and exam-style questions with instant marking; the past-paper archive covers Maths, Physics and Computer Science.`,
+    // The last clause stays specific rather than saying "a past-paper archive
+    // for every subject": the archive now files papers under all six subjects,
+    // but only Maths, Physics and Computer Science have the paper and mark
+    // scheme files in our own library — the 126 Chemistry, Biology and English
+    // rows link to the board's page (see docs/past-papers.md). An FAQ answer is
+    // exactly the kind of copy a prospective student checks before paying, so
+    // it names which half is which.
+    a: `${subjectCoverage()}. Every subject has topic notes and exam-style questions with instant marking; the past-paper archive files papers under all six subjects, with the paper and mark-scheme files hosted for Maths, Physics and Computer Science and the board's own page linked for Chemistry, Biology and English.`,
   },
   {
     q: "How much does Clutch Marks cost?",
@@ -226,8 +226,8 @@ export const ROUTE_META: RouteMeta[] = [
     // kind of inconsistency that leaves a stale title in the index for weeks.
     title: "Clutch Marks — Revision Notes, Topic Questions & Past Papers",
     // "a past-paper archive" rather than "past papers for every subject": the
-    // archive is real and grows, but it currently holds papers for Maths,
-    // Physics and Computer Science only. The precise per-subject claim is the
+    // archive files rows under all six subjects, but only three of them have
+    // hosted paper and mark-scheme files. The precise per-subject claim is the
     // FAQ answer's job, where it can be stated honestly in one sentence.
     description: `Topic notes, exam-style questions with instant marking, and a past-paper archive for ${subjectCoverage()}.`,
     jsonLd: [
@@ -310,10 +310,10 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/past-papers",
     ogImage: "/og/past-papers.png",
     title: "Past Papers & Mark Schemes — Clutch Marks",
-    // No subject list on purpose: the archive holds Maths, Physics and Computer
-    // Science papers only (Chemistry, Biology and English have notes and
-    // questions but no papers yet), so "past papers for every subject" would be
-    // a claim the archive disproves.
+    // No subject list on purpose: only Maths, Physics and Computer Science have
+    // paper files in our library — the Chemistry, Biology and English rows link
+    // out to the board — so "past papers for every subject" would be a claim the
+    // archive only half supports.
     description:
       "Past papers and mark schemes by subject, level, board, session and topic, with the board's own page where our archive has no file.",
     jsonLd: {
