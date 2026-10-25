@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-25T14:51:16.432Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-25T14:56:24.566Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -1139,7 +1139,10 @@ AS $function$
 declare
   _q record;
   _is_correct boolean;
+  _prev_correct boolean;
+  _first_try boolean;
   _xp integer := 0;
+  _corrected boolean := false;
 begin
   if auth.uid() is null then raise exception 'Not authenticated'; end if;
 
@@ -1155,6 +1158,10 @@ begin
 
   _is_correct := _selected = _q.correct_option;
 
+  select pa.last_correct into _prev_correct
+  from public.practice_attempts pa
+  where pa.user_id = auth.uid() and pa.question_id = _question_id;
+
   insert into public.practice_attempts (user_id, question_id, last_correct, attempts_count, last_attempt_at)
   values (auth.uid(), _question_id, _is_correct, 1, now())
   on conflict (user_id, question_id) do update
@@ -1162,8 +1169,18 @@ begin
         attempts_count = public.practice_attempts.attempts_count + 1,
         last_attempt_at = now();
 
-  if _is_correct and public.award_xp(auth.uid(), 'practice', _question_id::text, 10, 100) then
-    _xp := 10;
+  _first_try := _prev_correct is null;
+
+  if _is_correct then
+    if public.award_xp(auth.uid(), 'practice', _question_id::text, 10, 100) then
+      _xp := _xp + 10;
+    end if;
+    -- Turned a previous mistake around (never counted on a first attempt).
+    if _prev_correct is false
+       and public.award_xp(auth.uid(), 'mistake_fixed', _question_id::text, 15, 150) then
+      _xp := _xp + 15;
+      _corrected := true;
+    end if;
     perform public.touch_streak(auth.uid());
   end if;
 
@@ -1171,7 +1188,9 @@ begin
     'correct', _is_correct,
     'correct_option', _q.correct_option,
     'explanation', _q.explanation,
-    'xp_earned', _xp
+    'xp_earned', _xp,
+    'corrected_mistake', _corrected,
+    'first_attempt', _first_try
   );
 end;
 $function$;
@@ -1729,14 +1748,14 @@ declare
   _total integer := 0;
   _q record;
   _selected integer;
+  _attempt_id uuid;
   _results jsonb := '[]'::jsonb;
   _xp integer := 0;
-  _attempt_id uuid;
 begin
   if _user_id is null then raise exception 'Not authenticated'; end if;
 
   for _q in
-    select q.id, q.correct_option, q.explanation, q.options
+    select q.id, q.correct_option, q.explanation, q.options, q.objective_id
     from public.questions q
     where q.quiz_id = _quiz_id
     order by q.sort_order
@@ -1749,21 +1768,30 @@ begin
         _xp := _xp + 20;
       end if;
     end if;
+    -- Evidence for the mastery loop, for tagged questions only, and only when
+    -- the question was actually answered (an unanswered question says nothing).
+    -- The practice_attempts trigger advances the schedule from here.
+    if _q.objective_id is not null and _selected is not null then
+      insert into public.practice_attempts (user_id, question_id, last_correct, attempts_count, last_attempt_at)
+      values (_user_id, _q.id, (_selected = _q.correct_option), 1, now())
+      on conflict (user_id, question_id) do update
+        set last_correct = excluded.last_correct,
+            attempts_count = public.practice_attempts.attempts_count + 1,
+            last_attempt_at = now();
+    end if;
     _results := _results || jsonb_build_object(
       'question_id', _q.id,
-      'correct_option', _q.correct_option,
       'selected', _selected,
+      'correct_option', _q.correct_option,
       'explanation', _q.explanation,
       'options', _q.options
     );
   end loop;
 
-  -- Fixed 2026-10-01: this inserted a nonexistent `total` column and never set
-  -- `completed_at` (which every progress/XP/gradebook query filters on). The
-  -- authoritative definition, including the payload shape the client reads, now
-  -- lives in 20261001120000_grade_quiz_attempts_fix.sql.
   if _total > 0 then
-    insert into public.quiz_attempts (quiz_id, user_id, score, total_questions, submission_file_url, answers, completed_at)
+    insert into public.quiz_attempts (
+      quiz_id, user_id, score, total_questions, submission_file_url, answers, completed_at
+    )
     values (
       _quiz_id, _user_id, _correct, _total, _submission_file_url,
       (select jsonb_agg(jsonb_build_object('question_id', k, 'selected', (_answers->>k)::integer))
@@ -1774,7 +1802,13 @@ begin
     perform public.touch_streak(_user_id);
   end if;
 
-  return jsonb_build_object('correct', _correct, 'total', _total, 'attempt_id', _attempt_id, 'xp_earned', _xp, 'results', _results);
+  return jsonb_build_object(
+    'correct', _correct,
+    'total', _total,
+    'attempt_id', _attempt_id,
+    'xp_earned', _xp,
+    'results', _results
+  );
 end;
 $function$;
 
