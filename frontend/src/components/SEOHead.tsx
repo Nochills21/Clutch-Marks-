@@ -71,6 +71,31 @@ export function SEOHead({ path, title, description, noindex, ogImage, jsonLd }: 
   })();
 
   const structuredData = jsonLd ?? routeMeta?.jsonLd;
+  // Serialised once so the effect below can compare strings rather than object
+  // identities: several pages pass an inline literal, which is a new object on
+  // every render.
+  const structuredJson = structuredData ? JSON.stringify(structuredData) : null;
+
+  // JSON-LD is mounted by hand, not through <Helmet>.
+  //
+  // react-helmet-async manages title/meta/link and reconciles anything else
+  // away, so a <script type="application/ld+json"> child never survived the
+  // first render: every hydrated page shipped with no structured data at all,
+  // even though its prerendered HTML had it. Googlebot renders before it reads,
+  // so the FAQPage/Course/Offer markup it was meant to find had been removed by
+  // the time it looked — measured on the live /pricing, where the static HTML
+  // carried one block and the DOM carried none. One tag, keyed by an attribute,
+  // updated in place and removed on unmount.
+  useLayoutEffect(() => {
+    document.querySelectorAll('script[data-seo="client-jsonld"]').forEach((el) => el.remove());
+    if (!structuredJson) return;
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-seo", "client-jsonld");
+    script.textContent = structuredJson;
+    document.head.appendChild(script);
+    return () => script.remove();
+  }, [structuredJson]);
 
   return (
     <Helmet>
@@ -90,9 +115,6 @@ export function SEOHead({ path, title, description, noindex, ogImage, jsonLd }: 
       <meta name="twitter:description" content={head.description} />
       <meta name="twitter:image" content={image} />
       <meta name="robots" content={robots} />
-      {structuredData && (
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
-      )}
     </Helmet>
   );
 }
