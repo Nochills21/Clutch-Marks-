@@ -448,22 +448,6 @@
   "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
-  "id": "032a273a-be07-4fd5-82c5-6968f9d1f518",
-  "set_id": "28bb1f09-6952-4f4e-92c4-6c35021913dd",
-  "front": "Completing the Square",
-  "back": "Rewrite x² + bx + c as (x + b/2)² − (b/2)² + c.",
-  "sort_order": 0,
-  "created_at": "2026-09-29 18:46:40.564659+00"
- },
- {
-  "id": "03381a25-5124-4a4d-9e38-a33edcd666db",
-  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
-  "front": "Arc length",
-  "back": "s = r theta with theta in radians.",
-  "sort_order": 12,
-  "created_at": "2026-10-19 10:43:51.208625+00"
- },
- {
   "id": "0339fd68-329a-49a1-b51f-f6b76c0dc089",
   "set_id": "cec08a21-858f-4178-ad17-499f706b2400",
   "front": "Anode in aluminium extraction",
@@ -486,14 +470,6 @@
   "back": "The molecule that carries usable energy from respiration to cell processes.<br><strong>Tag:</strong> 12.1 · 0610/4",
   "sort_order": 7,
   "created_at": "2026-10-24 09:59:15.680822+00"
- },
- {
-  "id": "0373b67c-7ed7-46cc-98e3-f0cd335f587d",
-  "set_id": "825f28dc-5d42-4a54-b1cb-f3e2209657b5",
-  "front": "Displacement",
-  "back": "s: distance in a given direction (vector)",
-  "sort_order": 4,
-  "created_at": "2026-09-30 05:35:34.091917+00"
  },
  {
   "id": "037f2b7e-c842-41cf-869e-020d2c6d6617",
@@ -6000,14 +5976,6 @@
   "created_at": "2026-10-24 09:43:27.393292+00"
  },
  {
-  "id": "301499ba-34e3-4240-ac89-8116375a437c",
-  "set_id": "9dfd43c1-5218-4cd4-a67b-fc1d83d38b26",
-  "front": "Central limit theorem",
-  "back": "Sample means are approx normal for large n, whatever the population.",
-  "sort_order": 103,
-  "created_at": "2026-10-19 10:43:51.208625+00"
- },
- {
   "id": "305c7e23-8e8a-49a2-b80b-77f1fec017bc",
   "set_id": "e40e08be-cf9f-4b6e-8bfa-c6c0142e0dd5",
   "front": "Diamond structure",
@@ -6262,14 +6230,6 @@
   "back": "Joins sugar-phosphate backbone of DNA fragments.",
   "sort_order": 11,
   "created_at": "2026-10-19 10:13:23.382937+00"
- },
- {
-  "id": "3228a7f4-9b07-49a0-869e-d5b88ce2b09c",
-  "set_id": "bfaef3bc-ca3d-42c2-b48a-b0c5f94bd6b3",
-  "front": "Composite functions",
-  "back": "fg(x) = f(g(x)); apply the right-hand function first.",
-  "sort_order": 14,
-  "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
   "id": "32308e30-846f-4c88-9ce7-c8466f83541e",
@@ -8064,14 +8024,6 @@
   "created_at": "2026-10-24 10:30:51.058474+00"
  },
  {
-  "id": "40f6e3f8-cc8b-41bc-bbda-cee8e1646b16",
-  "set_id": "d84e1338-4daf-43f0-afbf-3c9c003bab0a",
-  "front": "Conditional probability",
-  "back": "P(A|B) = P(A and B) / P(B).",
-  "sort_order": 103,
-  "created_at": "2026-10-19 10:43:51.208625+00"
- },
- {
   "id": "411a28f6-1213-4a7c-a313-0063dc5e6f37",
   "set_id": "e5de042c-6fec-43a7-ab28-c1a7f5875bf2",
   "front": "Paragraph structure",
@@ -8774,14 +8726,6 @@
   "back": "n large, p small, with lambda set to np.",
   "sort_order": 0,
   "created_at": "2026-10-12 08:24:42.490112+00"
- },
- {
-  "id": "46f64f22-fd57-4754-9731-857e295ce97e",
-  "set_id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
-  "front": "Stationary points",
-  "back": "f'(x) = 0: maxima, minima or points of inflection.",
-  "sort_order": 12,
-  "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
   "id": "46f70264-431e-46dc-86a3-aa0ad26ebca0",
@@ -10598,14 +10542,6 @@
   "back": "The force of gravity on a mass, in newtons, calculated as W = mg.<br><strong>Tag:</strong> 1.3 · 0625/2,4",
   "sort_order": 49,
   "created_at": "2026-10-24 10:55:06.315654+00"
- },
- {
-  "id": "569b662d-b101-4b8d-9931-b4a977ddabd3",
-  "set_id": "f236c551-2062-4dd7-831b-779f826c9e72",
-  "front": "File organisation",
-  "back": "Serial, sequential or direct access, chosen for the access pattern.",
-  "sort_order": 12,
-  "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
   "id": "56a073e1-4140-468b-9b30-4f73a6986e38",
@@ -14040,14 +13976,6 @@
   "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
-  "id": "723a05bb-1ae0-413f-a4fa-a667bf21c68a",
-  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
-  "front": "Sector area",
-  "back": "A = 1/2 r^2 theta (theta in radians).",
-  "sort_order": 13,
-  "created_at": "2026-10-19 10:43:51.208625+00"
- },
- {
   "id": "7248261c-63e9-4507-935a-4ced8d8004c9",
   "set_id": "7fbec856-7b60-44ad-a564-15f485739322",
   "front": "Tissue examples in a leaf",
@@ -14400,14 +14328,6 @@
   "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
-  "id": "74d0802d-d8b1-435c-8eda-822f33907375",
-  "set_id": "4a11ccc3-5da7-46df-a620-fe2f3d361b36",
-  "front": "SQL injection",
-  "back": "Attack inserting malicious SQL through user input fields.",
-  "sort_order": 11,
-  "created_at": "2026-10-19 10:43:51.208625+00"
- },
- {
   "id": "74fefd8b-1531-432b-af48-46a521ac1072",
   "set_id": "0a9e40cf-30d0-42af-a3e1-073574a67a08",
   "front": "Test for carbonate",
@@ -14574,14 +14494,6 @@
   "back": "The more reactive the metal, the more stable its carbonate.<br><strong>Tag:</strong> 9.4 · 0620/4",
   "sort_order": 17,
   "created_at": "2026-10-24 10:41:57.168372+00"
- },
- {
-  "id": "75d92544-317b-428f-b7e3-5a3aa337e5a4",
-  "set_id": "5df336d4-7652-425c-bf34-fc170da04975",
-  "front": "Linked list",
-  "back": "Nodes with data and a pointer to the next node; dynamic size.",
-  "sort_order": 13,
-  "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
   "id": "75f7496f-4333-41d9-abad-48e76e78aafb",
@@ -15598,14 +15510,6 @@
   "back": "Saturated: only single bonds; unsaturated: contains C=C (or triple bonds).",
   "sort_order": 13,
   "created_at": "2026-10-19 09:56:24.235503+00"
- },
- {
-  "id": "7e45621f-30ec-4d00-8422-6258b6073f9f",
-  "set_id": "23b93670-44a3-4aba-abf0-a9da7ef1a444",
-  "front": "Segment area",
-  "back": "Sector area minus the triangle formed by the chord.",
-  "sort_order": 14,
-  "created_at": "2026-10-19 10:43:51.208625+00"
  },
  {
   "id": "7e502cbf-4297-494a-8804-03aa1b54decb",
@@ -20502,14 +20406,6 @@
   "back": "Client (JavaScript): runs in browser, instant feedback. Server (PHP): database access, secure.",
   "sort_order": 9,
   "created_at": "2026-10-12 07:48:00.880768+00"
- },
- {
-  "id": "a657d2e3-0fe5-4c14-862b-4740c617b3c4",
-  "set_id": "21b65798-dc20-46a4-83fa-873f0e4855c1",
-  "front": "What is i squared?",
-  "back": "i^2 = -1.",
-  "sort_order": 101,
-  "created_at": "2026-10-16 07:27:40.245948+00"
  },
  {
   "id": "a6665847-1782-4e64-a97d-9c6e47db7dc1",

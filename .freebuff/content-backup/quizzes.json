@@ -2268,20 +2268,6 @@
   "correction_file_url": null
  },
  {
-  "id": "849fb676-9438-43a1-8dae-b5474195fb77",
-  "topic_id": "bb600e06-32eb-473e-ac3e-6e1bd64cb01e",
-  "title": "Pressure & Density Quiz",
-  "description": "Test your knowledge of Pressure & Density",
-  "time_limit_minutes": null,
-  "is_published": true,
-  "created_at": "2026-09-14 18:41:38.526373+00",
-  "updated_at": "2026-09-14 18:41:38.526373+00",
-  "exam_type": "quiz",
-  "is_ai_generated": false,
-  "exam_file_url": null,
-  "correction_file_url": null
- },
- {
   "id": "85385c3c-ad30-4305-8fdd-4f39cb9c2a9e",
   "topic_id": "fef757a2-daef-44fc-983d-4c0ce8c6e3b9",
   "title": "Redox Chemistry and Groups 1, 2 and 7 Quiz",
@@ -2884,20 +2870,6 @@
   "correction_file_url": null
  },
  {
-  "id": "a09ecf3a-5a4b-4f7d-8267-9ecb4b218d64",
-  "topic_id": "50490955-308d-4170-b70a-697d18aaec9f",
-  "title": "Forces & Motion Quiz",
-  "description": "Test your knowledge of Forces & Motion",
-  "time_limit_minutes": null,
-  "is_published": true,
-  "created_at": "2026-09-14 18:41:35.869042+00",
-  "updated_at": "2026-09-14 18:41:35.869042+00",
-  "exam_type": "quiz",
-  "is_ai_generated": false,
-  "exam_file_url": null,
-  "correction_file_url": null
- },
- {
   "id": "a14cca7f-ad6a-46b1-8de1-532c2a1cd900",
   "topic_id": "494eb848-7ffb-489b-9a2c-948fbc58a33c",
   "title": "Exponentials and Logarithms — Topic Questions",
@@ -3284,20 +3256,6 @@
   "is_published": true,
   "created_at": "2026-10-24 10:39:55.869198+00",
   "updated_at": "2026-10-24 10:39:55.869198+00",
-  "exam_type": "quiz",
-  "is_ai_generated": false,
-  "exam_file_url": null,
-  "correction_file_url": null
- },
- {
-  "id": "b8d51f9a-fb59-4a02-875b-b530c0c38826",
-  "topic_id": "4fbcf844-f1cc-41c3-a81d-e4dba7ad964b",
-  "title": "Energy, Work & Power Quiz",
-  "description": "Test your knowledge of Energy, Work & Power",
-  "time_limit_minutes": null,
-  "is_published": true,
-  "created_at": "2026-09-14 18:41:37.306753+00",
-  "updated_at": "2026-09-14 18:41:37.306753+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -3844,20 +3802,6 @@
   "is_published": true,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "updated_at": "2026-10-19 09:39:56.147114+00",
-  "exam_type": "quiz",
-  "is_ai_generated": false,
-  "exam_file_url": null,
-  "correction_file_url": null
- },
- {
-  "id": "e3fca5ce-954e-452a-8dd7-5b5272fcaa33",
-  "topic_id": "4d916da8-2ce0-46a4-9af9-bc20b007cc91",
-  "title": "Measurement & Units Quiz",
-  "description": "Test your knowledge of Measurement & Units",
-  "time_limit_minutes": null,
-  "is_published": true,
-  "created_at": "2026-09-14 18:41:34.432924+00",
-  "updated_at": "2026-09-14 18:41:34.432924+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
