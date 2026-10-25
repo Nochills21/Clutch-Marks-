@@ -1,7 +1,6 @@
 // Vite entrypoint: checks build configuration, mounts the React app, and wraps
 // it in the top-level error boundary.
 import { createRoot } from "react-dom/client";
-import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import { AppErrorBoundary } from "@/components/AppErrorBoundary";
 import { describeConfigProblems, isConfigured } from "@/lib/env";
@@ -32,11 +31,12 @@ const root = createRoot(container);
 if (!isConfigured) {
   root.render(<ConfigError message={describeConfigProblems()} />);
 } else {
+  // No head-provider wrapper: SEOHead writes <title>/<meta>/<link>/JSON-LD
+  // directly. react-helmet-async 3.0.0 emitted nothing here, and wrapping the
+  // app in a provider that manages no tags only hid that.
   root.render(
     <AppErrorBoundary>
-      <HelmetProvider>
-        <App />
-      </HelmetProvider>
+      <App />
     </AppErrorBoundary>,
   );
 }

@@ -1,10 +1,10 @@
 import { describe, expect, it, afterEach } from "vitest";
 // react-dom alone, like StudyManuscript.test.tsx: @testing-library/react needs
 // @testing-library/dom at runtime and that package is not installed.
-import { HelmetProvider } from "react-helmet-async";
 import { createRoot, type Root } from "react-dom/client";
 import { act } from "react-dom/test-utils";
 import { SEOHead } from "./SEOHead";
+import { SITE_URL } from "@/lib/seoRoutes";
 
 (globalThis as Record<string, unknown>).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -26,7 +26,7 @@ function mount(element: React.ReactElement) {
   document.body.appendChild(container);
   root = createRoot(container);
   act(() => {
-    root!.render(<HelmetProvider>{element}</HelmetProvider>);
+    root!.render(element);
   });
 }
 
@@ -46,6 +46,35 @@ describe("SEOHead structured data", () => {
   // the prerendered block only until the first render — and then had none. The
   // live /pricing showed exactly that, and Googlebot reads the DOM after
   // rendering.
+  // The regression that mattered most: with Helmet inert, the cleanup deleted
+  // the prerendered description/canonical/robots and nothing replaced them.
+  it("writes title, description, canonical and robots itself", () => {
+    mount(<SEOHead path="/pricing" />);
+    expect(document.title).toBe("Plans & Pricing — Clutch Marks");
+    expect(document.querySelector('meta[name="description"]')?.getAttribute("content")).toContain(
+      "Unlock every subject",
+    );
+    expect(document.querySelector('link[rel="canonical"]')?.getAttribute("href")).toBe(
+      `${SITE_URL}/pricing`,
+    );
+    expect(document.querySelector('meta[name="robots"]')?.getAttribute("content")).toContain(
+      "index",
+    );
+    expect(document.querySelector('meta[property="og:title"]')?.getAttribute("content")).toBe(
+      "Plans & Pricing — Clutch Marks",
+    );
+  });
+
+  it("keeps exactly one copy of each tag when a page re-renders", () => {
+    mount(<SEOHead path="/pricing" />);
+    act(() => {
+      root!.render(<SEOHead path="/pricing" title="Plans & Pricing — Clutch Marks" />);
+    });
+    expect(document.querySelectorAll('meta[name="description"]')).toHaveLength(1);
+    expect(document.querySelectorAll('link[rel="canonical"]')).toHaveLength(1);
+    expect(document.querySelectorAll('meta[name="robots"]')).toHaveLength(1);
+  });
+
   it("leaves exactly one JSON-LD block in the DOM after hydration", () => {
     mount(<SEOHead path="/pricing" />);
     const blocks = ldJson();
@@ -72,11 +101,7 @@ describe("SEOHead structured data", () => {
     expect(typesOf(ldJson()[0])).toEqual(["First"]);
 
     act(() => {
-      root!.render(
-        <HelmetProvider>
-          <SEOHead path="/pricing" jsonLd={{ "@type": "Second", name: "b" }} />
-        </HelmetProvider>,
-      );
+      root!.render(<SEOHead path="/pricing" jsonLd={{ "@type": "Second", name: "b" }} />);
     });
 
     const blocks = ldJson();

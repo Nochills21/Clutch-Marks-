@@ -1,6 +1,15 @@
 // Sets document title/meta/canonical/JSON-LD per page.
+//
+// Written by hand instead of through react-helmet-async. That library is
+// installed at 3.0.0 and writes nothing at all here — not the title, not a
+// single <meta> — so every page's head was whatever the prerenderer had
+// written, and this component's own cleanup then deleted those tags on
+// hydration. Measured on the live site: the pricing HTML carried a
+// description, canonical, robots and an FAQPage block, and after hydration the
+// document carried none of them (Googlebot renders before it reads). Managing
+// the tags directly makes the rendered head equal the prerendered one, which is
+// also what the prerender plugin and seoConsistency tests already assume.
 import { useLayoutEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import {
   SITE_NAME,
   SITE_URL,
@@ -34,19 +43,14 @@ interface SEOHeadProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-export function SEOHead({ path, title, description, noindex, ogImage, jsonLd }: SEOHeadProps) {
-  // Remove the build-time head tags for this route.
-  //
-  // Every prerendered page ships static <meta>/<link>/<script> tags for crawlers
-  // that do not run JavaScript. Helmet does not adopt tags it did not create —
-  // it appends its own — so leaving those in place gave each page two `robots`
-  // tags, two canonicals and two conflicting `description` tags. The static ones
-  // are marked data-seo="prerender" by plugins/prerender-seo.ts; drop them once,
-  // before paint, and Helmet's become the only ones.
-  useLayoutEffect(() => {
-    document.querySelectorAll('[data-seo="prerender"]').forEach((el) => el.remove());
-  }, []);
+/** Marks the tags this component owns, so a later page can replace them. */
+const MANAGED = "app";
 
+type TagSpec =
+  | { kind: "meta"; attr: "name" | "property"; key: string; content: string }
+  | { kind: "link"; rel: string; href: string };
+
+export function SEOHead({ path, title, description, noindex, ogImage, jsonLd }: SEOHeadProps) {
   const url = `${SITE_URL}${path}`;
   // Route-level metadata from ROUTE_META, so runtime tags match the
   // prerendered HTML the crawlers already saw.
@@ -76,45 +80,75 @@ export function SEOHead({ path, title, description, noindex, ogImage, jsonLd }: 
   // every render.
   const structuredJson = structuredData ? JSON.stringify(structuredData) : null;
 
-  // JSON-LD is mounted by hand, not through <Helmet>.
-  //
-  // react-helmet-async manages title/meta/link and reconciles anything else
-  // away, so a <script type="application/ld+json"> child never survived the
-  // first render: every hydrated page shipped with no structured data at all,
-  // even though its prerendered HTML had it. Googlebot renders before it reads,
-  // so the FAQPage/Course/Offer markup it was meant to find had been removed by
-  // the time it looked — measured on the live /pricing, where the static HTML
-  // carried one block and the DOM carried none. One tag, keyed by an attribute,
-  // updated in place and removed on unmount.
-  useLayoutEffect(() => {
-    document.querySelectorAll('script[data-seo="client-jsonld"]').forEach((el) => el.remove());
-    if (!structuredJson) return;
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.setAttribute("data-seo", "client-jsonld");
-    script.textContent = structuredJson;
-    document.head.appendChild(script);
-    return () => script.remove();
-  }, [structuredJson]);
+  const tags: TagSpec[] = [
+    { kind: "meta", attr: "name", key: "description", content: head.description },
+    { kind: "meta", attr: "name", key: "robots", content: robots },
+    { kind: "link", rel: "canonical", href: url },
+    { kind: "meta", attr: "property", key: "og:site_name", content: SITE_NAME },
+    { kind: "meta", attr: "property", key: "og:type", content: "website" },
+    { kind: "meta", attr: "property", key: "og:title", content: head.title },
+    { kind: "meta", attr: "property", key: "og:description", content: head.description },
+    { kind: "meta", attr: "property", key: "og:url", content: url },
+    { kind: "meta", attr: "property", key: "og:image", content: image },
+    { kind: "meta", attr: "property", key: "og:image:width", content: "1200" },
+    { kind: "meta", attr: "property", key: "og:image:height", content: "630" },
+    { kind: "meta", attr: "name", key: "twitter:card", content: "summary_large_image" },
+    { kind: "meta", attr: "name", key: "twitter:title", content: head.title },
+    { kind: "meta", attr: "name", key: "twitter:description", content: head.description },
+    { kind: "meta", attr: "name", key: "twitter:image", content: image },
+  ];
+  // The tag list is rebuilt on every render, so key the effect on its contents.
+  const tagKey = JSON.stringify(tags);
 
-  return (
-    <Helmet>
-      <title>{head.title}</title>
-      <meta name="description" content={head.description} />
-      <link rel="canonical" href={url} />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={head.title} />
-      <meta property="og:description" content={head.description} />
-      <meta property="og:url" content={url} />
-      <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={head.title} />
-      <meta name="twitter:description" content={head.description} />
-      <meta name="twitter:image" content={image} />
-      <meta name="robots" content={robots} />
-    </Helmet>
-  );
+  useLayoutEffect(() => {
+    // The build-time tags are for crawlers that do not run JavaScript; now that
+    // this component writes its own, keeping both would give every page two
+    // descriptions, two canonicals and two robots rules. Everything this
+    // component owns is covered, whether or not the prerenderer marked it — the
+    // dev shell's static tags are not marked, and duplicated the head there.
+    document
+      .querySelectorAll(
+        '[data-seo="prerender"], meta[name="description"], meta[name="robots"], link[rel="canonical"], meta[property^="og:"], meta[name^="twitter:"]',
+      )
+      .forEach((el) => {
+        if (el.getAttribute("data-seo") !== MANAGED) el.remove();
+      });
+
+    const specs: TagSpec[] = JSON.parse(tagKey);
+    for (const spec of specs) {
+      const el =
+        spec.kind === "meta"
+          ? document.createElement("meta")
+          : document.createElement("link");
+      if (spec.kind === "meta") {
+        el.setAttribute(spec.attr, spec.key);
+        el.setAttribute("content", spec.content);
+      } else {
+        el.setAttribute("rel", spec.rel);
+        el.setAttribute("href", spec.href);
+      }
+      el.setAttribute("data-seo", MANAGED);
+      document.head.appendChild(el);
+    }
+
+    document.title = head.title;
+
+    let script: HTMLScriptElement | null = null;
+    if (structuredJson) {
+      script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.setAttribute("data-seo", MANAGED);
+      script.textContent = structuredJson;
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      document.querySelectorAll(`[data-seo="${MANAGED}"]`).forEach((el) => el.remove());
+    };
+    // `head.title`, `head.description` and the robots rule fold into tagKey
+    // (they appear in the tags array), so the key alone is the dependency.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tagKey, structuredJson]);
+
+  return null;
 }
