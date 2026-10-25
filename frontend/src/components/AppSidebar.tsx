@@ -101,7 +101,11 @@ const adminLinks = [
 // past-paper archive's subject/topic/level pickers (and a topic page's "Past
 // papers" link) return real papers instead of widening to the subject; plus the
 // ⌘K search palette and the topic page's study links.
-const APP_VERSION = "1.2.0";
+// 1.2.1 — the site copy, structured data and llms.txt name all six subjects
+// (the archive now holds Biology, Chemistry and English rows too), and long
+// equations, code and tables scroll inside the note instead of pushing a phone
+// page sideways.
+const APP_VERSION = "1.2.1";
 
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
