@@ -1,5 +1,6 @@
 // Spaced-repetition flashcard study.
 import { useEffect, useState, useCallback, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -58,7 +59,11 @@ export default function Flashcards() {
   const [sets, setSets] = useState<FlashcardSetRow[]>([]);
   const [topics, setTopics] = useState<Tables<"topics">[]>([]);
   const [levelById, setLevelById] = useState<Record<string, string>>({});
-  const [filter, setFilter] = useState("all");
+  // A topic page links here with ?topic=<id> so "Flashcards for this topic"
+  // lands on that topic's sets instead of the whole catalogue. The tabs below
+  // still work: the initial value is just the topic tab pre-selected.
+  const [params] = useSearchParams();
+  const [filter, setFilter] = useState(params.get("topic") ?? "all");
   const [studySetId, setStudySetId] = useState<string | null>(null);
   const [studyCards, setStudyCards] = useState<Tables<"flashcards">[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -358,7 +363,11 @@ export default function Flashcards() {
         </TabsList>
       </Tabs>
       {filteredSets.length === 0 ? (
-        <Card className="border-dashed"><CardContent className="py-12 text-center text-muted-foreground"><Layers className="mx-auto h-10 w-10 mb-3 opacity-40" />{filter === "due" ? "No cards due for review. Great job!" : "No flashcard sets available."}</CardContent></Card>
+        <Card className="border-dashed"><CardContent className="py-12 text-center text-muted-foreground"><Layers className="mx-auto h-10 w-10 mb-3 opacity-40" />{filter === "due"
+          ? "No cards due for review. Great job!"
+          : filter === "all"
+            ? "No flashcard sets available."
+            : "No flashcard sets for this topic yet."}</CardContent></Card>
       ) : (
         <>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

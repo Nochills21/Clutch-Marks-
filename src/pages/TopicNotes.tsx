@@ -1,7 +1,6 @@
 // Per-topic notes page (SEO-friendly URL).
 import { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,14 +17,15 @@ import {
   slugifyTopicName,
   topicSlugOf,
 } from "@/lib/topicUrls";
-import { FileText, BookOpen, Play, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw } from "lucide-react";
+import {
+  FileText, BookOpen, Play, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw,
+  Layers, Archive, Target,
+} from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
-import { applyMathHtml } from "@/lib/mathText";
 import { openProtectedFile } from "@/lib/contentFiles";
 import { topicMasterySummary } from "@/lib/topicMastery";
 import { TopicMasteryRing } from "@/components/TopicMasteryRing";
-import { materialContentToHtml } from "@/lib/objectiveTeach";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
@@ -293,8 +293,8 @@ export default function TopicNotes() {
                 />
                 <div className="min-w-0 flex-1 px-3">
                   <p className="font-medium truncate">{m.title}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5 capitalize">
-                    {m.material_type} · {topicTitle}
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {topicTitle}
                   </p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0 ml-4">
@@ -318,7 +318,19 @@ export default function TopicNotes() {
                   >
                     {m.material_type}
                   </Badge>
-                  {m.file_url ? (
+                  {/* Open, not preview. A note whose text lives in the row is
+                      opened as its own page; a file-backed material is fetched
+                      through the watermarked proxy. Rendering the whole body
+                      inline turned the topic page into one long document and
+                      buried the flashcards and questions below it. */}
+                  {m.content && (
+                    <Button asChild size="sm" variant="secondary" className="gap-1 h-8">
+                      <Link to={`/notes/${m.id}`}>
+                        <FileText className="h-3.5 w-3.5" /> Open
+                      </Link>
+                    </Button>
+                  )}
+                  {m.file_url && (
                     <>
                       <Button size="sm" variant="ghost" className="gap-1 h-8"
                         onClick={async () => {
@@ -331,6 +343,8 @@ export default function TopicNotes() {
                         <ExternalLink className="h-3.5 w-3.5" /> Open
                       </Button>
                       <Button size="sm" variant="ghost" className="gap-1 h-8"
+                        aria-label={`Download ${m.title}`}
+                        title={`Download ${m.title}`}
                         onClick={async () => {
                           try {
                             await openProtectedFile("study-materials", m.file_url, m.title);
@@ -341,30 +355,64 @@ export default function TopicNotes() {
                         <Download className="h-3.5 w-3.5" />
                       </Button>
                     </>
-                  ) : m.content ? null : (
-                    <Button asChild size="sm" variant="ghost" className="gap-1 h-8">
-                      <Link to={`/notes?topic=${topicId}`}>
-                        Read <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                    </Button>
                   )}
                 </div>
                 </div>
-                {/* A material with no file is a note whose text lives in the
-                    row. The exam-technique "extras" are exactly that, and
-                    before this they were a row whose only action was a "Read"
-                    link to the notes library — which does not list their type,
-                    so the link led to a page that did not contain them. The
-                    text is rendered where the student already is. */}
-                {!m.file_url && m.content && (
-                  <div
-                    className="cm-notes cm-m-inline"
-                    dangerouslySetInnerHTML={{ __html: applyMathHtml(DOMPurify.sanitize(materialContentToHtml(String(m.content)))) }}
-                  />
-                )}
               </div>
             ))
           )}
+        </CardContent>
+      </Card>
+
+      {/* Everything else this topic offers, one click away. These used to be
+          scattered across the sidebar: a student reading a note had to remember
+          which page held the cards and which held the questions, and the topic
+          they were on was lost on the way. */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Study this topic</CardTitle>
+          <CardDescription>Cards, questions and papers for {topicTitle}</CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-2 sm:grid-cols-2">
+          {[
+            {
+              to: `/flashcards?topic=${topicId}`,
+              icon: Layers,
+              label: "Flashcards",
+              hint: "Recall cards for this topic",
+            },
+            {
+              to: topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug),
+              icon: Play,
+              label: "Topic questions",
+              hint: `${quizzes.length} quiz${quizzes.length === 1 ? "" : "zes"} set on this topic`,
+            },
+            {
+              to: `/practice?level=${subjectLevel.id}&topic=${topicId}`,
+              icon: Target,
+              label: "Practice questions",
+              hint: "Drill the bank, one question at a time",
+            },
+            {
+              to: `/past-papers?subject=${subjectMeta.slug}&level=${subjectLevel.level.toUpperCase()}&topic=${topicId}`,
+              icon: Archive,
+              label: "Past papers",
+              hint: "Papers filed under this topic",
+            },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              to={item.to}
+              className="group flex items-center gap-3 rounded-lg border p-3 transition-colors hover:bg-muted/50"
+            >
+              <item.icon className={`h-4 w-4 shrink-0 ${accent.text}`} />
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-medium">{item.label}</span>
+                <span className="block truncate text-xs text-muted-foreground">{item.hint}</span>
+              </span>
+              <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          ))}
         </CardContent>
       </Card>
 

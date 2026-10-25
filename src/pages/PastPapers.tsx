@@ -1,5 +1,6 @@
 // Past-paper archive grouped by year; opens via watermarking proxy.
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { usePlanAccess, FREE_PREVIEW_LIMIT, usePreviewSliceWithLimit } from "@/components/PreviewLimit";
 import { useToast } from "@/hooks/useToast";
@@ -28,6 +29,7 @@ import {
   filterArchivePapers,
   filterPapersForSubjects,
 } from "@/lib/pastPaperFiles";
+import { levelLabel } from "@/lib/levels";
 import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download, Wand2 } from "lucide-react";
 import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
 import { MarkPaperDialog, type MarkablePaper } from "@/components/MarkPaperDialog";
@@ -45,17 +47,59 @@ interface PastPaper {
   mark_scheme_url: string | null;
   topic_name: string | null;
   subject_slug: string | null;
-  level: "OL" | "AS" | "A2" | null;
+  level: "OL" | "AS" | "A2" | "IGCSE" | null;
 }
 
-const LEVEL_FILTERS = [
-  { id: "all", label: "All levels" },
-  { id: "OL", label: "IGCSE" },
-  { id: "AS", label: "AS Level" },
-  { id: "A2", label: "A2 Level" },
+/**
+ * `past_papers.level` has four codes but three names: "OL" (0580/0610/0620/0625/
+ * 0478) and "IGCSE" (the two English subjects) both read "IGCSE".
+ *
+ * One option per *code* therefore put the same word in the picker twice, and
+ * each of those options hid the other code's papers. A filter choice names the
+ * qualification and covers every code that goes by that name.
+ */
+interface ArchiveLevelFilter {
+  label: string;
+  codes: string[] | null;
+}
+
+const LEVEL_FILTERS: ArchiveLevelFilter[] = [
+  { label: "All levels", codes: null },
+  { label: "IGCSE", codes: ["OL", "IGCSE"] },
+  { label: "AS Level", codes: ["AS"] },
+  { label: "A2 Level", codes: ["A2"] },
 ];
 
-const levelLabel = (l: string | null) => LEVEL_FILTERS.find((f) => f.id === l)?.label ?? l;
+/**
+ * A `?level=` value as a filter label. Accepts a code — older links, and the
+ * topic pages, which pass the stored code — as well as a label, so an English
+ * topic's `?level=IGCSE` link keeps its level instead of silently widening to
+ * every level.
+ */
+function levelFilterFromParam(raw: string | null): string {
+  const value = (raw ?? "").trim();
+  if (!value) return "All levels";
+  const upper = value.toUpperCase();
+  const byCode = LEVEL_FILTERS.find((f) => f.codes?.includes(upper));
+  if (byCode) return byCode.label;
+  const byLabel = LEVEL_FILTERS.find((f) => f.label.toLowerCase() === value.toLowerCase());
+  return byLabel?.label ?? "All levels";
+}
+
+/**
+ * One page of the archive, selected with its topic so the card can name it —
+ * and typed from the select itself, so the embed's shape cannot drift from the
+ * interface above.
+ */
+const archivePapersPage = (from: number) =>
+  supabase
+    .from("past_papers")
+    .select("*, topics(name, subject_levels(level, subjects(name, slug)))")
+    .order("year", { ascending: false })
+    .order("id")
+    .range(from, from + 999);
+
+type ArchivePaper = NonNullable<Awaited<ReturnType<typeof archivePapersPage>>["data"]>[number];
 
 // `paper_number` rows already read "Paper 1 (12)" — prefixing another "Paper"
 // rendered "Paper Paper 1 (12)".
@@ -71,18 +115,38 @@ export default function PastPapers() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("subject_levels")
-        .select("id, level, subjects(slug)")
+        .select("id, level, subjects(name, slug)")
         .eq("is_active", true);
       if (error) throw error;
       return data ?? [];
     },
   });
+  // The archive can be entered from a topic page (`?subject=…&topic=…`) or from
+  // the ⌘K palette, which is what makes "past papers for this topic" a single
+  // hop instead of a hunt through the filters. The query is the initial state,
+  // and the effect below re-reads it: React Router keeps this component mounted
+  // when only the query changes, so without it a jump from one topic's papers to
+  // another's left the previous topic's filters — and its papers — on screen.
+  const [params] = useSearchParams();
   const [search, setSearch] = useState("");
-  const [yearFilter, setYearFilter] = useState("all");
-  const [levelFilter, setLevelFilter] = useState("all");
+  const [yearFilter, setYearFilter] = useState(params.get("year") ?? "all");
+  const [subjectFilter, setSubjectFilter] = useState(params.get("subject") ?? "all");
+  const [topicFilter, setTopicFilter] = useState(params.get("topic") ?? "all");
+  const [levelFilter, setLevelFilter] = useState(() => levelFilterFromParam(params.get("level")));
   const [boardFilter, setBoardFilter] = useState("all");
   const [paperFilter, setPaperFilter] = useState("all");
   const [sessionFilter, setSessionFilter] = useState("all");
+  // A new set of query params is a new request from the student (topic → papers,
+  // palette → papers), so the selects take their values from the URL whenever
+  // it changes. Choosing a filter by hand never rewrites the URL, so this cannot
+  // undo a manual choice.
+  useEffect(() => {
+    setYearFilter(params.get("year") ?? "all");
+    setSubjectFilter(params.get("subject") ?? "all");
+    setTopicFilter(params.get("topic") ?? "all");
+    setLevelFilter(levelFilterFromParam(params.get("level")));
+  }, [params]);
+
   const [practicePaper, setPracticePaper] = useState<PracticePaper | null>(null);
   // The paper whose row the student tapped “Submit for marking” on — the
   // marking is scoped to that paper's own mark scheme.
@@ -102,9 +166,19 @@ export default function PastPapers() {
   const { data: papers, isLoading, error: papersError, refetch: refetchPapers } = useQuery({
     queryKey: ["past_papers"],
     queryFn: async () => {
-      const { data, error } = await supabase.from("past_papers").select("*, topics(name, subject_levels(level, subjects(name, slug)))").order("year", { ascending: false });
-      if (error) throw error;
-      return data ?? [];
+      // Paged, because PostgREST answers at most `max_rows` rows per request
+      // (1000 on this project) no matter what the client asks for. The archive
+      // is past that figure, so one request silently dropped its tail — and a
+      // topic whose only papers sat in that tail looked unfiled. `order("id")`
+      // after the year keeps page boundaries stable.
+      const rows: ArchivePaper[] = [];
+      for (let from = 0; ; from += 1000) {
+        const { data, error } = await archivePapersPage(from);
+        if (error) throw error;
+        rows.push(...(data ?? []));
+        if ((data ?? []).length < 1000) break;
+      }
+      return rows;
     },
   });
 
@@ -200,6 +274,64 @@ export default function PastPapers() {
     [papers, isAdmin, prefsLoaded, user, pickedIds, topicToSl, subjectLevelByCode],
   );
 
+  // Subject names come from the subject_levels query rather than being
+  // title-cased from the slug, so "english-first-language-cambridge" reads as the
+  // name the console uses.
+  const subjectNameBySlug = useMemo(() => {
+    const m = new Map<string, string>();
+    (subjectLevels ?? []).forEach((row) => {
+      const slug = row.subjects?.slug?.toLowerCase();
+      const name = row.subjects?.name;
+      if (slug && name) m.set(slug, name);
+    });
+    return m;
+  }, [subjectLevels]);
+
+  const subjectOptions = useMemo(() => {
+    const set = new Set<string>();
+    (scopedPapers ?? []).forEach((p) => { if (p.subject_slug) set.add(p.subject_slug.toLowerCase()); });
+    return [...set]
+      .map((slug) => ({ slug, name: subjectNameBySlug.get(slug) ?? slug }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [scopedPapers, subjectNameBySlug]);
+
+  // Only topics that actually hold papers, so the picker is a short list of real
+  // choices rather than every topic in the catalogue.
+  const topicOptions = useMemo(() => {
+    const withPapers = new Set<string>();
+    (scopedPapers ?? []).forEach((p) => { if (p.topic_id) withPapers.add(p.topic_id); });
+    const slugByLevel = new Map<string, string>();
+    const codeByLevel = new Map<string, string>();
+    (subjectLevels ?? []).forEach((row) => {
+      const slug = row.subjects?.slug?.toLowerCase();
+      if (slug) slugByLevel.set(row.id, slug);
+      codeByLevel.set(row.id, row.level);
+    });
+    // The level filter runs *after* this slice, so a topic from another level
+    // could match the topic filter and then be filtered away — an empty list
+    // with no banner to explain it. Offer only the levels that filter covers.
+    const levelCodes = LEVEL_FILTERS.find((f) => f.label === levelFilter)?.codes ?? null;
+    const list = (topics ?? [])
+      .filter((t) => withPapers.has(t.id))
+      .filter((t) => subjectFilter === "all" || slugByLevel.get(t.subject_level_id) === subjectFilter)
+      .filter((t) => {
+        const code = codeByLevel.get(t.subject_level_id);
+        return !!code && (levelCodes === null || levelCodes.includes(code));
+      })
+      .map((t) => ({ id: t.id, name: t.name, code: codeByLevel.get(t.subject_level_id) ?? "" }));
+    // Maths AS and A2 both teach "Trigonometry", "Integration" and five more, so
+    // a bare name would appear twice and one of the two would silently hide the
+    // other's papers. Label the repeats with their level.
+    const repeats = new Map<string, number>();
+    list.forEach((t) => repeats.set(t.name, (repeats.get(t.name) ?? 0) + 1));
+    return list
+      .map((t) => ({
+        id: t.id,
+        name: (repeats.get(t.name) ?? 0) > 1 ? `${t.name} (${levelLabel(t.code)})` : t.name,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [scopedPapers, topics, subjectLevels, subjectFilter, levelFilter]);
+
   // Filter options come from the whole subject-scoped archive, not the free
   // slice, so a student can see (and reach) every board / paper / session on
   // offer. Sessions always include the full board calendar, `Specimen` included.
@@ -225,15 +357,50 @@ export default function PastPapers() {
   // to be applied to `visiblePapers` (the slice), so a free student searching
   // for an older paper or a specimen only ever searched the first
   // `FREE_PREVIEW_LIMIT` rows and concluded the paper did not exist.
+  // Subject and topic first: they are the student's own words ("Physics", "Forces
+  // and Motion"), so everything downstream — board, paper, session and the year
+  // chips — reflects the slice they asked for instead of the whole archive.
+  const topicScoped = useMemo(
+    () => (scopedPapers ?? []).filter((p) => {
+      if (subjectFilter !== "all" && (p.subject_slug ?? "").toLowerCase() !== subjectFilter) return false;
+      if (topicFilter !== "all" && p.topic_id !== topicFilter) return false;
+      return true;
+    }),
+    [scopedPapers, subjectFilter, topicFilter],
+  );
+
+  // Most archive rows are filed by subject and level but carry no topic, so a
+  // topic link from a topic page could land on an empty archive. Widening to the
+  // subject keeps the student on the right shelf, and the banner below says why
+  // the list is wider than the link they followed.
+  const topicUnfiled =
+    topicFilter !== "all" && (scopedPapers ?? []).length > 0 && topicScoped.length === 0;
+  const subjectScoped = useMemo(
+    () => (topicUnfiled
+      ? (scopedPapers ?? []).filter(
+          (p) => subjectFilter === "all" || (p.subject_slug ?? "").toLowerCase() === subjectFilter,
+        )
+      : topicScoped),
+    [topicUnfiled, scopedPapers, subjectFilter, topicScoped],
+  );
+
+  // The level filter runs on the *codes* a label covers, before the shared
+  // archive predicate: that predicate compares one raw code, which is why
+  // "IGCSE" used to reach only the OL papers.
+  const levelScoped = useMemo(() => {
+    const codes = LEVEL_FILTERS.find((f) => f.label === levelFilter)?.codes;
+    if (!codes) return subjectScoped;
+    return subjectScoped.filter((p) => codes.includes(String(p.level ?? "").toUpperCase()));
+  }, [subjectScoped, levelFilter]);
+
   const matchedPapers = useMemo(
-    () => filterArchivePapers(scopedPapers ?? [], {
+    () => filterArchivePapers(levelScoped, {
       search,
-      level: levelFilter,
       board: boardFilter,
       paper: paperFilter,
       session: sessionFilter,
     }),
-    [scopedPapers, search, levelFilter, boardFilter, paperFilter, sessionFilter],
+    [levelScoped, search, boardFilter, paperFilter, sessionFilter],
   );
 
   // Year chips reflect the papers that survive the other filters, so switching
@@ -308,13 +475,43 @@ export default function PastPapers() {
               />
             </div>
             <div className="flex flex-wrap gap-2">
+              <Select
+                value={subjectFilter}
+                onValueChange={(value) => {
+                  setSubjectFilter(value);
+                  // A topic from another subject can never survive this slice, so
+                  // keeping it would silently empty the page.
+                  setTopicFilter("all");
+                }}
+              >
+                <SelectTrigger className="w-[200px]" aria-label="Filter by subject">
+                  <SelectValue placeholder="Subject" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All subjects</SelectItem>
+                  {subjectOptions.map((s) => (
+                    <SelectItem key={s.slug} value={s.slug}>{s.name}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={topicFilter} onValueChange={setTopicFilter}>
+                <SelectTrigger className="w-[220px]" aria-label="Filter by topic">
+                  <SelectValue placeholder="Topic" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All topics</SelectItem>
+                  {topicOptions.map((t) => (
+                    <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <Select value={levelFilter} onValueChange={setLevelFilter}>
                 <SelectTrigger className="w-[170px]" aria-label="Filter by level">
                   <SelectValue placeholder="Level" />
                 </SelectTrigger>
                 <SelectContent>
                   {LEVEL_FILTERS.map((f) => (
-                    <SelectItem key={f.id} value={f.id}>{f.label}</SelectItem>
+                    <SelectItem key={f.label} value={f.label}>{f.label}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -352,6 +549,20 @@ export default function PastPapers() {
                 </SelectContent>
               </Select>
             </div>
+            {topicUnfiled && (
+              <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-primary/25 bg-primary/5 px-4 py-2.5 text-sm">
+                <span>
+                  No papers are filed under{" "}
+                  <span className="font-medium">
+                    {(topics ?? []).find((t) => t.id === topicFilter)?.name ?? "this topic"}
+                  </span>{" "}
+                  yet — showing every paper for this subject instead.
+                </span>
+                <Button size="sm" variant="ghost" onClick={() => setTopicFilter("all")}>
+                  Clear topic
+                </Button>
+              </div>
+            )}
             <div className="flex flex-wrap gap-2">
               {/* Year chips come from the papers actually in scope. They used to
                   be hard-coded to 2024/2023, which offered two years that did
