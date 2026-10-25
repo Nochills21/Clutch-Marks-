@@ -16,6 +16,7 @@ import {
   PRIVACY_CONTACT_EMAIL,
   PRIVACY_CONTACT_HREF,
   PRIVACY_POLICY_VERSION,
+  TERMS_VERSION,
 } from "@/lib/legal";
 
 type Section = { heading: string; body: React.ReactNode };
@@ -83,7 +84,7 @@ const privacySections: Section[] = [
     body: (
       <>
         <p>
-          Clutch Marks runs clutchmarks.study. We decide why and how your personal data is used, so
+          Clutch Marks LLC runs clutchmarks.study. We decide why and how your personal data is used, so
           under the Saudi Personal Data Protection Law (<strong>PDPL</strong>) and its Implementing
           Regulations we are the <strong>controller</strong>, and we are accountable for it.
         </p>
@@ -361,7 +362,7 @@ const termsSections: Section[] = [
     body: (
       <p>
         Everything on this site — lessons, revision notes, quizzes, past paper materials, flashcards
-        and images — is owned by Clutch Marks and is for your personal study only. You may not
+        and images — is owned by Clutch Marks LLC and is for your personal study only. You may not
         download, copy, screenshot, republish or share our materials outside the site. Our content
         is watermarked with your account details, so if it ends up somewhere it shouldn't, we can
         tell which account shared it. Sharing paid content can lead to your account being suspended
@@ -434,8 +435,8 @@ export function TermsOfService() {
       title="Terms of Service"
       path="/terms"
       updated={UPDATED}
-      version={PRIVACY_POLICY_VERSION}
-      intro="Study honestly, keep your account to yourself, and don't share our materials outside the site — everything on Clutch Marks is watermarked and owned by us. Break the rules and we may suspend your account."
+      version={TERMS_VERSION}
+      intro="Study honestly, keep your account to yourself, and don't share our materials outside the site — everything on Clutch Marks is watermarked and owned by Clutch Marks LLC. Break the rules and we may suspend your account."
       sections={termsSections}
     />
   );

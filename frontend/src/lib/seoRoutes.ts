@@ -18,6 +18,14 @@ const viteEnv = ((import.meta as { env?: Record<string, string | undefined> }).e
 
 export const SITE_URL = viteEnv.VITE_SITE_URL || "https://clutchmarks.study";
 export const SITE_NAME = "Clutch Marks";
+/**
+ * The legal entity behind the site. It appears in copy that is a legal claim
+ * rather than a product name: the Organization's `legalName`, the copyright
+ * line, the privacy notice's controller and the terms' ownership clause.
+ * `site.ts` re-exports it so the UI has one literal to read, and this module
+ * stays free of `env.ts` (the prerender plugin imports it at build time).
+ */
+export const SITE_LEGAL_NAME = "Clutch Marks LLC";
 
 /**
  * Robots directives, written out instead of left to Google's defaults.
@@ -55,6 +63,7 @@ const organization = {
   "@type": "EducationalOrganization",
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
+  legalName: SITE_LEGAL_NAME,
   url: `${SITE_URL}/`,
   // Enumerated from the topic manifest, not typed by hand: the hand-typed
   // version still said "Maths, Physics and Computer Science" after Chemistry,

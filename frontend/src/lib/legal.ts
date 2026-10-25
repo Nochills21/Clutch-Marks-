@@ -25,11 +25,11 @@ export const PRIVACY_CONTACT_EMAIL = SITE.supportEmail;
  * Document versions, stored verbatim with each acceptance. Date-shaped so the
  * audit trail reads as a timeline; change them when the text changes.
  */
-export const PRIVACY_POLICY_VERSION = "2026-10-08";
-export const TERMS_VERSION = "2026-10-08";
+export const PRIVACY_POLICY_VERSION = "2026-10-25";
+export const TERMS_VERSION = "2026-10-25";
 
 /** Human-readable date shown on the legal pages. */
-export const LEGAL_LAST_UPDATED = "8 October 2026";
+export const LEGAL_LAST_UPDATED = "25 October 2026";
 
 export type ConsentKind = "privacy" | "terms" | "guardian" | "marketing";
 

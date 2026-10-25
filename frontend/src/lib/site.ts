@@ -8,9 +8,17 @@
  */
 import { SITE_URL } from "@/lib/env";
 import { subjectCoverage } from "@/lib/subjectCatalogue";
+import { SITE_LEGAL_NAME } from "@/lib/seoRoutes";
 
 export const SITE = {
   name: "Clutch Marks",
+  /**
+   * The legal entity that owns and licenses the site. Used where the copy is a
+   * legal statement rather than the product name — the copyright line, the
+   * privacy notice's controller, the terms' ownership clause, the Organization
+   * JSON-LD and the watermark on served PDFs. The brand stays `name`.
+   */
+  legalName: SITE_LEGAL_NAME,
   /** Public origin, no trailing slash. Override with VITE_SITE_URL in CI. */
   url: SITE_URL,
   tagline: "Revise smarter. Score higher.",

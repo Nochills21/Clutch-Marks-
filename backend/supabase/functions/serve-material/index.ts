@@ -133,7 +133,7 @@ Deno.serve(async (req) => {
     }
 
     // ── Identity string burned into the document ───────────────────────────
-    const stamp = `Licensed to ${user.email ?? user.id} · Clutch Marks`;
+    const stamp = `Licensed to ${user.email ?? user.id} · Clutch Marks LLC`;
     const now = new Date();
     const utc = now.toISOString().replace("T", " ").slice(0, 19) + " UTC";
 

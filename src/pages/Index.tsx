@@ -367,8 +367,8 @@ export default function Index() {
         <div className="container px-4 pb-8">
           {/* Full-strength muted: the /70 variant failed the WCAG contrast audit. */}
           <p className="text-center text-xs text-muted-foreground sm:text-left">
-            &copy; {new Date().getFullYear()} {SITE.name}. Past paper links point to the official
-            exam board sites.
+            &copy; {new Date().getFullYear()} {SITE.legalName}. All rights reserved. Past paper links
+            point to the official exam board sites.
           </p>
         </div>
       </footer>
