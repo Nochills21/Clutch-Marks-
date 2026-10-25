@@ -158,7 +158,7 @@ export function StudentDashboard() {
       {/* Masthead */}
       <header className="space-y-6">
         <div className="flex items-center gap-4">
-          <p className="eyebrow">Console</p>
+          <p className="eyebrow">Overview</p>
           <hr className="rule-gold hidden flex-1 sm:block" />
           <p className="num text-[11px] uppercase tracking-[0.14em] text-muted-foreground">{todayLabel}</p>
         </div>

@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-22T14:13:02.393Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-25T14:51:16.432Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -1139,10 +1139,7 @@ AS $function$
 declare
   _q record;
   _is_correct boolean;
-  _prev_correct boolean;
-  _first_try boolean;
   _xp integer := 0;
-  _corrected boolean := false;
 begin
   if auth.uid() is null then raise exception 'Not authenticated'; end if;
 
@@ -1158,10 +1155,6 @@ begin
 
   _is_correct := _selected = _q.correct_option;
 
-  select pa.last_correct into _prev_correct
-  from public.practice_attempts pa
-  where pa.user_id = auth.uid() and pa.question_id = _question_id;
-
   insert into public.practice_attempts (user_id, question_id, last_correct, attempts_count, last_attempt_at)
   values (auth.uid(), _question_id, _is_correct, 1, now())
   on conflict (user_id, question_id) do update
@@ -1169,18 +1162,8 @@ begin
         attempts_count = public.practice_attempts.attempts_count + 1,
         last_attempt_at = now();
 
-  _first_try := _prev_correct is null;
-
-  if _is_correct then
-    if public.award_xp(auth.uid(), 'practice', _question_id::text, 10, 100) then
-      _xp := _xp + 10;
-    end if;
-    -- Turned a previous mistake around (never counted on a first attempt).
-    if _prev_correct is false
-       and public.award_xp(auth.uid(), 'mistake_fixed', _question_id::text, 15, 150) then
-      _xp := _xp + 15;
-      _corrected := true;
-    end if;
+  if _is_correct and public.award_xp(auth.uid(), 'practice', _question_id::text, 10, 100) then
+    _xp := 10;
     perform public.touch_streak(auth.uid());
   end if;
 
@@ -1188,9 +1171,7 @@ begin
     'correct', _is_correct,
     'correct_option', _q.correct_option,
     'explanation', _q.explanation,
-    'xp_earned', _xp,
-    'corrected_mistake', _corrected,
-    'first_attempt', _first_try
+    'xp_earned', _xp
   );
 end;
 $function$;
@@ -1205,194 +1186,49 @@ declare
   _uid uuid := auth.uid();
 begin
   if _uid is null then raise exception 'Not authenticated'; end if;
-  if not public.is_admin(_uid) then raise exception 'Admin only'; end if;
+  if not public.has_role(_uid, 'admin') then raise exception 'Admin only'; end if;
 
   return query
 
-  -- ── 1. The Unicode replacement character in any student-visible field ──────
-  select 'replacement_character'::text, 'error'::text, 'questions'::text, q.id,
-         coalesce(z.title, left(q.question_text, 80)),
-         f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.questions q
-    left join public.quizzes z on z.id = q.quiz_id
-    cross join lateral (values
-      ('question_text', q.question_text),
-      ('explanation', coalesce(q.explanation, '')),
-      ('options', q.options::text)
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'quizzes', z.id, z.title, f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.quizzes z
-    cross join lateral (values
-      ('title', z.title),
-      ('description', coalesce(z.description, ''))
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'topics', t.id, t.name, f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.topics t
-    cross join lateral (values
-      ('name', t.name),
-      ('description', coalesce(t.description, ''))
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'lessons', l.id, l.title, f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.lessons l
-    cross join lateral (values
-      ('title', l.title),
-      ('content', coalesce(l.content, ''))
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'study_materials', m.id, m.title, f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.study_materials m
-    cross join lateral (values
-      ('title', m.title),
-      ('content', coalesce(m.content, ''))
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'flashcards', c.id,
-         coalesce(s.title, left(c.front, 80)), f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.flashcards c
-    left join public.flashcard_sets s on s.id = c.set_id
-    cross join lateral (values
-      ('front', c.front),
-      ('back', c.back)
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'flashcard_sets', s.id, s.title, f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.flashcard_sets s
-    cross join lateral (values
-      ('title', s.title),
-      ('description', coalesce(s.description, ''))
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'past_papers', p.id, p.title, 'title',
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(p.title, 200)
-    from public.past_papers p
-   where p.title like '%' || chr(65533) || '%'
-
-  union all
-  select 'replacement_character', 'error', 'announcements', a.id, a.title, f.field,
-         'Contains the replacement character (U+FFFD) where a real character was',
-         left(f.value, 200)
-    from public.announcements a
-    cross join lateral (values
-      ('title', a.title),
-      ('content', a.content)
-    ) as f(field, value)
-   where f.value like '%' || chr(65533) || '%'
-
-  -- ── 2. correct_option that cannot point at the right option ───────────────
-  union all
-  select 'answer_index', o.severity, 'questions', q.id,
-         coalesce(z.title, left(q.question_text, 80)), 'correct_option', o.detail,
-         left(q.options::text, 200)
-    from public.questions q
-    left join public.quizzes z on z.id = q.quiz_id
-    cross join lateral (
-      select
-        jsonb_typeof(q.options) as kind,
-        case when jsonb_typeof(q.options) = 'array' then jsonb_array_length(q.options) end as n,
-        (select count(*) from (
-           select e.value from jsonb_array_elements_text(
-             case when jsonb_typeof(q.options) = 'array' then q.options else '[]'::jsonb end
-           ) e(value)
-           group by e.value having count(*) > 1
-         ) d) as dupes,
-        (select count(*) from jsonb_array_elements_text(
-           case when jsonb_typeof(q.options) = 'array' then q.options else '[]'::jsonb end
-         ) e(value) where btrim(e.value) = '') as blanks
-    ) counts
-    cross join lateral (
-      select
-        case
-          when counts.kind <> 'array' then 'error'
-          when counts.n < 2 then 'error'
-          when q.correct_option < 0 then 'error'
-          when q.correct_option >= counts.n then 'error'
-          else 'warning'
-        end as severity,
-        case
-          when counts.kind <> 'array' then 'options is ' || coalesce(counts.kind, 'null') || ', not an array'
-          when counts.n < 2 then 'only ' || counts.n || ' option(s) — nothing to choose between'
-          when q.correct_option < 0 then 'correct_option is ' || q.correct_option || ' (negative)'
-          when q.correct_option = counts.n then
-            'correct_option ' || q.correct_option || ' equals the option count — looks 1-based, so marking scores against the wrong option'
-          when q.correct_option > counts.n then
-            'correct_option ' || q.correct_option || ' is outside 0..' || (counts.n - 1)
-          when counts.blanks > 0 then counts.blanks || ' empty option(s)'
-          else counts.dupes || ' duplicated option(s)'
-        end as detail
-    ) o
-   where counts.kind <> 'array'
-      or counts.n < 2
-      or q.correct_option < 0
-      or q.correct_option >= counts.n
-      or counts.dupes > 0
-      or counts.blanks > 0
-
-  -- ── 3. material_type values the student surfaces never read ───────────────
-  -- The type itself is checked against the widened vocabulary from part 1, so an
-  -- `exam-technique` note is no longer reported as an unknown type. What remains
-  -- is the genuine alias: 'note' is stored, 'notes' is read.
-  union all
-  select 'material_type_alias', 'warning', 'study_materials', m.id, m.title, 'material_type',
+  -- ── 4. Study-material titles that are pasted bodies / model scratch / bad headings ──
+  select 'material_title_body_in_title'::text, 'error'::text, 'study_materials'::text, m.id,
          case
-           when m.material_type = 'note' then
-             'material_type is ''note'' but student pages read ''notes'' — this row is invisible to students'
-           else
-             'material_type ''' || m.material_type || ''' is not one of notes/summary/flashcard/exam-technique'
-         end,
-         case when m.content is not null then 'has text content' else 'file only' end
+           when m.title is null or btrim(m.title) = '' then 'blank title'
+           when length(btrim(coalesce(m.title, ''))) > 100 then 'title is longer than 100 characters'
+           when coalesce(m.title, '') ~ '<[a-zA-Z/!]' then 'title contains an HTML tag'
+           when coalesce(m.title, '') ~ '[\r\n]' then 'title contains a newline'
+           when position(chr(65533) in coalesce(m.title, '')) > 0 then 'title contains the replacement character (U+FFFD)'
+           when length(btrim(coalesce(m.title, ''))) > 60
+             and btrim(coalesce(m.title, '')) ~ '[.!?](\s|$)' then 'title reads as a sentence, not a heading'
+           when btrim(coalesce(m.title, '')) ~* '^(here(''s| is)|sure|certainly|as an ai|model answer|draft|scratch|appendix|chapter [0-9]|answer:)' then 'title reads like model or draft copy'
+         end as label,
+         'title'::text,
+         case
+           when m.title is null then 'title is null'
+           when btrim(m.title) = '' then 'title is whitespace only'
+           when length(btrim(coalesce(m.title, ''))) > 100 then 'title is ' || length(btrim(coalesce(m.title, ''))) || ' characters (heading, not a paragraph)'
+           when coalesce(m.title, '') ~ '<[a-zA-Z/!]' then 'title contains an HTML tag'
+           when coalesce(m.title, '') ~ '[\r\n]' then 'title contains a CR/LF — likely pasted body text'
+           when position(chr(65533) in coalesce(m.title, '')) > 0 then 'title contains U+FFFD — a broken encoding round-trip'
+           when length(btrim(coalesce(m.title, ''))) > 60
+             and btrim(coalesce(m.title, '')) ~ '[.!?](\s|$)' then 'title is a ' || length(btrim(coalesce(m.title, ''))) || '-character sentence that ends in . ! or ?'
+           when btrim(coalesce(m.title, '')) ~* '^(here(''s| is)|sure|certainly|as an ai|model answer|draft|scratch|appendix|chapter [0-9]|answer:)' then 'title opens with model or draft voice'
+         end as detail,
+         left(regexp_replace(btrim(coalesce(m.title, '')), '\s+', ' ', 'g'), 140) as snippet
     from public.study_materials m
-   where m.material_type = 'note'
-      or lower(replace(coalesce(m.material_type, ''), '_', '-'))
-         not in ('notes', 'summary', 'flashcard', 'exam-technique')
-
-  -- ── 4. questions that test recall of the notes, not the specification ─────
-  -- The stem is the signature: the seeded practice sets open with "From the …
-  -- notes" / "Which statement…" and ask the student which sentence appears in a
-  -- topic's notes. Nothing about the question is about the subject, and the
-  -- distractors come from other topics' summaries, so the only way to answer is
-  -- to have memorised the page. Genuine questions never open this way.
-  union all
-  select 'notes_recall_prompt', 'warning', 'questions', q.id,
-         coalesce(z.title, left(q.question_text, 80)), 'question_text',
-         'the stem asks which statement appears in the topic notes — it tests recall of the note text, not the specification',
-         left(q.question_text, 200)
-    from public.questions q
-    left join public.quizzes z on z.id = q.quiz_id
-   where q.question_text ~* '^\s*(from the|which)'
-     -- Word boundaries on purpose: a bare 'notes' matches inside 'denotes'.
-     and q.question_text ~* '\mnotes\M';
+    join public.topics t on t.id = m.topic_id
+    join public.subject_levels sl on sl.id = t.subject_level_id
+    join public.subjects s on s.id = sl.subject_id
+   where
+        m.title is null
+     or btrim(m.title) = ''
+     or length(btrim(m.title)) > 100
+     or m.title ~ '<[a-zA-Z/!]'
+     or m.title ~ '[\r\n]'
+     or position(chr(65533) in m.title) > 0
+     or (length(btrim(m.title)) > 60 and btrim(m.title) ~ '[.!?](\s|$)')
+     or btrim(m.title) ~* '^(here(''s| is)|sure|certainly|as an ai|model answer|draft|scratch|appendix|chapter [0-9]|answer:)'
+   order by length(m.title) desc nulls first, s.slug, sl.level, t.slug;
 end;
 $function$;
 
@@ -1893,14 +1729,14 @@ declare
   _total integer := 0;
   _q record;
   _selected integer;
-  _attempt_id uuid;
   _results jsonb := '[]'::jsonb;
   _xp integer := 0;
+  _attempt_id uuid;
 begin
   if _user_id is null then raise exception 'Not authenticated'; end if;
 
   for _q in
-    select q.id, q.correct_option, q.explanation, q.options, q.objective_id
+    select q.id, q.correct_option, q.explanation, q.options
     from public.questions q
     where q.quiz_id = _quiz_id
     order by q.sort_order
@@ -1913,30 +1749,21 @@ begin
         _xp := _xp + 20;
       end if;
     end if;
-    -- Evidence for the mastery loop, for tagged questions only, and only when
-    -- the question was actually answered (an unanswered question says nothing).
-    -- The practice_attempts trigger advances the schedule from here.
-    if _q.objective_id is not null and _selected is not null then
-      insert into public.practice_attempts (user_id, question_id, last_correct, attempts_count, last_attempt_at)
-      values (_user_id, _q.id, (_selected = _q.correct_option), 1, now())
-      on conflict (user_id, question_id) do update
-        set last_correct = excluded.last_correct,
-            attempts_count = public.practice_attempts.attempts_count + 1,
-            last_attempt_at = now();
-    end if;
     _results := _results || jsonb_build_object(
       'question_id', _q.id,
-      'selected', _selected,
       'correct_option', _q.correct_option,
+      'selected', _selected,
       'explanation', _q.explanation,
       'options', _q.options
     );
   end loop;
 
+  -- Fixed 2026-10-01: this inserted a nonexistent `total` column and never set
+  -- `completed_at` (which every progress/XP/gradebook query filters on). The
+  -- authoritative definition, including the payload shape the client reads, now
+  -- lives in 20261001120000_grade_quiz_attempts_fix.sql.
   if _total > 0 then
-    insert into public.quiz_attempts (
-      quiz_id, user_id, score, total_questions, submission_file_url, answers, completed_at
-    )
+    insert into public.quiz_attempts (quiz_id, user_id, score, total_questions, submission_file_url, answers, completed_at)
     values (
       _quiz_id, _user_id, _correct, _total, _submission_file_url,
       (select jsonb_agg(jsonb_build_object('question_id', k, 'selected', (_answers->>k)::integer))
@@ -1947,13 +1774,7 @@ begin
     perform public.touch_streak(_user_id);
   end if;
 
-  return jsonb_build_object(
-    'correct', _correct,
-    'total', _total,
-    'attempt_id', _attempt_id,
-    'xp_earned', _xp,
-    'results', _results
-  );
+  return jsonb_build_object('correct', _correct, 'total', _total, 'attempt_id', _attempt_id, 'xp_earned', _xp, 'results', _results);
 end;
 $function$;
 
@@ -2422,44 +2243,54 @@ CREATE OR REPLACE FUNCTION public.my_xp_summary()
  SECURITY DEFINER
  SET search_path TO 'public'
 AS $function$
-  with me as (select auth.uid() as uid),
-  wk as (select date_trunc('week', current_date)::date as ws),
-  days as (
-    select distinct e.created_at::date as d
-    from public.xp_events e, me
-    where e.user_id = me.uid and e.created_at >= (select ws from wk)
-  ),
-  prefs as (select p.* from public.student_prefs p, me where p.user_id = me.uid)
   select jsonb_build_object(
-    'xp_all_time', coalesce((select sum(points) from public.xp_events where user_id = (select uid from me)), 0),
-    'xp_today', coalesce((select sum(points) from public.xp_events where user_id = (select uid from me) and created_at >= current_date), 0),
-    'xp_30d', coalesce((select sum(points) from public.xp_events where user_id = (select uid from me) and created_at >= now() - interval '30 days'), 0),
-    'caps_used', (select jsonb_object_agg(tool, points) from public.xp_daily where user_id = (select uid from me) and day = current_date),
-    -- Repurposed, and now non-punishing: days studied this week.
-    'streak', (select count(*) from days),
-    'longest_streak', coalesce((select longest_streak from public.streaks where user_id = (select uid from me)), 0),
-    'days_this_week', (select count(*) from days),
-    'week_days', coalesce((select jsonb_agg(distinct extract(isodow from d)) from days), '[]'::jsonb),
-    'weekly_goal_days', coalesce((select weekly_goal_days from prefs), 3),
-    'weekly_goal_met', (select count(*) from days) >= coalesce((select weekly_goal_days from prefs), 3),
-    'session_minutes', coalesce((select session_minutes from prefs), 20),
-    'leaderboard_visible', coalesce((select leaderboard_visible from prefs), true),
-    'reminders_enabled', coalesce((select reminders_enabled from prefs), true),
-    'animations_enabled', coalesce((select animations_enabled from prefs), true),
-    'encouragement_enabled', coalesce((select encouragement_enabled from prefs), true),
-    'today_goal_met', public.today_goal_met((select uid from me)),
-    'today_active_session', coalesce((
-      select jsonb_build_object('id', s.id, 'planned_minutes', s.planned_minutes, 'started_at', s.started_at)
-      from public.study_sessions s, me
-      where s.user_id = me.uid and s.status = 'active'
-      limit 1
-    ), 'null'::jsonb),
-    'sessions_this_week', (
-      select count(*) from public.study_sessions s, me
-      where s.user_id = me.uid and s.status = 'completed'
-        and s.started_at >= (select ws from wk)
-    )
+    'xp_all_time', coalesce((select sum(points) from xp_events where user_id = auth.uid()), 0),
+    'xp_today', coalesce((select sum(points) from xp_events where user_id = auth.uid() and created_at >= current_date), 0),
+    'xp_30d', coalesce((select sum(points) from xp_events where user_id = auth.uid() and created_at >= now() - interval '30 days'), 0),
+    'caps_used', (select jsonb_object_agg(tool, points) from xp_daily where user_id = auth.uid() and day = current_date),
+    'streak', coalesce((select current_streak from streaks where user_id = auth.uid()), 0),
+    'longest_streak', coalesce((select longest_streak from streaks where user_id = auth.uid()), 0)
   );
+$function$;
+
+CREATE OR REPLACE FUNCTION public.notify_admins_error_feedback()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_secret text;
+BEGIN
+  -- Only page admins for actual error reports.
+  IF NEW.rating <> 'error' THEN
+    RETURN NEW;
+  END IF;
+
+  SELECT value INTO v_secret FROM private.app_secrets WHERE key = 'feedback_alert_secret';
+
+  IF v_secret IS NULL THEN
+    RAISE WARNING 'feedback-alert skipped: no secret configured';
+    RETURN NEW;
+  END IF;
+
+  BEGIN
+    PERFORM net.http_post(
+      url := 'https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/feedback-alert',
+      headers := jsonb_build_object(
+        'Content-Type', 'application/json',
+        'x-feedback-secret', v_secret
+      ),
+      body := jsonb_build_object('feedbackId', NEW.id),
+      timeout_milliseconds := 5000
+    );
+  EXCEPTION WHEN OTHERS THEN
+    -- Email is best-effort; never block the feedback insert.
+    RAISE WARNING 'feedback-alert dispatch failed: %', SQLERRM;
+  END;
+
+  RETURN NEW;
+END;
 $function$;
 
 CREATE OR REPLACE FUNCTION public.notify_admins_new_feedback()
@@ -3356,30 +3187,26 @@ CREATE OR REPLACE FUNCTION public.touch_streak(p_user_id uuid)
  SET search_path TO 'public'
 AS $function$
 declare
-  v_week_start date := date_trunc('week', current_date)::date;
-  v_days integer;
+  v_last date;
 begin
   if p_user_id is null then return; end if;
-
   insert into public.streaks (user_id, current_streak, longest_streak, last_active)
-  values (p_user_id, 0, 0, current_date)
+  values (p_user_id, 1, 1, current_date)
   on conflict (user_id) do nothing;
 
-  -- Days studied this ISO week, straight from the XP ledger. Nothing here can
-  -- decrease: a quiet day just is not added, and Monday starts a fresh count.
-  select count(distinct e.created_at::date)
-    into v_days
-  from public.xp_events e
-  where e.user_id = p_user_id
-    and e.created_at >= v_week_start
-    and e.created_at < v_week_start + 7;
-
-  update public.streaks
-     set current_streak = coalesce(v_days, 0),
-         longest_streak = greatest(longest_streak, coalesce(v_days, 0)),
-         last_active = current_date,
-         updated_at = now()
-   where user_id = p_user_id;
+  select last_active into v_last from public.streaks where user_id = p_user_id;
+  if v_last = current_date then
+    return; -- already counted today
+  elsif v_last = current_date - 1 then
+    update public.streaks
+      set current_streak = current_streak + 1,
+          longest_streak = greatest(longest_streak, current_streak + 1),
+          last_active = current_date, updated_at = now()
+      where user_id = p_user_id;
+  else
+    update public.streaks set current_streak = 1, last_active = current_date, updated_at = now()
+      where user_id = p_user_id;
+  end if;
 end;
 $function$;
 
@@ -3536,6 +3363,8 @@ drop trigger if exists "audit_announcements_changes" on public."announcements";
 CREATE TRIGGER audit_announcements_changes AFTER INSERT OR DELETE OR UPDATE ON announcements FOR EACH ROW EXECUTE FUNCTION write_admin_audit_log();
 drop trigger if exists "on_feedback_created" on public."content_feedback";
 CREATE TRIGGER on_feedback_created AFTER INSERT ON content_feedback FOR EACH ROW EXECUTE FUNCTION notify_admins_new_feedback();
+drop trigger if exists "on_feedback_error_alert" on public."content_feedback";
+CREATE TRIGGER on_feedback_error_alert AFTER INSERT ON content_feedback FOR EACH ROW EXECUTE FUNCTION notify_admins_error_feedback();
 drop trigger if exists "notify_admins_of_data_request" on public."data_requests";
 CREATE TRIGGER notify_admins_of_data_request AFTER INSERT ON data_requests FOR EACH ROW EXECUTE FUNCTION pdpl_notify_admins_of_request();
 drop trigger if exists "set_data_request_email" on public."data_requests";
@@ -3629,6 +3458,7 @@ alter table public."exam_dates" enable row level security;
 alter table public."xp_events" enable row level security;
 alter table public."email_suppressions" enable row level security;
 alter table public."admin_audit_log_archive" enable row level security;
+alter table public."xp_daily" enable row level security;
 alter table public."quizzes" enable row level security;
 alter table public."lessons" enable row level security;
 alter table public."questions" enable row level security;
@@ -3636,7 +3466,6 @@ alter table public."lesson_progress" enable row level security;
 alter table public."homework" enable row level security;
 alter table public."notifications" enable row level security;
 alter table public."bookmarks" enable row level security;
-alter table public."xp_daily" enable row level security;
 alter table public."announcements" enable row level security;
 alter table public."user_roles" enable row level security;
 alter table public."study_materials" enable row level security;
@@ -3645,8 +3474,8 @@ alter table public."quiz_attempts" enable row level security;
 alter table public."subjects" enable row level security;
 alter table public."subject_levels" enable row level security;
 alter table public."topics" enable row level security;
-alter table public."plans" enable row level security;
 alter table public."streaks" enable row level security;
+alter table public."plans" enable row level security;
 alter table public."ai_correction" enable row level security;
 alter table public."announcement_reads" enable row level security;
 alter table public."subscriptions" enable row level security;
@@ -3907,6 +3736,8 @@ drop policy if exists "Anyone authenticated can view published quizzes" on publi
 create policy "Anyone authenticated can view published quizzes" on public."quizzes" for select to "authenticated" using (((is_published = true) OR is_admin(auth.uid())));
 drop policy if exists "Anyone can view published quizzes" on public."quizzes";
 create policy "Anyone can view published quizzes" on public."quizzes" for select to "anon" using (((is_published = true) OR is_admin(auth.uid())));
+drop policy if exists "streaks read own" on public."streaks";
+create policy "streaks read own" on public."streaks" for select using (((user_id = auth.uid()) OR is_admin(auth.uid())));
 drop policy if exists "prefs read own" on public."student_prefs";
 create policy "prefs read own" on public."student_prefs" for select using (((user_id = auth.uid()) OR is_admin(auth.uid())));
 drop policy if exists "prefs update own" on public."student_prefs";
@@ -3997,6 +3828,10 @@ drop policy if exists "Parents can view linked student reports" on public."weekl
 create policy "Parents can view linked student reports" on public."weekly_reports" for select to "authenticated" using ((has_role(auth.uid(), 'parent'::app_role) AND is_linked_parent(auth.uid(), student_user_id)));
 drop policy if exists "Students can view own reports" on public."weekly_reports";
 create policy "Students can view own reports" on public."weekly_reports" for select to "authenticated" using ((student_user_id = auth.uid()));
+drop policy if exists "xp_daily read own" on public."xp_daily";
+create policy "xp_daily read own" on public."xp_daily" for select using (((user_id = auth.uid()) OR is_admin(auth.uid())));
+drop policy if exists "xp read own" on public."xp_events";
+create policy "xp read own" on public."xp_events" for select using (((user_id = auth.uid()) OR is_admin(auth.uid())));
 
 -- ============ grants ============
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."_seed_fixes" to anon;
