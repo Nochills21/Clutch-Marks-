@@ -99,7 +99,7 @@ const SUBJECT_TRACK = PUBLISHED_SUBJECTS.map((subject) =>
 const TRACKS = [
   { label: "Subjects", value: String(PUBLISHED_SUBJECTS.length), detail: SUBJECT_TRACK },
   { label: "Levels", value: "IGCSE · AS · A2", detail: "IGCSE to A Level" },
-  { label: "Past papers", value: "1,000+", detail: "Catalogued with mark schemes" },
+  { label: "Questions marked", value: "instant", detail: "With working for every step" },
   { label: "Exams covered", value: "12 exams", detail: "Cambridge · Edexcel · Oxford" },
 ];
 
@@ -191,7 +191,7 @@ export default function Index() {
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <Button asChild size="lg" className="sheen gap-2 h-12 px-7 text-[15px]">
                 <Link to="/auth">
-                  Start revising <ArrowRight className="h-4 w-4" />
+                  Start revising — IGCSE, AS and A2 <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               {/* A real route, not an in-page anchor: notes, topic questions and

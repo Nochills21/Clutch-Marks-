@@ -114,7 +114,8 @@ function studentHtml(first) {
   const inner = `
   <h1 style="margin:0 0 14px 0;font-size:26px;line-height:1.3;color:#1a1a2e;">You're in, ${first}.</h1>
 
-  <p style="margin:0 0 14px 0;">Your Clutch Marks account is live, and nothing is on a waiting list. Six subjects, at Cambridge IGCSE, AS and A2 — Mathematics, Physics, Chemistry, Biology, Computer Science, and English (Cambridge First Language and OxfordAQA ESL) — are now one click away.</p>
+  <p style="margin:0 0 14px 0;">Your Clutch Marks account is live, and nothing is on a waiting list.</p>
+  <p style="margin:0 0 14px 0;">Your free preview already opens IGCSE lessons, notes and quizzes — enough to start the same day. What to do with that first hour is below.</p>
 
   <p style="margin:0 0 22px 0;">This email is short on purpose: three things to do now, a map of what you have, and the one study habit that makes the rest of it work.</p>
 
