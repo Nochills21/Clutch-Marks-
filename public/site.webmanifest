@@ -1,7 +1,7 @@
 {
   "name": "Clutch Marks",
   "short_name": "Clutch Marks",
-  "description": "Revision notes, exam-style topic questions with instant marking, and past papers with mark schemes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2.",
+  "description": "Revision material, exam-style topic questions with instant marking, flashcards, an AI marker and a study planner, plus past papers with mark schemes for Maths, Physics, Chemistry, Biology, Computer Science and English at IGCSE, AS and A2.",
   "id": "/",
   "start_url": "/",
   "scope": "/",

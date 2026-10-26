@@ -39,7 +39,8 @@ describe("the privacy notice says what the PDPL requires it to say", () => {
     for (const processor of ["Supabase", "Vercel", "Cloudflare", "Resend", "Plausible"]) {
       expect(legal, `notice does not name ${processor}`).toContain(processor);
     }
-    expect(legal).toMatch(/Transfers outside the Kingdom/);
+    expect(legal).toMatch(/Where your data is processed/);
+    expect(legal, "the notice should say where the company operates").toMatch(/United States/);
   });
 
   it("lists the data-subject rights and how to exercise them", () => {
@@ -50,10 +51,16 @@ describe("the privacy notice says what the PDPL requires it to say", () => {
   });
 
   it("gives the regulator route, the minors position and the breach undertaking", () => {
-    expect(legal).toMatch(/SDAIA/);
-    expect(legal).toMatch(/sdaia\.gov\.sa/);
+    // The notice is a general PDPL notice: it points the reader at the authority
+    // where they live, and must not route anyone to one country's regulator — it
+    // used to send every complaint to SDAIA, which only applies inside Saudi
+    // Arabia, while the company now operates from the United States.
+    expect(legal).toMatch(/data protection authority/i);
+    expect(legal, "the notice is a general PDPL notice now, not a Saudi one").not.toMatch(
+      /SDAIA|sdaia\.gov\.sa|Saudi|Kingdom/,
+    );
     expect(legal).toMatch(/parent or guardian/i);
-    // PDPL: notify SDAIA within 72 hours of becoming aware of a risky breach.
+    // PDPL: tell the regulator within 72 hours of becoming aware of a risky breach.
     expect(legal).toMatch(/72 hours/);
   });
 
@@ -64,6 +71,18 @@ describe("the privacy notice says what the PDPL requires it to say", () => {
     }
     // The old hard-coded address must not reappear as a literal in the notice.
     expect(legal).not.toMatch(/mailto:support@clutchmarks\.study/);
+  });
+});
+
+describe("the terms say who runs the service, and where", () => {
+  it("names the company and its country of operation", () => {
+    // The terms carry the operating statement a reader looks for when they want
+    // to know who they are contracting with and under which country's law.
+    const terms = legal.slice(legal.indexOf("const termsSections"));
+    expect(terms).toContain("Clutch Marks LLC");
+    expect(terms, "terms should say the service is operated from the United States").toMatch(
+      /United States/,
+    );
   });
 });
 

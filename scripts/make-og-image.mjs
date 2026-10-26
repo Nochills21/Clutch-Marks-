@@ -76,7 +76,7 @@ const CARDS = [
     out: "og.png",
     title: "Clutch Marks",
     titleSize: 94,
-    lines: ["Revision notes, topic questions with instant", "marking, and a full past-paper archive."],
+    lines: ["Revision material, past papers, questions", "marked by AI, flashcards and a planner."],
   },
   // No level claim here on purpose: English is IGCSE-only, so "… and English —
   // IGCSE, AS and A2" would put a course that does not exist on the social card.

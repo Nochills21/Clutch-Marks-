@@ -199,7 +199,7 @@ export default function DataRights() {
       <Card>
         <CardHeader>
           <CardTitle className="text-base flex items-center gap-2">
-            <Scale className="h-4 w-4 text-primary" /> Under the Saudi PDPL you can ask us to
+            <Scale className="h-4 w-4 text-primary" /> Under the PDPL you can ask us to
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm text-muted-foreground">
@@ -212,7 +212,8 @@ export default function DataRights() {
           </ul>
           <p className="text-xs">
             We answer within {DATA_REQUEST_RESPONSE_DAYS} days, free of charge. If you are not satisfied
-            with our answer you can complain to the Saudi Data &amp; AI Authority (SDAIA). The{" "}
+            with our answer you can complain to the data protection authority in the country where
+            you live. The{" "}
             <Link to="/privacy" className="text-primary underline">Privacy Policy</Link> has the detail —
             what we hold, why, who else handles it and how long it is kept.
           </p>

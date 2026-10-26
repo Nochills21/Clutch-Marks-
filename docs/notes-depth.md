@@ -16,7 +16,7 @@ A note is at the bar when it has:
 | Check | Threshold |
 | --- | --- |
 | Text (tags stripped) | ≥ 8,500 characters |
-| HTML | ≤ 26,000 characters, or 2,600 per board statement where that is larger (one page, not a booklet) |
+| HTML | ≤ 26,000 characters of *reading* markup, or 2,600 per board statement where that is larger (one page, not a booklet). Inline figures do not count — see below |
 | Opening | an `<h2>`, immediately followed by a real introduction of ≥ 200 characters |
 | Sections | ≥ 8 `<h3>` sections |
 | Structure | a table, or ≥ 15 list items — prose alone is an essay, not a revision page |
@@ -42,6 +42,19 @@ topic at 26,000 and lets a 26-statement topic reach 67,600, while still rejectin
 the padding the rule exists to catch. The self-test proves both sides: a body
 over the flat floor still fails with no statements, and the same body passes once
 the topic carries the statements that justify its length.
+
+### Figures are not page weight
+
+The cap measures what a page asks someone to **read**, so `<svg>` blocks are
+removed before the count. A drawn figure costs four to seven kilobytes of
+attributes — coordinates, dash patterns, labels — and a student takes it in at a
+glance; counting that as reading mass judged a note *with* a diagram as though it
+were a wall of prose. The refinement pass that introduced inline figures failed
+four Physics notes on their figures alone while their prose sat well inside the
+band, which is how the distinction surfaced. Every character of text, table and
+caption that remains is still held to the same ceiling, so the rule still
+rejects the padding it was written for. The `--self-test` case "over the page
+cap" asserts that a purely textual body over the band still fails.
 
 For an essay subject the "worked example" slot is a model answer with the
 examiner's annotation — why the paragraph earns the mark, what the candidate did

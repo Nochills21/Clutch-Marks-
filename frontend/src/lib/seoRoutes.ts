@@ -233,12 +233,18 @@ export const ROUTE_META: RouteMeta[] = [
     // runs in the browser. When the two disagreed, the same URL carried two
     // different titles depending on whether Google executed JavaScript — the
     // kind of inconsistency that leaves a stale title in the index for weeks.
-    title: "Clutch Marks — Revision Notes, Topic Questions & Past Papers",
+    title: "Clutch Marks — Revision Material, Topic Questions & Past Papers",
     // "a past-paper archive" rather than "past papers for every subject": the
     // archive files rows under all six subjects, but only three of them have
     // hosted paper and mark-scheme files. The precise per-subject claim is the
     // FAQ answer's job, where it can be stated honestly in one sentence.
-    description: `Topic notes, exam-style questions with instant marking, and a past-paper archive for ${subjectCoverage()}.`,
+    //
+    // The description is the landing page's small print, so it names the whole
+    // toolkit — material, questions, flashcards, the AI marker, the planner and
+    // the archive. seoConsistency.test.ts caps it at 200 characters (a longer
+    // snippet is truncated anyway), and that ceiling is what keeps this list
+    // from growing into a paragraph: the subject coverage alone costs 97.
+    description: `Revision material, questions, flashcards, an AI marker, a study planner and a past-paper archive for ${subjectCoverage()}.`,
     jsonLd: [
       {
         "@context": "https://schema.org",
@@ -449,7 +455,7 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/data-rights",
     title: "Your data rights — Clutch Marks",
     description:
-      "Download everything Clutch Marks holds about your account, or ask us to correct, export or delete it. How we answer data requests, and how to complain to SDAIA."
+      "Download everything Clutch Marks holds about your account, or ask us to correct, export or delete it. How we answer data requests, and how to escalate a complaint."
   },
 
   // ---- Utility and account routes ----------------------------------------

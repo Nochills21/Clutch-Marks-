@@ -322,8 +322,9 @@ export default function AdminDataRequests() {
                                 <AlertDialogHeader>
                                   <AlertDialogTitle>Refuse this request?</AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    Refusing is a real decision: the reader can complain to SDAIA about
-                                    it. Only refuse where the law lets us (for example a request that
+                                    Refusing is a real decision: the reader can complain to a data
+                                    protection authority about it. Only refuse where the law lets us
+                                    (for example a request that
                                     would delete another person's data), and answer the requester
                                     directly with the reason.
                                   </AlertDialogDescription>

@@ -625,6 +625,30 @@
     letter-spacing: -0.01em;
   }
 
+  /* Inline figures in notes (the markup comes from .freebuff/note-figures.cjs).
+     The body is HTML stored in the database, so a figure cannot carry a utility
+     class — this one rule is what makes every <figure> in every note responsive.
+     Colours inside the SVG are the custom properties above, so a figure follows
+     the theme without a second stylesheet. */
+  .cm-study figure {
+    margin: 1.6rem 0;
+  }
+
+  .cm-study figure svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 620px;
+  }
+
+  .cm-study figcaption {
+    max-width: 620px;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: hsl(var(--muted-foreground));
+  }
+
   .cm-eyebrow {
     font-size: 0.68rem;
     font-weight: 600;

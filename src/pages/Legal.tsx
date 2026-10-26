@@ -1,11 +1,12 @@
 // Privacy Policy and Terms of Service — written in plain, student-friendly
 // language. Both pages share one shell so the style stays identical.
 //
-// The privacy notice is a PDPL notice (Saudi Personal Data Protection Law and
-// its Implementing Regulations): it has to name a lawful basis per purpose, the
-// recipients and where they process, how long each category is kept, the rights
-// a reader can exercise and how, and the route to SDAIA. Keep the retention
-// lines in step with supabase/migrations/20261008130000_pdpl_retention_purge.sql
+// The privacy notice is a PDPL notice — the Personal Data Protection Law as a
+// general standard, not one country's enactment: it has to name a lawful basis
+// per purpose, the recipients and where they process, how long each category is
+// kept, the rights a reader can exercise and how, and the route to a regulator.
+// Keep the retention lines in step with
+// supabase/migrations/20261008130000_pdpl_retention_purge.sql
 // — pdpl.test.ts fails if the two drift.
 import { Link } from "react-router-dom";
 import { SEOHead } from "@/components/SEOHead";
@@ -84,9 +85,10 @@ const privacySections: Section[] = [
     body: (
       <>
         <p>
-          Clutch Marks LLC runs clutchmarks.study. We decide why and how your personal data is used, so
-          under the Saudi Personal Data Protection Law (<strong>PDPL</strong>) and its Implementing
-          Regulations we are the <strong>controller</strong>, and we are accountable for it.
+          Clutch Marks LLC runs clutchmarks.study. We are a United States company and we operate this
+          service from the United States. We decide why and how your personal data is used, so under
+          the Personal Data Protection Law (<strong>PDPL</strong>) we are the{" "}
+          <strong>controller</strong>, and we are accountable for it.
         </p>
         <p>
           Privacy questions, requests and complaints go to{" "}
@@ -187,14 +189,13 @@ const privacySections: Section[] = [
     ),
   },
   {
-    heading: "Transfers outside the Kingdom",
+    heading: "Where your data is processed",
     body: (
       <>
         <p>
-          We operate from outside Saudi Arabia, and so do the providers above: your data may be
-          processed outside the Kingdom, chiefly in Singapore, the European Union and the United
-          States. Under the PDPL's Regulations on Personal Data Transfers outside the Kingdom, a
-          transfer like this needs a lawful basis and adequate safeguards.
+          We operate in the United States, and so do some of the providers above: your data may be
+          processed there, and also in the European Union and Singapore. A transfer like this needs
+          a lawful basis and adequate safeguards, whichever country it lands in.
         </p>
         <p>
           We rely on the safeguards our providers make available — their data-processing terms and
@@ -259,8 +260,8 @@ const privacySections: Section[] = [
           We answer within {DATA_REQUEST_RESPONSE_DAYS} days; if a request is unusually complex we
           tell you why it will take longer. We may ask you to confirm you are the account holder —
           never for more than we need to do that. If you are not satisfied with our answer, you can
-          complain to the <strong>Saudi Data & AI Authority (SDAIA)</strong>, which regulates this
-          law, at <a href="https://sdaia.gov.sa" target="_blank" rel="noreferrer noopener">sdaia.gov.sa</a>.
+          complain to the data protection authority in the country where you live, and we will
+          cooperate with that authority's request.
         </p>
       </>
     ),
@@ -297,8 +298,9 @@ const privacySections: Section[] = [
           leaked content can be traced — please keep your password to yourself.
         </p>
         <p>
-          If a breach ever risks your data, we notify SDAIA within <strong>72 hours</strong> of
-          becoming aware of it and tell the people affected what happened and what to do.
+          If a breach ever risks your data, we tell the relevant data protection authority within
+          <strong>72 hours</strong> of becoming aware of it, and we tell the people affected what
+          happened and what to do.
         </p>
       </>
     ),
@@ -350,10 +352,11 @@ const termsSections: Section[] = [
     heading: "Using Clutch Marks",
     body: (
       <p>
-        Clutch Marks is a study platform for IGCSE, AS and A Level students. By creating an account
-        you agree to use it honestly: do your own quizzes, don't share your account, and don't try
-        to break things. Accounts are free to start, with an optional paid plan that unlocks more
-        content — the current prices are on the <Link to="/pricing">Pricing page</Link>.
+        Clutch Marks is a study platform for IGCSE, AS and A Level students, run by Clutch Marks
+        LLC — a United States company operating this service from the United States. By creating an
+        account you agree to use it honestly: do your own quizzes, don't share your account, and
+        don't try to break things. Accounts are free to start, with an optional paid plan that
+        unlocks more content — the current prices are on the <Link to="/pricing">Pricing page</Link>.
       </p>
     ),
   },

@@ -107,8 +107,8 @@ const TOOLS = [
   {
     index: "01",
     icon: FileText,
-    title: "Revision notes",
-    desc: "Syllabus-matched notes for every topic, written tight enough to revise a topic in minutes rather than hours.",
+    title: "Revision material",
+    desc: "Syllabus-matched material for every topic, written tight enough to revise a topic in minutes rather than hours.",
     accent: "text-primary",
     tile: "from-primary/15 to-primary/[0.04]",
   },
@@ -131,7 +131,7 @@ const TOOLS = [
 ];
 
 const PILLARS = [
-  { icon: FileText, text: "Revision notes for every topic and level" },
+  { icon: FileText, text: "Revision material for every topic and level" },
   { icon: Brain, text: "Instant marking with worked explanations" },
   { icon: Archive, text: "Past papers and mark schemes in one archive" },
   { icon: TrendingUp, text: "Progress tracking that targets weak topics" },
@@ -180,9 +180,10 @@ export default function Index() {
             </h1>
 
             <p className="lede mx-auto mt-7 text-center">
-              Concise revision notes, exam-style topic questions marked instantly, a full
-              past-paper archive — and AI marking of your solved scripts against the official
-              mark schemes — everything you need for Maths, Physics, Chemistry,
+              Revision material for every topic, exam-style topic questions marked instantly, a
+              full past-paper archive, flashcards that resurface what you forget, AI marking of
+              your solved scripts against the official mark schemes, and a study planner built
+              around your exam dates — everything you need for Maths, Physics, Chemistry,
               Biology, Computer Science and English,
               in one place.
             </p>

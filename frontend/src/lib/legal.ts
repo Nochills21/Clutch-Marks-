@@ -3,7 +3,7 @@ import { SITE } from "@/lib/site";
 /**
  * The privacy/terms documents, reduced to the few values code depends on.
  *
- * PDPL (Saudi Personal Data Protection Law) compliance rests on being able to
+ * PDPL compliance rests on being able to
  * show *which* version of a document a reader accepted and *when*. That only
  * works if the version is one value shared by the page that renders the
  * document and the form that records the acceptance — so they live here, and
@@ -25,8 +25,8 @@ export const PRIVACY_CONTACT_EMAIL = SITE.supportEmail;
  * Document versions, stored verbatim with each acceptance. Date-shaped so the
  * audit trail reads as a timeline; change them when the text changes.
  */
-export const PRIVACY_POLICY_VERSION = "2026-10-25";
-export const TERMS_VERSION = "2026-10-25";
+export const PRIVACY_POLICY_VERSION = "2026-10-25.1";
+export const TERMS_VERSION = "2026-10-25.1";
 
 /** Human-readable date shown on the legal pages. */
 export const LEGAL_LAST_UPDATED = "25 October 2026";
