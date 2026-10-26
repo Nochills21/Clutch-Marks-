@@ -261,7 +261,7 @@ export default function TopicNotes() {
         lede={`Revision notes and topic questions for ${topicTitle} in ${subjectMeta.name} ${levelLabel}.`}
         actions={
           <Button asChild variant="outline" size="sm" className="gap-2">
-            <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
+            <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}&mode=incorrect`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
           </Button>
         }
       />
@@ -388,7 +388,7 @@ export default function TopicNotes() {
               hint: `${quizzes.length} quiz${quizzes.length === 1 ? "" : "zes"} set on this topic`,
             },
             {
-              to: `/practice?level=${subjectLevel.id}&topic=${topicId}`,
+              to: `/practice?level=${subjectLevel.id}&topic=${topicId}&mode=incorrect`,
               icon: Target,
               label: "Practice questions",
               hint: "Drill the bank, one question at a time",

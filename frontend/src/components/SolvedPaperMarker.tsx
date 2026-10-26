@@ -37,6 +37,8 @@ import {
   type PaperRef,
 } from "@/lib/ai";
 import { exportMarkedPaperToPdf } from "@/lib/pdfExport";
+import { SITE } from "@/lib/site";
+import { supportMailto } from "@/lib/support";
 import DOMPurify from "dompurify";
 import { inlineMarkdownToHtml } from "@/lib/objectiveTeach";
 import { indicativeGradeLabel } from "@/lib/gradeBoundaries";
@@ -442,6 +444,18 @@ export function SolvedPaperMarker({
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
             <span>{error}</span>
           </div>
+        )}
+        {error && (
+          <p className="text-xs text-muted-foreground">
+            If it fails again, email{" "}
+            <a
+              href={supportMailto("AI Marker — marking failed")}
+              className="underline hover:text-foreground"
+            >
+              {SITE.supportEmail}
+            </a>{" "}
+            with the paper you uploaded and the message above; we can mark it by hand.
+          </p>
         )}
 
         <div

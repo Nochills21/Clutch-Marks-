@@ -33,7 +33,9 @@ you (or the domain) · 🔧 = I can do it on your word (~time estimate).
 - ✅ **Inbound `support@clutchmarks.study` is live via Resend Inbound** (apex MX
   `inbound-smtp.ap-northeast-1.amazonaws.com`) — no Cloudflare Email Routing
   needed; it cannot work while the Cloudflare zone is inactive. Set the
-  forwarding destination in the Resend dashboard if it isn't already.
+  forwarding destination in the Resend dashboard if it isn't already — the
+  address published on the site and in the legal notices is
+  `clutchmarks.support@gmail.com` (`SITE.supportEmail`).
 
 ## 2. Pre-launch verification (I run these once the domain is live)
 

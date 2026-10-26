@@ -26,6 +26,8 @@ import {
   type TotpFactor,
 } from "@/lib/mfa";
 import { Check, Copy, KeyRound, Loader2, ShieldCheck, ShieldOff, Smartphone } from "lucide-react";
+import { SITE } from "@/lib/site";
+import { supportMailto } from "@/lib/support";
 
 const SECRET_CHUNK = 4;
 
@@ -231,8 +233,14 @@ export function MfaGate() {
               </p>
               <TotpCodeForm factorId={factor.id} onVerified={unlocked} submitLabel="Unlock" />
               <p className="text-xs text-muted-foreground">
-                Signed in as {user?.email ?? "this account"}. Lost your authenticator? Ask support to reset
-                it before you can use the console again.
+                Signed in as {user?.email ?? "this account"}. Lost your authenticator? Email{" "}
+                <a
+                  href={supportMailto("Reset my authenticator")}
+                  className="underline hover:text-foreground"
+                >
+                  {SITE.supportEmail}
+                </a>{" "}
+                to reset it before you can use the console again.
               </p>
             </>
           ) : (

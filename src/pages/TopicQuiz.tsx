@@ -218,23 +218,33 @@ export default function TopicQuiz() {
     }
 
     try {
-      const { data, error: rpcError } = await supabase.rpc("grade_quiz", {
-        _quiz_id: questions.length > 0 ? questions[0].quiz_id : undefined,
-        _answers: Object.fromEntries(questions.map((q) => [q.id, answers[q.id] ?? -1])),
-      });
-      if (rpcError) throw rpcError;
+      // A topic's bank is spread across several quizzes (the paper, checkpoints,
+      // drills), and grade_quiz marks one quiz per call. Submitting only
+      // questions[0].quiz_id scored 10 of the 41 questions on screen and left
+      // the other 31 out of the attempt history and the review ledger, so the
+      // groups are graded separately and merged here.
+      const groups = new Map<string, TopicQuestion[]>();
+      for (const q of questions) {
+        const group = groups.get(q.quiz_id);
+        if (group) group.push(q);
+        else groups.set(q.quiz_id, [q]);
+      }
 
-      const gradePayload = data as { results?: GradeRow[] } | null;
-      const resultsData: GradeRow[] = gradePayload?.results ?? questions.map((q) => ({
-        question_id: q.id,
-        selected: answers[q.id] ?? -1,
-        correct_option: 0,
-        explanation: null,
-        options: (q.options as string[]) ?? [],
-      }));
+      const resultsData: GradeRow[] = [];
+      let correctCount = 0;
+      for (const [quizId, group] of groups) {
+        const { data, error: rpcError } = await supabase.rpc("grade_quiz", {
+          _quiz_id: quizId,
+          _answers: Object.fromEntries(group.map((q) => [q.id, answers[q.id] ?? -1])),
+        });
+        if (rpcError) throw rpcError;
+        const gradePayload = data as { results?: GradeRow[]; correct?: number } | null;
+        resultsData.push(...(gradePayload?.results ?? []));
+        correctCount += gradePayload?.correct ?? 0;
+      }
+      if (resultsData.length === 0) throw new Error("No answers were marked — please try again.");
 
       setResults(resultsData);
-      const correctCount = resultsData.filter((r) => r.selected === r.correct_option).length;
       setScore({ correct: correctCount, total: questions.length });
       setSubmitted(true);
       setReviewOnly(false);
@@ -391,7 +401,7 @@ export default function TopicQuiz() {
         lede={`${topicQuestions} exam-style question${topicQuestions === 1 ? "" : "s"} for ${topicLabel}. Answer all the questions, submit, and review the marking and explanations.`}
         actions={
           <Button asChild variant="outline" size="sm" className="gap-2">
-            <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
+            <Link to={`/practice?level=${subjectLevel.id}&topic=${topicId}&mode=incorrect`}>Practise mistakes <ArrowRight className="h-3.5 w-3.5" /></Link>
           </Button>
         }
       />

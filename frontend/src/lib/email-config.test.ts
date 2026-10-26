@@ -26,9 +26,39 @@ const legalChunkPath = () => {
 };
 
 describe("Email configuration changes", () => {
-  it("site.ts SITE.supportEmail is support@clutchmarks.study", () => {
+  it("SITE.supportEmail re-exports the monitored mailbox from support.ts", () => {
+    // The literal moved to @/lib/support so the crash boundary can read it
+    // without importing site.ts (which builds strings from the subject
+    // catalogue). The invariant is unchanged: one literal, one mailbox.
+    const supportContent = read("/frontend/src/lib/support.ts");
+    expect(supportContent).toContain('SUPPORT_EMAIL = "clutchmarks.support@gmail.com"');
+
     const siteContent = read("/frontend/src/lib/site.ts");
-    expect(siteContent).toContain("supportEmail: \"support@clutchmarks.study\"");
+    expect(siteContent).toContain("supportEmail: SUPPORT_EMAIL");
+    expect(siteContent).not.toContain("clutchmarks.support@gmail.com");
+  });
+
+  it("only support.ts hard-codes the address", () => {
+    // Every other surface must read the shared constant: a literal here and a
+    // literal there is how one page ends up publishing a different inbox.
+    const roots = ["src", "frontend/src"];
+    const allowed = new Set(["/frontend/src/lib/support.ts"]);
+    const offenders: string[] = [];
+    const walk = (rel: string) => {
+      for (const entry of readdirSync(root + rel, { withFileTypes: true })) {
+        if (entry.name === "node_modules" || entry.name === "dist") continue;
+        const p = `${rel}/${entry.name}`;
+        if (entry.isDirectory()) {
+          walk(p);
+          continue;
+        }
+        if (!/\.(tsx?|jsx?)$/.test(entry.name) || /\.test\./.test(entry.name)) continue;
+        if (allowed.has(p)) continue;
+        if (read(p).includes("clutchmarks.support@gmail.com")) offenders.push(p);
+      }
+    };
+    for (const dir of roots) walk("/" + dir);
+    expect(offenders, `hard-coded support address in ${offenders.join(", ")}`).toEqual([]);
   });
 
   // This used to count the literal address in Legal.tsx (three times). The PDPL
@@ -50,13 +80,13 @@ describe("Email configuration changes", () => {
     expect(rightsContent).toMatch(/PRIVACY_CONTACT_(EMAIL|HREF)/);
   });
 
-  it("AppSidebar.tsx has mailto:support@clutchmarks.study", () => {
+  it("AppSidebar.tsx builds its mailto from SITE.supportEmail, not a literal", () => {
     const sidebarContent = read("/frontend/src/components/AppSidebar.tsx");
-    const mailtoMatches = sidebarContent.match(
-      /href="mailto:support@clutchmarks\.study"/g
-    );
+    const mailtoMatches = sidebarContent.match(/mailto:\$\{SITE\.supportEmail\}/g);
     expect(mailtoMatches).not.toBeNull();
     expect(mailtoMatches!.length).toBe(1);
+    // A second, hard-coded address is how the shell and the legal pages drift apart.
+    expect(sidebarContent).not.toMatch(/mailto:support@[a-z0-9.-]+/i);
   });
 
   it("No clutchmarks.com support email in frontend", () => {
@@ -68,22 +98,34 @@ describe("Email configuration changes", () => {
   });
 
   it("welcome-email function reads WELCOME_FROM_EMAIL env var", () => {
-    const welcomeContent = read("/backend/supabase/functions/welcome-email/index.ts");
+    // The deployed source, not backend/supabase/functions: that tree is a stale
+    // copy the deploy script never reads, so a guard pointed at it proves
+    // nothing about what ships.
+    const welcomeContent = read("/supabase/functions/welcome-email/index.ts");
     expect(welcomeContent).toContain("WELCOME_FROM_EMAIL");
     expect(welcomeContent).toMatch(
       /const FROM = Deno\.env\.get\("WELCOME_FROM_EMAIL"\)/
     );
   });
 
+  it("welcome-email replies to the monitored support inbox", () => {
+    const welcomeContent = read("/supabase/functions/welcome-email/index.ts");
+    expect(welcomeContent).toContain('SUPPORT_EMAIL = Deno.env.get("SUPPORT_EMAIL")');
+    expect(welcomeContent).toContain("reply_to: SUPPORT_EMAIL");
+    // Both bodies (student and parent) carry a contact line.
+    const footers = welcomeContent.match(/write to \$\{SUPPORT_EMAIL\}/g) ?? [];
+    expect(footers.length).toBe(2);
+  });
+
   it("email-events function reads RESEND_WEBHOOK_SECRET env var", () => {
-    const eventsContent = read("/backend/supabase/functions/email-events/index.ts");
+    const eventsContent = read("/supabase/functions/email-events/index.ts");
     expect(eventsContent).toContain("RESEND_WEBHOOK_SECRET");
     expect(eventsContent).toMatch(
       /const secret = Deno\.env\.get\("RESEND_WEBHOOK_SECRET"\)/
     );
   });
 
-  it("the built Legal chunk can reach support@clutchmarks.study", () => {
+  it("the built Legal chunk can reach the support address", () => {
     // The notice no longer carries the address inline: it imports it from
     // @/lib/legal → SITE.supportEmail, so the literal ships in whichever shared
     // chunk the entry also pulls in. What matters for a reader is that the page
@@ -97,7 +139,7 @@ describe("Email configuration changes", () => {
       if (seen.has(file)) continue;
       seen.add(file);
       const code = readFileSync(file, "utf8");
-      if (code.includes("support@clutchmarks.study")) {
+      if (code.includes("clutchmarks.support@gmail.com")) {
         reachable = true;
         break;
       }

@@ -28,7 +28,7 @@ import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { QuestionList, SavedProgressPanel, type Attempt, type TopicSummary } from "@/components/practice/QuestionBankParts";
 import { cn } from "@/lib/utils";
 import {
-  Sparkles, Brain, CheckCircle2, XCircle, RotateCcw, Layers, Search,
+  Sparkles, Brain, CheckCircle2, XCircle, X, RotateCcw, Layers, Search,
   Bookmark, AlertCircle, Target, Database,
 } from "lucide-react";
 
@@ -86,7 +86,10 @@ export default function Practice() {
   const [params, setParams] = useSearchParams();
   const requestedMode = params.get("mode") ?? "incorrect";
   const mode = requestedMode === "bookmarked" ? "bookmarked" : requestedMode === "all" ? "all" : "incorrect";
-  const tab = params.get("tab") ?? (mode === "bookmarked" ? "review" : "topics");
+  // A `mode` in the URL can only mean the review queue (it is the review tab's
+  // own filter), so every "Practise mistakes" link lands on the review tab
+  // instead of the question bank. No `mode`, no tab: the bank stays the default.
+  const tab = params.get("tab") ?? (params.get("mode") ? "review" : "topics");
   const levelId = params.get("level") ?? "all";
   // Default the review-level filter to the first subject-level the student
   // picked, so a student who chooses "Ol Math" immediately sees only Ol Math
@@ -252,7 +255,12 @@ export default function Practice() {
   // Load bank data lazily when its tab is first opened.
   useEffect(() => {
     if (tab !== "topics" || !user || bankTopics.length === 0) return;
-    if (!bankTopicId) setBankTopicId(bankTopics[0].id);
+    if (!bankTopicId) {
+      // A `?topic=` deep link opens that topic's bank (Subject's "Topic
+      // questions" link); otherwise the first topic in the level.
+      const deepLinked = bankTopics.find((t) => t.id === topicFilter);
+      setBankTopicId(deepLinked ? deepLinked.id : bankTopics[0].id);
+    }
     (async () => { await Promise.all([loadBankAttempts(), loadBankSummary()]); })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab, user, bankTopics]);
@@ -658,13 +666,27 @@ export default function Practice() {
                 <Badge variant="secondary" className="gap-1.5">
                   <Bookmark className="h-3.5 w-3.5" /> Bookmarked questions
                 </Badge>
-              ) : (
-                <Tabs value={mode} onValueChange={(v) => setParam("mode", v)}>
-                  <TabsList>
-                    <TabsTrigger value="incorrect">Incorrect</TabsTrigger>
-                    <TabsTrigger value="all">Both</TabsTrigger>
-                  </TabsList>
-                </Tabs>
+              ) : (                  <Tabs value={mode} onValueChange={(v) => setParam("mode", v)}>
+                    <TabsList>
+                      <TabsTrigger value="incorrect">Incorrect</TabsTrigger>
+                      <TabsTrigger value="all">Both</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+              )}
+              {topicFilter && (
+                <Badge variant="outline" className="gap-1.5 pr-1">
+                  <span className="max-w-[180px] truncate">
+                    {bankTopics.find((t) => t.id === topicFilter)?.name ?? "This topic"}
+                  </span>
+                  <button
+                    type="button"
+                    aria-label="Clear topic filter"
+                    onClick={() => setParam("topic", "")}
+                    className="ml-0.5 rounded-full p-0.5 hover:bg-muted"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                </Badge>
               )}
               <Select value={defaultedLevelId} onValueChange={(v) => setParam("level", v)}>
                 <SelectTrigger className="w-[230px]"><SelectValue placeholder="Subject & level" /></SelectTrigger>
@@ -748,8 +770,15 @@ export default function Practice() {
               <CardContent className="p-8 text-center space-y-2">
                 <Bookmark className="h-8 w-8 mx-auto text-muted-foreground/50" />
                 <p className="text-sm text-muted-foreground">
-                  {mode === "bookmarked" ? "You haven't bookmarked any questions yet." : "Nothing to review — great work!"}
+                  {mode === "bookmarked"
+                    ? "You haven't bookmarked any questions yet."
+                    : topicFilter
+                      ? "Nothing to review in this topic — great work!"
+                      : "Nothing to review — great work!"}
                 </p>
+                {topicFilter && (
+                  <Button size="sm" variant="outline" onClick={() => setParam("topic", "")}>Show all topics</Button>
+                )}
               </CardContent>
             </Card>
           ) : (

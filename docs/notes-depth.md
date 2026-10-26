@@ -132,7 +132,87 @@ model scratch text), which no gate rule could see because a title that is too
 long is not a title that is wrong. Check `length(title)` after any scripted
 content write.
 
-## Where the estate stands
+## The depth pass (from 2026-10-26)
+
+Passing the bar is the floor, not the standard. SaveMyExams notes for the same
+topic run about 1,500–2,500 words with diagrams and examiner tips; a note only
+wins if it teaches at the mechanism level and shows the arithmetic. This pass
+therefore holds notes to a second, higher bar, measured on the same rows:
+
+| Depth check | Target |
+| --- | --- |
+| Reading text | ≥ 20,000 characters (about 3,200 words) |
+| `<h3>` sections | ≥ 18 |
+| Figures | ≥ 1 inline `<svg>` figure where geometry exists to draw (a graph, a cross-section, a feedback loop) |
+| Explanation | every process answered with a *why*, not only a *what*; each worked example shows relation → substitution → result |
+| Exam craft | a command-word table, a misconception table with the correction, and six exam-style questions with mark allocations |
+| Notation | every equation carries its `<em>Key:</em>` line in the same paragraph |
+
+This bar is not yet enforced by `gate-notes-depth.cjs` — the gate still checks
+the structural floor, which all 188 notes now clear. The depth numbers are
+measured per row as `length(regexp_replace(content, '<[^>]*>', '', 'g'))`.
+
+### Tranche 1: IGCSE Biology (2026-10-26)
+
+Biology OL was the thinnest block in the estate (21 notes, 12,049 characters on
+average, none above 14,157), so it starts the campaign. Three notes are done:
+
+| Note | Text before | Text after | `<h3>` | Figures |
+| --- | --- | --- | --- | --- |
+| `excretion-in-humans` | 10,070 | 24,165 | 21 | 2 |
+| `human-nutrition` | 9,765 | 22,924 | 22 | 1 |
+| `plant-nutrition` | 9,939 | 22,003 | 21 | 2 |
+
+What went in, per note:
+
+* **human-nutrition** — the gastric-barrier mechanism (pepsinogen, mucus,
+carbonating epithelium), the duodenal pH switch and why it denatures pepsin,
+emulsification as surface physics, enzyme specificity read off a pH/temperature
+curve, peristalsis and sphincters, the three absorption routes including the
+lacteal, a surface-area calculation (villus cylinder → 31× by villi alone, ≈600×
+with microvilli), a data-question method, a command-word table, a
+misconception-correction table and six marked questions.
+* **plant-nutrition** — the law of limiting factors as three-sentence answers,
+the two chloroplast stages, the potassium/turgor mechanism that opens a stoma,
+the leaf's gas-exchange-versus-water-loss dilemma, how to read a limiting-factor
+plot, the pondweed/leaf-disc experimental design, bubble-rate arithmetic,
+command words, misconceptions and six marked questions. Figures: a three-curve
+limiting-factor plot and a labelled leaf cross-section.
+* **excretion-in-humans** — why ammonia is converted to urea (with its equation
+and key), ultrafiltration as hydrostatic pressure through a three-layer barrier,
+why reabsorption costs ATP (Na⁺ co-transport), the loop of Henle as a
+counter-current gradient builder, ADH as a negative-feedback loop, urine data read
+as a diagnostic of which step failed, why dialysis fluid is never pure water, and
+mass-balance arithmetic. Figures: the nephron and the ADH loop.
+
+**A real error was repaired in the same pass.** The excretion note's dialysis
+example said "300 cm³ per pass … 1.5 dm³ per hour … a 4-hour session treating 12
+dm³" (1.5 × 4 = 6, not 12) and labelled 0.05 g dm⁻³ as a mass in grams. It now
+computes the mass the data supports: (0.06 − 0.01) × 5 dm³ = 0.25 g.
+
+Verification for the tranche: `gate-notes-depth.cjs biology OL` reports 21/21 at
+the bar; the tag sweep reports 580/580 balanced; no row contains U+FFFD or a
+backtick; all three render in the browser at 363 px wide with the figures scaled
+(`width:100%;height:auto`) and no horizontal overflow, in both light and dark
+theme.
+
+### Queue
+
+The remaining 18 Biology OL notes, thinnest first: `inheritance` (10,242),
+`drugs` (10,299), `human-influences-on-ecosystems` (10,444),
+`characteristics-and-classification-of-living-organisms` (10,610),
+`transport-in-plants` (10,763), `respiration` (10,862), `variation-and-selection`
+(11,125), `gas-exchange-in-humans` (11,444),
+`biotechnology-and-genetic-modification` (11,568), `diseases-and-immunity`
+(11,619), `transport-in-animals` (11,795), `organisation-of-the-organism`
+(11,850), `biological-molecules` (11,929), `enzyme` (12,138),
+`movement-into-and-out-of-cells` (12,257), `coordination-and-response` (12,775),
+`organisms-and-their-environment` (13,210), `reproduction` (14,157). After
+Biology OL, the next thinnest units are English First Language (13,601 average),
+English as a Second Language (14,412), Computer Science AS (14,490) and Chemistry
+OL (14,729).
+
+## Where the estate stood on 2026-10-22 (historical)
 
 | Subject / level | At the bar | Thin (<8,500) | Structure only |
 | --- | --- | --- | --- |
@@ -242,3 +322,49 @@ Each list is the unit as `deepen-fetch.cjs` takes it, with the current text leng
   scales with its 26 statements (about 2,290 characters per statement, in line with
   the rest of the estate), but it is still a long page to read on a phone; splitting
   it is a product question, not a gate failure.
+
+## The 20,000-character campaign (2026-10-26)
+
+The gate's floor and the SaveMyExams-class bar are two different standards. This
+pass works to the second one and records only what is measurable: reading text
+(stripped of tags, figures removed), one inline SVG where a mechanism has geometry,
+and a section that explains rather than lists.
+
+**Biology is finished — all 29 notes.** IGCSE OL averages 21,987 characters
+(minimum 20,543), AS 29,578, A2 43,135. The fourteen notes deepened in this pass and
+the figure each gained:
+
+| Note | Figure | What the new section adds |
+|---|---|---|
+| Transport in Plants | water-potential ladder (soil → atmosphere) | cohesion–tension, guard-cell mechanism, potometer arithmetic, phloem loading and pressure flow |
+| Respiration | respirometer traces at 20 °C and 30 °C | ATP as currency, glycolysis, where oxygen is spent, oxygen debt, calorimetry |
+| Variation and Selection | stabilising selection, before and after | sickle-cell heterozygote advantage, three shapes of selection, antibiotic resistance as selection, speciation |
+| Gas Exchange in Humans | spirometer trace with a falling baseline | partial-pressure gradients, dead space, control of breathing by CO₂, disease as damage to one diffusion term |
+| Biotechnology and GM | stirred-tank fermenter | batch vs continuous, growth curve and harvest time, doubling time, the six GM steps, risks argued with mechanisms |
+| Diseases and Immunity | primary and secondary antibody response | pathogen groups and how each harms, phagocytosis in four steps, the four kinds of immunity, herd immunity, HIV |
+| Transport in Animals | oxygen dissociation curve and Bohr shift | the pressure profile, valve timing, pacemaker delay, tissue fluid and oedema, atherosclerosis as a sequence |
+| Organisation of the Organism | bacterium/animal/plant cell to scale, 20 µm bar | organelle table, prokaryote vs eukaryote, specialised cells, magnification and unit conversion |
+| Biological Molecules | condensation and hydrolysis | glycosidic/peptide/ester bonds, α vs β glucose, protein structure and denaturation, food tests as consequences of structure |
+| Enzymes | rate vs substrate concentration | induced fit, rate = 1/time, Q10 and denaturation, plateau as all sites occupied, immobilised enzymes |
+| Movement Into and Out of Cells | potato cylinders against sugar concentration | fluid mosaic membrane, water potential, turgidity and plasmolysis, active transport evidence, Visking and beetroot |
+| Coordination and Response | negative-feedback loop | neurone types and myelin, synapse, accommodation, ADH and insulin loops, type 1 vs type 2 diabetes |
+| Organisms and their Environment | logistic growth to carrying capacity | energy flows vs matter cycles, nitrogen cycle with organisms named, eutrophication in sequence, quadrats and mark-recapture |
+| Reproduction | four hormones across 28 days | gamete comparison, meiosis, fertilisation to implantation, placenta, contraception by mechanism, pollination vs fertilisation |
+
+**Physics is 12 of 24.** Done: astronomy and cosmology, work-energy and power,
+further mechanics, oscillations and waves II, magnetic fields and electromagnetism,
+forces and equilibrium, Earth and space, materials and deformation, motion in a
+circle and gravity, pressure and density, dynamics, kinematics. The twelve still
+below 20,000 reading characters, thinnest first: A2 `electric-fields-and-capacitance`
+(14,415), AS `waves` (14,441), OL `nuclear-physics` (14,538), OL
+`magnetism-electromagnetism` (14,589), A2 `nuclear-physics` (14,652), OL
+`measurement-units` (15,740), A2 `circular-motion-and-shm` (15,786), AS
+`superposition` (17,018), AS `quantum-physics` (17,861), AS `electricity-d-c-circuits`
+(18,967), OL `electricity-circuits` (19,473), OL `energy-work-power` (19,549).
+
+Two worked examples written during the pass were **wrong on the first draft and
+repaired before the write**: a beam-moment check that used 3.0 m where the reaction
+acted at 4.0 m (which produced a false inconsistency and a paragraph explaining it),
+and a lamp-tension example whose numbers were right but whose cosine labels were
+muddled. Both were caught by re-deriving rather than by re-reading — worth doing on
+every worked example that carries arithmetic.

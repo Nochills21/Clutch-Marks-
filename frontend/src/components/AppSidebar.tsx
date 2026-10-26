@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { BrandLockup } from "@/components/BrandMark";
+import { SITE } from "@/lib/site";
 
 
 const studentLinkGroups = [
@@ -105,7 +106,11 @@ const adminLinks = [
 // (the archive now holds Biology, Chemistry and English rows too), and long
 // equations, code and tables scroll inside the note instead of pushing a phone
 // page sideways.
-const APP_VERSION = "1.2.1";
+// 1.2.2 — every route to a person reads one support address; the signup email is
+// a full onboarding letter (start-here steps, the feature map, the study loop)
+// with a plain-text part; the review queue records every answered question, so a
+// mistake anywhere can be revisited, and the "Practise mistakes" links open it.
+const APP_VERSION = "1.2.2";
 
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
@@ -244,7 +249,7 @@ export function AppSidebar() {
             </a>
             <span className="text-sidebar-foreground/20 text-[11px]">·</span>
             <a
-              href="mailto:support@clutchmarks.study"
+              href={`mailto:${SITE.supportEmail}`}
               title="Contact support"
               className="text-[11px] text-sidebar-foreground/40 hover:text-sidebar-foreground px-1"
             >

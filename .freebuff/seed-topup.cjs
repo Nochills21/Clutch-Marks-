@@ -14,11 +14,17 @@
  *     topics: [{
  *       slug: "alkenes",
  *       notes: "## ...\n...",            // optional markdown -> study_materials
- *       exam:   [["question", ["a","b","c","d"], 2, "explanation"], ...],
+ *       check:  [["question", ["a","b","c","d"], 2, "explanation"], ...],
  *       extra:  [["question", ["a","b","c","d"], 0, "explanation"], ...],
+ *       exam:   [["question", ["a","b","c","d"], 3, "explanation"], ...],
  *       cards:  [["front", "back"], ...],
  *     }],
  *   };
+ *
+ * The three tiers are stored in `questions.difficulty`: `check` (definition and
+ * single-step recall), `drill` (multi-step application) and `exam` (the wording
+ * a past paper would use). A module may supply any subset; they are always
+ * inserted in that order so a topic quiz reads easiest-first.
  *
  * Idempotency: questions match on question_text within the topic's quizzes,
  * flashcards on front text within the topic's sets, notes on material title.
@@ -101,7 +107,7 @@ function validate(mod, file) {
   for (const t of mod.topics || []) {
     const where = `${file}:${t.slug}`;
     if (!t.slug) errs.push(`${file}: topic missing slug`);
-    for (const [group, list] of [["exam", t.exam || []], ["extra", t.extra || []]]) {
+    for (const [group, list] of [["check", t.check || []], ["drill", t.extra || []], ["exam", t.exam || []]]) {
       const idx = {};
       list.forEach((q, i) => {
         const [text, opts, correct, explain] = q;
@@ -125,6 +131,38 @@ function validate(mod, file) {
   return errs;
 }
 
+/**
+ * Even out the correct-option indices across one topic's bank.
+ *
+ * The per-question hash rotation above stops a bank being guessable, but with
+ * only 24 questions it can still leave 11 keys on one option — measured on the
+ * Biology OL immunity bank. This pass walks the questions in order and, for
+ * each, rotates its options so the key lands on whichever index is currently
+ * least used (ties broken by the text hash). Content order relative to the key
+ * is preserved, so the question means exactly what it did before.
+ */
+function balanceKeys(qs) {
+  const counts = [0, 0, 0, 0];
+  for (const q of qs) {
+    const [, opts, correct] = q;
+    if (!Array.isArray(opts) || opts.length !== 4 || !Number.isInteger(correct)) continue;
+    let target = 0;
+    for (let i = 1; i < 4; i++) if (counts[i] < counts[target]) target = i;
+    const tied = [0, 1, 2, 3].filter((i) => counts[i] === counts[target]);
+    if (tied.length > 1) {
+      let h = 0;
+      for (let i = 0; i < String(q[0]).length; i++) h = (h + String(q[0]).charCodeAt(i)) % 997;
+      target = tied[h % tied.length];
+    }
+    const k = (correct - target + 4) % 4;
+    if (k) {
+      q[1] = opts.slice(k).concat(opts.slice(0, k));
+      q[2] = target;
+    }
+    counts[q[2]]++;
+  }
+}
+
 /** Rotate a question's options by a text-derived shift so answer positions vary. */
 function rotateQ(q) {
   const [text, opts, correct, explain] = q;
@@ -137,14 +175,19 @@ function rotateQ(q) {
 }
 
 (async () => {
-  const files = fs.readdirSync(__dirname).filter((f) => /^content-topup-.*\.cjs$/.test(f)).sort();
+  // Optional explicit module paths, so one batch can be generated without a
+  // stale module elsewhere in .freebuff/ blocking the whole run.
+  const named = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+  const files = named.length
+    ? named.map((p) => path.resolve(p))
+    : fs.readdirSync(__dirname).filter((f) => /^content-topup-.*\.cjs$/.test(f)).sort().map((f) => path.join(__dirname, f));
   // A module exports { subject, level, topics } or { groups: [{subject, level, topics}] }.
   const modules = files.flatMap((f) => {
-    const mod = require(path.join(__dirname, f));
+    const mod = require(f);
     const groups = mod.groups || [{ subject: mod.subject, level: mod.level, topics: mod.topics }];
     return groups.map((g) => {
       for (const t of g.topics || []) {
-        for (const key of ["exam", "extra"]) {
+        for (const key of ["check", "extra", "exam"]) {
           if (Array.isArray(t[key])) t[key] = t[key].map(rotateQ);
         }
       }
@@ -199,8 +242,13 @@ function rotateQ(q) {
       if (!db) throw new Error(`topic not in database: ${key} (${file})`);
 
       // ---- quiz + questions ----
-      const qs = [...(t.exam || []).map((q) => [...q, "exam"]), ...(t.extra || []).map((q) => [...q, "drill"])];
+      const qs = [
+        ...(t.check || []).map((q) => [...q, "check"]),
+        ...(t.extra || []).map((q) => [...q, "drill"]),
+        ...(t.exam || []).map((q) => [...q, "exam"]),
+      ];
       if (qs.length) {
+        balanceKeys(qs);
         let zid = quizId.get(db.id);
         if (!zid) {
           zid = crypto.randomUUID();

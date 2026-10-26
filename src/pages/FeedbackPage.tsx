@@ -14,6 +14,8 @@ import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { MessageSquareHeart, Loader2, Send, History } from "lucide-react";
+import { SITE } from "@/lib/site";
+import { supportMailto } from "@/lib/support";
 
 const TOOLS = [
   { value: "notes", label: "Revision notes" },
@@ -112,6 +114,17 @@ export default function FeedbackPage() {
           <MessageSquareHeart className="h-6 w-6 text-primary" /> Feedback
         </h1>
         <p className="text-muted-foreground">Found a wrong answer, a typo, or a confusing explanation? Tell us — we fix reported errors fast.</p>
+        <p className="text-sm text-muted-foreground">
+          The form below is the fastest route into the fix queue. If it is broken, or you would
+          rather write from your own mail app, email{" "}
+          <a
+            href={supportMailto("Clutch Marks — support")}
+            className="text-primary underline underline-offset-4"
+          >
+            {SITE.supportEmail}
+          </a>{" "}
+          and include the subject, level and topic.
+        </p>
       </div>
 
       <Card className="neon-border">

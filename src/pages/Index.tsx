@@ -356,10 +356,10 @@ export default function Index() {
               </a>
               <span className="mx-2 text-muted-foreground/60">·</span>
               <a
-                href="mailto:support@clutchmarks.study?subject=Clutch%20Marks%20feedback"
+                href={`mailto:${SITE.supportEmail}?subject=Clutch%20Marks%20feedback`}
                 className="font-medium text-foreground underline-offset-4 hover:text-primary"
               >
-                Email: support@clutchmarks.study
+                Email: {SITE.supportEmail}
               </a>
             </p>
           </div>

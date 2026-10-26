@@ -59,7 +59,9 @@ welcome, weekly digests, error alerts — leaves from it. The Resend test sender
 - **Inbound:** `support@clutchmarks.study` is inbound-only, routed by **Resend
   Inbound** — the apex MX is `10 inbound-smtp.ap-northeast-1.amazonaws.com`.
   (Not Cloudflare Email Routing: that needs the Cloudflare zone to be active,
-  and it isn't.)
+  and it isn't.) The address the site publishes is
+  `clutchmarks.support@gmail.com` (`SITE.supportEmail`); the domain inbox is a
+  relay, not the contact a student is told to write to.
 - **DNS records live in Vercel DNS**, not Cloudflare — `clutchmarks.study` still
   delegates to `ns1/ns2.vercel-dns.com` and the Cloudflare zone cutover
   (`deploy-vercel-render.md` §B) has not happened. Verified live,

@@ -1,3 +1,8 @@
+// STALE COPY — not deployed and not read by the deploy script, which uploads
+// supabase/functions/<slug>/index.ts. The live welcome letter (three start-here
+// steps, the feature map, the study method) lives there; edit that file, not this
+// one. frontend/src/lib/email-config.test.ts reads the deployed tree on purpose.
+//
 // Welcome email on signup. Fired by the auth trigger via pg_net (fire-and-forget)
 // or by an admin dashboard. Gated by a shared secret (x-welcome-secret) stored in
 // the private.app_secrets table — NOT deployable with verify_jwt because the

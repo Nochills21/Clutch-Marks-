@@ -9,6 +9,7 @@
 import { SITE_URL } from "@/lib/env";
 import { subjectCoverage } from "@/lib/subjectCatalogue";
 import { SITE_LEGAL_NAME } from "@/lib/seoRoutes";
+import { SUPPORT_EMAIL } from "@/lib/support";
 
 export const SITE = {
   name: "Clutch Marks",
@@ -23,11 +24,15 @@ export const SITE = {
   url: SITE_URL,
   tagline: "Revise smarter. Score higher.",
   description: `Topic notes, exam-style questions with instant marking, and a past-paper archive for ${subjectCoverage()}.`,
-  // The inbox the privacy notice, data-rights page and app shell all point at.
-  // It must stay the address that is actually live (inbound routed via Resend —
-  // see docs/infrastructure.md): a personal mailbox here silently publishes a
-  // different contact on the legal pages than everywhere else.
-  supportEmail: "support@clutchmarks.study",
+  // The inbox the privacy notice, data-rights page, footer, crash screen, error
+  // pages, feedback form and AI-marker copy all point at. It must stay the
+  // mailbox that is actually monitored: a stale address here silently publishes
+  // a different contact on one surface than another. The literal lives in
+  // `@/lib/support` so the crash boundary can read it without importing this
+  // module (which builds strings from the subject catalogue). The sending
+  // identity (no-reply@clutchmarks.study) is a separate thing — see
+  // docs/infrastructure.md.
+  supportEmail: SUPPORT_EMAIL,
   /** Brand gold — keep in step with --gold in src/index.css. */
   gold: "#E8B01E",
   goldDeep: "#C6821A",

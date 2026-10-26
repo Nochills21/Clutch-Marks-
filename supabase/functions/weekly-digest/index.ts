@@ -9,8 +9,11 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const SITE_URL = Deno.env.get("SITE_URL") ?? "https://clutch-marks.lovable.app";
+const SITE_URL = Deno.env.get("SITE_URL") ?? "https://clutchmarks.study";
 const FROM = Deno.env.get("WELCOME_FROM_EMAIL") ?? "Clutch Marks <onboarding@resend.dev>";
+// Same monitored inbox as SITE.supportEmail; Reply-To makes a reply reach a
+// person rather than the sending identity, which nobody reads.
+const SUPPORT_EMAIL = Deno.env.get("SUPPORT_EMAIL") ?? "clutchmarks.support@gmail.com";
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
@@ -128,6 +131,7 @@ function digestHtml(parentName: string, children: ChildRow[]): string {
     <h2 style="color:#5b21b6">${first}, here's this week's progress 📊</h2>
     ${sections || "<p>No linked children yet.</p>"}
     <p style="color:#6b7280;font-size:13px;margin-top:20px">You get this summary every Monday. Encourage a streak — daily practice is what moves grades.</p>
+    <p style="color:#6b7280;font-size:13px;margin-top:14px">Questions about the report, or something wrong with your account? Reply to this email or write to ${SUPPORT_EMAIL} — a person reads it.</p>
   </div>`;
 }
 
@@ -191,6 +195,7 @@ Deno.serve(async (req) => {
           body: JSON.stringify({
             from: FROM,
             to: [prof.email],
+            reply_to: SUPPORT_EMAIL,
             subject: "Your child's weekly Clutch Marks progress 📊",
             html: digestHtml(prof.full_name, children),
           }),

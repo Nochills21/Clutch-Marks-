@@ -69,8 +69,10 @@ describe("the privacy notice says what the PDPL requires it to say", () => {
     for (const constant of ["PRIVACY_CONTACT_EMAIL", "PRIVACY_POLICY_VERSION"]) {
       expect(legal, `notice should use ${constant}`).toContain(constant);
     }
-    // The old hard-coded address must not reappear as a literal in the notice.
+    // The address must not reappear as a literal in the notice either: it is
+    // published from SITE.supportEmail so the notice cannot quote a stale inbox.
     expect(legal).not.toMatch(/mailto:support@clutchmarks\.study/);
+    expect(legal).not.toMatch(/mailto:clutchmarks\.support@gmail\.com/);
   });
 });
 

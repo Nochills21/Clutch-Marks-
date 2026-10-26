@@ -6,7 +6,10 @@
 //
 // Deliberately dependency-free markup: if the failure came from a broken
 // component import, a fallback that itself imports UI components could fail too.
+// The support address comes from `@/lib/support`, a module with no imports at
+// all — not from `site.ts`, which builds strings from the subject catalogue.
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { SUPPORT_EMAIL, supportMailto } from "@/lib/support";
 
 interface Props {
   children: ReactNode;
@@ -52,8 +55,17 @@ export class AppErrorBoundary extends Component<Props, State> {
           <h1 className="text-2xl font-bold text-foreground">Something went wrong</h1>
           <p className="text-sm text-muted-foreground">
             This page failed to load. Your progress is saved — reloading usually
-            fixes it. If it keeps happening, tell us what you were doing and we
-            will look into it.
+            fixes it.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            If it keeps happening, email{" "}
+            <a
+              href={supportMailto("Clutch Marks — page error")}
+              className="font-medium text-foreground underline underline-offset-4"
+            >
+              {SUPPORT_EMAIL}
+            </a>{" "}
+            and tell us what you were doing; we will look into it.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button

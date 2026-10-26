@@ -18,6 +18,8 @@ import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/lib/auth";
 import { useToast } from "@/hooks/useToast";
 import { USERNAME_MAX, USERNAME_RULES, normalizeUsername, validateUsername } from "@/lib/username";
+import { SITE } from "@/lib/site";
+import { supportMailto } from "@/lib/support";
 // Enrolled here, required for /admin: the console asks for the code the same way
 // the login form does, and the database refuses admin work without it.
 import { TwoFactorSettings } from "@/components/TwoFactor";
@@ -254,9 +256,12 @@ export default function Settings() {
 
       <p className="flex items-start gap-2 pb-6 text-xs text-muted-foreground">
         <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-        Your email address and your account owner are admin-only changes — ask support if either is
-        wrong. Usernames you stop using become available to other students, so a released name can be
-        claimed by someone else.
+        Your email address and your account owner are admin-only changes — email{" "}
+        <a href={supportMailto("Account email change")} className="underline hover:text-foreground">
+          {SITE.supportEmail}
+        </a>{" "}
+        if either is wrong. Usernames you stop using become available to other students, so a
+        released name can be claimed by someone else.
       </p>
     </div>
   );

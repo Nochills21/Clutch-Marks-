@@ -1,5 +1,3 @@
--- Where the content actually stands, per subject/level: questions, tiers and the
--- two coverage gates from public.syllabus_coverage().
 select
   sub.slug                                  as subject,
   lvl.level::text                           as level,

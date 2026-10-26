@@ -1,4 +1,11 @@
 // Redeploy a single edge function (multipart, metadata + file part named "file").
+//
+//   node .freebuff/redeploy-manage-accounts.cjs <slug>            # verify_jwt: true
+//   node .freebuff/redeploy-manage-accounts.cjs <slug> --public   # verify_jwt: false
+//
+// `--public` is for the pre-auth functions (login-with-username,
+// resolve-login-email): redeploying one of those with the default would make the
+// login form itself require a token.
 const fs = require("fs");
 const https = require("https");
 const path = require("path");
@@ -13,7 +20,8 @@ const fnDir = path.join("supabase/functions", slug);
 const fnFiles = fs.readdirSync(fnDir).filter((f) => f.endsWith(".ts"));
 if (!fnFiles.includes("index.ts")) throw new Error("no index.ts in " + fnDir);
 const boundary = "----freebuff" + Date.now();
-const meta = JSON.stringify({ entrypoint_path: "index.ts", name: slug, verify_jwt: true });
+const publicFn = process.argv.includes("--public");
+const meta = JSON.stringify({ entrypoint_path: "index.ts", name: slug, verify_jwt: !publicFn });
 const parts = [
   `--${boundary}\r\nContent-Disposition: form-data; name="metadata"\r\nContent-Type: application/json\r\n\r\n${meta}\r\n`,
   ...fnFiles.map((f) =>

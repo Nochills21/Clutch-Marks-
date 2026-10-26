@@ -2,6 +2,8 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { SEOHead } from "@/components/SEOHead";
+import { SITE } from "@/lib/site";
+import { supportMailto } from "@/lib/support";
 
 const NotFound = () => {
   const location = useLocation();
@@ -24,6 +26,16 @@ const NotFound = () => {
         <a href="/" className="text-primary underline hover:text-primary/90">
           Return to Home
         </a>
+        <p className="mt-6 text-sm text-muted-foreground">
+          If a link on this site brought you here, tell us at{" "}
+          <a
+            href={supportMailto(`Broken link: ${location.pathname}`)}
+            className="text-primary underline hover:text-primary/90"
+          >
+            {SITE.supportEmail}
+          </a>{" "}
+          so we can fix it.
+        </p>
       </div>
     </div>
   );

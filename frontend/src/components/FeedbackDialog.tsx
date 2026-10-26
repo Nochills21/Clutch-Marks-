@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
 import { Loader2, Send } from "lucide-react";
+import { SITE } from "@/lib/site";
+import { supportMailto } from "@/lib/support";
 
 export type FeedbackRating = "helpful" | "unclear" | "error" | "suggestion";
 
@@ -81,6 +83,13 @@ export function FeedbackDialog({
           rows={4}
           maxLength={4000}
         />
+        <p className="text-xs text-muted-foreground">
+          Prefer email? Write to{" "}
+          <a href={supportMailto("Clutch Marks — feedback")} className="underline hover:text-foreground">
+            {SITE.supportEmail}
+          </a>
+          .
+        </p>
         <DialogFooter>
           <Button variant="ghost" onClick={() => onOpenChange(false)}>Skip</Button>
           <Button onClick={submit} disabled={sending || !message.trim()} className="gap-2">

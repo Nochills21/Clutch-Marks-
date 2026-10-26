@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-25T14:56:24.566Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-26T11:14:11.808Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -1768,10 +1768,14 @@ begin
         _xp := _xp + 20;
       end if;
     end if;
-    -- Evidence for the mastery loop, for tagged questions only, and only when
-    -- the question was actually answered (an unanswered question says nothing).
-    -- The practice_attempts trigger advances the schedule from here.
-    if _q.objective_id is not null and _selected is not null then
+    -- The review ledger: get_review_questions('incorrect'), the practice
+    -- summary and the mistake-fixed reward all read practice_attempts, so every
+    -- answered question records here — tagged or not. A blank (-1) records as
+    -- not-correct, because unanswered work belongs in the review queue too.
+    -- Mastery is a side effect only for tagged questions: the trigger forwards
+    -- the row to record_objective_evidence, which no-ops when objective_id is
+    -- null, so untagged rows move nothing on the ladder.
+    if _selected is not null then
       insert into public.practice_attempts (user_id, question_id, last_correct, attempts_count, last_attempt_at)
       values (_user_id, _q.id, (_selected = _q.correct_option), 1, now())
       on conflict (user_id, question_id) do update
