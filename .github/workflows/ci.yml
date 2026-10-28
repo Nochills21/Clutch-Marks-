@@ -35,8 +35,17 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
+      # The build runs BEFORE the tests on purpose: seoConsistency.test.ts and
+      # email-config.test.ts assert what the build emitted (dist/index.html,
+      # dist/sitemap.xml, dist/assets), so testing first failed on a clean
+      # runner with ENOENT. This is also the order `npm run verify` uses.
+      - name: Production build
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
+        run: bun run build
+
       - name: Tests
         run: bun run test
 
-      - name: Production build
-        run: bun run build
