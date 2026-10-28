@@ -83,28 +83,32 @@ webhook is the only writer.
   cannot present a Supabase token, and authenticates with the
   `Stripe-Signature` HMAC instead. An unsigned or stale (>5 min) request is 400;
   a missing secret is a fail-closed 500, never an open door.
-- **Function secrets needed (not yet set):** `STRIPE_SECRET_KEY` — the **live**
-  secret key (`sk_live_…`, dashboard → Developers → API keys with live mode on;
-  a `sk_test_…` key cannot charge the live Prices, and an `rk_…` restricted key
-  is not "more full" than `sk_…`) — and `STRIPE_WEBHOOK_SECRET`, the **live**
-  endpoint's signing secret. Until both exist, `billing` answers
-  `503 billing_not_configured` and the webhook answers 500 — the pricing page
-  names that state instead of pretending to charge. The live webhook endpoint
-  can be created from the live key with `POST /v1/webhook_endpoints`, whose
-  response carries its signing secret once.
+- **Function secrets (installed 2026-10-28, live):** `STRIPE_SECRET_KEY` and
+  `STRIPE_WEBHOOK_SECRET`. The key in place is a **live restricted key**
+  (`rk_live_…`), not a full secret key: it carries exactly the permissions the
+  flow uses — Prices read, Checkout Sessions write, Customers write,
+  Subscriptions read, Billing Portal write, Webhook Endpoints write. Stripe
+  answers a subscription **update** made with this key with a human-approval
+  request (403) rather than applying it, which is harmless here because the app
+  only ever *reads* subscriptions; cancelling is the customer portal's job. If
+  the key is ever rotated, keep those permissions or Checkout and Manage
+  billing stop working. A `sk_test_…` key must not be installed: it cannot
+  charge the live Prices, and the webhook would write a real access row for a
+  test subscription.
 - **Stay on live keys.** Test mode was tried and removed on 2026-10-28: Prices
   are mode-specific, so test prices would have to sit beside the live ids, and a
   test subscription written by the webhook would grant real access in this
   production database. This project's `subscriptions` table has no mode column,
   so a test key must not be installed here.
 - **Customer portal:** `Manage billing` on /pricing opens
-  `billing_portal/sessions`. Stripe only creates a session once the account has
-  a saved default portal configuration (Settings → Billing → Customer portal →
-  Save). Until it does, `billing` answers 503 `portal_not_configured` rather than
-  a raw Stripe error — and cancellation, which the refund policy relies on,
-  needs that configuration to exist.
-- **Webhook endpoint:** `https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/stripe-webhook`,
-  subscribed to `checkout.session.completed`,
+  `billing_portal/sessions`. The account has a saved default configuration
+  (`bpc_1UValVQ3xk2ovSDMpl7nJlgH`, created 2026-10-28; cancel mode
+  `at_period_end`), so sessions open. Without one, `billing` answers 503
+  `portal_not_configured` rather than a raw Stripe error — and cancellation,
+  which the refund policy relies on, needs that configuration to exist.
+- **Webhook endpoint:** `https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/stripe-webhook`
+  (live endpoint `we_1UValWQ3xk2ovSDMesUBWbny`, enabled 2026-10-28), subscribed to
+  `checkout.session.completed`,
   `customer.subscription.created` / `.updated` / `.deleted` / `.paused` / `.resumed`.
   Every event only carries a subscription id; the function re-reads it from
   Stripe and stores what Stripe says, so a forged body cannot grant access and a
