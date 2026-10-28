@@ -135,14 +135,14 @@ content write.
 ## The depth pass (from 2026-10-26)
 
 Passing the bar is the floor, not the standard. SaveMyExams notes for the same
-topic run about 1,500–2,500 words with diagrams and examiner tips; a note only
+topic run about 4,110 characters of visible text on average (about 650 words), measured 2026-10-28 across 146 IGCSE Physics notes; the paywall sits after the note body, so the visible text is the full note. A note only
 wins if it teaches at the mechanism level and shows the arithmetic. This pass
 therefore holds notes to a second, higher bar, measured on the same rows:
 
 | Depth check | Target |
 | --- | --- |
-| Reading text | ≥ 20,000 characters (about 3,200 words) |
-| `<h3>` sections | ≥ 18 |
+| Reading text | ≥ 8,200 characters (2× the SaveMyExams mean of 4,110; about 1,300 words). The gate's 8,500 floor still binds |
+| `<h3>` sections | ≥ 36 |
 | Figures | ≥ 1 inline `<svg>` figure where geometry exists to draw (a graph, a cross-section, a feedback loop) |
 | Explanation | every process answered with a *why*, not only a *what*; each worked example shows relation → substitution → result |
 | Exam craft | a command-word table, a misconception table with the correction, and six exam-style questions with mark allocations |
@@ -323,7 +323,14 @@ Each list is the unit as `deepen-fetch.cjs` takes it, with the current text leng
   the rest of the estate), but it is still a long page to read on a phone; splitting
   it is a product question, not a gate failure.
 
-## The 20,000-character campaign (2026-10-26)
+## The reading-length campaign (2026-10-26)
+
+**Bar changed 2026-10-28.** The 20,000-character target was not measured against
+SaveMyExams. Measured across 146 IGCSE Physics notes, SaveMyExams averages 4,110
+visible characters (median 3,845, range 1,040–9,049), so 2× is about 8,200. The
+gate's 8,500 floor is higher and remains the binding minimum. The `<h3>` target
+is 36, set on 2026-10-28: about 7× the SaveMyExams mean of 5, and 3.6× the 2×
+figure of 10. The figure and exam-question targets were not re-measured and are unchanged.
 
 The gate's floor and the SaveMyExams-class bar are two different standards. This
 pass works to the second one and records only what is measurable: reading text
@@ -355,12 +362,12 @@ the figure each gained:
 further mechanics, oscillations and waves II, magnetic fields and electromagnetism,
 forces and equilibrium, Earth and space, materials and deformation, motion in a
 circle and gravity, pressure and density, dynamics, kinematics. The twelve still
-below 20,000 reading characters, thinnest first: A2 `electric-fields-and-capacitance`
+below 20,000 reading characters when this was written, thinnest first: A2 `electric-fields-and-capacitance`
 (14,415), AS `waves` (14,441), OL `nuclear-physics` (14,538), OL
 `magnetism-electromagnetism` (14,589), A2 `nuclear-physics` (14,652), OL
 `measurement-units` (15,740), A2 `circular-motion-and-shm` (15,786), AS
 `superposition` (17,018), AS `quantum-physics` (17,861), AS `electricity-d-c-circuits`
-(18,967), OL `electricity-circuits` (19,473), OL `energy-work-power` (19,549).
+(18,967), OL `electricity-circuits` (19,473), OL `energy-work-power` (19,549). All twelve clear the 8,200 bar set on 2026-10-28.
 
 Two worked examples written during the pass were **wrong on the first draft and
 repaired before the write**: a beam-moment check that used 3.0 m where the reaction
