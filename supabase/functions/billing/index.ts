@@ -100,14 +100,15 @@ type PlanRow = {
 
 /** Refuse to bill a Price that disagrees with the plan row. */
 async function verifyPrice(plan: PlanRow): Promise<string> {
-  if (!plan.stripe_price_id) {
+  const priceId = plan.stripe_price_id;
+  if (!priceId) {
     throw new BillingError(
       503,
       "price_missing",
       `The ${plan.id} plan has no Stripe Price configured.`,
     );
   }
-  const price = (await stripe(`/prices/${encodeURIComponent(plan.stripe_price_id)}`)) as {
+  const price = (await stripe(`/prices/${encodeURIComponent(priceId)}`)) as {
     unit_amount?: number | null;
     currency?: string;
     recurring?: { interval?: string; interval_count?: number } | null;
@@ -131,14 +132,14 @@ async function verifyPrice(plan: PlanRow): Promise<string> {
     );
   }
   if (problems.length > 0) {
-    console.error(`price mismatch for ${plan.id} (${plan.stripe_price_id}):`, problems.join("; "));
+    console.error(`price mismatch for ${plan.id} (${priceId}):`, problems.join("; "));
     throw new BillingError(
       409,
       "price_mismatch",
       `The ${plan.name} plan and its Stripe Price disagree (${problems.join("; ")}). Billing is paused until they match.`,
     );
   }
-  return plan.stripe_price_id;
+  return priceId;
 }
 
 Deno.serve(async (req) => {
@@ -247,10 +248,11 @@ Deno.serve(async (req) => {
 
     const form: Record<string, string> = {
       mode: "subscription",
-      // Card covers Apple Pay: Stripe presents the Apple Pay button on supported
-      // devices inside the card payment method. Restricting the list to card is
-      // what makes the Checkout page show exactly those two options.
-      "payment_method_types[0]": "card",
+      // Payment methods are Stripe's dynamic set, configured in the Dashboard
+      // (Settings → Payments): the API now rejects `payment_method_types` on a
+      // Checkout Session. Card is enabled on this account, and Apple Pay has
+      // always been a wallet inside card, so it appears automatically on
+      // supported devices — no per-method parameter here.
       "line_items[0][price]": priceId,
       "line_items[0][quantity]": "1",
       // 3-day free trial. `payment_method_collection` stays at its default

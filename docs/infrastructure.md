@@ -66,10 +66,15 @@ webhook is the only writer.
   its amount, currency or interval disagrees with `price_total`/`months`
   (`409 price_mismatch`). A price change is therefore three steps: update
   `plans`, create a new Stripe Price, update `stripe_price_id`.
-- **Payment methods:** `payment_method_types[0]=card`, which is what makes the
-  Checkout page offer card **and Apple Pay** (Apple Pay is a wallet inside card,
-  not a separate method). No domain registration is needed because Stripe hosts
-  the Checkout page. The account already has `card_payments: active`.
+- **Payment methods:** Stripe's dynamic set, configured in the Dashboard
+  (Settings → Payments). The Checkout Session API now **rejects**
+  `payment_method_types` (`parameter is no longer supported`), so `billing`
+  sends none; card is enabled on the account and **Apple Pay** appears
+  automatically as a wallet inside card on supported devices. No domain
+  registration is needed because Stripe hosts the Checkout page. The account
+  already has `card_payments: active`. If Checkout ever offers more methods than
+  card/Apple Pay, restrict them with a payment method configuration in the
+  Dashboard rather than reintroducing the rejected parameter.
 - **Trial:** `subscription_data[trial_period_days]=3` in `billing`
   (`export const TRIAL_DAYS`). The card is collected up front on purpose —
   `payment_method_collection` stays at its default so the conversion can charge.
@@ -78,11 +83,20 @@ webhook is the only writer.
   cannot present a Supabase token, and authenticates with the
   `Stripe-Signature` HMAC instead. An unsigned or stale (>5 min) request is 400;
   a missing secret is a fail-closed 500, never an open door.
-- **Function secrets needed (not yet set):** `STRIPE_SECRET_KEY` (dashboard →
-  Developers → API keys, live) and `STRIPE_WEBHOOK_SECRET` (dashboard →
-  Developers → Webhooks → the endpoint's signing secret). Until both exist,
-  `billing` answers `503 billing_not_configured` and the webhook answers 500 —
-  the pricing page names that state instead of pretending to charge.
+- **Function secrets needed (not yet set):** `STRIPE_SECRET_KEY` — the **live**
+  secret key (`sk_live_…`, dashboard → Developers → API keys with live mode on;
+  a `sk_test_…` key cannot charge the live Prices, and an `rk_…` restricted key
+  is not "more full" than `sk_…`) — and `STRIPE_WEBHOOK_SECRET`, the **live**
+  endpoint's signing secret. Until both exist, `billing` answers
+  `503 billing_not_configured` and the webhook answers 500 — the pricing page
+  names that state instead of pretending to charge. The live webhook endpoint
+  can be created from the live key with `POST /v1/webhook_endpoints`, whose
+  response carries its signing secret once.
+- **Stay on live keys.** Test mode was tried and removed on 2026-10-28: Prices
+  are mode-specific, so test prices would have to sit beside the live ids, and a
+  test subscription written by the webhook would grant real access in this
+  production database. This project's `subscriptions` table has no mode column,
+  so a test key must not be installed here.
 - **Customer portal:** `Manage billing` on /pricing opens
   `billing_portal/sessions`. Stripe only creates a session once the account has
   a saved default portal configuration (Settings → Billing → Customer portal →
