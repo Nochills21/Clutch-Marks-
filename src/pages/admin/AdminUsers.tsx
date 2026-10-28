@@ -165,7 +165,7 @@ export default function AdminUsers() {
     const { data: subs, error: subsError } = await supabase
       .from("subscriptions")
       .select("id, user_id, plan_id, status")
-      .in("status", ["active", "pending_payment"]);
+      .in("status", ["active", "trialing", "past_due"]);
     // Only cosmetic (the paid badge), but a silent failure made paying students
     // look like free ones.
     if (subsError) report(subsError);
@@ -223,7 +223,7 @@ export default function AdminUsers() {
     setActionLoading(row.user_id);
     try {
       const sub = paidSubs[row.user_id];
-      if (sub?.status === "active") {
+      if (sub?.status === "active" || sub?.status === "trialing") {
         const { error } = await supabase
           .from("subscriptions")
           .update({ status: "cancelled", updated_at: new Date().toISOString() })
@@ -432,7 +432,7 @@ export default function AdminUsers() {
           </Button>
         )}
         {r.role === "student" && (
-          paidSubs[r.user_id]?.status === "active" ? (
+          paidSubs[r.user_id]?.status === "active" || paidSubs[r.user_id]?.status === "trialing" ? (
             <Button
               size="sm"
               variant="outline"
@@ -527,7 +527,7 @@ export default function AdminUsers() {
                   >
                     {r.role}
                   </Badge>
-                  {paidSubs[r.user_id]?.status === "active" && (
+                  {(paidSubs[r.user_id]?.status === "active" || paidSubs[r.user_id]?.status === "trialing") && (
                     <Badge variant="outline" className="text-emerald-600 border-emerald-600/30">Paid</Badge>
                   )}
                 </span>

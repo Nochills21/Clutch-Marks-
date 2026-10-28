@@ -31,6 +31,18 @@ export const TERMS_VERSION = "2026-10-25.1";
 /** Human-readable date shown on the legal pages. */
 export const LEGAL_LAST_UPDATED = "25 October 2026";
 
+/**
+ * The refund policy that runs alongside the 3-day trial. It is a separate
+ * document with its own version because its promise — a full refund of the
+ * first payment when asked for within 3 days of the charge — is a term of the
+ * sale, not part of the privacy notice or the general terms.
+ */
+export const REFUND_POLICY_VERSION = "2026-10-28.1";
+export const REFUND_LAST_UPDATED = "28 October 2026";
+
+/** Days of free trial on every paid plan. Mirrors TRIAL_DAYS in the billing function. */
+export const TRIAL_DAYS = 3;
+
 export type ConsentKind = "privacy" | "terms" | "guardian" | "marketing";
 
 /** What the signup form sends; recorded by the auth trigger on account creation. */

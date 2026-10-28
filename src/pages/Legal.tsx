@@ -20,12 +20,12 @@ import {
   TERMS_VERSION,
 } from "@/lib/legal";
 
-type Section = { heading: string; body: React.ReactNode };
+export type Section = { heading: string; body: React.ReactNode };
 
 /** Shared table styling: these documents carry data tables, not prose only. */
 const tableClass = "w-full text-xs border-collapse [&_th]:text-left [&_th]:align-top [&_th]:py-2 [&_th]:pr-3 [&_th]:text-foreground [&_td]:align-top [&_td]:py-2 [&_td]:pr-3 [&_td]:border-t [&_td]:border-border/60";
 
-function LegalShell({
+export function LegalShell({
   title,
   updated,
   version,

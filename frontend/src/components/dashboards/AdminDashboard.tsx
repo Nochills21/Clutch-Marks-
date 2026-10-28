@@ -19,18 +19,20 @@ export function AdminDashboard() {
   const { data: options = [] } = useSubjectLevelOptions();
 
   const [counts, setCounts] = useState({ topics: 0, lessons: 0, quizzes: 0, questions: 0, notes: 0, materials: 0 });
-  const [platform, setPlatform] = useState({ students: 0, pendingPayments: 0 });
+  // Billing runs through Stripe, so the payment figure that matters is how many
+  // students are inside the 3-day trial — there is no manual queue to clear.
+  const [platform, setPlatform] = useState({ students: 0, trials: 0 });
   // Content health: how many damaged rows the integrity report finds right now.
   const [integrity, setIntegrity] = useState<number | null>(null);
 
   useEffect(() => {
     const load = async () => {
-      const [countsRes, s, pp, integrityRes] = await Promise.all([
+      const [countsRes, s, tr, integrityRes] = await Promise.all([
         // NULL means "every subject"; the same RPC backs the student dashboard,
         // so both pages count the catalogue the same way.
         supabase.rpc("get_dashboard_counts", { _level_ids: scope === ALL ? null : [scope] }),
         supabase.from("user_roles").select("id", { count: "exact", head: true }).eq("role", "student"),
-        supabase.from("subscriptions").select("id", { count: "exact", head: true }).eq("status", "pending_payment"),
+        supabase.from("subscriptions").select("id", { count: "exact", head: true }).eq("status", "trialing"),
         // Admin-gated on the database side; this dashboard is admin-only.
         supabase.rpc("content_integrity_findings"),
       ]);
@@ -45,7 +47,7 @@ export function AdminDashboard() {
           materials: Number(c.materials_total ?? 0),
         });
       }
-      setPlatform({ students: s.count ?? 0, pendingPayments: pp.count ?? 0 });
+      setPlatform({ students: s.count ?? 0, trials: tr.count ?? 0 });
       // A failed check leaves the tile as an em dash rather than claiming zero.
       if (!integrityRes.error) setIntegrity((integrityRes.data ?? []).length);
     };
@@ -66,7 +68,7 @@ export function AdminDashboard() {
     { label: "All materials", value: counts.materials, icon: FileText, link: "/admin/materials" },
     { label: "Topics", value: counts.topics, icon: BookOpen, link: "/dashboard" },
     { label: "Students", value: platform.students, icon: Users, link: "/admin/accounts" },
-    { label: "Pending payments", value: platform.pendingPayments, icon: CreditCard, link: "/admin/payments" },
+    { label: "Free trials", value: platform.trials, icon: CreditCard, link: "/admin/payments" },
     // Damage the console cannot show: a replacement character, a 1-based answer
     // index, a material_type students never read. "—" until the check answers.
     { label: "Content issues", value: integrity === null ? "—" : integrity, icon: AlertTriangle, link: "/admin/content-integrity" },
@@ -74,7 +76,7 @@ export function AdminDashboard() {
 
   const quickActions = [
     { label: "Create Quiz", to: "/admin/quizzes", icon: Brain },
-    { label: "Review Payments", to: "/admin/payments", icon: CreditCard },
+    { label: "View Payments", to: "/admin/payments", icon: CreditCard },
     { label: "Post Announcement", to: "/admin/announcements", icon: Megaphone },
     { label: "Add Materials", to: "/admin/materials", icon: FileText },
   ];

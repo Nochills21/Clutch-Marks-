@@ -1015,6 +1015,9 @@ export type Database = {
           price_monthly: number
           /** What is actually billed for the whole term (e.g. 60 for 3 months). */
           price_total: number
+          /** Stripe Price billed for this plan; the checkout function verifies it
+           *  matches price_total/months before charging. Null on the free plan. */
+          stripe_price_id: string | null
         }
         Insert: {
           description?: string | null
@@ -1023,6 +1026,7 @@ export type Database = {
           name: string
           price_monthly: number
           price_total?: number
+          stripe_price_id?: string | null
         }
         Update: {
           description?: string | null
@@ -1031,6 +1035,7 @@ export type Database = {
           name?: string
           price_monthly?: number
           price_total?: number
+          stripe_price_id?: string | null
         }
         Relationships: []
       }
@@ -1783,6 +1788,12 @@ export type Database = {
           full_name: string | null
           receipt_url: string | null
           receipt_path: string | null
+          stripe_customer_id: string | null
+          stripe_subscription_id: string | null
+          /** Raw Stripe status; `status` is the app vocabulary derived from it. */
+          stripe_status: string | null
+          trial_ends_at: string | null
+          cancel_at_period_end: boolean
         }
         Insert: {
           id?: string
@@ -1797,6 +1808,11 @@ export type Database = {
           full_name?: string | null
           receipt_url?: string | null
           receipt_path?: string | null
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          stripe_status?: string | null
+          trial_ends_at?: string | null
+          cancel_at_period_end?: boolean
         }
         Update: {
           id?: string
@@ -1811,6 +1827,11 @@ export type Database = {
           full_name?: string | null
           receipt_url?: string | null
           receipt_path?: string | null
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          stripe_status?: string | null
+          trial_ends_at?: string | null
+          cancel_at_period_end?: boolean
         }
         Relationships: [
           {

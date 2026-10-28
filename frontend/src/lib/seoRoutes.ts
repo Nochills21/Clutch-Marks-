@@ -129,15 +129,19 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "How do I pay?",
-    a: "Pay by bank transfer or with the Urpay e-wallet. Choose your plan and method, send the total, then upload your receipt so we can match the payment — plans activate within 24 hours.",
+    a: "Checkout is handled by Stripe. Pay by card or Apple Pay — Apple Pay appears automatically on supported devices. Every paid plan starts with a 3-day free trial, and the first payment is taken when the trial ends.",
   },
   {
-    q: "Is my payment receipt private?",
-    a: "Yes. Receipts are stored privately and only the admins verifying your payment can view them.",
+    q: "Is there a free trial?",
+    a: "Yes. Every paid plan starts with a 3-day free trial with full access, and nothing is charged during it. Cancel before it ends and you pay nothing. If a payment is taken at the end of your trial, the refund policy covers it.",
+  },
+  {
+    q: "Can I cancel any time?",
+    a: "Yes. Open Manage billing on the pricing page and cancel in Stripe's customer portal. You keep access until the end of the period you have already paid for, or until your trial ends.",
   },
   {
     q: "Do I need a credit card to start?",
-    a: "No. You can start with the free preview of every level and upgrade only when you are ready.",
+    a: "Only for the free trial. The free preview of every level needs no card; a paid plan asks for a card or Apple Pay up front because the trial converts automatically after 3 days.",
   },
 ];
 
@@ -423,9 +427,15 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/pricing",
     title: "Plans & Pricing — Clutch Marks",
     description:
-      `Unlock every subject and level from ${cheapestPerMonth()?.label ?? "the annual plan"}/month — preview any level free. Pay by bank transfer or Urpay; plans activate within 24 hours.`,
+      `Unlock every subject and level from ${cheapestPerMonth()?.label ?? "the annual plan"}/month — preview any level free. Start a 3-day free trial; pay by card or Apple Pay.`,
     ogImage: "/og/pricing.png",
     jsonLd: PRICING_JSON_LD,
+  },
+  {
+    path: "/refunds",
+    title: "Refund Policy — Clutch Marks",
+    description:
+      "How Clutch Marks refunds work around the 3-day free trial: what is charged and when, cancelling during the trial, and how to request a refund.",
   },
   {
     path: "/downloads",

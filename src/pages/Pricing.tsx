@@ -1,13 +1,17 @@
-// Pricing: preview tier + three paid plans. Every figure shown here (and in the
-// FAQ and the Course/Offer JSON-LD) comes from `@/lib/plans`, which reads the
-// generated snapshot of the `plans` table — change a price in the database,
-// regenerate, and this page follows. Nothing below hardcodes money.
+// Pricing: preview tier + three paid plans, all billed through Stripe.
 //
-// Exactly two payment methods: Bank Transfer or E-Wallet (Urpay). Requesting a
-// plan captures the payer's full name and a transaction receipt; an admin then
-// activates the subscription from Admin Payments.
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+// Every figure shown here (and in the FAQ and the Course/Offer JSON-LD) comes
+// from `@/lib/plans`, which reads the generated snapshot of the `plans` table —
+// change a price in the database, regenerate, and this page follows. Nothing
+// below hardcodes money.
+//
+// There is one payment path: Stripe Checkout, card and Apple Pay, starting with
+// a 3-day free trial. The browser never writes a subscription row — the
+// `stripe-webhook` function does, after Stripe confirms the subscription — and
+// the button only ever passes a plan id to `billing`. See the refund policy at
+// /refunds, which is the document the trial copy below promises.
+import { useEffect, useRef, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { useSubscription } from "@/hooks/useSubscription";
 import { SEOHead } from "@/components/SEOHead";
@@ -15,13 +19,15 @@ import { FAQ_ITEMS, PRICING_JSON_LD } from "@/lib/seoRoutes";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/useToast";
-import { validateUploadFile } from "@/lib/fileValidation";
-import { planById, money, billedLabel, savingsVsMonthly } from "@/lib/plans";
-import { Check, Copy, Sparkles, Loader2, Clock, Landmark, Wallet, Upload, FileText, ShieldCheck } from "lucide-react";
+import { planById, money, billedLabel, savingsVsMonthly, totalOf } from "@/lib/plans";
+import { billingFailure, billingFailureTitle, checkoutUrl, portalUrl } from "@/lib/billing";
+import { TRIAL_DAYS } from "@/lib/legal";
+import { Check, Sparkles, Loader2, Clock, CreditCard, ShieldCheck, ArrowRight } from "lucide-react";
+import { format } from "date-fns";
+
+/** Statuses that grant access; matches public.has_active_plan(). */
+const LIVE_STATUSES = ["active", "trialing"];
 
 // Marketing copy lives here; every number is read from the plan snapshot.
 const monthlyPlan = planById("monthly");
@@ -94,236 +100,93 @@ const PLANS = [
     : []),
 ];
 
-type PaymentMethod = "bank_transfer" | "ewallet_urpay";
-
-const PAYMENT_METHODS: {
-  id: PaymentMethod;
-  label: string;
-  tagline: string;
-  icon: React.ElementType;
-}[] = [
-  { id: "bank_transfer", label: "Bank Transfer", tagline: "Pay from any bank app — send us the transfer receipt.", icon: Landmark },
-  { id: "ewallet_urpay", label: "E-Wallet (Urpay)", tagline: "Send via the Urpay app — attach your payment screenshot.", icon: Wallet },
-];
-
-/**
- * Where to send money. Single source of truth: the same rows render on the
- * page's "How payment works" card and inside the request dialog, so the two
- * can never drift apart.
- */
-const PAYMENT_REFERENCE = "Your account's email";
-
-const PAYMENT_DETAILS: Record<PaymentMethod, { label: string; rows: { key: string; value: string }[] }> = {
-  bank_transfer: {
-    label: "Bank Transfer",
-    rows: [
-      { key: "Account name", value: "Thaer Saadeh" },
-      { key: "IBAN", value: "SA9320000002550258779940" },
-    ],
-  },
-  ewallet_urpay: {
-    label: "E-Wallet (Urpay)",
-    rows: [
-      { key: "Urpay wallet number", value: "+966547388010" },
-      { key: "Name", value: "Zaid Saadeh" },
-    ],
-  },
-};
-
-/**
- * Receiving-detail rows with a copy button each. Shared by the "How payment
- * works" card and the request dialog so both always show the same values.
- */
-function PaymentDetailsRows({
-  method,
-  copied,
-  onCopy,
-  compact = false,
-}: {
-  method: PaymentMethod;
-  copied: string | null;
-  onCopy: (value: string, label: string) => void;
-  compact?: boolean;
-}) {
-  return (
-    <dl className={compact ? "space-y-1" : "space-y-1.5"}>
-      {PAYMENT_DETAILS[method].rows.map((row) => (
-        <div key={row.key} className="flex items-center justify-between gap-2">
-          <div className="min-w-0">
-            <dt className="text-[10.5px] uppercase tracking-[0.14em] text-muted-foreground">{row.key}</dt>
-            <dd className="truncate font-mono text-xs text-foreground">{row.value}</dd>
-          </div>
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            className="shrink-0 gap-1.5"
-            onClick={() => onCopy(row.value, row.key)}
-            aria-label={`Copy ${row.key}`}
-          >
-            {copied === row.key ? <Check className="h-3.5 w-3.5 text-primary" /> : <Copy className="h-3.5 w-3.5" />}
-            <span className="text-[11px]">{copied === row.key ? "Copied" : "Copy"}</span>
-          </Button>
-        </div>
-      ))}
-    </dl>
-  );
-}
+const dateLabel = (iso: string | null) => (iso ? format(new Date(iso), "d MMM yyyy") : null);
 
 export default function Pricing() {
   // `loading` matters here: /pricing is reached from inside the app (Upgrade
-  // links), and the session can still be restoring when the page mounts. Acting
-  // on a not-yet-loaded `user` told signed-in students to "Sign in first".
+  // links), and the session can still be restoring when the page mounts.
   const { user, role, loading: authLoading } = useAuth();
-  const { planId, refresh } = useSubscription();
+  const { planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd, refresh } = useSubscription();
   const { toast } = useToast();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [selected, setSelected] = useState<string | null>(null);
-  const [submitting, setSubmitting] = useState(false);
-  const [pending, setPending] = useState<string | null>(null);
-  const [pendingDetails, setPendingDetails] = useState<{ method: PaymentMethod | null } | null>(null);
+  const [starting, setStarting] = useState<string | null>(null);
+  const [openingPortal, setOpeningPortal] = useState(false);
+  // The URL is cleaned after the first handling, which re-runs the effect; this
+  // keeps the second refresh scheduled below from being torn down with it.
+  const checkoutHandled = useRef(false);
 
-  // Request-plan form state
-  const [fullName, setFullName] = useState("");
-  const [method, setMethod] = useState<PaymentMethod | null>(null);
-  const [receipt, setReceipt] = useState<File | null>(null);
-  const [uploading, setUploading] = useState(false);
-  const [copied, setCopied] = useState<string | null>(null);
+  const currentPlan = planById(planId);
+  const isTrialing = status === "trialing";
+  const isPastDue = status === "past_due";
+  // past_due has a Stripe subscription behind it, so `billing` refuses a second
+  // Checkout. Offering "Start free trial" there was a dead end.
+  const hasLiveBilling = hasPaid || isPastDue;
+  const periodEnd = isTrialing ? trialEndsAt ?? endsAt : endsAt;
 
-  /** Copy a payment detail, with a fallback for non-secure contexts. */
-  const copyField = async (value: string, label: string) => {
-    let ok = false;
-    try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(value);
-        ok = true;
-      }
-    } catch {
-      // fall through to the execCommand path
-    }
-    if (!ok) {
-      try {
-        const el = document.createElement("textarea");
-        el.value = value;
-        el.setAttribute("readonly", "");
-        el.style.position = "fixed";
-        el.style.opacity = "0";
-        document.body.appendChild(el);
-        el.select();
-        ok = document.execCommand("copy");
-        document.body.removeChild(el);
-      } catch {
-        ok = false;
-      }
-    }
-    if (ok) {
-      setCopied(label);
-      window.setTimeout(() => setCopied((c) => (c === label ? null : c)), 2000);
-    } else {
-      toast({
-        title: "Copy failed",
-        description: `${label}: ${value}`,
-        variant: "destructive",
-      });
-    }
-  };
-
+  // The webhook lands a moment after Stripe redirects the browser back, so the
+  // first refresh can still see the old row. Refresh now, then once more shortly
+  // after — a student who has just paid should not have to reload to see it.
   useEffect(() => {
-    if (!user) return;
-    supabase
-      .from("subscriptions")
-      .select("plan_id, status, payment_method, full_name")
-      .eq("user_id", user.id)
-      .eq("status", "pending_payment")
-      .order("created_at", { ascending: false })
-      .limit(1)
-      .then(({ data }) => {
-        const row = data?.[0];
-        if (!row) return;
-        setPending(row.plan_id);
-        setPendingDetails({ method: (row.payment_method as PaymentMethod) ?? null });
-        if (row.full_name) setFullName(row.full_name);
-      });
-  }, [user]);
-
-  const selectedPlan = PLANS.find((p) => p.id === selected);
-  const selectedMethod = PAYMENT_METHODS.find((m) => m.id === method);
-
-  const requestPlan = async () => {
-    if (!user || !selected || selected === "free") return;
-    if (!method) {
-      toast({ title: "Choose a payment method", description: "Pick Bank Transfer or E-Wallet (Urpay) to continue.", variant: "destructive" });
-      return;
-    }
-    if (!fullName.trim()) {
-      toast({ title: "Full name required", description: "Enter the account holder's full name for verification.", variant: "destructive" });
-      return;
-    }
-    if (!receipt) {
-      toast({ title: "Receipt required", description: "Attach a screenshot or PDF of your transaction.", variant: "destructive" });
-      return;
-    }
-    const check = validateUploadFile(receipt);
-    if (check.ok === false) {
-      toast({ title: "Receipt rejected", description: check.error, variant: "destructive" });
-      return;
-    }
-
-    setSubmitting(true);
-    setUploading(true);
-    try {
-      // 1) Upload the receipt to the private homework-uploads bucket,
-      //    payments/<uid>/ — allowed by the payments storage policy.
-      const ext = receipt.name.split(".").pop()?.toLowerCase() ?? "png";
-      const path = `payments/${user.id}/${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("homework-uploads").upload(path, receipt);
-      if (upErr) throw new Error(`Receipt upload failed: ${upErr.message}`);
-      setUploading(false);
-
-      // 2) Create or update the pending subscription with the details.
-      //    (No unique constraint on user_id+plan_id, so upsert can't be used.)
-      const payload = {
-        status: "pending_payment" as const,
-        payment_method: method,
-        full_name: fullName.trim(),
-        receipt_path: path,
-        updated_at: new Date().toISOString(),
-      };
-      const { data: existing, error: existingError } = await supabase
-        .from("subscriptions")
-        .select("id")
-        .eq("user_id", user.id)
-        .eq("plan_id", selected)
-        .maybeSingle();
-      // A failed lookup leaves `existing` undefined, and the code below would
-      // then INSERT a *second* request for the same plan instead of updating
-      // the first — so a dropped request duplicated the student's payment row.
-      if (existingError) throw existingError;
-      const { error } = existing?.id
-        ? await supabase.from("subscriptions").update(payload).eq("id", existing.id)
-        : await supabase.from("subscriptions").insert({ user_id: user.id, plan_id: selected, ...payload });
-      if (error) throw error;
-
-      setPending(selected);
-      setPendingDetails({ method });
+    const outcome = searchParams.get("checkout");
+    if (!outcome || checkoutHandled.current) return;
+    checkoutHandled.current = true;
+    if (outcome === "success") {
       toast({
         title: "Payment details received",
-        description: "We're verifying your transaction — your plan activates within 24 hours.",
+        description: `Your ${TRIAL_DAYS}-day free trial is starting — your account unlocks as soon as Stripe confirms.`,
       });
       refresh();
-      setSelected(null);
+      // The webhook can land after the redirect, so ask once more shortly after.
+      window.setTimeout(() => refresh(), 4000);
+    } else if (outcome === "cancelled") {
+      toast({ title: "Checkout cancelled", description: "Nothing was charged — you can start the trial whenever you're ready." });
+    }
+    // Drop the parameter so a reload does not replay the toast.
+    const next = new URLSearchParams(searchParams);
+    next.delete("checkout");
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams, toast, refresh]);
+
+  const openPortal = async () => {
+    if (!user) {
+      toast({ title: "Sign in first", description: "Sign in to manage your billing." });
+      return;
+    }
+    setOpeningPortal(true);
+    try {
+      window.location.assign(await portalUrl());
     } catch (e) {
-      toast({ title: "Request failed", description: e?.message, variant: "destructive" });
+      const { message, code } = await billingFailure(e);
+      toast({
+        title: billingFailureTitle(code, "Could not open billing"),
+        description: message,
+        variant: "destructive",
+      });
     } finally {
-      setSubmitting(false);
-      setUploading(false);
+      setOpeningPortal(false);
     }
   };
 
-  const resetForm = () => {
-    setMethod(null);
-    setReceipt(null);
-    setSelected(null);
+  const startCheckout = async (targetPlanId: string) => {
+    if (authLoading) return;
+    if (!user) {
+      toast({ title: "Sign in first", description: "Create an account, then start your free trial." });
+      return;
+    }
+    setStarting(targetPlanId);
+    try {
+      window.location.assign(await checkoutUrl(targetPlanId));
+    } catch (e) {
+      const { message, code } = await billingFailure(e);
+      toast({
+        title: billingFailureTitle(code, "Could not start checkout"),
+        description: message,
+        variant: "destructive",
+      });
+    } finally {
+      setStarting(null);
+    }
   };
 
   return (
@@ -333,32 +196,59 @@ export default function Pricing() {
         jsonLd={PRICING_JSON_LD}
       />
       <div className="text-center space-y-3">
-        <Badge variant="secondary" className="gap-1.5"><Sparkles className="h-3 w-3" /> Simple pricing</Badge>
+        <Badge variant="secondary" className="gap-1.5"><Sparkles className="h-3 w-3" /> {TRIAL_DAYS}-day free trial</Badge>
         <h1 className="text-3xl font-bold tracking-tight">Pick your plan</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Try before you commit — a preview of every subject at every level. Upgrade whenever you're ready for full access — cancel any time.
+          Try full access free for {TRIAL_DAYS} days — every subject, every level. Pay by card or Apple Pay when you
+          start; your first payment is taken when the trial ends. Cancel any time.
         </p>
       </div>
 
-      {pending && (
-        <Card className="border-primary/40 bg-primary/5">
-          <CardContent className="flex items-start gap-3 p-4">
-            <Clock className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-            <div className="text-sm">
-              <p className="font-medium">Your {PLANS.find(p => p.id === pending)?.name} subscription is awaiting verification.</p>
-              <p className="text-muted-foreground">
-                We've received your{pendingDetails?.method ? ` ${PAYMENT_METHODS.find(m => m.id === pendingDetails.method)?.label ?? ""}` : ""} details
-                {fullName ? ` under “${fullName}”` : ""}. Activation happens within 24 hours of confirmation.
-              </p>
+      {hasPaid && (
+        <Card className={isPastDue ? "border-amber-500/40 bg-amber-500/5" : "border-primary/40 bg-primary/5"}>
+          <CardContent className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3 text-sm">
+              <Clock className="h-5 w-5 shrink-0 text-primary mt-0.5" />
+              <div>
+                <p className="font-medium">
+                  {isTrialing
+                    ? `Your ${TRIAL_DAYS}-day free trial is running`
+                    : `Your ${currentPlan?.name ?? ""} plan is active`}
+                  {periodEnd ? ` — ${isTrialing ? "ends" : cancelAtPeriodEnd ? "ends" : "renews"} ${dateLabel(periodEnd)}` : ""}
+                </p>
+                <p className="text-muted-foreground">
+                  {isTrialing && currentPlan
+                    ? `We'll take ${totalOf(currentPlan)} on ${dateLabel(periodEnd) ?? "the day the trial ends"} unless you cancel first.`
+                    : cancelAtPeriodEnd
+                      ? "Your subscription is cancelled and will not renew."
+                      : "Your plan renews automatically. Cancel any time before it renews."}
+                </p>
+              </div>
             </div>
+            <Button variant="outline" className="gap-2 shrink-0" onClick={openPortal} disabled={openingPortal}>
+              {openingPortal ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
+              Manage billing
+            </Button>
+          </CardContent>
+        </Card>
+      )}
+
+      {isPastDue && (
+        <Card className="border-destructive/40 bg-destructive/5">
+          <CardContent className="p-4 text-sm">
+            <p className="font-medium">We couldn't take your last payment.</p>
+            <p className="text-muted-foreground">
+              Update your card in <button type="button" onClick={openPortal} className="text-primary underline">billing</button> to
+              keep full access.
+            </p>
           </CardContent>
         </Card>
       )}
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {PLANS.map(p => {
-          const isCurrent = p.id === planId;
-          const isPending = p.id === pending;
+          const isCurrent = p.id === planId && LIVE_STATUSES.includes(status ?? "");
+          const isBusy = starting === p.id;
           return (
             <Card key={p.id} className={`relative neon-border ${p.highlight ? "border-primary/60 shadow-lg shadow-primary/10" : ""}`}>
               {p.highlight && (
@@ -382,22 +272,38 @@ export default function Pricing() {
                   ))}
                 </ul>
                 {p.id === "free" ? (
-                  <Button variant="outline" className="w-full" disabled={isCurrent}>
-                    {isCurrent ? "Your current plan" : user ? "Downgrade not needed" : "Start with preview"}
+                  <Button variant="outline" className="w-full" disabled>
+                    {hasLiveBilling ? "Included in your plan" : "Your current plan"}
                   </Button>
                 ) : isCurrent ? (
-                  <Button className="w-full" disabled>Current plan</Button>
-                ) : isPending ? (
-                  <Button variant="outline" className="w-full gap-2" disabled><Clock className="h-4 w-4" /> Awaiting verification</Button>
+                  <Button className="w-full" disabled>{isTrialing ? "Your free trial" : "Current plan"}</Button>
+                ) : hasLiveBilling ? (
+                  <Button variant="outline" className="w-full gap-2" onClick={openPortal} disabled={openingPortal}>
+                    <CreditCard className="h-4 w-4" /> Manage billing
+                  </Button>
                 ) : (
                   <Button
                     className="w-full bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
-                    disabled={authLoading}
-                    onClick={() => { if (authLoading) return; if (user) setSelected(p.id); else toast({ title: "Sign in first", description: "Create an account, then subscribe." }); }}
+                    disabled={authLoading || Boolean(starting)}
+                    onClick={() => startCheckout(p.id)}
                   >
-                    Request plan
+                    {isBusy ? (
+                      <><Loader2 className="h-4 w-4 animate-spin mr-1.5" /> Opening Stripe…</>
+                    ) : (
+                      <>Start free trial <ArrowRight className="h-3.5 w-3.5 ml-1" /></>
+                    )}
                   </Button>
                 )}
+                {p.id !== "free" && !hasLiveBilling && (() => {
+                  const plan = planById(p.id);
+                  if (!plan) return null;
+                  const term = plan.months === 1 ? "per month" : plan.months === 12 ? "per year" : "per term";
+                  return (
+                    <p className="text-center text-[11px] text-muted-foreground">
+                      Free for {TRIAL_DAYS} days, then {totalOf(plan)} {term}
+                    </p>
+                  );
+                })()}
               </CardContent>
             </Card>
           );
@@ -407,29 +313,31 @@ export default function Pricing() {
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">How payment works</CardTitle>
-          <CardDescription>Two ways to pay — Bank Transfer or E-Wallet (Urpay). Activated within 24 hours.</CardDescription>
+          <CardDescription>Secure checkout by Stripe — card or Apple Pay. {TRIAL_DAYS}-day free trial, cancel any time.</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-3 text-sm text-muted-foreground">
+        <CardContent className="space-y-4 text-sm text-muted-foreground">
           <ol className="space-y-2 list-decimal list-inside">
-            <li>Click <span className="font-medium text-foreground">Request plan</span> and choose your method.</li>
-            <li>Send the total using one of:
-              <div className="ml-6 mt-2 grid gap-2 sm:grid-cols-2">
-                {PAYMENT_METHODS.map((m) => (
-                  <div key={m.id} className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
-                    <p className="font-medium flex items-center gap-1.5"><m.icon className="h-3.5 w-3.5 text-primary" /> {PAYMENT_DETAILS[m.id].label}</p>
-                    <div className="mt-1.5">
-                      <PaymentDetailsRows method={m.id} copied={copied} onCopy={copyField} compact />
-                    </div>
-                    <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
-                      Reference: <span className="font-medium text-foreground">{PAYMENT_REFERENCE}</span> — the reference must be the email on your Clutch Marks account, otherwise we cannot match your payment.
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </li>
-            <li>Upload the transaction receipt in the request form so we can match your payment.</li>
-            <li>We verify and activate your plan — usually within 24 hours.</li>
+            <li>Pick a plan and choose <span className="font-medium text-foreground">Start free trial</span>.</li>
+            <li>Enter your card — or pay with Apple Pay if your device offers it — on Stripe's secure checkout page.</li>
+            <li>You get full access straight away. Nothing is charged for {TRIAL_DAYS} days.</li>
+            <li>When the trial ends your plan renews automatically. Cancel any time before then and you pay nothing.</li>
           </ol>
+          <div className="grid gap-2 sm:grid-cols-3">
+            {[
+              { icon: CreditCard, title: "Card & Apple Pay", body: "Payments are handled by Stripe. We never see or store your card details." },
+              { icon: Clock, title: `${TRIAL_DAYS}-day free trial`, body: "Full access from day one. Cancel before the trial ends and you are not charged." },
+              { icon: ShieldCheck, title: "Refunds through the trial", body: "If a payment is taken at the end of your trial, the refund policy covers it." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-lg border bg-muted/30 p-3 text-xs text-foreground">
+                <p className="font-medium flex items-center gap-1.5"><item.icon className="h-3.5 w-3.5 text-primary" /> {item.title}</p>
+                <p className="mt-1.5 leading-snug text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs">
+            Read the full <Link to="/refunds" className="text-primary underline">refund policy</Link>, including how the
+            {" "}{TRIAL_DAYS}-day trial period is handled.
+          </p>
         </CardContent>
       </Card>
 
@@ -449,122 +357,6 @@ export default function Pricing() {
           ))}
         </CardContent>
       </Card>
-
-      {/* Request-plan dialog: method → full name → receipt */}
-      <Dialog open={!!selected && !!user} onOpenChange={(o) => { if (!o) resetForm(); }}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>Request the {selectedPlan?.name} plan</DialogTitle>
-            <DialogDescription>
-              {selectedPlan?.price}{selectedPlan?.per} — choose how you're paying, then tell us who paid and attach the receipt.
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="space-y-5">
-            {/* Method */}
-            <div className="space-y-2">
-              <Label>Payment method</Label>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {PAYMENT_METHODS.map(m => (
-                  <button
-                    key={m.id}
-                    type="button"
-                    onClick={() => setMethod(m.id)}
-                    className={`rounded-xl border p-3 text-left transition-colors ${
-                      method === m.id
-                        ? "border-primary bg-primary/10"
-                        : "border-border hover:border-primary/40 hover:bg-secondary/40"
-                    }`}
-                  >
-                    <m.icon className={`h-4 w-4 ${method === m.id ? "text-primary" : "text-muted-foreground"}`} />
-                    <p className="mt-1.5 text-sm font-medium">{m.label}</p>
-                    <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">{m.tagline}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Receiving details for the chosen method — surfaced here so the
-                student can copy the IBAN / wallet number without scrolling
-                back up to the "How payment works" card. */}
-            {method && (
-              <div className="space-y-2 rounded-xl border bg-muted/30 p-3">
-                <p className="text-xs font-medium text-foreground">
-                  Send {selectedPlan?.price}{selectedPlan?.per} to this {PAYMENT_DETAILS[method].label} account
-                </p>
-                <PaymentDetailsRows method={method} copied={copied} onCopy={copyField} />
-                <p className="text-[11px] leading-snug text-muted-foreground">
-                  Reference: <span className="font-medium text-foreground">{PAYMENT_REFERENCE}</span> — the reference must be the email on your Clutch Marks account, otherwise we cannot match your payment.
-                </p>
-              </div>
-            )}
-
-            {/* Full name */}
-            <div className="space-y-2">
-              <Label htmlFor="payer-name">Full name</Label>
-              <Input
-                id="payer-name"
-                placeholder="As it appears on the transfer / Urpay account"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                autoComplete="name"
-              />
-            </div>
-
-            {/* Receipt */}
-            <div className="space-y-2">
-              <Label htmlFor="payer-receipt">Receipt of transaction</Label>
-              <label
-                htmlFor="payer-receipt"
-                className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-border p-3 transition-colors hover:border-primary/40 hover:bg-secondary/30"
-              >
-                <Upload className="h-4 w-4 text-muted-foreground" />
-                <span className="min-w-0 flex-1 truncate text-sm text-muted-foreground">
-                  {receipt ? receipt.name : "Screenshot or PDF of your payment"}
-                </span>
-                <input
-                  id="payer-receipt"
-                  type="file"
-                  accept="image/png,image/jpeg,image/webp,application/pdf"
-                  className="hidden"
-                  onChange={(e) => {
-                    const f = e.target.files?.[0] ?? null;
-                    if (f) {
-                      const check = validateUploadFile(f);
-                      if (check.ok === false) {
-                        toast({ title: "File rejected", description: check.error, variant: "destructive" });
-                        e.target.value = "";
-                        return;
-                      }
-                    }
-                    setReceipt(f);
-                  }}
-                />
-              </label>
-              {receipt && (
-                <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <FileText className="h-3 w-3 text-primary" /> {(receipt.size / 1024).toFixed(0)} KB — ready to upload
-                </p>
-              )}
-              <p className="flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
-                <ShieldCheck className="mt-0.5 h-3 w-3 shrink-0 text-primary" />
-                Receipts are private — only admins verifying your payment can view them.
-              </p>
-            </div>
-          </div>
-
-          <DialogFooter>
-            <Button variant="outline" onClick={resetForm} disabled={submitting}>Cancel</Button>
-            <Button onClick={requestPlan} disabled={submitting} className="gap-2">
-              {submitting ? (
-                <><Loader2 className="h-4 w-4 animate-spin" /> {uploading ? "Uploading receipt…" : "Submitting…"}</>
-              ) : (
-                <>{selectedMethod?.label ?? "Submit"} request</>
-              )}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
 
       {role === "admin" && (
         <p className="text-center text-xs text-muted-foreground">Admins have full access on every plan.</p>

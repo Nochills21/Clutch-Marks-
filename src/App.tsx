@@ -58,6 +58,9 @@ const PrivacyPolicy = lazy(() =>
 const TermsOfService = lazy(() =>
   import("./pages/Legal").then((m) => ({ default: m.TermsOfService })),
 );
+// The refund promise that sits alongside the 3-day trial. Public, like the other
+// legal documents: a reader must be able to check it before paying.
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
 const Downloads = lazy(() => import("./pages/Downloads"));
 const ProgressPage = lazy(() => import("./pages/ProgressPage"));
 // Account settings: the student's own username, with the signup rules enforced
@@ -187,6 +190,7 @@ const App = () => (
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/refunds" element={<RefundPolicy />} />
                 {/* PDPL: where the privacy notice sends a reader to exercise a right. */}
                 <Route path="/data-rights" element={<DataRights />} />
               </Route>

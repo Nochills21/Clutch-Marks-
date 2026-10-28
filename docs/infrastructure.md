@@ -42,11 +42,70 @@ Resend sends email. **No shared hosting anywhere.**
 - **Edge Functions** (Deno) — `resolve-login-email`, `welcome-email`,
   `weekly-digest`, `feedback-alert`, `email-events` (Resend webhooks),
   `manage-accounts`, `quiz-feedback`, `generate-questions`,
-  `study-planner`, `past-papers-harvest`.
+  `study-planner`, `past-papers-harvest`, `billing`, `stripe-webhook`.
 - **pg_cron + pg_net** — nightly audit-log archiving; weekly parent digest
   (Mondays 07:00 UTC); weekly past-paper link check / harvest (Mondays 06:00 UTC).
 
-## 3. Resend — transactional email
+## 3. Stripe — subscriptions, the 3-day trial and refunds
+
+**Status: code and catalog in place, two secrets pending.** Billing replaced the
+manual bank-transfer / UrPay flow on 2026-10-28. There is no receipt upload, no
+verification queue and **no browser write path to `subscriptions`** — the
+webhook is the only writer.
+
+- **Catalog (live mode):** one product per plan, each with its default recurring
+  Price. The Price id lives in `plans.stripe_price_id`:
+
+  | Plan | Amount | Recurs | Price id |
+  |---|---|---|---|
+  | Monthly | $30.00 | every month | `price_1UVUmDQ3xk2ovSDM0vaSML20` |
+  | 3 Months | $45.00 | every 3 months | `price_1UVUmDQ3xk2ovSDMiGo3YCK9` |
+  | Annual | $80.00 | every year | `price_1UVUmDQ3xk2ovSDM80b8taAE` |
+
+  `billing` re-reads the Price before every Checkout and refuses to charge when
+  its amount, currency or interval disagrees with `price_total`/`months`
+  (`409 price_mismatch`). A price change is therefore three steps: update
+  `plans`, create a new Stripe Price, update `stripe_price_id`.
+- **Payment methods:** `payment_method_types[0]=card`, which is what makes the
+  Checkout page offer card **and Apple Pay** (Apple Pay is a wallet inside card,
+  not a separate method). No domain registration is needed because Stripe hosts
+  the Checkout page. The account already has `card_payments: active`.
+- **Trial:** `subscription_data[trial_period_days]=3` in `billing`
+  (`export const TRIAL_DAYS`). The card is collected up front on purpose —
+  `payment_method_collection` stays at its default so the conversion can charge.
+- **Functions:** `billing` (`verify_jwt: true`) starts Checkout / opens the
+  customer portal; `stripe-webhook` is deployed **`--public`** because Stripe
+  cannot present a Supabase token, and authenticates with the
+  `Stripe-Signature` HMAC instead. An unsigned or stale (>5 min) request is 400;
+  a missing secret is a fail-closed 500, never an open door.
+- **Function secrets needed (not yet set):** `STRIPE_SECRET_KEY` (dashboard →
+  Developers → API keys, live) and `STRIPE_WEBHOOK_SECRET` (dashboard →
+  Developers → Webhooks → the endpoint's signing secret). Until both exist,
+  `billing` answers `503 billing_not_configured` and the webhook answers 500 —
+  the pricing page names that state instead of pretending to charge.
+- **Customer portal:** `Manage billing` on /pricing opens
+  `billing_portal/sessions`. Stripe only creates a session once the account has
+  a saved default portal configuration (Settings → Billing → Customer portal →
+  Save). Until it does, `billing` answers 503 `portal_not_configured` rather than
+  a raw Stripe error — and cancellation, which the refund policy relies on,
+  needs that configuration to exist.
+- **Webhook endpoint:** `https://zzliiazovezhxbmfeqco.supabase.co/functions/v1/stripe-webhook`,
+  subscribed to `checkout.session.completed`,
+  `customer.subscription.created` / `.updated` / `.deleted` / `.paused` / `.resumed`.
+  Every event only carries a subscription id; the function re-reads it from
+  Stripe and stores what Stripe says, so a forged body cannot grant access and a
+  replay is idempotent.
+- **Status mapping** (`stripe_status` keeps the raw value): `trialing`, `active`,
+  and anything paid, grant access; `past_due`/`unpaid` do not; `canceled` →
+  `cancelled`. `has_active_plan()` and `has_active_subscription()` accept
+  `('active','trialing')` — the trial is the product, not a preview.
+- **Refunds:** the policy is `/refunds`, versioned in `frontend/src/lib/legal.ts`
+  as `REFUND_POLICY_VERSION`. It promises a full refund of the first payment
+  when asked for within the 3-day window, and no charge at all when the trial is
+  cancelled. Cancelling is Stripe's customer portal (`Manage billing` on
+  /pricing) — there is no in-app cancel endpoint to keep in sync.
+
+## 4. Resend — transactional email
 
 **Status: verified end-to-end, 6 October 2026.** The sending domain
 `clutchmarks.study` is verified in Resend (domain record
@@ -129,7 +188,8 @@ without any hosting plan at all.
 - Production URL: `https://clutchmarks.study` (Supabase Auth `site_url` already set).
 - Local dev: `npm run dev` (Vite, port 8080).
 - Secrets inventory: `RESEND_API_KEY`, `WELCOME_FROM_EMAIL`, `RESEND_WEBHOOK_SECRET`,
-  `DIGEST_SECRET`, `FEEDBACK_ALERT_SECRET`, `WELCOME_SECRET`, `HARVEST_SECRET`
+  `DIGEST_SECRET`, `FEEDBACK_ALERT_SECRET`, `WELCOME_SECRET`, `HARVEST_SECRET`,
+  `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
   (Supabase function secrets / `private.app_secrets`); `VITE_PLAUSIBLE_DOMAIN`
   (Pages build env).
 - Deploy checklist: push to `main` → Pages auto-deploys → apply Supabase

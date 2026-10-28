@@ -83,6 +83,14 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <!-- The refund policy is public and indexable: it is the term a buyer checks
+       before starting the 3-day trial. -->
+  <url>
+    <loc>https://clutchmarks.study/refunds</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
   <!-- The PDPL rights page is public and indexable on purpose: a reader has to
        be able to find out how to exercise a right before they have an account. -->
   <url>

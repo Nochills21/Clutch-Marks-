@@ -13,11 +13,31 @@ export const FREE_PREVIEW_LIMIT = 2;
 export type PlanState = {
   loading: boolean;
   planId: string; // "free" | "monthly" | "quarterly" | "annual"
-  hasPaid: boolean; // true when an active paid subscription exists
+  hasPaid: boolean; // true when an active or trialing paid subscription exists
+  /** Raw subscription status: active, trialing, past_due, cancelled, … */
+  status: string | null;
+  /** End of the 3-day free trial, when the subscription has one. */
+  trialEndsAt: string | null;
+  /** Current period end — the trial end while trialing, then the paid renewal. */
+  endsAt: string | null;
+  /** True once the student has cancelled but the paid/trial period is still running. */
+  cancelAtPeriodEnd: boolean;
   refresh: () => void;
 };
 
-type SubRow = { plan_id: string; status: string; ends_at: string | null };
+/** Statuses that grant full access. Keep in step with public.has_active_plan(). */
+export const ACTIVE_SUB_STATUSES = ["active", "trialing"] as const;
+
+const isLiveStatus = (status: string) =>
+  (ACTIVE_SUB_STATUSES as readonly string[]).includes(status);
+
+type SubRow = {
+  plan_id: string;
+  status: string;
+  ends_at: string | null;
+  trial_ends_at: string | null;
+  cancel_at_period_end: boolean;
+};
 
 // A page easily mounts half a dozen gated components (lists, banners, dialogs),
 // and each one used to fire its own identical `subscriptions` query on mount.
@@ -36,7 +56,7 @@ function loadSubscriptionRow(userId: string): Promise<SubRow | null> {
   const promise = retrySupabase(() =>
     supabase
       .from("subscriptions")
-      .select("plan_id, status, ends_at")
+      .select("plan_id, status, ends_at, trial_ends_at, cancel_at_period_end")
       .eq("user_id", userId)
       .order("created_at", { ascending: false })
       .limit(20),
@@ -45,7 +65,9 @@ function loadSubscriptionRow(userId: string): Promise<SubRow | null> {
     // unexpired grant, so prefer the newest active row and fall back to the latest.
     const now = Date.now();
     const rows = (data ?? []) as SubRow[];
-    const row = (rows.find((r) => r.status === "active" && (!r.ends_at || new Date(r.ends_at).getTime() > now)) ?? rows[0] ?? null) as SubRow | null;
+    // A trial is live access: 'trialing' must win over a newer but inactive row
+    // for the same reason 'active' does.
+    const row = (rows.find((r) => isLiveStatus(r.status) && (!r.ends_at || new Date(r.ends_at).getTime() > now)) ?? rows[0] ?? null) as SubRow | null;
     subCache = { userId, at: Date.now(), row };
     if (subInflight?.promise === promise) subInflight = null;
     return row;
@@ -65,6 +87,10 @@ export function useSubscription(): PlanState {
   const [loading, setLoading] = useState(true);
   const [planId, setPlanId] = useState("free");
   const [hasPaid, setHasPaid] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
+  const [trialEndsAt, setTrialEndsAt] = useState<string | null>(null);
+  const [endsAt, setEndsAt] = useState<string | null>(null);
+  const [cancelAtPeriodEnd, setCancelAtPeriodEnd] = useState(false);
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -76,9 +102,13 @@ export function useSubscription(): PlanState {
     loadSubscriptionRow(user.id)
       .then((sub) => {
         if (cancelled) return;
-        const active = !!sub && sub.status === "active" && (!sub.ends_at || new Date(sub.ends_at) > new Date());
+        const active = !!sub && isLiveStatus(sub.status) && (!sub.ends_at || new Date(sub.ends_at) > new Date());
         setPlanId(active ? sub!.plan_id : "free");
         setHasPaid(active);
+        setStatus(sub?.status ?? null);
+        setTrialEndsAt(sub?.trial_ends_at ?? null);
+        setEndsAt(sub?.ends_at ?? null);
+        setCancelAtPeriodEnd(Boolean(sub?.cancel_at_period_end));
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -92,7 +122,7 @@ export function useSubscription(): PlanState {
     subInflight = null;
     setTick(t => t + 1);
   }, []);
-  return { loading, planId, hasPaid, refresh };
+  return { loading, planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd, refresh };
 }
 
 /**

@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-26T11:14:11.808Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-28T11:24:00.621Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -215,6 +215,7 @@ create table if not exists public."plans" (
   "months" integer default 1 not null,
   "description" text,
   "price_total" numeric(10,2) default 0 not null,
+  "stripe_price_id" text,
   constraint "plans_pkey" PRIMARY KEY (id),
   constraint "plans_price_total_non_negative" CHECK (price_total >= 0::numeric)
 );
@@ -315,8 +316,13 @@ create table if not exists public."subscriptions" (
   "full_name" text,
   "receipt_url" text,
   "receipt_path" text,
+  "stripe_customer_id" text,
+  "stripe_subscription_id" text,
+  "stripe_status" text,
+  "trial_ends_at" timestamp with time zone,
+  "cancel_at_period_end" boolean default false not null,
   constraint "subscriptions_pkey" PRIMARY KEY (id),
-  constraint "subscriptions_status_check" CHECK (status = ANY (ARRAY['pending_payment'::text, 'active'::text, 'expired'::text, 'cancelled'::text]))
+  constraint "subscriptions_status_check" CHECK (status = ANY (ARRAY['pending_payment'::text, 'active'::text, 'trialing'::text, 'past_due'::text, 'expired'::text, 'cancelled'::text]))
 );
 create table if not exists public."user_roles" (
   "id" uuid default gen_random_uuid() not null,
@@ -740,6 +746,8 @@ create UNIQUE index if not exists study_sessions_one_active ON public.study_sess
 create index if not exists study_sessions_user_time ON public.study_sessions USING btree (user_id, started_at DESC);
 create index if not exists idx_subscriptions_status ON public.subscriptions USING btree (status);
 create index if not exists idx_subscriptions_user ON public.subscriptions USING btree (user_id);
+create index if not exists subscriptions_stripe_customer_idx ON public.subscriptions USING btree (stripe_customer_id) WHERE (stripe_customer_id IS NOT NULL);
+create UNIQUE index if not exists subscriptions_stripe_subscription_idx ON public.subscriptions USING btree (stripe_subscription_id) WHERE (stripe_subscription_id IS NOT NULL);
 create index if not exists idx_syllabus_statements_spec ON public.syllabus_statements USING btree (spec_code, level, sort_order);
 create index if not exists idx_syllabus_statements_topic ON public.syllabus_statements USING btree (topic_id);
 create index if not exists topics_subject_level_id_idx ON public.topics USING btree (subject_level_id);
@@ -1967,7 +1975,9 @@ AS $function$
     or exists (
       select 1 from public.subscriptions
        where user_id = _user_id
-         and status = 'active'
+         -- 'trialing' grants the same access as 'active': the trial is the
+         -- product, not a preview of it.
+         and status in ('active', 'trialing')
          and (ends_at is null or ends_at > now())
     );
 $function$;
@@ -1981,7 +1991,7 @@ AS $function$
   select exists (
     select 1 from public.subscriptions
     where user_id = p_user_id
-      and status = 'active'
+      and status in ('active', 'trialing')
       and coalesce(ends_at, 'infinity') > now()
   );
 $function$;
@@ -3513,10 +3523,10 @@ alter table public."subjects" enable row level security;
 alter table public."subject_levels" enable row level security;
 alter table public."topics" enable row level security;
 alter table public."streaks" enable row level security;
-alter table public."plans" enable row level security;
-alter table public."ai_correction" enable row level security;
-alter table public."announcement_reads" enable row level security;
 alter table public."subscriptions" enable row level security;
+alter table public."ai_correction" enable row level security;
+alter table public."plans" enable row level security;
+alter table public."announcement_reads" enable row level security;
 alter table public."feedback_messages" enable row level security;
 alter table public."parent_link_invites" enable row level security;
 alter table public."flashcard_sets" enable row level security;
@@ -3561,9 +3571,9 @@ create policy "Admins can manage all AI corrections" on public."ai_correction" f
 drop policy if exists "Students can insert own AI corrections" on public."ai_correction";
 create policy "Students can insert own AI corrections" on public."ai_correction" for insert to "authenticated" with check (((user_id = auth.uid()) AND ((EXISTS ( SELECT 1
    FROM user_roles
-  WHERE ((user_roles.user_id = auth.uid()) AND ((user_roles.role = 'admin'::app_role) AND is_aal2()) AND (user_roles.is_approved = true)))) OR (EXISTS ( SELECT 1
+  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::app_role) AND (user_roles.is_approved = true) AND is_aal2()))) OR (EXISTS ( SELECT 1
    FROM subscriptions
-  WHERE ((subscriptions.user_id = auth.uid()) AND (subscriptions.status = 'active'::text) AND ((subscriptions.ends_at IS NULL) OR (subscriptions.ends_at > now()))))))));
+  WHERE ((subscriptions.user_id = auth.uid()) AND (subscriptions.status = ANY (ARRAY['active'::text, 'trialing'::text])) AND ((subscriptions.ends_at IS NULL) OR (subscriptions.ends_at > now()))))))));
 drop policy if exists "Students can view own AI corrections" on public."ai_correction";
 create policy "Students can view own AI corrections" on public."ai_correction" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Users clear own announcement state" on public."announcement_reads";
@@ -3836,12 +3846,8 @@ create policy "Admins read all subscriptions" on public."subscriptions" for sele
   WHERE ((ur.user_id = auth.uid()) AND ((ur.role = 'admin'::app_role) AND is_aal2())))));
 drop policy if exists "Admins select all subscriptions" on public."subscriptions";
 create policy "Admins select all subscriptions" on public."subscriptions" for select to "authenticated" using (is_admin(auth.uid()));
-drop policy if exists "Users create own subscription request" on public."subscriptions";
-create policy "Users create own subscription request" on public."subscriptions" for insert to "authenticated" with check (((auth.uid() = user_id) AND (status = 'pending_payment'::text) AND ((payment_method = ANY (ARRAY['bank_transfer'::text, 'ewallet_urpay'::text])) OR (payment_method IS NULL))));
 drop policy if exists "Users read own subscription" on public."subscriptions";
 create policy "Users read own subscription" on public."subscriptions" for select using ((auth.uid() = user_id));
-drop policy if exists "Users update own pending subscription" on public."subscriptions";
-create policy "Users update own pending subscription" on public."subscriptions" for update to "authenticated" using (((auth.uid() = user_id) AND (status = 'pending_payment'::text))) with check (((auth.uid() = user_id) AND (status = 'pending_payment'::text) AND ((payment_method = ANY (ARRAY['bank_transfer'::text, 'ewallet_urpay'::text])) OR (payment_method IS NULL)) AND (is_admin(auth.uid()) OR ((full_name IS NOT NULL) AND ((receipt_path IS NOT NULL) OR (receipt_url IS NOT NULL))))));
 drop policy if exists "Admins can manage syllabus statements" on public."syllabus_statements";
 create policy "Admins can manage syllabus statements" on public."syllabus_statements" for all to "authenticated" using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view syllabus statements" on public."syllabus_statements";
@@ -4078,12 +4084,8 @@ drop policy if exists "Users can delete own homework files" on "storage"."object
 create policy "Users can delete own homework files" on "storage"."objects" for delete to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND ((auth.uid())::text = (storage.foldername(name))[1])));
 drop policy if exists "Users can upload own homework files" on "storage"."objects";
 create policy "Users can upload own homework files" on "storage"."objects" for insert to "authenticated" with check (((bucket_id = 'homework-uploads'::text) AND ((auth.uid())::text = (storage.foldername(name))[1])));
-drop policy if exists "Users can upload payment receipts" on "storage"."objects";
-create policy "Users can upload payment receipts" on "storage"."objects" for insert to "authenticated" with check (((bucket_id = 'homework-uploads'::text) AND ((storage.foldername(name))[1] = 'payments'::text) AND ((storage.foldername(name))[2] = (auth.uid())::text)));
 drop policy if exists "Users can view own homework files" on "storage"."objects";
 create policy "Users can view own homework files" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND (((auth.uid())::text = (storage.foldername(name))[1]) OR is_admin(auth.uid()))));
-drop policy if exists "Users can view payment receipts" on "storage"."objects";
-create policy "Users can view payment receipts" on "storage"."objects" for select to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND ((storage.foldername(name))[1] = 'payments'::text) AND (((storage.foldername(name))[2] = (auth.uid())::text) OR is_admin(auth.uid()))));
 
 -- ============ comments ============
 comment on table public."objective_reviews" is $dd$Resurfacing schedule per student and objective; written by answers, never by the client.$dd$;

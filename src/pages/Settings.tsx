@@ -6,6 +6,10 @@
 // case-insensitively — and the database is the authority for all three
 // (public.set_my_username). Email and profile ownership stay admin-only, which
 // is why this page shows the email rather than offering to change it.
+//
+// Billing is here too, but as a window onto Stripe: cancelling and changing the
+// card happen in Stripe's customer portal, so no card detail ever reaches this
+// app, and no subscription row can be written from Settings.
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -20,10 +24,15 @@ import { useToast } from "@/hooks/useToast";
 import { USERNAME_MAX, USERNAME_RULES, normalizeUsername, validateUsername } from "@/lib/username";
 import { SITE } from "@/lib/site";
 import { supportMailto } from "@/lib/support";
+import { useSubscription } from "@/hooks/useSubscription";
+import { planById, totalOf } from "@/lib/plans";
+import { billingFailure, billingFailureTitle, portalUrl } from "@/lib/billing";
+import { TRIAL_DAYS } from "@/lib/legal";
+import { format } from "date-fns";
 // Enrolled here, required for /admin: the console asks for the code the same way
 // the login form does, and the database refuses admin work without it.
 import { TwoFactorSettings } from "@/components/TwoFactor";
-import { AtSign, Check, Loader2, Lock, Mail, KeyRound, UserRound } from "lucide-react";
+import { AtSign, Check, CreditCard, Loader2, Lock, Mail, KeyRound, UserRound } from "lucide-react";
 
 type ProfileRow = {
   username: string | null;
@@ -37,6 +46,117 @@ type SetUsernameResult = {
   error?: "invalid" | "taken" | "unchanged" | "missing";
   message?: string;
 };
+
+/**
+ * Plan and payment method, read from the `subscriptions` row the webhook wrote.
+ * Every change — cancel, change card, invoices — happens in Stripe's portal, so
+ * this card only ever opens it. A student with no subscription is offered the
+ * trial rather than a portal that would answer "no billing account".
+ */
+function BillingCard() {
+  const { role } = useAuth();
+  const { toast } = useToast();
+  const { loading, planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd } = useSubscription();
+  const [opening, setOpening] = useState(false);
+
+  const plan = planById(planId);
+  const isTrialing = status === "trialing";
+  const isPastDue = status === "past_due";
+  const isCancelling = hasPaid && cancelAtPeriodEnd;
+  const periodEnd = isTrialing ? trialEndsAt ?? endsAt : endsAt;
+  const renews = periodEnd ? format(new Date(periodEnd), "d MMM yyyy") : null;
+  const onDate = renews ? ` on ${renews}` : "";
+  const term = plan
+    ? plan.months === 1
+      ? "each month"
+      : plan.months === 12
+        ? "each year"
+        : `every ${plan.months} months`
+    : "";
+
+  const openPortal = async () => {
+    setOpening(true);
+    try {
+      window.location.assign(await portalUrl());
+    } catch (e) {
+      const { message, code } = await billingFailure(e);
+      toast({ title: billingFailureTitle(code, "Could not open billing"), description: message, variant: "destructive" });
+    } finally {
+      setOpening(false);
+    }
+  };
+
+  let summary: string;
+  if (isPastDue) {
+    summary = "We couldn't take your last payment. Update your card to keep full access.";
+  } else if (isTrialing && isCancelling) {
+    // Cancelled during the trial: Stripe will not take the first payment, so the
+    // "we'll take X" copy above would threaten a charge that never happens.
+    summary = `Your free trial ends${onDate || " soon"} and will not renew — you will not be charged.`;
+  } else if (isTrialing) {
+    summary = plan
+      ? `${TRIAL_DAYS}-day free trial${renews ? ` — ends ${renews}` : ""}. We'll take ${totalOf(plan)} ${term} from then unless you cancel first.`
+      : `${TRIAL_DAYS}-day free trial${renews ? ` — ends ${renews}` : ""}.`;
+  } else if (isCancelling) {
+    summary = `Your plan ends${onDate || " at the end of the period"} and will not renew — you keep full access until then.`;
+  } else if (hasPaid && plan) {
+    summary = `Renews${onDate || " automatically"} at ${totalOf(plan)} ${term}. Cancel any time before then.`;
+  } else if (status === "canceled") {
+    summary = "Your subscription has ended — you're back on the free preview.";
+  } else {
+    summary = `You're on the free preview. The ${TRIAL_DAYS}-day trial unlocks every subject and level.`;
+  }
+
+  return (
+    <Card className={isPastDue ? "border-destructive/40" : undefined}>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-base">
+          <CreditCard className="h-4 w-4 text-primary" /> Plan &amp; billing
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4 text-sm">
+        {loading ? (
+          <p className="flex items-center gap-2 text-muted-foreground">
+            <Loader2 className="h-4 w-4 animate-spin" /> Loading your plan…
+          </p>
+        ) : role === "admin" ? (
+          <p className="text-muted-foreground">
+            Admin accounts have full access on every plan and are not billed.
+          </p>
+        ) : (
+          <>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-muted-foreground">Plan</span>
+              <Badge variant={hasPaid ? "secondary" : "outline"}>{hasPaid ? plan?.name ?? "Paid" : "Preview"}</Badge>
+              {isTrialing && <Badge variant="secondary">Free trial</Badge>}
+              {isPastDue && <Badge variant="destructive">Payment failed</Badge>}
+              {isCancelling && <Badge variant="secondary">Will not renew</Badge>}
+            </div>
+
+            <p className={isPastDue ? "text-destructive" : "text-muted-foreground"}>{summary}</p>
+
+            {hasPaid || isPastDue ? (
+              <Button onClick={openPortal} disabled={opening} className="gap-2">
+                {opening ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
+                Manage billing
+              </Button>
+            ) : (
+              <Button asChild>
+                <Link to="/pricing">Start free trial</Link>
+              </Button>
+            )}
+
+            <p className="text-xs text-muted-foreground">
+              Card and Apple Pay payments are handled by Stripe — we never see your card details. If a payment is
+              taken, our <Link to="/refunds" className="underline hover:text-foreground">refund policy</Link> covers
+              the first {TRIAL_DAYS} days.
+            </p>
+          </>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function Settings() {
   const { user } = useAuth();
@@ -251,6 +371,8 @@ export default function Settings() {
           </div>
         </CardContent>
       </Card>
+
+      <BillingCard />
 
       <TwoFactorSettings />
 
