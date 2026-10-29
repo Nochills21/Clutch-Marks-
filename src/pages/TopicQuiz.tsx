@@ -17,6 +17,7 @@ import { ManuscriptHead, ManuscriptQuestion } from "@/components/StudyManuscript
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { LEVELS, LEVEL_LABELS, subjectIcon, subjectAccent, type SubjectLevelCode } from "@/lib/subjects";
 import { canonicalLevelSlug, levelAliasCodes, levelNeedsRedirect } from "@/lib/levelSlug";
+import { uniqueTopicPrefix } from "@/lib/topicLookup";
 import {
   topicNotesPath,
   topicQuizPath,
@@ -124,13 +125,14 @@ export default function TopicQuiz() {
         const { data: tps, error: tpsError } = await supabase.from("topics").select("*").eq("subject_level_id", levelRow.id).order("sort_order");
         if (tpsError) throw tpsError;
         const topicList = tps ?? [];
+        // A shortened address resolves only when one topic can match it.
         const topicRow = topicList.find(
           (t) =>
             topicSlugOf(t) === topicSlug ||
             // Last-resort match for URLs minted before slugs were persisted.
             slugifyTopicName(t.name) === topicSlug ||
             t.name.toLowerCase() === (topic ?? "").replace(/-/g, " ").toLowerCase(),
-        );
+        ) ?? uniqueTopicPrefix(topicList, topicSlug);
         if (!topicRow) {
           setError("Topic not found on this level");
           setLoading(false);

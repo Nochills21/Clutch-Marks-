@@ -10,6 +10,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { TopicBreadcrumb } from "@/components/TopicBreadcrumb";
 import { subjectAccent, LEVELS, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { canonicalLevelSlug, levelAliasCodes, levelNeedsRedirect } from "@/lib/levelSlug";
+import { uniqueTopicPrefix } from "@/lib/topicLookup";
 import { ManuscriptHead } from "@/components/StudyManuscript";
 import { topicHead } from "@/lib/topicSeo";
 import {
@@ -140,13 +141,16 @@ export default function TopicNotes() {
         const topicList = tps ?? [];
 
         const normalizedTopic = topic?.replace(/-/g, " ") ?? "";
-        const topicId = topicList.find(
+        // A shortened address (`/databases` for `databases-and-data-definition`)
+        // resolves only when it points at one topic — see uniqueTopicPrefix.
+        const matchedTopic = topicList.find(
           (t) =>
             t.name.toLowerCase() === normalizedTopic.toLowerCase() ||
             topicSlugOf(t) === topicSlug ||
             // Last-resort match for URLs minted before slugs were persisted.
             slugifyTopicName(t.name) === topicSlug,
-        )?.id;
+        ) ?? uniqueTopicPrefix(topicList, topicSlug);
+        const topicId = matchedTopic?.id;
         if (!topicId) {
           setError("Topic not found on this level");
           setLoading(false);

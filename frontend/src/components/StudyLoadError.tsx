@@ -77,13 +77,17 @@ export function StudyLoadError({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-2">
-        <Button
-          variant="outline"
-          className="gap-2"
-          onClick={onRetry ?? (() => window.location.reload())}
-        >
-          <RotateCcw className="h-4 w-4" /> Try again
-        </Button>
+        {/* Retrying a missing row cannot bring it back, so the button would be a
+            dead control — the report this card replaced showed it on every state. */}
+        {failed && (
+          <Button
+            variant="outline"
+            className="gap-2"
+            onClick={onRetry ?? (() => window.location.reload())}
+          >
+            <RotateCcw className="h-4 w-4" /> Try again
+          </Button>
+        )}
         <Button asChild variant="outline" className="gap-2">
           <Link to={backTo}>
             <ArrowLeft className="h-4 w-4" /> {backLabel}
