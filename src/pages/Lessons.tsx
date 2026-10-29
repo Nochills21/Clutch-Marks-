@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/useToast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Circle, BookOpen, ChevronRight, Download, FileText, Loader2, ClipboardList, Layers } from "lucide-react";
+import { CheckCircle2, Circle, BookOpen, ChevronRight, Download, FileText, Loader2, ClipboardList, Layers, Lock } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { exportLessonToPdf } from "@/lib/pdfExport";
 import { SEOHead } from "@/components/SEOHead";
@@ -16,12 +16,19 @@ import { openSignedFile } from "@/lib/contentFiles";
 import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
-import { usePreviewSlice, PreviewLimit, usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
+import { usePlanAccess } from "@/components/PreviewLimit";
+import { openableLessonIds, isLockedLesson, ranksByLevel } from "@/lib/lessonAccess";
+import { materialContentToHtml } from "@/lib/objectiveTeach";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { SubjectGate } from "@/components/SubjectGate";
 import { FeedbackNudge } from "@/components/FeedbackNudge";
 import { SubjectPicker } from "@/components/SubjectPicker";
 import type { Tables } from "@/integrations/supabase/types";
+
+// What the index needs to draw a row: everything but the body. `content` is the
+// bulk of the table and the list never renders it, so it is fetched only for the
+// lesson a reader opens.
+type LessonRow = Pick<Tables<"lessons">, "id" | "title" | "topic_id" | "sort_order" | "video_url" | "zoom_url">;
 
 export default function Lessons() {
   const { user } = useAuth();
@@ -29,9 +36,12 @@ export default function Lessons() {
   const navigate = useNavigate();
   const { subject, level, topic } = useParams<{ subject?: string; level?: string; topic?: string }>();
   const [topics, setTopics] = useState<Tables<"topics">[]>([]);
-  const [lessons, setLessons] = useState<Tables<"lessons">[]>([]);
+  const [lessons, setLessons] = useState<LessonRow[]>([]);
   const [progress, setProgress] = useState<Record<string, boolean>>({});
   const [selectedLesson, setSelectedLesson] = useState<Tables<"lessons"> | null>(null);
+  // The row whose body is being fetched, so a click is acknowledged while it
+  // travels. Without it a slow request looked like a dead button.
+  const [openingId, setOpeningId] = useState<string | null>(null);
   const [notes, setNotes] = useState<Pick<Tables<"study_materials">, "id" | "title" | "file_url" | "topic_id">[]>([]);
   // Per-topic hub links (notes / questions) plus the badge label
   // (subject + level), so same-named topics on different levels — Nuclear
@@ -57,18 +67,57 @@ export default function Lessons() {
     }
   };
 
+  const pickKey = useMemo(() => [...pickedIds].sort().join(","), [pickedIds]);
+
   useEffect(() => {
+    // The picks decide which levels are asked for, so wait for them: this page
+    // used to fetch every topic, every lesson body and every note title in the
+    // estate and then discard most of it in `scopedTopics`. For a two-subject
+    // student that was five subjects' worth of rows.
+    if (user && !isAdmin && !prefsLoaded) return;
+    // No picks means the subject gate is on screen. An empty `in.()` would be a
+    // 400, so answer it here rather than asking the server for nothing.
+    const scopeToPicks = !!user && !isAdmin;
+    if (scopeToPicks && pickedIds.size === 0) {
+      setTopics([]);
+      setLessons([]);
+      setNotes([]);
+      setTopicLinks({});
+      setTopicMeta({});
+      return;
+    }
+    let cancelled = false;
     const load = async () => {
-      const [topicsRes, lessonsRes, notesRes, progressRes, slRes, subRes] = await Promise.all([
-        supabase.from("topics").select("*").order("sort_order"),
-        supabase.from("lessons").select("*").order("sort_order"),
-        supabase.from("study_materials").select("id, title, file_url, topic_id").eq("material_type", "notes"),
+      let topicQuery = supabase.from("topics").select("*").order("sort_order");
+      if (scopeToPicks) topicQuery = topicQuery.in("subject_level_id", [...pickedIds]);
+      const topicsRes = await topicQuery;
+      if (cancelled) return;
+      const topicsList = topicsRes.data ?? [];
+      setTopics(topicsList);
+      // Lessons and notes are scoped by the topics that survived the filter. An
+      // anonymous visitor has no picks and keeps the whole index, so their
+      // queries stay unfiltered rather than sending 191 ids in a URL.
+      const topicIds = topicsList.map((t) => t.id);
+      let lessonQuery = supabase
+        .from("lessons")
+        .select("id, title, topic_id, sort_order, video_url, zoom_url")
+        .order("sort_order");
+      let notesQuery = supabase
+        .from("study_materials")
+        .select("id, title, file_url, topic_id")
+        .eq("material_type", "notes");
+      if (scopeToPicks) {
+        lessonQuery = lessonQuery.in("topic_id", topicIds);
+        notesQuery = notesQuery.in("topic_id", topicIds);
+      }
+      const [lessonsRes, notesRes, progressRes, slRes, subRes] = await Promise.all([
+        lessonQuery,
+        notesQuery,
         user ? supabase.from("lesson_progress").select("lesson_id, completed").eq("user_id", user.id) : Promise.resolve({ data: [] }),
         supabase.from("subject_levels").select("id, level, subject_id"),
         supabase.from("subjects").select("id, name, slug"),
       ]);
-      const topicsList = topicsRes.data ?? [];
-      setTopics(topicsList);
+      if (cancelled) return;
       setLessons(lessonsRes.data ?? []);
       setNotes(notesRes.data ?? []);
       const prog: Record<string, boolean> = {};
@@ -100,7 +149,10 @@ export default function Lessons() {
       setTopicMeta(meta);
     };
     load();
-  }, [user]);
+    return () => {
+      cancelled = true;
+    };
+  }, [user, isAdmin, prefsLoaded, pickKey]);
 
   const toggleComplete = async (lessonId: string) => {
     if (!user) return;
@@ -113,11 +165,26 @@ export default function Lessons() {
     setProgress((p) => ({ ...p, [lessonId]: !isCompleted }));
   };
 
-  const { loading: planLoading, isPreview } = usePlanAccess();
+  const openLesson = async (row: LessonRow) => {
+    setOpeningId(row.id);
+    const { data, error } = await supabase.from("lessons").select("*").eq("id", row.id).maybeSingle();
+    setOpeningId(null);
+    if (error || !data) {
+      toast({
+        title: "Couldn't open this lesson",
+        description: error?.message ?? "It may have been removed. Try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setSelectedLesson(data);
+  };
+
+  const { loading: planLoading, hasPaid } = usePlanAccess();
   // Signed-in students are scoped to the subjects they picked. An anonymous
   // visitor has no picks, and an empty pick set would filter the whole index
-  // away — they see every subject, cut down per topic by the free-plan slice
-  // in the renderer below.
+  // away — they see every subject, with the same one-free-lesson-per-level rule
+  // applied as everywhere else.
   const scopedTopics = useMemo(() => {
     if (isAdmin || !prefsLoaded) return topics;
     return user ? topics.filter((t) => pickedIds.has(t.subject_level_id)) : topics;
@@ -127,16 +194,40 @@ export default function Lessons() {
   // `if (!isPreview)` and returned only `limited` (lesson-bearing) topics.
   const visibleTopics = scopedTopics;
 
-  // Lessons the free plan is not showing, per topic. This is what the upgrade
-  // card claims, so it has to be the hidden count — it used to report every
-  // lesson of every picked topic, including the ones already on the page.
-  const hiddenCount = useMemo(() => {
-    if (isAdmin || !prefsLoaded || planLoading || !isPreview) return 0;
-    return scopedTopics.reduce((total, t) => {
-      const count = lessons.filter((l) => l.topic_id === t.id).length;
-      return total + Math.max(0, count - FREE_PREVIEW_LIMIT);
-    }, 0);
-  }, [scopedTopics, lessons, isAdmin, isPreview, planLoading, prefsLoaded]);
+  // Which lesson a free account may open, resolved exactly as the subject hub
+  // and the notes library do it: one per subject-level, and it is the first
+  // lesson of that level's first topic (`topicRank` is what puts the first topic
+  // first — every lesson's own `sort_order` is 1, ordering only within a topic).
+  //
+  // The index used to slice each topic to one lesson and count the remainder
+  // into a "+ N more lessons" card, which hid what the plan contains and could
+  // hand a free reader a different lesson here than the hub had just offered.
+  // Locked rows now stay in the list, as the locked notes do.
+  const levelOfTopic = useMemo(
+    () => new Map(topics.map((t) => [t.id, t.subject_level_id])),
+    [topics],
+  );
+  const topicRanks = useMemo(() => ranksByLevel(topics), [topics]);
+
+  // `null` locks nothing: while the plan is still loading no row may flash as
+  // locked, the same contract as `isLockedLesson`'s "not resolved yet".
+  const openableLessons = useMemo(() => {
+    if (planLoading) return null;
+    const fullAccess = hasPaid || isAdmin;
+    const byLevel = new Map<string, LessonRow[]>();
+    for (const l of lessons) {
+      const levelId = l.topic_id ? levelOfTopic.get(l.topic_id) : undefined;
+      if (!levelId) continue;
+      const list = byLevel.get(levelId) ?? [];
+      list.push(l);
+      byLevel.set(levelId, list);
+    }
+    const open = new Set<string>();
+    for (const [levelId, list] of byLevel) {
+      for (const id of openableLessonIds(list, fullAccess, topicRanks.get(levelId))) open.add(id);
+    }
+    return open;
+  }, [lessons, levelOfTopic, topicRanks, planLoading, hasPaid, isAdmin]);
 
   // Only signed-in students are gated: an anonymous visitor has picked no
   // subjects by definition and must still see the lesson index. That rule lives
@@ -174,7 +265,12 @@ export default function Lessons() {
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none dark:prose-invert">
             {selectedLesson.content ? (
-              <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selectedLesson.content.replace(/\n/g, "<br/>")) }} />
+              // Lesson bodies are HTML written by the content pipeline, with a
+              // handful of rows carrying appended markdown headings. The old
+              // `\n` → `<br/>` swap put a stray break between every block — and
+              // rendered an appended `### Worked example` as literal hashes. The
+              // converter passes HTML through and converts heading lines only.
+              <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(materialContentToHtml(selectedLesson.content)) }} />
             ) : (
               <p className="text-muted-foreground">No content available yet.</p>
             )}
@@ -236,11 +332,10 @@ export default function Lessons() {
         <Accordion type="multiple" className="space-y-3">
           {visibleTopics.map((topic) => {
             const allTopicLessons = lessons.filter((l) => l.topic_id === topic.id);
-            // Free plan: the first FREE_PREVIEW_LIMIT lessons of each topic, with
-            // the rest counted into the upgrade card below.
-            const topicLessons = isPreview && !planLoading
-              ? allTopicLessons.slice(0, FREE_PREVIEW_LIMIT)
-              : allTopicLessons;
+            // Every lesson stays listed. On the free plan the rows the account
+            // cannot open are what the plan is selling, so they carry a lock and
+            // an Unlock link rather than being folded into a count.
+            const topicLessons = allTopicLessons;
             const topicNotes = notes.filter((n) => n.topic_id === topic.id);
             const completedCount = allTopicLessons.filter((l) => progress[l.id]).length;
             const links = topicLinks[topic.id];
@@ -284,19 +379,31 @@ export default function Lessons() {
                     )}
                     {topicLessons.map((lesson) => {
                       const dest = topicLinks[lesson.topic_id]?.notes;
+                      const locked = isLockedLesson(lesson.id, openableLessons);
                       return (
                         <button
                           key={lesson.id}
-                          onClick={() => setSelectedLesson(lesson)}
+                          // A locked row still does something useful: it opens the
+                          // plan, like the hub's Unlock button, instead of silently
+                          // rendering lesson content the account did not pay for.
+                          onClick={() => (locked ? navigate("/pricing") : openLesson(lesson))}
+                          disabled={openingId === lesson.id}
+                          title={locked ? "One lesson in this subject and level is free — unlock the rest" : undefined}
                           className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm hover:bg-muted transition-colors text-left"
                         >
-                          {progress[lesson.id] ? (
+                          {locked ? (
+                            <Lock className="h-4 w-4 shrink-0 text-muted-foreground/60" />
+                          ) : progress[lesson.id] ? (
                             <CheckCircle2 className="h-4 w-4 text-accent shrink-0" />
                           ) : (
                             <Circle className="h-4 w-4 text-muted-foreground shrink-0" />
                           )}
-                          <span className="flex-1">{lesson.title}</span>
-                          {dest && (
+                          <span className={`flex-1 ${locked ? "text-muted-foreground" : ""}`}>{lesson.title}</span>
+                          {locked ? (
+                            // The row already carries the lock icon as its state;
+                            // the word is the action, so it does not repeat it.
+                            <span className="rounded px-2 py-0.5 text-xs text-primary">Unlock</span>
+                          ) : dest ? (
                             <span
                               role="link"
                               tabIndex={0}
@@ -306,8 +413,12 @@ export default function Lessons() {
                             >
                               Notes
                             </span>
+                          ) : null}
+                          {openingId === lesson.id ? (
+                            <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                          ) : (
+                            <ChevronRight className="h-4 w-4 text-muted-foreground" />
                           )}
-                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
                         </button>
                       );
                     })}
@@ -342,23 +453,7 @@ export default function Lessons() {
           })}
         </Accordion>
       )}
-      <LessonsPreviewGate hiddenCount={hiddenCount} />
     </div>
-  );
-}
-
-// Shared preview-limit state for the lessons page (persisted per subject-level).
-// Lesson pages apply preview limiting per subject-level. Free-plan users see
-// the first FREE_PREVIEW_LIMIT lessons per level (from PreviewLimit.tsx) and
-// the remainder is replaced with an upgrade prompt.
-export function LessonsPreviewGate({ hiddenCount }: { hiddenCount: number }) {
-  const { isPreview, loading } = usePlanAccess();
-  if (loading || !isPreview || hiddenCount <= 0) return null;
-  return (
-    <PreviewLimit
-      hiddenCount={hiddenCount}
-      what="lesson"
-    />
   );
 }
 

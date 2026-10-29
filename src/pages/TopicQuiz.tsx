@@ -1,6 +1,6 @@
 // Per-topic quiz page with mark-scheme explanations.
 import { useEffect, useMemo, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { useAuth } from "@/lib/auth";
@@ -25,16 +25,15 @@ import {
 import { topicDisplayName, topicHead } from "@/lib/topicSeo";
 import {
   ArrowRight,
-  ArrowLeft,
   Bookmark,
   Play,
-  RotateCcw,
   FileDown,
   ListChecks,
 } from "lucide-react";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
+import { StudyLoadError } from "@/components/StudyLoadError";
 import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
 
 interface TopicQuestion {
@@ -64,7 +63,6 @@ export default function TopicQuiz() {
     topic: string;
   }>();
   const { toast } = useToast();
-  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -312,22 +310,15 @@ export default function TopicQuiz() {
 
   if (error || !subjectMeta || !subjectLevel || !topicTitle || !topicId) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            {error && !/not found/i.test(error) ? "Couldn't load these questions" : "Topic questions not found"}
-          </CardTitle>
-          <CardDescription>{error ?? "No questions have been added for this topic yet."}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          <Button variant="outline" className="gap-2" onClick={() => setRetryKey((k) => k + 1)}>
-            <RotateCcw className="h-4 w-4" /> Try again
-          </Button>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <StudyLoadError
+        failure={error}
+        loadTitle="Couldn't load these questions"
+        missingTitle="Topic questions not found"
+        missingDetail="No questions have been added for this topic yet."
+        onRetry={() => setRetryKey((k) => k + 1)}
+        backTo={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}
+        backLabel="Back to topic"
+      />
     );
   }
 

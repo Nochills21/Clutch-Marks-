@@ -23,13 +23,14 @@ import {
   topicSlugOf,
 } from "@/lib/topicUrls";
 import { topicHead } from "@/lib/topicSeo";
-import { Archive, BookOpen, Play, ArrowRight, ArrowLeft, ExternalLink, RotateCcw, Wand2 } from "lucide-react";
+import { Archive, BookOpen, Play, ArrowRight, ExternalLink, Wand2 } from "lucide-react";
 import { MarkPaperDialog } from "@/components/MarkPaperDialog";
 import { archivePaperGroup, officialPaperPage } from "@/lib/pastPaperFiles";
 import { relatedTopicPapers } from "@/lib/topicPapers";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
+import { StudyLoadError } from "@/components/StudyLoadError";
 
 interface TopicPaper {
   id: string;
@@ -198,22 +199,15 @@ export default function TopicPapers() {
 
   if (error || !subjectMeta || !subjectLevel || !topicTitle || !topicId) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            {error && !/not found/i.test(error) ? "Couldn't load these past papers" : "Past papers not found"}
-          </CardTitle>
-          <CardDescription>{error ?? "No past papers have been linked to this topic yet."}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          <Button variant="outline" className="gap-2" onClick={() => setRetryKey((k) => k + 1)}>
-            <RotateCcw className="h-4 w-4" /> Try again
-          </Button>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <StudyLoadError
+        failure={error}
+        loadTitle="Couldn't load these past papers"
+        missingTitle="Past papers not found"
+        missingDetail="No past papers have been linked to this topic yet."
+        onRetry={() => setRetryKey((k) => k + 1)}
+        backTo={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}
+        backLabel="Back to topic"
+      />
     );
   }
 

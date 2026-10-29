@@ -53,24 +53,32 @@ export function MasteryNextCard() {
 
   return (
     <Card className="border-primary/30">
+      {/* The icon and the copy are one item, and below `sm` it takes the whole
+          row so the CTA wraps underneath. As three separate items the text block
+          was `flex-1` (flex-basis 0), so the row kept everything on one line and
+          handed the copy only what the 44 px icon tile and the button left over:
+          measured on a phone, 74 px of text, with "Start this objective" broken
+          over three lines and the statement code over two. */}
       <CardContent className="flex flex-wrap items-center gap-4 p-5">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-          <GraduationCap className="h-5 w-5 text-primary" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-            {copy.title}
-            {dueCount > 0 && (
-              <span className="ml-2 inline-flex items-center gap-1 normal-case tracking-normal text-amber-600">
-                <Clock className="h-3 w-3" /> {dueCount} due for refresh
-              </span>
-            )}
-          </p>
-          <p className="mt-0.5 truncate text-sm font-semibold">
-            <span className="mr-1.5 font-mono text-xs text-muted-foreground">{next.code}</span>
-            {next.statement}
-          </p>
-          <p className="mt-0.5 truncate text-xs text-muted-foreground">{copy.detail}</p>
+        <div className="flex min-w-0 grow basis-full items-center gap-4 sm:basis-0">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+            <GraduationCap className="h-5 w-5 text-primary" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              {copy.title}
+              {dueCount > 0 && (
+                <span className="ml-2 inline-flex items-center gap-1 normal-case tracking-normal text-amber-600">
+                  <Clock className="h-3 w-3" /> {dueCount} due for refresh
+                </span>
+              )}
+            </p>
+            <p className="mt-0.5 truncate text-sm font-semibold">
+              <span className="mr-1.5 font-mono text-xs text-muted-foreground">{next.code}</span>
+              {next.statement}
+            </p>
+            <p className="mt-0.5 truncate text-xs text-muted-foreground">{copy.detail}</p>
+          </div>
         </div>
         <Button asChild size="sm" className="gap-1.5">
           <Link to="/mastery">

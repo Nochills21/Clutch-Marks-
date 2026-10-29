@@ -141,14 +141,18 @@ export function NotificationCenter() {
         </PopoverTrigger>
         <PopoverContent align="end" className="w-80 p-0">
           <div className="flex items-center justify-between border-b border-border/50 px-4 py-3">
-            <p className="text-sm font-semibold">
+            {/* A div, not a p: Badge renders a <div>, and a <div> inside a <p>
+                makes the browser close the paragraph — the count escaped the
+                header row and the console reported invalid nesting on every
+                page with an unread announcement. */}
+            <div className="flex items-center text-sm font-semibold">
               Notifications
               {unread > 0 && (
                 <Badge className="ml-2 text-[10px] bg-red-500/15 text-red-600 border-red-500/20">
                   {unread} new
                 </Badge>
               )}
-            </p>
+            </div>
             {unread > 0 && (
               <Button variant="ghost" size="sm" className="h-7 gap-1 text-xs" onClick={markAllRead}>
                 <CheckCheck className="h-3.5 w-3.5" /> Mark all read

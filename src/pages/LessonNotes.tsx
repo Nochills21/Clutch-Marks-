@@ -1,6 +1,6 @@
 // Per-lesson notes view.
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,7 +21,7 @@ import { ManuscriptHead, ManuscriptSection } from "@/components/StudyManuscript"
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
-import { QueryError } from "@/components/QueryError";
+import { StudyLoadError } from "@/components/StudyLoadError";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import type { Tables } from "@/integrations/supabase/types";
 
@@ -35,7 +35,6 @@ type LessonWithTopic = Pick<Tables<"lessons">, "id" | "title" | "content" | "top
 
 export default function LessonNotes() {
   const { lessonId } = useParams();
-  const navigate = useNavigate();
   const { user, role } = useAuth();
   const { failure, report } = useLoadFailure("this lesson");
   const [reloadKey, setReloadKey] = useState(0);
@@ -133,21 +132,20 @@ export default function LessonNotes() {
     return <div className="space-y-3"><Skeleton className="h-10 w-48" /><Skeleton className="h-40 rounded-xl" /></div>;
   }
 
-  if (failure) {
+  if (failure || !lesson) {
     return (
       <div className="space-y-4">
         <SEOHead title="Lesson Notes — Clutch Marks" description="View and download the uploaded notes for this lesson." path={`/lessons/${lessonId}/notes`} />
-        <QueryError message={failure} onRetry={() => window.location.reload()} />
+        <StudyLoadError
+          failure={failure}
+          loadTitle="Couldn't load this lesson"
+          missingTitle="Lesson not found"
+          missingDetail="This lesson is no longer available."
+          onRetry={bump}
+          backTo="/lessons"
+          backLabel="Back to Lessons"
+        />
       </div>
-    );
-  }
-
-  if (!lesson) {
-    return (
-      <Card><CardContent className="py-12 text-center space-y-3">
-        <p className="text-muted-foreground">Lesson not found.</p>
-        <Button variant="outline" onClick={() => navigate("/lessons")}>Back to Lessons</Button>
-      </CardContent></Card>
     );
   }
 

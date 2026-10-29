@@ -15,7 +15,8 @@
 // down the page. The topic's `sort_order` is what puts a level's first topic
 // first, so it has to be part of the comparison; pass `topicRank` when you have
 // it. Resolve the pick here so every surface that lists lessons (the subject hub
-// today, the lessons index next) hands out the same one.
+// and the `/lessons` index) hands out the same one — which is why the ranking
+// lives here too, rather than being re-derived per page.
 //
 // This is a sales gate, not a security boundary, exactly like the note rule.
 
@@ -26,6 +27,39 @@ export interface LessonRef {
   id: string;
   sort_order?: number | null;
   topic_id?: string | null;
+}
+
+export interface TopicRef {
+  id: string;
+  sort_order?: number | null;
+  subject_level_id: string;
+}
+
+/**
+ * A level's topics in course order, as id → position.
+ *
+ * Shared by both lesson surfaces so "the first topic" means the same row on each
+ * of them; the id tie-break keeps the order stable when two topics share a
+ * `sort_order`, because a different tie-break would hand out a different free
+ * lesson on the hub than on the index.
+ */
+export function rankTopics<T extends { id: string; sort_order?: number | null }>(topics: T[]): Map<string, number> {
+  return new Map(
+    [...topics]
+      .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0) || a.id.localeCompare(b.id))
+      .map((t, i) => [t.id, i] as const),
+  );
+}
+
+/** The same ranking, for a list that spans several subject-levels. */
+export function ranksByLevel<T extends TopicRef>(topics: T[]): Map<string, Map<string, number>> {
+  const byLevel = new Map<string, T[]>();
+  for (const t of topics) {
+    const list = byLevel.get(t.subject_level_id) ?? [];
+    list.push(t);
+    byLevel.set(t.subject_level_id, list);
+  }
+  return new Map([...byLevel].map(([levelId, list]) => [levelId, rankTopics(list)] as const));
 }
 
 /**

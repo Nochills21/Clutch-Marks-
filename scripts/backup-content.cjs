@@ -23,10 +23,16 @@
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
+const crypto = require("crypto");
 
 const PROJECT_REF = "zzliiazovezhxbmfeqco";
 
 // Ordered so a restore can replay dependencies before dependents.
+//
+// The syllabus/objective layer and the content rollback ledger were added after
+// this script was first written; without them a restore would bring back the
+// notes and questions but not the statements they are mapped to, nor the
+// snapshots that make a bad content edit reversible.
 const TABLES = [
   "subjects",
   "subject_levels",
@@ -40,6 +46,10 @@ const TABLES = [
   "past_papers",
   "plans",
   "announcements",
+  "syllabus_statements",
+  "learning_objectives",
+  "content_file_versions",
+  "content_revisions",
 ];
 
 function managementToken() {
@@ -91,6 +101,25 @@ async function main() {
 
   const summary = {};
   let failures = 0;
+  let totalBytes = 0;
+  let totalRows = 0;
+
+  // Written once for both credential paths, so the manifest describes the file
+  // that actually landed on disk rather than what the query returned: a hash is
+  // what makes "this snapshot is complete" checkable later.
+  const writeTable = (table, rows) => {
+    const file = path.join(outDir, `${table}.json`);
+    const json = JSON.stringify(rows, null, 2);
+    fs.writeFileSync(file, json);
+    const bytes = Buffer.byteLength(json);
+    summary[table] = {
+      rows: rows.length,
+      bytes,
+      sha256: crypto.createHash("sha256").update(json).digest("hex"),
+    };
+    totalBytes += bytes;
+    totalRows += rows.length;
+  };
 
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (serviceKey) {
@@ -109,8 +138,7 @@ async function main() {
           rows.push(...batch);
           if (batch.length < pageSize) break;
         }
-        fs.writeFileSync(path.join(outDir, `${table}.json`), JSON.stringify(rows, null, 2));
-        summary[table] = rows.length;
+        writeTable(table, rows);
       } catch (err) {
         failures++;
         summary[table] = `FAILED: ${err.message}`;
@@ -134,8 +162,7 @@ async function main() {
           { query: `select * from public.${table}` },
         );
         if (!Array.isArray(rows)) throw new Error(JSON.stringify(rows).slice(0, 200));
-        fs.writeFileSync(path.join(outDir, `${table}.json`), JSON.stringify(rows, null, 2));
-        summary[table] = rows.length;
+        writeTable(table, rows);
       } catch (err) {
         failures++;
         summary[table] = `FAILED: ${err.message}`;
@@ -145,13 +172,27 @@ async function main() {
 
   fs.writeFileSync(
     path.join(outDir, "_manifest.json"),
-    JSON.stringify({ createdAt: new Date().toISOString(), projectRef: PROJECT_REF, tables: summary }, null, 2),
+    JSON.stringify(
+      {
+        createdAt: new Date().toISOString(),
+        projectRef: PROJECT_REF,
+        totals: { rows: totalRows, bytes: totalBytes },
+        tables: summary,
+      },
+      null,
+      2,
+    ),
   );
 
   console.log(`Backup written to ${outDir}`);
   for (const [table, result] of Object.entries(summary)) {
-    console.log(`  ${String(result).padStart(8)}  ${table}`);
+    if (typeof result === "string") console.log(`  ${result}  ${table}`);
+    else
+      console.log(
+        `  ${String(result.rows).padStart(8)} rows  ${(result.bytes / 1024).toFixed(0).padStart(6)} KB  ${table}`,
+      );
   }
+  console.log(`\n  ${totalRows} rows, ${(totalBytes / 1024 / 1024).toFixed(1)} MB total`);
   if (failures > 0) {
     console.error(`\n${failures} table(s) failed — this backup is INCOMPLETE.`);
     process.exit(1);

@@ -18,7 +18,7 @@ import {
   topicSlugOf,
 } from "@/lib/topicUrls";
 import {
-  FileText, BookOpen, Play, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw,
+  FileText, BookOpen, Play, ArrowRight, Pencil, ExternalLink, Download,
   Layers, Archive, Target, Lock,
 } from "lucide-react";
 import { usePlanAccess } from "@/components/PreviewLimit";
@@ -33,6 +33,7 @@ import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
+import { StudyLoadError } from "@/components/StudyLoadError";
 import type { Tables } from "@/integrations/supabase/types";
 
 export default function TopicNotes() {
@@ -215,25 +216,15 @@ export default function TopicNotes() {
 
   if (error || !subjectMeta || !subjectLevel || !topicTitle) {
     return (
-      <Card>
-        <CardHeader>
-          {/* A failed request is not the same as a missing topic. Saying
-              "not found" for a dropped connection sent students looking for a
-              problem in their notes instead of retrying. */}
-          <CardTitle>
-            {error && !/not found/i.test(error) ? "Couldn't load this topic" : "Topic not found"}
-          </CardTitle>
-          <CardDescription>{error ?? "The topic you are looking for is not yet available."}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          <Button variant="outline" className="gap-2" onClick={bumpRevision}>
-            <RotateCcw className="h-4 w-4" /> Try again
-          </Button>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <StudyLoadError
+        failure={error}
+        loadTitle="Couldn't load this topic"
+        missingTitle="Topic not found"
+        missingDetail="The topic you are looking for is not yet available."
+        onRetry={bumpRevision}
+        backTo="/subjects"
+        backLabel="Back to subjects"
+      />
     );
   }
 

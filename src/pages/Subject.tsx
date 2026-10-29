@@ -17,12 +17,13 @@ import { levelHead } from "@/lib/levelSeo";
 import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
 import { usePreviewSlice, PreviewLimit, usePlanAccess } from "@/components/PreviewLimit";
 import { openableNoteIds, isLockedNote } from "@/lib/noteAccess";
-import { openableLessonIds, isLockedLesson, courseOrder } from "@/lib/lessonAccess";
+import { openableLessonIds, isLockedLesson, courseOrder, rankTopics } from "@/lib/lessonAccess";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
-import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw, Lock } from "lucide-react";
+import { StudyLoadError } from "@/components/StudyLoadError";
+import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, Lock } from "lucide-react";
 import { loadFailureMessage } from "@/lib/net";
 import type { Tables } from "@/integrations/supabase/types";
 
@@ -183,10 +184,9 @@ export default function Subject() {
   // The level's topics in course order, so the lesson list reads as a sequence
   // (topic, then lesson) and the free lesson is simply the first row rather than
   // an arbitrary one from the middle.
-  const topicRank = useMemo(() => {
-    const ordered = [...topics].sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
-    return new Map(ordered.map((t, i) => [t.id, i]));
-  }, [topics]);
+  // Ranked by the shared helper: the index ranks topics the same way, so the
+  // free lesson is the same row on both surfaces.
+  const topicRank = useMemo(() => rankTopics(topics), [topics]);
   const lessonOrder = useMemo(() => courseOrder(lessons, topicRank), [lessons, topicRank]);
 
   const visibleLessons = lessonOrder.filter((l) => matchesTopic(l.topic_id) && matchesText(l.title, topicNameMap.get(l.topic_id)));
@@ -203,8 +203,10 @@ export default function Subject() {
   // typing in the search box cannot hand out a different free item.
   const { hasPaid } = usePlanAccess();
   const openableLessons = useMemo(
-    () => openableLessonIds(lessonOrder, hasPaid, topicRank),
-    [lessonOrder, hasPaid, topicRank],
+    // `isAdminRole` is included because `hasPaid` is only the subscription flag:
+    // an admin was shown locks over content they own.
+    () => openableLessonIds(lessonOrder, hasPaid || isAdminRole, topicRank),
+    [lessonOrder, hasPaid, isAdminRole, topicRank],
   );
   const openableNotes = useMemo(
     // `materials`, not `visibleMaterials`: the free note is a fixed choice per
@@ -264,20 +266,15 @@ export default function Subject() {
 
   if (loadError || !subject || !subjectLevel) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>{loadError ? "Couldn't load this subject" : "Subject not found"}</CardTitle>
-          <CardDescription>{loadError ?? "This subject or level isn't available yet."}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          <Button variant="outline" className="gap-2" onClick={() => setRetryKey((k) => k + 1)}>
-            <RotateCcw className="h-4 w-4" /> Try again
-          </Button>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <StudyLoadError
+        failure={loadError}
+        loadTitle="Couldn't load this subject"
+        missingTitle="Subject not found"
+        missingDetail="This subject or level isn't available yet."
+        onRetry={() => setRetryKey((k) => k + 1)}
+        backTo="/subjects"
+        backLabel="Back to subjects"
+      />
     );
   }
 

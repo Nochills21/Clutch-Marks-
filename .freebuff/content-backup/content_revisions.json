@@ -2460,6 +2460,21 @@
   "created_at": "2026-10-21 07:39:31.356574+00"
  },
  {
+  "id": "1623445f-b73d-44dd-a102-92176ee0d1e5",
+  "entity_type": "lesson",
+  "entity_id": "22eb9563-89ab-4c9c-a402-cb3e60acacf7",
+  "title": "Processor Fundamentals",
+  "content": "<p>`# Processor Fundamentals</p>\n<h3>The FDE Cycle</h3>\n<ul>\n<li><strong>Fetch</strong>: PC → MAR; read memory → MDR; instruction → CIR; PC increments</li>\n<li><strong>Decode</strong>: control unit interprets the opcode</li>\n<li><strong>Execute</strong>: ALU/registers act; results stored; PC may be overwritten (jumps)</li>\n</ul>\n<h3>Registers</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>Register</th><th>Role</th></tr>\n<tr><td>PC</td><td>address of next instruction</td></tr>\n<tr><td>MAR</td><td>address being accessed</td></tr>\n<tr><td>MDR</td><td>data in transit</td></tr>\n<tr><td>CIR</td><td>current instruction</td></tr>\n<tr><td>ACC</td><td>accumulator results</td></tr>\n</table>\n<h3>Buses</h3>\n<ul>\n<li><strong>Address bus</strong>: one-way, CPU → memory (width sets addressable space)</li>\n<li><strong>Data bus</strong>: two-way, carries instructions/data</li>\n<li><strong>Control bus</strong>: timing and command signals</li>\n</ul>\n<h3>Interrupts</h3>\n<p>Signals that pause the current program (I/O complete, timer, errors). The CPU saves context, runs the ISR, then resumes — enabling multitasking.</p>\n<h3>Assembly and Addressing</h3>\n<p>Immediate (#5), direct (address holds value), indirect (address points to address), indexed (base + offset — arrays), relative (PC + offset — jumps).</p>\n<p><strong>Example:</strong> LDD 100 loads from 100 (direct); LDI 100 loads from the address stored at 100 (indirect).</p>\n<p><strong>Exam tips:</strong> trace register contents step by step in trace tables; explain the stored program concept — instructions as data in memory.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:03.530371+00"
+ },
+ {
   "id": "16486fce-1fdd-4a9b-94b4-d5c7f1021692",
   "entity_type": "material",
   "entity_id": "cad3375c-cc3e-4846-8a72-441509ebada1",
@@ -4365,6 +4380,21 @@
   "created_at": "2026-10-21 07:39:31.356574+00"
  },
  {
+  "id": "2a728849-4469-45a2-aa2d-95acb6e7cd1c",
+  "entity_type": "lesson",
+  "entity_id": "b937d0e9-f679-4342-a264-d8e17f9947eb",
+  "title": "Information Representation",
+  "content": "<p>`# Information Representation</p>\n<h3>Number Systems and Ranges</h3>\n<p>Unsigned binary with n bits stores 0 to 2ⁿ − 1. Two's complement represents negatives: the MSB has value −2ⁿ⁻¹.</p>\n<p><strong>Example:</strong> 8-bit two's complement of −5: 11111011 (−128 + 64 + 32 + 16 + 8 + 2 + 1).</p>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>System</th><th>Base</th><th>Digits</th></tr>\n<tr><td>Binary</td><td>2</td><td>0–1</td></tr>\n<tr><td>Hexadecimal</td><td>16</td><td>0–9, A–F</td></tr>\n<tr><td>BCD</td><td>—</td><td>4 bits per decimal digit</td></tr>\n</table>\n<h3>Binary Arithmetic</h3>\n<p>Add: 0+0=0, 0+1=1, 1+1=0 carry 1, 1+1+1=1 carry 1. Overflow happens when a result exceeds the word size.</p>\n<p>Subtraction uses two's complement addition (A − B = A + (−B)).</p>\n<h3>Text</h3>\n<ul>\n<li><strong>ASCII</strong>: 7 bits, 128 characters, English only</li>\n<li><strong>Unicode</strong>: universal scripts; UTF-8 is variable-width (1–4 bytes)</li>\n</ul>\n<h3>Images and Sound</h3>\n<ul>\n<li>Bitmap: pixels with colour depth (bits per pixel). File size = width × height × depth. <em>Key:</em> width and height are counts of pixels; depth = bits used for each pixel; the product is in bits, so divide by 8 for bytes.</li>\n<li>Sound: sampling rate (Hz) × bit depth × duration × channels.</li>\n<li>Resolution trade-off: fidelity vs size.</li>\n</ul>\n<h3>Compression</h3>\n<ul>\n<li><strong>Lossless</strong> (ZIP, run-length encoding): exact reconstruction — required for text/code</li>\n<li><strong>Lossy</strong> (JPEG, MP3): discards perceptually minor data — smaller files</li>\n</ul>\n<p><strong>Example:</strong> RLE of AAABBBCC → 3A3B2C.</p>\n<p><strong>Exam tips:</strong> show working for two's complement conversions; state why compression type suits the data (text must be lossless).</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:03.190171+00"
+ },
+ {
   "id": "2aae7643-39f9-40f2-a10e-edeb1d667180",
   "entity_type": "material",
   "entity_id": "676e85b2-92ba-4147-a226-ffb7f1a011a0",
@@ -5053,6 +5083,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-26 05:02:55.426738+00"
+ },
+ {
+  "id": "2ff5bf4f-0429-4c38-bde8-fed65b43ee35",
+  "entity_type": "lesson",
+  "entity_id": "c2dd368b-dd1f-4a66-905e-0ee866122ead",
+  "title": "System Software and Security",
+  "content": "<p>`# System Software and Security</p>\n<h3>Operating System Roles</h3>\n<ul>\n<li>Manage memory (paging/segmentation, virtual memory to disk)</li>\n<li>Schedule processes (round robin, priorities)</li>\n<li>Handle I/O via device drivers and spooling</li>\n<li>Provide the UI, file systems, and security (users, permissions)</li>\n</ul>\n<h3>Translators</h3>\n<ul>\n<li><strong>Assembler</strong>: assembly → machine code (1:1)</li>\n<li><strong>Compiler</strong>: whole source → machine code, reports all errors, produces standalone executables</li>\n<li><strong>Interpreter</strong>: line-by-line execution, stops at first error, needs the interpreter present</li>\n</ul>\n<p><strong>Bytecode + VM</strong> (e.g. Java) combines both: compile once, run anywhere the VM exists.</p>\n<h3>Linkers and Loaders</h3>\n<p>Static linking copies library code into the executable; dynamic linking binds at runtime (smaller files, shared libraries). The loader places the program in memory, relocating addresses.</p>\n<h3>IDEs</h3>\n<p>Editors with syntax highlighting, autocompletion, debugger (breakpoints, stepping, variable watch), and integrated compilation.</p>\n<h3>Malware and Defences</h3>\n<p>Viruses, worms, trojans, spyware, phishing. Defences: antivirus (signature + heuristic scanning), firewalls (packet filtering by port/IP), sandboxing, user education, patches.</p>\n<p><strong>Exam tips:</strong> compare compiler vs interpreter with concrete error-handling differences; explain firewall rules using ports and addresses.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:04.365585+00"
  },
  {
   "id": "306c2db4-725c-4336-908d-74b9e77c16b0",
@@ -8310,6 +8355,21 @@
   "created_at": "2026-10-24 08:04:12.097245+00"
  },
  {
+  "id": "4a186fe2-403b-4bcd-882e-a8448c9c2781",
+  "entity_type": "lesson",
+  "entity_id": "ce73ce3f-6763-4b08-847e-7b76e563fb65",
+  "title": "Databases",
+  "content": "<p>`# Databases</p>\n<h3>Relational Basics</h3>\n<p>Tables (relations) of records with fields. <strong>Keys</strong>:</p>\n<ul>\n<li>Primary key: unique identifier</li>\n<li>Foreign key: references another table's PK — creates relationships</li>\n<li>Candidate/secondary keys: other unique identifiers</li>\n</ul>\n<h3>Normalisation</h3>\n<ul>\n<li><strong>1NF</strong>: atomic values, no repeating groups</li>\n<li><strong>2NF</strong>: 1NF + no partial dependency on a composite key</li>\n<li><strong>3NF</strong>: 2NF + no transitive dependencies (non-key → non-key)</li>\n</ul>\n<p><strong>Example:</strong> (StudentID, Course, CourseFee) has CourseFee depending on Course, not StudentID — move course data to its own table (3NF).</p>\n<h3>SQL</h3>\n<pre><code>SELECT name, grade FROM students\n  WHERE grade &gt;= 'A' ORDER BY name;\nINSERT INTO students VALUES (...);\nUPDATE students SET grade = 'B' WHERE id = 5;\nDELETE FROM students WHERE id = 5;</code></pre>\n<p>Joins combine tables: <code>FROM students s JOIN enrolments e ON s.id = e.sid</code>.</p>\n<h3>Transactions</h3>\n<p>ACID: <strong>A</strong>tomicity (all or nothing), <strong>C</strong>onsistency (rules hold), <strong>I</strong>solation (no interference), <strong>D</strong>urability (committed = permanent). Record locking prevents conflicting simultaneous edits.</p>\n<p><strong>Exam tips:</strong> justify each normal form step with the dependency removed; write SQL with correct WHERE clauses to avoid accidental full-table updates.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:02.010042+00"
+ },
+ {
   "id": "4a1aa24d-46f5-48a0-92e9-1609facc988a",
   "entity_type": "material",
   "entity_id": "d3861842-85bc-46a9-9b8f-c33c61f75777",
@@ -11505,6 +11565,21 @@
   "created_at": "2026-10-21 07:39:31.356574+00"
  },
  {
+  "id": "678ca992-35a5-4f16-8a91-21882e9fd7d2",
+  "entity_type": "lesson",
+  "entity_id": "4656c761-2e2d-4697-8558-bef6877764c6",
+  "title": "Programming and Algorithms",
+  "content": "<p>`# Programming and Algorithms</p>\n<h3>Design Approaches</h3>\n<ul>\n<li><strong>Top-down (stepwise refinement)</strong>: decompose into modules — planned structure</li>\n<li><strong>Object-oriented</strong>: classes encapsulating state + behaviour — reusability</li>\n<li><strong>WAD (write all down)</strong>: rapid prototyping — evolves during coding</li>\n</ul>\n<h3>Pseudocode Conventions</h3>\n<pre><code>DECLARE x : INTEGER\nIF x &gt; 10 THEN ... ELSE ... ENDIF\nWHILE ... ENDWHILE\nFOR i ← 1 TO n ... NEXT i\nFUNCTION f(a) RETURNS INTEGER</code></pre>\n<h3>Searching</h3>\n<ul>\n<li><strong>Linear</strong>: check each item, O(n), works unsorted</li>\n<li><strong>Binary</strong>: halve a sorted list each step, O(log n)</li>\n</ul>\n<p><strong>Example:</strong> 1,000,000 items: binary search needs ≤ 20 comparisons.</p>\n<h3>Sorting</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Idea</th></tr>\n<tr><td>Bubble</td><td>O(n)</td><td>O(n²)</td><td>swap neighbours</td></tr>\n<tr><td>Insertion</td><td>O(n)</td><td>O(n²)</td><td>insert into sorted prefix</td></tr>\n<tr><td>Merge</td><td>O(n log n)</td><td>O(n log n)</td><td>divide and merge</td></tr>\n</table>\n<p><strong>Merge sort example:</strong> [5,2,9,1] → [5,2][9,1] → [2,5][1,9] → [1,2,5,9].</p>\n<h3>Recursion</h3>\n<p>A function calling itself with a base case. Factorial: f(0)=1, f(n)=n·f(n−1). Stack frames handle state. <em>Key:</em> f(n) = n factorial, the product 1 × 2 × … × n (no units); n = a non-negative integer; the base case f(0) = 1 is what stops the recursion.</p>\n<p><strong>Exam tips:</strong> state the Big-O and justify it; for traces, tabulate variable changes per iteration.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:03.90897+00"
+ },
+ {
   "id": "67b64e38-e912-4b53-ae5c-5817be098c31",
   "entity_type": "material",
   "entity_id": "cb996b1e-2ddd-4e29-87e4-a19c3f0a97db",
@@ -13605,6 +13680,21 @@
   "created_at": "2026-10-24 12:18:26.397661+00"
  },
  {
+  "id": "7b28b815-c241-47c9-ae02-39e2f869a619",
+  "entity_type": "lesson",
+  "entity_id": "3eb037f5-0669-498e-a504-188fdef8b532",
+  "title": "Hardware and Logic Gates",
+  "content": "<p>`# Hardware and Logic Gates</p>\n<h3>Logic Gates</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>\n</table>\n<p>NOT inverts; NAND is 'AND then NOT'; XOR outputs 1 when inputs differ.</p>\n<h3>Boolean Algebra Laws</h3>\n<ul>\n<li>De Morgan: (A·B)′ = A′ + B′; (A + B)′ = A′ · B′</li>\n<li>Distribution: A·(B + C) = A·B + A·C</li>\n<li>Absorption: A + A·B = A <em>Key:</em> A, B and C are Boolean variables that hold 0 or 1; · means AND and + means OR, so these laws are algebra for logic, not arithmetic.</li>\n</ul>\n<p><strong>Example:</strong> simplify A + A′B = (A + A′)(A + B) = A + B.</p>\n<h3>Constructing Circuits</h3>\n<p>Truth table → Boolean expression → gates. A half adder: S = A XOR B, C = A AND B. <em>Key:</em> A and B = the two input bits; S = sum output bit; C = carry output bit; all four are 0 or 1.</p>\n<h3>Flip-Flops (Bistables)</h3>\n<ul>\n<li><strong>SR latch</strong>: set/reset, invalid state S=R=1</li>\n<li><strong>JK</strong>: like SR but J=K=1 toggles</li>\n<li>Clock signals synchronise state changes</li>\n</ul>\n<h3>Von Neumann Model</h3>\n<p>CPU (ALU, control unit, registers: PC, MAR, MDR, ACC) + memory + I/O, sharing one bus system; instructions fetched–decoded–executed in cycles.</p>\n<p><strong>Exam tips:</strong> write truth tables fully; simplify before drawing circuits to save gates, and name the law you use.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 2,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:02.840318+00"
+ },
+ {
   "id": "7b38e6a0-09dd-4e77-b83c-dff83a1d3e8a",
   "entity_type": "material",
   "entity_id": "c6566b28-d871-4546-b6d3-7a4453dba5c7",
@@ -14235,6 +14325,21 @@
   "created_at": "2026-10-28 07:10:02.57138+00"
  },
  {
+  "id": "7ff4c696-14ea-4c72-b3da-21c8e3fbab79",
+  "entity_type": "lesson",
+  "entity_id": "3791a550-6574-41ac-ae00-4ffb6eb1c589",
+  "title": "Data Structures",
+  "content": "<p>`# Data Structures</p>\n<h3>Arrays and Lists</h3>\n<p>Contiguous, indexed, O(1) access; fixed size. 2D arrays: element (i, j) — rows × columns.</p>\n<h3>Stack (LIFO)</h3>\n<p>push/pop/peek at one end. Uses: call stacks, undo, expression evaluation, DFS.</p>\n<p><strong>Example:</strong> evaluating 3 4 + : push 3, push 4, pop both, push 7.</p>\n<h3>Queue (FIFO)</h3>\n<p>enqueue at rear, dequeue at front. Uses: print queues, schedulers, BFS. A <strong>circular queue</strong> reuses vacated slots with head/tail pointers modulo capacity.</p>\n<h3>Linked List</h3>\n<p>Nodes with data + pointer. Insert/delete O(1) at a known node; search O(n). Traversal follows next pointers until null.</p>\n<h3>Hash Table</h3>\n<p>Hash function maps keys → index. Collisions resolved by chaining or open addressing. Average O(1) lookup, worst O(n).</p>\n<h3>Complexity</h3>\n<table border=\"1\" cellpadding=\"6\">\n<tr><th>Operation</th><th>Array</th><th>Linked List</th><th>Hash</th></tr>\n<tr><td>Access by index</td><td>O(1)</td><td>O(n)</td><td>—</td></tr>\n<tr><td>Search</td><td>O(n)</td><td>O(n)</td><td>O(1) avg</td></tr>\n<tr><td>Insert/delete</td><td>O(n)</td><td>O(1)</td><td>O(1) avg</td></tr>\n</table>\n<p><strong>Exam tips:</strong> trace pointers carefully in linked-list diagrams; for circular queues, show head/tail movement and overflow/underflow checks.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:01.569443+00"
+ },
+ {
   "id": "7ff97bc3-ffcf-42d8-911f-c1fc5f3254b4",
   "entity_type": "material",
   "entity_id": "153c8051-6b06-48ca-b39a-24d41b791d2c",
@@ -14773,6 +14878,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-21 07:39:31.356574+00"
+ },
+ {
+  "id": "8480b646-a335-4e93-abef-7259643a1768",
+  "entity_type": "lesson",
+  "entity_id": "277852c8-133e-496e-9d2b-a746500f20d0",
+  "title": "Communication and Networking",
+  "content": "<p>`# Communication and Networking</p>\n<h3>Transmission</h3>\n<ul>\n<li><strong>Serial</strong>: one bit at a time — cheaper, reliable over distance</li>\n<li><strong>Parallel</strong>: multiple bits simultaneously — fast but suffers skew and crosstalk over long runs</li>\n<li>Direction: simplex (one way), half-duplex (alternating), full-duplex (both ways)</li>\n</ul>\n<h3>Packets and Protocols</h3>\n<p>Data splits into packets with header (addresses, sequence) and trailer (checksum). A <strong>protocol</strong> is an agreed rule set — without one, devices cannot interpret signals.</p>\n<ul>\n<li><strong>TCP/IP</strong> stack: application → transport → network → link</li>\n<li><strong>HTTP/HTTPS</strong>: web transfer; HTTPS encrypts with TLS</li>\n<li><strong>FTP</strong>: file transfer; <strong>SMTP/POP3/IMAP</strong>: email</li>\n</ul>\n<h3>Network Types</h3>\n<ul>\n<li><strong>LAN</strong>: small site, privately owned; <strong>WAN</strong>: large geographic scale (the internet)</li>\n<li>Topologies: bus, star, mesh (star is most common — central switch)</li>\n</ul>\n<h3>Hardware</h3>\n<p>Routers join networks by IP; switches forward frames by MAC within a LAN; gateways translate protocols.</p>\n<h3>Client-Server vs Peer-to-Peer</h3>\n<p>Client-server: central services, easy administration, single point of failure. P2P: every node shares files directly — cheap, hard to manage (torrents, blockchain).</p>\n<p><strong>Exam tips:</strong> explain packet switching with header/trailer details; justify protocol choice per application (email vs streaming).</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:01.187509+00"
  },
  {
   "id": "8496ceea-c24d-4157-a045-2e7d2ae0d88c",
@@ -20293,6 +20413,21 @@
   "created_by": null,
   "created_by_username": null,
   "created_at": "2026-10-21 04:32:19.933283+00"
+ },
+ {
+  "id": "bb1cfd9a-132d-4920-847c-a0cca911131b",
+  "entity_type": "lesson",
+  "entity_id": "bd4ef025-292c-48f5-8ebb-a2a76682f1c3",
+  "title": "Ethics and AI",
+  "content": "<p>`# Ethics and AI</p>\n<h3>Professional Bodies</h3>\n<p><strong>ACM/IEEE-CS</strong> and <strong>BCS</strong> codes: public interest, competence, integrity, avoid harm, respect privacy. Violations cost trust and employment.</p>\n<h3>Ethical Scenarios</h3>\n<ul>\n<li>Collecting more personal data than needed (privacy)</li>\n<li>Releasing software with known bugs that risks safety (competence/honesty)</li>\n<li>Automated decisions without human review (accountability)</li>\n</ul>\n<p>Laws: data protection (GDPR-style), computer misuse (unauthorised access is a crime regardless of intent).</p>\n<h3>AI Characteristics</h3>\n<p>Systems exhibiting: planning, learning, reasoning, problem-solving, perception, knowledge representation.</p>\n<h3>Machine Learning</h3>\n<ul>\n<li><strong>Supervised</strong>: learns from labelled data (spam detection)</li>\n<li><strong>Unsupervised</strong>: finds structure in unlabelled data (clustering)</li>\n<li><strong>Reinforcement</strong>: learns by reward signals (game agents)</li>\n</ul>\n<p>Training/evaluation loop: fit on training data, test on unseen data to avoid overfitting. Neural networks adjust weights via backpropagation.</p>\n<h3>Ethics of AI</h3>\n<p>Bias in training data → unfair outputs; opaque decisions → accountability gaps; job displacement; autonomous weapons.</p>\n<p><strong>Exam tips:</strong> structure ethics answers as: identify the principle → apply to the scenario → give consequences for stakeholders.</p>",
+  "extra": {
+   "video_url": null,
+   "sort_order": 1
+  },
+  "version": 1,
+  "created_by": null,
+  "created_by_username": null,
+  "created_at": "2026-10-29 10:22:02.439532+00"
  },
  {
   "id": "bb202cc2-3217-43dc-9e5e-351ade637595",
