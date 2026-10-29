@@ -86,13 +86,49 @@ export function isTransientError(error: unknown): boolean {
  * else (an RLS denial, a bad request) carries the server's own reason, which is
  * far more useful than a generic apology.
  */
+/**
+ * Strip technical noise out of a message before a student reads it.
+ *
+ * Two audiences read an error string: the student, who needs to know what to do
+ * next, and us, who read the logs. One string cannot serve both — the browser
+ * puts `TypeError: Failed to fetch` in `message`, PostgREST puts SQLSTATE codes,
+ * constraint names and RLS wording there, and rendering that at a student reads
+ * as a broken site (and hands an attacker a map of the schema). This keeps the
+ * actionable sentence and replaces the rest with something a person can act on.
+ *
+ * Deliberately conservative: a message it does not recognise is left alone, so
+ * server copy written for students ("That username is already taken.") still
+ * passes through untouched.
+ */
+export function sanitizeErrorMessage(value: unknown, fallback = "Please try again."): string {
+  const raw = messageOf(value).replace(/\s+/g, " ").trim();
+  if (!raw || raw === "Unknown error") return fallback;
+  // A serialised error body (`{"code":"23505",…}`) is never for a student.
+  if (/^[\[{].*[\]}]$/.test(raw)) return fallback;
+  // Internal vocabulary: PostgREST codes, constraints, SQL, RLS, auth plumbing.
+  if (
+    /PGRST\d{3}|duplicate key value|violates (foreign key|unique|check) constraint|invalid input syntax|row-level security|permission denied for (table|schema|function)|schema cache|relation ".*" does not exist|JWT (expired|invalid)|invalid claim/i.test(
+      raw,
+    )
+  ) {
+    return fallback;
+  }
+  // `TypeError: Failed to fetch` and its friends are the same story as an
+  // offline phone, told in the browser's words.
+  const text = raw.replace(/^(TypeError|DOMException|Error):\s*/i, "").trim();
+  if (!text) return fallback;
+  if (isTransientError({ message: text })) return "Check your connection and try again.";
+  return text.length > 180 ? `${text.slice(0, 177).trimEnd()}…` : text;
+}
+
 export function loadFailureMessage(what: string, error?: unknown): string {
   const base = `Couldn't load ${what}.`;
   if (!error) return `${base} Please try again.`;
-  const detail = messageOf(error).trim();
-  if (!detail || isTransientError(error) || detail === "Unknown error") {
-    return `${base} Check your connection and try again.`;
-  }
+  // The reason is sanitised here rather than at each of the pages that render
+  // it, so a raw exception cannot reach the DOM even from a surface nobody
+  // remembered to update.
+  const detail = sanitizeErrorMessage(error, "");
+  if (!detail) return `${base} Please try again.`;
   return `${base} ${detail}`;
 }
 
@@ -118,7 +154,8 @@ export function timeoutFor(url: string, method = "GET"): number {
   return DEFAULT_TIMEOUT_MS;
 }
 
-export const fetchWithTimeout: typeof fetch = async (input, init) => {
+/** One attempt: the abortable, deadline-bounded request itself. */
+async function fetchOnce(input: RequestInfo | URL, init: RequestInit | undefined): Promise<Response> {
   const headers = new Headers(init?.headers ?? undefined);
   const override = headers.get(TIMEOUT_HEADER);
   if (override !== null) headers.delete(TIMEOUT_HEADER);
@@ -146,6 +183,41 @@ export const fetchWithTimeout: typeof fetch = async (input, init) => {
   } finally {
     clearTimeout(timer);
     external?.removeEventListener("abort", forwardAbort);
+  }
+}
+
+/**
+ * `fetch` with a hard timeout, and — for reads — automatic retries with
+ * jittered backoff.
+ *
+ * A dropped GET is nearly always a flake, and every reader goes through this
+ * function, so retrying here covers the whole app instead of the pages each
+ * remembering to wrap their own query. Deliberately narrow: writes are never
+ * retried (a timeout does not mean the server did not commit), a request that
+ * already spent its whole timeout budget is not retried, and a caller that
+ * aborted its own request is not second-guessed.
+ *
+ * Three attempts, 0–400 ms then 0–800 ms of jitter, so a flaky mobile connection
+ * recovers before any page has to show an error.
+ */
+export const fetchWithTimeout: typeof fetch = async (input, init) => {
+  const method = (init?.method ?? "GET").toUpperCase();
+  const retryable = method === "GET" || method === "HEAD";
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      return await fetchOnce(input, init);
+    } catch (error) {
+      const timedOut = (error as { name?: unknown } | null)?.name === "TimeoutError";
+      const giveUp =
+        !retryable ||
+        attempt >= 3 ||
+        timedOut ||
+        init?.signal?.aborted === true ||
+        !isTransientError(error);
+      if (giveUp) throw error;
+      const ceiling = 400 * 2 ** (attempt - 1);
+      await new Promise((resolve) => setTimeout(resolve, Math.random() * ceiling));
+    }
   }
 };
 

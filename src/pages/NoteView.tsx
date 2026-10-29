@@ -12,7 +12,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { ManuscriptHead, ManuscriptSection } from "@/components/StudyManuscript";
-import { QueryError } from "@/components/QueryError";
+import { StudyLoadError } from "@/components/StudyLoadError";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { useToast } from "@/hooks/useToast";
 import { useAuth } from "@/lib/auth";
@@ -43,11 +43,14 @@ interface MaterialPage {
 
 export default function NoteView() {
   const { materialId } = useParams();
-  const { failure, report } = useLoadFailure("this note");
+  const { failure, report, clear } = useLoadFailure("this note");
   const { user } = useAuth();
   const { toast } = useToast();
   const [material, setMaterial] = useState<MaterialPage | null>(null);
   const [loading, setLoading] = useState(true);
+  // Bumped by the error card's Try again: the reader reloads this note in place
+  // rather than reloading the whole document.
+  const [reloadKey, setReloadKey] = useState(0);
   // One note per subject-level is free; this page is also reachable by direct
   // URL, so the lock has to be decided here too or a shared link sidesteps the
   // subject hub. `null` means "not resolved" and locks nothing.
@@ -65,7 +68,10 @@ export default function NoteView() {
         .eq("id", materialId)
         .maybeSingle();
       if (cancelled) return;
+      // A retry that succeeds must clear the old failure, or the card would sit
+      // there over a note that is now loaded.
       if (error) report(error);
+      else clear();
       setMaterial((data as unknown as MaterialPage) ?? null);
       setLoading(false);
     };
@@ -73,7 +79,7 @@ export default function NoteView() {
     return () => {
       cancelled = true;
     };
-  }, [materialId, report]);
+  }, [materialId, report, clear, reloadKey]);
 
   useEffect(() => {
     const levelId = material?.topics?.subject_levels?.id;
@@ -89,21 +95,24 @@ export default function NoteView() {
     return <div className="space-y-3"><Skeleton className="h-10 w-48" /><Skeleton className="h-40 rounded-xl" /></div>;
   }
 
-  if (failure) {
+  // A failed request and a missing row are different answers, and this page is
+  // reachable by a shared link, so both go through the card the topic pages use:
+  // it tells a dropped connection apart from a note that is not there, and keeps
+  // the same two ways out.
+  if (failure || !material || !material.content) {
     return (
       <div className="space-y-4">
         <SEOHead title="Notes — Clutch Marks" description="Revision notes on Clutch Marks." path={`/notes/${materialId}`} />
-        <QueryError message={failure} onRetry={() => window.location.reload()} />
+        <StudyLoadError
+          failure={failure}
+          loadTitle="Couldn't load this note"
+          missingTitle="Note not found"
+          missingDetail="This note is no longer available."
+          onRetry={() => setReloadKey((k) => k + 1)}
+          backTo="/notes"
+          backLabel="Back to Notes"
+        />
       </div>
-    );
-  }
-
-  if (!material || !material.content) {
-    return (
-      <Card><CardContent className="py-12 text-center space-y-3">
-        <p className="text-muted-foreground">Note not found.</p>
-        <Button variant="outline" asChild><Link to="/notes">Back to Notes</Link></Button>
-      </CardContent></Card>
     );
   }
 

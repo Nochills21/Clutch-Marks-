@@ -1,6 +1,6 @@
 // Per-topic notes page (SEO-friendly URL).
 import { useEffect, useMemo, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { TopicBreadcrumb } from "@/components/TopicBreadcrumb";
 import { subjectAccent, LEVELS, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
+import { canonicalLevelSlug, levelAliasCodes, levelNeedsRedirect } from "@/lib/levelSlug";
 import { ManuscriptHead } from "@/components/StudyManuscript";
 import { topicHead } from "@/lib/topicSeo";
 import {
@@ -117,7 +118,9 @@ export default function TopicNotes() {
           .from("subject_levels")
           .select("*")
           .eq("subject_id", subjectRow.id)
-          .eq("level", (level ?? "").toUpperCase() as SubjectLevelCode)
+          // `igcse` and `ol` are one qualification (see @/lib/levelSlug): ask for
+          // both, then redirect to whichever address the row actually lives at.
+          .in("level", levelAliasCodes(level ?? ""))
           .limit(1);
         if (slError) throw slError;
         const levelRow = sl?.[0] ?? null;
@@ -179,6 +182,17 @@ export default function TopicNotes() {
     );
   }
   // "Does this reader still have to pick subjects?" is asked in one place.
+  // A hub and its alias are one page: replace a non-canonical level segment
+  // instead of rendering the same topic at two URLs.
+  if (subjectLevel && levelNeedsRedirect(subjectLevel.level, level ?? "")) {
+    return (
+      <Navigate
+        replace
+        to={`/study/${subject}/${canonicalLevelSlug(subjectLevel.level)}/${topicSlug}/notes`}
+      />
+    );
+  }
+
   if (needsSubjectPick) {
     return (
       <div className="space-y-6">

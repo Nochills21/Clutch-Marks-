@@ -1,6 +1,6 @@
 // Subject-level hub: materials, questions, exams, question-bank tabs.
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, Navigate, useParams, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { MathText } from "@/lib/mathText";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,6 +14,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { levelHead } from "@/lib/levelSeo";
+import { canonicalLevelSlug, levelAliasCodes, levelNeedsRedirect } from "@/lib/levelSlug";
 import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
 import { usePreviewSlice, PreviewLimit, usePlanAccess } from "@/components/PreviewLimit";
 import { openableNoteIds, isLockedNote } from "@/lib/noteAccess";
@@ -99,15 +100,20 @@ export default function Subject() {
       setSubject(subj ?? null);
       if (!subj) { setLoading(false); return; }
 
+      // `igcse` and `ol` are the same qualification on a Cambridge subject, so
+      // the lookup asks for both codes and the redirect below picks the
+      // canonical address. Before this, /study/chemistry/igcse answered
+      // "Level not found" for a page that existed.
       const { data: sl, error: slError } = await supabase
-        .from("subject_levels").select("*").eq("subject_id", subj.id).eq("level", levelCode).maybeSingle();
+        .from("subject_levels").select("*").eq("subject_id", subj.id).in("level", levelAliasCodes(level)).limit(1);
       if (!active) return;
       if (slError) { setLoadError(loadFailureMessage("this subject", slError)); setLoading(false); return; }
-      setSubjectLevel(sl ?? null);
-      if (!sl) { setLoading(false); return; }
+      const levelRow = sl?.[0] ?? null;
+      setSubjectLevel(levelRow);
+      if (!levelRow) { setLoading(false); return; }
 
       const { data: tp, error: tpError } = await supabase
-        .from("topics").select("*").eq("subject_level_id", sl.id).order("sort_order");
+        .from("topics").select("*").eq("subject_level_id", levelRow.id).order("sort_order");
       if (!active) return;
       if (tpError) { setLoadError(loadFailureMessage("this subject", tpError)); setLoading(false); return; }
       const topicList = tp ?? [];
@@ -219,6 +225,18 @@ export default function Subject() {
   const previewQuestions = usePreviewSlice(questions);
   const visibleAiQuestions = aiQuestions.filter((q) => q.is_ai_generated);
   const previewAiQuestions = usePreviewSlice(visibleAiQuestions);
+
+  // One page per qualification, not one per spelling. `/study/physics/igcse`
+  // resolves the OL row and lands here, so it is replaced with `/ol` instead of
+  // rendering the hub at a second address a crawler could index.
+  if (subjectLevel && levelNeedsRedirect(subjectLevel.level, level)) {
+    return (
+      <Navigate
+        replace
+        to={`/study/${slug}/${canonicalLevelSlug(subjectLevel.level)}${location.search}${location.hash}`}
+      />
+    );
+  }
 
   if (!isAdminRole && !prefsLoaded) {
     return (

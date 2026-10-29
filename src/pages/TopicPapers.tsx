@@ -5,7 +5,7 @@
 // do not host or distribute papers — and nothing is behind the plan. The one
 // paid action is "Submit for marking", our own AI marker.
 import { useEffect, useMemo, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -15,6 +15,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { SEOHead } from "@/components/SEOHead";
 import { TopicBreadcrumb } from "@/components/TopicBreadcrumb";
 import { LEVELS, LEVEL_LABELS, subjectIcon, subjectAccent, type SubjectLevelCode } from "@/lib/subjects";
+import { canonicalLevelSlug, levelAliasCodes, levelNeedsRedirect } from "@/lib/levelSlug";
 import {
   topicNotesPath,
   topicQuizPath,
@@ -101,7 +102,9 @@ export default function TopicPapers() {
         }
         setSubjectMeta(subjectRow);
 
-        const { data: sl, error: slError } = await supabase.from("subject_levels").select("*").eq("subject_id", subjectRow.id).eq("level", (level ?? "").toUpperCase() as SubjectLevelCode).limit(1);
+        // `igcse` and `ol` resolve to the same level; the canonical redirect
+        // below keeps one address for it (see @/lib/levelSlug).
+        const { data: sl, error: slError } = await supabase.from("subject_levels").select("*").eq("subject_id", subjectRow.id).in("level", levelAliasCodes(level ?? "")).limit(1);
         if (slError) throw slError;
         const levelRow = sl?.[0] ?? null;
         if (!levelRow) {
@@ -160,6 +163,15 @@ export default function TopicPapers() {
     );
   }
   // "Does this reader still have to pick subjects?" is asked in one place.
+  if (subjectLevel && levelNeedsRedirect(subjectLevel.level, level ?? "")) {
+    return (
+      <Navigate
+        replace
+        to={`/study/${subject}/${canonicalLevelSlug(subjectLevel.level)}/${topicSlug}/papers`}
+      />
+    );
+  }
+
   if (needsSubjectPick) {
     return (
       <div className="space-y-6">

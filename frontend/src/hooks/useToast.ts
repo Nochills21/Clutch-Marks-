@@ -2,6 +2,7 @@
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
+import { sanitizeErrorMessage } from "@/lib/net";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
@@ -135,20 +136,33 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, "id">;
 
+/**
+ * A toast's description is often `error.message` straight from PostgREST.
+ *
+ * Nineteen call sites passed that through as written, so a dropped request
+ * surfaced as "TypeError: Failed to fetch" over the page. Sanitising at the
+ * dispatch means every screen — including the ones written after this — is
+ * covered, instead of relying on each caller to remember.
+ */
+function safeDescription(description: Toast["description"]): Toast["description"] {
+  return typeof description === "string" ? sanitizeErrorMessage(description) : description;
+}
+
 function toast({ ...props }: Toast) {
   const id = genId();
+  const safe: Toast = { ...props, description: safeDescription(props.description) };
 
   const update = (props: ToasterToast) =>
     dispatch({
       type: "UPDATE_TOAST",
-      toast: { ...props, id },
+      toast: { ...props, description: safeDescription(props.description), id },
     });
   const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
 
   dispatch({
     type: "ADD_TOAST",
     toast: {
-      ...props,
+      ...safe,
       id,
       open: true,
       onOpenChange: (open) => {

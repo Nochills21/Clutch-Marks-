@@ -3,7 +3,9 @@ import {
   DEFAULT_TIMEOUT_MS,
   fetchWithTimeout,
   isTransientError,
+  loadFailureMessage,
   retrySupabase,
+  sanitizeErrorMessage,
   STORAGE_TIMEOUT_MS,
   TIMEOUT_HEADER,
   TimeoutError,
@@ -175,5 +177,124 @@ describe("retrySupabase", () => {
 
     expect(attempts).toBe(1);
     expect(result.error).toEqual({ message: "permission denied", status: 403 });
+  });
+});
+
+describe("fetchWithTimeout retries", () => {
+  it("retries a dropped GET and returns the later attempt", async () => {
+    let calls = 0;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => {
+        calls += 1;
+        if (calls < 3) throw new TypeError("Failed to fetch");
+        return new Response("{}");
+      }),
+    );
+
+    const res = await fetchWithTimeout("https://example.test/rest/v1/topics");
+
+    expect(calls).toBe(3);
+    expect(res.ok).toBe(true);
+  });
+
+  it("gives up after three attempts so a page can show its error", async () => {
+    let calls = 0;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => {
+        calls += 1;
+        throw new TypeError("Failed to fetch");
+      }),
+    );
+
+    await expect(fetchWithTimeout("https://example.test/rest/v1/topics")).rejects.toBeInstanceOf(
+      TypeError,
+    );
+    expect(calls).toBe(3);
+  });
+
+  it("never retries a write, which may already have committed", async () => {
+    let calls = 0;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => {
+        calls += 1;
+        throw new TypeError("Failed to fetch");
+      }),
+    );
+
+    await expect(
+      fetchWithTimeout("https://example.test/rest/v1/attempts", { method: "POST", body: "{}" }),
+    ).rejects.toBeInstanceOf(TypeError);
+    expect(calls).toBe(1);
+  });
+});
+
+describe("sanitizeErrorMessage", () => {
+  it("turns a browser network error into advice", () => {
+    expect(sanitizeErrorMessage(new TypeError("Failed to fetch"))).toBe(
+      "Check your connection and try again.",
+    );
+    expect(sanitizeErrorMessage("TypeError: Failed to fetch")).toBe(
+      "Check your connection and try again.",
+    );
+  });
+
+  it("drops a serialised error body", () => {
+    expect(sanitizeErrorMessage('{"code":"23505","message":"duplicate key"}')).toBe(
+      "Please try again.",
+    );
+  });
+
+  it("drops schema vocabulary a student cannot use", () => {
+    expect(
+      sanitizeErrorMessage('duplicate key value violates unique constraint "profiles_username_unique_idx"'),
+    ).toBe("Please try again.");
+    expect(sanitizeErrorMessage('invalid input syntax for type integer: "abc"')).toBe(
+      "Please try again.",
+    );
+    expect(sanitizeErrorMessage("new row violates row-level security policy for table \"lessons\"")).toBe(
+      "Please try again.",
+    );
+    expect(sanitizeErrorMessage("JWT expired")).toBe("Please try again.");
+  });
+
+  it("leaves copy written for students alone", () => {
+    expect(sanitizeErrorMessage("That username is already taken.")).toBe(
+      "That username is already taken.",
+    );
+    expect(sanitizeErrorMessage("Your PDF is downloading.")).toBe("Your PDF is downloading.");
+  });
+
+  it("caps a runaway message", () => {
+    const long = "x".repeat(400);
+    const out = sanitizeErrorMessage(long);
+    expect(out.length).toBeLessThanOrEqual(180);
+    expect(out.endsWith("…")).toBe(true);
+  });
+
+  it("falls back when there is no message at all", () => {
+    expect(sanitizeErrorMessage(null)).toBe("Please try again.");
+    expect(sanitizeErrorMessage("")).toBe("Please try again.");
+  });
+});
+
+describe("loadFailureMessage", () => {
+  it("names the thing that failed and keeps a usable reason", () => {
+    expect(loadFailureMessage("this subject", new TypeError("Failed to fetch"))).toBe(
+      "Couldn't load this subject. Check your connection and try again.",
+    );
+    expect(loadFailureMessage("this note", { message: "That note was moved." })).toBe(
+      "Couldn't load this note. That note was moved.",
+    );
+  });
+
+  it("never prints an internal error verbatim", () => {
+    const out = loadFailureMessage(
+      "this topic",
+      { message: 'invalid input syntax for type integer: "12abc"' },
+    );
+    expect(out).toBe("Couldn't load this topic. Please try again.");
   });
 });
