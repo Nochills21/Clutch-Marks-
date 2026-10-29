@@ -83,6 +83,11 @@ dist-ssr
 # is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
 # author to run it before a topic's objectives are published.
 !.freebuff/gate-objectives.cjs
+# Route health, not a one-off debug script: drives real Chrome over all 597 study
+# routes and is the check AGENTS.md names for "does every page still render",
+# plus the throwaway-student maker it signs in with.
+!.freebuff/route-health.cjs
+!.freebuff/make-verify-student.cjs
 # The notes-depth gate is content pipeline too: it is the enforcement behind
 # docs/notes-depth.md, and AGENTS.md tells an author to run it before a deepened
 # note is published.

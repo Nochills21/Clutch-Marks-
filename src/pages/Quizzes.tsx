@@ -8,7 +8,7 @@ import { ManuscriptQuestion } from "@/components/StudyManuscript";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Brain,
   Clock,
@@ -31,6 +31,7 @@ import { FREE_PREVIEW_LIMIT, PreviewLimit, usePlanAccess, usePreviewSliceWithLim
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { QuizFinder } from "@/components/QuizFinder";
 import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
 import { formatSeconds, pacingSummary, toTimingRows, type PacingSummary, type QuestionTiming } from "@/lib/pacing";
 
@@ -679,10 +680,20 @@ export default function Quizzes() {
         <h1 className="text-2xl font-bold tracking-tight">Quizzes</h1>
         <p className="text-muted-foreground">Test your knowledge</p>
       </div>
+      {/* Choosing a board, subject and level — and a five-question diagnostic —
+          is the way forward from a list this account cannot see anything in.
+          The old empty state said only "No quizzes available yet." */}
+      <QuizFinder />
       {shownQuizzes.length === 0 ? (
-        <Card className="neon-border bg-card"><CardContent className="flex flex-col items-center py-12">
+        <Card className="neon-border bg-card"><CardContent className="flex flex-col items-center py-10 text-center">
           <Brain className="h-12 w-12 text-muted-foreground/50 mb-4" />
-          <p className="text-muted-foreground">No quizzes available yet.</p>
+          <p className="max-w-md text-muted-foreground">
+            No quizzes match the subjects you have picked yet. The diagnostic above works for every
+            level, and adding a subject brings its quizzes into this list.
+          </p>
+          <Button asChild variant="outline" className="mt-4">
+            <Link to="/subjects">Add a subject</Link>
+          </Button>
         </CardContent></Card>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
