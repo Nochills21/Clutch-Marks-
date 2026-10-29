@@ -28,6 +28,7 @@ import { topicDisplayName, topicHead } from "@/lib/topicSeo";
 import {
   ArrowRight,
   Bookmark,
+  Filter,
   Play,
   FileDown,
   ListChecks,
@@ -37,6 +38,8 @@ import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
 import { StudyLoadError } from "@/components/StudyLoadError";
 import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
+import { ProvenanceBadges, QuestionSolution } from "@/components/QuestionSolution";
+import { boardLabel, isCurrentSyllabus, syllabusFilterCount } from "@/lib/questionProvenance";
 
 interface TopicQuestion {
   id: string;
@@ -48,6 +51,10 @@ interface TopicQuestion {
   is_ai_generated: boolean;
   bookmarked: boolean;
   last_correct: boolean | null;
+  /** Present only when the question is mapped to a board specification point. */
+  statement_code: string | null;
+  statement_title: string | null;
+  statement_years: string | null;
 }
 
 interface GradeRow {
@@ -82,6 +89,10 @@ export default function TopicQuiz() {
   const [bookmarkedQuestions, setBookmarkedQuestions] = useState<TopicQuestion[]>([]);
   // After marking: the whole paper, or only the ones to redo.
   const [reviewOnly, setReviewOnly] = useState(false);
+  // "Current syllabus only": offered only when some question in this bank is
+  // mapped to a statement, because 89% of the bank is not and the filter would
+  // otherwise empty the page it sits on.
+  const [syllabusOnly, setSyllabusOnly] = useState(false);
   const [exporting, setExporting] = useState(false);
   // Bumped by "Try again" to re-run the load effect.
   const [retryKey, setRetryKey] = useState(0);
@@ -171,10 +182,20 @@ export default function TopicQuiz() {
     return topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug);
   }, [subjectMeta, subjectLevel, topicSlug]);
 
+  // The set being practised or reviewed. The syllabus filter narrows this, so a
+  // filtered session is self-consistent: the counters, the submission and the
+  // exported PDF all describe the questions on screen rather than the whole bank.
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
+  const syllabusCount = useMemo(() => syllabusFilterCount(questions, currentYear), [questions, currentYear]);
+  const activeQuestions = useMemo(
+    () => (syllabusOnly ? questions.filter((q) => isCurrentSyllabus(q, currentYear)) : questions),
+    [questions, syllabusOnly, currentYear],
+  );
+
   // One row per question, whatever happened to it. The review, the counters and
   // the exported PDF all read from this derivation, so they cannot disagree.
   const reviewRows = useMemo(() => {
-    return questions.map((question, ordinal) => {
+    return activeQuestions.map((question, ordinal) => {
       const result = results.find((r) => r.question_id === question.id);
       const raw = answers[question.id];
       const picked = typeof raw === "number" ? raw : null;
@@ -185,7 +206,7 @@ export default function TopicQuiz() {
           : "incorrect";
       return { ordinal, question, result, picked, status };
     });
-  }, [questions, results, answers]);
+  }, [activeQuestions, results, answers]);
 
   const counts = useMemo(() => {
     return reviewRows.reduce(
@@ -216,7 +237,7 @@ export default function TopicQuiz() {
 
   const submit = async () => {
     if (!user || !topicId || !subjectLevel) return;
-    const unanswered = questions.filter((q) => answers[q.id] === undefined).length;
+    const unanswered = activeQuestions.filter((q) => answers[q.id] === undefined).length;
     if (unanswered > 0) {
       toast({ title: "Not ready", description: `Answer ${unanswered} more question${unanswered > 1 ? "s" : ""} before submitting.`, variant: "destructive" });
       return;
@@ -229,7 +250,7 @@ export default function TopicQuiz() {
       // the other 31 out of the attempt history and the review ledger, so the
       // groups are graded separately and merged here.
       const groups = new Map<string, TopicQuestion[]>();
-      for (const q of questions) {
+      for (const q of activeQuestions) {
         const group = groups.get(q.quiz_id);
         if (group) group.push(q);
         else groups.set(q.quiz_id, [q]);
@@ -250,10 +271,10 @@ export default function TopicQuiz() {
       if (resultsData.length === 0) throw new Error("No answers were marked — please try again.");
 
       setResults(resultsData);
-      setScore({ correct: correctCount, total: questions.length });
+      setScore({ correct: correctCount, total: activeQuestions.length });
       setSubmitted(true);
       setReviewOnly(false);
-      toast({ title: "Answers submitted", description: `You got ${correctCount}/${questions.length} correct.`, variant: "default" });
+      toast({ title: "Answers submitted", description: `You got ${correctCount}/${activeQuestions.length} correct.`, variant: "default" });
     } catch (e) {
       toast({ title: "Submission failed", description: e.message, variant: "destructive" });
     }
@@ -350,7 +371,8 @@ export default function TopicQuiz() {
     "quiz",
   );
 
-  const topicQuestions = questions.length;
+  const topicQuestions = activeQuestions.length;
+  const board = boardLabel(subjectMeta.slug);
   const percent = (score?.correct ?? 0) / Math.max(1, score?.total ?? 1) * 100;
   const visibleRows = reviewOnly
     ? reviewRows.filter((row) => row.status !== "correct")
@@ -437,8 +459,23 @@ export default function TopicQuiz() {
               <p className="text-sm text-muted-foreground">
                 {submitted
                   ? `${counts.correct} correct · ${counts.incorrect} incorrect${counts.unanswered ? ` · ${counts.unanswered} blank` : ""}`
-                  : `${questions.length} question${questions.length === 1 ? "" : "s"} · tap each to answer`}
+                  : `${topicQuestions} question${topicQuestions === 1 ? "" : "s"} · tap each to answer`}
               </p>
+              {/* Offered only when part of this bank is mapped to a statement:
+                  on an unmapped topic the control could only empty the page.
+                  Kept visible after submitting, where it narrows the review. */}
+              {syllabusCount !== null && (
+                <Button
+                  size="sm"
+                  variant={syllabusOnly ? "secondary" : "ghost"}
+                  className="mt-2 h-7 gap-1.5 px-2 text-xs"
+                  aria-pressed={syllabusOnly}
+                  onClick={() => setSyllabusOnly((v) => !v)}
+                >
+                  <Filter className="h-3 w-3" />
+                  Current syllabus only ({syllabusCount})
+                </Button>
+              )}
             </div>
             {/* Marking a quiz records an attempt against an account, so a
                 signed-out reader gets a sign-in prompt instead of a button that
@@ -448,9 +485,9 @@ export default function TopicQuiz() {
                 size="lg"
                 className="bg-gradient-to-r from-primary to-[hsl(var(--neon-purple))] text-primary-foreground"
                 onClick={submit}
-                disabled={questions.length === 0}
+                disabled={topicQuestions === 0}
               >
-                {questions.length === 0 ? "No questions yet" : "Submit answers"}
+                {topicQuestions === 0 ? "No questions yet" : `Submit ${topicQuestions} answer${topicQuestions === 1 ? "" : "s"}`}
               </Button>
             )}
             {!submitted && !user && questions.length > 0 && (
@@ -523,6 +560,21 @@ export default function TopicQuiz() {
             disabled={submitted}
             onSelect={(i) => selectAnswer(question.id, i)}
             explanation={result?.explanation ?? null}
+            badges={<ProvenanceBadges question={question} board={board} year={currentYear} />}
+            solution={
+              result ? (
+                <QuestionSolution
+                  layer={{
+                    statementCode: question.statement_code,
+                    statementTitle: question.statement_title,
+                    statementYears: question.statement_years,
+                    explanation: result.explanation,
+                    correctOption: result.correct_option,
+                    picked,
+                  }}
+                />
+              ) : null
+            }
             actions={
               <BookmarkButton
                 questionId={question.id}

@@ -118,7 +118,11 @@ const adminLinks = [
 // 1.4.0 — a fourth account type: a teacher owns one subject (role + grant, made
 // only from the admin console), reads all of its levels in full, and gets the
 // plan upgrade on every other subject.
-const APP_VERSION = "1.4.0";
+// 1.5.0 — the note reader gains a five-minute cram view selected from the note
+// itself, and every question card now carries its board, specification point,
+// difficulty and syllabus, with a specification-only filter and a layered
+// solution reveal on the topic quiz.
+const APP_VERSION = "1.5.0";
 
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },

@@ -100,6 +100,8 @@ export function ManuscriptQuestion({
   onSelect,
   explanation,
   explanationTitle = "Mark scheme",
+  badges,
+  solution,
   actions,
   footer,
 }: {
@@ -115,6 +117,14 @@ export function ManuscriptQuestion({
   onSelect?: (index: number) => void;
   explanation?: string | null;
   explanationTitle?: string;
+  /** Provenance chips under the eyebrow: board, spec point, difficulty. */
+  badges?: ReactNode;
+  /**
+   * A richer reveal than a single paragraph. When given, it replaces the plain
+   * explanation panel — but only once the answer is out, so a caller cannot
+   * spill the mark scheme before the student has answered.
+   */
+  solution?: ReactNode;
   actions?: ReactNode;
   footer?: ReactNode;
 }) {
@@ -132,7 +142,10 @@ export function ManuscriptQuestion({
   return (
     <section className="cm-m-section">
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <p className="cm-m-eyebrow">{eyebrow}</p>
+        <div className="min-w-0">
+          <p className="cm-m-eyebrow">{eyebrow}</p>
+          {badges && <div className="mt-1.5 flex flex-wrap items-center gap-1.5">{badges}</div>}
+        </div>
         {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
       </div>
       <p className="cm-m-qtext"><MathText text={question} /></p>
@@ -162,7 +175,8 @@ export function ManuscriptQuestion({
           );
         })}
       </div>
-      {revealed && explanation && (
+      {revealed && solution && solution}
+      {revealed && !solution && explanation && (
         <div className="cm-m-explain">
           <p className="cm-m-explain-title">{explanationTitle}</p>
           <p className="m-0"><MathText text={explanation} /></p>

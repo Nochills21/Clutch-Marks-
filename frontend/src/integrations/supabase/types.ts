@@ -2107,6 +2107,11 @@ export type Database = {
           quiz_title: string
           topic_id: string
           topic_name: string
+          /** Mapped specification statement, when the question carries one. */
+          statement_id: string | null
+          statement_code: string | null
+          statement_title: string | null
+          statement_years: string | null
         }[]
       }
       check_practice_answer: {

@@ -2,7 +2,7 @@
 // must render as a page (with the same manuscript design as the topic and
 // lesson notes), not as a file download or a dialog.
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useSearchParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,6 +12,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { WatermarkOverlay } from "@/components/WatermarkOverlay";
 import { ManuscriptHead, ManuscriptSection } from "@/components/StudyManuscript";
+import { buildCramSheet, describeCramSheet } from "@/lib/cramSheet";
 import { StudyLoadError } from "@/components/StudyLoadError";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { useToast } from "@/hooks/useToast";
@@ -24,7 +25,7 @@ import { topicNotesPath, topicSlugOf } from "@/lib/topicUrls";
 import { fetchOpenableNoteIdsForLevel, isLockedNote } from "@/lib/noteAccess";
 import { usePlanAccess } from "@/hooks/useSubscription";
 import { useTeacherScope } from "@/hooks/useTeacherScope";
-import { ArrowLeft, Download, Lock, Sparkles } from "lucide-react";
+import { ArrowLeft, BookOpen, Download, Lock, Sparkles, Timer } from "lucide-react";
 
 interface MaterialPage {
   id: string;
@@ -57,6 +58,15 @@ export default function NoteView() {
   // subject hub. `null` means "not resolved" and locks nothing.
   const { hasPaid } = usePlanAccess();
   const teacher = useTeacherScope();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const setMode = (mode: "learn" | "cram") => {
+    const next = new URLSearchParams(searchParams);
+    if (mode === "cram") next.set("mode", "cram");
+    else next.delete("mode");
+    // `replace`: flipping between the two views is not a navigation step the
+    // back button should have to walk through.
+    setSearchParams(next, { replace: true });
+  };
   const [openableNotes, setOpenableNotes] = useState<Set<string> | null>(null);
 
   useEffect(() => {
@@ -179,6 +189,12 @@ export default function NoteView() {
   // that TeX, so it must not be run through the sanitizer.
   const html = applyMathHtml(DOMPurify.sanitize(materialContentToHtml(material.content)));
 
+  // The five-minute pass is *selected from* this same note, never written: see
+  // `lib/cramSheet`. A note with nothing extractable has no toggle at all.
+  const cram = buildCramSheet(material.content ?? "");
+  const cramHtml = cram ? applyMathHtml(DOMPurify.sanitize(cram.html)) : "";
+  const cramMode = searchParams.get("mode") === "cram" && Boolean(cram);
+
   // Same branded PDF as a lesson: the export stamps the account watermark on
   // every page, so a downloaded copy always names who took it.
   const saveNotePdf = async () => {
@@ -227,6 +243,28 @@ export default function NoteView() {
                 <Link to={topicHref}>Open topic</Link>
               </Button>
             )}
+            {cram && (
+              <div className="flex items-center gap-1 rounded-lg border border-border/60 p-0.5" role="group" aria-label="How to read this note">
+                <Button
+                  size="sm"
+                  variant={cramMode ? "ghost" : "secondary"}
+                  className="h-7 gap-1.5 px-2 text-xs"
+                  aria-pressed={!cramMode}
+                  onClick={() => setMode("learn")}
+                >
+                  <BookOpen className="h-3.5 w-3.5" /> Learn
+                </Button>
+                <Button
+                  size="sm"
+                  variant={cramMode ? "secondary" : "ghost"}
+                  className="h-7 gap-1.5 px-2 text-xs"
+                  aria-pressed={cramMode}
+                  onClick={() => setMode("cram")}
+                >
+                  <Timer className="h-3.5 w-3.5" /> Cram 5 min
+                </Button>
+              </div>
+            )}
             <Button variant="outline" className="gap-2" onClick={saveNotePdf}>
               <Download className="h-4 w-4" /> Save as PDF
             </Button>
@@ -234,9 +272,30 @@ export default function NoteView() {
         }
       />
 
-      <ManuscriptSection eyebrow="Notes">
-        <div className="cm-notes" dangerouslySetInnerHTML={{ __html: html }} />
-      </ManuscriptSection>
+      {cramMode && cram ? (
+        <ManuscriptSection
+          eyebrow="Cram sheet · five minutes"
+          title={cram ? describeCramSheet(cram) : undefined}
+        >
+          <div className="cm-notes" dangerouslySetInnerHTML={{ __html: cramHtml }} />
+          <p className="mt-6 text-sm text-muted-foreground">
+            Selected from the note's own equations, definitions and section headings — nothing here
+            is written separately, so it cannot disagree with the full note.{" "}
+            <button
+              type="button"
+              className="underline underline-offset-2 hover:text-foreground"
+              onClick={() => setMode("learn")}
+            >
+              Read the full note
+            </button>{" "}
+            for the explanations, worked examples and figures.
+          </p>
+        </ManuscriptSection>
+      ) : (
+        <ManuscriptSection eyebrow="Notes">
+          <div className="cm-notes" dangerouslySetInnerHTML={{ __html: html }} />
+        </ManuscriptSection>
+      )}
     </div>
   );
 }
