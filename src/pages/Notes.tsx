@@ -13,6 +13,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/SEOHead";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { SubjectGate } from "@/components/SubjectGate";
 import { openProtectedFile } from "@/lib/contentFiles";
 import { LEVEL_FILTER_LABELS, LEVEL_LABELS, levelLabel } from "@/lib/subjects";
@@ -308,9 +309,16 @@ export default function Notes() {
   // One note per subject-level is free. Computed from the whole library, not the
   // filtered view, so searching cannot change which note is the free one.
   const { hasPaid } = usePlanAccess();
+  // A teacher reads all of one subject and none of the rest, so the grant is
+  // handed to the same per-level picker a free account uses.
+  const teacher = useTeacherScope();
+  const teacherLevels = useMemo(
+    () => new Set(teacher.scope?.levelIds ?? []),
+    [teacher.scope],
+  );
   const openableNotes = useMemo(
-    () => openableIdsAcrossLevels(notes, hasPaid),
-    [notes, hasPaid],
+    () => openableIdsAcrossLevels(notes, hasPaid, teacherLevels),
+    [notes, hasPaid, teacherLevels],
   );
 
   const completedCount = visible.filter((n) => done[n.id]).length;

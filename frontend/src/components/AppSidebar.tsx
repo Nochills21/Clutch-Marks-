@@ -20,6 +20,7 @@ import { Separator } from "@/components/ui/separator";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { BrandLockup } from "@/components/BrandMark";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { SITE } from "@/lib/site";
 
 
@@ -112,7 +113,12 @@ const adminLinks = [
 // a full onboarding letter (start-here steps, the feature map, the study loop)
 // with a plain-text part; the review queue records every answered question, so a
 // mistake anywhere can be revisited, and the "Practise mistakes" links open it.
-const APP_VERSION = "1.2.2";
+// 1.3.0 — the Lovable exit: the app marks through Gemini, the purchase is
+// confirmed in-app, and no badge or API key of the old builder remains.
+// 1.4.0 — a fourth account type: a teacher owns one subject (role + grant, made
+// only from the admin console), reads all of its levels in full, and gets the
+// plan upgrade on every other subject.
+const APP_VERSION = "1.4.0";
 
 const parentLinks = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
@@ -125,6 +131,9 @@ export function AppSidebar() {
   const { role, user, signOut, studentPreview, exitStudentPreview } = useAuth();
   const { isMobile, setOpenMobile } = useSidebar();
   const { pathname } = useLocation();
+  // "teacher" alone does not say what is open; the subject is the whole point of
+  // the account, so it goes under the wordmark.
+  const teacher = useTeacherScope();
 
   // On a phone the sidebar is a slide-over sheet, and it stayed open over the
   // page you had just navigated to — the nav felt broken because every tap left
@@ -147,7 +156,13 @@ export function AppSidebar() {
           {/* The public content pages render inside this shell for signed-out
               visitors too, and the subtitle used to read "loading" forever for
               them because it was `role ?? "loading"`. */}
-          <BrandLockup subtitle={role ?? (user ? "student" : "visitor")} />
+          <BrandLockup
+            subtitle={
+              role === "teacher" && teacher.subjectName
+                ? `teacher · ${teacher.subjectName}`
+                : role ?? (user ? "student" : "visitor")
+            }
+          />
         </Link>
       </SidebarHeader>
 

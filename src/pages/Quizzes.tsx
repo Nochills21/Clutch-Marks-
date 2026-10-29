@@ -30,6 +30,7 @@ import { validateUploadFile } from "@/lib/fileValidation";
 import { FREE_PREVIEW_LIMIT, PreviewLimit, usePlanAccess, usePreviewSliceWithLimit } from "@/components/PreviewLimit";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { SubjectGate } from "@/components/SubjectGate";
 import { QuizFinder } from "@/components/QuizFinder";
 import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
@@ -171,8 +172,18 @@ export default function Quizzes() {
   // `get_free_preview`, whose shape (item_id / item_type / title) is not a quiz
   // row at all — free students got cards labelled "General" whose Start Quiz did
   // nothing, and paid students had their subject filter bypassed entirely.
-  const { slice: shownQuizzes, hiddenCount } =
+  const { slice: planQuizzes, hiddenCount: planHidden } =
     usePreviewSliceWithLimit(visibleQuizzes, FREE_PREVIEW_LIMIT);
+  // A teacher owns the one subject this list is scoped to (their grant is their
+  // only "pick"), so the free slice must not hide the rest of it. Another
+  // subject never reaches this list at all.
+  const teacher = useTeacherScope();
+  const teacherOwnsList =
+    teacher.isTeacher &&
+    visibleQuizzes.length > 0 &&
+    visibleQuizzes.every((q) => teacher.coversLevel(q.topics?.subject_level_id as string | undefined));
+  const shownQuizzes = teacherOwnsList ? visibleQuizzes : planQuizzes;
+  const hiddenCount = teacherOwnsList ? 0 : planHidden;
 
   const timeLimitSeconds = useMemo(() => {
     const minutes = Number(activeQuiz?.time_limit_minutes ?? 0);

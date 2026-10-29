@@ -29,7 +29,7 @@ function getSupabase(): Promise<SupabaseClient> {
   return clientPromise;
 }
 
-type AppRole = "admin" | "student" | "parent";
+type AppRole = "admin" | "student" | "parent" | "teacher";
 
 interface AuthContextType {
   user: User | null;
@@ -139,7 +139,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // `user_id`, so an account granted admin by SQL still carries the student
         // row the signup trigger wrote. `maybeSingle()` answers that with 406 and
         // null data, which hid the console from exactly the account that owns it.
-        // Admin wins, then parent, then student.
+        // Admin wins, then parent, then teacher, then student. A teacher keeps
+        // the student row the signup trigger wrote, so reading only one row
+        // would report them as a student and drop their subject scope.
         const supabase = await getSupabase();
         const { data } = await retrySupabase(() =>
           supabase.from("user_roles").select("role").eq("user_id", userId),
@@ -150,9 +152,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             ? "admin"
             : roles.includes("parent")
               ? "parent"
-              : roles.includes("student")
-                ? "student"
-                : null,
+              : roles.includes("teacher")
+                ? "teacher"
+                : roles.includes("student")
+                  ? "student"
+                  : null,
         );
       } catch (error) {
         console.error("auth: could not load role", error);

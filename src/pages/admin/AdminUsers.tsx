@@ -21,7 +21,7 @@ import {
 import { useToast } from "@/hooks/useToast";
 import {
   UserPlus, Trash2, Loader2, Users, ShieldCheck,
-  KeyRound, FileText, Upload, Download, Search, Shield, X, AtSign, CreditCard,
+  KeyRound, FileText, Upload, Download, Search, Shield, X, AtSign, CreditCard, GraduationCap,
 } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { addMonths } from "date-fns";
@@ -30,7 +30,7 @@ import { validatePassword } from "@/lib/passwordPolicy";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import { QueryError } from "@/components/QueryError";
 
-type RoleName = "student" | "parent" | "admin";
+type RoleName = "student" | "parent" | "admin" | "teacher";
 
 interface UserRow {
   user_id: string;
@@ -49,7 +49,7 @@ interface WeeklyReport {
   uploaded_at: string;
 }
 
-type RoleFilter = "all" | "student" | "parent" | "admin";
+type RoleFilter = "all" | "student" | "parent" | "admin" | "teacher";
 
 export default function AdminUsers() {
   const { user } = useAuth();
@@ -69,8 +69,15 @@ export default function AdminUsers() {
   const [newFullName, setNewFullName] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newRole, setNewRole] = useState("student");
+  const [newSubjectId, setNewSubjectId] = useState("");
   const [creating, setCreating] = useState(false);
   const [createPasswordError, setCreatePasswordError] = useState<string | null>(null);
+
+  // Teacher accounts: the single subject each holds, and the choices the create
+  // form offers. Both are admin-readable only (RLS on teacher_subjects asks
+  // public.is_admin), so a failed read here is a real failure, not "no teachers".
+  const [teaching, setTeaching] = useState<Record<string, string>>({});
+  const [subjectOptions, setSubjectOptions] = useState<{ id: string; name: string }[]>([]);
 
   // Reset password
   const [resetTarget, setResetTarget] = useState<UserRow | null>(null);
@@ -173,6 +180,21 @@ export default function AdminUsers() {
     (subs ?? []).forEach((s) => { subMap[s.user_id] = s; });
     setPaidSubs(subMap);
 
+    // Which subject each teacher owns, and the list the create form picks from.
+    const [{ data: grants, error: grantsError }, { data: subjects, error: subjectsError }] = await Promise.all([
+      supabase.from("teacher_subjects").select("user_id, subject_id, subjects(name)"),
+      supabase.from("subjects").select("id, name").eq("is_active", true).order("sort_order"),
+    ]);
+    if (grantsError) report(grantsError);
+    if (subjectsError) report(subjectsError);
+    const teachingMap: Record<string, string> = {};
+    (grants ?? []).forEach((g) => {
+      const subject = g.subjects as unknown as { name: string } | null;
+      teachingMap[g.user_id] = subject?.name ?? "(subject removed)";
+    });
+    setTeaching(teachingMap);
+    setSubjectOptions(subjects ?? []);
+
     setLoading(false);
   };
 
@@ -193,6 +215,7 @@ export default function AdminUsers() {
   // Tab groupings (use filtered for search support)
   const students = filtered.filter((r) => r.role === "student");
   const parents = filtered.filter((r) => r.role === "parent");
+  const teachers = filtered.filter((r) => r.role === "teacher");
   const admins = filtered.filter((r) => r.role === "admin");
   const allList = filtered;
 
@@ -251,6 +274,16 @@ export default function AdminUsers() {
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newEmail.trim() || !newFullName.trim() || !newPassword.trim()) return;
+    // A teacher without a subject teaches nothing: the function refuses it too,
+    // but naming it inline beats a rejected call after the form looked complete.
+    if (newRole === "teacher" && !newSubjectId) {
+      toast({
+        title: "Choose a subject",
+        description: "A teacher account opens exactly one subject. Pick it before creating the account.",
+        variant: "destructive",
+      });
+      return;
+    }
     // Same rule the function enforces (8+, every character group), checked here
     // so a weak password is named inline instead of coming back as a failed call.
     const policyError = validatePassword(newPassword, "student", 8);
@@ -263,9 +296,13 @@ export default function AdminUsers() {
         full_name: newFullName.trim(),
         password: newPassword,
         role: newRole,
+        ...(newRole === "teacher" ? { subject_id: newSubjectId } : {}),
       });
-      toast({ title: "Account created", description: `${newEmail.trim()} can now log in.` });
-      setNewEmail(""); setNewFullName(""); setNewPassword(""); setNewRole("student");
+      toast({
+        title: "Account created",
+        description: `${newEmail.trim()} can now log in.`,
+      });
+      setNewEmail(""); setNewFullName(""); setNewPassword(""); setNewRole("student"); setNewSubjectId("");
       load();
     } catch (e) {
       toast({ title: "Error", description: e.message, variant: "destructive" });
@@ -527,6 +564,11 @@ export default function AdminUsers() {
                   >
                     {r.role}
                   </Badge>
+                  {teaching[r.user_id] && (
+                    <Badge variant="outline" className="border-primary/30 text-primary">
+                      {teaching[r.user_id]}
+                    </Badge>
+                  )}
                   {(paidSubs[r.user_id]?.status === "active" || paidSubs[r.user_id]?.status === "trialing") && (
                     <Badge variant="outline" className="text-emerald-600 border-emerald-600/30">Paid</Badge>
                   )}
@@ -580,6 +622,7 @@ export default function AdminUsers() {
                   <SelectItem value="all">All roles</SelectItem>
                   <SelectItem value="student">Students</SelectItem>
                   <SelectItem value="parent">Parents</SelectItem>
+                  <SelectItem value="teacher">Teachers</SelectItem>
                   <SelectItem value="admin">Admins</SelectItem>
                 </SelectContent>
               </Select>
@@ -608,6 +651,9 @@ export default function AdminUsers() {
           </TabsTrigger>
           <TabsTrigger value="parents" className="gap-2">
             <ShieldCheck className="h-4 w-4" /> Parents {parents.length > 0 && `(${parents.length})`}
+          </TabsTrigger>
+          <TabsTrigger value="teachers" className="gap-2">
+            <GraduationCap className="h-4 w-4" /> Teachers {teachers.length > 0 && `(${teachers.length})`}
           </TabsTrigger>
           <TabsTrigger value="admins" className="gap-2">
             <Shield className="h-4 w-4" /> Admins {admins.length > 0 && `(${admins.length})`}
@@ -649,6 +695,24 @@ export default function AdminUsers() {
                 emptyIcon={Users}
                 emptyText="No parents yet"
               />
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="teachers">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <p className="text-sm text-muted-foreground">
+                A teacher account opens every level of its one subject, and nothing else. Accounts
+                of this type are created here only — the public signup form never offers it.
+              </p>
+              <div className="border rounded-md">
+                <UserTable
+                  list={teachers}
+                  emptyIcon={GraduationCap}
+                  emptyText="No teacher accounts yet"
+                />
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -729,18 +793,44 @@ export default function AdminUsers() {
                 </div>
                 <div className="space-y-2">
                   <Label>Role</Label>
-                  <Select value={newRole} onValueChange={setNewRole}>
+                  <Select
+                    value={newRole}
+                    onValueChange={(value) => {
+                      setNewRole(value);
+                      if (value !== "teacher") setNewSubjectId("");
+                    }}
+                  >
                     <SelectTrigger><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="student">Student</SelectItem>
                       <SelectItem value="parent">Parent</SelectItem>
+                      <SelectItem value="teacher">Teacher — one subject</SelectItem>
                     </SelectContent>
                   </Select>
                   <p className="text-xs text-muted-foreground">
-                    Only students and parents can be created here. Admin access is provisioned by the
-                    site owner and cannot be granted from this console.
+                    Only students, parents and teachers can be created here. Admin access is
+                    provisioned by the site owner and cannot be granted from this console.
                   </p>
                 </div>
+                {newRole === "teacher" && (
+                  <div className="space-y-2">
+                    <Label>Subject</Label>
+                    {/* The teacher's whole scope: every level of this one subject,
+                        and a normal upgrade prompt everywhere else. */}
+                    <Select value={newSubjectId} onValueChange={setNewSubjectId}>
+                      <SelectTrigger><SelectValue placeholder="Choose the subject they teach" /></SelectTrigger>
+                      <SelectContent>
+                        {subjectOptions.map((subject) => (
+                          <SelectItem key={subject.id} value={subject.id}>{subject.name}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <p className="text-xs text-muted-foreground">
+                      The account opens all of this subject's levels (IGCSE, AS and A2) and nothing
+                      else — other subjects show the normal plan upgrade.
+                    </p>
+                  </div>
+                )}
                 <Button type="submit" disabled={creating} className="gap-2">
                   {creating && <Loader2 className="h-4 w-4 animate-spin" />}
                   Create Account

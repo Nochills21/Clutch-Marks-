@@ -1750,6 +1750,35 @@ export type Database = {
           },
         ]
       }
+      teacher_subjects: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          subject_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          subject_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          subject_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "teacher_subjects_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -2247,7 +2276,7 @@ export type Database = {
       }
     }
     Enums: {
-      app_role: "admin" | "student" | "parent"
+      app_role: "admin" | "student" | "parent" | "teacher"
       subject_level: "OL" | "AS" | "A2" | "IGCSE"
     }
     CompositeTypes: {
@@ -2376,7 +2405,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "student", "parent"],
+      app_role: ["admin", "student", "parent", "teacher"],
       subject_level: ["OL", "AS", "A2", "IGCSE"],
     },
   },

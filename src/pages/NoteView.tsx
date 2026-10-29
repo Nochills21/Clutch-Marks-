@@ -23,6 +23,7 @@ import { applyMathHtml } from "@/lib/mathText";
 import { topicNotesPath, topicSlugOf } from "@/lib/topicUrls";
 import { fetchOpenableNoteIdsForLevel, isLockedNote } from "@/lib/noteAccess";
 import { usePlanAccess } from "@/hooks/useSubscription";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { ArrowLeft, Download, Lock, Sparkles } from "lucide-react";
 
 interface MaterialPage {
@@ -55,6 +56,7 @@ export default function NoteView() {
   // URL, so the lock has to be decided here too or a shared link sidesteps the
   // subject hub. `null` means "not resolved" and locks nothing.
   const { hasPaid } = usePlanAccess();
+  const teacher = useTeacherScope();
   const [openableNotes, setOpenableNotes] = useState<Set<string> | null>(null);
 
   useEffect(() => {
@@ -81,15 +83,19 @@ export default function NoteView() {
     };
   }, [materialId, report, clear, reloadKey]);
 
+  // A teacher of this note's subject owns every note in it; `/notes/:id` is a
+  // shareable URL, so it must apply the same rule as the hub rather than trust
+  // that the reader arrived from an unlocked page.
+  const teacherUnlocksLevel = teacher.coversLevel(material?.topics?.subject_levels?.id);
   useEffect(() => {
     const levelId = material?.topics?.subject_levels?.id;
-    if (hasPaid || !levelId) { setOpenableNotes(null); return; }
+    if (hasPaid || teacherUnlocksLevel || !levelId) { setOpenableNotes(null); return; }
     let cancelled = false;
     fetchOpenableNoteIdsForLevel(levelId, false).then((ids) => {
       if (!cancelled) setOpenableNotes(ids);
     });
     return () => { cancelled = true; };
-  }, [hasPaid, material?.id, material?.topics?.subject_levels?.id]);
+  }, [hasPaid, teacherUnlocksLevel, material?.id, material?.topics?.subject_levels?.id]);
 
   if (loading) {
     return <div className="space-y-3"><Skeleton className="h-10 w-48" /><Skeleton className="h-40 rounded-xl" /></div>;

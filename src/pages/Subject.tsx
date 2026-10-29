@@ -20,7 +20,9 @@ import { usePreviewSlice, PreviewLimit, usePlanAccess } from "@/components/Previ
 import { openableNoteIds, isLockedNote } from "@/lib/noteAccess";
 import { openableLessonIds, isLockedLesson, courseOrder, rankTopics } from "@/lib/lessonAccess";
 import { PreviewBanner } from "@/components/PreviewBanner";
+import { TeacherScopeNotice } from "@/components/TeacherScopeNotice";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
 import { StudyLoadError } from "@/components/StudyLoadError";
@@ -208,23 +210,34 @@ export default function Subject() {
   // rather than only counted. Both picks come from the unfiltered lists, so
   // typing in the search box cannot hand out a different free item.
   const { hasPaid } = usePlanAccess();
+  // A teacher owns one subject outright. Folding that into `hasPaid` would give
+  // them the whole estate; scoping it to this level is what keeps the other
+  // subjects on the normal upgrade path.
+  const teacher = useTeacherScope();
+  const fullLevel = hasPaid || isAdminRole || teacher.coversLevel(subjectLevel?.id);
   const openableLessons = useMemo(
     // `isAdminRole` is included because `hasPaid` is only the subscription flag:
     // an admin was shown locks over content they own.
-    () => openableLessonIds(lessonOrder, hasPaid || isAdminRole, topicRank),
-    [lessonOrder, hasPaid, isAdminRole, topicRank],
+    () => openableLessonIds(lessonOrder, fullLevel, topicRank),
+    [lessonOrder, fullLevel, topicRank],
   );
   const openableNotes = useMemo(
     // `materials`, not `visibleMaterials`: the free note is a fixed choice per
     // level, and computing it from a search-filtered list made typing in the
     // search box hand out a different note.
-    () => openableNoteIds(materials, hasPaid),
-    [materials, hasPaid],
+    () => openableNoteIds(materials, fullLevel),
+    [materials, fullLevel],
   );
-  const previewQuizzes = usePreviewSlice(visibleQuizzes);
-  const previewQuestions = usePreviewSlice(questions);
+  // The plan-aware slices, then this level's own unlock on top: a teacher owns
+  // every quiz and question set of their subject, which is the same list the
+  // free tier shows only two of.
+  const planQuizzes = usePreviewSlice(visibleQuizzes);
+  const planQuestions = usePreviewSlice(questions);
+  const previewQuizzes = fullLevel ? visibleQuizzes : planQuizzes;
+  const previewQuestions = fullLevel ? questions : planQuestions;
   const visibleAiQuestions = aiQuestions.filter((q) => q.is_ai_generated);
-  const previewAiQuestions = usePreviewSlice(visibleAiQuestions);
+  const planAiQuestions = usePreviewSlice(visibleAiQuestions);
+  const previewAiQuestions = fullLevel ? visibleAiQuestions : planAiQuestions;
 
   // One page per qualification, not one per spelling. `/study/physics/igcse`
   // resolves the OL row and lands here, so it is replaced with `/ol` instead of
@@ -412,6 +425,9 @@ export default function Subject() {
       </Card>
 
       <PreviewBanner />
+      {/* A teacher's grant is per subject, so this is the page where "what is
+          open" and "what needs a plan" actually differ. */}
+      <TeacherScopeNotice viewingSlug={slug} />
       <Tabs defaultValue="materials">
         <TabsList className="flex-wrap h-auto" id="tabs">
           <TabsTrigger value="materials">Material ({visibleLessons.length + visibleMaterials.length})</TabsTrigger>

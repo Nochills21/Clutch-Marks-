@@ -5,11 +5,12 @@
 //
 // State is module-level (single source of truth) so the picker dialog, the
 // gate, and the filtered pages all observe the same picks.
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { retrySupabase } from "@/lib/net";
 import { diffPicks, needsSubjectPick, picksAreFiltering } from "@/lib/subjectPicks";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 
 const EMPTY = new Set<string>();
 let picks: Set<string> = EMPTY; // stable reference; replaced only on change
@@ -65,6 +66,12 @@ function claimFor(userId: string | null): boolean {
 export function useMySubjects() {
   const { user, role } = useAuth();
   const isAdmin = role === "admin";
+  // A teacher does not pick subjects — one is assigned — so its levels are
+  // folded into the "picked" set instead. Without this the hub lists, the quiz
+  // hub and practice were all filtered to nothing for an account that owns a
+  // whole subject, and the picker prompted them to choose what they teach.
+  const isTeacher = role === "teacher";
+  const teacher = useTeacherScope();
 
   // Subscribe to the module store instead of reading `picks` during render.
   // `setPicks` already notified `listeners`, but nothing ever registered one,
@@ -161,22 +168,36 @@ export function useMySubjects() {
   // "missing a pick". A page can no longer get the question subtly wrong, and a
   // signed-out reader is never "missing" anything: there is no account to save a
   // pick to.
+  const teacherLevels = useMemo(
+    () => new Set(teacher.scope?.levelIds ?? []),
+    [teacher.scope],
+  );
+  // Stable while both inputs are: pages memoise their filters on this set.
+  const effectivePicks = useMemo(
+    () => (teacherLevels.size ? new Set([...picked, ...teacherLevels]) : picked),
+    [picked, teacherLevels],
+  );
+
   const reader = {
     signedIn: !!user,
     isAdmin,
     loaded,
-    pickedCount: picked.size,
+    pickedCount: effectivePicks.size,
   };
 
   return {
-    pickedIds: picked,
-    loaded,
+    pickedIds: effectivePicks,
+    // A teacher's scope arrives after the prefs do, so the pages must keep
+    // waiting until it is known — otherwise the lists render empty first.
+    loaded: isTeacher ? loaded && !teacher.loading : loaded,
     isAdmin,
+    /** A teacher has a subject assigned, not a list: pages must not ask them to pick. */
+    isTeacher,
     savePicks,
     signedIn: reader.signedIn,
     /** A signed-in student who has not chosen subjects yet: show the picker. */
-    needsSubjectPick: needsSubjectPick(reader),
+    needsSubjectPick: isTeacher ? false : needsSubjectPick(reader),
     /** A signed-in student whose picks are actually hiding catalogue content. */
-    filtering: picksAreFiltering(reader),
+    filtering: isTeacher ? false : picksAreFiltering(reader),
   };
 }

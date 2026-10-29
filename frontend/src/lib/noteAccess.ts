@@ -77,6 +77,8 @@ export function openableNoteIds<T extends NoteRef>(levelNotes: T[], hasPaid: boo
   return new Set(newestFirst(notes).slice(0, FREE_NOTE_PREVIEW_LIMIT).map((note) => note.id));
 }
 
+const EMPTY_LEVELS: ReadonlySet<string> = new Set<string>();
+
 /**
  * The ids a reader may open, given a list that spans several subject-levels.
  *
@@ -87,6 +89,12 @@ export function openableNoteIds<T extends NoteRef>(levelNotes: T[], hasPaid: boo
 export function openableIdsAcrossLevels<T extends NoteRef & { subject_level_id: string }>(
   notes: T[],
   hasPaid: boolean,
+  /**
+   * Levels this reader owns through something other than a plan — a teacher's
+   * subject. Empty for everyone else, and deliberately a separate argument: a
+   * teacher must not read as "paid", or every subject would unlock.
+   */
+  unlockedLevelIds: ReadonlySet<string> = EMPTY_LEVELS,
 ): Set<string> {
   if (hasPaid) return new Set(notes.map((note) => note.id));
   const byLevel = new Map<string, T[]>();
@@ -97,8 +105,8 @@ export function openableIdsAcrossLevels<T extends NoteRef & { subject_level_id: 
     else byLevel.set(note.subject_level_id, [note]);
   }
   const ids = new Set<string>();
-  for (const group of byLevel.values()) {
-    for (const id of openableNoteIds(group, false)) ids.add(id);
+  for (const [levelId, group] of byLevel) {
+    for (const id of openableNoteIds(group, unlockedLevelIds.has(levelId))) ids.add(id);
   }
   return ids;
 }

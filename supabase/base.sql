@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-28T11:24:00.621Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-29T17:39:34.606Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -14,7 +14,7 @@ create extension if not exists moddatetime with schema extensions;
 -- ============ enums ============
 do $enum$ begin
   if not exists (select 1 from pg_type t join pg_namespace n on n.oid = t.typnamespace where n.nspname = 'public' and t.typname = 'app_role') then
-    create type public."app_role" as enum ('admin', 'student', 'parent');
+    create type public."app_role" as enum ('admin', 'student', 'parent', 'teacher');
   end if;
 end $enum$;
 do $enum$ begin
@@ -323,6 +323,13 @@ create table if not exists public."subscriptions" (
   "cancel_at_period_end" boolean default false not null,
   constraint "subscriptions_pkey" PRIMARY KEY (id),
   constraint "subscriptions_status_check" CHECK (status = ANY (ARRAY['pending_payment'::text, 'active'::text, 'trialing'::text, 'past_due'::text, 'expired'::text, 'cancelled'::text]))
+);
+create table if not exists public."teacher_subjects" (
+  "user_id" uuid not null,
+  "subject_id" uuid not null,
+  "created_at" timestamp with time zone default now() not null,
+  "created_by" uuid,
+  constraint "teacher_subjects_pkey" PRIMARY KEY (user_id)
 );
 create table if not exists public."user_roles" (
   "id" uuid default gen_random_uuid() not null,
@@ -750,6 +757,7 @@ create index if not exists subscriptions_stripe_customer_idx ON public.subscript
 create UNIQUE index if not exists subscriptions_stripe_subscription_idx ON public.subscriptions USING btree (stripe_subscription_id) WHERE (stripe_subscription_id IS NOT NULL);
 create index if not exists idx_syllabus_statements_spec ON public.syllabus_statements USING btree (spec_code, level, sort_order);
 create index if not exists idx_syllabus_statements_topic ON public.syllabus_statements USING btree (topic_id);
+create index if not exists teacher_subjects_subject_id_idx ON public.teacher_subjects USING btree (subject_id);
 create index if not exists topics_subject_level_id_idx ON public.topics USING btree (subject_level_id);
 create UNIQUE index if not exists topics_subject_level_slug_key ON public.topics USING btree (subject_level_id, slug);
 create UNIQUE index if not exists xp_events_dedupe ON public.xp_events USING btree (user_id, tool, ref);
@@ -877,6 +885,12 @@ alter table public."syllabus_statements" drop constraint if exists "syllabus_sta
 alter table public."syllabus_statements" add constraint "syllabus_statements_subject_level_id_fkey" FOREIGN KEY (subject_level_id) REFERENCES subject_levels(id) ON DELETE SET NULL;
 alter table public."syllabus_statements" drop constraint if exists "syllabus_statements_topic_id_fkey";
 alter table public."syllabus_statements" add constraint "syllabus_statements_topic_id_fkey" FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE SET NULL;
+alter table public."teacher_subjects" drop constraint if exists "teacher_subjects_created_by_fkey";
+alter table public."teacher_subjects" add constraint "teacher_subjects_created_by_fkey" FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE SET NULL;
+alter table public."teacher_subjects" drop constraint if exists "teacher_subjects_subject_id_fkey";
+alter table public."teacher_subjects" add constraint "teacher_subjects_subject_id_fkey" FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE RESTRICT;
+alter table public."teacher_subjects" drop constraint if exists "teacher_subjects_user_id_fkey";
+alter table public."teacher_subjects" add constraint "teacher_subjects_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."topics" drop constraint if exists "topics_subject_level_id_fkey";
 alter table public."topics" add constraint "topics_subject_level_id_fkey" FOREIGN KEY (subject_level_id) REFERENCES subject_levels(id) ON DELETE SET NULL;
 alter table public."user_roles" drop constraint if exists "user_roles_user_id_fkey";
@@ -3551,6 +3565,7 @@ alter table public."past_paper_attempts" enable row level security;
 alter table public."student_prefs" enable row level security;
 alter table public."study_sessions" enable row level security;
 alter table public."consent_records" enable row level security;
+alter table public."teacher_subjects" enable row level security;
 alter table public."data_requests" enable row level security;
 alter table public."learning_objectives" enable row level security;
 
@@ -3854,6 +3869,10 @@ drop policy if exists "Anyone authenticated can view syllabus statements" on pub
 create policy "Anyone authenticated can view syllabus statements" on public."syllabus_statements" for select to "authenticated" using (true);
 drop policy if exists "Anyone can view syllabus statements" on public."syllabus_statements";
 create policy "Anyone can view syllabus statements" on public."syllabus_statements" for select to "anon" using (true);
+drop policy if exists "Admins read teacher subjects" on public."teacher_subjects";
+create policy "Admins read teacher subjects" on public."teacher_subjects" for select to "authenticated" using (is_admin(auth.uid()));
+drop policy if exists "Teachers read their own subject" on public."teacher_subjects";
+create policy "Teachers read their own subject" on public."teacher_subjects" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage topics" on public."topics";
 create policy "Admins can manage topics" on public."topics" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view topics" on public."topics";
@@ -4026,6 +4045,9 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."s
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."syllabus_statements" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."syllabus_statements" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."syllabus_statements" to service_role;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."teacher_subjects" to anon;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."teacher_subjects" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."teacher_subjects" to service_role;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to anon;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to service_role;
@@ -4092,5 +4114,6 @@ comment on table public."objective_reviews" is $dd$Resurfacing schedule per stud
 comment on table public."admin_audit_log" is $dd$Append-only audit trail of admin content changes and user-management actions. Written only by triggers and the audit_admin_action() SECURITY DEFINER function.$dd$;
 comment on table public."syllabus_statements" is $dd$Official board subtopics (the specification checklist), mapped to the topic that teaches them.$dd$;
 comment on table public."content_revisions" is $dd$Version history for lessons and study materials. A new row is written by trigger before each UPDATE of lessons/study_materials; restore via restore_content_revision().$dd$;
+comment on table public."teacher_subjects" is $dd$One row per teacher account: the single subject it may open in full. Written only by manage-accounts (service role).$dd$;
 comment on table public."learning_objectives" is $dd$Per-topic syllabus objectives: the micro-lesson and the unit of mastery.$dd$;
 

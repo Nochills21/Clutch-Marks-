@@ -16,9 +16,10 @@ import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { Button } from "@/components/ui/button";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { planById, totalOf } from "@/lib/plans";
 import { format } from "date-fns";
-import { CheckCircle2, Lock } from "lucide-react";
+import { CheckCircle2, GraduationCap, Lock } from "lucide-react";
 
 interface SubjectRow {
   subject_id: string;
@@ -71,11 +72,48 @@ function GoldRail({ value, className = "" }: { value: number; className?: string
  */
 function PlanStrip() {
   const { role } = useAuth();
+  const teacher = useTeacherScope();
   const {
     loading, planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd,
     comped, lapsed, hasStripeCustomer, liveStripeSubscription,
   } = useSubscription();
   if (loading || role === "admin") return null;
+
+  // "You're on the free preview" is true of a teacher and useless to them: the
+  // subject they teach is wide open. Say what the account actually covers, and
+  // keep the upgrade one click away for everything else.
+  if (teacher.isTeacher && !hasPaid) {
+    return (
+      <section
+        className="flex flex-col gap-4 rounded-xl border border-primary/30 bg-primary/[0.04] p-4 sm:flex-row sm:items-center sm:justify-between"
+        aria-label="Your access"
+      >
+        <div className="flex min-w-0 items-start gap-3">
+          <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="eyebrow">Access</p>
+              <Badge variant="secondary">Teacher</Badge>
+              {teacher.subjectName && <Badge variant="outline">{teacher.subjectName}</Badge>}
+            </div>
+            <p className="mt-1 font-display text-lg tracking-tight">
+              {teacher.subjectName ? `All of ${teacher.subjectName} is unlocked` : "No subject assigned yet"}
+            </p>
+            <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">
+              {teacher.subjectName
+                ? "Every level and every note, lesson and quiz of it. Any other subject shows the plan upgrade."
+                : "Ask the site owner to assign the subject this account teaches."}
+            </p>
+          </div>
+        </div>
+        <Button asChild variant="outline" className="shrink-0 gap-2">
+          <Link to="/pricing">
+            Unlock other subjects <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Button>
+      </section>
+    );
+  }
 
   const plan = planById(planId);
   const isTrialing = status === "trialing";

@@ -17,6 +17,7 @@ import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
 import { LEVELS, LEVEL_LABELS } from "@/lib/subjects";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { usePlanAccess } from "@/components/PreviewLimit";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { openableLessonIds, isLockedLesson, ranksByLevel } from "@/lib/lessonAccess";
 import { materialContentToHtml } from "@/lib/objectiveTeach";
 import { PreviewBanner } from "@/components/PreviewBanner";
@@ -181,6 +182,8 @@ export default function Lessons() {
   };
 
   const { loading: planLoading, hasPaid } = usePlanAccess();
+  // A teacher owns one subject; each level of it is fully open.
+  const teacher = useTeacherScope();
   // Signed-in students are scoped to the subjects they picked. An anonymous
   // visitor has no picks, and an empty pick set would filter the whole index
   // away — they see every subject, with the same one-free-lesson-per-level rule
@@ -224,10 +227,13 @@ export default function Lessons() {
     }
     const open = new Set<string>();
     for (const [levelId, list] of byLevel) {
-      for (const id of openableLessonIds(list, fullAccess, topicRanks.get(levelId))) open.add(id);
+      // `fullAccess` is the plan; a teacher's grant is per level, so it is asked
+      // inside the loop rather than folded into the plan flag.
+      const levelOpen = fullAccess || teacher.coversLevel(levelId);
+      for (const id of openableLessonIds(list, levelOpen, topicRanks.get(levelId))) open.add(id);
     }
     return open;
-  }, [lessons, levelOfTopic, topicRanks, planLoading, hasPaid, isAdmin]);
+  }, [lessons, levelOfTopic, topicRanks, planLoading, hasPaid, isAdmin, teacher]);
 
   // Only signed-in students are gated: an anonymous visitor has picked no
   // subjects by definition and must still see the lesson index. That rule lives

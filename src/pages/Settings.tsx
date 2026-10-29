@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { SEOHead } from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TeacherScopeNotice } from "@/components/TeacherScopeNotice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -143,6 +144,17 @@ function BillingCard() {
           <p className="text-muted-foreground">
             Admin accounts have full access on every plan and are not billed.
           </p>
+        ) : role === "teacher" ? (
+          // A teacher has no plan by design. Showing the plan card here would
+          // read as "your account is broken" instead of "your subject is open".
+          <>
+            <TeacherScopeNotice />
+            <p className="text-xs text-muted-foreground">
+              A teacher account is not billed. Adding a plan unlocks every other subject and the AI
+              marker, and is handled by Stripe — see the{" "}
+              <Link to="/pricing" className="underline hover:text-foreground">plans</Link>.
+            </p>
+          </>
         ) : (
           <>
             <div className="flex flex-wrap items-center gap-2">

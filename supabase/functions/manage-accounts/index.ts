@@ -62,7 +62,7 @@ Deno.serve(async (req) => {
       return json({ error: "Two-factor authentication required", code: "mfa_required" }, 403);
     }
 
-    const { action, user_id, username, full_name, password, role, email: emailInput } =
+    const { action, user_id, username, full_name, password, role, email: emailInput, subject_id } =
       await req.json();
 
     // ── Audit attribution ──
@@ -212,7 +212,27 @@ Deno.serve(async (req) => {
       // 'parent' is a real role (public.app_role) and the console offers it:
       // coercing anything non-admin to 'student' silently created students for
       // every parent account the panel made.
-      const userRole: "parent" | "student" = role === "parent" ? "parent" : "student";
+      //
+      // 'teacher' is a role *and* a scope: one subject, created here and nowhere
+      // else. Signup never offers it, and the account is useless without the
+      // grant row, so a teacher without a valid subject is refused rather than
+      // created as a student who owns nothing.
+      const wantsTeacher = role === "teacher";
+      if (wantsTeacher && !subject_id) {
+        return json({ error: "Choose the subject this teacher will teach." }, 400);
+      }
+      let teacherSubject: { id: string; name: string } | null = null;
+      if (wantsTeacher) {
+        const { data: subjectRow } = await adminClient
+          .from("subjects")
+          .select("id, name")
+          .eq("id", String(subject_id))
+          .maybeSingle();
+        if (!subjectRow) return json({ error: "That subject does not exist." }, 400);
+        teacherSubject = subjectRow;
+      }
+      const userRole: "parent" | "student" | "teacher" =
+        role === "parent" ? "parent" : wantsTeacher ? "teacher" : "student";
 
       // Enforce the per-role password policy before creating anything.
       const pwError = await passwordPolicyError(password, userRole === "admin" ? "admin" : "other");
@@ -259,7 +279,7 @@ Deno.serve(async (req) => {
         .update({ role: userRole, is_approved: true })
         .eq("user_id", newUser.user.id);
       if (roleErr) return json({ error: roleErr.message }, 500);
-      // Trigger row not yet visible (race) — insert it.
+      // The trigger's own row is updated above; check it exists before moving on.
       const { data: roleRow } = await adminClient
         .from("user_roles")
         .select("id")
@@ -272,7 +292,27 @@ Deno.serve(async (req) => {
         if (insErr) return json({ error: insErr.message }, 500);
       }
 
-      await audit("create", "user", newUser.user.id, cleanEmail, { role: userRole, username: cleanUsername || null });
+      // The grant is the whole point of a teacher account, so a failure here must
+      // undo the account rather than leave a "teacher" who can open nothing.
+      if (teacherSubject) {
+        const { error: grantErr } = await adminClient
+          .from("teacher_subjects")
+          .insert({
+            user_id: newUser.user.id,
+            subject_id: teacherSubject.id,
+            created_by: caller.id,
+          });
+        if (grantErr) {
+          await adminClient.auth.admin.deleteUser(newUser.user.id);
+          return json({ error: `Teacher grant failed: ${grantErr.message}` }, 500);
+        }
+      }
+
+      await audit("create", "user", newUser.user.id, cleanEmail, {
+        role: userRole,
+        username: cleanUsername || null,
+        teacher_subject: teacherSubject?.name ?? null,
+      });
       return json({ success: true, user_id: newUser.user.id });
     }
 

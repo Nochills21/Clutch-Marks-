@@ -225,6 +225,13 @@ async function main() {
   const jsonPath = arg("json", null);
   const as = arg("as", null);
   const only = arg("only", null);
+  // A signed-in route renders later than an anonymous one: it waits for the
+  // session, the role row and (for a teacher) the subject grant before any page
+  // content can appear. A 10s window is enough anonymously and was not enough
+  // under load, where every route then read as "empty page" — a slow page and a
+  // broken page looked identical, which is the one thing this harness must never
+  // confuse.
+  const settleMs = Number(arg("wait", as ? 20000 : 10000));
   const password = process.env.ROUTE_HEALTH_PASSWORD;
 
   let session = null;
@@ -276,7 +283,7 @@ async function main() {
         await page
           .waitForFunction(
             () => ((document.querySelector("main") || document.body).innerText || "").trim().length > 80,
-            { timeout: 10000 },
+            { timeout: settleMs },
           )
           .catch(() => {});
         const info = await page.evaluate(() => {

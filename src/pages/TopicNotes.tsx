@@ -33,6 +33,7 @@ import { TopicMasteryRing } from "@/components/TopicMasteryRing";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
 import { StudyLoadError } from "@/components/StudyLoadError";
@@ -60,6 +61,9 @@ export default function TopicNotes() {
   // same level, so this is resolved against the level (the subject hub and the
   // library do the same) rather than against this topic's list.
   const { hasPaid } = usePlanAccess();
+  // A teacher owns one subject in full; `coversLevel` answers for this level.
+  const teacher = useTeacherScope();
+  const teacherUnlocksLevel = teacher.coversLevel(subjectLevel?.id);
   const [openableNotes, setOpenableNotes] = useState<Set<string> | null>(null);
 
   const { user } = useAuth();
@@ -68,13 +72,15 @@ export default function TopicNotes() {
 
   useEffect(() => {
     let cancelled = false;
-    // Paid readers and admins have nothing locked (`null` locks nothing).
-    if (hasPaid || !subjectLevel?.id) { setOpenableNotes(null); return; }
+    // Paid readers, admins and the teacher of this subject have nothing locked
+    // (`null` locks nothing).
+    const fullLevel = hasPaid || teacherUnlocksLevel;
+    if (fullLevel || !subjectLevel?.id) { setOpenableNotes(null); return; }
     fetchOpenableNoteIdsForLevel(subjectLevel.id, false).then((ids) => {
       if (!cancelled) setOpenableNotes(ids);
     });
     return () => { cancelled = true; };
-  }, [hasPaid, subjectLevel?.id]);
+  }, [hasPaid, subjectLevel?.id, teacherUnlocksLevel]);
 
   // This student's objective states for the ring. Objectives exist only for
   // authored topics and the RPC is authenticated-only, so anything else

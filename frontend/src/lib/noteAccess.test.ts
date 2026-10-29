@@ -46,6 +46,22 @@ describe("noteAccess", () => {
     expect(openableIdsAcrossLevels(library, true).size).toBe(4);
   });
 
+  it("gives a teacher every note in the level they own, and the usual preview elsewhere", () => {
+    const library = [
+      note("ol-new", "2026-05-01T00:00:00Z"),
+      note("ol-old", "2026-01-01T00:00:00Z"),
+      note("as-new", "2026-04-01T00:00:00Z"),
+      note("as-old", "2026-02-01T00:00:00Z"),
+    ].map((n, i) => ({ ...n, subject_level_id: i < 2 ? "ol-bio" : "as-bio" }));
+
+    // Owning one level must not read as owning the library.
+    expect([...openableIdsAcrossLevels(library, false, new Set(["ol-bio"]))].sort()).toEqual([
+      "as-new",
+      "ol-new",
+      "ol-old",
+    ]);
+  });
+
   it("prefers a full note to a newer summary", () => {
     const level = [
       note("summary", "2026-06-01T00:00:00Z", "summary"),

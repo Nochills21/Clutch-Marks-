@@ -3,11 +3,16 @@
 // limitation feels intentional and editorial rather than broken. Paid and
 // admin users see nothing.
 import { usePlanAccess } from "@/hooks/useSubscription";
+import { useTeacherScope } from "@/hooks/useTeacherScope";
 import { Lock, Sparkles } from "lucide-react";
 
 export function PreviewBanner() {
   const { isPreview, loading } = usePlanAccess();
-  if (loading || !isPreview) return null;
+  // A teacher is on the free tier and is not on the free preview: their subject
+  // is fully open. Promoting "one note per subject" over that is simply wrong,
+  // and TeacherScopeNotice already says what the account covers.
+  const teacher = useTeacherScope();
+  if (loading || !isPreview || teacher.isTeacher) return null;
 
   return (
     <div className="border-border/40 border-b bg-background/50">

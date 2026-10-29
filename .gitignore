@@ -88,6 +88,9 @@ dist-ssr
 # plus the throwaway-student maker it signs in with.
 !.freebuff/route-health.cjs
 !.freebuff/make-verify-student.cjs
+# Live verifier for the teacher account type: role + one-subject grant and the
+# RLS that keeps the grant read-only from a browser session.
+!.freebuff/probe-teacher-live.cjs
 # The notes-depth gate is content pipeline too: it is the enforcement behind
 # docs/notes-depth.md, and AGENTS.md tells an author to run it before a deepened
 # note is published.

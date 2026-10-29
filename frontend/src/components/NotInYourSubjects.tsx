@@ -28,7 +28,11 @@ import { ArrowLeft, Loader2, Plus } from "lucide-react";
  * and so the same inline test is not retyped (and mistyped) on five pages.
  */
 export function useSubjectUnpicked(subjectLevelId: string | null | undefined): boolean {
-  const { pickedIds, loaded, isAdmin, signedIn } = useMySubjects();
+  const { pickedIds, loaded, isAdmin, isTeacher, signedIn } = useMySubjects();
+  // A teacher does not maintain a list to add to: their subject is assigned, and
+  // every other subject must still open — with its locks and the upgrade card —
+  // rather than be replaced by "add it to my subjects".
+  if (isTeacher) return false;
   return isSubjectUnpicked({ signedIn, isAdmin, loaded, pickedCount: pickedIds.size }, pickedIds, subjectLevelId);
 }
 
