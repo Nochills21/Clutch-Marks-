@@ -15,6 +15,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { Button } from "@/components/ui/button";
 import { useMySubjects } from "@/hooks/useMySubjects";
+import { useSubscription } from "@/hooks/useSubscription";
+import { planById, totalOf } from "@/lib/plans";
+import { format } from "date-fns";
+import { CheckCircle2, Lock } from "lucide-react";
 
 interface SubjectRow {
   subject_id: string;
@@ -49,6 +53,88 @@ function GoldRail({ value, className = "" }: { value: number; className?: string
         style={{ width: `${Math.max(0, Math.min(100, value))}%` }}
       />
     </div>
+  );
+}
+
+/**
+ * The account's plan, on the home screen.
+ *
+ * The dashboard used to read no plan state at all, so a student who had just
+ * paid saw exactly the same page as a free account and only found out on
+ * /settings — after a checkout confirmation that redirects here. This strip is
+ * that answer where they land: what they hold, when it ends or renews, and the
+ * one action that fits the state.
+ *
+ * It renders nothing while the row is loading (a flash of "Free preview" under a
+ * paid account is worse than a moment of nothing) and nothing for admins, who
+ * have full access on every plan and are not billed.
+ */
+function PlanStrip() {
+  const { role } = useAuth();
+  const {
+    loading, planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd,
+    comped, lapsed, hasStripeCustomer, liveStripeSubscription,
+  } = useSubscription();
+  if (loading || role === "admin") return null;
+
+  const plan = planById(planId);
+  const isTrialing = status === "trialing";
+  const end = isTrialing ? trialEndsAt ?? endsAt : endsAt;
+  const endLabel = end ? format(new Date(end), "d MMM yyyy") : null;
+  const price = plan
+    ? `${totalOf(plan)}${plan.months === 1 ? "/month" : plan.months === 12 ? "/year" : ` every ${plan.months} months`}`
+    : null;
+  // The customer portal needs a Stripe customer; a plan granted by hand has none.
+  const canManage = hasStripeCustomer && liveStripeSubscription;
+
+  const detail = !hasPaid
+    ? lapsed
+      ? "Your previous plan has ended — you're back on the free preview."
+      : "One note in every subject and level is free; the rest of the library is locked."
+    : comped
+      ? `Access was granted to this account, so there is no card on file and nothing will be charged${
+          endLabel ? ` — it runs until ${endLabel}` : ""
+        }.`
+      : isTrialing
+        ? `Your free trial ends ${endLabel ?? "in 3 days"}. We'll take ${price ?? "the plan price"} after that unless you cancel first.`
+        : cancelAtPeriodEnd
+          ? `Full access until ${endLabel ?? "the end of this period"} — it will not renew.`
+          : `Renews ${endLabel ?? "automatically"}${price ? ` at ${price}` : ""}.`;
+
+  return (
+    <section
+      className={`flex flex-col gap-4 rounded-xl border p-4 sm:flex-row sm:items-center sm:justify-between ${
+        hasPaid ? "border-primary/30 bg-primary/[0.04]" : "border-dashed"
+      }`}
+      aria-label="Your plan"
+    >
+      <div className="flex min-w-0 items-start gap-3">
+        {hasPaid
+          ? <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+          : <Lock className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" />}
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="eyebrow">Plan</p>
+            <Badge variant={hasPaid ? "secondary" : "outline"}>
+              {hasPaid ? plan?.name ?? "Paid" : "Free preview"}
+            </Badge>
+            {hasPaid && isTrialing && <Badge variant="outline">Free trial</Badge>}
+            {hasPaid && comped && <Badge variant="outline">Granted</Badge>}
+            {hasPaid && cancelAtPeriodEnd && !isTrialing && <Badge variant="outline">Will not renew</Badge>}
+          </div>
+          <p className="mt-1 font-display text-lg tracking-tight">
+            {hasPaid ? "Everything is unlocked" : "You're on the free preview"}
+          </p>
+          <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{detail}</p>
+        </div>
+      </div>
+      <Button asChild variant={hasPaid ? "outline" : "default"} className="shrink-0 gap-2">
+        <Link to={hasPaid && canManage ? "/settings" : "/pricing"}>
+          {hasPaid && !canManage ? "Add a payment method" : hasPaid ? "Manage billing" : "See plans"}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </Button>
+    </section>
   );
 }
 
@@ -172,6 +258,9 @@ export function StudentDashboard() {
           </p>
         </div>
       </header>
+
+      {/* What the account actually holds, where checkout returns to. */}
+      <PlanStrip />
 
       {/* First run. The dashboard is where every way into the platform lands —
           signup, login, the Google callback, the emailed link, a password reset

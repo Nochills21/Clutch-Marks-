@@ -235,6 +235,88 @@ export function matchPaperFiles(fileNames: string[], rows: ArchivePaper[]): Pape
   });
 }
 
+/**
+ * Where each qualification publishes its own past papers.
+ *
+ * The archive never serves a board's PDF and never links a mirror: every paper
+ * card sends the student to the board's own page for that qualification, where
+ * the papers are published under the board's own terms. That is a copyright
+ * position, not a technical one — distributing scanned board papers is what we
+ * are deliberately not doing, so nothing here may be replaced with a link to a
+ * hosted copy (a third-party mirror included).
+ *
+ * Keyed `subject_slug/LEVEL/board`, because Physics AS is Cambridge 9702 for
+ * some rows and Edexcel IAL for others, and Maths AS likewise. Every URL was
+ * checked live (HTTP 200) when written; check a replacement the same way, since
+ * a dead board link is worse than no link at all.
+ */
+const BOARD_PAPER_PAGES: Record<string, string> = {
+  // Cambridge International — the /past-papers/ page of the qualification.
+  "mathematics/OL/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-mathematics-0580/past-papers/",
+  "mathematics/AS/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-mathematics-9709/past-papers/",
+  "mathematics/A2/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-mathematics-9709/past-papers/",
+  "physics/OL/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
+  "physics/AS/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-physics-9702/past-papers/",
+  "physics/A2/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-physics-9702/past-papers/",
+  "computer-science/OL/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/past-papers/",
+  "computer-science/AS/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-computer-science-9618/past-papers/",
+  "computer-science/A2/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-computer-science-9618/past-papers/",
+  "biology/OL/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-biology-0610/past-papers/",
+  "chemistry/OL/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-chemistry-0620/past-papers/",
+  "english-first-language-cambridge/IGCSE/cambridge": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-english-first-language-0500/past-papers/",
+  // Pearson Edexcel IAL — the qualification's course-materials page.
+  "mathematics/AS/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
+  "mathematics/A2/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
+  "physics/AS/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
+  "physics/A2/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
+  "biology/AS/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/biology-2018.html",
+  "biology/A2/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/biology-2018.html",
+  "chemistry/AS/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/chemistry-2018.html",
+  "chemistry/A2/edexcel": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/chemistry-2018.html",
+  // OxfordAQA — the qualification page itself.
+  "english-as-a-second-language-oxford/IGCSE/oxfordaqa": "https://www.oxfordaqa.com/qualification/international-gcse-english-as-a-second-language-9280/",
+};
+
+/** Map `archiveBoard`'s label onto the key used above. */
+const BOARD_KEY: Record<string, string> = {
+  "Cambridge International": "cambridge",
+  "Pearson Edexcel": "edexcel",
+  "OxfordAQA": "oxfordaqa",
+};
+
+/** True when a URL is on a board's own domain. */
+export function isOfficialBoardUrl(url: string | null | undefined): boolean {
+  if (!url) return false;
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return ["cambridgeinternational.org", "pearson.com", "edexcel.com", "oxfordaqa.com"]
+      .some((domain) => host === domain || host.endsWith(`.${domain}`));
+  } catch {
+    return false;
+  }
+}
+
+export interface BoardLinkablePaper extends ArchiveFilterablePaper {
+  subject_slug?: string | null;
+  level?: string | null;
+}
+
+/**
+ * The board's own page for a paper's qualification — the only place a paper is
+ * ever opened from now on.
+ *
+ * `source_url` is used only when it is already an official board URL: most
+ * hosted rows carry a third-party mirror there, and linking that would defeat
+ * the point of the change.
+ */
+export function officialPaperPage(paper: BoardLinkablePaper): string | null {
+  const board = BOARD_KEY[archiveBoard(paper)] ?? "cambridge";
+  const key = `${String(paper.subject_slug ?? "").toLowerCase()}/${String(paper.level ?? "").toUpperCase()}/${board}`;
+  const mapped = BOARD_PAPER_PAGES[key];
+  if (mapped) return mapped;
+  return isOfficialBoardUrl(paper.source_url) ? (paper.source_url as string) : null;
+}
+
 /** Human name for the exam board behind a source URL. */
 export function boardLabel(sourceUrl: string | null | undefined): string | null {
   if (!sourceUrl) return null;

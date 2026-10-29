@@ -169,34 +169,62 @@ Deno.serve(async (req) => {
     // A live subscription owns the account's billing state. Starting a second
     // Checkout on top of one would bill twice, so the portal is the way through
     // (cancel, then subscribe again — or change plan there).
-    const { data: live, error: liveError } = await admin
+    //
+    // Two kinds of row must not count as live, and both used to:
+    //
+    //  * a **granted / legacy** row has no `stripe_subscription_id`. It was
+    //    written by hand, there is nothing in Stripe to manage, and it can never
+    //    be the reason a student is refused a real subscription;
+    //  * a row whose stored period has ended, even though `status` still says
+    //    `active`. Stored status goes stale the moment a webhook is missed, so
+    //    the subscription is re-read from Stripe before it blocks anything.
+    const { data: rows, error: rowsError } = await admin
       .from("subscriptions")
-      .select("id, status, plan_id, stripe_customer_id, trial_ends_at, ends_at")
+      .select("id, status, plan_id, stripe_customer_id, stripe_subscription_id, trial_ends_at, ends_at")
       .eq("user_id", user.id)
-      .in("status", ["active", "trialing", "past_due"])
       .order("created_at", { ascending: false })
-      .limit(1);
-    if (liveError) throw liveError;
-    const current = live?.[0] ?? null;
+      .limit(20);
+    if (rowsError) throw rowsError;
+    const history = rows ?? [];
 
     // Any customer id on the user's history, so a returning subscriber reuses
     // their Stripe customer instead of starting a second one.
-    let customerId = current?.stripe_customer_id ?? null;
-    if (!customerId) {
-      const { data: previous } = await admin
-        .from("subscriptions")
-        .select("stripe_customer_id")
-        .eq("user_id", user.id)
-        .not("stripe_customer_id", "is", null)
-        .order("created_at", { ascending: false })
-        .limit(1);
-      customerId = previous?.[0]?.stripe_customer_id ?? null;
+    const customerId = history.find((r) => r.stripe_customer_id)?.stripe_customer_id ?? null;
+
+    let current: (typeof history)[number] | null = null;
+    for (const row of history) {
+      if (!row.stripe_subscription_id) continue;
+      try {
+        const sub = (await stripe(`/subscriptions/${encodeURIComponent(row.stripe_subscription_id)}`)) as {
+          status?: string;
+        };
+        if (["active", "trialing", "past_due"].includes(String(sub.status))) {
+          current = row;
+          break;
+        }
+      } catch (e) {
+        // 404 (deleted in Stripe) or a transient failure. Neither is a reason to
+        // keep a student who has already paid out of the product: the Checkout
+        // that follows is what actually charges them, and Stripe will reject it
+        // if the account is genuinely in a bad state.
+        console.error(
+          `billing: could not read subscription ${row.stripe_subscription_id}:`,
+          e instanceof Error ? e.message : e,
+        );
+      }
     }
 
     if (action === "portal") {
       if (!customerId) {
+        // Reached only for an account with no Stripe customer at all — a plan
+        // granted by hand, or one that never reached Checkout. The UI now offers
+        // those a subscription instead, so this is the backstop, and its wording
+        // has to point at the way forward rather than at a dead end.
         return json(
-          { error: "No Stripe customer on this account yet.", code: "no_customer" },
+          {
+            error: "This account has no Stripe billing set up yet — choose a plan to start one.",
+            code: "no_customer",
+          },
           404,
         );
       }

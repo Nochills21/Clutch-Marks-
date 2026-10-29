@@ -111,14 +111,12 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
     // FAQPage structured data — Google penalises an answer that disagrees with
     // the page, so the sentence is generated once, here.
     //
-    // The last clause stays specific rather than saying "a past-paper archive
-    // for every subject": the archive now files papers under all six subjects,
-    // but only Maths, Physics and Computer Science have the paper and mark
-    // scheme files in our own library — the 126 Chemistry, Biology and English
-    // rows link to the board's page (see docs/past-papers.md). An FAQ answer is
-    // exactly the kind of copy a prospective student checks before paying, so
-    // it names which half is which.
-    a: `${subjectCoverage()}. Every subject has topic notes and exam-style questions with instant marking; the past-paper archive files papers under all six subjects, with the paper and mark-scheme files hosted for Maths, Physics and Computer Science and the board's own page linked for Chemistry, Biology and English.`,
+    // The last clause has to stay true of the archive as it now works: we file
+    // papers under all six subjects but host none of them — every card links to
+    // the exam board's own page (see docs/past-papers.md). An FAQ answer is
+    // exactly the kind of copy a prospective student checks, so it must not
+    // claim a library of board PDFs we deliberately do not keep.
+    a: `${subjectCoverage()}. Every subject has topic notes and exam-style questions with instant marking; the past-paper archive files papers under all six subjects and links each one to the exam board's own page, where the paper and mark scheme are free to read.`,
   },
   {
     q: "How much does Clutch Marks cost?",
@@ -329,12 +327,11 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/past-papers",
     ogImage: "/og/past-papers.png",
     title: "Past Papers & Mark Schemes — Clutch Marks",
-    // No subject list on purpose: only Maths, Physics and Computer Science have
-    // paper files in our library — the Chemistry, Biology and English rows link
-    // out to the board — so "past papers for every subject" would be a claim the
-    // archive only half supports.
+    // No subject list, and no "download" anywhere: the archive indexes papers
+    // by subject, level, board, session and topic and sends the reader to the
+    // board for the file itself.
     description:
-      "Past papers and mark schemes by subject, level, board, session and topic, with the board's own page where our archive has no file.",
+      "Free past papers and mark schemes by subject, level, board, session and topic — each linked to the exam board's own page, with AI marking of your written script.",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -343,7 +340,7 @@ export const ROUTE_META: RouteMeta[] = [
       // Same sentence as the meta description: structured data that disagrees
       // with the page it describes is ignored at best.
       description:
-        "Past papers and mark schemes by subject, level, board, session and topic, with the board's own page where our archive has no file.",
+        "Free past papers and mark schemes by subject, level, board, session and topic — each linked to the exam board's own page, with AI marking of your written script.",
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       publisher: organization,
     },

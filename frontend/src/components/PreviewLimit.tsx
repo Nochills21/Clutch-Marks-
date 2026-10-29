@@ -45,7 +45,7 @@ export function PreviewLimit({
 }) {
   const { isPreview, loading } = usePlanAccess();
   if (loading || !isPreview || hiddenCount <= 0) return null;
-  // "from $6.67/month" — the cheapest rate on offer, straight from the plan
+  // "from $8.33/month" — the cheapest rate on offer, straight from the plan
   // snapshot rather than a number that has to be remembered here.
   const cheapest = cheapestPerMonth();
 

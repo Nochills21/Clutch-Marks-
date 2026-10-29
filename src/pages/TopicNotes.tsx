@@ -19,8 +19,10 @@ import {
 } from "@/lib/topicUrls";
 import {
   FileText, BookOpen, Play, ArrowRight, ArrowLeft, Pencil, ExternalLink, Download, RotateCcw,
-  Layers, Archive, Target,
+  Layers, Archive, Target, Lock,
 } from "lucide-react";
+import { usePlanAccess } from "@/components/PreviewLimit";
+import { fetchOpenableNoteIdsForLevel, isLockedNote } from "@/lib/noteAccess";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { MaterialPreview } from "@/components/MaterialPreview";
 import { openProtectedFile } from "@/lib/contentFiles";
@@ -49,9 +51,25 @@ export default function TopicNotes() {
   const [masteryRows, setMasteryRows] = useState<{ state: string }[] | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const bumpRevision = () => setReloadKey((k) => k + 1);
+  // Which note of this subject-level a free account may open. The page holds one
+  // topic's materials, while the free note may live in a different topic of the
+  // same level, so this is resolved against the level (the subject hub and the
+  // library do the same) rather than against this topic's list.
+  const { hasPaid } = usePlanAccess();
+  const [openableNotes, setOpenableNotes] = useState<Set<string> | null>(null);
 
   const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+
+  useEffect(() => {
+    let cancelled = false;
+    // Paid readers and admins have nothing locked (`null` locks nothing).
+    if (hasPaid || !subjectLevel?.id) { setOpenableNotes(null); return; }
+    fetchOpenableNoteIdsForLevel(subjectLevel.id, false).then((ids) => {
+      if (!cancelled) setOpenableNotes(ids);
+    });
+    return () => { cancelled = true; };
+  }, [hasPaid, subjectLevel?.id]);
 
   // This student's objective states for the ring. Objectives exist only for
   // authored topics and the RPC is authenticated-only, so anything else
@@ -275,7 +293,34 @@ export default function TopicNotes() {
           {materials.length === 0 ? (
             <p className="text-sm text-muted-foreground py-4 text-center">No revision notes have been uploaded for this topic yet.</p>
           ) : (
-            materials.map((m) => (
+            materials.map((m) => {
+              // One note per subject-level is free, and this page has to agree with
+              // the subject hub about *which* note that is — otherwise a note the
+              // student could open from the hub is refused here.
+              const locked = isLockedNote(m.id, openableNotes);
+              if (locked) {
+                return (
+                  <div key={m.id} className="rounded-lg border border-dashed bg-muted/20">
+                    <div className="flex items-center justify-between gap-2 p-3">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border bg-muted/40">
+                        <Lock className="h-4 w-4 text-muted-foreground" />
+                      </div>
+                      <div className="min-w-0 flex-1 px-3">
+                        <p className="font-medium truncate text-muted-foreground">{m.title}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5 capitalize">
+                          {m.material_type} · full plan
+                        </p>
+                      </div>
+                      <Button asChild size="sm" variant="outline" className="gap-1 h-8 shrink-0">
+                        <Link to="/pricing" title="One note in this subject and level is free — unlock the rest">
+                          <Lock className="h-3.5 w-3.5" /> Unlock
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                );
+              }
+              return (
               // A plain row, not a Link: wrapping the whole card in a link to
               // /notes made every material behave as "go to the library", which
               // threw away the topic the student was reading and hid the fact
@@ -359,7 +404,8 @@ export default function TopicNotes() {
                 </div>
                 </div>
               </div>
-            ))
+              );
+            })
           )}
         </CardContent>
       </Card>

@@ -2,42 +2,32 @@
 // Free plan = a small preview of EVERY level (not the whole of IGCSE); paid unlocks
 // everything. Free previews are enforced client-side on non-premium content
 // surfaces (Subject page lists) and server-side by RLS on premium tables.
+//
+// The rules themselves live in `lib/subscriptionState.ts`: this hook only loads
+// the rows and hands them over, so "can this account open the portal?" has one
+// answer rather than one per page.
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { retrySupabase } from "@/lib/net";
+import {
+  ACTIVE_SUB_STATUSES,
+  deriveSubscriptionState,
+  type SubscriptionRow,
+  type SubscriptionState,
+} from "@/lib/subscriptionState";
 
 /** How many items per list a free (non-paying) user may open, per subject-level. */
 export const FREE_PREVIEW_LIMIT = 2;
 
-export type PlanState = {
+export type PlanState = SubscriptionState & {
   loading: boolean;
-  planId: string; // "free" | "monthly" | "quarterly" | "annual"
-  hasPaid: boolean; // true when an active or trialing paid subscription exists
-  /** Raw subscription status: active, trialing, past_due, cancelled, … */
-  status: string | null;
-  /** End of the 3-day free trial, when the subscription has one. */
-  trialEndsAt: string | null;
-  /** Current period end — the trial end while trialing, then the paid renewal. */
-  endsAt: string | null;
-  /** True once the student has cancelled but the paid/trial period is still running. */
-  cancelAtPeriodEnd: boolean;
   refresh: () => void;
 };
 
-/** Statuses that grant full access. Keep in step with public.has_active_plan(). */
-export const ACTIVE_SUB_STATUSES = ["active", "trialing"] as const;
+export { ACTIVE_SUB_STATUSES };
 
-const isLiveStatus = (status: string) =>
-  (ACTIVE_SUB_STATUSES as readonly string[]).includes(status);
-
-type SubRow = {
-  plan_id: string;
-  status: string;
-  ends_at: string | null;
-  trial_ends_at: string | null;
-  cancel_at_period_end: boolean;
-};
+type SubRow = SubscriptionRow;
 
 // A page easily mounts half a dozen gated components (lists, banners, dialogs),
 // and each one used to fire its own identical `subscriptions` query on mount.
@@ -45,38 +35,38 @@ type SubRow = {
 // page load costs one round trip instead of N. Single-user app: one slot is
 // enough, keyed by user id.
 const SUB_TTL_MS = 30_000;
-let subCache: { userId: string; at: number; row: SubRow | null } | null = null;
-let subInflight: { userId: string; promise: Promise<SubRow | null> } | null = null;
+let subCache: { userId: string; at: number; rows: SubRow[] } | null = null;
+let subInflight: { userId: string; promise: Promise<SubRow[]> } | null = null;
 
-function loadSubscriptionRow(userId: string): Promise<SubRow | null> {
+function loadSubscriptionRows(userId: string): Promise<SubRow[]> {
   if (subCache && subCache.userId === userId && Date.now() - subCache.at < SUB_TTL_MS) {
-    return Promise.resolve(subCache.row);
+    return Promise.resolve(subCache.rows);
   }
   if (subInflight && subInflight.userId === userId) return subInflight.promise;
   const promise = retrySupabase(() =>
     supabase
       .from("subscriptions")
-      .select("plan_id, status, ends_at, trial_ends_at, cancel_at_period_end")
+      // `stripe_customer_id` / `stripe_subscription_id` are what tell a grant
+      // apart from a real subscription; without them the UI cannot know whether
+      // the portal would answer at all. They are the caller's own row, so the
+      // existing own-row select policy covers them.
+      .select("plan_id, status, ends_at, trial_ends_at, cancel_at_period_end, stripe_customer_id, stripe_subscription_id")
       .eq("user_id", userId)
       .order("created_at", { ascending: false })
       .limit(20),
   ).then(({ data }) => {
-    // A newer pending request (e.g. a second plan) must not hide an active,
-    // unexpired grant, so prefer the newest active row and fall back to the latest.
-    const now = Date.now();
+    // Newest first: a live row is picked out of the whole set, so a newer
+    // cancelled row cannot hide an older grant that still runs.
     const rows = (data ?? []) as SubRow[];
-    // A trial is live access: 'trialing' must win over a newer but inactive row
-    // for the same reason 'active' does.
-    const row = (rows.find((r) => isLiveStatus(r.status) && (!r.ends_at || new Date(r.ends_at).getTime() > now)) ?? rows[0] ?? null) as SubRow | null;
-    subCache = { userId, at: Date.now(), row };
+    subCache = { userId, at: Date.now(), rows };
     if (subInflight?.promise === promise) subInflight = null;
-    return row;
+    return rows;
   }).catch((error) => {
     // Fail to the free plan rather than to an endless spinner; `refresh()`
     // (and any remount) retries.
     console.error("Could not load subscription:", error);
     if (subInflight?.promise === promise) subInflight = null;
-    return null;
+    return [];
   });
   subInflight = { userId, promise };
   return promise;
@@ -85,30 +75,22 @@ function loadSubscriptionRow(userId: string): Promise<SubRow | null> {
 export function useSubscription(): PlanState {
   const { user, role } = useAuth();
   const [loading, setLoading] = useState(true);
-  const [planId, setPlanId] = useState("free");
-  const [hasPaid, setHasPaid] = useState(false);
-  const [status, setStatus] = useState<string | null>(null);
-  const [trialEndsAt, setTrialEndsAt] = useState<string | null>(null);
-  const [endsAt, setEndsAt] = useState<string | null>(null);
-  const [cancelAtPeriodEnd, setCancelAtPeriodEnd] = useState(false);
+  const [state, setState] = useState<SubscriptionState>(() => deriveSubscriptionState([]));
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    if (!user || role === "admin") { setLoading(false); return; }
+    if (!user || role === "admin") {
+      setState(deriveSubscriptionState([]));
+      setLoading(false);
+      return;
+    }
     let cancelled = false;
     setLoading(true);
     // As with subject picks, `loading` must settle either way or a single
     // dropped request pins the plan gate open forever.
-    loadSubscriptionRow(user.id)
-      .then((sub) => {
-        if (cancelled) return;
-        const active = !!sub && isLiveStatus(sub.status) && (!sub.ends_at || new Date(sub.ends_at) > new Date());
-        setPlanId(active ? sub!.plan_id : "free");
-        setHasPaid(active);
-        setStatus(sub?.status ?? null);
-        setTrialEndsAt(sub?.trial_ends_at ?? null);
-        setEndsAt(sub?.ends_at ?? null);
-        setCancelAtPeriodEnd(Boolean(sub?.cancel_at_period_end));
+    loadSubscriptionRows(user.id)
+      .then((rows) => {
+        if (!cancelled) setState(deriveSubscriptionState(rows));
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -122,7 +104,7 @@ export function useSubscription(): PlanState {
     subInflight = null;
     setTick(t => t + 1);
   }, []);
-  return { loading, planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd, refresh };
+  return { loading, ...state, refresh };
 }
 
 /**

@@ -19,9 +19,11 @@ import { LEVEL_FILTER_LABELS, LEVEL_LABELS, levelLabel } from "@/lib/subjects";
 import { toast } from "sonner";
 import { loadFailureMessage } from "@/lib/net";
 import {
-  FileText, Search, Download, CheckCircle2, Circle, AlertCircle, RotateCcw, ExternalLink, Eye, Loader2,
+  FileText, Search, Download, CheckCircle2, Circle, AlertCircle, RotateCcw, ExternalLink, Eye, Loader2, Lock,
 } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
+import { usePlanAccess } from "@/components/PreviewLimit";
+import { isLockedNote, openableIdsAcrossLevels } from "@/lib/noteAccess";
 
 export interface NoteRow {
   id: string;
@@ -35,6 +37,8 @@ export interface NoteRow {
   subject_id: string;
   subject_level_id: string;
   level: string;
+  /** Only used to pick each level's one free note; see `lib/noteAccess`. */
+  created_at?: string | null;
 }
 
 /** Material types this library surfaces, in the order the filter offers them. */
@@ -43,21 +47,62 @@ export const LIBRARY_TYPES = ["notes", "summary"] as const;
 // A ceiling so the library cannot silently grow into an unbounded query.
 const LIBRARY_LIMIT = 500;
 
-export async function fetchNotes(): Promise<NoteRow[]> {
-  const { data, error } = await supabase
+/**
+ * The library's shelf. Scoped server-side to the student's picked levels, and
+ * without note *bodies*.
+ *
+ * Both halves matter. The query used to read every note and summary in the
+ * estate and filter them in the browser, so a student with one level picked
+ * downloaded all 340 rows — 4.4 MB of HTML bodies, 6.6 s warm and 45 s cold —
+ * to render 40. `topics!inner` plus the level filter makes Postgres do the
+ * narrowing (measured: 40 rows, 20 KB, 0.7 s), and dropping `content` is what
+ * takes the other 4.3 MB out of the response; the reader fetches its own body
+ * when a note is opened, so the list never needed it.
+ *
+ * Admins keep the bodies: the inline editor on each row opens with them.
+ */
+export async function fetchNotes(opts: { levelIds?: string[]; withContent?: boolean } = {}): Promise<NoteRow[]> {
+  // Two literal selects rather than one built from a variable: the typed client
+  // parses the select string at compile time, and a `columns` variable comes
+  // back as a ParserError.
+  const lean = () => supabase
     .from("study_materials")
-    .select("id, title, file_url, content, material_type, topic_id, topics(id, name, subject_levels(id, level, subjects(id, name)))")
+    .select("id, title, file_url, material_type, topic_id, created_at, topics!inner(id, name, subject_levels(id, level, subjects(id, name)))")
     // Previously pinned to "notes", which hid every "summary" material from the
     // library — half the content was only reachable from a topic page.
     .in("material_type", LIBRARY_TYPES as unknown as string[])
     .order("title")
     .limit(LIBRARY_LIMIT);
-  if (error) throw error;
-  return (data ?? []).map((m) => ({
+  const full = () => supabase
+    .from("study_materials")
+    .select("id, title, file_url, content, material_type, topic_id, created_at, topics!inner(id, name, subject_levels(id, level, subjects(id, name)))")
+    .in("material_type", LIBRARY_TYPES as unknown as string[])
+    .order("title")
+    .limit(LIBRARY_LIMIT);
+
+  const levels = opts.levelIds ?? [];
+  type Row = {
+    id: string; title: string; file_url: string | null; content?: string | null;
+    material_type: string | null; topic_id: string | null; created_at: string | null;
+    topics: { name: string | null; subject_levels: { id: string; level: string; subjects: { id: string; name: string } | null } | null } | null;
+  };
+  let rows: Row[];
+  if (opts.withContent) {
+    const q = full();
+    const { data, error } = await (levels.length ? q.in("topics.subject_level_id", levels) : q);
+    if (error) throw error;
+    rows = (data ?? []) as unknown as Row[];
+  } else {
+    const q = lean();
+    const { data, error } = await (levels.length ? q.in("topics.subject_level_id", levels) : q);
+    if (error) throw error;
+    rows = (data ?? []) as unknown as Row[];
+  }
+  return rows.map((m) => ({
     id: m.id,
     title: m.title,
     file_url: m.file_url,
-    content: m.content,
+    content: m.content ?? null,
     material_type: m.material_type ?? "notes",
     topic_id: m.topic_id,
     topic_name: m.topics?.name ?? "Unassigned",
@@ -65,7 +110,32 @@ export async function fetchNotes(): Promise<NoteRow[]> {
     subject_id: m.topics?.subject_levels?.subjects?.id ?? "none",
     subject_level_id: m.topics?.subject_levels?.id ?? "",
     level: m.topics?.subject_levels?.level ?? "",
+    created_at: m.created_at ?? null,
   }));
+}
+
+/**
+ * Notes whose *body* contains the term — the half of search the shelf can no
+ * longer answer, because it no longer holds the bodies. Postgres matches them
+ * and returns ids only, so a search costs a few hundred bytes instead of 4 MB.
+ *
+ * PostgREST's `or` syntax splits on commas and parens, so those are stripped
+ * from the term rather than escaped: a note search for a bracket is not a
+ * search worth sending.
+ */
+export async function searchNoteIds(term: string, levelIds: string[] = []): Promise<Set<string>> {
+  const safe = term.trim().toLowerCase().replace(/[,()*]/g, " ").trim();
+  if (safe.length < 2) return new Set();
+  let query = supabase
+    .from("study_materials")
+    .select("id, topics!inner(subject_level_id)")
+    .in("material_type", LIBRARY_TYPES as unknown as string[])
+    .ilike("content", `%${safe}%`)
+    .limit(LIBRARY_LIMIT);
+  if (levelIds.length) query = query.in("topics.subject_level_id", levelIds);
+  const { data, error } = await query;
+  if (error) throw error;
+  return new Set((data ?? []).map((r) => r.id));
 }
 
 export function useNoteProgress() {
@@ -152,18 +222,52 @@ export default function Notes() {
     filtering,
   } = useMySubjects();
 
+  // The shelf is narrowed in the query itself, so the picks have to be known
+  // first — fetching before they resolve is what made every student download
+  // the whole estate. An admin (or a signed-out visitor, who has no picks)
+  // fetches the library unfiltered.
+  const scopeLevelIds = useMemo(
+    () => (!isAdminRole && pickedIds.size > 0 ? [...pickedIds] : []),
+    [isAdminRole, pickedIds],
+  );
+  // A stable string for dependency arrays: the array is rebuilt on every pick
+  // change, and comparing arrays by identity would refetch on every render.
+  const scopeKey = scopeLevelIds.join(",");
+
   const load = async () => {
     setLoading(true);
     setError(null);
     try {
-      setNotes(await fetchNotes());
+      setNotes(await fetchNotes({ levelIds: scopeLevelIds, withContent: isAdminRole }));
     } catch (e) {
       setError(e.message ?? "Failed to load notes");
     }
     setLoading(false);
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    if (!prefsLoaded) return;
+    load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- scopeKey encodes the picks
+  }, [prefsLoaded, scopeKey, isAdminRole]);
+
+  // Bodies live on the server now, so "search inside the note" is a query, not a
+  // substring test. Local title/topic matches still render instantly; the ids
+  // that only the body matches arrive a moment later.
+  const [bodyMatches, setBodyMatches] = useState<Set<string> | null>(null);
+  useEffect(() => {
+    const term = q.trim();
+    if (term.length < 2) { setBodyMatches(null); return; }
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      searchNoteIds(term, scopeLevelIds)
+        .then((ids) => { if (!cancelled) setBodyMatches(ids); })
+        // A failed body search must not break the library: titles still filter.
+        .catch(() => { if (!cancelled) setBodyMatches(null); });
+    }, 250);
+    return () => { cancelled = true; window.clearTimeout(timer); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- scopeKey encodes the picks
+  }, [q, scopeKey]);
 
   const subjects = useMemo(() => {
     const seen = new Map<string, string>();
@@ -190,16 +294,24 @@ export default function Notes() {
       if (type !== "all" && n.material_type !== type) return false;
       if (!term) return true;
       // Search the body too, not just the title: students look for a term they
-      // remember reading, not the note's heading.
-      const body = (n.content ?? "").replace(/<[^>]*>/g, " ").toLowerCase();
+      // remember reading, not the note's heading. The body half is answered by
+      // Postgres (`bodyMatches`); title and topic match locally and instantly.
       return (
         n.title.toLowerCase().includes(term) ||
         n.topic_name.toLowerCase().includes(term) ||
-        body.includes(term)
+        Boolean(bodyMatches?.has(n.id))
       );
     });
-  }, [notes, q, subject, level, type, filtering, pickedIds, topicFilter]);
+  }, [notes, q, subject, level, type, filtering, pickedIds, topicFilter, bodyMatches]);
   const topicFilterName = topicFilter ? notes.find((n) => n.topic_id === topicFilter)?.topic_name : null;
+
+  // One note per subject-level is free. Computed from the whole library, not the
+  // filtered view, so searching cannot change which note is the free one.
+  const { hasPaid } = usePlanAccess();
+  const openableNotes = useMemo(
+    () => openableIdsAcrossLevels(notes, hasPaid),
+    [notes, hasPaid],
+  );
 
   const completedCount = visible.filter((n) => done[n.id]).length;
   // Subject → level → topic → title, so the library reads as a shelf of topics
@@ -327,6 +439,7 @@ export default function Notes() {
         <ol className="space-y-3">
           {ordered.map((n, i) => {
             const studied = !!done[n.id];
+            const locked = isLockedNote(n.id, openableNotes);
             const prev = ordered[i - 1];
             const newSubject = prev?.subject_id !== n.subject_id || prev?.level !== n.level;
             const newTopic = newSubject || prev?.topic_id !== n.topic_id;
@@ -396,6 +509,14 @@ export default function Notes() {
                         {n.material_type === "summary" && (
                           <Badge variant="outline" className="text-[10px] capitalize">Summary</Badge>
                         )}
+                        {/* Locked entries stay listed: a free account gets one note
+                            per subject and level, and the rows it cannot open are
+                            what the plan is selling. */}
+                        {locked && (
+                          <Badge variant="outline" className="gap-1 border-dashed text-[10px] text-muted-foreground">
+                            <Lock className="h-3 w-3" /> Full plan
+                          </Badge>
+                        )}
                       </div>
                     </div>
 
@@ -409,7 +530,15 @@ export default function Notes() {
                           onSaved={load}
                         />
                       )}
-                      {n.content && (
+                      {locked ? (
+                        <Button size="sm" variant="outline" className="gap-1" asChild>
+                          <Link to="/pricing" title="One note in this subject and level is free — unlock the rest">
+                            <Lock className="h-3.5 w-3.5" /> Unlock
+                          </Link>
+                        </Button>
+                      ) : (
+                        // Every library row is an HTML note — the shelf no longer
+                        // carries `content`, so its presence cannot decide this.
                         <Button size="sm" variant="secondary" className="gap-1" asChild>
                           <Link to={`/notes/${n.id}`}><Eye className="h-3.5 w-3.5" /> Read</Link>
                         </Button>
@@ -417,7 +546,9 @@ export default function Notes() {
                       {/* File-backed controls only appear when there is a file. Every
                           material in the library is HTML-only today, so these used to
                           render as 60 dead, unlabelled buttons per page. */}
-                      {n.file_url && (
+                      {/* A locked entry offers nothing to open or download: the
+                          file is the same note the card is gating. */}
+                      {n.file_url && !locked && (
                         <>
                           <Button size="sm" variant="ghost" className="gap-1"
                             onClick={async () => {

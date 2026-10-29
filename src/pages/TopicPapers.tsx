@@ -1,4 +1,9 @@
 // Per-topic past-paper list.
+//
+// Free to read: every row links out to the board's own page for the
+// qualification (see `officialPaperPage`). Nothing here serves a board PDF — we
+// do not host or distribute papers — and nothing is behind the plan. The one
+// paid action is "Submit for marking", our own AI marker.
 import { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -18,14 +23,10 @@ import {
   topicSlugOf,
 } from "@/lib/topicUrls";
 import { topicHead } from "@/lib/topicSeo";
-import { Archive, BookOpen, Play, Clock, ArrowRight, ArrowLeft, FileText, FileCheck, ExternalLink, Sparkles, RotateCcw, Download, Wand2 } from "lucide-react";
+import { Archive, BookOpen, Play, ArrowRight, ArrowLeft, ExternalLink, RotateCcw, Wand2 } from "lucide-react";
 import { MarkPaperDialog } from "@/components/MarkPaperDialog";
-import { useToast } from "@/hooks/useToast";
-import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
-import { paperFileName, archivePaperGroup } from "@/lib/pastPaperFiles";
+import { archivePaperGroup, officialPaperPage } from "@/lib/pastPaperFiles";
 import { relatedTopicPapers } from "@/lib/topicPapers";
-import { usePlanAccess, FREE_PREVIEW_LIMIT } from "@/components/PreviewLimit";
-import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -63,8 +64,6 @@ export default function TopicPapers() {
   // The row the student tapped “Submit for marking” on — marking is scoped
   // to that paper's own mark scheme.
   const [markPaper, setMarkPaper] = useState<TopicPaper | null>(null);
-  const { toast } = useToast();
-  const { isPreview, hasPaid } = usePlanAccess();
   const { user } = useAuth();
   const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
 
@@ -81,45 +80,9 @@ export default function TopicPapers() {
     ? related.papers
     : related.papers.filter((p) => archivePaperGroup(p) === groupFilter);
 
-  // Free-plan limit for this topic's past papers: show the first 2 records
-  // (follows the global FREE_PREVIEW_LIMIT policy); paid accounts see all.
-  const visiblePapers = hasPaid
-    ? groupFiltered
-    : isPreview
-      ? groupFiltered.slice(0, FREE_PREVIEW_LIMIT)
-      : groupFiltered;
-
-  const openPaper = async (url: string) => {
-    try {
-      await openProtectedFile("past-papers", url);
-    } catch (e) {
-      toast({ title: "Error", description: e?.message ?? "Unable to open file", variant: "destructive" });
-    }
-  };
-
-  // Save-to-disk variant of openPaper: same watermarked bytes, but the browser
-  // is told to download them (with a sensible filename) instead of previewing.
-  const downloadPaper = async (url: string, name: string) => {
-    try {
-      await openProtectedFile("past-papers", url, name);
-    } catch (e) {
-      toast({ title: "Error", description: e?.message ?? "Unable to download file", variant: "destructive" });
-    }
-  };
-
-  // External papers route through serve-external-paper, which enforces the plan
-  // and audits the click; a gated rejection becomes an upgrade prompt.
-  const openExternal = async (url: string, label?: string) => {
-    try {
-      await openExternalPaper(url, label);
-    } catch (e) {
-      if (e instanceof ExternalPaperGated) {
-        toast({ title: "Full plan required", description: e.message });
-        return;
-      }
-      toast({ title: "Error", description: e?.message ?? "Unable to open link", variant: "destructive" });
-    }
-  };
+  // Every matching paper is shown: reading them is free, and the plan gate now
+  // sits on the AI marker alone.
+  const visiblePapers = groupFiltered;
 
   useEffect(() => {
     let active = true;
@@ -271,7 +234,6 @@ export default function TopicPapers() {
 
   return (
     <div className="space-y-6">
-      <PreviewBanner />
       {/* Title, description, canonical and JSON-LD come from topicSeo, which is
           also what the build-time prerenderer writes into this URL's static HTML
           — so the crawler's head and the browser's head cannot disagree. */}
@@ -302,10 +264,7 @@ export default function TopicPapers() {
             {related.filtered && related.groups.length > 0 && (
               <span> Showing {related.groups.join(", ")} papers for this topic.</span>
             )}
-            {isPreview && !hasPaid && (
-              <span className="text-xs text-primary"> ({visiblePapers.length} of {groupFiltered.length} shown — full archive on the full plan)</span>
-            )}
-            Use these to practise under real exam conditions and check your answers against the mark schemes.
+            Use these to practise under real exam conditions and check your answers against the mark schemes — papers and mark schemes are free to read on the board's own site.
           </p>
         </div>
         <div className="flex gap-2">
@@ -363,7 +322,15 @@ export default function TopicPapers() {
           {visiblePapers.length === 0 ? (
             <p className="text-sm text-muted-foreground py-4 text-center">No past papers have been linked to this topic yet.</p>
           ) : (
-            visiblePapers.map((p) => (
+            visiblePapers.map((p) => {
+              // The board's own page for this qualification — the only place a
+              // paper is opened from now on.
+              const boardPage = officialPaperPage({
+                ...p,
+                subject_slug: subjectMeta.slug,
+                level: subjectLevel.level,
+              });
+              return (
               <div
                 key={p.id}
                 className="flex flex-col gap-3 rounded-lg border p-3 transition-colors hover:bg-muted/50 sm:flex-row sm:items-center sm:justify-between"
@@ -377,44 +344,17 @@ export default function TopicPapers() {
                   </p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 sm:shrink-0 sm:justify-end">
-                  {p.paper_url && (
-                    <>
-                      <Button size="sm" variant="outline" className="gap-1.5 text-xs" onClick={() => openPaper(p.paper_url!)}>
-                        <FileText className="h-3.5 w-3.5" /> Paper
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        className="gap-1.5 text-xs"
-                        aria-label={`Download ${p.title} question paper`}
-                        title="Download question paper"
-                        onClick={() => downloadPaper(p.paper_url!, paperFileName(p.title, "paper"))}
+                  {boardPage && (
+                    <Button asChild size="sm" variant="outline" className="gap-1.5 text-xs">
+                      <a
+                        href={boardPage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`Open ${p.title} on the board's own site`}
                       >
-                        <Download className="h-3.5 w-3.5" /> Download
-                      </Button>
-                    </>
-                  )}
-                  {p.mark_scheme_url && (
-                    <>
-                      <Button size="sm" variant="outline" className="gap-1.5 text-xs text-green-600 border-green-200 hover:bg-green-50" onClick={() => openPaper(p.mark_scheme_url!)}>
-                        <FileCheck className="h-3.5 w-3.5" /> Mark Scheme
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        className="gap-1.5 text-xs text-green-600"
-                        aria-label={`Download ${p.title} mark scheme`}
-                        title="Download mark scheme"
-                        onClick={() => downloadPaper(p.mark_scheme_url!, paperFileName(p.title, "mark-scheme"))}
-                      >
-                        <Download className="h-3.5 w-3.5" /> Download
-                      </Button>
-                    </>
-                  )}
-                  {!p.paper_url && !p.mark_scheme_url && (
-                    <Badge variant="secondary" className="gap-1.5 text-[10px] text-muted-foreground">
-                      <Clock className="h-3 w-3" /> Files coming soon
-                    </Badge>
+                        Get the paper <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </Button>
                   )}
                   <Button
                     size="sm"
@@ -425,27 +365,10 @@ export default function TopicPapers() {
                   >
                     <Wand2 className="h-3.5 w-3.5" /> Submit for marking
                   </Button>
-                  {p.source_url && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="gap-1.5 text-xs"
-                      onClick={() => openExternal(p.source_url!, p.title)}
-                    >
-                      Official paper <ExternalLink className="h-3.5 w-3.5" />
-                    </Button>
-                  )}
                 </div>
               </div>
-            ))
-          )}
-          {!hasPaid && isPreview && groupFiltered.length > visiblePapers.length && (
-            <div className="mt-4 flex justify-between items-center border-t pt-4">
-              <p className="text-sm text-muted-foreground">{groupFiltered.length - visiblePapers.length} more paper{groupFiltered.length - visiblePapers.length === 1 ? "" : "s"} available on the full plan.</p>
-              <Button asChild variant="outline" size="sm">
-                <Link to="/pricing"><Sparkles className="h-3.5 w-3.5 mr-2" /> View plans</Link>
-              </Button>
-            </div>
+              );
+            })
           )}
         </CardContent>
       </Card>

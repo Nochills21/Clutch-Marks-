@@ -5,9 +5,9 @@ Physics and Computer Science at OL / AS / A2 with files attached, and Biology
 (0610), Chemistry (0620), both English qualifications (Cambridge 0500, OxfordAQA
 9280) and Edexcel IAL Biology / Chemistry (WBI11-16, WCH11-16) as metadata rows
 that carry the board's `source_url` but no PDF — the `past-papers` bucket holds
-nothing for those codes. Those rows therefore read "Not in our library yet —
-open it on the board's site", which is the honest state until the papers are
-sourced; adding a row is not a claim that we host the file. They were seeded by
+nothing for those codes. Those rows carry only the board's `source_url`, which is
+now what every row uses — adding a row has never been a claim that we host the
+file. They were seeded by
 `.freebuff/seed-past-papers-bio-chem-eng.cjs`, whose series lists are sized so
 every subject-level has at least as many rows as topics. Every row is filed
 under a topic of its own subject-level (see
@@ -17,28 +17,35 @@ private `past-papers` bucket (`papers/…` / `mark-schemes/…`, UUID filenames)
 attached either by an admin through the Past Papers Bank or by the bulk ingest
 that downloaded the sourced PDFs (see below).
 
-`openProtectedFile` / `openSignedFile` still recognise an `http(s)://` value and
-open it directly in a new tab, as a fallback for a URL pasted into the edit
-dialog, but **no archive row uses that path: every populated `paper_url` /
-`mark_scheme_url` is a bucket path**, so all reads route through
-`serve-material` (per-user watermark + entitlement gate + audit log).
+## Papers are linked, never served
 
-Rows with no file at all carry the board's `source_url` — a link we do not
-host, so it cannot be watermarked. Those links do **not** render as a plain
-`<a href>`: that let a free account click straight through and read the whole
-paper, unwatermarked, with no audit trail. They now go through
-`serve-external-paper`, which applies the same entitlement rule as
-`serve-material`, records the click (`action = 'external_link_opened`
-the audit trail, and only then hands back the URL to navigate to — a normal
-navigation, so the source site loads exactly as a direct link would. A free
-account gets a 403 and an upgrade prompt, and never learns the destination.
+**The archive does not distribute board papers, and that is a legal position
+rather than a paywall.** Reading a past paper is free to everyone, signed in or
+not, and every card — on `/past-papers` and on each per-topic papers page —
+links to the **board's own page** for that qualification: Cambridge
+International's `/past-papers/` page, Pearson Edexcel's course-materials page,
+or the OxfordAQA qualification page. `officialPaperPage` in
+`frontend/src/lib/pastPaperFiles.ts` owns that mapping (keyed
+`subject/LEVEL/board`, because Physics AS is Cambridge 9702 for some rows and
+Edexcel IAL for others). It only ever returns a board domain — a row's
+`source_url` is used solely when it is already official, so a third-party mirror
+can never be linked.
 
-The function redirects only to an **allowlist of exam-board and PMT hosts**, so
-it cannot be used as an authenticated open redirect. An admin who pastes an
-external URL into a `paper_url` slot still bypasses this gate (`openProtectedFile`
-opens external values directly) — that path is admin-only and intended.
+Two consequences, both deliberate:
 
-## Which rows have a PDF
+- There is **no view and no download button**, and no watermarking path for a
+  paper. `paper_url` / `mark_scheme_url` stay in the table because admin tooling
+  and the AI marker's grounding read them, but `serve-material` now **refuses the
+  `past-papers` bucket to anyone who is not an admin** (`403 board_link_only`),
+  so the copies in storage are admin-only even if a button were re-added.
+- The **plan gate sits entirely on the AI marker** ("Submit for marking"), which
+  is our own work. `serve-external-paper` is no longer called by the app.
+
+Don't reintroduce a hosted copy of a board paper: not into the bucket, not into
+a `study_materials` row, and not as a link to a mirror. If a card needs a paper,
+it points at the board.
+
+## Which rows have a stored file
 
 `20261002120000_past_papers_pmt_urls.sql` fills question-paper URLs on 330 rows
 and mark-scheme URLs on 331 (every URL HEAD-checked to return `application/pdf`).
@@ -142,15 +149,16 @@ skipped — the tool never guesses.
 
 Both slots upload to the private `past-papers` bucket (`papers/…` and
 `mark-schemes/…`, UUID filenames) and the row keeps only the storage path — as do
-the bulk-ingested sourced papers. Reads go through the `serve-material` edge
-function, which watermarks PDFs per user, gates free accounts to a 3-page preview,
-and audit-logs the download; a signed URL is the fallback if that function is
-unreachable. Admins can preview an attached file from the row's Paper / MS badge.
+the bulk-ingested sourced papers. **No student route reads these any more** — see
+"Papers are linked, never served" above. `serve-material` answers
+`403 board_link_only` for the `past-papers` bucket unless the caller is an
+approved admin, and the storage read policy stays `auth.uid() is not null`, so the
+only remaining reader is admin tooling (the row's Paper / MS badge in the console
+and the AI marker's server-side grounding, both service-role).
 
-The gate only exists once `serve-material` is deployed from
-`backend/supabase/functions/` (see `docs/deploy.md`). If the deployed copy
-predates the entitlement work, the PDF response is missing its CORS header and
-the browser silently falls back to the unwatermarked signed URL.
+The refusal lives in `supabase/functions/serve-material` — the tree that ships —
+and not in the older `backend/` copy, so redeploying from `backend/` would drop
+it. Check for the `board_link_only` response after any redeploy of that function.
 
 ## Browsing & filtering the archive
 
@@ -165,13 +173,16 @@ while named Edexcel modules stay whole ("Mechanics M1", "Pure Mathematics P1").
 The session list always carries the full board calendar including `Specimen`, so
 the sample papers are reachable.
 
-All filters — **search included** — run over the whole subject-scoped archive
-*`before`* the free-preview slice (`filterArchivePapers` is applied first, then
-`usePreviewSliceWithLimit`). Applying the search to the slice was the bug: a free
-account only ever searched the first `FREE_PREVIEW_LIMIT` rows, so searching for
-an older year or a specimen returned nothing and looked like the paper did not
-exist. Filter options are built from the full scoped set (not the slice), so a
-free student can still see every board / paper / session on offer.
+All filters — **search included** — run over the whole subject-scoped archive,
+and **there is no preview slice**: reading papers is free, so every matching row
+is shown to every reader, signed in or not. (The list used to be cut to
+`FREE_PREVIEW_LIMIT` rows; that was removed with the move to board links. The
+`usePreviewSliceWithLimit` hook still governs notes and quizzes.)
+
+Every card's primary action is **Get the paper**, a plain external link to the
+board's page for that qualification — nothing is fetched from our storage, and,
+because the link is a board page rather than a file, it works for a signed-out
+visitor too.
 
 ## Timed practice on a paper
 

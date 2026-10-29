@@ -15,12 +15,14 @@ import { BookmarkButton } from "@/components/BookmarkButton";
 import { subjectIcon, subjectAccent, LEVEL_LABELS, type SubjectLevelCode } from "@/lib/subjects";
 import { levelHead } from "@/lib/levelSeo";
 import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
-import { usePreviewSlice, PreviewLimit } from "@/components/PreviewLimit";
+import { usePreviewSlice, PreviewLimit, usePlanAccess } from "@/components/PreviewLimit";
+import { openableNoteIds, isLockedNote } from "@/lib/noteAccess";
+import { openableLessonIds, isLockedLesson } from "@/lib/lessonAccess";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
-import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw } from "lucide-react";
+import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw, Lock, Loader2, Plus } from "lucide-react";
 import { loadFailureMessage } from "@/lib/net";
 import type { Tables } from "@/integrations/supabase/types";
 
@@ -61,7 +63,7 @@ export default function Subject() {
   const [subjectLevel, setSubjectLevel] = useState<Tables<"subject_levels"> | null>(null);
   const [topics, setTopics] = useState<Tables<"topics">[]>([]);
   const [lessons, setLessons] = useState<Pick<Tables<"lessons">, "id" | "title" | "topic_id" | "sort_order">[]>([]);
-  const [materials, setMaterials] = useState<Pick<Tables<"study_materials">, "id" | "title" | "topic_id" | "material_type" | "file_url">[]>([]);
+  const [materials, setMaterials] = useState<Pick<Tables<"study_materials">, "id" | "title" | "topic_id" | "material_type" | "file_url" | "created_at">[]>([]);
   const [quizzes, setQuizzes] = useState<Pick<Tables<"quizzes">, "id" | "title" | "topic_id" | "description" | "is_published" | "exam_type" | "is_ai_generated">[]>([]);
   const [questions, setQuestions] = useState<BankQuestion[]>([]);
   // AI-bank questions get their own query: browse_questions caps pages at 200
@@ -75,7 +77,8 @@ export default function Subject() {
   const [retryKey, setRetryKey] = useState(0);
 
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick, savePicks } = useMySubjects();
+  const [addingSubject, setAddingSubject] = useState(false);
 
   // filters
   const [search, setSearch] = useState("");
@@ -114,7 +117,7 @@ export default function Subject() {
       if (ids.length) {
         const [ls, ms, qz] = await Promise.all([
           supabase.from("lessons").select("id, title, topic_id, sort_order").in("topic_id", ids).order("sort_order"),
-          supabase.from("study_materials").select("id, title, topic_id, material_type, file_url").in("topic_id", ids),
+          supabase.from("study_materials").select("id, title, topic_id, material_type, file_url, created_at").in("topic_id", ids),
           supabase.from("quizzes").select("id, title, topic_id, description, is_published, exam_type, is_ai_generated").in("topic_id", ids),
         ]);
         if (!active) return;
@@ -183,10 +186,22 @@ export default function Subject() {
   const visibleQuizzes = quizzes.filter((q) =>
     matchesTopic(q.topic_id) && matchesText(q.title, q.description) &&
     (examType === ALL || q.exam_type === examType));
-  // Free-plan preview: show only the first few items of every list; the rest
-  // collapses into an upgrade prompt. Full-plan users see everything.
-  const previewLessons = usePreviewSlice(visibleLessons);
-  const previewMaterials = usePreviewSlice(visibleMaterials);
+  // Free-plan preview for questions and quizzes: the rest of those lists folds
+  // into an upgrade prompt, because a question you cannot answer is worthless
+  // as a sample. Materials follow the rule below instead.
+  // A free account opens one note and one lesson in this level; every other row
+  // stays in the list with a lock on it, so the plan's contents are visible
+  // rather than only counted. Both picks come from the unfiltered lists, so
+  // typing in the search box cannot hand out a different free item.
+  const { hasPaid } = usePlanAccess();
+  const openableLessons = useMemo(() => openableLessonIds(lessons, hasPaid), [lessons, hasPaid]);
+  const openableNotes = useMemo(
+    // `materials`, not `visibleMaterials`: the free note is a fixed choice per
+    // level, and computing it from a search-filtered list made typing in the
+    // search box hand out a different note.
+    () => openableNoteIds(materials, hasPaid),
+    [materials, hasPaid],
+  );
   const previewQuizzes = usePreviewSlice(visibleQuizzes);
   const previewQuestions = usePreviewSlice(questions);
   const visibleAiQuestions = aiQuestions.filter((q) => q.is_ai_generated);
@@ -222,13 +237,36 @@ export default function Subject() {
   // failed lookup) also satisfied this test and the student was told they had
   // not selected a subject they never chose.
   if (!isAdminRole && user && prefsLoaded && subjectLevel && !pickedIds.has(subjectLevel.id)) {
+    // The subject exists — it is simply not on this student's list, which is
+    // what a shared link to another level looks like. The heading used to read
+    // "Subject not found" over a line admitting it was only unpicked, and the
+    // only way forward was a detour through the catalogue. Joining it here does
+    // what the link promised.
+    const addAndReload = async () => {
+      setAddingSubject(true);
+      try {
+        await savePicks([...pickedIds, subjectLevel.id]);
+      } catch (e: unknown) {
+        setLoadError(e instanceof Error ? e.message : "Could not add this subject");
+      } finally {
+        setAddingSubject(false);
+      }
+    };
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Subject not found</CardTitle>
-          <CardDescription>You haven't selected this subject yet.</CardDescription>
+          <CardTitle>Not in your subjects</CardTitle>
+          <CardDescription>
+            {subject?.name ?? "This subject"}
+            {levelCode ? ` · ${LEVEL_LABELS[levelCode] ?? levelCode}` : ""} is not one of the
+            subjects on your list yet. Add it to open its topics, notes and past papers.
+          </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-wrap gap-2">
+          <Button className="gap-2" onClick={addAndReload} disabled={addingSubject}>
+            {addingSubject ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+            Add it to my subjects
+          </Button>
           <Button asChild variant="outline" className="gap-2">
             <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
           </Button>
@@ -383,50 +421,75 @@ export default function Subject() {
         <TabsContent value="materials" id="materials" className="space-y-3 pt-4">
           {visibleLessons.length === 0 && visibleMaterials.length === 0 ? empty("material") : (
             <>
-              {previewLessons.map((l) => {
+              {visibleLessons.map((l) => {
                 const ts = topicSlugMap.get(l.topic_id);
+                const locked = isLockedLesson(l.id, openableLessons);
                 return (
-                  <Card key={l.id}>
+                  <Card key={l.id} className={locked ? "border-dashed bg-muted/20" : undefined}>
                     <CardContent className="flex items-center justify-between gap-3 p-4">
                       <div className="min-w-0">
-                        <p className="font-medium truncate">{l.title}</p>
-                        <p className="text-xs text-muted-foreground">Lesson · {topicNameMap.get(l.topic_id) ?? "General"}</p>
+                        <p className={`font-medium truncate ${locked ? "text-muted-foreground" : ""}`}>{l.title}</p>
+                        <p className="text-xs text-muted-foreground">
+                          Lesson · {topicNameMap.get(l.topic_id) ?? "General"}
+                          {locked && " · full plan"}
+                        </p>
                       </div>
-                      <Button asChild size="sm" variant="ghost" className="gap-1">
-                        {ts ? (
-                          <Link to={topicNotesPath(subject!.slug!, subjectLevel!.level.toLowerCase(), ts)}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
-                        ) : (
-                          <Link to="/lessons">Open <ArrowRight className="h-3.5 w-3.5" /></Link>
-                        )}
-                      </Button>
+                      {/* Locked lessons stay listed for the same reason the
+                          locked notes do: the row is the advertisement. */}
+                      {locked ? (
+                        <Button asChild size="sm" variant="outline" className="gap-1">
+                          <Link to="/pricing" title="One lesson in this subject and level is free — unlock the rest">
+                            <Lock className="h-3.5 w-3.5" /> Unlock
+                          </Link>
+                        </Button>
+                      ) : (
+                        <Button asChild size="sm" variant="ghost" className="gap-1">
+                          {ts ? (
+                            <Link to={topicNotesPath(subject!.slug!, subjectLevel!.level.toLowerCase(), ts)}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
+                          ) : (
+                            <Link to="/lessons">Open <ArrowRight className="h-3.5 w-3.5" /></Link>
+                          )}
+                        </Button>
+                      )}
                     </CardContent>
                   </Card>
                 );
               })}
-              {previewMaterials.map((m) => {
+              {visibleMaterials.map((m) => {
                 const ts = topicSlugMap.get(m.topic_id);
+                const locked = isLockedNote(m.id, openableNotes);
                 return (
-                  <Card key={m.id}>
+                  <Card key={m.id} className={locked ? "border-dashed bg-muted/20" : undefined}>
                     <CardContent className="flex items-center justify-between gap-3 p-4">
                       <div className="min-w-0">
-                        <p className="font-medium truncate">{m.title}</p>
-                        <p className="text-xs text-muted-foreground capitalize">{m.material_type} · {topicNameMap.get(m.topic_id) ?? "General"}</p>
+                        <p className={`font-medium truncate ${locked ? "text-muted-foreground" : ""}`}>{m.title}</p>
+                        <p className="text-xs text-muted-foreground capitalize">
+                          {m.material_type} · {topicNameMap.get(m.topic_id) ?? "General"}
+                          {locked && " · full plan"}
+                        </p>
                       </div>
-                      <Button asChild size="sm" variant="ghost" className="gap-1">
-                        {ts ? (
-                          <Link to={topicNotesPath(subject!.slug!, subjectLevel!.level.toLowerCase(), ts)}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
-                        ) : (
-                          <Link to={m.topic_id ? `/notes?topic=${m.topic_id}` : "/notes"}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
-                        )}
-                      </Button>
+                      {/* Locked notes stay in the list on purpose: a free account
+                          gets one note per subject and level, and the row it
+                          cannot open is the advertisement for the rest. */}
+                      {locked ? (
+                        <Button asChild size="sm" variant="outline" className="gap-1">
+                          <Link to="/pricing" title="One note in this subject and level is free — unlock the rest">
+                            <Lock className="h-3.5 w-3.5" /> Unlock
+                          </Link>
+                        </Button>
+                      ) : (
+                        <Button asChild size="sm" variant="ghost" className="gap-1">
+                          {ts ? (
+                            <Link to={topicNotesPath(subject!.slug!, subjectLevel!.level.toLowerCase(), ts)}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
+                          ) : (
+                            <Link to={m.topic_id ? `/notes?topic=${m.topic_id}` : "/notes"}>Open <ArrowRight className="h-3.5 w-3.5" /></Link>
+                          )}
+                        </Button>
+                      )}
                     </CardContent>
                   </Card>
                 );
               })}
-              <PreviewLimit
-                hiddenCount={visibleLessons.length + visibleMaterials.length - previewLessons.length - previewMaterials.length}
-                what="materials"
-              />
             </>
           )}
         </TabsContent>

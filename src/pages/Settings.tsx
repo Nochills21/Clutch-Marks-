@@ -48,21 +48,34 @@ type SetUsernameResult = {
 };
 
 /**
- * Plan and payment method, read from the `subscriptions` row the webhook wrote.
+ * Plan and payment method, read from the `subscriptions` rows the webhook wrote.
  * Every change — cancel, change card, invoices — happens in Stripe's portal, so
- * this card only ever opens it. A student with no subscription is offered the
- * trial rather than a portal that would answer "no billing account".
+ * this card only offers it when Stripe actually has a customer to open it for.
+ * Two accounts have no portal to offer: a plan granted by hand (no Stripe
+ * customer) and a plan that has ended (nothing live to manage). Both get a
+ * route to subscribing instead, which is the whole point of this card.
  */
 function BillingCard() {
   const { role } = useAuth();
   const { toast } = useToast();
-  const { loading, planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd } = useSubscription();
+  const {
+    loading, planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd,
+    hasStripeCustomer, liveStripeSubscription, comped, lapsed,
+  } = useSubscription();
   const [opening, setOpening] = useState(false);
 
   const plan = planById(planId);
   const isTrialing = status === "trialing";
   const isPastDue = status === "past_due";
   const isCancelling = hasPaid && cancelAtPeriodEnd;
+  // `cancelled` / `expired` are the two spellings that mean the plan ended.
+  const hasEnded = status === "cancelled" || status === "expired";
+  // Access with nothing in Stripe behind it — granted by hand. The portal would
+  // answer 404 "No billing account yet", so it is never offered.
+  const withoutStripe = (hasPaid || isPastDue) && !hasStripeCustomer;
+  // The portal is the right page for a running subscription (cancel, change
+  // card, invoices) and for a failed payment (pay the open invoice).
+  const canManage = hasStripeCustomer && (liveStripeSubscription || isPastDue);
   const periodEnd = isTrialing ? trialEndsAt ?? endsAt : endsAt;
   const renews = periodEnd ? format(new Date(periodEnd), "d MMM yyyy") : null;
   const onDate = renews ? ` on ${renews}` : "";
@@ -89,6 +102,13 @@ function BillingCard() {
   let summary: string;
   if (isPastDue) {
     summary = "We couldn't take your last payment. Update your card to keep full access.";
+  } else if (comped) {
+    // Ahead of the trial/renewal branches on purpose: "we'll take $X" or
+    // "renews at $X" would be a lie when no card is on file and Stripe has no
+    // subscription behind the access.
+    summary = `This plan was granted to your account, so there is no card on file and nothing will be charged${
+      renews ? ` — access is set to run until ${renews}` : ""
+    }. Add a payment method to keep full access afterwards.`;
   } else if (isTrialing && isCancelling) {
     // Cancelled during the trial: Stripe will not take the first payment, so the
     // "we'll take X" copy above would threaten a charge that never happens.
@@ -101,8 +121,8 @@ function BillingCard() {
     summary = `Your plan ends${onDate || " at the end of the period"} and will not renew — you keep full access until then.`;
   } else if (hasPaid && plan) {
     summary = `Renews${onDate || " automatically"} at ${totalOf(plan)} ${term}. Cancel any time before then.`;
-  } else if (status === "canceled") {
-    summary = "Your subscription has ended — you're back on the free preview.";
+  } else if (lapsed || hasEnded) {
+    summary = `Your subscription ended${renews ? ` on ${renews}` : ""} — you're back on the free preview. Subscribe again to get full access back.`;
   } else {
     summary = `You're on the free preview. The ${TRIAL_DAYS}-day trial unlocks every subject and level.`;
   }
@@ -129,16 +149,25 @@ function BillingCard() {
               <span className="text-muted-foreground">Plan</span>
               <Badge variant={hasPaid ? "secondary" : "outline"}>{hasPaid ? plan?.name ?? "Paid" : "Preview"}</Badge>
               {isTrialing && <Badge variant="secondary">Free trial</Badge>}
+              {comped && <Badge variant="outline">Granted</Badge>}
               {isPastDue && <Badge variant="destructive">Payment failed</Badge>}
               {isCancelling && <Badge variant="secondary">Will not renew</Badge>}
             </div>
 
             <p className={isPastDue ? "text-destructive" : "text-muted-foreground"}>{summary}</p>
 
-            {hasPaid || isPastDue ? (
+            {canManage ? (
               <Button onClick={openPortal} disabled={opening} className="gap-2">
                 {opening ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
                 Manage billing
+              </Button>
+            ) : withoutStripe ? (
+              <Button asChild className="gap-2">
+                <Link to="/pricing"><CreditCard className="h-4 w-4" /> Add a payment method</Link>
+              </Button>
+            ) : lapsed || hasEnded ? (
+              <Button asChild className="gap-2">
+                <Link to="/pricing">Subscribe again</Link>
               </Button>
             ) : (
               <Button asChild>

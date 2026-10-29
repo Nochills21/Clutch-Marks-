@@ -13,10 +13,12 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarFooter, SidebarHeader,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { BrandLockup } from "@/components/BrandMark";
 import { SITE } from "@/lib/site";
 
@@ -121,6 +123,15 @@ const parentLinks = [
 
 export function AppSidebar() {
   const { role, user, signOut, studentPreview, exitStudentPreview } = useAuth();
+  const { isMobile, setOpenMobile } = useSidebar();
+  const { pathname } = useLocation();
+
+  // On a phone the sidebar is a slide-over sheet, and it stayed open over the
+  // page you had just navigated to — the nav felt broken because every tap left
+  // the menu covering the result. It closes itself once the route changes.
+  useEffect(() => {
+    if (isMobile) setOpenMobile(false);
+  }, [pathname, isMobile, setOpenMobile]);
   // While previewing, role is masked to "student" — use the real admin flag for the toggle.
   const isAdmin = studentPreview || role === "admin";
   const linkGroups = role === "admin"

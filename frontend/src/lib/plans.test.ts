@@ -48,31 +48,31 @@ describe("money formatting", () => {
 
 describe("per-term copy", () => {
   it("quotes the billed total, not months × rate", () => {
-    // 6.67 × 12 is 80.04; the plan is billed 80. The total is the column.
-    expect(totalOf(annual)).toBe("$80");
+    // 8.33 × 12 is 99.96; the plan is billed 100. The total is the column.
+    expect(totalOf(annual)).toBe("$100");
     expect(totalOf(quarterly)).toBe("$45");
-    expect(totalOf(monthly)).toBe("$30");
+    expect(totalOf(monthly)).toBe("$20");
   });
 
   it("derives the monthly rate from the total", () => {
     expect(perMonthOf(quarterly)).toBe("$15");
-    expect(perMonthOf(annual)).toBe("$6.67");
-    expect(perMonthOf(monthly)).toBe("$30");
+    expect(perMonthOf(annual)).toBe("$8.33");
+    expect(perMonthOf(monthly)).toBe("$20");
   });
 
   it("only names a billed amount for terms longer than a month", () => {
     expect(billedLabel(monthly)).toBe("/month");
     expect(billedLabel(quarterly)).toBe("/month · billed $45");
-    expect(billedLabel(annual)).toBe("/month · billed $80");
+    expect(billedLabel(annual)).toBe("/month · billed $100");
   });
 });
 
 describe("savings vs monthly", () => {
   it("computes the per-month saving and the percentage", () => {
-    // $15/month against the $30 monthly rate is half price; the annual tier is
-    // $6.67/month, a saving of $23.33 (78%) per month.
-    expect(savingsVsMonthly(quarterly)).toEqual({ amount: 15, label: "$15", percent: 50 });
-    expect(savingsVsMonthly(annual)).toEqual({ amount: 23.33, label: "$23.33", percent: 78 });
+    // $15/month against the $20 monthly rate saves $5 (25%); the annual tier is
+    // $8.33/month, a saving of $11.67 (58%) per month.
+    expect(savingsVsMonthly(quarterly)).toEqual({ amount: 5, label: "$5", percent: 25 });
+    expect(savingsVsMonthly(annual)).toEqual({ amount: 11.67, label: "$11.67", percent: 58 });
   });
 
   it("has nothing to compare the monthly plan to", () => {
@@ -82,7 +82,7 @@ describe("savings vs monthly", () => {
 
 describe("cheapest per-month rate", () => {
   it("picks the annual tier for the 'from $X/month' upsell", () => {
-    expect(cheapestPerMonth()).toEqual({ plan: annual, label: "$6.67" });
+    expect(cheapestPerMonth()).toEqual({ plan: annual, label: "$8.33" });
   });
 });
 

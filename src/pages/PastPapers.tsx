@@ -1,9 +1,13 @@
-// Past-paper archive grouped by year; opens via watermarking proxy.
+// Past-paper archive grouped by year.
+//
+// Reading a past paper costs nothing: the archive is open to everyone and every
+// card links out to the board's own page for that qualification. We do not host,
+// mirror or distribute board papers — that is a copyright decision, not a
+// paywall — so there is deliberately no view or download button here. What is
+// paid is the AI marker ("Submit for marking"), which is our own work.
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { usePlanAccess, FREE_PREVIEW_LIMIT, usePreviewSliceWithLimit } from "@/components/PreviewLimit";
-import { useToast } from "@/hooks/useToast";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -17,20 +21,18 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { openProtectedFile, openExternalPaper, ExternalPaperGated } from "@/lib/contentFiles";
 import {
-  boardLabel,
   archiveBoard,
   archivePaperGroup,
   paperSortKey,
-  paperFileName,
+  officialPaperPage,
   sortSessions,
   SESSION_ORDER,
   filterArchivePapers,
   filterPapersForSubjects,
 } from "@/lib/pastPaperFiles";
 import { levelLabel } from "@/lib/levels";
-import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Download, Wand2 } from "lucide-react";
+import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Wand2 } from "lucide-react";
 import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
 import { MarkPaperDialog, type MarkablePaper } from "@/components/MarkPaperDialog";
 import { QueryError } from "@/components/QueryError";
@@ -108,7 +110,6 @@ type ArchivePaper = NonNullable<Awaited<ReturnType<typeof archivePapersPage>>["d
 const paperLabel = (n: string | null) => (!n ? "—" : /^(paper|unit)\b/i.test(n) ? n : `Paper ${n}`);
 
 export default function PastPapers() {
-  const { toast } = useToast();
   const { user } = useAuth();
   const qc = useQueryClient();
   const { pickedIds, loaded: prefsLoaded, isAdmin, needsSubjectPick } = useMySubjects();
@@ -211,40 +212,6 @@ export default function PastPapers() {
     }
     return m;
   }, [attempts]);
-
-  const { loading: planLoading, isPreview, hasPaid } = usePlanAccess();
-
-  const handleOpenFile = async (url: string) => {
-    try {
-      await openProtectedFile("past-papers", url);
-    } catch (e) {
-      toast({ title: "Unable to open file", description: e?.message ?? "Please try again", variant: "destructive" });
-    }
-  };
-
-  // Save-to-disk variant. Same watermarked bytes as opening, but the browser is
-  // told to download (and what to call the file) instead of previewing it.
-  const handleDownloadFile = async (url: string, name: string) => {
-    try {
-      await openProtectedFile("past-papers", url, name);
-    } catch (e) {
-      toast({ title: "Unable to download file", description: e?.message ?? "Please try again", variant: "destructive" });
-    }
-  };
-
-  // External papers route through serve-external-paper, which enforces the
-  // plan and audits the click. A gated rejection becomes an upgrade prompt.
-  const handleOpenExternal = async (url: string, label?: string) => {
-    try {
-      await openExternalPaper(url, label);
-    } catch (e) {
-      if (e instanceof ExternalPaperGated) {
-        toast({ title: "Full plan required", description: e.message });
-        return;
-      }
-      toast({ title: "Unable to open link", description: e?.message ?? "Please try again", variant: "destructive" });
-    }
-  };
 
   // Topic-linked rows use topic ownership; metadata-only rows use their
   // persisted subject_slug + level. The latter matters for archive papers that
@@ -409,8 +376,10 @@ export default function PastPapers() {
   // board or session never offers a year that would come up empty.
   const years = [...new Set(matchedPapers.map((p) => p.year))].sort((a, b) => b - a);
   const yearScoped = yearFilter === "all" ? matchedPapers : matchedPapers.filter((p) => p.year === Number(yearFilter));
-  const { slice: visiblePapers } = usePreviewSliceWithLimit(yearScoped, FREE_PREVIEW_LIMIT);
-  const filteredPapers = visiblePapers ?? [];
+  // No preview slice any more: reading papers is free, so every row that
+  // survives the filters is shown. The plan gate now lives only on the AI
+  // marker, which is the part that costs us money to run.
+  const filteredPapers = yearScoped;
 
   const groupedPapers = years
     .map((y) => ({ year: y, papers: filteredPapers.filter((p) => p.year === y) }))
@@ -440,7 +409,7 @@ export default function PastPapers() {
           <FileText className="h-7 w-7 text-primary" /> Past Papers
         </h1>
         <p className="text-muted-foreground text-sm">
-          Download past exam papers and mark schemes. Solve one on paper and mark it with the{" "}
+          Read past exam papers and mark schemes on the board's own site. Solve one on paper and mark it with the{" "}
           <Link to="/ai-marker" className="font-semibold text-primary underline decoration-primary/30 underline-offset-4">AI Marker</Link>.
         </p>
       </div>
@@ -604,45 +573,18 @@ export default function PastPapers() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {groupedPapers.flatMap((g) =>
-            g.papers.map((p) => (
+            g.papers.map((p) => {
+              // The board's own page for this qualification — the only place a
+              // paper is opened from now on.
+              const boardPage = officialPaperPage(p);
+              const boardName = archiveBoard(p);
+              return (
               <Card key={p.id} className="hover:shadow-md transition-shadow group">
                 <CardHeader className="pb-2">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <CardTitle className="text-base group-hover:text-primary transition-colors">
                       {p.title}
                     </CardTitle>
-                    {/* Nothing in the archive has a PDF yet, so the primary action
-                        used to be a disabled "Paper" button next to the words
-                        "Awaiting upload" — a dead end. Point students at the exam
-                        board's own page instead, and only show the download
-                        buttons when there is actually a file to download. */}
-                    <div className="flex shrink-0 flex-wrap justify-end gap-1">
-                      {p.paper_url ? (
-                        <Button variant="ghost" size="sm" onClick={() => handleOpenFile(p.paper_url ?? "")}>
-                          View paper
-                        </Button>
-                      ) : null}
-                      {p.mark_scheme_url && (
-                        <Button variant="ghost" size="sm" onClick={() => handleOpenFile(p.mark_scheme_url ?? "")}>
-                          View mark scheme
-                        </Button>
-                      )}
-                      {/* A row can carry a paper but no mark scheme (or vice
-                          versa), so the board-site fallback must fire whenever
-                          *either* file is missing — keying it on `paper_url`
-                          alone left those rows with no way out. */}
-                      {(!p.paper_url || !p.mark_scheme_url) && p.source_url && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="gap-1"
-                          onClick={() => handleOpenExternal(p.source_url!, boardLabel(p.source_url) ?? undefined)}
-                        >
-                          {boardLabel(p.source_url) ?? "Board site"}
-                          <ExternalLink className="h-3 w-3" />
-                        </Button>
-                      )}
-                    </div>
                   </div>
                   {/* CardDescription renders a <p>, and the level Badge renders a
                       <div> — invalid nesting, which React warns about. */}
@@ -664,17 +606,25 @@ export default function PastPapers() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-xs text-muted-foreground">
-                    {paperLabel(p.paper_number)} ·{" "}
-                    {p.paper_url
-                      ? "Downloadable"
-                      : p.source_url
-                        ? "Not in our library yet — open it on the board's site"
-                        : "Awaiting upload"}
+                    {paperLabel(p.paper_number)} · Free to read on the {boardName} site
                   </p>
                   <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
                     <div className="flex flex-wrap items-center gap-2">
+                      {boardPage && (
+                        <Button asChild size="sm" className="gap-1.5">
+                          <a
+                            href={boardPage}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`Open ${p.title} on the board's own site`}
+                          >
+                            Get the paper <ExternalLink className="h-3.5 w-3.5" />
+                          </a>
+                        </Button>
+                      )}
                       <Button
                         size="sm"
+                        variant="outline"
                         className="gap-1.5"
                         onClick={() => setPracticePaper({
                           id: p.id,
@@ -695,30 +645,6 @@ export default function PastPapers() {
                       >
                         <Wand2 className="h-3.5 w-3.5" /> Submit for marking
                       </Button>
-                      {p.paper_url && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="gap-1.5"
-                          aria-label={`Download ${p.title} question paper`}
-                          title="Download question paper"
-                          onClick={() => handleDownloadFile(p.paper_url!, paperFileName(p.title, "paper"))}
-                        >
-                          <Download className="h-3.5 w-3.5" /> Download paper
-                        </Button>
-                      )}
-                      {p.mark_scheme_url && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="gap-1.5"
-                          aria-label={`Download ${p.title} mark scheme`}
-                          title="Download mark scheme"
-                          onClick={() => handleDownloadFile(p.mark_scheme_url!, paperFileName(p.title, "mark-scheme"))}
-                        >
-                          <Download className="h-3.5 w-3.5" /> Download mark scheme
-                        </Button>
-                      )}
                     </div>
                     {(() => {
                       const score = attemptsByPaper.get(p.id);
@@ -733,7 +659,8 @@ export default function PastPapers() {
                   </div>
                 </CardContent>
               </Card>
-            ))
+              );
+            })
           )}
         </div>
       )}

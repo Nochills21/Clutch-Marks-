@@ -21,6 +21,28 @@ const listeners = new Set<() => void>();
 // the previous account's content.
 let picksOwner: string | null = null;
 
+// One prefs request per account, not one per mounted hook. Pages call this hook
+// in several components at once (the page itself, SubjectPicker, the sidebar
+// notice), and each instance used to fire its own identical query — visible in
+// the network log as two `student_subject_prefs` reads racing on every load.
+let prefsInflight: { userId: string; promise: Promise<Set<string>> } | null = null;
+
+function loadPicks(userId: string): Promise<Set<string>> {
+  if (prefsInflight?.userId === userId) return prefsInflight.promise;
+  const promise = retrySupabase(() =>
+    supabase
+      .from("student_subject_prefs")
+      .select("subject_level_id")
+      .eq("user_id", userId),
+  )
+    .then(({ data }) => new Set((data ?? []).map((r) => r.subject_level_id)))
+    .finally(() => {
+      if (prefsInflight?.promise === promise) prefsInflight = null;
+    });
+  prefsInflight = { userId, promise };
+  return promise;
+}
+
 function setPicks(next: Set<string>) {
   if (next === picks) return;
   picks = next;
@@ -64,15 +86,10 @@ export function useMySubjects() {
     // Flashcards, Past Papers) renders a spinner while it is false, so before
     // this the lack of a `.catch` meant one dropped request left the student on
     // a spinner permanently, with no error and no way to retry.
-    retrySupabase(() =>
-      supabase
-        .from("student_subject_prefs")
-        .select("subject_level_id")
-        .eq("user_id", user.id),
-    )
-      .then(({ data }) => {
+    loadPicks(user.id)
+      .then((next) => {
         if (cancelled) return;
-        setPicks(new Set((data ?? []).map((r) => r.subject_level_id)));
+        setPicks(next);
       })
       .catch((error) => {
         // Recoverable: leaving `picks` empty shows the subject picker, and

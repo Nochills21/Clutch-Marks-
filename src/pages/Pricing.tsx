@@ -106,7 +106,10 @@ export default function Pricing() {
   // `loading` matters here: /pricing is reached from inside the app (Upgrade
   // links), and the session can still be restoring when the page mounts.
   const { user, role, loading: authLoading } = useAuth();
-  const { planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd } = useSubscription();
+  const {
+    planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd,
+    hasStripeCustomer, liveStripeSubscription, comped, lapsed,
+  } = useSubscription();
   const { toast } = useToast();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -120,9 +123,13 @@ export default function Pricing() {
   const currentPlan = planById(planId);
   const isTrialing = status === "trialing";
   const isPastDue = status === "past_due";
-  // past_due has a Stripe subscription behind it, so `billing` refuses a second
-  // Checkout. Offering "Start free trial" there was a dead end.
-  const hasLiveBilling = hasPaid || isPastDue;
+  // A running subscription or a failed payment: both have something to manage.
+  const hasAccess = hasPaid || isPastDue;
+  // …but only when Stripe has a customer to open the portal for. A plan granted
+  // by hand has no Stripe customer, and an ended one has nothing live to manage:
+  // both used to get a "Manage billing" button that answered 404, while the
+  // Checkout that would have worked was hidden behind it.
+  const canManageBilling = hasStripeCustomer && (liveStripeSubscription || isPastDue);
   const periodEnd = isTrialing ? trialEndsAt ?? endsAt : endsAt;
 
   // Stripe redirects back with ?checkout=success or =cancelled. Success belongs
@@ -178,6 +185,14 @@ export default function Pricing() {
       window.location.assign(await checkoutUrl(targetPlanId));
     } catch (e) {
       const { message, code } = await billingFailure(e);
+      // The one state the browser cannot see: Stripe still holds a subscription
+      // whose stored row looks dead (a dunning `past_due`, an `unpaid` that the
+      // webhook wrote as `past_due`). Backing out with a toast left the student
+      // with nothing to click, so send them where it can be dealt with.
+      if (code === "already_subscribed") {
+        await openPortal();
+        return;
+      }
       toast({
         title: billingFailureTitle(code, "Could not start checkout"),
         description: message,
@@ -210,24 +225,33 @@ export default function Pricing() {
               <Clock className="h-5 w-5 shrink-0 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">
-                  {isTrialing
-                    ? `Your ${TRIAL_DAYS}-day free trial is running`
-                    : `Your ${currentPlan?.name ?? ""} plan is active`}
-                  {periodEnd ? ` — ${isTrialing ? "ends" : cancelAtPeriodEnd ? "ends" : "renews"} ${dateLabel(periodEnd)}` : ""}
+                  {comped
+                    ? `Your ${currentPlan?.name ?? ""} plan was granted to this account`
+                    : isTrialing
+                      ? `Your ${TRIAL_DAYS}-day free trial is running`
+                      : `Your ${currentPlan?.name ?? ""} plan is active`}
+                  {!comped && periodEnd ? ` — ${isTrialing ? "ends" : cancelAtPeriodEnd ? "ends" : "renews"} ${dateLabel(periodEnd)}` : ""}
+                  {comped && periodEnd ? ` — access runs until ${dateLabel(periodEnd)}` : ""}
                 </p>
                 <p className="text-muted-foreground">
-                  {isTrialing && currentPlan
-                    ? `We'll take ${totalOf(currentPlan)} on ${dateLabel(periodEnd) ?? "the day the trial ends"} unless you cancel first.`
-                    : cancelAtPeriodEnd
-                      ? "Your subscription is cancelled and will not renew."
-                      : "Your plan renews automatically. Cancel any time before it renews."}
+                  {comped
+                    ? periodEnd
+                      ? `There's no card on file and nothing will be charged. Set up billing below to keep full access after ${dateLabel(periodEnd)}.`
+                      : "There's no card on file and no renewal. Set up billing below whenever you'd like to move onto a paid plan."
+                    : isTrialing && currentPlan
+                      ? `We'll take ${totalOf(currentPlan)} on ${dateLabel(periodEnd) ?? "the day the trial ends"} unless you cancel first.`
+                      : cancelAtPeriodEnd
+                        ? "Your subscription is cancelled and will not renew."
+                        : "Your plan renews automatically. Cancel any time before it renews."}
                 </p>
               </div>
             </div>
-            <Button variant="outline" className="gap-2 shrink-0" onClick={openPortal} disabled={openingPortal}>
-              {openingPortal ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
-              Manage billing
-            </Button>
+            {canManageBilling && (
+              <Button variant="outline" className="gap-2 shrink-0" onClick={openPortal} disabled={openingPortal}>
+                {openingPortal ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
+                Manage billing
+              </Button>
+            )}
           </CardContent>
         </Card>
       )}
@@ -236,10 +260,16 @@ export default function Pricing() {
         <Card className="border-destructive/40 bg-destructive/5">
           <CardContent className="p-4 text-sm">
             <p className="font-medium">We couldn't take your last payment.</p>
-            <p className="text-muted-foreground">
-              Update your card in <button type="button" onClick={openPortal} className="text-primary underline">billing</button> to
-              keep full access.
-            </p>
+            {hasStripeCustomer ? (
+              <p className="text-muted-foreground">
+                Update your card in <button type="button" onClick={openPortal} className="text-primary underline">billing</button> to
+                keep full access.
+              </p>
+            ) : (
+              <p className="text-muted-foreground">
+                There's no card on file for this account. Choose a plan below to set up billing.
+              </p>
+            )}
           </CardContent>
         </Card>
       )}
@@ -272,11 +302,11 @@ export default function Pricing() {
                 </ul>
                 {p.id === "free" ? (
                   <Button variant="outline" className="w-full" disabled>
-                    {hasLiveBilling ? "Included in your plan" : "Your current plan"}
+                    {hasAccess ? "Included in your plan" : "Your current plan"}
                   </Button>
                 ) : isCurrent ? (
                   <Button className="w-full" disabled>{isTrialing ? "Your free trial" : "Current plan"}</Button>
-                ) : hasLiveBilling ? (
+                ) : canManageBilling ? (
                   <Button variant="outline" className="w-full gap-2" onClick={openPortal} disabled={openingPortal}>
                     <CreditCard className="h-4 w-4" /> Manage billing
                   </Button>
@@ -289,11 +319,11 @@ export default function Pricing() {
                     {isBusy ? (
                       <><Loader2 className="h-4 w-4 animate-spin mr-1.5" /> Opening Stripe…</>
                     ) : (
-                      <>Start free trial <ArrowRight className="h-3.5 w-3.5 ml-1" /></>
+                      <>{lapsed ? "Subscribe again" : "Start free trial"} <ArrowRight className="h-3.5 w-3.5 ml-1" /></>
                     )}
                   </Button>
                 )}
-                {p.id !== "free" && !hasLiveBilling && (() => {
+                {p.id !== "free" && !hasAccess && (() => {
                   const plan = planById(p.id);
                   if (!plan) return null;
                   const term = plan.months === 1 ? "per month" : plan.months === 12 ? "per year" : "per term";

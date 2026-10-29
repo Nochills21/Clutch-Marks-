@@ -56,6 +56,32 @@ Deno.serve(async (req) => {
       return json({ error: "Invalid path" }, 400);
     }
 
+    // ── Past papers are no longer distributed by us ───────────────────────
+    // Every past-paper card links to the board's own page for the qualification
+    // (`officialPaperPage` in frontend/src/lib/pastPaperFiles.ts), because
+    // redistributing board papers is a copyright problem. The copies left in the
+    // bucket are admin-only: refusing the bucket here means a known path cannot
+    // be used to pull a paper back out, even if a button is ever re-added by
+    // mistake.
+    if (bucket === "past-papers") {
+      const { data: adminRow } = await adminClient
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", user.id)
+        .eq("role", "admin")
+        .eq("is_approved", true)
+        .maybeSingle();
+      if (!adminRow) {
+        return json(
+          {
+            error: "Past papers live on the exam board's own website — open the paper from its card.",
+            code: "board_link_only",
+          },
+          403,
+        );
+      }
+    }
+
     // ── Fetch the original PDF (service role: buckets are private) ─────────
     const { data: fileData, error: dlError } = await adminClient.storage
       .from(bucket)

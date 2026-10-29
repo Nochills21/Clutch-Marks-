@@ -18,7 +18,7 @@ export function PreviewBanner() {
           </div>
           <p className="text-sm text-gold-soft">
             <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-            Free plan: preview of the first 2 items. Unlock everything with a paid plan.
+            Free plan: one note in every subject and level, previews of the rest. Unlock everything with a paid plan.
           </p>
         </div>
       </div>

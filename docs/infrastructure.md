@@ -58,14 +58,28 @@ webhook is the only writer.
 
   | Plan | Amount | Recurs | Price id |
   |---|---|---|---|
-  | Monthly | $30.00 | every month | `price_1UVUmDQ3xk2ovSDM0vaSML20` |
+  | Monthly | $20.00 | every month | `price_1UVmz5Q3xk2ovSDMNtZxMoz6` |
   | 3 Months | $45.00 | every 3 months | `price_1UVUmDQ3xk2ovSDMiGo3YCK9` |
-  | Annual | $80.00 | every year | `price_1UVUmDQ3xk2ovSDM80b8taAE` |
+  | Annual | $100.00 | every year | `price_1UVmz6Q3xk2ovSDMjndzjLiV` |
+
+  The 2026-10-29 price change replaced the $30 monthly and $80 annual Prices
+  (`price_1UVUmDQ3xk2ovSDM0vaSML20`, `price_1UVUmDQ3xk2ovSDM80b8taAE`); those two
+  are archived and the new Prices are each product's default.
 
   `billing` re-reads the Price before every Checkout and refuses to charge when
   its amount, currency or interval disagrees with `price_total`/`months`
   (`409 price_mismatch`). A price change is therefore three steps: update
   `plans`, create a new Stripe Price, update `stripe_price_id`.
+- **Adaptive Pricing: on** (account setting; `billing` sends no `adaptive_pricing`).
+  Checkout presents the student's local currency — a Saudi visitor is shown the
+  $20 plan as **SAR 78.06**, i.e. the SAR peg (3.75/USD) plus Stripe's 2–4%
+  conversion fee, which the customer pays. Session `currency`/`amount_total`
+  remain USD, so a Stripe API read looks unchanged; only the hosted page shows
+  the local amount. This is a deliberate trade for local payment methods
+  (Klarna, Amazon Pay and Link need local presentment). Disabling it is
+  `adaptive_pricing[enabled]=false` on the Checkout Session — verified to render
+  `$20.00` — and would have to be paired with copy that no longer promises
+  local-currency flexibility.
 - **Payment methods:** Stripe's dynamic set, configured in the Dashboard
   (Settings → Payments). The Checkout Session API now **rejects**
   `payment_method_types` (`parameter is no longer supported`), so `billing`

@@ -75,6 +75,37 @@ export class ExternalPaperGated extends Error {
   }
 }
 
+/**
+ * Thrown when the caller has no session, so no file could possibly be served.
+ *
+ * The material buckets are private and `serve-material` requires a token, so a
+ * signed-out click can never succeed. The archive and the notes pages are
+ * public, which is exactly where that click happens — it must lead to sign-in
+ * rather than to Storage's "Object not found".
+ */
+export class SignInRequired extends Error {
+  constructor(message = "Sign in to open this file.") {
+    super(message);
+    this.name = "SignInRequired";
+  }
+}
+
+/**
+ * Where to send a visitor who clicked a file without a session.
+ *
+ * Carries the current URL through `/auth` so they come back to the list they
+ * were reading instead of landing on the dashboard.
+ */
+export function signInPath(): string {
+  const here = `${window.location.pathname}${window.location.search}`;
+  return `/auth?next=${encodeURIComponent(here)}`;
+}
+
+/** Close a reserved tab that never got a file, so no about:blank is left behind. */
+function closeTab(tab: Window | null) {
+  if (tab && !tab.closed) tab.close();
+}
+
 export async function openExternalPaper(url: string, label?: string) {
   const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
   if (sessionError) throw sessionError;
@@ -119,16 +150,22 @@ export async function openProtectedFile(bucket: string, urlOrPath: string, downl
     return;
   }
   const path = toStoragePath(bucket, urlOrPath);
+
+  // Ask for the session BEFORE reserving a tab. This used to throw "no session"
+  // only after opening one, so a signed-out visitor was left with a blank
+  // about:blank tab and then got "Object not found" from the signed-URL
+  // fallback (the bucket's read policy is `auth.uid() is not null`).
+  const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+  // A failed session read used to be indistinguishable from "not signed in".
+  if (sessionError) throw sessionError;
+  const session = sessionData.session;
+  if (!session?.access_token) throw new SignInRequired();
+
   // Browsers only allow a popup inside the click that caused it. The watermark
   // fetch below takes seconds, so reserve the tab synchronously here and point
   // it at the file once the bytes are ready. Downloads don't need a tab.
   const tab = downloadName ? null : openPendingTab();
   try {
-    const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
-    // A failed session read used to be indistinguishable from "not signed in".
-    if (sessionError) throw sessionError;
-    const session = sessionData.session;
-    if (!session?.access_token) throw new Error("no session");
     const res = await fetchWithTimeout(FN_BASE, {
       method: "POST",
       headers: {
@@ -152,13 +189,25 @@ export async function openProtectedFile(bucket: string, urlOrPath: string, downl
     }
     setTimeout(() => URL.revokeObjectURL(url), 120_000);
   } catch (error) {
+    // No session is not a fallback case: the signed-URL route cannot work either
+    // while the bucket is private, so report it as what it is.
+    if (error instanceof SignInRequired) {
+      closeTab(tab);
+      throw error;
+    }
     // Function unavailable — degrade to a raw signed URL rather than blocking.
     // Awaited so a failure here reaches the caller's try/catch (which toasts)
     // instead of becoming an unhandled rejection nobody ever sees.
     console.warn("serve-material unavailable, falling back to a signed URL:", error);
-    // Pass the download intent through: a signed URL that downloads is still
-    // the action the caller asked for.
-    await openSignedFile(bucket, path, downloadName, tab);
+    try {
+      // Pass the download intent through: a signed URL that downloads is still
+      // the action the caller asked for.
+      await openSignedFile(bucket, path, downloadName, tab);
+    } catch (fallbackError) {
+      // Both routes failed — do not leave the reserved tab on about:blank.
+      closeTab(tab);
+      throw fallbackError;
+    }
   }
 }
 
@@ -186,6 +235,10 @@ export async function openSignedFile(
     window.open(urlOrPath, "_blank", "noopener,noreferrer");
     return;
   }
+  // Same rule as openProtectedFile: a private bucket cannot be signed without a
+  // session, so name that instead of surfacing Storage's "Object not found".
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session?.access_token) throw new SignInRequired();
   const url = await getSignedUrl(bucket, urlOrPath, 300, downloadName);
   if (downloadName) downloadUrl(url, downloadName);
   else showInTab(tab, url);

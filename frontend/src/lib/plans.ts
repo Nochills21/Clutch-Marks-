@@ -9,7 +9,7 @@
 //
 // `priceTotal` is the amount billed for the whole term, so it is the number to
 // show as "billed $X"; the per-month figure is derived from it and rounds back
-// to the cents (80 / 12 = 6.67), which is why the total is stored rather than
+// to the cents (100 / 12 = 8.33), which is why the total is stored rather than
 // multiplied out.
 import { PLAN_ROWS, type PlanRow } from "./plans.generated";
 
@@ -19,7 +19,7 @@ export type { PlanRow };
 /** Plans that actually charge money, in escalation order. */
 export const PAID_PLAN_IDS = ["monthly", "quarterly", "annual"] as const;
 
-/** "$60", "$6.67" — never "$40.00". Rounds float noise away first. */
+/** "$45", "$8.33" — never "$20.00". Rounds float noise away first. */
 export function money(amount: number): string {
   const rounded = Math.round(amount * 100) / 100;
   return `$${Number.isInteger(rounded) ? rounded : rounded.toFixed(2)}`;
@@ -62,7 +62,7 @@ export function savingsVsMonthly(plan: PlanRow): { amount: number; label: string
   };
 }
 
-/** The cheapest per-month rate on offer — "from $6.67/month" in the upsell. */
+/** The cheapest per-month rate on offer — "from $8.33/month" in the upsell. */
 export function cheapestPerMonth(ids: readonly string[] = PAID_PLAN_IDS): { plan: PlanRow; label: string } | null {
   const candidates = ids
     .map((id) => planById(id))
