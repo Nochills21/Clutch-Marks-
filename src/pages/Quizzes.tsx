@@ -688,11 +688,12 @@ export default function Quizzes() {
         <Card className="neon-border bg-card"><CardContent className="flex flex-col items-center py-10 text-center">
           <Brain className="h-12 w-12 text-muted-foreground/50 mb-4" />
           <p className="max-w-md text-muted-foreground">
-            No quizzes match the subjects you have picked yet. The diagnostic above works for every
-            level, and adding a subject brings its quizzes into this list.
+            {user
+              ? "No quizzes match the subjects you have picked yet. The diagnostic above works for every level, and adding a subject brings its quizzes into this list."
+              : "This list follows the subjects you pick, and marking an answer needs an account. Sign in to see your subjects' quizzes and to mark the five-question diagnostic above."}
           </p>
           <Button asChild variant="outline" className="mt-4">
-            <Link to="/subjects">Add a subject</Link>
+            <Link to={user ? "/subjects" : "/auth"}>{user ? "Add a subject" : "Sign in"}</Link>
           </Button>
         </CardContent></Card>
       ) : (
