@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
 import { exportQuizResultToPdf, gradeBand } from "@/lib/pdfExport";
 
 interface TopicQuestion {
@@ -86,7 +87,8 @@ export default function TopicQuiz() {
   const [retryKey, setRetryKey] = useState(0);
 
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const { loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const unpicked = useSubjectUnpicked(subjectLevel?.id);
 
   // The stored name wins verbatim: topicSeo.titleFor writes the static head from
   // the same string, so title-casing it here would give this URL two titles.
@@ -293,19 +295,18 @@ export default function TopicQuiz() {
   // Anonymous visitors are not enrolled in any subject yet, so they see the
   // topic regardless; signing in and picking it afterwards personalises the
   // view.
-  if (!isAdminRole && user && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+  // Shared with the other four surfaces that can open an unpicked subject —
+  // see `useSubjectUnpicked`. `topicId` stays here: without it this is a
+  // missing topic, not a missing pick.
+  if (topicId && unpicked) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Topic questions not found</CardTitle>
-          <CardDescription>You haven't selected this subject yet.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <NotInYourSubjects
+        subjectLevelId={subjectLevel.id}
+        subjectName={subjectMeta?.name ?? null}
+        level={subjectLevel.level}
+        backTo={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}
+        backLabel="Back to topic"
+      />
     );
   }
 

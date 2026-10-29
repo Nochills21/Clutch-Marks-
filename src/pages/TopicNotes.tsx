@@ -32,6 +32,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
 import type { Tables } from "@/integrations/supabase/types";
 
 export default function TopicNotes() {
@@ -59,7 +60,8 @@ export default function TopicNotes() {
   const [openableNotes, setOpenableNotes] = useState<Set<string> | null>(null);
 
   const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const { loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const unpicked = useSubjectUnpicked(subjectLevel?.id);
 
   useEffect(() => {
     let cancelled = false;
@@ -198,19 +200,16 @@ export default function TopicNotes() {
   // Anonymous visitors are not enrolled in any subject yet, so they see the
   // topic regardless; signing in and picking it afterwards personalises the
   // view.
-  if (!isAdminRole && user && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+  // Shared with the other four surfaces that can open an unpicked subject —
+  // see `useSubjectUnpicked`. `topicId` stays here: without it this is a
+  // missing topic, not a missing pick.
+  if (topicId && unpicked) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Topic not found</CardTitle>
-          <CardDescription>You haven't selected this subject yet.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <NotInYourSubjects
+        subjectLevelId={subjectLevel.id}
+        subjectName={subjectMeta?.name ?? null}
+        level={subjectLevel.level}
+      />
     );
   }
 

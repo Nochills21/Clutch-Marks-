@@ -79,3 +79,25 @@ export function needsSubjectPick(reader: ReaderPicks): boolean {
 export function picksAreFiltering(reader: ReaderPicks): boolean {
   return reader.signedIn && !reader.isAdmin && reader.loaded && reader.pickedCount > 0;
 }
+
+/**
+ * True when this reader is looking at a subject-level that is not on their list
+ * — the case that renders the "not in your subjects" card.
+ *
+ * Five pages opened a shared link this way and each spelled the test out for
+ * itself; one left out `signedIn`, so an anonymous visitor was told a subject
+ * was missing from a list they never had. Every condition here earns its place:
+ * an unknown id (a level that failed to load) is a different error and must not
+ * be reported as an unpicked subject; an admin sees the whole catalogue; and
+ * nothing is decided before the picks have arrived, or the card flashes at a
+ * student who has already added the subject.
+ */
+export function isSubjectUnpicked(
+  reader: ReaderPicks,
+  pickedIds: ReadonlySet<string>,
+  subjectLevelId: string | null | undefined,
+): boolean {
+  if (!subjectLevelId) return false;
+  if (!reader.signedIn || reader.isAdmin || !reader.loaded) return false;
+  return !pickedIds.has(subjectLevelId);
+}

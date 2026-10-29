@@ -3,6 +3,7 @@ import {
   diffPicks,
   hiddenLevels,
   isFiltering,
+  isSubjectUnpicked,
   needsSubjectPick,
   picksAreFiltering,
   type ReaderPicks,
@@ -124,6 +125,28 @@ describe("the one definition of who has to pick subjects", () => {
       expect(needsSubjectPick(loading)).toBe(false);
       expect(picksAreFiltering(loading)).toBe(false);
     }
+  });
+
+  it("flags a subject-level that is genuinely not on the list", () => {
+    expect(isSubjectUnpicked(reader({ pickedCount: 2 }), new Set(["a", "b"]), "c")).toBe(true);
+    expect(isSubjectUnpicked(reader({ pickedCount: 2 }), new Set(["a", "b"]), "a")).toBe(false);
+  });
+
+  // The lesson page did this: an anonymous visitor on a public page was shown
+  // "you haven't selected this subject" over content they were allowed to read.
+  it("never flags an anonymous reader, an admin or a half-loaded one", () => {
+    const ids = new Set(["a"]);
+    expect(isSubjectUnpicked(reader({ signedIn: false }), ids, "c")).toBe(false);
+    expect(isSubjectUnpicked(reader({ isAdmin: true }), ids, "c")).toBe(false);
+    expect(isSubjectUnpicked(reader({ loaded: false }), ids, "c")).toBe(false);
+  });
+
+  // A level that failed to load is "not found", not "unpicked" — the two cards
+  // say different things and only one of them has an Add button.
+  it("says nothing about a subject-level it does not have", () => {
+    expect(isSubjectUnpicked(reader(), new Set(), null)).toBe(false);
+    expect(isSubjectUnpicked(reader(), new Set(), undefined)).toBe(false);
+    expect(isSubjectUnpicked(reader(), new Set(), "")).toBe(false);
   });
 
   it("never reports both at once", () => {

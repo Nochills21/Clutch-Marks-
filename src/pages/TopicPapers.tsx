@@ -28,8 +28,8 @@ import { MarkPaperDialog } from "@/components/MarkPaperDialog";
 import { archivePaperGroup, officialPaperPage } from "@/lib/pastPaperFiles";
 import { relatedTopicPapers } from "@/lib/topicPapers";
 import { useMySubjects } from "@/hooks/useMySubjects";
-import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
+import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
 
 interface TopicPaper {
   id: string;
@@ -64,8 +64,8 @@ export default function TopicPapers() {
   // The row the student tapped “Submit for marking” on — marking is scoped
   // to that paper's own mark scheme.
   const [markPaper, setMarkPaper] = useState<TopicPaper | null>(null);
-  const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const { loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const unpicked = useSubjectUnpicked(subjectLevel?.id);
 
   // Paper-aware set: the topic's own tagged papers plus every other paper in
   // this subject-level sitting in the same paper group — so a Paper 1 lesson
@@ -181,19 +181,18 @@ export default function TopicPapers() {
   // Anonymous visitors are not enrolled in any subject yet, so they see the
   // topic regardless; signing in and picking it afterwards personalises the
   // view.
-  if (!isAdminRole && user && prefsLoaded && topicId && !pickedIds.has(subjectLevel?.id ?? "")) {
+  // Shared with the other four surfaces that can open an unpicked subject —
+  // see `useSubjectUnpicked`. `topicId` stays here: without it this is a
+  // missing topic, not a missing pick.
+  if (topicId && unpicked) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Past papers not found</CardTitle>
-          <CardDescription>You haven't selected this subject yet.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}><ArrowLeft className="h-4 w-4" /> Back to topic</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <NotInYourSubjects
+        subjectLevelId={subjectLevel.id}
+        subjectName={subjectMeta?.name ?? null}
+        level={subjectLevel.level}
+        backTo={topicNotesPath(subjectMeta?.slug ?? "", subjectLevel?.level.toLowerCase() ?? "", topicSlug)}
+        backLabel="Back to topic"
+      />
     );
   }
 

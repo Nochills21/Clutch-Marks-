@@ -17,12 +17,12 @@ import { levelHead } from "@/lib/levelSeo";
 import { topicNotesPath, topicQuizPath, topicSlugOf } from "@/lib/topicUrls";
 import { usePreviewSlice, PreviewLimit, usePlanAccess } from "@/components/PreviewLimit";
 import { openableNoteIds, isLockedNote } from "@/lib/noteAccess";
-import { openableLessonIds, isLockedLesson } from "@/lib/lessonAccess";
+import { openableLessonIds, isLockedLesson, courseOrder } from "@/lib/lessonAccess";
 import { PreviewBanner } from "@/components/PreviewBanner";
 import { useMySubjects } from "@/hooks/useMySubjects";
-import { useAuth } from "@/lib/auth";
 import { SubjectGate } from "@/components/SubjectGate";
-import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw, Lock, Loader2, Plus } from "lucide-react";
+import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
+import { BookOpen, FileText, Brain, Database, ArrowLeft, ArrowRight, Search, Sparkles, RotateCcw, Lock } from "lucide-react";
 import { loadFailureMessage } from "@/lib/net";
 import type { Tables } from "@/integrations/supabase/types";
 
@@ -76,9 +76,8 @@ export default function Subject() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [retryKey, setRetryKey] = useState(0);
 
-  const { user } = useAuth();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick, savePicks } = useMySubjects();
-  const [addingSubject, setAddingSubject] = useState(false);
+  const { loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const unpicked = useSubjectUnpicked(subjectLevel?.id);
 
   // filters
   const [search, setSearch] = useState("");
@@ -181,7 +180,16 @@ export default function Subject() {
   };
   const matchesTopic = (topicId: string | null) => topicFilter === ALL || topicId === topicFilter;
 
-  const visibleLessons = lessons.filter((l) => matchesTopic(l.topic_id) && matchesText(l.title, topicNameMap.get(l.topic_id)));
+  // The level's topics in course order, so the lesson list reads as a sequence
+  // (topic, then lesson) and the free lesson is simply the first row rather than
+  // an arbitrary one from the middle.
+  const topicRank = useMemo(() => {
+    const ordered = [...topics].sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
+    return new Map(ordered.map((t, i) => [t.id, i]));
+  }, [topics]);
+  const lessonOrder = useMemo(() => courseOrder(lessons, topicRank), [lessons, topicRank]);
+
+  const visibleLessons = lessonOrder.filter((l) => matchesTopic(l.topic_id) && matchesText(l.title, topicNameMap.get(l.topic_id)));
   const visibleMaterials = materials.filter((m) => matchesTopic(m.topic_id) && matchesText(m.title, m.material_type, topicNameMap.get(m.topic_id)));
   const visibleQuizzes = quizzes.filter((q) =>
     matchesTopic(q.topic_id) && matchesText(q.title, q.description) &&
@@ -194,7 +202,10 @@ export default function Subject() {
   // rather than only counted. Both picks come from the unfiltered lists, so
   // typing in the search box cannot hand out a different free item.
   const { hasPaid } = usePlanAccess();
-  const openableLessons = useMemo(() => openableLessonIds(lessons, hasPaid), [lessons, hasPaid]);
+  const openableLessons = useMemo(
+    () => openableLessonIds(lessonOrder, hasPaid, topicRank),
+    [lessonOrder, hasPaid, topicRank],
+  );
   const openableNotes = useMemo(
     // `materials`, not `visibleMaterials`: the free note is a fixed choice per
     // level, and computing it from a search-filtered list made typing in the
@@ -232,46 +243,22 @@ export default function Subject() {
     );
   }
 
-  // Students only see subject-levels they picked; admins see everything.
-  // `subjectLevel` must be non-null: without that, an unknown level (or a
-  // failed lookup) also satisfied this test and the student was told they had
-  // not selected a subject they never chose.
-  if (!isAdminRole && user && prefsLoaded && subjectLevel && !pickedIds.has(subjectLevel.id)) {
+  // Students only see subject-levels they picked; admins see everything. The
+  // pick test is shared with the topic and lesson pages (`useSubjectUnpicked`);
+  // `subjectLevel` must also resolve, or an unknown level reads as "unpicked".
+  if (subjectLevel && unpicked) {
     // The subject exists — it is simply not on this student's list, which is
     // what a shared link to another level looks like. The heading used to read
     // "Subject not found" over a line admitting it was only unpicked, and the
     // only way forward was a detour through the catalogue. Joining it here does
-    // what the link promised.
-    const addAndReload = async () => {
-      setAddingSubject(true);
-      try {
-        await savePicks([...pickedIds, subjectLevel.id]);
-      } catch (e: unknown) {
-        setLoadError(e instanceof Error ? e.message : "Could not add this subject");
-      } finally {
-        setAddingSubject(false);
-      }
-    };
+    // what the link promised, and every topic page below this one offers the
+    // same action through the same component.
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Not in your subjects</CardTitle>
-          <CardDescription>
-            {subject?.name ?? "This subject"}
-            {levelCode ? ` · ${LEVEL_LABELS[levelCode] ?? levelCode}` : ""} is not one of the
-            subjects on your list yet. Add it to open its topics, notes and past papers.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          <Button className="gap-2" onClick={addAndReload} disabled={addingSubject}>
-            {addingSubject ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
-            Add it to my subjects
-          </Button>
-          <Button asChild variant="outline" className="gap-2">
-            <Link to="/subjects"><ArrowLeft className="h-4 w-4" /> Back to subjects</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <NotInYourSubjects
+        subjectLevelId={subjectLevel.id}
+        subjectName={subject?.name ?? null}
+        level={subjectLevel.level ?? levelCode}
+      />
     );
   }
 

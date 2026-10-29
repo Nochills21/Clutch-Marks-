@@ -20,6 +20,7 @@ import { ContentEditor } from "@/components/admin/ContentEditor";
 import { ManuscriptHead, ManuscriptSection } from "@/components/StudyManuscript";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
+import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
 import { QueryError } from "@/components/QueryError";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
 import type { Tables } from "@/integrations/supabase/types";
@@ -44,7 +45,8 @@ export default function LessonNotes() {
   const [loading, setLoading] = useState(true);
   const [lessonDone, setLessonDone] = useState(false);
   const { done, toggle } = useNoteProgress();
-  const { pickedIds, loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const { loaded: prefsLoaded, isAdmin: isAdminRole, needsSubjectPick } = useMySubjects();
+  const unpicked = useSubjectUnpicked(lesson?.topics?.subject_levels?.id);
 
   useEffect(() => {
     if (!lessonId) return;
@@ -149,14 +151,20 @@ export default function LessonNotes() {
     );
   }
 
-  // Students only see lessons belonging to a subject-level they picked.
-  const lessonSlId = lesson?.topics?.subject_levels?.id;
-  if (!isAdminRole && prefsLoaded && lessonSlId && !pickedIds.has(lessonSlId)) {
+  // Students only see lessons belonging to a subject-level they picked. The
+  // signed-in test lives in `useSubjectUnpicked`: this page used to leave it out
+  // and showed an anonymous visitor a "not your subject" card over a lesson they
+  // are allowed to read.
+  const lessonLevel = lesson?.topics?.subject_levels;
+  if (lessonLevel?.id && unpicked) {
     return (
-      <Card><CardContent className="py-12 text-center space-y-3">
-        <p className="text-muted-foreground">You haven't selected this subject yet.</p>
-        <Button variant="outline" onClick={() => navigate("/lessons")}>Back to Lessons</Button>
-      </CardContent></Card>
+      <NotInYourSubjects
+        subjectLevelId={lessonLevel.id}
+        subjectName={lessonLevel.subjects?.name ?? null}
+        level={lessonLevel.level}
+        backTo="/lessons"
+        backLabel="Back to Lessons"
+      />
     );
   }
 

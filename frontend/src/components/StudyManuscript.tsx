@@ -31,12 +31,20 @@ export function ManuscriptHead({
 }) {
   return (
     <div className="cm-manuscript">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div className="min-w-0 flex-1">
+      {/* Stacked below `md`, side by side above it. With a single wrapping row,
+          the button group's intrinsic width won the space and the title — which
+          can shrink to its longest word — collapsed into a one-word column
+          beside it (measured on a phone: a 37 px wide heading standing 225 px
+          tall, next to 245 px of buttons). A column layout gives the title the
+          full measure and moves the actions underneath it; the breakpoint is
+          `md` rather than `sm` because at 700 px a long title still lost most of
+          the measure to a 245 px button group. */}
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div className="min-w-0 md:flex-1">
           <p className="cm-m-eyebrow">{eyebrow}</p>
           <h1 className="cm-m-title">{title}</h1>
         </div>
-        {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
+        {actions && <div className="flex flex-wrap items-center gap-2 md:shrink-0">{actions}</div>}
       </div>
       <hr className="cm-m-rule" />
       {lede && <p className="cm-m-lede">{lede}</p>}
