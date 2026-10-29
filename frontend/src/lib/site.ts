@@ -3,8 +3,8 @@
  * host, custom domain, or a future rename) is one build variable rather than a
  * sweep through hard-coded URLs.
  *
- * The JSON-LD blocks inside older pages still hard-code the original Lovable
- * URL — those should be migrated to SITE.url as each page is restyled.
+ * Every JSON-LD block and every hard-coded origin reads these values — there is
+ * no second place where a domain is written down.
  */
 import { SITE_URL } from "@/lib/env";
 import { subjectCoverage } from "@/lib/subjectCatalogue";

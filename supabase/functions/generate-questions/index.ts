@@ -118,8 +118,9 @@ Deno.serve(async (req) => {
     }
     const levelLabel = level === "OL" ? "IGCSE" : level === "AS" ? "AS Level" : "A2 Level";
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) return json({ error: "AI is not configured" }, 500);
+    const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.5-flash-lite";
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    if (!GEMINI_API_KEY) return json({ error: "AI is not configured" }, 500);
 
     // Notes can be very long — keep the prompt inside a sane window.
     const notesExcerpt = notes.length > 12000
@@ -141,21 +142,30 @@ Rules:
 - Include a concise explanation (1-3 sentences) for the correct answer.
 - correct_option is the zero-based index of the correct option.`;
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
-        messages: [
-          { role: "system", content: "You are an expert examiner who writes high-quality multiple-choice questions. Always reply with the requested tool call." },
-          { role: "user", content: prompt },
-        ],
-        tools: [{
-          type: "function",
-          function: {
-            name: "submit_questions",
-            description: "Submit the generated multiple-choice questions",
-            parameters: {
+    // Gemini, through the generativelanguage REST API — the same key and model
+    // ai-correction marks with. The key travels in the x-goog-api-key header,
+    // never in the URL, so it cannot land in an access log. Structured output
+    // comes from responseMimeType/responseSchema instead of a tool call.
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": GEMINI_API_KEY },
+        body: JSON.stringify({
+          systemInstruction: {
+            parts: [
+              {
+                text:
+                  "You are an expert examiner who writes high-quality multiple-choice questions. Always reply with the requested JSON and nothing else.",
+              },
+            ],
+          },
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.3,
+            maxOutputTokens: 8192,
+            responseMimeType: "application/json",
+            responseSchema: {
               type: "object",
               properties: {
                 questions: {
@@ -164,36 +174,43 @@ Rules:
                     type: "object",
                     properties: {
                       question_text: { type: "string" },
-                      options: { type: "array", items: { type: "string" }, minItems: 4, maxItems: 4 },
-                      correct_option: { type: "integer", minimum: 0, maximum: 3 },
+                      options: { type: "array", items: { type: "string" } },
+                      correct_option: { type: "integer" },
                       explanation: { type: "string" },
                     },
                     required: ["question_text", "options", "correct_option", "explanation"],
-                    additionalProperties: false,
                   },
                 },
               },
               required: ["questions"],
-              additionalProperties: false,
             },
           },
-        }],
-        tool_choice: { type: "function", function: { name: "submit_questions" } },
-      }),
-    });
+        }),
+      },
+    );
 
     if (!response.ok) {
       if (response.status === 429) return json({ error: "Rate limit reached, please try again shortly." }, 429);
-      if (response.status === 402) return json({ error: "AI credits exhausted. Please add credits to your workspace." }, 402);
-      console.error("AI gateway error", response.status, await response.text());
+      const detail = await response.text().catch(() => "");
+      console.error("Gemini error", response.status, detail.slice(0, 300));
       return json({ error: "AI gateway error" }, 500);
     }
 
     const data = await response.json();
-    const args = data?.choices?.[0]?.message?.tool_calls?.[0]?.function?.arguments;
+    const candidate = data?.candidates?.[0];
+    const parts: Array<{ text?: unknown }> = Array.isArray(candidate?.content?.parts)
+      ? candidate.content.parts
+      : [];
+    const text = parts.map((p) => String(p?.text ?? "")).join("");
+    if (!text.trim()) {
+      const reason = candidate?.finishReason ?? data?.promptFeedback?.blockReason ?? "no text returned";
+      console.error("Gemini returned no questions", reason);
+      return json({ error: "The AI did not return any usable questions" }, 502);
+    }
+
     let parsed: { questions?: unknown } | null;
     try {
-      parsed = typeof args === "string" ? JSON.parse(args) : args;
+      parsed = JSON.parse(text) as { questions?: unknown };
     } catch {
       return json({ error: "AI returned an unreadable response" }, 502);
     }

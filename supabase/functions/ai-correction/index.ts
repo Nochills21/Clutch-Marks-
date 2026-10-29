@@ -276,7 +276,7 @@ async function callGemini(
   return { text, model: GEMINI_MODEL };
 }
 
-// Lovable / OpenAI-compatible fallback
+// OpenAI fallback (AI_PROVIDER=openai)
 async function callOpenAiCompat(
   model: string,
   messages: ChatMessage[],

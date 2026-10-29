@@ -47,10 +47,14 @@ export async function handler(req: Request): Promise<Response> {
     const subjectLevelId = body.subjectLevelId ?? null;
 
     // --- Provider selection ---
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    // Gemini is the default — the same key and model ai-correction marks with.
+    // AI_PROVIDER=cloudflare keeps the Workers AI path; with neither key set the
+    // deterministic plan below is served instead.
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.5-flash-lite";
     const CLOUDFLARE_API_KEY = Deno.env.get("CLOUDFLARE_API_KEY");
     const CLOUDFLARE_ACCOUNT_ID = Deno.env.get("CLOUDFLARE_ACCOUNT_ID");
-    const PROVIDER = Deno.env.get("AI_PROVIDER") || "lovable";
+    const PROVIDER = Deno.env.get("AI_PROVIDER") || "gemini";
 
     const systemPrompt = `You are an expert tutor and study planner for Cambridge IGCSE (Mathematics 0580, Physics 0625, Computer Science 0478), Edexcel International AS/A Level (Mathematics, Physics, Chemistry, Biology) and Cambridge AS/A Level Computer Science (9618).
 Generate a personalized, week-by-week revision schedule for a student based on their performance, upcoming deadlines, and available study time.
@@ -84,7 +88,7 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
     let model: string;
     let costCents = 0;
 
-    if (!LOVABLE_API_KEY && !CLOUDFLARE_API_KEY) {
+    if (!GEMINI_API_KEY && !CLOUDFLARE_API_KEY) {
       // Graceful fallback: build a deterministic week-by-week plan from the same inputs
       const weeks = Math.max(2, Math.min(12, Math.ceil(28 / Math.max(1, hoursPerWeek))));
       const focus = weakTopics
@@ -103,7 +107,7 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
       lines.push(`## Tips`, `- Do quizzes before reading notes — the misses tell you what to study.`, `- Review last week's incorrect questions every Monday.`, `- Keep sessions under 45 minutes and log them in the planner.`);
       plan = lines.join("\n");
       model = "offline-fallback";
-    } else if (PROVIDER === "cloudflare") {
+    } else if (PROVIDER === "cloudflare" || !GEMINI_API_KEY) {
       if (!CLOUDFLARE_API_KEY || !CLOUDFLARE_ACCOUNT_ID) {
         return new Response(
           JSON.stringify({ error: "CLOUDFLARE_API_KEY and CLOUDFLARE_ACCOUNT_ID are required for Cloudflare AI" }),
@@ -142,25 +146,18 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
       model = data.model ?? "unknown";
       costCents = data.costCents ?? 0;
     } else {
-      // Loable / OpenAI-compatible
-      if (!LOVABLE_API_KEY) {
-        return new Response(
-          JSON.stringify({ error: "LOVABLE_API_KEY is required for AI generation" }),
-          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-        );
-      }
-      const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      // Gemini, through the generativelanguage REST API. The key travels in the
+      // x-goog-api-key header, never in the URL, so it cannot land in an access log.
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
           "Content-Type": "application/json",
+          "x-goog-api-key": GEMINI_API_KEY,
         },
         body: JSON.stringify({
-          model: "google/gemini-3-flash-preview",
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: userPrompt },
-          ],
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+          generationConfig: { temperature: 0.4, maxOutputTokens: 2048 },
         }),
       });
       if (!res.ok) {
@@ -169,21 +166,19 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
             status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" },
           });
         }
-        if (res.status === 402) {
-          return new Response(JSON.stringify({ error: "AI credits exhausted. Please add funds to your Lovable AI workspace." }), {
-            status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" },
-          });
-        }
         const t = await res.text();
-        console.error("AI gateway error:", res.status, t);
+        console.error("Gemini error:", res.status, t);
         return new Response(JSON.stringify({ error: "AI gateway error" }), {
           status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
       const data = await res.json();
-      plan = data.choices?.[0]?.message?.content ?? "";
-      model = data.model ?? "unknown";
-      costCents = data.costCents ?? 0;
+      const parts: Array<{ text?: unknown }> = Array.isArray(data?.candidates?.[0]?.content?.parts)
+        ? data.candidates[0].content.parts
+        : [];
+      plan = parts.map((p) => String(p?.text ?? "")).join("");
+      model = GEMINI_MODEL;
+      costCents = 0;
     }
 
     // Persist to study_plans with ai_generated = true

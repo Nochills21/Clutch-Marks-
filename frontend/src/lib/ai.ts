@@ -14,7 +14,7 @@ import { AI_TIMEOUT_MS, TIMEOUT_HEADER } from "@/lib/net";
  */
 const aiRequest = { headers: { [TIMEOUT_HEADER]: String(AI_TIMEOUT_MS) } };
 
-export type AiProvider = "gemini" | "cloudflare" | "openai" | "lovable";
+export type AiProvider = "gemini" | "cloudflare" | "openai";
 
 export interface AiStudyPlanInput {
   quizPerformance: string;      // e.g. "Quiz: 3/5; Midpaper: 7/10"

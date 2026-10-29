@@ -61,6 +61,11 @@ const TermsOfService = lazy(() =>
 // The refund promise that sits alongside the 3-day trial. Public, like the other
 // legal documents: a reader must be able to check it before paying.
 const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
+// Where Stripe sends a student after Checkout: thank them, say when the first
+// payment is taken, then carry them to the dashboard. Transactional and
+// account-specific, so it gets no prerendered file (the noindex SPA fallback
+// answers it) and sits in PublicShell so a session that has not restored yet
+// cannot bounce the confirmation to /auth.
 const Downloads = lazy(() => import("./pages/Downloads"));
 const ProgressPage = lazy(() => import("./pages/ProgressPage"));
 // Account settings: the student's own username, with the signup rules enforced
@@ -85,6 +90,7 @@ const AdminAuditLog = lazy(() => import("./pages/admin/AdminAuditLog"));
 const StudyPlanner = lazy(() => import("./pages/StudyPlanner"));
 const Subjects = lazy(() => import("./pages/Subjects"));
 const Pricing = lazy(() => import("./pages/Pricing"));
+const CheckoutSuccess = lazy(() => import("./pages/CheckoutSuccess"));
 const AdminPayments = lazy(() => import("./pages/admin/AdminPayments"));
 const AdminFeedback = lazy(() => import("./pages/admin/AdminFeedback"));
 const AdminSuppressions = lazy(() => import("./pages/admin/AdminSuppressions"));
@@ -191,6 +197,7 @@ const App = () => (
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/refunds" element={<RefundPolicy />} />
+                <Route path="/checkout/success" element={<CheckoutSuccess />} />
                 {/* PDPL: where the privacy notice sends a reader to exercise a right. */}
                 <Route path="/data-rights" element={<DataRights />} />
               </Route>

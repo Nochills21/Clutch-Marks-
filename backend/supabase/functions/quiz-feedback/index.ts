@@ -136,29 +136,31 @@ Please provide:
 3. A list of specific IGCSE Business Studies topics they should revise based on their mistakes
 4. 2-3 practical study tips for improving in these areas
 
-Keep the tone supportive and educational. Use clear formatting with headings.`;
-
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
+Keep the tone supportive and educational. Use clear formatting with headings.`;    // Gemini, through the generativelanguage REST API — the same key and model
+    // ai-correction marks with. The key travels in the x-goog-api-key header,
+    // never in the URL, so it cannot land in an access log.
+    const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.5-flash-lite";
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    if (!GEMINI_API_KEY) throw new Error("GEMINI_API_KEY is not configured");
 
     const aiResponse = await fetch(
-      "https://ai.gateway.lovable.dev/v1/chat/completions",
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
           "Content-Type": "application/json",
+          "x-goog-api-key": GEMINI_API_KEY,
         },
         body: JSON.stringify({
-          model: "google/gemini-3-flash-preview",
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are an expert IGCSE Business Studies tutor. Provide detailed, mark-scheme-based feedback on quiz performance. Reference the mark scheme explanations when available. Be encouraging but thorough.",
-            },
-            { role: "user", content: prompt },
-          ],
+          systemInstruction: {
+            parts: [
+              {
+                text: "You are an expert IGCSE Business Studies tutor. Provide detailed, mark-scheme-based feedback on quiz performance. Reference the mark scheme explanations when available. Be encouraging but thorough.",
+              },
+            ],
+          },
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.4, maxOutputTokens: 4096 },
         }),
       }
     );
@@ -170,18 +172,16 @@ Keep the tone supportive and educational. Use clear formatting with headings.`;
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-      if (aiResponse.status === 402) {
-        return new Response(
-          JSON.stringify({ error: "AI credits exhausted. Please contact your administrator." }),
-          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      console.error("AI gateway error:", aiResponse.status);
+      console.error("Gemini error:", aiResponse.status, await aiResponse.text().catch(() => ""));
       throw new Error("AI analysis failed");
     }
 
     const aiData = await aiResponse.json();
-    const feedback = aiData.choices?.[0]?.message?.content ?? "Unable to generate feedback.";
+    const aiParts: Array<{ text?: unknown }> = Array.isArray(aiData?.candidates?.[0]?.content?.parts)
+      ? aiData.candidates[0].content.parts
+      : [];
+    const feedback =
+      aiParts.map((p) => String(p?.text ?? "")).join("").trim() || "Unable to generate feedback.";
 
     return new Response(JSON.stringify({ feedback }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

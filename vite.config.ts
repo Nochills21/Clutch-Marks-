@@ -1,13 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 import { prerenderSeo } from "./plugins/prerender-seo";
 import { injectAnalytics } from "./plugins/inject-analytics";
 import { preconnectSupabase } from "./plugins/preconnect-supabase";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   // Top-level resolve.alias is what BOTH the dev server and the production
   // bundle read. Keeping it only under build.rollupOptions silently broke dev
   // ("Failed to resolve import @/…").
@@ -42,7 +41,6 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === "development" && componentTagger(),
     prerenderSeo(),
     injectAnalytics(),
     preconnectSupabase(),

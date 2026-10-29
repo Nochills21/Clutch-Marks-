@@ -11,7 +11,7 @@
 // the button only ever passes a plan id to `billing`. See the refund policy at
 // /refunds, which is the document the trial copy below promises.
 import { useEffect, useRef, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { useSubscription } from "@/hooks/useSubscription";
 import { SEOHead } from "@/components/SEOHead";
@@ -106,14 +106,15 @@ export default function Pricing() {
   // `loading` matters here: /pricing is reached from inside the app (Upgrade
   // links), and the session can still be restoring when the page mounts.
   const { user, role, loading: authLoading } = useAuth();
-  const { planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd, refresh } = useSubscription();
+  const { planId, hasPaid, status, trialEndsAt, endsAt, cancelAtPeriodEnd } = useSubscription();
   const { toast } = useToast();
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const [starting, setStarting] = useState<string | null>(null);
   const [openingPortal, setOpeningPortal] = useState(false);
   // The URL is cleaned after the first handling, which re-runs the effect; this
-  // keeps the second refresh scheduled below from being torn down with it.
+  // keeps the second run from handling the same outcome twice.
   const checkoutHandled = useRef(false);
 
   const currentPlan = planById(planId);
@@ -124,21 +125,19 @@ export default function Pricing() {
   const hasLiveBilling = hasPaid || isPastDue;
   const periodEnd = isTrialing ? trialEndsAt ?? endsAt : endsAt;
 
-  // The webhook lands a moment after Stripe redirects the browser back, so the
-  // first refresh can still see the old row. Refresh now, then once more shortly
-  // after — a student who has just paid should not have to reload to see it.
+  // Stripe redirects back with ?checkout=success or =cancelled. Success belongs
+  // to /checkout/success (the confirmation page waits on the webhook itself);
+  // cancelling only earns a toast.
   useEffect(() => {
     const outcome = searchParams.get("checkout");
     if (!outcome || checkoutHandled.current) return;
     checkoutHandled.current = true;
     if (outcome === "success") {
-      toast({
-        title: "Payment details received",
-        description: `Your ${TRIAL_DAYS}-day free trial is starting — your account unlocks as soon as Stripe confirms.`,
-      });
-      refresh();
-      // The webhook can land after the redirect, so ask once more shortly after.
-      window.setTimeout(() => refresh(), 4000);
+      // Sessions created before /checkout/success existed still carry this URL.
+      // Send them to the confirmation page instead of leaving the student on
+      // the pricing grid — `billing` points new sessions there directly.
+      navigate("/checkout/success", { replace: true });
+      return;
     } else if (outcome === "cancelled") {
       toast({ title: "Checkout cancelled", description: "Nothing was charged — you can start the trial whenever you're ready." });
     }
@@ -146,7 +145,7 @@ export default function Pricing() {
     const next = new URLSearchParams(searchParams);
     next.delete("checkout");
     setSearchParams(next, { replace: true });
-  }, [searchParams, setSearchParams, toast, refresh]);
+  }, [searchParams, setSearchParams, toast, navigate]);
 
   const openPortal = async () => {
     if (!user) {

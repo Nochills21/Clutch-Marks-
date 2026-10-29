@@ -265,7 +265,11 @@ Deno.serve(async (req) => {
       "metadata[plan_id]": plan.id,
       client_reference_id: user.id,
       billing_address_collection: "auto",
-      success_url: `${SITE_URL}/pricing?checkout=success`,
+      // The confirmation page thanks the student, states when the first payment
+      // is taken and carries them on to the dashboard; `billing` owns this URL
+      // because the browser never sees the session. Keep it in step with the
+      // route in src/App.tsx.
+      success_url: `${SITE_URL}/checkout/success`,
       cancel_url: `${SITE_URL}/pricing?checkout=cancelled`,
     };
     if (customerId) form.customer = customerId;

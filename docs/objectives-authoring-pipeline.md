@@ -26,8 +26,8 @@ The estate already has the wrong shape of this: `generate-questions` calls an AI
 worker and inserts straight into `public.quizzes` + `public.questions`, creating a
 student-visible quiz the moment an admin clicks. It is invoked from the AI question
 bank dialog on [/admin/subjects](../src/pages/admin/AdminSubjects.tsx), is gated
-only by "is an approved admin", pins a provider whose key is not configured
-(`LOVABLE_API_KEY`) and the retired `easy`/`medium`/`hard` vocabulary, and has no
+only by "is an approved admin", pins a model by name and the retired
+`easy`/`medium`/`hard` vocabulary, and has no
 machine check between the model and the students. That is the precedent to *not*
 copy, and §9 says what to do about it.
 

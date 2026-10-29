@@ -60,15 +60,16 @@ export async function handler(req: Request): Promise<Response> {
 
     // --- Provider selection ---
     // Prefer whichever provider is actually configured rather than always
-    // assuming Lovable: Cloudflare Workers AI (free tier, and what the marking
-    // worker uses) when its keys are present, then the Lovable gateway, else the
-    // deterministic offline planner further down.
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    // assuming one: Gemini (the key and model ai-correction marks with), then
+    // Cloudflare Workers AI (free tier, and what the marking worker uses), else
+    // the deterministic offline planner further down.
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-3.5-flash-lite";
     const CLOUDFLARE_API_KEY = Deno.env.get("CLOUDFLARE_API_KEY");
     const CLOUDFLARE_ACCOUNT_ID = Deno.env.get("CLOUDFLARE_ACCOUNT_ID");
     const HAS_CLOUDFLARE = Boolean(CLOUDFLARE_API_KEY && CLOUDFLARE_ACCOUNT_ID);
     const PROVIDER = Deno.env.get("AI_PROVIDER") ||
-      (HAS_CLOUDFLARE ? "cloudflare" : LOVABLE_API_KEY ? "lovable" : "offline");
+      (GEMINI_API_KEY ? "gemini" : HAS_CLOUDFLARE ? "cloudflare" : "offline");
 
     // Workers AI retires models and rejects unknown names outright; the old
     // `llama-3.1-8b-instruct` was deprecated on 2026-05-30.
@@ -128,7 +129,7 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
       return lines.join("\n");
     };
 
-    if (!LOVABLE_API_KEY && !HAS_CLOUDFLARE) {
+    if (!GEMINI_API_KEY && !HAS_CLOUDFLARE) {
       // Graceful fallback: build a deterministic week-by-week plan from the same inputs
       plan = buildOfflinePlan("Generated offline (AI planner not configured) — still personalised to your quiz results.");
       model = "offline-fallback";
@@ -200,25 +201,24 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
         model = "offline-fallback";
       }
     } else {
-      // Loable / OpenAI-compatible
-      if (!LOVABLE_API_KEY) {
+      // Gemini, through the generativelanguage REST API. The key travels in the
+      // x-goog-api-key header, never in the URL, so it cannot land in an access log.
+      if (!GEMINI_API_KEY) {
         return new Response(
-          JSON.stringify({ error: "LOVABLE_API_KEY is required for AI generation" }),
+          JSON.stringify({ error: "GEMINI_API_KEY is required for AI generation" }),
           { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
         );
       }
-      const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
           "Content-Type": "application/json",
+          "x-goog-api-key": GEMINI_API_KEY,
         },
         body: JSON.stringify({
-          model: "google/gemini-3-flash-preview",
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: userPrompt },
-          ],
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+          generationConfig: { temperature: 0.4, maxOutputTokens: 2048 },
         }),
       });
       if (!res.ok) {
@@ -227,21 +227,19 @@ Build a realistic schedule that prioritizes weak areas while covering the broade
             status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" },
           });
         }
-        if (res.status === 402) {
-          return new Response(JSON.stringify({ error: "AI credits exhausted. Please add funds to your Lovable AI workspace." }), {
-            status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" },
-          });
-        }
         const t = await res.text();
-        console.error("AI gateway error:", res.status, t);
+        console.error("Gemini error:", res.status, t);
         return new Response(JSON.stringify({ error: "AI gateway error" }), {
           status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
       const data = await res.json();
-      plan = data.choices?.[0]?.message?.content ?? "";
-      model = data.model ?? "unknown";
-      costCents = data.costCents ?? 0;
+      const parts: Array<{ text?: unknown }> = Array.isArray(data?.candidates?.[0]?.content?.parts)
+        ? data.candidates[0].content.parts
+        : [];
+      plan = parts.map((p) => String(p?.text ?? "")).join("");
+      model = GEMINI_MODEL;
+      costCents = 0;
     }
 
     // Persist to study_plans with ai_generated = true

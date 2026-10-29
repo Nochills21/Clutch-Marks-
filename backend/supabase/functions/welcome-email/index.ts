@@ -15,7 +15,7 @@ const corsHeaders = {
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const SITE_URL = Deno.env.get("SITE_URL") ?? "https://clutch-marks.lovable.app";
+const SITE_URL = Deno.env.get("SITE_URL") ?? "https://clutchmarks.study";
 const FROM = Deno.env.get("WELCOME_FROM_EMAIL") ?? "Clutch Marks <onboarding@resend.dev>";
 
 interface Recipient {

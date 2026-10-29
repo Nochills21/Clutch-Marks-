@@ -77,8 +77,10 @@ That live refusal is testable end to end:
 `node .freebuff/probe-ai-correction-live.cjs` creates throwaway accounts
 (planless / subscribed / admin), asserts the gate, the per-account upload
 isolation, the PDF and photo marking paths and the audit row, then deletes them.
-`study-planner`'s generate action needs `LOVABLE_API_KEY` set as a function
-secret (`supabase secrets set LOVABLE_API_KEY=…`) — without it the function returns 500.
+`study-planner`, `generate-questions` and `quiz-feedback` call Gemini with the
+`GEMINI_API_KEY` function secret (model `GEMINI_MODEL`) — the same key
+`ai-correction` marks with. Without it the planner serves its deterministic
+offline plan, and the other two answer 500 `AI is not configured`.
 
 ## 2. Vercel (frontend)
 

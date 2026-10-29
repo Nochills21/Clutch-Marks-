@@ -161,7 +161,7 @@ async function callCloudflareAI(
   return data.result?.response ?? "";
 }
 
-// Lovable / OpenAI-compatible fallback
+// OpenAI fallback (AI_PROVIDER=openai)
 async function callOpenAiCompat(
   model: string,
   messages: ChatMessage[],
