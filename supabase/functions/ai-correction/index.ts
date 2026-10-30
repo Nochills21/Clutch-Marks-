@@ -25,7 +25,7 @@
 // 20261008140000), and a failed audit write must never lose a student's marks.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.4";
-import { normaliseMarks, questionList } from "./marks.ts";
+import { type MarkPoint, normaliseChecklist, normaliseMarks, questionList } from "./marks.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -118,6 +118,8 @@ interface CorrectedPaper {
   feedback: string;
   grade: number;
   comment: string;
+  /** Phase 3.1: one entry per mark-scheme point, rendered as a checklist. */
+  mark_points: MarkPoint[];
   watermark: string;
   audit_ref: string;
 }
@@ -312,6 +314,18 @@ Each object MUST have exactly these keys:
 - feedback: 1-2 sentences on what was right / what to fix, in a tutor's voice, kind but precise
 - grade: percentage for this question (0-100)
 - comment: 1-2 sentences on the grade
+- mark_points: ONE ENTRY PER MARK, in mark-scheme order, each an object with exactly:
+  - point: the scheme's own label and wording, e.g. "M1 — substitutes u = 0, a = 2 into v = u + at"
+  - verdict: "PASS" or "MISS" — nothing else
+  - evidence: the words, numbers or symbols from the student's answer that earned it (PASS) or the specific defect that lost it (MISS), quoted from their writing. Use "" only when the question was left blank.
+  - accept_equivalents: array of other phrasings the scheme accepts (the scheme's "oe" / alternative answers). [] when the scheme names none.
+  - reject_contradictions: array of what cancels the mark per the scheme. [] when the scheme names none.
+  - ignore_clauses: array of what the scheme tells the examiner to ignore (e.g. "awrt 2 s.f.", "ignore units", "allow spelling"). [] when it says nothing.
+
+How the checklist must agree with the marks:
+- The number of PASS verdicts must equal marks_earned, and the number of entries must equal total_marks. If a single scheme point is worth 2 marks, write it as one entry whose point ends with "(2 marks)" and count it once per mark.
+- A PASS is only allowed when evidence quotes something the student actually wrote. If you cannot quote it, the verdict is MISS.
+- Never write a verdict to make the totals agree. If the scheme is ambiguous, mark MISS and say why in evidence — the student can see the point is disputed.
 
 How marks work (Edexcel M/A/B; Cambridge method/accuracy equivalents):
 - M (method): the correct method applied to the question — award it even when an arithmetic slip ruins the final answer.
@@ -962,6 +976,10 @@ Mark scheme style:
         feedback: String(raw.feedback ?? ""),
         grade: marks.grade,
         comment: String(raw.comment ?? ""),
+        // Phase 3.1: the per-mark-point checklist the panel renders beside the
+        // mark. Normalised here, not in the browser, so a malformed list cannot
+        // become a UI claim about which marks were awarded.
+        mark_points: normaliseChecklist(raw, marks.marks_earned).points,
         watermark: `Clutch Marks · AI-marked · ${auditRef.slice(0, 8)}`,
         audit_ref: auditRef,
       };

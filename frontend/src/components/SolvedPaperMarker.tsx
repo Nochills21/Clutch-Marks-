@@ -44,6 +44,7 @@ import { inlineMarkdownToHtml } from "@/lib/objectiveTeach";
 import { indicativeGradeLabel } from "@/lib/gradeBoundaries";
 import {
   AlertCircle,
+  Check,
   CheckCircle2,
   FileText,
   Loader2,
@@ -53,6 +54,7 @@ import {
   Trash2,
   Upload,
   Wand2,
+  X,
 } from "lucide-react";
 
 export interface SolvedPaperMarkerProps {
@@ -385,6 +387,50 @@ export function SolvedPaperMarker({
                         {paper.marks_earned}/{paper.total_marks}
                       </Badge>
                     </div>
+                    {paper.mark_points && paper.mark_points.length > 0 && (
+                      <div className="space-y-1 rounded-md bg-muted/40 px-2.5 py-2">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                          Mark scheme points —{" "}
+                          {paper.mark_points.filter((p) => p.verdict === "PASS").length} of{" "}
+                          {paper.mark_points.length} earned
+                        </p>
+                        <ul className="space-y-1">
+                          {paper.mark_points.map((point, pointIndex) => (
+                            <li
+                              key={`${point.point}-${pointIndex}`}
+                              className="flex items-start gap-1.5 text-xs leading-snug"
+                            >
+                              {point.verdict === "PASS" ? (
+                                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" aria-hidden="true" />
+                              ) : (
+                                <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
+                              )}
+                              <span className="min-w-0">
+                                <span className="sr-only">
+                                  {point.verdict === "PASS" ? "Awarded: " : "Not awarded: "}
+                                </span>
+                                <span
+                                  className={
+                                    point.verdict === "PASS" ? "text-foreground" : "text-muted-foreground"
+                                  }
+                                >
+                                  {point.point}
+                                </span>
+                                {point.evidence && (
+                                  <span className="text-muted-foreground"> — {point.evidence}</span>
+                                )}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                        {(paper.mark_points.filter((p) => p.verdict === "PASS").length !== paper.marks_earned) && (
+                          <p className="text-[11px] text-muted-foreground">
+                            This checklist and the mark disagree — treat the mark as provisional and your teacher's
+                            marking as final.
+                          </p>
+                        )}
+                      </div>
+                    )}
                     {paper.original_answer && (
                       <p className="text-xs text-muted-foreground">
                         <span className="font-semibold text-foreground/70">You wrote: </span>

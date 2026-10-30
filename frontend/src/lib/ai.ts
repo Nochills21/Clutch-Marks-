@@ -7,6 +7,9 @@
 import { supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";
 import { AI_TIMEOUT_MS, TIMEOUT_HEADER } from "@/lib/net";
+// Type-only: the checklist shape is defined once, in the edge function's pure
+// module, where the marking tests also import it from.
+import type { MarkPoint } from "../../../supabase/functions/ai-correction/marks";
 
 /**
  * AI generation legitimately outlasts a normal request, so these calls raise
@@ -40,6 +43,12 @@ export interface CorrectedPaper {
   feedback: string;
   grade: number;        // 0-100 per question
   comment: string;
+  /**
+   * One entry per mark-scheme point (phase 3.1), rendered as a checklist rather
+   * than prose. Optional because a paper marked before this shipped has no
+   * checklist stored, and an older worker may omit it.
+   */
+  mark_points?: MarkPoint[];
   watermark: string;
   audit_ref: string;
 }
