@@ -162,9 +162,13 @@ export function ParentDashboard() {
         toast({ title: "Already linked", description: `${email} is on your dashboard.` });
         return;
       }
+      // Linking is one server-side call, not a client insert. The old insert
+      // policy checked only that the caller was a parent, so `student_id` was
+      // whatever the browser sent — any parent could link to any student id.
+      // `link_student_by_email` repeats the exact-email lookup and writes the
+      // link in the same statement, so the id never comes from the client.
       const { error } = await supabase
-        .from("parent_student_links")
-        .insert({ parent_id: user.id, student_id: profile.user_id });
+        .rpc("link_student_by_email", { p_email: email });
       if (error) throw error;
       toast({ title: "Linked", description: `You now see ${email}'s progress.` });
       setChildEmail("");

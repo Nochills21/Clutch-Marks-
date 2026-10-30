@@ -49,11 +49,11 @@ const EXEMPTIONS: Exemption[] = [
     reason:
       "Generated PDF artifacts: the footer is baked in at generation time by .freebuff/pdftool, so the fix is to regenerate them.",
   },
-  {
-    match: (file) => file.startsWith("dist-single/downloads/") && file.endsWith(".pdf"),
-    reason:
-      "The single-file build copies public/downloads/*.pdf verbatim into dist-single/downloads/; same generated artifacts, same regeneration fix.",
-  },
+  // NOTE: dist-single/downloads/ used to be exempt here for the same reason — the
+  // single-file build copied public/downloads/*.pdf verbatim. dist-single/ is now
+  // gitignored and untracked (purged from history on 2026-10-30), so there is no
+  // tracked file to exempt. If it is ever committed again, add the exemption back
+  // with a reason rather than hand-editing the bundle.
 ];
 
 /**

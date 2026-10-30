@@ -1951,6 +1951,13 @@ export type Database = {
         Args: { p_email: string }
         Returns: { user_id: string; full_name: string | null }[]
       }
+      // The parent dashboard's only way to create a link: it repeats the exact
+      // email lookup and writes the row server-side, so `student_id` never comes
+      // from the browser (supabase/migrations/20261030120000_security_hardening_r2.sql).
+      link_student_by_email: {
+        Args: { p_email: string }
+        Returns: string | null
+      }
       approve_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       dismiss_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       resolve_paper_link: { Args: { p_check_id: string }; Returns: Json }

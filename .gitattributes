@@ -1,0 +1,5 @@
+# Hook scripts are POSIX sh and are executed directly by Git. A CRLF checkout
+# gives them a `#!/bin/sh^M` shebang, which fails on macOS and Linux with
+# "bad interpreter". Force LF for anything Git runs as a program.
+.githooks/** text eol=lf
+*.sh text eol=lf

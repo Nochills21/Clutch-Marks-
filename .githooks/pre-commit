@@ -1,0 +1,80 @@
+#!/bin/sh
+# Pre-commit secret scan.
+#
+# Install once per clone:
+#   git config core.hooksPath .githooks
+#
+# Scans only what is being committed (not the whole tree, not history), so it
+# stays fast enough to leave enabled. History is the other half of the job and
+# is a separate scheduled check — see docs/pre-commit-secret-scan.md.
+#
+# Exit codes: 0 clean, 1 secrets found, 2 scanner unavailable.
+# 2 is deliberate: a missing scanner must not silently pass a commit. That is
+# the failure mode that makes this hook worthless (a security control that
+# quietly turns itself off).
+
+set -u
+
+# Git runs hooks from the repository root, but be explicit — this script is also
+# run by hand in tests and from subdirectories.
+cd "$(git rev-parse --show-toplevel)" || exit 2
+
+# Resolve the scanner. Prefer one on PATH (CI, macOS, Linux), then the copy
+# bundled for Windows users. `.freebuff/` is gitignored, so a fresh clone will
+# not have the bundled binary — hence the loud failure below rather than a pass.
+GITLEAKS=""
+if command -v gitleaks >/dev/null 2>&1; then
+  GITLEAKS="$(command -v gitleaks)"
+elif [ -x ".freebuff/gitleaks.exe" ]; then
+  GITLEAKS=".freebuff/gitleaks.exe"
+elif [ -x ".freebuff/gitleaks" ]; then
+  GITLEAKS=".freebuff/gitleaks"
+fi
+
+if [ -z "$GITLEAKS" ]; then
+  cat >&2 <<'EOF'
+pre-commit: gitleaks is not installed, so the secret scan did not run.
+
+Refusing to let the commit through unscanned. Install it with one of:
+  winget install gitleaks            # Windows
+  brew install gitleaks              # macOS / Linux
+  go install github.com/gitleaks/gitleaks/v8@latest
+
+Or drop the binary at .freebuff/gitleaks.exe (the path this repo uses on
+Windows). Commit anyway, unscanned, with: git commit --no-verify
+EOF
+  exit 2
+fi
+
+# --staged: scan the index, not the working tree, so unstaged WIP cannot block
+#           a commit and a staged secret cannot hide in a dirty tree.
+# --pre-commit: the diff-only mode gitleaks reserves for hooks.
+# --redact: keeps the matched secret out of the terminal and out of CI logs.
+# --no-banner: quieter output in a hook.
+"$GITLEAKS" git --staged --pre-commit --redact --no-banner --verbose 2>&1
+status=$?
+
+if [ "$status" -eq 0 ]; then
+  exit 0
+fi
+
+cat >&2 <<'EOF'
+
+──────────────────────────────────────────────────────────────
+pre-commit: a secret looks like it is being committed.
+
+The commit was blocked. What to do:
+
+  1. Unstage it:            git restore --staged <file>
+  2. Remove the secret, and rotate it. A value that reached a staged
+     file may already be in a reflog, a backup ref, or a colleague's
+     clone — deleting the line afterwards is not enough.
+  3. False positive (a test fixture, a documented example key)? Add
+     its fingerprint to .gitleaksignore, which is committed:
+           gitleaks git --staged --pre-commit --redact --verbose
+     prints the fingerprint to copy.
+
+Committing anyway, having read the above: git commit --no-verify
+──────────────────────────────────────────────────────────────
+EOF
+exit 1

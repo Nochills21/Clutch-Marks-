@@ -9,6 +9,10 @@ lerna-debug.log*
 
 node_modules
 dist
+# Legacy single-file build output. `npm run build:single` regenerates it; it was
+# purged from history on 2026-10-30 because a committed bundle bakes the
+# publishable anon key into every commit.
+production/
 dist-ssr
 *.local
 
@@ -91,6 +95,15 @@ dist-ssr
 # Live verifier for the teacher account type: role + one-subject grant and the
 # RLS that keeps the grant read-only from a browser session.
 !.freebuff/probe-teacher-live.cjs
+# The security regression guard: 24 assertions read from the live catalog (grants,
+# definer gates, storage policies, the parent-link RPC). AGENTS.md names it as the
+# check to re-run after any migration, and it is what stops anon's write grants
+# coming back.
+!.freebuff/probe-security-hardening.cjs
+# Proves a database backup actually restores: decrypts a real bundle and replays
+# its inserts into a scratch schema, comparing every row count to the manifest.
+# AGENTS.md names it as the check to re-run after touching the dump/restore code.
+!.freebuff/probe-db-restore.cjs
 # The notes-depth gate is content pipeline too: it is the enforcement behind
 # docs/notes-depth.md, and AGENTS.md tells an author to run it before a deepened
 # note is published.

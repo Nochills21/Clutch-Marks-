@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-29T20:03:38.654Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-30T06:50:04.988Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -2063,6 +2063,62 @@ AS $function$
   )
 $function$;
 
+CREATE OR REPLACE FUNCTION public.link_student_by_email(p_email text)
+ RETURNS uuid
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+declare
+  _uid uuid := auth.uid();
+  _student uuid;
+  _own_email text;
+begin
+  if _uid is null then
+    raise exception 'Not authenticated';
+  end if;
+  if not public.has_role(_uid, 'parent') then
+    raise exception 'Parent only';
+  end if;
+  if coalesce(btrim(p_email), '') = '' then
+    raise exception 'An email is required';
+  end if;
+
+  select lower(coalesce(email, '')) into _own_email from public.profiles where user_id = _uid;
+  if lower(btrim(p_email)) = _own_email then
+    raise exception 'That is your own email';
+  end if;
+
+  -- Equality on lower(), never ILIKE: an email local part may contain `_`,
+  -- which SQL LIKE reads as "any single character". Exact match also means the
+  -- caller learns nothing unless they already know the whole address.
+  select p.user_id into _student
+  from public.profiles p
+  where lower(p.email) = lower(btrim(p_email))
+    and exists (
+      select 1 from public.user_roles r
+      where r.user_id = p.user_id and r.role = 'student'
+    )
+  limit 1;
+
+  if _student is null then
+    return null;
+  end if;
+
+  if exists (
+    select 1 from public.parent_student_links l
+    where l.parent_id = _uid and l.student_id = _student
+  ) then
+    return _student;
+  end if;
+
+  insert into public.parent_student_links (parent_id, student_id)
+  values (_uid, _student);
+
+  return _student;
+end;
+$function$;
+
 CREATE OR REPLACE FUNCTION public.log_student_activity()
  RETURNS trigger
  LANGUAGE plpgsql
@@ -2840,14 +2896,12 @@ CREATE OR REPLACE FUNCTION public.restore_content_revision(p_revision_id uuid)
 AS $function$
 declare
   r public.content_revisions%rowtype;
-  v_is_admin boolean;
 begin
-  select exists (
-    select 1 from public.user_roles ur
-    where ur.user_id = auth.uid() and ur.role = 'admin' and ur.is_approved = true
-  ) into v_is_admin;
-  if not v_is_admin then
-    raise exception 'restore_content_revision: only approved admins can restore revisions';
+  -- `is_admin` = holds the admin role AND the request is AAL2. A bare
+  -- `user_roles` check here let a password-only admin rewrite content, which is
+  -- exactly the class of bug the 2FA rewrite exists to prevent.
+  if not public.is_admin(auth.uid()) then
+    raise exception 'restore_content_revision: only admins signed in with a second factor can restore revisions';
   end if;
 
   select * into r from public.content_revisions c where c.id = p_revision_id;
@@ -3548,20 +3602,14 @@ CREATE TRIGGER user_roles_writer_guard BEFORE INSERT OR DELETE OR UPDATE ON user
 
 -- ============ row level security ============
 alter table public."objective_reviews" enable row level security;
-alter table public."admin_audit_log" enable row level security;
-alter table public."ai_audit_log" enable row level security;
-alter table public."syllabus_statements" enable row level security;
-alter table public."question_timings" enable row level security;
 alter table public."exam_dates" enable row level security;
 alter table public."xp_events" enable row level security;
 alter table public."email_suppressions" enable row level security;
 alter table public."admin_audit_log_archive" enable row level security;
-alter table public."xp_daily" enable row level security;
-alter table public."quizzes" enable row level security;
-alter table public."lessons" enable row level security;
-alter table public."questions" enable row level security;
-alter table public."lesson_progress" enable row level security;
-alter table public."homework" enable row level security;
+alter table public."admin_audit_log" enable row level security;
+alter table public."ai_audit_log" enable row level security;
+alter table public."syllabus_statements" enable row level security;
+alter table public."question_timings" enable row level security;
 alter table public."notifications" enable row level security;
 alter table public."bookmarks" enable row level security;
 alter table public."announcements" enable row level security;
@@ -3569,25 +3617,32 @@ alter table public."user_roles" enable row level security;
 alter table public."study_materials" enable row level security;
 alter table public."homework_submissions" enable row level security;
 alter table public."quiz_attempts" enable row level security;
+alter table public."xp_daily" enable row level security;
+alter table public."quizzes" enable row level security;
+alter table public."lessons" enable row level security;
+alter table public."questions" enable row level security;
+alter table public."lesson_progress" enable row level security;
+alter table public."homework" enable row level security;
 alter table public."subjects" enable row level security;
 alter table public."subject_levels" enable row level security;
 alter table public."topics" enable row level security;
+alter table public."plans" enable row level security;
+alter table public."announcement_reads" enable row level security;
 alter table public."streaks" enable row level security;
 alter table public."subscriptions" enable row level security;
 alter table public."ai_correction" enable row level security;
-alter table public."plans" enable row level security;
-alter table public."announcement_reads" enable row level security;
 alter table public."feedback_messages" enable row level security;
 alter table public."parent_link_invites" enable row level security;
-alter table public."flashcard_sets" enable row level security;
-alter table public."past_papers" enable row level security;
+alter table public."login_lookup_throttle" enable row level security;
+alter table public."weekly_reports" enable row level security;
+alter table public."parent_student_links" enable row level security;
 alter table public."material_progress" enable row level security;
 alter table public."_seed_fixes" enable row level security;
+alter table public."flashcard_sets" enable row level security;
+alter table public."past_papers" enable row level security;
 alter table public."practice_attempts" enable row level security;
 alter table public."content_feedback" enable row level security;
 alter table public."question_bookmarks" enable row level security;
-alter table public."login_lookup_throttle" enable row level security;
-alter table public."weekly_reports" enable row level security;
 alter table public."flashcards" enable row level security;
 alter table public."flashcard_progress" enable row level security;
 alter table public."content_file_versions" enable row level security;
@@ -3595,7 +3650,6 @@ alter table public."content_revisions" enable row level security;
 alter table public."student_subject_prefs" enable row level security;
 alter table public."study_plans" enable row level security;
 alter table public."profiles" enable row level security;
-alter table public."parent_student_links" enable row level security;
 alter table public."past_paper_link_checks" enable row level security;
 alter table public."past_paper_attempts" enable row level security;
 alter table public."student_prefs" enable row level security;
@@ -3721,8 +3775,6 @@ drop policy if exists "Parents can view linked student submissions" on public."h
 create policy "Parents can view linked student submissions" on public."homework_submissions" for select to "authenticated" using ((has_role(auth.uid(), 'parent'::app_role) AND is_linked_parent(auth.uid(), user_id)));
 drop policy if exists "Users can insert own submissions" on public."homework_submissions";
 create policy "Users can insert own submissions" on public."homework_submissions" for insert with check ((auth.uid() = user_id));
-drop policy if exists "Users can update own submissions" on public."homework_submissions";
-create policy "Users can update own submissions" on public."homework_submissions" for update to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Users can view own submissions" on public."homework_submissions";
 create policy "Users can view own submissions" on public."homework_submissions" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage objectives" on public."learning_objectives";
@@ -3765,8 +3817,6 @@ drop policy if exists "Service role only" on public."parent_link_invites";
 create policy "Service role only" on public."parent_link_invites" for all to "anon", "authenticated" using (false) with check (false);
 drop policy if exists "Admins can manage all links" on public."parent_student_links";
 create policy "Admins can manage all links" on public."parent_student_links" for all to "authenticated" using (is_admin(auth.uid()));
-drop policy if exists "Parents can create own links" on public."parent_student_links";
-create policy "Parents can create own links" on public."parent_student_links" for insert with check ((has_role(auth.uid(), 'parent'::app_role) AND (parent_id = auth.uid())));
 drop policy if exists "Parents can remove own links" on public."parent_student_links";
 create policy "Parents can remove own links" on public."parent_student_links" for delete using ((parent_id = auth.uid()));
 drop policy if exists "Parents can view own links" on public."parent_student_links";
@@ -3789,8 +3839,6 @@ drop policy if exists "Admins can view all practice_attempts" on public."practic
 create policy "Admins can view all practice_attempts" on public."practice_attempts" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Users can insert own practice_attempts" on public."practice_attempts";
 create policy "Users can insert own practice_attempts" on public."practice_attempts" for insert to "authenticated" with check ((user_id = auth.uid()));
-drop policy if exists "Users can update own practice_attempts" on public."practice_attempts";
-create policy "Users can update own practice_attempts" on public."practice_attempts" for update to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Users can view own practice_attempts" on public."practice_attempts";
 create policy "Users can view own practice_attempts" on public."practice_attempts" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can update all profiles" on public."profiles";
@@ -3821,14 +3869,14 @@ drop policy if exists "Admins can manage questions" on public."questions";
 create policy "Admins can manage questions" on public."questions" for all to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Anyone authenticated can view questions" on public."questions";
 create policy "Anyone authenticated can view questions" on public."questions" for select to "authenticated" using (true);
+drop policy if exists "Admins can update attempts" on public."quiz_attempts";
+create policy "Admins can update attempts" on public."quiz_attempts" for update using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
 drop policy if exists "Admins can view all attempts" on public."quiz_attempts";
 create policy "Admins can view all attempts" on public."quiz_attempts" for select to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Parents can view linked student attempts" on public."quiz_attempts";
 create policy "Parents can view linked student attempts" on public."quiz_attempts" for select to "authenticated" using ((has_role(auth.uid(), 'parent'::app_role) AND is_linked_parent(auth.uid(), user_id)));
 drop policy if exists "Users can insert own attempts" on public."quiz_attempts";
 create policy "Users can insert own attempts" on public."quiz_attempts" for insert with check ((auth.uid() = user_id));
-drop policy if exists "Users can update own attempts" on public."quiz_attempts";
-create policy "Users can update own attempts" on public."quiz_attempts" for update to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Users can view own attempts" on public."quiz_attempts";
 create policy "Users can view own attempts" on public."quiz_attempts" for select to "authenticated" using ((user_id = auth.uid()));
 drop policy if exists "Admins can manage quizzes" on public."quizzes";
@@ -3935,171 +3983,171 @@ drop policy if exists "xp read own" on public."xp_events";
 create policy "xp read own" on public."xp_events" for select using (((user_id = auth.uid()) OR is_admin(auth.uid())));
 
 -- ============ grants ============
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."_seed_fixes" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."_seed_fixes" to authenticated;
+grant SELECT on public."_seed_fixes" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."_seed_fixes" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."_seed_fixes" to service_role;
 grant SELECT on public."admin_audit_log" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."admin_audit_log" to service_role;
 grant SELECT on public."admin_audit_log_archive" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."admin_audit_log_archive" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."ai_audit_log" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."ai_audit_log" to authenticated;
+grant SELECT on public."ai_audit_log" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."ai_audit_log" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."ai_audit_log" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."ai_correction" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."ai_correction" to authenticated;
+grant SELECT on public."ai_correction" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."ai_correction" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."ai_correction" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcement_reads" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcement_reads" to authenticated;
+grant SELECT on public."announcement_reads" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."announcement_reads" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcement_reads" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcements" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcements" to authenticated;
+grant SELECT on public."announcements" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."announcements" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."announcements" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."bookmarks" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."bookmarks" to authenticated;
+grant SELECT on public."bookmarks" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."bookmarks" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."bookmarks" to service_role;
 grant SELECT on public."consent_records" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."consent_records" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."content_feedback" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."content_feedback" to authenticated;
+grant SELECT on public."content_feedback" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."content_feedback" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."content_feedback" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."content_file_versions" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."content_file_versions" to authenticated;
+grant SELECT on public."content_file_versions" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."content_file_versions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."content_file_versions" to service_role;
 grant SELECT on public."content_revisions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."content_revisions" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."data_requests" to authenticated;
+grant DELETE, INSERT, SELECT, UPDATE on public."data_requests" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."data_requests" to service_role;
 grant DELETE, SELECT on public."email_suppressions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."email_suppressions" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."exam_dates" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."exam_dates" to authenticated;
+grant SELECT on public."exam_dates" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."exam_dates" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."exam_dates" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."feedback_messages" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."feedback_messages" to authenticated;
+grant SELECT on public."feedback_messages" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."feedback_messages" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."feedback_messages" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcard_progress" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcard_progress" to authenticated;
+grant SELECT on public."flashcard_progress" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."flashcard_progress" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcard_progress" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcard_sets" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcard_sets" to authenticated;
+grant SELECT on public."flashcard_sets" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."flashcard_sets" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcard_sets" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcards" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcards" to authenticated;
+grant SELECT on public."flashcards" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."flashcards" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."flashcards" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."homework" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."homework" to authenticated;
+grant SELECT on public."homework" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."homework" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."homework" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."homework_submissions" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."homework_submissions" to authenticated;
+grant SELECT on public."homework_submissions" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."homework_submissions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."homework_submissions" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."leaderboard_public" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."leaderboard_public" to authenticated;
+grant SELECT on public."leaderboard_public" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."leaderboard_public" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."leaderboard_public" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."learning_objectives" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."learning_objectives" to authenticated;
+grant SELECT on public."learning_objectives" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."learning_objectives" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."learning_objectives" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."lesson_progress" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."lesson_progress" to authenticated;
+grant SELECT on public."lesson_progress" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."lesson_progress" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."lesson_progress" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."lessons" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."lessons" to authenticated;
+grant SELECT on public."lessons" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."lessons" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."lessons" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."login_lookup_throttle" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."login_lookup_throttle" to authenticated;
+grant SELECT on public."login_lookup_throttle" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."login_lookup_throttle" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."login_lookup_throttle" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."material_progress" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."material_progress" to authenticated;
+grant SELECT on public."material_progress" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."material_progress" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."material_progress" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."notifications" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."notifications" to authenticated;
+grant SELECT on public."notifications" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."notifications" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."notifications" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."objective_reviews" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."objective_reviews" to authenticated;
+grant SELECT on public."objective_reviews" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."objective_reviews" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."objective_reviews" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_link_invites" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_link_invites" to authenticated;
+grant SELECT on public."parent_link_invites" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."parent_link_invites" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_link_invites" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_student_links" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_student_links" to authenticated;
+grant SELECT on public."parent_student_links" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."parent_student_links" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."parent_student_links" to service_role;
 grant SELECT on public."past_paper_attempts" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_paper_attempts" to service_role;
 grant SELECT on public."past_paper_link_checks" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_paper_link_checks" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_papers" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_papers" to authenticated;
+grant SELECT on public."past_papers" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."past_papers" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."past_papers" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."plans" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."plans" to authenticated;
+grant SELECT on public."plans" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."plans" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."plans" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."practice_attempts" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."practice_attempts" to authenticated;
+grant SELECT on public."practice_attempts" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."practice_attempts" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."practice_attempts" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."profiles" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."profiles" to authenticated;
+grant SELECT on public."profiles" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."profiles" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."profiles" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_bookmarks" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_bookmarks" to authenticated;
+grant SELECT on public."question_bookmarks" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."question_bookmarks" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_bookmarks" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_timings" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_timings" to authenticated;
+grant SELECT on public."question_timings" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."question_timings" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."question_timings" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."questions" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."questions" to authenticated;
+grant SELECT on public."questions" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."questions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."questions" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quiz_attempts" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quiz_attempts" to authenticated;
+grant SELECT on public."quiz_attempts" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."quiz_attempts" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quiz_attempts" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quizzes" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quizzes" to authenticated;
+grant SELECT on public."quizzes" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."quizzes" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."quizzes" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."streaks" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."streaks" to authenticated;
+grant SELECT on public."streaks" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."streaks" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."streaks" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_prefs" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_prefs" to authenticated;
+grant SELECT on public."student_prefs" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."student_prefs" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_prefs" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_subject_prefs" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_subject_prefs" to authenticated;
+grant SELECT on public."student_subject_prefs" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."student_subject_prefs" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."student_subject_prefs" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_materials" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_materials" to authenticated;
+grant SELECT on public."study_materials" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."study_materials" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_materials" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_plans" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_plans" to authenticated;
+grant SELECT on public."study_plans" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."study_plans" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_plans" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_sessions" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_sessions" to authenticated;
+grant SELECT on public."study_sessions" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."study_sessions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."study_sessions" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subject_levels" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subject_levels" to authenticated;
+grant SELECT on public."subject_levels" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."subject_levels" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subject_levels" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subjects" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subjects" to authenticated;
+grant SELECT on public."subjects" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."subjects" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subjects" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subscriptions" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subscriptions" to authenticated;
+grant SELECT on public."subscriptions" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."subscriptions" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."subscriptions" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."syllabus_statements" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."syllabus_statements" to authenticated;
+grant SELECT on public."syllabus_statements" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."syllabus_statements" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."syllabus_statements" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."teacher_subjects" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."teacher_subjects" to authenticated;
+grant SELECT on public."teacher_subjects" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."teacher_subjects" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."teacher_subjects" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to authenticated;
+grant SELECT on public."topics" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."topics" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."topics" to service_role;
-grant REFERENCES, SELECT, TRIGGER on public."user_roles" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, UPDATE on public."user_roles" to authenticated;
+grant SELECT on public."user_roles" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."user_roles" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."user_roles" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."weekly_reports" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."weekly_reports" to authenticated;
+grant SELECT on public."weekly_reports" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."weekly_reports" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."weekly_reports" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."xp_daily" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."xp_daily" to authenticated;
+grant SELECT on public."xp_daily" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."xp_daily" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."xp_daily" to service_role;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."xp_events" to anon;
-grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."xp_events" to authenticated;
+grant SELECT on public."xp_events" to anon;
+grant DELETE, INSERT, SELECT, UPDATE on public."xp_events" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."xp_events" to service_role;
 
 -- ============ storage buckets ============
@@ -4138,8 +4186,6 @@ drop policy if exists "Authenticated read quiz files" on "storage"."objects";
 create policy "Authenticated read quiz files" on "storage"."objects" for select to "authenticated" using ((bucket_id = 'quiz-files'::text));
 drop policy if exists "Authenticated read study materials" on "storage"."objects";
 create policy "Authenticated read study materials" on "storage"."objects" for select to "authenticated" using ((bucket_id = 'study-materials'::text));
-drop policy if exists "Authenticated users can read past paper files" on "storage"."objects";
-create policy "Authenticated users can read past paper files" on "storage"."objects" for select using (((bucket_id = 'past-papers'::text) AND (auth.uid() IS NOT NULL)));
 drop policy if exists "Users can delete own homework files" on "storage"."objects";
 create policy "Users can delete own homework files" on "storage"."objects" for delete to "authenticated" using (((bucket_id = 'homework-uploads'::text) AND ((auth.uid())::text = (storage.foldername(name))[1])));
 drop policy if exists "Users can upload own homework files" on "storage"."objects";
