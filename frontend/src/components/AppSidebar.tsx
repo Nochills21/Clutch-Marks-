@@ -4,7 +4,7 @@ import { BookOpen, LayoutDashboard, FileText, Brain, BarChart3,
   Megaphone, LogOut, Users, GraduationCap, FileCheck,
   Layers, Library, BookMarked, Archive, Sparkles, Database,
   Target, Eye, EyeOff, History, CreditCard, MessageSquareHeart, Trophy, MailX,
-  ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge, PenLine, CalendarDays, LogIn,
+  ShieldCheck, Wand2, ShieldAlert, ListChecks, Gauge, PenLine, CalendarDays, LogIn, Scale,
   Settings as SettingsIcon,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
@@ -91,6 +91,9 @@ const adminLinks = [
   { title: "Syllabus Coverage", url: "/admin/syllabus-coverage", icon: ListChecks },
   // AI marking quota: papers marked today and Gemini refusals, from the audit log.
   { title: "AI Quota", url: "/admin/ai-quota", icon: Gauge },
+  // Phase 3.2: marks a student awarded themselves, for an admin to confirm or
+  // remove. The award counts immediately; this is the review half.
+  { title: "Mark Disputes", url: "/admin/mark-disputes", icon: Scale },
   { title: "Payments", url: "/admin/payments", icon: CreditCard },
   { title: "Feedback", url: "/admin/feedback", icon: MessageSquareHeart },
   { title: "Email Health", url: "/admin/suppressions", icon: MailX },

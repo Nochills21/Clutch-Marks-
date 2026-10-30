@@ -730,6 +730,65 @@ export type Database = {
         }
         Relationships: []
       }
+      mark_disputes: {
+        Row: {
+          audit_ref: string
+          correction_id: string | null
+          created_at: string
+          id: string
+          marks: number
+          point: string
+          question: string
+          reason: string
+          resolution_note: string | null
+          resolved_at: string | null
+          resolved_by: string | null
+          status: string
+          user_id: string
+          verdict: string
+        }
+        Insert: {
+          audit_ref: string
+          correction_id?: string | null
+          created_at?: string
+          id?: string
+          marks?: number
+          point: string
+          question: string
+          reason: string
+          resolution_note?: string | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          status?: string
+          user_id: string
+          verdict?: string
+        }
+        Update: {
+          audit_ref?: string
+          correction_id?: string | null
+          created_at?: string
+          id?: string
+          marks?: number
+          point?: string
+          question?: string
+          reason?: string
+          resolution_note?: string | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          status?: string
+          user_id?: string
+          verdict?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mark_disputes_correction_id_fkey"
+            columns: ["correction_id"]
+            isOneToOne: false
+            referencedRelation: "ai_correction"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       material_progress: {
         Row: {
           completed: boolean

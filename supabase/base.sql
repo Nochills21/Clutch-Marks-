@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-30T06:50:04.988Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-30T10:18:00.141Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -190,6 +190,31 @@ create table if not exists public."login_lookup_throttle" (
   "attempts" integer default 0 not null,
   "updated_at" timestamp with time zone default now() not null,
   constraint "login_lookup_throttle_pkey" PRIMARY KEY (client_key)
+);
+create table if not exists public."mark_disputes" (
+  "id" uuid default gen_random_uuid() not null,
+  "user_id" uuid not null,
+  "correction_id" uuid,
+  "audit_ref" text not null,
+  "question" text not null,
+  "point" text not null,
+  "verdict" text default 'MISS'::text not null,
+  "reason" text not null,
+  "marks" integer default 1 not null,
+  "status" text default 'pending'::text not null,
+  "resolution_note" text,
+  "resolved_by" uuid,
+  "resolved_at" timestamp with time zone,
+  "created_at" timestamp with time zone default now() not null,
+  constraint "mark_disputes_marks_range" CHECK (marks >= 1 AND marks <= 5),
+  constraint "mark_disputes_pkey" PRIMARY KEY (id),
+  constraint "mark_disputes_point_no_replacement_character" CHECK (POSITION((chr(65533)) IN (point)) = 0),
+  constraint "mark_disputes_question_no_replacement_character" CHECK (POSITION((chr(65533)) IN (question)) = 0),
+  constraint "mark_disputes_reason_length" CHECK (char_length(btrim(reason)) >= 10 AND char_length(btrim(reason)) <= 1000),
+  constraint "mark_disputes_reason_no_replacement_character" CHECK (POSITION((chr(65533)) IN (reason)) = 0),
+  constraint "mark_disputes_resolution_shape" CHECK (status = 'pending'::text AND resolved_at IS NULL OR status <> 'pending'::text AND resolved_at IS NOT NULL AND resolved_by IS NOT NULL),
+  constraint "mark_disputes_status_check" CHECK (status = ANY (ARRAY['pending'::text, 'upheld'::text, 'rejected'::text])),
+  constraint "mark_disputes_verdict_check" CHECK (verdict = ANY (ARRAY['PASS'::text, 'MISS'::text]))
 );
 create table if not exists public."notifications" (
   "id" uuid default gen_random_uuid() not null,
@@ -731,6 +756,8 @@ create index if not exists idx_data_requests_open ON public.data_requests USING 
 create index if not exists exam_dates_user_when_idx ON public.exam_dates USING btree (user_id, exam_at);
 create index if not exists idx_feedback_messages_thread ON public.feedback_messages USING btree (feedback_id, created_at);
 create index if not exists idx_learning_objectives_topic ON public.learning_objectives USING btree (topic_id, sort_order);
+create UNIQUE index if not exists mark_disputes_once_per_point ON public.mark_disputes USING btree (user_id, audit_ref, md5(question), md5(point));
+create index if not exists mark_disputes_pending_idx ON public.mark_disputes USING btree (created_at DESC) WHERE (status = 'pending'::text);
 create index if not exists idx_objective_reviews_due ON public.objective_reviews USING btree (user_id, due_at);
 create index if not exists past_paper_attempts_paper_idx ON public.past_paper_attempts USING btree (paper_id, created_at DESC);
 create index if not exists past_paper_attempts_user_idx ON public.past_paper_attempts USING btree (user_id, created_at DESC);
@@ -809,6 +836,12 @@ alter table public."lesson_progress" drop constraint if exists "lesson_progress_
 alter table public."lesson_progress" add constraint "lesson_progress_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."lessons" drop constraint if exists "lessons_topic_id_fkey";
 alter table public."lessons" add constraint "lessons_topic_id_fkey" FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE;
+alter table public."mark_disputes" drop constraint if exists "mark_disputes_correction_id_fkey";
+alter table public."mark_disputes" add constraint "mark_disputes_correction_id_fkey" FOREIGN KEY (correction_id) REFERENCES ai_correction(id) ON DELETE SET NULL;
+alter table public."mark_disputes" drop constraint if exists "mark_disputes_resolved_by_fkey";
+alter table public."mark_disputes" add constraint "mark_disputes_resolved_by_fkey" FOREIGN KEY (resolved_by) REFERENCES auth.users(id) ON DELETE SET NULL;
+alter table public."mark_disputes" drop constraint if exists "mark_disputes_user_id_fkey";
+alter table public."mark_disputes" add constraint "mark_disputes_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
 alter table public."material_progress" drop constraint if exists "material_progress_material_id_fkey";
 alter table public."material_progress" add constraint "material_progress_material_id_fkey" FOREIGN KEY (material_id) REFERENCES study_materials(id) ON DELETE CASCADE;
 alter table public."material_progress" drop constraint if exists "material_progress_user_id_fkey";
@@ -3626,11 +3659,11 @@ alter table public."homework" enable row level security;
 alter table public."subjects" enable row level security;
 alter table public."subject_levels" enable row level security;
 alter table public."topics" enable row level security;
+alter table public."ai_correction" enable row level security;
 alter table public."plans" enable row level security;
 alter table public."announcement_reads" enable row level security;
 alter table public."streaks" enable row level security;
 alter table public."subscriptions" enable row level security;
-alter table public."ai_correction" enable row level security;
 alter table public."feedback_messages" enable row level security;
 alter table public."parent_link_invites" enable row level security;
 alter table public."login_lookup_throttle" enable row level security;
@@ -3650,6 +3683,7 @@ alter table public."content_revisions" enable row level security;
 alter table public."student_subject_prefs" enable row level security;
 alter table public."study_plans" enable row level security;
 alter table public."profiles" enable row level security;
+alter table public."mark_disputes" enable row level security;
 alter table public."past_paper_link_checks" enable row level security;
 alter table public."past_paper_attempts" enable row level security;
 alter table public."student_prefs" enable row level security;
@@ -3801,6 +3835,14 @@ drop policy if exists "Anyone can view lessons" on public."lessons";
 create policy "Anyone can view lessons" on public."lessons" for select to "anon" using (true);
 drop policy if exists "No client access to login throttle" on public."login_lookup_throttle";
 create policy "No client access to login throttle" on public."login_lookup_throttle" for all to "authenticated" using (false) with check (false);
+drop policy if exists "Admins can read all mark disputes" on public."mark_disputes";
+create policy "Admins can read all mark disputes" on public."mark_disputes" for select using (is_admin(auth.uid()));
+drop policy if exists "Admins can resolve mark disputes" on public."mark_disputes";
+create policy "Admins can resolve mark disputes" on public."mark_disputes" for update using (is_admin(auth.uid())) with check (is_admin(auth.uid()));
+drop policy if exists "Students can open own mark disputes" on public."mark_disputes";
+create policy "Students can open own mark disputes" on public."mark_disputes" for insert with check (((user_id = auth.uid()) AND (status = 'pending'::text) AND (resolved_at IS NULL) AND (resolved_by IS NULL) AND (verdict = 'MISS'::text)));
+drop policy if exists "Students can read own mark disputes" on public."mark_disputes";
+create policy "Students can read own mark disputes" on public."mark_disputes" for select using ((user_id = auth.uid()));
 drop policy if exists "Users manage own material progress" on public."material_progress";
 create policy "Users manage own material progress" on public."material_progress" for all using ((auth.uid() = user_id)) with check ((auth.uid() = user_id));
 drop policy if exists "Admins can manage all notifications" on public."notifications";
@@ -4055,6 +4097,8 @@ grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."l
 grant SELECT on public."login_lookup_throttle" to anon;
 grant DELETE, INSERT, SELECT, UPDATE on public."login_lookup_throttle" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."login_lookup_throttle" to service_role;
+grant DELETE, INSERT, SELECT, UPDATE on public."mark_disputes" to authenticated;
+grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."mark_disputes" to service_role;
 grant SELECT on public."material_progress" to anon;
 grant DELETE, INSERT, SELECT, UPDATE on public."material_progress" to authenticated;
 grant DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE on public."material_progress" to service_role;
@@ -4198,6 +4242,7 @@ comment on table public."objective_reviews" is $dd$Resurfacing schedule per stud
 comment on table public."admin_audit_log" is $dd$Append-only audit trail of admin content changes and user-management actions. Written only by triggers and the audit_admin_action() SECURITY DEFINER function.$dd$;
 comment on table public."syllabus_statements" is $dd$Official board subtopics (the specification checklist), mapped to the topic that teaches them.$dd$;
 comment on table public."content_revisions" is $dd$Version history for lessons and study materials. A new row is written by trigger before each UPDATE of lessons/study_materials; restore via restore_content_revision().$dd$;
+comment on table public."mark_disputes" is $dd$Phase 3.2 self-override claims: a student asserts a missed mark-scheme point was actually earned. Awarded in the marker panel immediately; reviewed here. Never rewrites ai_correction.$dd$;
 comment on table public."teacher_subjects" is $dd$One row per teacher account: the single subject it may open in full. Written only by manage-accounts (service role).$dd$;
 comment on table public."learning_objectives" is $dd$Per-topic syllabus objectives: the micro-lesson and the unit of mastery.$dd$;
 

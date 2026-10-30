@@ -13,6 +13,7 @@
 
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { usePlanAccess } from "@/hooks/useSubscription";
 import { useToast } from "@/hooks/useToast";
@@ -50,12 +51,21 @@ import {
   Loader2,
   Lock,
   RotateCcw,
+  Scale,
   Sparkles,
   Trash2,
   Upload,
   Wand2,
   X,
 } from "lucide-react";
+
+/** One disputed point, as the panel tracks it while the claim is being made. */
+interface OverrideEntry {
+  open: boolean;
+  reason: string;
+  saving: boolean;
+  awarded: boolean;
+}
 
 export interface SolvedPaperMarkerProps {
   subjectLevelId?: string | null;
@@ -155,6 +165,10 @@ export function SolvedPaperMarker({
   const [planBlocked, setPlanBlocked] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  // Phase 3.2 — a withheld point the student believes they earned. "Award and
+  // flag": the mark moves in this panel straight away, and the same click writes
+  // a row an admin reviews. The marker's own record is never rewritten.
+  const [overrides, setOverrides] = useState<Record<string, OverrideEntry>>({});
   const inputRef = useRef<HTMLInputElement>(null);
 
   if (planLoading) {
@@ -171,6 +185,72 @@ export function SolvedPaperMarker({
 
   const busy = stage === "uploading" || stage === "marking";
   const canMark = !busy && (queued.length > 0 || notes.trim().length > 0);
+
+  const overrideKey = (qIndex: number, pIndex: number) => `${qIndex}:${pIndex}`;
+  const awardedFor = (qIndex: number) =>
+    Object.entries(overrides).filter(([k, v]) => k.startsWith(`${qIndex}:`) && v.awarded).length;
+  const totalAwarded = Object.values(overrides).filter((o) => o.awarded).length;
+  const markedEarned = result?.total_earned ?? 0;
+  const markedTotal = result?.total_possible ?? 0;
+  // Never above the paper's own total: a student cannot award more marks than
+  // the questions are worth, even by claiming every point.
+  const provisionalEarned = Math.min(markedTotal, markedEarned + totalAwarded);
+  const provisionalGrade = markedTotal > 0
+    ? Math.round((provisionalEarned / markedTotal) * 100)
+    : result?.overall_grade ?? 0;
+
+  const setOverride = (key: string, patch: Partial<OverrideEntry>) =>
+    setOverrides((current) => ({
+      ...current,
+      [key]: { open: false, reason: "", saving: false, awarded: false, ...current[key], ...patch },
+    }));
+
+  /**
+   * Award a missed point and flag it. The database is the record: `mark_disputes`
+   * is insert-only for a student, so the award cannot later be re-written by the
+   * browser — only an admin can resolve the claim.
+   */
+  const awardPoint = async (qIndex: number, pIndex: number, point: string) => {
+    if (!user || !result) return;
+    const key = overrideKey(qIndex, pIndex);
+    const reason = (overrides[key]?.reason ?? "").trim();
+    if (reason.length < 10) {
+      toast({
+        title: "Say a little more",
+        description: "One sentence on why your wording earns the mark (at least 10 characters).",
+        variant: "destructive",
+      });
+      return;
+    }
+    const question = result.corrected_papers[qIndex];
+    setOverride(key, { saving: true });
+    const { error: insertError } = await supabase.from("mark_disputes").insert({
+      user_id: user.id,
+      audit_ref: question?.audit_ref || result.audit_ref || "",
+      question: question?.question ?? "",
+      point,
+      verdict: "MISS",
+      reason,
+      marks: 1,
+    });
+    if (insertError) {
+      const duplicate = insertError.code === "23505";
+      toast({
+        title: duplicate ? "Already flagged" : "Could not flag that mark",
+        description: duplicate
+          ? "You've already claimed this point on this paper."
+          : insertError.message,
+        variant: "destructive",
+      });
+      setOverride(key, { saving: false });
+      return;
+    }
+    setOverride(key, { saving: false, awarded: true, open: false });
+    toast({
+      title: "Mark awarded — flagged for review",
+      description: "It now counts in your marked total, and your teacher can see the claim.",
+    });
+  };
 
   const addFiles = (files: FileList | File[] | null) => {
     if (!files) return;
@@ -342,18 +422,25 @@ export function SolvedPaperMarker({
                 Overall grade
               </p>
               <p className="text-4xl font-bold leading-none text-primary">
-                {result.overall_grade}%
+                {provisionalGrade}%
                 <span className="ml-2 align-middle text-base font-semibold text-muted-foreground">
                   {indicativeGradeLabel(result.overall_grade)}
                 </span>
               </p>
             </div>
             <p className="text-sm text-muted-foreground">
-              {result.total_earned} of {result.total_possible} marks ·{" "}
+              {provisionalEarned} of {result.total_possible} marks ·{" "}
               {result.corrected_papers.length} question
               {result.corrected_papers.length === 1 ? "" : "s"}
             </p>
           </div>
+
+          {totalAwarded > 0 && (
+            <p className="text-xs text-muted-foreground">
+              Includes {totalAwarded} mark{totalAwarded === 1 ? "" : "s"} you awarded yourself —
+              flagged for review, and the marker's own mark stays on record.
+            </p>
+          )}
 
           <div className="flex flex-wrap gap-2">
             <Button className="gap-2" onClick={downloadMarked} disabled={downloading}>
@@ -384,7 +471,7 @@ export function SolvedPaperMarker({
                     <div className="flex items-start justify-between gap-3">
                       <p className="text-sm font-medium">{paper.question}</p>
                       <Badge variant="outline" className="shrink-0 font-mono text-[11px]">
-                        {paper.marks_earned}/{paper.total_marks}
+                        {paper.marks_earned + awardedFor(index)}/{paper.total_marks}
                       </Badge>
                     </div>
                     {paper.mark_points && paper.mark_points.length > 0 && (
@@ -418,6 +505,57 @@ export function SolvedPaperMarker({
                                 </span>
                                 {point.evidence && (
                                   <span className="text-muted-foreground"> — {point.evidence}</span>
+                                )}
+                                {point.verdict === "MISS" && (
+                                  <div className="mt-1.5">
+                                    {overrides[overrideKey(index, pointIndex)]?.awarded ? (
+                                      <Badge variant="secondary" className="text-[10px]">
+                                        Awarded · under review
+                                      </Badge>
+                                    ) : overrides[overrideKey(index, pointIndex)]?.open ? (
+                                      <div className="space-y-1.5">
+                                        <Textarea
+                                          value={overrides[overrideKey(index, pointIndex)]?.reason ?? ""}
+                                          onChange={(e) =>
+                                            setOverride(overrideKey(index, pointIndex), { reason: e.target.value })
+                                          }
+                                          placeholder="Why does your wording earn this mark? Quote what you wrote."
+                                          className="min-h-[58px] text-xs"
+                                          aria-label={`Why your answer earns: ${point.point}`}
+                                        />
+                                        <div className="flex flex-wrap gap-1.5">
+                                          <Button
+                                            size="sm"
+                                            className="h-7 text-xs"
+                                            disabled={overrides[overrideKey(index, pointIndex)]?.saving}
+                                            onClick={() => awardPoint(index, pointIndex, point.point)}
+                                          >
+                                            Award this mark
+                                          </Button>
+                                          <Button
+                                            size="sm"
+                                            variant="ghost"
+                                            className="h-7 text-xs"
+                                            onClick={() =>
+                                              setOverride(overrideKey(index, pointIndex), { open: false })
+                                            }
+                                          >
+                                            Cancel
+                                          </Button>
+                                        </div>
+                                      </div>
+                                    ) : (
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-6 px-1 text-[11px] text-muted-foreground hover:text-foreground"
+                                        onClick={() => setOverride(overrideKey(index, pointIndex), { open: true })}
+                                      >
+                                        <Scale className="mr-1 h-3 w-3" aria-hidden="true" />
+                                        My phrasing is equivalent
+                                      </Button>
+                                    )}
+                                  </div>
                                 )}
                               </span>
                             </li>
