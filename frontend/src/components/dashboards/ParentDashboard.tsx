@@ -12,7 +12,6 @@ import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/useToast";
 import { useLoadFailure } from "@/hooks/useLoadFailure";
-import { escapeLike } from "@/lib/username";
 import { QueryError } from "@/components/QueryError";
 import { format } from "date-fns";
 import { Heart, Link2, Unlink, RefreshCw, BookOpen, Brain, Activity } from "lucide-react";
@@ -148,31 +147,19 @@ export function ParentDashboard() {
         toast({ title: "That's your own email", description: "Enter your child's email instead.", variant: "destructive" });
         return;
       }
-      // Escaped on purpose: an email local part may contain an underscore, which
-      // SQL LIKE reads as "any single character", so an unescaped address could
-      // match a different parent's child (or fail to find the right one).
-      const { data: profile, error: pErr } = await supabase
-        .from("profiles")
-        .select("user_id, full_name, email")
-        .ilike("email", escapeLike(email))
-        .maybeSingle();
+      // One exact-email lookup, server-side. `profiles` is readable only for a
+      // parent's own linked children, so searching the table from here showed a
+      // parent every profile in the estate. The RPC is parent-only, matches on
+      // equality rather than LIKE (an email local part may hold `_`, which LIKE
+      // reads as "any single character"), and returns a row only when the target
+      // is a student.
+      const { data: found, error: pErr } = await supabase
+        .rpc("lookup_student_for_linking", { p_email: email });
       if (pErr) throw pErr;
+      const profile = Array.isArray(found) ? found[0] : found;
       if (!profile) { setNotFound(true); return; }
       if (children.some(c => c.user_id === profile.user_id)) {
         toast({ title: "Already linked", description: `${email} is on your dashboard.` });
-        return;
-      }
-      // Verify the target really is a student before linking.
-      const { data: roleRow, error: roleError } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", profile.user_id)
-        .maybeSingle();
-      // Otherwise a failed role read reported "only students can be linked",
-      // blaming the user for our own failed request.
-      if (roleError) throw roleError;
-      if (roleRow?.role !== "student") {
-        toast({ title: "Cannot link", description: "Only student accounts can be linked.", variant: "destructive" });
         return;
       }
       const { error } = await supabase

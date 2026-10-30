@@ -33,6 +33,17 @@
   "zoom_url": null
  },
  {
+  "id": "10cd0775-3f17-4ab1-8bdb-cd002bc07124",
+  "topic_id": "7c873d96-9533-4f88-a111-45cfb1e95e4e",
+  "title": "Reproduction",
+  "content": "<h2>Reproduction</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 16.1 asexual and sexual reproduction; 16.2 sexual reproduction in plants; 16.3 sexual reproduction in humans; 16.4 sexually transmitted infections.</p>\n\n<h3>1. Two strategies</h3>\n<p>Asexual reproduction produces genetically identical offspring from one parent (runners in strawberry, tubers in potato, binary fission in bacteria); it is fast and needs no mate but reduces variation. Sexual reproduction fuses gametes, so offspring vary, which helps survival when conditions change.</p>\n\n<h3>2. The flower</h3>\n<p>Sepals protect the bud; petals attract pollinators; stamens (anther and filament) are male; the carpel (stigma, style, ovary) is female. Pollination is the transfer of pollen to the stigma, by insects or wind. Fertilisation is the fusion of the male nucleus with the egg in the ovule. The ovule becomes the seed and the ovary the fruit; dispersal is by wind, water, animals or explosion.</p>\n\n<h3>3. Human reproduction</h3>\n<p>Sperm are made in the testes and travel through the sperm duct; the egg is released from an ovary into the oviduct, where fertilisation occurs. The zygote divides into an embryo, implants in the uterus lining and is nourished by the placenta, which also removes waste. The menstrual cycle is about 28 days: menstruation, repair, ovulation around day 14, then the lining thickens.</p>\n\n<h3>4. STIs</h3>\n<p>HIV weakens the immune system; chlamydia and gonorrhoea damage the reproductive tract and can cause infertility; syphilis and HPV are also transmitted sexually. Condoms reduce transmission, and screening and treatment prevent complications.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain the difference between pollination and fertilisation in a flowering plant.</p>\n<p><strong>A:</strong> Pollination is the transfer of pollen from anther to stigma, which may be by insect or wind; fertilisation is the fusion of the male gamete nucleus with the egg nucleus inside the ovule.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:23.211775+00",
+  "updated_at": "2026-10-29 15:34:23.211775+00",
+  "zoom_url": null
+ },
+ {
   "id": "12685663-b843-4c03-8178-87c9e379e552",
   "topic_id": "d6c1020a-24ea-4820-b974-1126d494e3ab",
   "title": "Materials: Deformation",
@@ -63,6 +74,17 @@
   "sort_order": 1,
   "created_at": "2026-08-22 14:07:12.083304+00",
   "updated_at": "2026-10-26 06:32:01.776078+00",
+  "zoom_url": null
+ },
+ {
+  "id": "14681277-a9e8-4a2d-9df5-a59ca30c708b",
+  "topic_id": "5bc5494a-d0a1-4621-8a90-ee4ba8f94fed",
+  "title": "Inheritance",
+  "content": "<h2>Inheritance</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 17.1 chromosomes and genes; 17.2 monohybrid inheritance; 17.3 sex determination; 17.4 mutation.</p>\n\n<h3>1. Where the information lives</h3>\n<p>Chromosomes are DNA molecules; a gene is a length of DNA that codes for a protein. Humans have 46 chromosomes in 23 pairs, one of each pair from each parent. Alleles are alternative forms of a gene. Genotype is the allele combination; phenotype is the observable characteristic.</p>\n\n<h3>2. Monohybrid crosses</h3>\n<p>Use capital for dominant, lower case for recessive. A cross between two heterozygotes Tt × Tt gives 1 TT : 2 Tt : 1 tt, so 3 tall : 1 short. A test cross with a homozygous recessive identifies whether a tall individual is TT or Tt.</p>\n<p><strong>Worked example.</strong> Both parents have brown eyes (Bb) but carry a blue allele. Offspring: 25% BB, 50% Bb, 25% bb, so the chance of blue eyes is 1 in 4.</p>\n\n<h3>3. Sex determination</h3>\n<p>Females are XX and males XY, so the father determines the sex: eggs are all X, sperm are half X and half Y. A cross gives a 1:1 ratio of girls to boys.</p>\n\n<h3>4. Mutation</h3>\n<p>A mutation is a change in the base sequence of DNA. Most are harmful or neutral; some are beneficial. Mutagens include radiation and some chemicals. Sickle-cell anaemia and cystic fibrosis are caused by gene mutations; Down syndrome results from an extra chromosome 21.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Two heterozygous tall pea plants (Tt) are crossed. State the expected ratio of phenotypes.</p>\n<p><strong>A:</strong> 3 tall : 1 short, because the Punnett square gives TT, Tt, Tt and tt, and the first three are tall.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:23.682934+00",
+  "updated_at": "2026-10-29 15:34:23.682934+00",
   "zoom_url": null
  },
  {
@@ -253,6 +275,39 @@
   "zoom_url": null
  },
  {
+  "id": "30d94d14-3d30-4afa-8fe2-9e47e412a105",
+  "topic_id": "6044bcfe-5786-4e41-9dff-477fe70e4a1f",
+  "title": "Biotechnology and Genetic Modification",
+  "content": "<h2>Biotechnology and Genetic Modification</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 21.1 biotechnology; 21.2 genetic modification; 21.3 industrial uses.</p>\n\n<h3>1. Using microorganisms</h3>\n<p>Yeast ferments glucose to ethanol and carbon dioxide: brewing, bread-making and biofuel. Bacteria make yoghurt and cheese from milk. Penicillium mould produces penicillin. The conditions are controlled: temperature, pH, oxygen and sterile equipment, because contamination ruins a batch.</p>\n\n<h3>2. Industrial fermentation</h3>\n<p>A fermenter provides a controlled environment with a stirrer, a water jacket for cooling, air supply and a pH monitor. Fermentation releases heat, so cooling is essential. Biogas from anaerobic digestion of waste is mainly methane and is used for cooking and electricity.</p>\n\n<h3>3. Genetic modification</h3>\n<p>A gene from one organism is cut out with an enzyme, inserted into a plasmid vector, and taken up by a host cell. Bacteria carrying the human insulin gene make insulin in bulk; GM crops carry genes for pest resistance or vitamin A. The steps are cut, insert, transform, select, culture.</p>\n\n<h3>4. Benefits and concerns</h3>\n<p>Benefits: medicine produced cheaply and safely, higher yields, less pesticide. Concerns: genes spreading to wild plants, effects on non-target insects, cost to small farmers, and ethical objections. Regulation exists because the risks are uncertain, not because the science is unsound.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> State two advantages of producing human insulin using genetically modified bacteria.</p>\n<p><strong>A:</strong> It can be produced in large quantities, and it is human insulin rather than animal insulin, so it is less likely to cause an immune reaction.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:25.164398+00",
+  "updated_at": "2026-10-29 15:34:25.164398+00",
+  "zoom_url": null
+ },
+ {
+  "id": "31fdc0eb-25ee-466e-8446-27621094eb12",
+  "topic_id": "8555df55-a969-4f6d-8d97-ffa8f8279fe7",
+  "title": "Diseases and Immunity",
+  "content": "<h2>Diseases and Immunity</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 10.1 diseases and immunity; 10.2 the body's defence; 10.3 vaccination.</p>\n\n<h3>1. Pathogens and transmission</h3>\n<p>A pathogen is a disease-causing organism: bacteria (cholera, tuberculosis), viruses (influenza, HIV), fungi (athlete's foot), protoctists (malaria). Transmission is by droplets, contaminated food or water, direct contact, vectors and blood. Cholera spreads through contaminated water; malaria by the female Anopheles mosquito; HIV by unprotected sex, shared needles or contaminated blood.</p>\n\n<h3>2. The body's defences</h3>\n<p>First line: skin, mucus, cilia, stomach acid, tears. Second line: phagocytes engulf pathogens non-specifically; lymphocytes produce antibodies specific to an antigen, and memory cells give long-lasting immunity. A fever and inflammation are part of the response.</p>\n\n<h3>3. Vaccination</h3>\n<p>A vaccine contains dead or weakened pathogens or their antigens, so lymphocytes produce antibodies without illness. Memory cells mean a real infection is fought before symptoms develop. Herd immunity protects those who cannot be vaccinated. Antibiotics kill bacteria but not viruses, and overuse selects resistant strains such as MRSA.</p>\n\n<h3>4. Reducing the spread</h3>\n<p>Clean water and sanitation (cholera), mosquito nets and draining standing water (malaria), condoms and screened blood (HIV), covering the mouth and ventilation (droplets), and completing antibiotic courses.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why a person who has had one vaccination may need a booster years later.</p>\n<p><strong>A:</strong> Antibody levels and memory cells fall over time, so a booster re-exposes the immune system and raises antibody levels again before infection.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:21.129766+00",
+  "updated_at": "2026-10-29 15:34:21.129766+00",
+  "zoom_url": null
+ },
+ {
+  "id": "3443e9ec-3066-4407-a3ce-7d649eb8ec6e",
+  "topic_id": "af004def-0a18-4adb-890c-b0a7fcb9d4af",
+  "title": "Atoms, Elements and Compounds",
+  "content": "<h2>Atoms, Elements and Compounds</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 2.1 elements, compounds and mixtures; 2.2 atomic structure and the Periodic Table; 2.3 isotopes; 2.4 ions and ionic bonds; 2.5 simple molecules and covalent bonds; 2.6 giant covalent structures; 2.7 metallic bonding.</p>\n\n<h3>1. Pure substances and mixtures</h3>\n<p>An element contains one kind of atom; a compound contains atoms of two or more elements chemically combined in fixed proportions; a mixture contains substances not chemically joined and can be separated by physical means. Air, seawater and alloys are mixtures.</p>\n\n<h3>2. Inside the atom</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Particle</th><th>Relative mass</th><th>Charge</th><th>Where</th></tr>\n<tr><td>proton</td><td>1</td><td>+1</td><td>nucleus</td></tr>\n<tr><td>neutron</td><td>1</td><td>0</td><td>nucleus</td></tr>\n<tr><td>electron</td><td>1/1836</td><td>−1</td><td>shells</td></tr></table>\n<p>Proton number Z fixes the element; nucleon number A = protons + neutrons. Isotopes have the same Z and different A, and they differ only in neutron count, so their chemistry is identical while their mass and some physical properties differ. Relative atomic mass is the weighted average of the isotopes, which is why chlorine is 35.5.</p>\n\n<h3>3. Ionic bonding</h3>\n<p>A metal loses electrons to form a positive ion, a non-metal gains them to form a negative ion, and the ions are held in a giant lattice by electrostatic attraction. Sodium chloride: Na → Na⁺ + e⁻ and Cl + e⁻ → Cl⁻. Properties follow from the lattice: high melting point, brittle, and it conducts only when molten or dissolved, because the ions must be free to move.</p>\n\n<h3>4. Covalent and metallic bonding</h3>\n<p>Non-metals share electron pairs. Simple molecules (H₂O, CO₂, CH₄) have weak forces between molecules, so they melt low. Giant covalent structures (diamond, graphite, silicon(IV) oxide) have very high melting points; diamond is hard because every carbon has four strong bonds, graphite is soft and conducts because its layers slide and each carbon has a delocalised electron. Metals are a lattice of positive ions in a sea of delocalised electrons, which explains conduction and malleability.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why solid sodium chloride does not conduct electricity but molten sodium chloride does.</p>\n<p><strong>A:</strong> In the solid the ions are held in fixed positions in the lattice and cannot move; when molten, the lattice breaks down and the ions are free to carry charge.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:13.935852+00",
+  "updated_at": "2026-10-29 15:34:13.935852+00",
+  "zoom_url": null
+ },
+ {
   "id": "34d57f77-3b97-47be-b6a7-23ff6a01529e",
   "topic_id": "e8237701-4e22-468e-a25f-6bd96b5f22e1",
   "title": "Circular Motion and SHM",
@@ -261,6 +316,28 @@
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:13.857198+00",
   "updated_at": "2026-10-26 07:51:36.594396+00",
+  "zoom_url": null
+ },
+ {
+  "id": "36590dbe-df66-4e04-881c-262b4e151a9d",
+  "topic_id": "2cc3151b-4959-48f0-b1ca-f710457cbc2d",
+  "title": "Metals",
+  "content": "<h2>Metals</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 9.1 properties of metals; 9.2 uses of metals; 9.3 alloys; 9.4 reactivity series; 9.5 corrosion; 9.6 extraction.</p>\n\n<h3>1. Properties and uses</h3>\n<p>Metals are malleable, ductile, good conductors of heat and electricity, and have high melting points (mercury is the exception). Uses follow from properties: copper for wiring and pipes, aluminium for aircraft because it is light and corrosion-resistant, iron for structures because it is strong and cheap, gold for contacts because it does not corrode.</p>\n\n<h3>2. Alloys</h3>\n<p>An alloy is a mixture of a metal with other elements. Different-sized atoms disrupt the layers, so the alloy is harder and stronger than the pure metal but less malleable. Steel is iron with carbon; stainless steel adds chromium and nickel for corrosion resistance; brass is copper and zinc; bronze is copper and tin.</p>\n\n<h3>3. Reactivity series and displacement</h3>\n<p>Potassium, sodium, calcium, magnesium, aluminium, (carbon), zinc, iron, (hydrogen), copper, silver, gold. A metal displaces any metal below it from a solution of its salt: iron + copper(II) sulfate gives copper + iron(II) sulfate. The series also decides extraction: metals above carbon are extracted by electrolysis, those below by reduction with carbon.</p>\n\n<h3>4. Extraction, corrosion and recycling</h3>\n<p>Iron is extracted in a blast furnace: coke burns to CO₂, CO₂ is reduced to CO, and CO reduces the iron ore (Fe₂O₃ + 3CO → 2Fe + 3CO₂); limestone removes the sandy impurities as slag. Aluminium is extracted by electrolysis of alumina dissolved in molten cryolite, which is expensive in electricity, so recycling aluminium saves about 95% of the energy.</p>\n<p>Corrosion of iron needs oxygen and water; galvanising, painting and sacrificial protection prevent it. Recycling also conserves ore and reduces landfill.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why aluminium is extracted by electrolysis rather than by reduction with carbon.</p>\n<p><strong>A:</strong> Aluminium is more reactive than carbon, so carbon cannot displace it from its oxide; electrolysis of the molten oxide can supply enough energy to break the very strong bonds.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:16.4606+00",
+  "updated_at": "2026-10-29 15:34:16.4606+00",
+  "zoom_url": null
+ },
+ {
+  "id": "369c427b-5f79-46de-8f74-7d1ac81c5c27",
+  "topic_id": "80ad7ff2-2c9e-4cd8-8273-1143fdd7f970",
+  "title": "Organisms and their Environment",
+  "content": "<h2>Organisms and their Environment</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 19.1 energy flow; 19.2 food chains and webs; 19.3 cycles; 19.4 populations.</p>\n\n<h3>1. Energy through an ecosystem</h3>\n<p>The Sun is the source. Producers (plants) convert light to chemical energy; consumers eat them; decomposers break down dead matter and return nutrients to the soil. Only about 10% of energy passes to the next trophic level, because most is lost as heat, in movement, and in uneaten or undigested parts. That is why food chains are short and why pyramids of numbers or biomass narrow upwards.</p>\n\n<h3>2. Food chains and webs</h3>\n<p>A food chain starts with a producer and ends with a top predator; the arrows show the direction of energy flow. A food web joins chains, so removing one species affects many. Interdependence means a change in one population alters others — a fall in aphids reduces ladybirds.</p>\n\n<h3>3. Cycles</h3>\n<p>Carbon cycle: photosynthesis removes CO₂; respiration, combustion and decomposition return it. Nitrogen cycle: nitrogen fixation by bacteria in root nodules and in the soil converts N₂ to nitrates; nitrification converts ammonium compounds to nitrates; denitrification returns N₂; decomposers release ammonium compounds.</p>\n\n<h3>4. Populations and sampling</h3>\n<p>A population is all the individuals of one species in an area; a community is all the populations. Quadrats estimate plant abundance (place randomly, count, multiply by area ratio); sweep nets and pitfall traps sample animals. Random sampling avoids bias; the mean of several quadrats is more reliable than one.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why only about 10% of energy passes to the next trophic level.</p>\n<p><strong>A:</strong> Energy is lost as heat from respiration, used in movement, and lost in uneaten and undigested material, so little remains to be stored as biomass.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:24.428634+00",
+  "updated_at": "2026-10-29 15:34:24.428634+00",
   "zoom_url": null
  },
  {
@@ -294,6 +371,17 @@
   "sort_order": 1,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "updated_at": "2026-10-26 06:20:26.173131+00",
+  "zoom_url": null
+ },
+ {
+  "id": "3a79f8f3-e6cf-4be3-8aab-7b863715473d",
+  "topic_id": "1e8d181f-831e-4c71-a019-f9acca61ba6c",
+  "title": "Organic Chemistry",
+  "content": "<h2>Organic Chemistry</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 11.1 formulae; 11.2 fuels; 11.3 alkanes; 11.4 alkenes; 11.5 alcohols; 11.6 carboxylic acids; 11.7 polymers.</p>\n\n<h3>1. The families and their general formulae</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Family</th><th>General formula</th><th>Bonding</th><th>Example</th></tr>\n<tr><td>alkane</td><td>CₙH₂ₙ₊₂</td><td>single bonds, saturated</td><td>methane CH₄</td></tr>\n<tr><td>alkene</td><td>CₙH₂ₙ</td><td>C=C double bond, unsaturated</td><td>ethene C₂H₄</td></tr>\n<tr><td>alcohol</td><td>CₙH₂ₙ₊₁OH</td><td>—OH group</td><td>ethanol C₂H₅OH</td></tr>\n<tr><td>carboxylic acid</td><td>CₙH₂ₙ₊₁COOH</td><td>—COOH group</td><td>ethanoic acid CH₃COOH</td></tr></table>\n<p>Displayed and structural formulae must show every bond; the empirical formula is the simplest ratio and the molecular formula the actual count.</p>\n\n<h3>2. Alkanes and fuels</h3>\n<p>Alkanes are unreactive except for combustion and substitution with halogens in ultraviolet light. Fractions of crude oil are separated by fractional distillation, and larger molecules are cracked into smaller, more useful ones. Complete combustion gives CO₂ and H₂O; incomplete gives CO and soot.</p>\n\n<h3>3. Alkenes and addition reactions</h3>\n<p>The C=C bond is the reactive site. Bromine water is decolourised, which is the test that tells an alkene from an alkane. Ethene reacts by addition with hydrogen (to ethane), steam (to ethanol) and bromine (to dibromoethane). Ethanol is also made by fermentation of glucose from sugar with yeast.</p>\n\n<h3>4. Oxidation, esters and polymers</h3>\n<p>Ethanol is oxidised to ethanoic acid by acidified potassium dichromate(VI), which turns from orange to green. Carboxylic acids react with alcohols to give esters, which smell fruity. Addition polymerisation joins alkene monomers (poly(ethene) from ethene); condensation polymerisation joins monomers with loss of water (nylon, PET).</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Describe the test that distinguishes ethene from methane and state the result.</p>\n<p><strong>A:</strong> Add bromine water and shake; ethene decolourises it by addition across the double bond, while methane leaves the orange colour unchanged.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:17.147954+00",
+  "updated_at": "2026-10-29 15:34:17.147954+00",
   "zoom_url": null
  },
  {
@@ -440,6 +528,17 @@
   "zoom_url": null
  },
  {
+  "id": "4c2b6995-025a-4430-8b44-3c3d8575fb57",
+  "topic_id": "22663ac7-9e0c-49ca-8225-76616bce8aa1",
+  "title": "Characteristics and Classification of Living Organisms",
+  "content": "<h2>Characteristics and Classification of Living Organisms</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 1.1 characteristics of living organisms; 1.2 classification; 1.3 features of organisms; 1.4 dichotomous keys.</p>\n\n<h3>1. The seven characteristics</h3>\n<p>Remember MRS GREN: movement, respiration, sensitivity, growth, reproduction, excretion, nutrition. Every living organism shows all seven; a virus shows none outside a host cell, which is why it is not classified as living.</p>\n\n<h3>2. The classification hierarchy</h3>\n<p>Kingdom, phylum, class, order, family, genus, species. The binomial name uses genus and species, written in italics with a capital genus (Homo sapiens). Organisms in the same species can interbreed to produce fertile offspring.</p>\n<p>The five kingdoms are animals, plants, fungi, protoctists and prokaryotes (bacteria). Viruses are placed outside the kingdoms because they are not cells.</p>\n\n<h3>3. Features of the main groups</h3>\n<ul>\n<li>Animals: multicellular, no cell wall, feed heterotrophically; vertebrates have a backbone, invertebrates do not.</li>\n<li>Plants: multicellular, cellulose cell walls, chlorophyll, photosynthesise.</li>\n<li>Fungi: cell walls of chitin, no chlorophyll, feed by absorbing dissolved nutrients (yeast, moulds, mushrooms).</li>\n<li>Protoctists: mostly single-celled with a nucleus (Amoeba, Chlorella).</li>\n<li>Prokaryotes: no nucleus, loop of DNA, no membrane-bound organelles (bacteria).</li>\n</ul>\n<p>Vertebrate classes: fish (scales, gills), amphibians (moist skin, eggs in water), reptiles (dry scaly skin, shelled eggs), birds (feathers, beaks), mammals (hair, mammary glands).</p>\n\n<h3>4. Using a key</h3>\n<p>A dichotomous key asks one question at a time with two mutually exclusive answers, each leading to another question until the organism is named. Good keys describe visible features, not habitat or behaviour.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> State two features that distinguish fungi from plants.</p>\n<p><strong>A:</strong> Fungi have cell walls made of chitin rather than cellulose, and they have no chlorophyll, so they cannot photosynthesise and feed heterotrophically.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:18.297531+00",
+  "updated_at": "2026-10-29 15:34:18.297531+00",
+  "zoom_url": null
+ },
+ {
   "id": "4d3c64e1-e167-460f-a898-19427498b3ef",
   "topic_id": "927ba4a9-fc3e-4b8c-b660-8578a41b0dd7",
   "title": "Formal Writing: Register and Linking Words",
@@ -517,6 +616,17 @@
   "zoom_url": null
  },
  {
+  "id": "598f86be-96e4-4866-a19d-49f2caf6eea2",
+  "topic_id": "93a7766f-acbf-4ea1-8bd7-ac865d15e305",
+  "title": "Coordination and Response",
+  "content": "<h2>Coordination and Response</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 14.1 nervous control; 14.2 the eye; 14.3 hormones; 14.4 homeostasis; 14.5 tropisms.</p>\n\n<h3>1. The reflex arc</h3>\n<p>Stimulus → receptor → sensory neurone → relay neurone in the spinal cord → motor neurone → effector → response. The relay neurone in the spinal cord allows a reflex without waiting for the brain, which is faster and protects the body. Impulses cross synapses with neurotransmitters.</p>\n\n<h3>2. The eye</h3>\n<p>Light passes the cornea and pupil to the lens, which focuses it on the retina; rods detect low light and cones colour. In bright light the iris muscles make the pupil smaller; in dim light it widens. To focus on a near object, the ciliary muscle contracts and the lens becomes fatter; for a distant object it relaxes and the lens thins.</p>\n\n<h3>3. Hormones and homeostasis</h3>\n<p>Hormones travel in blood and act more slowly than nerves. Insulin lowers blood glucose by converting it to glycogen in the liver; glucagon raises it. Adrenaline raises heart rate and breathing in emergencies. Thyroxine controls metabolic rate; ADH controls water reabsorption; oestrogen and testosterone control secondary sexual characteristics.</p>\n<p>Homeostasis keeps temperature, glucose and water constant. Temperature control uses sweating, vasodilation and vasoconstriction, shivering and hairs standing up.</p>\n\n<h3>4. Tropisms</h3>\n<p>Phototropism: shoots grow towards light because auxin accumulates on the shaded side and stimulates elongation. Geotropism: roots grow downwards towards gravity, anchoring the plant and reaching water. These are examples of plant responses without a nervous system.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why a reflex action is faster than a deliberate response.</p>\n<p><strong>A:</strong> The reflex pathway passes through a relay neurone in the spinal cord and bypasses the brain, so there are fewer synapses and less processing before the effector responds.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:22.41779+00",
+  "updated_at": "2026-10-29 15:34:22.41779+00",
+  "zoom_url": null
+ },
+ {
   "id": "5a5deb96-4351-475d-a3e2-1041cf7ccf2c",
   "topic_id": "5fa07820-06cf-4f42-85a4-74f5a3da9bde",
   "title": "Integration",
@@ -536,6 +646,17 @@
   "sort_order": 1,
   "created_at": "2026-08-22 14:11:17.107163+00",
   "updated_at": "2026-10-26 06:32:01.776078+00",
+  "zoom_url": null
+ },
+ {
+  "id": "633ac15d-fd36-4d68-9a87-8427f56aa45c",
+  "topic_id": "6e260447-834e-4b86-858f-deb6d0cd3d9d",
+  "title": "Organisation of the Organism",
+  "content": "<h2>Organisation of the Organism</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 2.1 cell structure; 2.2 levels of organisation; 2.3 size and magnification.</p>\n\n<h3>1. Plant and animal cells</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Structure</th><th>Function</th><th>Plant</th><th>Animal</th></tr>\n<tr><td>nucleus</td><td>contains chromosomes, controls the cell</td><td>yes</td><td>yes</td></tr>\n<tr><td>cytoplasm</td><td>site of chemical reactions</td><td>yes</td><td>yes</td></tr>\n<tr><td>cell membrane</td><td>controls what enters and leaves</td><td>yes</td><td>yes</td></tr>\n<tr><td>cell wall</td><td>cellulose, supports the cell</td><td>yes</td><td>no</td></tr>\n<tr><td>chloroplast</td><td>contains chlorophyll, photosynthesis</td><td>yes</td><td>no</td></tr>\n<tr><td>vacuole</td><td>large, permanent, stores sap</td><td>yes</td><td>small or absent</td></tr></table>\n\n<h3>2. From cell to organism</h3>\n<p>Cell → tissue → organ → organ system → organism. A tissue is a group of similar cells doing one job (muscle tissue); an organ combines tissues for a function (stomach); a system combines organs (digestive system).</p>\n\n<h3>3. Specialised cells and their shapes</h3>\n<ul>\n<li>Root hair cell: long thin extension, large surface area for water uptake.</li>\n<li>Palisade mesophyll: packed with chloroplasts near the leaf surface.</li>\n<li>Red blood cell: no nucleus, biconcave, packed with haemoglobin.</li>\n<li>Ciliated cell: tiny hairs sweep mucus (trachea, oviduct).</li>\n<li>Sperm and egg cells: one is motile, the other stores food for the embryo.</li>\n<li>Nerve cell: long to carry impulses; muscle cell: contracts.</li>\n</ul>\n\n<h3>4. Magnification</h3>\n<p>Magnification = drawing size / actual size. Keep the units consistent: 1 mm = 1000 µm. A cell 50 µm wide drawn 10 mm across is ×200. Convert the other way for actual size: actual = image / magnification.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> A cell is examined and shown to have a cell wall and many chloroplasts. State two things it cannot be.</p>\n<p><strong>A:</strong> It cannot be an animal cell (it has a wall and chloroplasts) and it cannot be a fungal or bacterial cell (fungi have no chloroplasts, bacteria have no membrane-bound chloroplasts or nucleus).</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:18.5971+00",
+  "updated_at": "2026-10-29 15:34:18.5971+00",
   "zoom_url": null
  },
  {
@@ -715,6 +836,50 @@
   "zoom_url": null
  },
  {
+  "id": "73e76ffb-a2a0-4555-bf70-f608efff43d0",
+  "topic_id": "76009be1-cc64-4122-9b06-77ed8f586688",
+  "title": "Electrochemistry",
+  "content": "<h2>Electrochemistry</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 4.1 electrolysis; 4.2 hydrogen–oxygen fuel cells; 4.3 rusting.</p>\n\n<h3>1. What electrolysis is</h3>\n<p>An electric current drives a non-spontaneous reaction in an electrolyte — a molten ionic compound or an aqueous solution. The positive anode attracts anions, where oxidation (loss of electrons) happens; the negative cathode attracts cations, where reduction (gain) happens. Remember \"PANIC\": Positive Anode, Negative Is Cathode.</p>\n\n<h3>2. Molten compounds</h3>\n<p>Molten lead(II) bromide gives bromine at the anode and lead at the cathode, because there is only one cation and one anion present. This is the cleanest case and the one to quote when asked what electrolysis of a molten salt produces.</p>\n\n<h3>3. Aqueous solutions and the reactivity series</h3>\n<p>In water there are always H⁺ and OH⁻ competing. At the cathode, a metal below hydrogen in the reactivity series is deposited; a reactive metal such as sodium or potassium is not, and hydrogen is given off instead. At the anode, halides are discharged in preference to hydroxide, so concentrated sodium chloride solution gives chlorine; with a dilute or non-halide solution, oxygen is produced.</p>\n<p>Copper(II) sulfate with copper electrodes is the exception worth knowing: the anode dissolves and copper is deposited at the cathode, so the blue colour stays the same. That is copper refining.</p>\n\n<h3>4. Fuel cells and rusting</h3>\n<p>A hydrogen–oxygen fuel cell produces electricity with water as the only product, which is why it is used where exhaust must be clean. Rusting needs both oxygen and water; salt speeds it up, and painting, greasing, galvanising or sacrificial protection (zinc, magnesium) prevents it. Sacrificial protection works because the more reactive metal corrodes instead.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> State the products at each electrode when concentrated aqueous sodium chloride is electrolysed, and explain the anode product.</p>\n<p><strong>A:</strong> Cathode: hydrogen. Anode: chlorine. Chloride ions are discharged in preference to hydroxide ions because the solution is concentrated, and chlorine is formed by oxidation of Cl⁻.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:14.582608+00",
+  "updated_at": "2026-10-29 15:34:14.582608+00",
+  "zoom_url": null
+ },
+ {
+  "id": "76d45bd9-ffd1-4ad5-86f8-99a8943b3449",
+  "topic_id": "87cf1ec5-bd34-4f37-9a40-a18f51d9b64b",
+  "title": "Stoichiometry",
+  "content": "<h2>Stoichiometry</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 3.1 formulae; 3.2 relative masses of atoms and molecules; 3.3 the mole and the Avogadro constant; 3.4 calculations using moles; 3.5 concentration.</p>\n\n<h3>1. Formulae and relative mass</h3>\n<p>Work out an empirical formula from percentage composition by dividing each percentage by its Ar, then dividing by the smallest. Molecular formula is a whole-number multiple of the empirical formula. Relative formula mass Mr is the sum of Ar values: Mr(CaCO₃) = 40 + 12 + 3(16) = 100.</p>\n\n<h3>2. The mole</h3>\n<p>One mole contains 6.02 × 10²³ particles and has a mass equal to Mr in grams. Three conversions carry almost every calculation:</p>\n<ul>\n<li>n = m / Mr (mass in g)</li>\n<li>n = V / 24 dm³ at room temperature and pressure, for gases</li>\n<li>n = c × V, with c in mol/dm³ and V in dm³, for solutions</li>\n</ul>\n\n<h3>3. Using an equation</h3>\n<p>The balancing numbers are mole ratios. For 2H₂ + O₂ → 2H₂O, two moles of hydrogen need one mole of oxygen. A typical route: mass → moles of the known substance → moles of the required substance by ratio → mass or volume.</p>\n<p><strong>Worked example.</strong> What mass of magnesium oxide forms when 2.4 g of magnesium burns? n(Mg) = 2.4 / 24 = 0.10 mol. The ratio is 2Mg : 2MgO, so n(MgO) = 0.10 mol. Mr(MgO) = 40, so m = 0.10 × 40 = 4.0 g.</p>\n\n<h3>4. Concentration and yield</h3>\n<p>Concentration in g/dm³ converts to mol/dm³ by dividing by Mr. Percentage yield = actual / theoretical × 100; percentage purity = mass of pure substance / mass of sample × 100. A yield below 100% is normal: reversible reactions, side reactions and losses on transfer.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> 25.0 cm³ of 0.100 mol/dm³ sodium hydroxide neutralises 20.0 cm³ of hydrochloric acid. Find the acid concentration.</p>\n<p><strong>A:</strong> n(NaOH) = 0.100 × 0.0250 = 2.50 × 10⁻³ mol; the ratio is 1:1, so n(HCl) is the same; c = 2.50 × 10⁻³ / 0.0200 = 0.125 mol/dm³.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:14.294195+00",
+  "updated_at": "2026-10-29 15:34:14.294195+00",
+  "zoom_url": null
+ },
+ {
+  "id": "788f6af8-f0d1-43d3-b206-7f475e122a92",
+  "topic_id": "aaf10859-fd35-43b2-9c10-581ee9ddb33c",
+  "title": "Gas Exchange in Humans",
+  "content": "<h2>Gas Exchange in Humans</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 11.1 breathing; 11.2 the respiratory tract; 11.3 gas exchange; 11.4 smoking.</p>\n\n<h3>1. The mechanics of breathing</h3>\n<p>Inhaling: the diaphragm contracts and flattens, the external intercostal muscles lift the ribs up and out, the thorax volume increases and pressure falls, so air rushes in. Exhaling is largely passive: muscles relax, volume falls and pressure rises. The lungs contain no muscle; they follow the thorax.</p>\n\n<h3>2. From trachea to alveoli</h3>\n<p>Air passes the trachea, bronchi, bronchioles and alveoli. The trachea is kept open by C-shaped cartilage rings; the lining has cilia and mucus to trap dust and bacteria. Alveoli are the exchange surface and they are built for it: a huge total surface area, walls one cell thick, a moist lining, a dense capillary network and a short distance to blood.</p>\n\n<h3>3. Gas exchange</h3>\n<p>Oxygen diffuses from the alveolar air, where its concentration is higher, into blood, then into red cells. Carbon dioxide diffuses the other way and is exhaled. Breathing maintains the concentration gradients. Inhaled air is about 21% oxygen and 0.04% carbon dioxide; exhaled air is about 16% oxygen and 4% carbon dioxide, and is warmer and saturated with water vapour.</p>\n\n<h3>4. Smoking</h3>\n<p>Tar paralyses cilia and irritates the lining, causing a smoker's cough; nicotine is addictive and raises heart rate; carbon monoxide binds haemoglobin, reducing oxygen transport; carcinogens cause mutations and lung cancer; emphysema destroys alveolar walls, reducing surface area and causing breathlessness.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> State two features of alveoli and explain how each helps gas exchange.</p>\n<p><strong>A:</strong> Their walls are one cell thick, giving a short diffusion distance, and their millions of tiny sacs give a large surface area for diffusion.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:21.440402+00",
+  "updated_at": "2026-10-29 15:34:21.440402+00",
+  "zoom_url": null
+ },
+ {
+  "id": "7924ee05-8835-401a-8dd6-9338aa74b0b1",
+  "topic_id": "61884cee-8b39-43f1-a7db-dde38e429534",
+  "title": "States of Matter",
+  "content": "<h2>States of Matter</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 1.1 solids, liquids and gases; 1.2 diffusion — particle arrangement, kinetic theory, changes of state.</p>\n\n<h3>1. The three states, in particles</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>State</th><th>Arrangement</th><th>Motion</th><th>Shape / volume</th></tr>\n<tr><td>solid</td><td>close, regular lattice</td><td>vibrate about fixed positions</td><td>fixed both</td></tr>\n<tr><td>liquid</td><td>close, irregular</td><td>slide past each other</td><td>fixed volume, takes container shape</td></tr>\n<tr><td>gas</td><td>far apart, random</td><td>fast, straight lines</td><td>fills the container</td></tr></table>\n\n<h3>2. Changes of state and their names</h3>\n<p>Melting (s → l) and boiling (l → g) take in energy; freezing (l → s) and condensing (g → l) release it. Evaporation happens below the boiling point, from the surface, and is faster with a higher temperature, larger surface area and moving air. Sublimation is solid → gas directly, as iodine and carbon dioxide do.</p>\n<p>During melting and boiling the temperature stays constant: the energy supplied breaks forces between particles instead of raising kinetic energy. That plateau is why a heating curve has flat sections.</p>\n\n<h3>3. Kinetic theory and pressure</h3>\n<p>Gas pressure comes from particles colliding with the walls. Heating at constant volume raises the average speed, so collisions are more frequent and harder: pressure rises. Compressing a fixed mass at constant temperature raises pressure because each collision is more frequent. The kelvin scale is needed for gas calculations: T(K) = θ(°C) + 273.</p>\n\n<h3>4. Diffusion</h3>\n<p>Diffusion is the spreading of particles from high to low concentration by random motion. It is fastest for light particles at high temperature: ammonia (Mr 17) travels faster than hydrogen chloride (Mr 36.5), so the white ring of ammonium chloride forms nearer the HCl end. Bromine vapour and potassium manganate(VII) in water are the standard demonstrations.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why a gas exerts a higher pressure when its temperature is raised at constant volume.</p>\n<p><strong>A:</strong> Particles gain kinetic energy and move faster; they hit the walls more often and with greater force per collision, so pressure rises.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:13.54919+00",
+  "updated_at": "2026-10-29 15:34:13.54919+00",
+  "zoom_url": null
+ },
+ {
   "id": "7ab80d70-3251-410c-98f2-af866ef47ad8",
   "topic_id": "ecb0d454-2166-4969-ad80-57fdeed4a953",
   "title": "Organic Chemistry: Carbonyls, Carboxylic Acids and Chirality",
@@ -734,6 +899,17 @@
   "sort_order": 1,
   "created_at": "2026-10-17 10:32:55.810278+00",
   "updated_at": "2026-10-17 10:32:55.810278+00",
+  "zoom_url": null
+ },
+ {
+  "id": "7f01d0fd-0430-4d92-afa6-9fb92b0b433b",
+  "topic_id": "61d4dffc-a519-437b-9b59-705633b7fd76",
+  "title": "Chemical Energetics",
+  "content": "<h2>Chemical Energetics</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 5.1 exothermic and endothermic reactions; 5.2 using enthalpy changes.</p>\n\n<h3>1. Two directions of energy</h3>\n<p>An exothermic reaction releases energy to the surroundings, so the mixture warms (combustion, neutralisation, adding water to anhydrous copper(II) sulfate). An endothermic reaction takes energy in, so it cools (thermal decomposition, dissolving ammonium nitrate). The sign convention: ΔH is negative for exothermic, positive for endothermic.</p>\n\n<h3>2. Reading a reaction profile</h3>\n<p>Every profile has reactants on one side, products on the other, and a hump in between. The hump height from reactants is the activation energy Ea — the minimum energy colliding particles need. For an exothermic reaction the products sit lower than the reactants; for an endothermic reaction they sit higher. ΔH is simply products minus reactants.</p>\n\n<h3>3. Bond energy arithmetic</h3>\n<p>Breaking bonds takes energy in; making bonds gives it out. ΔH = energy to break bonds in reactants − energy released making bonds in products. If breaking costs more than making releases, the reaction is endothermic. A catalyst lowers Ea but never changes ΔH, because the reactants and products are unchanged.</p>\n\n<h3>4. Measuring the change</h3>\n<p>A simple calorimeter: measure the temperature rise of a known mass of water, then use q = m c ΔT with c = 4.2 J/(g °C) and divide by the moles reacting. Energy is lost to the surroundings, so the measured value is always smaller than the data-book value; insulation and a lid reduce the loss.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> A reaction has ΔH = −890 kJ/mol. Is it exothermic or endothermic, and what happens to the temperature of the mixture?</p>\n<p><strong>A:</strong> Exothermic, because ΔH is negative. Energy is transferred to the surroundings, so the temperature rises.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:15.114039+00",
+  "updated_at": "2026-10-29 15:34:15.114039+00",
   "zoom_url": null
  },
  {
@@ -814,6 +990,17 @@
   "zoom_url": null
  },
  {
+  "id": "8b320a71-4078-41cf-998e-1f4a81155d95",
+  "topic_id": "5544b2b0-b23f-43e5-baf3-080a6f3c5411",
+  "title": "Transport in Plants",
+  "content": "<h2>Transport in Plants</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 8.1 transport in xylem; 8.2 transpiration; 8.3 translocation.</p>\n\n<h3>1. Two tissues, two directions</h3>\n<p>Xylem carries water and mineral ions from the roots upwards. Its vessels are dead, hollow cells with lignified walls, which stop them collapsing and give support. Phloem carries sugars and amino acids from sources (leaves) to sinks (roots, fruits, growing tips); its cells are living, with sieve plates and companion cells.</p>\n\n<h3>2. Water uptake</h3>\n<p>Root hair cells increase the surface area for osmosis; water moves in because the root hair cell has a lower water potential than the soil solution. Mineral ions are taken up by active transport against their gradient.</p>\n\n<h3>3. Transpiration</h3>\n<p>Transpiration is the loss of water vapour from leaves, mostly through stomata. It is faster when the air is warm, dry and moving, and when light is bright (stomata open for photosynthesis). The cohesion-tension theory explains the pull: evaporation from mesophyll cells creates tension, water molecules cohere in a continuous column, and water is drawn up the xylem.</p>\n<p>Wilting is a protective response: the leaves droop, reducing surface area and light exposure, so less water is lost. A potometer measures water uptake as a proxy for transpiration.</p>\n\n<h3>4. Translocation</h3>\n<p>Sugars made in the leaves are loaded into phloem, raising solute concentration; water follows by osmosis and the pressure pushes sap towards sinks. This is why bark damage (which removes phloem) starves the roots.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why a plant wilts on a hot, sunny day and why this helps.</p>\n<p><strong>A:</strong> Transpiration exceeds uptake, so cells lose turgor and the leaves droop. Drooping reduces the exposed surface area and light interception, so less water is lost and the plant is more likely to survive.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:20.485985+00",
+  "updated_at": "2026-10-29 15:34:20.485985+00",
+  "zoom_url": null
+ },
+ {
   "id": "8b98db4d-d584-48c4-85e8-b99aaa172e6b",
   "topic_id": "34c0d0f1-9536-4a5e-b120-fb820be09963",
   "title": "Earth & Space",
@@ -869,6 +1056,17 @@
   "zoom_url": null
  },
  {
+  "id": "908082bc-2ad1-46cd-996d-645b214be0d8",
+  "topic_id": "81b99d95-e6ff-49ab-9810-3e27edf1ede2",
+  "title": "Respiration",
+  "content": "<h2>Respiration</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 12.1 respiration; 12.2 aerobic respiration; 12.3 anaerobic respiration.</p>\n\n<h3>1. Respiration is not breathing</h3>\n<p>Respiration is the chemical release of energy from food in every living cell. Breathing is the ventilation that supplies oxygen and removes carbon dioxide. Energy released by respiration powers muscle contraction, growth, active transport and maintaining body temperature.</p>\n\n<h3>2. Aerobic respiration</h3>\n<p>C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O, releasing about 38 ATP per glucose. It happens mainly in the mitochondria, which is why active cells (muscle, liver) have many of them. Glucose is the preferred substrate; fat and protein can also be respired.</p>\n\n<h3>3. Anaerobic respiration</h3>\n<p>Without oxygen, glucose is partly broken down. In human muscle: C₆H₁₂O₆ → 2C₃H₆O₃ (lactic acid), releasing about 2 ATP. Lactic acid builds up and causes fatigue; oxygen is later used to break it down, and the extra oxygen consumed is the oxygen debt. In yeast: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂, the basis of brewing and bread-making.</p>\n\n<h3>4. Demonstrating it</h3>\n<p>Limewater turns milky with carbon dioxide (test with hydrogencarbonate indicator: yellow at high CO₂). Yeast in warm glucose solution with a layer of oil respires anaerobically; a thermometer shows heat, and the gas given off turns limewater milky. Germinating seeds show the same, and their temperature rise is measurable in a vacuum flask.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain the benefit of anaerobic respiration to a sprinter.</p>\n<p><strong>A:</strong> It releases a small amount of ATP without oxygen, so muscles can keep contracting briefly after oxygen supply is exhausted, which sustains the sprint.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:21.773846+00",
+  "updated_at": "2026-10-29 15:34:21.773846+00",
+  "zoom_url": null
+ },
+ {
   "id": "912b7efa-f45a-4664-b2ab-f40181c9252d",
   "topic_id": "35b1da75-be47-4c45-8751-9a70ae75875a",
   "title": "Thermal Physics",
@@ -888,6 +1086,17 @@
   "sort_order": 1,
   "created_at": "2026-09-14 18:41:35.570513+00",
   "updated_at": "2026-10-26 07:51:36.594396+00",
+  "zoom_url": null
+ },
+ {
+  "id": "96113fad-b5bb-4369-9f24-a53be8ea6696",
+  "topic_id": "0f94b365-6cc6-4b12-916b-bd0921151db6",
+  "title": "Biological Molecules",
+  "content": "<h2>Biological Molecules</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 4.1 carbohydrates; 4.2 fats (lipids); 4.3 proteins; 4.4 tests for food substances.</p>\n\n<h3>1. The three large groups</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Molecule</th><th>Made of</th><th>Function</th><th>Test</th></tr>\n<tr><td>carbohydrate</td><td>C, H, O</td><td>energy, structure</td><td>starch: iodine</td></tr>\n<tr><td>protein</td><td>C, H, O, N</td><td>growth and repair, enzymes</td><td>Biuret</td></tr>\n<tr><td>lipid</td><td>C, H, O</td><td>energy store, insulation, membranes</td><td>ethanol emulsion</td></tr></table>\n<p>Starch is a storage polysaccharide; glycogen stores energy in animals; cellulose builds plant cell walls from long unbranched chains. Proteins are chains of amino acids; lipids are glycerol with three fatty acids.</p>\n\n<h3>2. The food tests</h3>\n<ul>\n<li><strong>Starch:</strong> add iodine solution — blue-black is positive.</li>\n<li><strong>Reducing sugar:</strong> add Benedict's solution and heat in a water bath — green to brick-red indicates the amount.</li>\n<li><strong>Protein:</strong> add Biuret reagent — lilac/purple is positive.</li>\n<li><strong>Lipid:</strong> add ethanol then water — a cloudy white emulsion forms.</li>\n<li><strong>Vitamin C:</strong> DCPIP solution is decolourised by vitamin C.</li>\n</ul>\n\n<h3>3. Water, vitamins and minerals</h3>\n<p>Water is the solvent for all cell chemistry and a reactant in hydrolysis. Vitamin C prevents scurvy and is found in citrus; vitamin D is needed for calcium absorption and is made in skin in sunlight. Calcium strengthens bones and teeth; iron is needed for haemoglobin; fibre (cellulose) adds bulk so the gut muscles can push food along.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> A student tests a food and obtains a lilac colour with Biuret reagent and a brick-red precipitate with Benedict's. What does this show?</p>\n<p><strong>A:</strong> The food contains protein (lilac) and a reducing sugar such as glucose (brick-red), so it could be, for example, milk.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:19.204353+00",
+  "updated_at": "2026-10-29 15:34:19.204353+00",
   "zoom_url": null
  },
  {
@@ -924,6 +1133,17 @@
   "zoom_url": null
  },
  {
+  "id": "977b228d-f25f-4d9b-ba06-374e49df323f",
+  "topic_id": "6fad4983-f0cf-47b7-8bb1-f02724d77800",
+  "title": "Transport in Animals",
+  "content": "<h2>Transport in Animals</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 9.1 transport systems; 9.2 the heart; 9.3 blood vessels; 9.4 blood.</p>\n\n<h3>1. Why a transport system</h3>\n<p>A large, active organism cannot rely on diffusion: the distance is too great and the demand too high. Blood carries oxygen, nutrients, hormones, antibodies and heat, and removes carbon dioxide and urea. Mammals have a double circulation: blood passes the heart twice per circuit, so the lungs receive low-pressure blood and the body receives high-pressure blood.</p>\n\n<h3>2. The heart</h3>\n<p>Right atrium → right ventricle → pulmonary artery → lungs → pulmonary vein → left atrium → left ventricle → aorta. The left ventricle wall is thickest because it pumps blood round the whole body. Valves prevent backflow: the tricuspid and bicuspid valves close when the ventricles contract, and the semilunar valves close when they relax.</p>\n\n<h3>3. Blood vessels</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Vessel</th><th>Wall</th><th>Lumen</th><th>Role</th></tr>\n<tr><td>artery</td><td>thick, elastic, muscular</td><td>narrow</td><td>carries blood away, withstands pressure</td></tr>\n<tr><td>vein</td><td>thinner</td><td>wide, with valves</td><td>returns blood at low pressure</td></tr>\n<tr><td>capillary</td><td>one cell thick</td><td>very narrow</td><td>exchange with tissues</td></tr></table>\n\n<h3>4. Blood and its parts</h3>\n<p>Plasma carries dissolved substances; red cells carry oxygen as oxyhaemoglobin (no nucleus, biconcave, packed with haemoglobin); white cells defend against pathogens; platelets clot blood. Coronary heart disease is caused by fatty deposits narrowing the coronary arteries; risk factors include smoking, high saturated fat, obesity, inactivity and family history.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why the wall of the left ventricle is thicker than that of the right.</p>\n<p><strong>A:</strong> The left ventricle pumps blood at higher pressure around the whole body, whereas the right ventricle pumps only to the lungs, so it needs less muscle.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:20.813421+00",
+  "updated_at": "2026-10-29 15:34:20.813421+00",
+  "zoom_url": null
+ },
+ {
   "id": "9784060f-55ed-42cc-b482-92014f361801",
   "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
   "title": "Fractions, Decimals and Percentages",
@@ -957,6 +1177,17 @@
   "zoom_url": null
  },
  {
+  "id": "9a69be12-380c-4403-886e-f07d48341337",
+  "topic_id": "5c676555-0574-4e0e-a3c9-ee162f8f019b",
+  "title": "Variation and Selection",
+  "content": "<h2>Variation and Selection</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 18.1 variation; 18.2 adaptive features; 18.3 selection.</p>\n\n<h3>1. Types of variation</h3>\n<p>Continuous variation gives a range of values (height, mass) and is usually affected by many genes plus the environment. Discontinuous variation puts individuals into distinct groups (blood group, tongue rolling) and is usually controlled by one or a few genes. Plotting continuous data gives a normal curve; discontinuous data gives separate bars.</p>\n\n<h3>2. Causes</h3>\n<p>Variation comes from genes (meiosis creates new combinations of alleles; mutation makes new alleles) and from the environment (diet, exercise, light). Identical twins show how much of a characteristic is environmental.</p>\n\n<h3>3. Natural selection</h3>\n<p>Organisms produce more offspring than survive; there is variation; some variants are better adapted; those individuals survive and reproduce, passing their alleles on; the frequency of the advantageous allele rises. This is why bacteria become resistant to antibiotics and why insects become resistant to pesticides.</p>\n<p>Adaptive features can be structural (long roots), behavioural (migration) or physiological (water conservation).</p>\n\n<h3>4. Artificial selection</h3>\n<p>Humans choose individuals with desirable features to breed. It has produced high-yield crops, dairy cattle and breeds of dog. It reduces genetic diversity and can spread inherited defects, because the population is narrowed deliberately.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain how a population of bacteria can become resistant to an antibiotic.</p>\n<p><strong>A:</strong> A random mutation gives some bacteria resistance; the antibiotic kills the non-resistant ones; the resistant bacteria survive, reproduce and pass on the resistance allele, so the proportion resistant rises.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:24.070431+00",
+  "updated_at": "2026-10-29 15:34:24.070431+00",
+  "zoom_url": null
+ },
+ {
   "id": "9fdbac75-9baa-467c-91d6-c8b871c2ed85",
   "topic_id": "ef569055-35ca-414b-b7bc-e7211c868d3d",
   "title": "Superposition",
@@ -976,6 +1207,17 @@
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:05.873187+00",
   "updated_at": "2026-10-26 07:51:36.594396+00",
+  "zoom_url": null
+ },
+ {
+  "id": "a191cb4d-d07c-4954-80f7-6b8ce0da09f5",
+  "topic_id": "100672b8-3595-494b-8960-653ddde1b444",
+  "title": "Human Influences on Ecosystems",
+  "content": "<h2>Human Influences on Ecosystems</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 20.1 food supply; 20.2 habitat destruction; 20.3 pollution; 20.4 conservation.</p>\n\n<h3>1. Feeding a growing population</h3>\n<p>Intensive farming raises yield with fertilisers, pesticides, irrigation and monoculture, but can pollute water, reduce soil quality and lower biodiversity. Organic farming uses manure and biological control instead. Genetically modified crops can resist pests or drought, with the risk of genes spreading to wild relatives.</p>\n\n<h3>2. Habitat destruction</h3>\n<p>Deforestation removes habitats, causes soil erosion and increases atmospheric CO₂; draining wetlands and building on land do the same. Biodiversity falls and species may become extinct. Tropical rainforests matter globally because they store carbon and hold most terrestrial species.</p>\n\n<h3>3. Pollution</h3>\n<ul>\n<li>Water: sewage and fertiliser cause eutrophication — algae bloom, die, decompose, and oxygen is used up so fish die.</li>\n<li>Air: sulfur dioxide from fossil fuels causes acid rain; CO₂ and methane enhance the greenhouse effect; CFCs damaged the ozone layer.</li>\n<li>Land: non-biodegradable plastics and toxic waste persist and enter food chains.</li>\n</ul>\n\n<h3>4. Conservation</h3>\n<p>Conservation protects habitats and species: national parks, seed banks, captive breeding, fishing quotas and reforestation. Sustainable use means taking resources at a rate the ecosystem can replace. Education and legislation are as important as biology, because most causes are economic.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Describe how fertiliser washing into a lake can kill fish.</p>\n<p><strong>A:</strong> Nitrates cause algae to grow rapidly; they die and are decomposed by bacteria that use up dissolved oxygen, so fish cannot respire and suffocate.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:24.795439+00",
+  "updated_at": "2026-10-29 15:34:24.795439+00",
   "zoom_url": null
  },
  {
@@ -1045,6 +1287,28 @@
   "zoom_url": null
  },
  {
+  "id": "aa3f3ea0-e4e1-4e64-9519-5699d2a04d2a",
+  "topic_id": "6a0960d6-4cdd-4eb9-b326-635e26fb0b1c",
+  "title": "Acids, Bases and Salts",
+  "content": "<h2>Acids, Bases and Salts</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 7.1 the characteristic properties of acids and bases; 7.2 oxides; 7.3 preparation of salts.</p>\n\n<h3>1. Definitions and everyday behaviour</h3>\n<p>An acid is a proton donor; a base is a proton acceptor; an alkali is a soluble base that releases OH⁻ in water. Acids turn litmus red and methyl orange red, and they react with metals, bases and carbonates. Strong acids ionise completely (HCl, HNO₃, H₂SO₄); weak acids ionise partially (ethanoic, citric), which is why they have a higher pH at the same concentration.</p>\n\n<h3>2. pH and indicators</h3>\n<p>The pH scale runs 0–14: below 7 acidic, 7 neutral, above 7 alkaline. Universal indicator gives a colour for each pH. Neutralisation is acid + base → salt + water; the ionic equation is H⁺ + OH⁻ → H₂O.</p>\n\n<h3>3. Oxides</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Type</th><th>Example</th><th>Behaviour</th></tr>\n<tr><td>acidic</td><td>CO₂, SO₂</td><td>non-metal oxide, reacts with alkali</td></tr>\n<tr><td>basic</td><td>MgO, CuO</td><td>metal oxide, reacts with acid</td></tr>\n<tr><td>amphoteric</td><td>Al₂O₃, ZnO</td><td>reacts with acid and with alkali</td></tr>\n<tr><td>neutral</td><td>CO, H₂O</td><td>no acidic or basic behaviour</td></tr></table>\n\n<h3>4. Making a named salt</h3>\n<p>Pick the route from solubility. Soluble salts: acid + excess insoluble base or carbonate, filter off the excess, evaporate to crystallise (copper(II) sulfate from CuO and H₂SO₄). Sodium, potassium and ammonium salts: titration, because both reactants are soluble (NaOH + HCl gives NaCl). Insoluble salts: precipitation, mixing two solutions (BaCl₂ + Na₂SO₄ gives BaSO₄).</p>\n<p>Tests worth memorising: carbonate + acid gives CO₂ (limewater milky); sulfate + barium chloride gives a white precipitate; chloride + silver nitrate gives a white precipitate soluble in ammonia.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Describe how to prepare pure, dry crystals of copper(II) sulfate from copper(II) oxide and dilute sulfuric acid.</p>\n<p><strong>A:</strong> Warm the acid, add copper(II) oxide in excess until no more dissolves, filter off the excess solid, then heat the filtrate to the point of crystallisation and leave it to cool so crystals form; dry them between filter papers.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:15.814425+00",
+  "updated_at": "2026-10-29 15:34:15.814425+00",
+  "zoom_url": null
+ },
+ {
+  "id": "abb6fc61-5f8d-4548-8fed-34dae6111224",
+  "topic_id": "82b432a2-ffe7-40cd-8c9b-4b047bda8de8",
+  "title": "Enzymes",
+  "content": "<h2>Enzymes</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 5.1 enzyme action; 5.2 effects of temperature and pH.</p>\n\n<h3>1. What an enzyme is</h3>\n<p>Enzymes are proteins that act as biological catalysts: they speed up reactions and are not used up. Each has an active site with a shape complementary to its substrate — the lock-and-key model. The substrate binds, the reaction happens, and the products leave. Enzymes lower activation energy, so reactions proceed at body temperature.</p>\n\n<h3>2. Temperature</h3>\n<p>Rate rises with temperature because molecules move faster and collide more often, up to an optimum (about 37 °C in humans). Above the optimum the bonds holding the enzyme's shape break, the active site loses its shape irreversibly, and the enzyme is denatured — the rate falls sharply and does not recover on cooling.</p>\n\n<h3>3. pH</h3>\n<p>Each enzyme has an optimum pH. Pepsin works at pH 2 in the stomach; pancreatic enzymes work at about pH 8 in the small intestine; amylase in saliva at about pH 7. Extreme pH denatures the enzyme the same way heat does.</p>\n\n<h3>4. Named enzymes and uses</h3>\n<ul>\n<li>Amylase: starch → maltose (saliva, pancreas).</li>\n<li>Protease: protein → amino acids (stomach, pancreas).</li>\n<li>Lipase: lipids → fatty acids and glycerol (pancreas).</li>\n<li>Catalase: hydrogen peroxide → water and oxygen.</li>\n</ul>\n<p>Industrially, enzymes clarify fruit juice, tenderise meat, and in biological washing powders digest protein and fat stains at low temperature, which saves energy.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why an enzyme stops working after being boiled, but works again if it is only chilled.</p>\n<p><strong>A:</strong> Boiling breaks the bonds that hold the active site's shape, denaturing the enzyme permanently. Chilling slows molecular motion so the rate falls, but the shape is unchanged and activity returns on warming.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:19.518521+00",
+  "updated_at": "2026-10-29 15:34:19.518521+00",
+  "zoom_url": null
+ },
+ {
   "id": "ad8ff577-04ea-42ec-ac9e-ea746e98ff02",
   "topic_id": "1fb446d5-10eb-407d-9d60-e5ca030eeb1c",
   "title": "Circular Measure",
@@ -1075,6 +1339,39 @@
   "sort_order": 1,
   "created_at": "2026-09-18 14:12:53.174208+00",
   "updated_at": "2026-10-26 06:20:26.173131+00",
+  "zoom_url": null
+ },
+ {
+  "id": "b285eaa8-6472-46d2-99d2-4c74d5ae4e51",
+  "topic_id": "682bb9d1-316c-46cd-8392-4ab87682a2ed",
+  "title": "Plant Nutrition",
+  "content": "<h2>Plant Nutrition</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 6.1 photosynthesis; 6.2 leaf structure; 6.3 mineral requirements.</p>\n\n<h3>1. Photosynthesis</h3>\n<p>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂, catalysed by chlorophyll and driven by light energy. Carbon dioxide enters through stomata, water arrives in the xylem, and oxygen leaves. The glucose is used for respiration, converted to starch for storage, made into cellulose, or combined with nitrogen to form amino acids.</p>\n\n<h3>2. Limiting factors</h3>\n<p>Light intensity, carbon dioxide concentration and temperature each limit the rate when in short supply; raising any one of them increases the rate only until another becomes limiting. A graph of rate against light levels off for that reason. The standard experiment uses pondweed and counts oxygen bubbles, or measures the distance a bubble travels in a set time.</p>\n\n<h3>3. Leaf structure and its reasons</h3>\n<ul>\n<li>Waxy cuticle — reduces water loss.</li>\n<li>Upper epidermis — transparent, lets light through.</li>\n<li>Palisade mesophyll — packed with chloroplasts for absorption.</li>\n<li>Spongy mesophyll — air spaces for gas diffusion.</li>\n<li>Veins — xylem brings water, phloem removes sugar.</li>\n<li>Stomata and guard cells — controlled gas exchange; guard cells swell to open.</li>\n</ul>\n\n<h3>4. Mineral ions</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Ion</th><th>Deficiency symptom</th></tr>\n<tr><td>nitrate</td><td>stunted growth, yellowing leaves (needed for amino acids)</td></tr>\n<tr><td>phosphate</td><td>poor root growth (respiration, DNA)</td></tr>\n<tr><td>potassium</td><td>yellow leaves with dead spots (enzymes, stomata)</td></tr>\n<tr><td>magnesium</td><td>yellow leaves between veins (chlorophyll)</td></tr></table>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> A plant is grown in distilled water with all minerals except magnesium. Predict the appearance and explain.</p>\n<p><strong>A:</strong> The leaves turn yellow between the veins, because magnesium is needed to make chlorophyll; without chlorophyll the plant cannot photosynthesise.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:19.81503+00",
+  "updated_at": "2026-10-29 15:34:19.81503+00",
+  "zoom_url": null
+ },
+ {
+  "id": "b2a1e6e2-f770-4ca4-8f14-5ed5410dcdc7",
+  "topic_id": "e5911649-9405-4067-bf10-830dffb2f212",
+  "title": "Movement into and out of Cells",
+  "content": "<h2>Movement into and out of Cells</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 3.1 diffusion; 3.2 osmosis; 3.3 active transport.</p>\n\n<h3>1. Diffusion</h3>\n<p>Diffusion is the net movement of particles from a region of higher concentration to lower concentration, down a concentration gradient, due to random motion. It needs no energy from the cell. Rate is faster with a steeper gradient, higher temperature, larger surface area and a shorter distance — which is why alveoli and villi are shaped as they are.</p>\n\n<h3>2. Osmosis</h3>\n<p>Osmosis is the diffusion of water through a partially permeable membrane from a dilute solution (high water potential) to a concentrated solution (low water potential). In pure water, a plant cell becomes turgid because the cell wall resists further expansion; in a concentrated sugar solution it loses water, the vacuole shrinks and the membrane pulls away — plasmolysis. An animal cell in pure water bursts (lysis); in strong solution it shrinks (crenation).</p>\n\n<h3>3. Active transport</h3>\n<p>Movement against the concentration gradient, using energy from respiration and carrier proteins in the membrane. Root hair cells absorb mineral ions from very dilute soil solution this way, and the ileum absorbs glucose against its gradient after diffusion has taken what it can.</p>\n\n<h3>4. Proving osmosis in the lab</h3>\n<p>Weigh potato cylinders, leave them in a series of sucrose concentrations for a fixed time, then reweigh. Gaining mass means water entered; losing mass means it left. Plot the change against concentration: the solution where mass does not change is isotonic to the potato. Visking tubing filled with starch and glucose in water shows the same: glucose diffuses out and is detected with Benedict's reagent, starch cannot leave.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> A plant wilts on a hot day. Explain its cells' change in terms of water potential.</p>\n<p><strong>A:</strong> More water evaporates than is absorbed, so cells lose water by osmosis to the surrounding tissue; the vacuoles shrink, turgor is lost and the leaves droop.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:18.889677+00",
+  "updated_at": "2026-10-29 15:34:18.889677+00",
+  "zoom_url": null
+ },
+ {
+  "id": "b5515725-c597-4571-90f1-99cc27d156b4",
+  "topic_id": "8d0d8de0-b21c-442e-b67f-da1c97070f4e",
+  "title": "Experimental Techniques and Chemical Analysis",
+  "content": "<h2>Experimental Techniques and Chemical Analysis</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 12.1 apparatus; 12.2 purity; 12.3 separation techniques; 12.4 identification of ions and gases; 12.5 chromatography.</p>\n\n<h3>1. Choosing apparatus</h3>\n<p>A measuring cylinder is quick but imprecise (about ±1 cm³); a burette reads to 0.05 cm³ and a pipette delivers a fixed accurate volume; a volumetric flask makes a standard solution. Read at eye level, at the bottom of the meniscus, to avoid parallax error.</p>\n\n<h3>2. Purity and melting point</h3>\n<p>A pure substance melts and boils at a single sharp temperature; an impure one melts over a range and at a lower temperature than the pure substance. That is the standard test for purity, and it is why a melting-point apparatus is used rather than appearance.</p>\n\n<h3>3. Separation methods</h3>\n<ul>\n<li>filtration — insoluble solid from a liquid;</li>\n<li>evaporation or crystallisation — soluble salt from its solution;</li>\n<li>simple distillation — solvent from a solution, or a liquid from a less volatile solute;</li>\n<li>fractional distillation — liquids with different boiling points, as in crude oil;</li>\n<li>separating funnel — immiscible liquids;</li>\n<li>chromatography — separating and identifying dissolved dyes.</li>\n</ul>\n\n<h3>4. Tests for ions and gases</h3>\n<p>Flame tests: lithium crimson, sodium yellow, potassium lilac, calcium orange-red, copper blue-green. Cations with sodium hydroxide: a white precipitate insoluble in excess suggests aluminium or calcium; a blue precipitate is copper(II); a green precipitate is iron(II); a red-brown precipitate is iron(III). Anions: carbonate effervesces with acid; sulfate gives a white precipitate with barium chloride and hydrochloric acid; chloride gives a white precipitate with silver nitrate that dissolves in ammonia.</p>\n<p>Gases: oxygen relights a glowing splint, hydrogen gives a squeaky pop, carbon dioxide turns limewater milky, chlorine bleaches damp litmus, ammonia turns damp red litmus blue.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> A solution gives a green precipitate with sodium hydroxide and effervesces with dilute acid. Identify the metal ion and name a possible anion.</p>\n<p><strong>A:</strong> The metal ion is iron(II), Fe²⁺. The effervescence suggests carbonate, CO₃²⁻.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:17.668271+00",
+  "updated_at": "2026-10-29 15:34:17.668271+00",
   "zoom_url": null
  },
  {
@@ -1210,6 +1507,17 @@
   "zoom_url": null
  },
  {
+  "id": "cabae715-a707-4ddd-9685-2781f81772a9",
+  "topic_id": "665c19bf-c511-4ea6-beaa-50ea10c39207",
+  "title": "Excretion in Humans",
+  "content": "<h2>Excretion in Humans</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 13.1 excretion; 13.2 the kidney; 13.3 urine and dialysis.</p>\n\n<h3>1. Excretion and egestion</h3>\n<p>Excretion is removing metabolic waste made in cells: carbon dioxide from respiration and urea from the breakdown of excess amino acids in the liver. Egestion is removing undigested food. Sweat removes water, salts and urea; the lungs remove carbon dioxide and water vapour.</p>\n\n<h3>2. The kidney</h3>\n<p>Each kidney is supplied by a renal artery and drained by a renal vein and a ureter. Inside, the cortex contains the glomeruli and the medulla the collecting ducts. Nephrons do three things:</p>\n<ul>\n<li><strong>Ultrafiltration:</strong> pressure in the glomerulus forces water, glucose, urea and salts into the capsule; proteins and blood cells are too large.</li>\n<li><strong>Selective reabsorption:</strong> glucose is reabsorbed entirely, most water and salts partly, in the proximal tubule.</li>\n<li><strong>Urine forms</strong> from what is left and passes to the bladder via the ureter.</li>\n</ul>\n\n<h3>3. Dialysis</h3>\n<p>A dialysis machine passes blood on one side of a partially permeable membrane and dialysate fluid on the other. Urea and excess salts diffuse out down their gradients; glucose and proteins keep the correct concentration and stay. It must be repeated several times a week because waste accumulates between sessions.</p>\n\n<h3>4. Water balance</h3>\n<p>ADH from the pituitary increases water reabsorption when blood water potential falls, so urine becomes more concentrated; it falls on a hot day or after salty food, and rises after drinking a lot.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why glucose is not found in the urine of a healthy person.</p>\n<p><strong>A:</strong> It is filtered at the glomerulus but then completely reabsorbed by active transport in the proximal tubule, so none remains in the urine.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:22.131999+00",
+  "updated_at": "2026-10-29 15:34:22.131999+00",
+  "zoom_url": null
+ },
+ {
   "id": "caf9cbe6-4b6b-4d5b-9cf0-d3bbe37d54c2",
   "topic_id": "52889198-3121-4be7-8cd7-e3bd37e97430",
   "title": "Thermal Physics",
@@ -1240,6 +1548,17 @@
   "sort_order": 1,
   "created_at": "2026-09-20 18:43:00.104551+00",
   "updated_at": "2026-09-20 18:43:00.104551+00",
+  "zoom_url": null
+ },
+ {
+  "id": "cc47e2d3-b065-475e-a7fb-18cca16eceef",
+  "topic_id": "556e6354-35aa-440b-8633-8c68f7fe36c6",
+  "title": "Drugs",
+  "content": "<h2>Drugs</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 15.1 medicinal drugs; 15.2 misuse of drugs; 15.3 the effects of alcohol and tobacco.</p>\n\n<h3>1. Medicinal drugs</h3>\n<p>Antibiotics kill bacteria by attacking their cell wall or protein synthesis; they do not work on viruses. Painkillers relieve symptoms without killing pathogens. Insulitis, asthma inhalers and insulin are examples of drugs that replace a missing function. Antibiotic resistance develops when courses are incomplete or antibiotics are used for viral infections, so resistant strains such as MRSA survive.</p>\n\n<h3>2. Recreational drugs and their effects</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Drug</th><th>Effect</th><th>Harm</th></tr>\n<tr><td>alcohol</td><td>depressant</td><td>liver damage, impaired judgement, fetal harm</td></tr>\n<tr><td>nicotine</td><td>stimulant</td><td>addiction, raised heart rate, and tar harms lungs</td></tr>\n<tr><td>heroin</td><td>strong painkiller, depressant</td><td>addiction, overdose, infected needles</td></tr>\n<tr><td>cannabis</td><td>altered perception</td><td>impaired memory, mental health risk</td></tr></table>\n\n<h3>3. Alcohol and pregnancy</h3>\n<p>Alcohol crosses the placenta; heavy drinking can cause fetal alcohol spectrum disorder, with learning and behavioural difficulties. Smoking in pregnancy reduces oxygen supply and raises the risk of low birth weight.</p>\n\n<h3>4. Performance-enhancing drugs</h3>\n<p>Anabolic steroids build muscle but damage the liver, raise blood pressure and upset hormone balance. Stimulants raise heart rate and risk cardiac problems. They are banned in sport because they are unsafe and give an unfair advantage.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why antibiotics should not be prescribed for influenza.</p>\n<p><strong>A:</strong> Influenza is caused by a virus, and antibiotics only act on bacteria; unnecessary use also selects resistant bacteria and wastes the drug.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:22.705804+00",
+  "updated_at": "2026-10-29 15:34:22.705804+00",
   "zoom_url": null
  },
  {
@@ -1295,6 +1614,17 @@
   "sort_order": 1,
   "created_at": "2026-09-14 18:41:40.369411+00",
   "updated_at": "2026-10-26 07:51:36.594396+00",
+  "zoom_url": null
+ },
+ {
+  "id": "d1641fc3-bed6-489d-bf44-3974f504eab6",
+  "topic_id": "64c96e0b-85d6-4d6e-b9a4-6d1b01f1b16e",
+  "title": "The Periodic Table",
+  "content": "<h2>The Periodic Table</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 8.1 arrangement of elements; 8.2 Group I properties; 8.3 Group VII properties; 8.4 transition elements; 8.5 noble gases.</p>\n\n<h3>1. How the table is built</h3>\n<p>Elements are ordered by increasing proton number. A new period starts when a shell fills, so elements in the same group have the same number of outer electrons and therefore similar chemical properties. Metals are on the left, non-metals on the right, with the metalloids along the staircase.</p>\n\n<h3>2. Group I — the alkali metals</h3>\n<p>Lithium, sodium, potassium, rubidium, caesium. Down the group: reactivity increases, melting point decreases, density increases. They react with water to give a metal hydroxide and hydrogen (2Na + 2H₂O → 2NaOH + H₂), and with oxygen to form oxides. Reactivity rises because the outer electron is further from the nucleus and lost more easily.</p>\n\n<h3>3. Group VII — the halogens</h3>\n<p>Fluorine, chlorine, bromine, iodine. Down the group: colour deepens, melting and boiling points rise, reactivity falls. A more reactive halogen displaces a less reactive one from its salt: chlorine + potassium bromide gives bromine and potassium chloride. They form ionic halides with metals and covalent compounds with non-metals.</p>\n\n<h3>4. Transition elements and noble gases</h3>\n<p>Transition metals (iron, copper, zinc, silver, gold) are hard, dense, good conductors, often form coloured compounds and can show several oxidation states; they are also useful catalysts. Noble gases (Group VIII/0) have full outer shells, so they are unreactive and are used where inertness matters: argon in lamps, helium in balloons, neon in signs.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why potassium is more reactive than sodium.</p>\n<p><strong>A:</strong> Potassium's outer electron is in a shell further from the nucleus and is shielded by more inner shells, so it is lost more easily, making the reaction faster and more vigorous.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:16.144416+00",
+  "updated_at": "2026-10-29 15:34:16.144416+00",
   "zoom_url": null
  },
  {
@@ -1386,6 +1716,17 @@
   "zoom_url": null
  },
  {
+  "id": "e6398a63-cb0c-4826-a129-76e01133511d",
+  "topic_id": "b5b6148e-1bce-44ed-9d40-13b7f0bc30ad",
+  "title": "Chemistry of the Environment",
+  "content": "<h2>Chemistry of the Environment</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 10.1 water; 10.2 fertilisers; 10.3 air quality and climate.</p>\n\n<h3>1. Water and its treatment</h3>\n<p>Water is tested with anhydrous copper(II) sulfate, which turns from white to blue, and with cobalt(II) chloride paper, which turns from blue to pink. Natural water is treated by filtration to remove solids and chlorination to kill bacteria; in the lab, distilled water is made by boiling and condensing, which removes dissolved ions.</p>\n\n<h3>2. Fertilisers</h3>\n<p>Plants need nitrogen, phosphorus and potassium. Ammonium salts, nitrates and phosphates are applied as fertilisers; the ammonium ion is made industrially by the Haber process and converted to ammonium sulfate or ammonium nitrate. Over-application is an environmental problem: rain washes nitrates into rivers, causing eutrophication, where algae bloom, die, and their decay removes oxygen from the water.</p>\n\n<h3>3. Air, pollution and climate</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Pollutant</th><th>Source</th><th>Effect</th></tr>\n<tr><td>carbon dioxide</td><td>combustion of fossil fuels</td><td>enhanced greenhouse effect</td></tr>\n<tr><td>carbon monoxide</td><td>incomplete combustion</td><td>toxic, binds haemoglobin</td></tr>\n<tr><td>sulfur dioxide</td><td>burning sulfur-containing fuels</td><td>acid rain</td></tr>\n<tr><td>oxides of nitrogen</td><td>high-temperature engines</td><td>acid rain, photochemical smog</td></tr></table>\n<p>Acid rain damages buildings (carbonates dissolve) and lakes. Clean-up measures include catalytic converters, flue-gas desulfurisation with calcium oxide, and using renewable energy. The greenhouse effect itself is natural; the enhanced effect comes from extra CO₂ and methane trapping more outgoing infrared radiation.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain how sulfur dioxide causes acid rain and give one effect.</p>\n<p><strong>A:</strong> Sulfur dioxide from burning fossil fuels is oxidised in the air to sulfur trioxide, which dissolves in rain to form sulfuric acid; the acidic rain corrodes limestone buildings and lowers the pH of lakes.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:16.815813+00",
+  "updated_at": "2026-10-29 15:34:16.815813+00",
+  "zoom_url": null
+ },
+ {
   "id": "e74e5298-d5ad-4563-abe7-c8da8cb0041e",
   "topic_id": "9cc8a08c-1858-49b0-a80b-745a8dd4535b",
   "title": "Magnetism & Electromagnetism",
@@ -1441,6 +1782,17 @@
   "zoom_url": null
  },
  {
+  "id": "ef0ff164-e64e-4a40-9f63-21ce16ad0558",
+  "topic_id": "8d008059-63b7-44c4-94e6-2c0a35559487",
+  "title": "Chemical Reactions",
+  "content": "<h2>Chemical Reactions</h2>\n<p><strong>Cambridge IGCSE 0620 (2023–2025):</strong> 6.1 physical and chemical changes; 6.2 rate of reaction; 6.3 reversible reactions and equilibrium; 6.4 redox.</p>\n\n<h3>1. Rate and collision theory</h3>\n<p>Particles must collide with at least the activation energy for a reaction to happen. Four factors change the rate, and each one has a particle-level explanation:</p>\n<ul>\n<li>higher temperature — more frequent and more energetic collisions;</li>\n<li>higher concentration or pressure — more particles in the same volume;</li>\n<li>larger surface area — more solid exposed to the other reactant;</li>\n<li>a catalyst — provides an alternative path with lower activation energy.</li>\n</ul>\n<p>Measuring rate: mass lost on a balance, gas volume in a syringe, or the time for a cross to disappear behind a precipitate. A steeper initial gradient means a faster rate; the graph flattens as reactants are used up.</p>\n\n<h3>2. Reversible reactions and equilibrium</h3>\n<p>In a closed system a reversible reaction settles at dynamic equilibrium: both directions continue at equal rates, so concentrations stay constant but are not equal. Changing conditions moves the position of equilibrium — increasing temperature favours the endothermic direction, increasing pressure favours the side with fewer gas moles, and a catalyst only speeds up reaching equilibrium.</p>\n<p>The Haber process is the standard example: N₂ + 3H₂ ⇌ 2NH₃ is exothermic forwards, so a compromise temperature around 450 °C, high pressure and an iron catalyst are used.</p>\n\n<h3>3. Redox in one line</h3>\n<p>Oxidation is loss of electrons (and gain of oxygen or loss of hydrogen); reduction is gain of electrons. In Zn + Cu²⁺ → Zn²⁺ + Cu, zinc is oxidised and copper ions are reduced. An oxidising agent is itself reduced.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain why increasing the temperature increases the rate of reaction, using collision theory.</p>\n<p><strong>A:</strong> Particles move faster and collide more frequently, and a greater proportion of collisions have energy at least equal to the activation energy, so more successful collisions occur per second.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:15.501275+00",
+  "updated_at": "2026-10-29 15:34:15.501275+00",
+  "zoom_url": null
+ },
+ {
   "id": "f1ae5f2d-9d84-4821-ab32-e6160ecfa4da",
   "topic_id": "2b466f1b-04cf-4937-a711-efe8672838ff",
   "title": "Plant Structure and Function, Biodiversity and Conservation",
@@ -1482,6 +1834,17 @@
   "sort_order": 1,
   "created_at": "2026-09-20 18:42:11.626189+00",
   "updated_at": "2026-10-26 07:51:36.594396+00",
+  "zoom_url": null
+ },
+ {
+  "id": "f7a226fa-5763-4382-865e-f2d49e5cc6a7",
+  "topic_id": "2acb13dc-c778-456a-b52d-d64b4c50ff56",
+  "title": "Human Nutrition",
+  "content": "<h2>Human Nutrition</h2>\n<p><strong>Cambridge IGCSE 0610 (2023–2025):</strong> 7.1 diet; 7.2 the alimentary canal; 7.3 physical and chemical digestion; 7.4 absorption; 7.5 assimilation.</p>\n\n<h3>1. A balanced diet</h3>\n<p>Carbohydrates for energy, proteins for growth and repair, lipids for energy and insulation, vitamins and minerals in small amounts, fibre for bulk, and water. Energy needs depend on age, sex and activity. Deficiency diseases: scurvy (vitamin C), rickets (vitamin D or calcium), anaemia (iron), marasmus and kwashiorkor (protein-energy malnutrition).</p>\n\n<h3>2. The journey through the canal</h3>\n<table border=\"1\" cellpadding=\"6\"><tr><th>Organ</th><th>What happens</th></tr>\n<tr><td>mouth</td><td>chewing; amylase begins starch digestion; bolus formed</td></tr>\n<tr><td>oesophagus</td><td>peristalsis pushes the bolus down</td></tr>\n<tr><td>stomach</td><td>churning; pepsin digests protein at pH 2; acid kills bacteria</td></tr>\n<tr><td>small intestine</td><td>pancreatic and intestinal enzymes complete digestion; absorption in the ileum</td></tr>\n<tr><td>large intestine</td><td>water reabsorbed; faeces formed</td></tr>\n<tr><td>rectum and anus</td><td>storage and egestion</td></tr></table>\n<p>Bile from the liver is stored in the gall bladder; it emulsifies fats and neutralises stomach acid.</p>\n\n<h3>3. Absorption</h3>\n<p>The ileum is folded and covered in villi, each with a thin epithelium, a rich blood supply and a lacteal. These three features give a large surface area, a short diffusion distance and a steep gradient. Glucose and amino acids enter capillaries; fatty acids and glycerol enter lacteals.</p>\n\n<h3>4. Teeth and decay</h3>\n<p>Incisors cut, canines grip, premolars and molars crush. Enamel is the hardest layer and is not replaced. Bacteria on plaque ferment sugar into acid, which dissolves enamel and then dentine; fluoride, less sugar and regular brushing prevent decay.</p>\n\n<h3>Exam focus</h3>\n<p><strong>Q:</strong> Explain two ways the structure of a villus helps absorption.</p>\n<p><strong>A:</strong> Its finger-like shape and large number provide a large surface area; its wall is one cell thick, so the diffusion distance into the blood is short.</p>",
+  "video_url": null,
+  "sort_order": 1,
+  "created_at": "2026-10-29 15:34:20.16483+00",
+  "updated_at": "2026-10-29 15:34:20.16483+00",
   "zoom_url": null
  },
  {

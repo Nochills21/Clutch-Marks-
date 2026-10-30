@@ -59,6 +59,11 @@ const TABLES = [
   "subjects", "subject_levels", "topics", "lessons", "questions", "quizzes",
   "study_materials", "past_papers", "flashcard_sets", "flashcards",
   "announcements", "content_revisions", "content_file_versions",
+  // The syllabus/objective layer and the price table were added after this dump
+  // was written. Without them a restore brings back the notes and questions but
+  // not the board statements they are mapped to, the objectives their questions
+  // test, or the prices every surface quotes.
+  "syllabus_statements", "learning_objectives", "plans",
 ];
 
 // The last two are revision history: they record whatever was stored at the

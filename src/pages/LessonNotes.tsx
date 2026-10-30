@@ -18,6 +18,8 @@ import { LEVEL_LABELS } from "@/lib/subjects";
 import { Download, ExternalLink, CheckCircle2, Circle, ArrowLeft, Pencil } from "lucide-react";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { ManuscriptHead, ManuscriptSection } from "@/components/StudyManuscript";
+import DOMPurify from "dompurify";
+import { materialContentToHtml } from "@/lib/objectiveTeach";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
 import { NotInYourSubjects, useSubjectUnpicked } from "@/components/NotInYourSubjects";
@@ -242,9 +244,16 @@ export default function LessonNotes() {
             />
           }
         >
+          {/* Sanitised like every other content surface (`Lessons` renders the
+              same row through the same two steps). This one was raw, which put
+              a stored `<script>` in the admin preview's DOM — admin-only, so
+              not a student-facing XSS, but the lesson body is exactly the kind
+              of value that gets pasted from elsewhere. */}
           <div
             className="cm-notes"
-            dangerouslySetInnerHTML={{ __html: lesson.content }}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(materialContentToHtml(lesson.content)),
+            }}
           />
         </ManuscriptSection>
       )}

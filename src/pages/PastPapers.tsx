@@ -32,6 +32,8 @@ import {
   filterPapersForSubjects,
 } from "@/lib/pastPaperFiles";
 import { levelLabel } from "@/lib/levels";
+import { filterPapersBySearch } from "@/lib/pastPaperSearch";
+import { Highlight } from "@/components/Highlight";
 import { Loader2, FileText, Search, ExternalLink, Clock, Trophy, Wand2 } from "lucide-react";
 import { SolvedPaperMarker } from "@/components/SolvedPaperMarker";
 import { MarkPaperDialog, type MarkablePaper } from "@/components/MarkPaperDialog";
@@ -362,15 +364,28 @@ export default function PastPapers() {
     return subjectScoped.filter((p) => codes.includes(String(p.level ?? "").toUpperCase()));
   }, [subjectScoped, levelFilter]);
 
-  const matchedPapers = useMemo(
-    () => filterArchivePapers(levelScoped, {
-      search,
+  const matchedPapers = useMemo(() => {
+    const base = filterArchivePapers(levelScoped, {
       board: boardFilter,
       paper: paperFilter,
       session: sessionFilter,
-    }),
-    [levelScoped, search, boardFilter, paperFilter, sessionFilter],
-  );
+    });
+    // Free text is tokenised (`pastPaperSearch`): every space-separated word must
+    // match somewhere in the row, so "2024 chem" finds the 2024 Chemistry papers
+    // the old whole-phrase test could never reach. Topic, subject and level come
+    // from the embed — they were never in the old haystack.
+    return filterPapersBySearch(
+      base.map((p) => ({
+        ...p,
+        extras: [
+          p.topics?.name,
+          p.topics?.subject_levels?.subjects?.name,
+          levelLabel(p.topics?.subject_levels?.level ?? p.level),
+        ],
+      })),
+      search,
+    );
+  }, [levelScoped, search, boardFilter, paperFilter, sessionFilter]);
 
   // Year chips reflect the papers that survive the other filters, so switching
   // board or session never offers a year that would come up empty.
@@ -556,6 +571,20 @@ export default function PastPapers() {
         </CardContent>
       </Card>
 
+      {/* What the search is currently doing, so a narrow result set reads as a
+          match count rather than as a broken archive. */}
+      {search.trim() !== "" && !isLoading && (
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-muted-foreground">
+            {filteredPapers.length} paper{filteredPapers.length === 1 ? "" : "s"} match{" "}
+            <span className="font-medium text-foreground">“{search.trim()}”</span>
+          </span>
+          <Button size="sm" variant="ghost" onClick={() => setSearch("")}>
+            Clear search
+          </Button>
+        </div>
+      )}
+
       {/* Paper grid */}
       {isLoading ? (
         <Card>
@@ -583,7 +612,7 @@ export default function PastPapers() {
                 <CardHeader className="pb-2">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <CardTitle className="text-base group-hover:text-primary transition-colors">
-                      {p.title}
+                      <Highlight text={p.title} query={search} />
                     </CardTitle>
                   </div>
                   {/* CardDescription renders a <p>, and the level Badge renders a
@@ -596,10 +625,16 @@ export default function PastPapers() {
                         </Badge>
                       )}
                       <span>
-                        {p.session ? `${p.session} · Year ${p.year}` : `Year ${p.year}`}
+                        {p.session ? `${p.session} · ` : ""}
+                        <Highlight text={`Year ${p.year}`} query={search} />
                         {/* `topic_name` is not a column on past_papers — the topic
                             arrives as the nested `topics` embed. */}
-                        {p.topics?.name && <span className="text-xs text-muted-foreground"> · {p.topics.name}</span>}
+                        {p.topics?.name && (
+                          <span className="text-xs text-muted-foreground">
+                            {" · "}
+                            <Highlight text={p.topics.name} query={search} />
+                          </span>
+                        )}
                       </span>
                     </div>
                   </div>

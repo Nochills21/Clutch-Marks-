@@ -1944,6 +1944,13 @@ export type Database = {
           message?: string
         }
       }
+      // The parent dashboard's one exact-email lookup, parent-only and
+      // SECURITY DEFINER (supabase/migrations/20261029210000_security_hardening_anon_rpcs.sql).
+      // `profiles` itself is readable only for a parent's own linked children.
+      lookup_student_for_linking: {
+        Args: { p_email: string }
+        Returns: { user_id: string; full_name: string | null }[]
+      }
       approve_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       dismiss_paper_candidate: { Args: { p_check_id: string }; Returns: Json }
       resolve_paper_link: { Args: { p_check_id: string }; Returns: Json }

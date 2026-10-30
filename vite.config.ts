@@ -48,7 +48,10 @@ export default defineConfig(() => ({
   build: {
     // minify aggressively and de-duplicate the two huge ancillaries (pdfExport
     // and html2canvas are each split into their own ~200-500 kB chunk).
-    minify: "esbuild",
+    // `as const` keeps this a literal: the plugins array below ends in
+    // .filter(Boolean), which widens the config object enough that TypeScript
+    // stops contextually typing it and reads `minify` as `string`.
+    minify: "esbuild" as const,
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {

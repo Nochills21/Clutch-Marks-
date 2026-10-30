@@ -130,3 +130,8 @@ dist-single/
 
 # Playtest / QA snapshots generated under this worktree. Not part of the shipped product.
 /freebuff-sites-build/
+
+# Agent scratch directory. A snapshot commit swept this into the public repo
+# and carried a live Supabase access token with it (2026-10-14 → 2026-10-29).
+# Whole directory, not a file list: the scratch set changes every session.
+.freebuff-tmp/

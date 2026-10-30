@@ -25,9 +25,10 @@ import {
   topicSlugOf,
 } from "@/lib/topicUrls";
 import { topicHead } from "@/lib/topicSeo";
-import { Archive, BookOpen, Play, ArrowRight, ExternalLink, Wand2 } from "lucide-react";
+import { Archive, ArrowRight, ExternalLink, Wand2, BookOpen, Play } from "lucide-react";
+import { PaperDesk } from "@/components/PaperDesk";
 import { MarkPaperDialog } from "@/components/MarkPaperDialog";
-import { archivePaperGroup, officialPaperPage } from "@/lib/pastPaperFiles";
+import { archivePaperGroup, officialPaperPage, sortSessions } from "@/lib/pastPaperFiles";
 import { relatedTopicPapers } from "@/lib/topicPapers";
 import { useMySubjects } from "@/hooks/useMySubjects";
 import { SubjectGate } from "@/components/SubjectGate";
@@ -62,6 +63,9 @@ export default function TopicPapers() {
   const [papers, setPapers] = useState<TopicPaper[]>([]);
   const [levelPapers, setLevelPapers] = useState<TopicPaper[]>([]);
   const [groupFilter, setGroupFilter] = useState("all");
+  // Which paper the desk has open. The desk owns the selection so the phone
+  // layout can expand the chosen row in place.
+  const [selectedPaperId, setSelectedPaperId] = useState<string | null>(null);
   // Bumped by "Try again" to re-run the load effect.
   const [retryKey, setRetryKey] = useState(0);
   // The row the student tapped “Submit for marking” on — marking is scoped
@@ -79,13 +83,31 @@ export default function TopicPapers() {
     () => relatedTopicPapers(topicId ?? "", papers, levelPapers.length > 0 ? levelPapers : papers),
     [topicId, papers, levelPapers],
   );
-  const groupFiltered = groupFilter === "all"
+  // Newest first, then by the board's own session order. `relatedTopicPapers`
+  // concatenates the topic's own rows with the level's, so the list arrived in
+  // query order — and because a paper's title does not carry its sitting, a
+  // reader met five identical headings in no order at all.
+  const groupFiltered = (groupFilter === "all"
     ? related.papers
-    : related.papers.filter((p) => archivePaperGroup(p) === groupFilter);
+    : related.papers.filter((p) => archivePaperGroup(p) === groupFilter))
+    .slice()
+    .sort(
+      (a, b) =>
+        (b.year ?? 0) - (a.year ?? 0) ||
+        sortSessions(a.session ?? "", b.session ?? "") ||
+        archivePaperGroup(a).localeCompare(archivePaperGroup(b)),
+    );
 
   // Every matching paper is shown: reading them is free, and the plan gate now
   // sits on the AI marker alone.
   const visiblePapers = groupFiltered;
+  // Open the newest paper in view so the pane is never an empty hint on arrival.
+  // A group-filter change keeps the choice while the paper is still listed and
+  // falls back to the first row when it is not.
+  const selectedPaper = useMemo(
+    () => visiblePapers.find((p) => p.id === selectedPaperId) ?? visiblePapers[0] ?? null,
+    [visiblePapers, selectedPaperId],
+  );
 
   useEffect(() => {
     let active = true;
@@ -281,28 +303,12 @@ export default function TopicPapers() {
         </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-3">
-        {[
-          { label: "Past Papers", value: groupFiltered.length, icon: Archive, color: accent.text },
-          { label: "Notes", value: 0, icon: BookOpen, color: accent.text },
-          { label: "Topic Questions", value: 0, icon: Play, color: accent.text },
-        ].map((s) => (
-          <Card key={s.label}>
-            <CardContent className="flex items-center gap-3 p-4">
-              <s.icon className={`h-5 w-5 ${s.color}`} />
-              <div>
-                <p className="text-xl font-bold leading-none">{s.value}</p>
-                <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2"><Archive className="h-5 w-5 text-primary" /> Past Papers & Mark Schemes for {topicTitle}</CardTitle>
-          <CardDescription>Organised by year, session and paper number</CardDescription>
+          <CardDescription>
+            Pick a paper for its sitting, the board's own page (question paper and mark scheme) and the next step into the topic.
+          </CardDescription>
           {related.groups.length > 1 && (
             <div className="flex flex-wrap gap-2 px-6">
               <Button
@@ -325,92 +331,93 @@ export default function TopicPapers() {
             </div>
           )}
         </CardHeader>
-        <CardContent className="space-y-2">
-          {visiblePapers.length === 0 ? (
-            <p className="text-sm text-muted-foreground py-4 text-center">No past papers have been linked to this topic yet.</p>
-          ) : (
-            visiblePapers.map((p) => {
+        <CardContent>
+          <PaperDesk
+            papers={visiblePapers}
+            selected={selectedPaper}
+            onSelect={(paper) => setSelectedPaperId(paper.id)}
+            ariaLabel={`Past papers for ${topicTitle}`}
+            empty={
+              <p className="text-sm text-muted-foreground py-4 text-center">
+                No past papers have been linked to this topic yet.
+              </p>
+            }
+            hint="Choose a paper to see its sitting, where to read it on the board's site, and the notes and questions this topic is examined on."
+            renderDetail={(paper) => {
               // The board's own page for this qualification — the only place a
               // paper is opened from now on.
               const boardPage = officialPaperPage({
-                ...p,
+                ...paper,
                 subject_slug: subjectMeta.slug,
                 level: subjectLevel.level,
               });
               return (
-              <div
-                key={p.id}
-                className="flex flex-col gap-3 rounded-lg border p-3 transition-colors hover:bg-muted/50 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div className="min-w-0 flex-1">
-                  <p className="font-medium">{p.title}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    {p.year}
-                    {p.session ? ` · ${p.session}` : ""}
-                    {p.paper_number ? ` · ${p.paper_number}` : ""}
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.08em] text-muted-foreground">
+                      {archivePaperGroup(paper)} · {LEVEL_LABELS[levelCode]}
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold leading-snug">{paper.title}</h3>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {[paper.session, `Year ${paper.year}`, paper.paper_number].filter(Boolean).join(" · ")}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {boardPage && (
+                      <Button asChild size="sm" className="gap-1.5">
+                        <a
+                          href={boardPage}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={`Open ${paper.title} on the board's own site`}
+                        >
+                          Get the paper <ExternalLink className="h-3.5 w-3.5" />
+                        </a>
+                      </Button>
+                    )}
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="gap-1.5"
+                      title="Submit your solved script — marked against this paper's mark scheme"
+                      onClick={() => setMarkPaper(paper)}
+                    >
+                      <Wand2 className="h-3.5 w-3.5" /> Submit for marking
+                    </Button>
+                  </div>
+                  <div className="space-y-1.5 border-t pt-3">
+                    <p className="text-[10px] uppercase tracking-[0.08em] text-muted-foreground">
+                      Bridge into the topic
+                    </p>
+                    <Link
+                      to={topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
+                      className="flex items-center gap-1.5 text-sm text-primary hover:underline"
+                    >
+                      <BookOpen className="h-3.5 w-3.5 shrink-0" /> Read the notes for {topicTitle}
+                    </Link>
+                    <Link
+                      to={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}
+                      className="flex items-center gap-1.5 text-sm text-primary hover:underline"
+                    >
+                      <Play className="h-3.5 w-3.5 shrink-0" /> Work the topic questions — method on every answer
+                    </Link>
+                    <Link
+                      to={`/practice?level=${subjectLevel.id}&topic=${topicId}&mode=incorrect`}
+                      className="flex items-center gap-1.5 text-sm text-primary hover:underline"
+                    >
+                      <ArrowRight className="h-3.5 w-3.5 shrink-0" /> Practise the ones you got wrong
+                    </Link>
+                  </div>
+                  <p className="text-[11px] text-muted-foreground">
+                    Papers and mark schemes stay on the board's own site — we link there, we never host or copy them.
                   </p>
                 </div>
-                <div className="flex flex-wrap items-center gap-2 sm:shrink-0 sm:justify-end">
-                  {boardPage && (
-                    <Button asChild size="sm" variant="outline" className="gap-1.5 text-xs">
-                      <a
-                        href={boardPage}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title={`Open ${p.title} on the board's own site`}
-                      >
-                        Get the paper <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
-                    </Button>
-                  )}
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="gap-1.5 text-xs"
-                    title="Submit your solved script — marked against this paper's mark scheme"
-                    onClick={() => setMarkPaper(p)}
-                  >
-                    <Wand2 className="h-3.5 w-3.5" /> Submit for marking
-                  </Button>
-                </div>
-              </div>
               );
-            })
-          )}
+            }}
+          />
         </CardContent>
       </Card>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2"><BookOpen className="h-5 w-5 text-primary" /> Revision Notes</CardTitle>
-            <CardDescription>Notes linked to {topicTitle}</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <p className="text-sm text-muted-foreground py-4 text-center">No revision notes have been uploaded for this topic yet.</p>
-            <Button asChild variant="outline" className="gap-2 w-full justify-center">
-              <Link to={topicNotesPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}>
-                Browse notes <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2"><Play className="h-5 w-5 text-primary" /> Topic Questions</CardTitle>
-            <CardDescription>Questions linked to {topicTitle}</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <p className="text-sm text-muted-foreground py-4 text-center">No topic questions have been created for this topic yet.</p>
-            <Button asChild variant="outline" className="gap-2 w-full justify-center">
-              <Link to={topicQuizPath(subjectMeta.slug, subjectLevel.level.toLowerCase(), topicSlug)}>
-                Browse questions <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
 
       {/* Submit-for-marking scoped to the tapped paper's own mark scheme. */}
       <MarkPaperDialog

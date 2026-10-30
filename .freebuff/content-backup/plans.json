@@ -1,0 +1,38 @@
+[
+ {
+  "id": "annual",
+  "name": "Annual",
+  "price_monthly": "8.33",
+  "months": 12,
+  "description": "Full access for a full year",
+  "price_total": "100.00",
+  "stripe_price_id": "price_1UVmz6Q3xk2ovSDMjndzjLiV"
+ },
+ {
+  "id": "free",
+  "name": "Free",
+  "price_monthly": "0.00",
+  "months": 1,
+  "description": "IGCSE lessons, quizzes and notes only",
+  "price_total": "0.00",
+  "stripe_price_id": null
+ },
+ {
+  "id": "monthly",
+  "name": "Monthly",
+  "price_monthly": "20.00",
+  "months": 1,
+  "description": "Full access to every level, billed monthly",
+  "price_total": "20.00",
+  "stripe_price_id": "price_1UVmz5Q3xk2ovSDMNtZxMoz6"
+ },
+ {
+  "id": "quarterly",
+  "name": "3 Months",
+  "price_monthly": "15.00",
+  "months": 3,
+  "description": "Full access for a 3-month term",
+  "price_total": "45.00",
+  "stripe_price_id": "price_1UVUmDQ3xk2ovSDMiGo3YCK9"
+ }
+]

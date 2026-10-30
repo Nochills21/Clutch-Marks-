@@ -178,7 +178,10 @@ const App = () => (
       <TooltipProvider>
         <Sonner />
         <Toaster />
-        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        {/* react-router-dom 7: `startTransition` and the relative splat-path
+            resolution are the defaults now, so the v7_* future flags this
+            component used to opt into no longer exist. */}
+        <BrowserRouter>
           <AuthProvider>
             <Suspense fallback={<RouteFallback />}>
             <Routes>

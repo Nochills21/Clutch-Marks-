@@ -1,6 +1,6 @@
 -- ============================================================
 -- Clutch Marks — golden base schema
--- Generated 2026-10-29T18:31:49.933Z from the live project (ref zzliiazovezhxbmfeqco).
+-- Generated 2026-10-29T20:03:38.654Z from the live project (ref zzliiazovezhxbmfeqco).
 -- Bootstraps a brand-new Supabase project to the identical schema:
 --   structure, constraints, functions, triggers, RLS, grants, storage buckets.
 -- NO row data (student records, content) is included by design.
@@ -1226,7 +1226,7 @@ declare
   _uid uuid := auth.uid();
 begin
   if _uid is null then raise exception 'Not authenticated'; end if;
-  if not public.has_role(_uid, 'admin') then raise exception 'Admin only'; end if;
+  if not public.is_admin(_uid) then raise exception 'Admin only'; end if;
 
   return query
 
@@ -2116,6 +2116,40 @@ BEGIN
 END;
 $function$;
 
+CREATE OR REPLACE FUNCTION public.lookup_student_for_linking(p_email text)
+ RETURNS TABLE(user_id uuid, full_name text)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+begin
+  if auth.uid() is null then
+    raise exception 'Not authenticated';
+  end if;
+  -- A parent, not an admin: this is the dashboard's own form. Admins read
+  -- profiles through their own policy and never need this.
+  if not public.has_role(auth.uid(), 'parent') then
+    raise exception 'Parent only';
+  end if;
+  if coalesce(btrim(p_email), '') = '' then
+    return;
+  end if;
+
+  -- Equality on lower(), not ILIKE: an email local part may contain `_`, which
+  -- SQL LIKE reads as "any single character". Exact match also means the caller
+  -- learns nothing unless they already know the whole address.
+  return query
+    select p.user_id, p.full_name
+    from public.profiles p
+    where lower(p.email) = lower(btrim(p_email))
+      and exists (
+        select 1 from public.user_roles r
+        where r.user_id = p.user_id and r.role = 'student'
+      )
+    limit 1;
+end;
+$function$;
+
 CREATE OR REPLACE FUNCTION public.my_next_objective()
  RETURNS TABLE(action text, subject_slug text, level text, topic_id uuid, topic_slug text, topic_name text, objective_id uuid, code text, statement text, checks integer, attempted integer, correct integer, state text, stage integer, due_at timestamp with time zone, overdue boolean)
  LANGUAGE sql
@@ -2448,6 +2482,7 @@ CREATE OR REPLACE FUNCTION public.objective_review_interval(_stage integer)
  RETURNS interval
  LANGUAGE sql
  IMMUTABLE
+ SET search_path TO 'public', 'pg_temp'
 AS $function$
   select (array[
     interval '1 day',
@@ -2998,6 +3033,7 @@ CREATE OR REPLACE FUNCTION public.slugify_topic_name(txt text)
  RETURNS text
  LANGUAGE sql
  IMMUTABLE
+ SET search_path TO 'public', 'pg_temp'
 AS $function$
   select coalesce(
     nullif(
@@ -3217,6 +3253,7 @@ $function$;
 CREATE OR REPLACE FUNCTION public.topics_set_slug()
  RETURNS trigger
  LANGUAGE plpgsql
+ SET search_path TO 'public', 'pg_temp'
 AS $function$
 declare
   base text;
@@ -3760,8 +3797,10 @@ drop policy if exists "Admins can update all profiles" on public."profiles";
 create policy "Admins can update all profiles" on public."profiles" for update to "authenticated" using (is_admin(auth.uid()));
 drop policy if exists "Admins can view all profiles" on public."profiles";
 create policy "Admins can view all profiles" on public."profiles" for select to "authenticated" using (is_admin(auth.uid()));
-drop policy if exists "Parents can view linked and findable students" on public."profiles";
-create policy "Parents can view linked and findable students" on public."profiles" for select using (i_am_parent());
+drop policy if exists "Parents can view their linked students" on public."profiles";
+create policy "Parents can view their linked students" on public."profiles" for select to "authenticated" using ((EXISTS ( SELECT 1
+   FROM parent_student_links l
+  WHERE ((l.parent_id = auth.uid()) AND (l.student_id = profiles.user_id)))));
 drop policy if exists "System inserts profiles" on public."profiles";
 create policy "System inserts profiles" on public."profiles" for insert to "authenticated" with check ((user_id = auth.uid()));
 drop policy if exists "Users can update own profile" on public."profiles";
