@@ -73,13 +73,37 @@ Order matters; each step is verifiable and reversible until the last.
    entropy rule on every commit, so `.gitleaks.toml` allowlists that single line.
    A canary with a secret key, a live-form Stripe key and a service-role JWT still
    fails the scan with three findings, so nothing else is weakened.
-2. **Functions, one at a time.** In each function, read
-   `JSON.parse(Deno.env.get("SUPABASE_SECRET_KEYS")!)["default"]` instead of
-   `SUPABASE_SERVICE_ROLE_KEY`, set `verify_jwt = false` for that function, and keep
-   its existing in-code authorization (every function already checks
-   `authHeader` / `getUser` / admin + AAL2). Deploy, then prove the function still
-   rejects an unauthenticated call with its own 401 **and** still performs its
-   service-role work with a real token.
+2. **Functions, one at a time — pattern proven on `quiz-feedback` (2026-10-30).**
+   First, the part that surprised the measurement: **this project's edge-function
+   environment already holds modern keys.** `SUPABASE_SERVICE_ROLE_KEY` is itself an
+   `sb_secret_…` and `SUPABASE_ANON_KEY` an `sb_publishable_…` (measured from inside a
+   function), and `SUPABASE_SECRET_KEYS` is `{"default": "sb_secret_…"}` which reads
+   `quizzes` with 308 rows as service role. So the key *value* needs no migration;
+   what actually changes is **who authorizes the request.**
+
+   Three changes per function:
+
+   1. resolve the key modern-first, legacy second — `JSON.parse(Deno.env.get("SUPABASE_SECRET_KEYS")!)["default"]`,
+      falling back to `SUPABASE_SERVICE_ROLE_KEY`. Modern-only breaks a project that
+      has not created the new keys; legacy-only breaks the day they are revoked.
+   2. deploy with `node .freebuff/redeploy-manage-accounts.cjs <slug> --public`
+      (`verify_jwt: false`): the platform gate only understands legacy JWTs.
+   3. **answer 401 in code**, for a missing *and* a forged token, before doing any
+      work. With the gate off, the old `throw new Error("Missing authorization
+      header")` became the only barrier — and it returned **500**, which reads to a
+      caller as "try again". `auth.getUser()` must also be treated as a real
+      verification (it calls GoTrue), not a decode.
+
+   Verified by `node .freebuff/probe-quiz-feedback-live.cjs` (7 checks): no header →
+   401 with the function's **own** `{"error":"Unauthorized"}` rather than the
+   gateway's `Missing authorization header`; a forged bearer → 401; a signed-in
+   student with no attempt → 403; and a real attempt answered perfectly → 200 on the
+   perfect-score branch, which is only reachable if the service-key client read both
+   `quizzes` **and** `questions` (a broken key would look exactly like "no attempt").
+   It stops before the Gemini call, so the probe spends no AI credits.
+
+   The same 403-for-broken-key trap is why a behaviour check must assert something
+   *only a working key can produce*, not merely "a refusal came back".
 3. **Disable legacy keys** only when step 1 is live and every function is migrated:
    `PUT /v1/projects/{ref}/api-keys/legacy {"enabled": false}` (the dashboard's
    Settings → API Keys → *Deactivate legacy keys* is the same switch).

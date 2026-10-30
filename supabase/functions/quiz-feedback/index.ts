@@ -7,6 +7,35 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const json = (body: unknown, status = 200) =>
+  new Response(JSON.stringify(body), { status, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+
+/**
+ * Service-role credentials, modern first.
+ *
+ * `SUPABASE_SECRET_KEYS` holds the modern keys as JSON keyed by name (`default`),
+ * while `SUPABASE_SERVICE_ROLE_KEY` is the legacy variable. This project's env
+ * already carries a modern key in *both*, but reading modern-first means the
+ * function keeps working whichever way the platform populates them, and it is
+ * the shape every other function should move to as the legacy pair is retired.
+ *
+ * Fallback is deliberate: a project that has not created the new keys yet must
+ * still mark students' quizzes.
+ */
+function serviceKey(): string {
+  const raw = Deno.env.get("SUPABASE_SECRET_KEYS");
+  if (raw) {
+    try {
+      const parsed = JSON.parse(raw) as Record<string, string>;
+      const key = parsed?.default ?? Object.values(parsed ?? {})[0];
+      if (typeof key === "string" && key) return key;
+    } catch {
+      // Not JSON: fall through to the legacy variable rather than 500.
+    }
+  }
+  return Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+}
+
 // Row shape read from `questions` with the service-role client (untyped).
 interface QuizQuestion {
   id: string;
@@ -20,20 +49,31 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
+    // This function runs with `verify_jwt: false`, because the platform's own JWT
+    // check only understands the legacy keys. That makes the checks below the
+    // whole of its authorization, so they answer 401 — an unauthenticated caller
+    // must not be able to tell a missing token from a server fault (a 500 reads
+    // as "try again" and invites retries).
     const authHeader = req.headers.get("Authorization");
-    if (!authHeader) throw new Error("Missing authorization header");
+    if (!authHeader) return json({ error: "Unauthorized" }, 401);
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const key = serviceKey();
+    if (!key) {
+      console.error("quiz-feedback: no service key available");
+      return json({ error: "Feedback is unavailable right now." }, 500);
+    }
 
     const userClient = createClient(supabaseUrl, supabaseAnonKey, {
       global: { headers: { Authorization: authHeader } },
     });
-    const admin = createClient(supabaseUrl, serviceKey);
+    const admin = createClient(supabaseUrl, key);
 
+    // The token is verified against GoTrue, not merely decoded: a forged or
+    // expired JWT gets no further than this line.
     const { data: { user }, error: authError } = await userClient.auth.getUser();
-    if (authError || !user) throw new Error("Not authenticated");
+    if (authError || !user) return json({ error: "Unauthorized" }, 401);
 
     const body = await req.json().catch(() => ({}));
     const quizId: string | undefined = body?.quizId;
