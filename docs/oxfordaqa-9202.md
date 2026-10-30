@@ -31,10 +31,12 @@ inside the written papers, so there is no separate practical paper.
 | `topics` | 10, one per specification section, in spec order |
 | `syllabus_statements` | 30, one per subsection, `board = OxfordAQA`, `spec_code = 9202` |
 | `study_materials` notes | **10 of 10 topics at the depth bar** |
+| `quizzes` | 10, one **published** topic quiz per topic |
+| `questions` | **150 (15 per topic), every one linked to its `statement_id`** |
 
-Both rows are **inactive on purpose**. A qualification with no notes, no papers
-and no question bank must not appear in the catalogue, the sitemap or a
-student's subject picker — the app already treats `is_active = false` as hidden.
+Both rows are **inactive on purpose**. A qualification with notes and questions
+but no papers must not appear in the catalogue, the sitemap or a student's
+subject picker — the app already treats `is_active = false` as hidden.
 Nothing has been added to `frontend/src/lib/topicManifest.generated.ts`, so no
 public copy, sitemap entry or prerendered route mentions 9202 yet.
 
@@ -66,11 +68,44 @@ glyph equations, and every solved answer showing relation → substitution →
 result. Exam-style questions are `<li>` items with an `<em>Answer:</em>` marker,
 because that is the shape `audit-answer-steps` can measure.
 
+## The question bank
+
+Questions live in `.freebuff/content-bank-9202-*.cjs`, one module per topic, and
+are written by `node .freebuff/seed-oxfordaqa-9202-bank.cjs [--apply]`. Each
+question names the subsection it tests (`st: "3.6.4"`), so the seeder writes
+`questions.statement_id` — which the older 0620 banks never did, leaving
+`syllabus_coverage()` unable to see them.
+
+Why hand-authored rather than `build-topic-bank.cjs`: that script drafts through
+Workers AI and its output needed rotating and blind-solving before it was safe.
+These modules are validated before any SQL exists — 4 distinct options, a key
+inside 0–3, an explanation of 40+ characters, no duplicated stem, and all three
+difficulty tiers present — and the seeder refuses to run if a statement code is
+missing, because a missing code would silently write a null link.
+
+```bash
+node .freebuff/seed-oxfordaqa-9202-bank.cjs            # dry run
+node .freebuff/seed-oxfordaqa-9202-bank.cjs --apply     # write (re-runnable)
+node .freebuff/gate-question-bank.cjs chemistry-oxfordaqa IGCSE --strict
+node .freebuff/gate-question-bank.cjs --self-test       # 16 cases, one rule broken each
+```
+
+Apply is idempotent on `(topic_id, title)` for the quiz and
+`(quiz_id, question_text)` for a question; a question dropped from a module is
+deleted only when no bookmark or timing row points at it, because deleting one
+cascades to bookmarks.
+
+The gate's rules exist because each one has already failed somewhere in this
+estate: an unlinked question, a question linked to *another* topic's statement,
+a statement with no question, `correct_option` 4 on a four-option item, a key
+piled on index 0, U+FFFD in a stem, and an "all of the above" option. The
+`--self-test` breaks each rule in turn and fails if the rule stops biting.
+
 ## What remains before it can be published
 
 - ~~**Notes**~~ — done: all ten topics carry a note at the bar.
-- **Question bank** per topic, linked to `questions.statement_id`, then the
-  question-bank gates.
+- ~~**Question bank**~~ — done: 150 questions, 15 per topic, all 30 statements
+  tested, and `gate-question-bank.cjs` clean.
 - **Board-linked papers**: 9202 papers are linked, never served, like every
   other board paper on the site; each row needs `paper_url` only if the board
   publishes one.

@@ -118,6 +118,10 @@ dist-ssr
 # docs/notes-depth.md, and AGENTS.md tells an author to run it before a deepened
 # note is published.
 !.freebuff/gate-notes-depth.cjs
+# The question-bank gate is the same kind of thing for quizzes: AGENTS.md and
+# docs/oxfordaqa-9202.md tell an author to run it (and its --self-test) before a
+# bank is trusted, so a fresh clone has to have it.
+!.freebuff/gate-question-bank.cjs
 # The two notes-depth pipeline steps the docs and AGENTS.md tell an author to
 # run: fetch a unit's notes + board statements, then turn a content module into
 # guarded SQL. Without them a fresh clone cannot follow docs/notes-depth.md.
