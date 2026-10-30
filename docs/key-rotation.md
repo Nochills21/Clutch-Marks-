@@ -105,8 +105,13 @@ Order matters; each step is verifiable and reversible until the last.
    The same 403-for-broken-key trap is why a behaviour check must assert something
    *only a working key can produce*, not merely "a refusal came back".
 3. **Disable legacy keys** only when step 1 is live and every function is migrated:
-   `PUT /v1/projects/{ref}/api-keys/legacy {"enabled": false}` (the dashboard's
+   `PUT /v1/projects/{ref}/api-keys/legacy?enabled=false` (the dashboard's
    Settings → API Keys → *Deactivate legacy keys* is the same switch).
+
+   `enabled` is a **query parameter**. `PATCH` on that path, or `PUT` with a JSON
+   body, answers `400 {"message":"id: Invalid UUID"}` — the route is in the
+   OpenAPI spec (`/api-keys/legacy`, PUT, parameter `enabled`), not the body.
+   `GET` on the same path reports the current state.
 4. **Verify**: the live domain, `GET /auth/v1/settings` with the publishable key, one
    function call per migrated function, and a sign-in. Access tokens are signed by
    the JWT signing key, not by these API keys, so sessions survive this — unlike a
@@ -120,6 +125,76 @@ Rollback at any step: `PUT …/api-keys/legacy {"enabled": true}` restores the l
 pair. Do **not** rotate the JWT signing key as a shortcut — that invalidates every
 session, and `SUPABASE_SERVICE_ROLE_KEY` is set explicitly in this project's secrets,
 so it would go stale and break all 17 functions at once.
+
+## Done: the legacy keys are off (2026-10-30)
+
+`PUT /api-keys/legacy?enabled=false` → `200 {"enabled":false}`. The four keys are
+still listed (`anon`/`service_role` as `type: legacy`, one publishable and one
+secret), but the legacy pair is refused at the gateway:
+`401 {"message":"Legacy API keys are disabled", "hint":"… disabled on
+2026-10-30T10:55:51Z …"}`.
+
+### What was checked before switching it off
+
+| Where | What was found |
+|---|---|
+| Client source + env | `.env`, `.env.production` and the **Vercel project env** all hold the publishable key; no `VITE_SUPABASE_ANON_KEY` anywhere except fallbacks inside two dev probes |
+| Served bundle | live `index-*.js` contains the publishable key, no `eyJ…` JWT, no legacy env name |
+| Repo | no JWT literal in `supabase/`, `frontend/src` or `src`; no function body contains one |
+| Function env (measured from inside a function) | `SUPABASE_ANON_KEY` = `sb_publishable_…`, `SUPABASE_SERVICE_ROLE_KEY` = `sb_secret_…`, `SUPABASE_SECRET_KEYS`/`SUPABASE_PUBLISHABLE_KEYS` present with `default` — **already modern**, so no key value needed migrating |
+| Database | `cron.job` calls `past-papers-harvest` and `weekly-digest` with their own `x-harvest-secret`/`x-digest-secret` headers, not an API key; `vault.secrets` empty; no `pg_net` queue; `notify_admins_error_feedback`/`send_welcome_email` send no key |
+| `verify_jwt` | the publishable key passed as `Authorization: Bearer` is **already** rejected 401 by the platform gate — the nine `verify_jwt: true` functions only ever accepted real user access tokens |
+
+### After the switch
+
+`node .freebuff/probe-legacy-key-cutover.cjs snapshot before|after` records every
+deployed function under four auth shapes (no headers / `apikey` / `apikey` +
+`Bearer <key>` / `apikey` + real user token) plus the REST, RPC, storage and
+GoTrue paths; `compare before after` prints every status that moved.
+
+**Result: `NO STATUS MOVED`** — 17 functions × 4 shapes, 9 data paths. The
+`keybearer` column was 401 before *and* after, so the cutover removed no gate that
+was doing anything.
+
+`node .freebuff/probe-legacy-key-cutover.cjs verify` (7 checks, no admin key
+needed — it signs up, signs in, and deletes the account through SQL): signup 200,
+password sign-in 200, `ai-correction` **403 `plan_required`** (which is only
+reachable if the function's service-key `has_active_plan` call succeeded — a dead
+key gives 503), own-profile read 200, storage upload inside the caller's folder
+200, another account's folder refused, `has_active_plan` still not executable by a
+student session (403).
+
+### Two findings worth carrying forward
+
+1. **The Management API's secret key is not a working credential for this
+   project.** `GET /api-keys` lists a `default` secret key; against
+   `/rest/v1` and `/auth/v1/admin` it answers `401 Invalid API key` in every
+   header shape, with a browser *or* non-browser User-Agent, and with the legacy
+   keys **enabled or disabled** (measured both ways). Its SHA-256 differs from the
+   key the platform injects into functions:
+
+   | Key | hash prefix | works? |
+   |---|---|---|
+   | `default` secret from `/api-keys` | `548f24dd…` | no, 401 everywhere |
+   | `SUPABASE_SERVICE_ROLE_KEY` inside a function | `583f28f3…` | yes, 200 from inside the function |
+   | a freshly created named secret key (`dev_tooling`) | new | no, 401 everywhere (deleted again) |
+
+   So the service key *works* — but only where the platform put it. Anything that
+   needs an admin credential **outside** a function (`auth.admin.createUser`, a
+   service-role PostgREST write) has no working key right now. The probes that
+   create throwaway accounts (`probe-english-marker-live`, `probe-review-queue-live`,
+   `probe-quiz-feedback-live`, `probe-create-account-live`) therefore cannot run;
+   the SQL-catalog probes are unaffected (`probe-security-hardening` still passes
+   24/24, `probe-mark-disputes.sql` is pure SQL). Re-test with a fresh named key
+   after a platform change, and raise it with Supabase support if it persists —
+   it is not a consequence of deactivating the legacy pair.
+
+2. **`verify_jwt` is not authorization under the new key model.** The docs say the
+   platform check "only understands the legacy JWT-based keys" and that functions
+   must authorize in code with `verify_jwt = false`. `quiz-feedback` is the one
+   migrated that way (401 before any work, `auth.getUser()` as the verifier); the
+   other eight gated functions still rely on the platform gate for a **user token**,
+   which does still work — but it never proved anything about the caller's API key.
 
 ## Verified live (2026-10-30)
 

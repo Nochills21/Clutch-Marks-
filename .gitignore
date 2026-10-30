@@ -86,6 +86,9 @@ dist-ssr
 # Phase 3.3's live verifier: spends one Gemini marking call, so it is the only
 # proof the English band path runs end to end.
 !.freebuff/probe-english-marker-live.cjs
+# The before/after matrix that proved deactivating the legacy anon/service_role
+# JWTs moved nothing. Re-runnable with no admin credential (signup + SQL).
+!.freebuff/probe-legacy-key-cutover.cjs
 # The objectives review gate is content pipeline, not a one-off debug script: it
 # is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
 # author to run it before a topic's objectives are published.
