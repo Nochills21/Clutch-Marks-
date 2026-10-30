@@ -120,6 +120,22 @@ the hook enforces, so committing this page would have blocked on its own example
 
 Re-run the first two at any time; the harness lives at `.freebuff-tmp/audit/hook-test.sh` (gitignored).
 
+## The one allowlist entry
+
+Since the client moved to the modern Supabase key, `.env.production` carries a
+`sb_publishable_…` value. That file is **tracked on purpose** and the value is served to every
+browser, so `generic-api-key`'s entropy heuristic flags a public key on every commit. `.gitleaks.toml`
+(committed, `[extend] useDefault = true`) suppresses exactly one line — a line that assigns
+`VITE_SUPABASE_PUBLISHABLE_KEY` to an `sb_publishable_` value — and nothing else.
+
+Verified not to weaken the control: staging a canary with a realistic `sb_secret_…`, a live-form
+Stripe key and a service-role JWT still produced **three** findings (`generic-api-key`, `jwt`,
+`stripe-access-token`) and exit 1, while `.env.production` alone scanned clean. Re-run that canary
+after editing `.gitleaks.toml`.
+
+Note that a low-entropy dummy (`sb_secret_fakefakefake…`) is **not** a valid canary: the rule ignores
+it, which reads as "the scanner is broken" when the scanner is behaving correctly.
+
 ## Limitations
 
 - It sees only what is staged in a Git repository. Anything committed with `--no-verify`, added

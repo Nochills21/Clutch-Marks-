@@ -1,0 +1,26 @@
+# gitleaks configuration for this repo.
+#
+# One deliberate exception. `.env.production` is a *tracked* file of public
+# build-time configuration (AGENTS.md explains why: the value is served to every
+# browser, so it cannot be a secret). Since the client moved to the modern
+# Supabase key, that value is a publishable key, and the entropy heuristic
+# behind `generic-api-key` flags it on every commit. Suppressing that one line is
+# correct; suppressing the rule is not, so the allowlist below is as narrow as
+# the false positive:
+#
+#   - it matches a line that assigns VITE_SUPABASE_PUBLISHABLE_KEY to an
+#     sb_publishable_ value, and nothing else;
+#   - a management token (sbp_), a secret key (sb_secret_), a legacy JWT, a
+#     Stripe key or any other credential on any other line is still a finding.
+#
+# Verified by staging a fake secret key and confirming the scan still fails —
+# see docs/pre-commit-secret-scan.md.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Supabase publishable key in the tracked production env file: public by design"
+regexTarget = "line"
+regexes = [
+  '''VITE_SUPABASE_PUBLISHABLE_KEY\s*=\s*"?sb_publishable_[A-Za-z0-9_-]+''',
+]
