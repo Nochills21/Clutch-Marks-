@@ -30,7 +30,7 @@ inside the written papers, so there is no separate practical paper.
 | `subject_levels` row | `IGCSE`, **`is_active = false`** |
 | `topics` | 10, one per specification section, in spec order |
 | `syllabus_statements` | 30, one per subsection, `board = OxfordAQA`, `spec_code = 9202` |
-| `study_materials` notes | 4 of 10 topics at the depth bar |
+| `study_materials` notes | 6 of 10 topics at the depth bar |
 
 Both rows are **inactive on purpose**. A qualification with no notes, no papers
 and no question bank must not appear in the catalogue, the sitemap or a
@@ -51,8 +51,8 @@ public copy, sitemap entry or prerendered route mentions 9202 yet.
 3. Every note must clear the same bar as the rest of the estate:
 
 ```bash
-node .freebuff/gate-notes-depth.cjs chemistry-oxfordaqa IGCSE     # 4/4 at the bar
-node .freebuff/audit-note-formulas.cjs OxfordAQA                  # 4/4 clean
+node .freebuff/gate-notes-depth.cjs chemistry-oxfordaqa IGCSE     # 6/6 at the bar
+node .freebuff/audit-note-formulas.cjs OxfordAQA                  # 6/6 clean
 node .freebuff/audit-answer-steps.cjs OxfordAQA                   # 4 relation+substitution, 0 jumps
 ```
 
@@ -68,7 +68,7 @@ because that is the shape `audit-answer-steps` can measure.
 
 ## What remains before it can be published
 
-- **6 more notes** (topics 3.5 – 3.10) at the depth bar.
+- **4 more notes** (topics 3.7 – 3.10) at the depth bar.
 - **Question bank** per topic, linked to `questions.statement_id`, then the
   question-bank gates.
 - **Board-linked papers**: 9202 papers are linked, never served, like every
@@ -86,8 +86,8 @@ because that is the shape `audit-answer-steps` can measure.
 
 ## Honest limits
 
-- Four notes prove the pipeline; they do not make a qualification. A student
-  arriving today would find a hidden subject with four topics of notes and
+- Six notes prove the pipeline; they do not make a qualification. A student
+  arriving today would find a hidden subject with six topics of notes and
   nothing else, which is why it is hidden.
 - The specification's lettered statements (`a.`, `b.`, …) are finer-grained
   than our `syllabus_statements` rows, which follow the subsection. That matches

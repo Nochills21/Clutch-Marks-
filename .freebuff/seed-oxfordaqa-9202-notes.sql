@@ -985,3 +985,583 @@ select t.id, $lit$IGCSE Chemistry (OxfordAQA): Chemical Analysis$lit$, $lit$<h2>
 $lit$, 'notes'
 from t
 where not exists (select 1 from upd);
+
+with t as (
+  select t.id from public.topics t
+  join public.subject_levels sl on sl.id = t.subject_level_id
+  join public.subjects s on s.id = sl.subject_id
+  where s.slug = $lit$chemistry-oxfordaqa$lit$ and sl.level = $lit$IGCSE$lit$ and t.slug = $lit$acids-bases-and-salts$lit$
+), upd as (
+  update public.study_materials sm
+  set content = $lit$<h2>Acids, Bases and Salts</h2>
+<p>Acids and bases are the most quoted chemistry in everyday life — vinegar, lemon juice, indigestion tablets, soap, bleach — and the exam asks about them in two quite different ways. The first is properties: what an acid does to an indicator, to a metal, to a carbonate, and why a strong acid is not the same thing as a concentrated one. The second is preparation: given a named salt, which method would you use to make it, and why would the other two methods fail. That second question is where most marks are lost, because it cannot be answered from memory of a recipe — it needs the solubility rules and the reason each step exists. Both are covered here, with the equations written to the state symbols the mark scheme asks for.</p>
+
+<h3>1. What an acid and a base actually are</h3>
+<p>An acid is a proton donor: it releases hydrogen ions, H⁺, when it is dissolved in water. A base is a proton acceptor: it takes those hydrogen ions. An alkali is simply a base that dissolves in water, and it is the alkali that supplies the hydroxide ions, OH⁻, that neutralise the acid.</p>
+<ul>
+  <li><strong>Acids:</strong> hydrochloric acid, HCl; sulfuric acid, H₂SO₄; nitric acid, HNO₃; ethanoic acid (the acid in vinegar), CH₃COOH; citric acid in citrus fruit.</li>
+  <li><strong>Alkalis:</strong> sodium hydroxide, NaOH; potassium hydroxide, KOH; ammonia solution, NH₃(aq); calcium hydroxide solution, Ca(OH)₂, which is limewater.</li>
+  <li><strong>Bases that are not alkalis:</strong> copper(II) oxide, CuO; magnesium oxide, MgO; iron(III) oxide, Fe₂O₃. These accept protons but do not dissolve in water, which is why they are used as solids in salt preparation.</li>
+</ul>
+<p>The distinction between an acid and an alkali is not about strength but about which ion is in excess. In acidic solution there are more H⁺ ions than OH⁻; in alkaline solution there are more OH⁻; in a neutral solution the two are equal, which is what pH 7 records. The reaction between them is neutralisation, and its ionic equation is the same for every acid-alkali pair: H⁺ + OH⁻ → H₂O.</p>
+
+<h3>2. Indicators and the pH scale</h3>
+<p>The pH scale runs from 0 to 14 and measures the concentration of hydrogen ions: the lower the pH, the more H⁺ ions are present. A change of one pH unit is a change by a factor of ten in that concentration, which is why pH 2 is a hundred times more acidic than pH 4, not twice.</p>
+<table border="1">
+  <tr><th>pH</th><th>Universal indicator colour</th><th>What it means</th></tr>
+  <tr><td>1–3</td><td>Red to orange</td><td>Strong acid</td></tr>
+  <tr><td>4–6</td><td>Orange to yellow</td><td>Weak acid</td></tr>
+  <tr><td>7</td><td>Green</td><td>Neutral</td></tr>
+  <tr><td>8–11</td><td>Blue to blue-green</td><td>Weak alkali</td></tr>
+  <tr><td>12–14</td><td>Purple</td><td>Strong alkali</td></tr>
+</table>
+<p>Universal indicator gives an approximate pH from the colour. Two other indicators are used because they change sharply over a narrow range, which is what a titration needs: litmus is red in acid and blue in alkali; methyl orange is red in acid and yellow in alkali; phenolphthalein is colourless in acid and pink in alkali. Phenolphthalein is the usual choice when titrating an acid with an alkali, because the first permanent pink is easy to see and appears at the end point.</p>
+<p>The most accurate measurement is a pH meter, which reads the pH as a number rather than a colour. That is the same point as the instrumental methods in chemical analysis: an instrument is more precise than a dye, at the cost of the equipment.</p>
+
+<h3>3. The four reactions of acids</h3>
+<p>Dilute acids react with four families of substance, and each produces a salt with something different:</p>
+<ul>
+  <li><strong>Metal:</strong> acid + metal → salt + hydrogen. Only for metals above hydrogen in the reactivity series: Mg + 2HCl → MgCl₂ + H₂.</li>
+  <li><strong>Metal oxide or hydroxide (a base):</strong> acid + base → salt + water. CuO + H₂SO₄ → CuSO₄ + H₂O. This is neutralisation, and it is how most soluble salts are made.</li>
+  <li><strong>Carbonate:</strong> acid + carbonate → salt + water + carbon dioxide. CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. The fizzing is the carbon dioxide, which turns limewater milky.</li>
+  <li><strong>Alkali:</strong> acid + alkali → salt + water. NaOH + HCl → NaCl + H₂O, with the ionic equation H⁺ + OH⁻ → H₂O.</li>
+</ul>
+<p>Every one of these produces a salt, and the salt is named from the two things that combined: the metal (or ammonium) from the base, and the acid's own ending. Hydrochloric acid gives chlorides, sulfuric acid gives sulfates, nitric acid gives nitrates, phosphoric acid gives phosphates, and ethanoic acid gives ethanoates. So copper(II) oxide with sulfuric acid gives copper(II) sulfate, and sodium hydroxide with nitric acid gives sodium nitrate.</p>
+<p>Notice that the carbonate reaction fizzes while the oxide reaction does not. That difference is the reason an examiner can ask you to distinguish two white solids with one reagent: add dilute acid and only the carbonate effervesces.</p>
+
+<h3>4. Strong and weak, concentrated and dilute</h3>
+<p>These four words are examined together precisely because students mix them up. <strong>Strong</strong> and <strong>weak</strong> describe how completely an acid ionises in water. <strong>Concentrated</strong> and <strong>dilute</strong> describe how much acid there is per unit volume.</p>
+<ul>
+  <li>A <strong>strong acid</strong> is fully ionised: every HCl molecule becomes H⁺ and Cl⁻, so the solution is full of hydrogen ions.</li>
+  <li>A <strong>weak acid</strong> is only partly ionised: most ethanoic acid molecules stay intact, so there are few H⁺ ions even in a concentrated solution.</li>
+  <li>A <strong>concentrated</strong> solution has a large amount of acid dissolved in a given volume, whether it is strong or weak.</li>
+  <li>A <strong>dilute</strong> solution has little acid per unit volume, whether it is strong or weak.</li>
+</ul>
+<p>The consequences are testable. A strong acid of a given concentration has a lower pH than a weak acid of the same concentration, conducts electricity better because there are more ions to carry the charge, and reacts faster with a metal for the same reason. But a concentrated weak acid can have a lower pH than a dilute strong acid, which is the trap: it is the concentration of H⁺ that sets the pH, and both strength and concentration affect it. Sulfuric acid is the awkward case worth knowing — it is strong and it is also dibasic, so one mole can supply two moles of H⁺.</p>
+
+<h3>5. Solubility rules, and why they decide the method</h3>
+<p>A salt can be prepared in three different ways, and the choice is forced by one question: is the salt soluble in water, and are the starting materials soluble?</p>
+<table border="1">
+  <tr><th>Salt type</th><th>Solubility in water</th></tr>
+  <tr><td>Sodium, potassium and ammonium salts</td><td>All soluble</td></tr>
+  <tr><td>Nitrates</td><td>All soluble</td></tr>
+  <tr><td>Chlorides</td><td>Soluble, except silver chloride and lead(II) chloride</td></tr>
+  <tr><td>Sulfates</td><td>Soluble, except barium sulfate and lead(II) sulfate; calcium sulfate is only slightly soluble</td></tr>
+  <tr><td>Carbonates</td><td>Insoluble, except sodium, potassium and ammonium carbonates</td></tr>
+  <tr><td>Hydroxides</td><td>Insoluble, except sodium and potassium hydroxides; calcium hydroxide is slightly soluble</td></tr>
+</table>
+<p>Those rules give the three methods. A <strong>soluble salt of a metal other than sodium, potassium or ammonium</strong> is made from the acid and an insoluble base, oxide or carbonate, adding the solid in excess. A <strong>soluble salt of sodium, potassium or ammonium</strong> cannot be made that way, because every candidate base is soluble too and there is no excess solid to filter off — so it is made by titration. An <strong>insoluble salt</strong> is made by precipitation, mixing two solutions that each contain one of its ions.</p>
+<p>Copper(II) sulfate and sodium chloride show the contrast perfectly. Copper(II) sulfate is soluble and its base, copper(II) oxide, is not, so the acid-plus-excess-oxide method works. Sodium chloride is soluble and every sodium base is soluble, so adding excess sodium hydroxide to hydrochloric acid would leave sodium hydroxide in the product — the titration is the only way to get the exact amount.</p>
+
+<h3>6. Preparing a soluble salt: acid plus excess insoluble base</h3>
+<p>The method is the same whether the base is an oxide, a hydroxide, a carbonate or a metal, with one difference: a metal also produces hydrogen. For copper(II) sulfate from copper(II) oxide and dilute sulfuric acid:</p>
+<ol>
+  <li>Warm the acid gently and add copper(II) oxide a little at a time, stirring, until no more dissolves and some solid remains at the bottom. The excess is the point: it guarantees that all the acid has reacted, so the product cannot be contaminated with acid.</li>
+  <li>Filter the mixture. The filtrate is the copper(II) sulfate solution; the residue is the unreacted copper(II) oxide.</li>
+  <li>Heat the filtrate in an evaporating basin to concentrate it, stopping when crystals begin to appear at the edge — the crystallising point.</li>
+  <li>Leave it to cool slowly so that large crystals form, then filter them off and dry them between sheets of filter paper.</li>
+</ol>
+<p>Each step has a reason, and the reasons are what get marked. Warming the acid speeds the reaction up. Adding the solid in excess rather than measuring it means you do not need to know the concentration of the acid. Filtering removes the excess. Evaporating only to the crystallising point, rather than to dryness, matters because heating a salt solution to dryness drives off the water of crystallisation, gives a powder rather than crystals, and concentrates any soluble impurity into the product.</p>
+<p>With a carbonate the same method applies but the mixture fizzes, because carbon dioxide is released: CuCO₃ + H₂SO₄ → CuSO₄ + H₂O + CO₂. The excess solid is still needed, and it is still removed by filtration.</p>
+
+<h3>7. Preparing a soluble salt of sodium, potassium or ammonium: titration</h3>
+<p>Both reactants are soluble, so there is no excess solid to remove and the amounts must be measured exactly. That is what a titration does:</p>
+<ol>
+  <li>Pipette a measured volume of the acid (25.0 cm³ is standard) into a conical flask and add two or three drops of indicator.</li>
+  <li>Fill a burette with the alkali, record the starting reading, and run it in until the indicator changes permanently. Record the final reading and subtract to get the volume added.</li>
+  <li>Repeat until two readings agree to within 0.1 cm³ — concordant results — and take the average of those.</li>
+  <li>Repeat the titration using the same volumes but <em>no indicator</em>, because the indicator would contaminate the salt. Evaporate the resulting solution to the crystallising point, cool and dry the crystals.</li>
+</ol>
+<p>Every detail earns a mark. Reading the burette at the bottom of the meniscus, at eye level, prevents a systematic error. Rinsing the pipette with the solution it will deliver, but the conical flask with distilled water, prevents dilution errors. The indicator is left out of the final run because the whole point is a pure salt, and the reason two concordant titrations are needed is that one reading can be spoiled by a single extra drop.</p>
+
+<h3>8. Preparing an insoluble salt: precipitation</h3>
+<p>When the salt is insoluble, it can be made by mixing two solutions that each supply one of its ions, and it appears immediately as a solid. Barium sulfate, the "barium meal" used in hospital X-rays because it does not dissolve and so is not absorbed, is made this way: BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl, with the ionic equation Ba²⁺ + SO₄²⁻ → BaSO₄.</p>
+<p>The practical steps are short but each has a reason:</p>
+<ul>
+  <li>Mix the two solutions — the precipitate forms at once.</li>
+  <li>Filter to collect the solid on the filter paper.</li>
+  <li>Wash the residue with distilled water, to remove the soluble sodium chloride that would otherwise dry onto the crystals.</li>
+  <li>Dry it, usually in a warm oven or between filter papers.</li>
+</ul>
+<p>A silver halide is made the same way, from silver nitrate and a solution of the halide: Ag⁺ + Cl⁻ → AgCl. The choice of solutions is constrained by solubility, not by preference — you need one solution that is soluble and contains the cation and another that is soluble and contains the anion, which is why sodium sulfate is used as the sulfate source rather than, say, lead(II) sulfate.</p>
+
+<h3>9. Water of crystallisation and hydrated salts</h3>
+<p>Many salts crystallise with a fixed number of water molecules built into the crystal, written after a dot: CuSO₄·5H₂O is hydrated copper(II) sulfate, blue, with five water molecules per formula unit. Heating drives the water off and leaves the anhydrous salt, which is white: CuSO₄·5H₂O → CuSO₄ + 5H₂O. Adding water reverses it, and the blue colour returns.</p>
+<p>That colour change is the standard test for water: anhydrous copper(II) sulfate turns from white to blue, and cobalt chloride paper turns from blue to pink. Both are tests for water rather than for purity — they confirm that water is present, not that it is pure.</p>
+<p>The dot matters in calculations. The relative formula mass of the hydrated salt includes the water, so 1 mol of CuSO₄·5H₂O is 250 g, not 160 g, and the water is 90 of those 250 g. A question that asks for the percentage of water in a hydrated salt is asking you to add the water in before dividing.</p>
+
+<h3>10. Worked examples</h3>
+<p><strong>Example 1.</strong> Name the salt formed when magnesium oxide reacts with dilute hydrochloric acid, and write the balanced equation.</p>
+<p>The metal is magnesium and the acid is hydrochloric, so the salt is magnesium chloride. The oxide is a base, so the products are a salt and water: MgO + 2HCl → MgCl₂ + H₂O. The equation balances with two HCl because magnesium is 2+ and chloride is 1−, so two chloride ions are needed.</p>
+<p><strong>Example 2.</strong> Describe how you would prepare pure, dry crystals of copper(II) sulfate from copper(II) oxide and dilute sulfuric acid.</p>
+<p>Warm the dilute sulfuric acid and add copper(II) oxide in excess, stirring until no more dissolves; filter off the excess oxide; evaporate the filtrate to the crystallising point; cool to crystallise; filter and dry the crystals between filter papers. The excess ensures the acid is fully used up, and stopping at the crystallising point rather than dryness keeps the water of crystallisation in the crystals.</p>
+<p><strong>Example 3.</strong> 25.0 cm³ of sodium hydroxide solution is neutralised by 20.0 cm³ of hydrochloric acid of concentration 0.125 mol/dm³. Calculate the concentration of the sodium hydroxide.</p>
+<p>The equation is NaOH + HCl → NaCl + H₂O, so the ratio is 1 : 1. The amounts come from n = c × V → <em>Key:</em> n = amount of solute (mol); c = concentration (mol/dm³); V = volume of solution (dm³), so a volume in cm³ is divided by 1000 before it is used. Moles of acid: n = c × V = 0.125 × 0.0200 = 0.00250 mol. Moles of alkali = 0.00250 mol, and its volume is 25.0 ÷ 1000 = 0.0250 dm³. Then c = n ÷ V = 0.00250 ÷ 0.0250 = 0.100 mol/dm³.</p>
+<p><strong>Example 4.</strong> Explain why sodium chloride cannot be prepared by adding excess sodium hydroxide to hydrochloric acid.</p>
+<p>Sodium hydroxide is soluble, so there would be no excess solid to filter off; any unreacted sodium hydroxide would stay in solution and contaminate the salt, and evaporating the solution would leave it in the product. The titration method is used instead, because it measures exactly the volume needed to neutralise the acid.</p>
+
+<h3>11. Exam-style questions</h3>
+<ol>
+  <li>State what is meant by a weak acid and explain why it has a higher pH than a strong acid of the same concentration. <em>Answer:</em> a weak acid is only partially ionised in water, so few of its molecules release H⁺ ions; the concentration of hydrogen ions is therefore lower than in a strong acid of the same concentration, and a lower H⁺ concentration means a higher pH.</li>
+  <li>Describe the test that would distinguish a carbonate from a metal oxide, using one reagent. <em>Answer:</em> add dilute acid to each; the carbonate effervesces because carbon dioxide is released and the gas turns limewater milky, while the oxide dissolves without effervescence to give a salt solution.</li>
+  <li>Write the ionic equation for the neutralisation of hydrochloric acid by sodium hydroxide. <em>Answer:</em> H⁺ + OH⁻ → H₂O. The sodium and chloride ions are spectators and are left out.</li>
+  <li>Name the salt formed from calcium carbonate and nitric acid, and write the balanced equation. <em>Answer:</em> calcium nitrate; CaCO₃ + 2HNO₃ → Ca(NO₃)₂ + H₂O + CO₂.</li>
+  <li>Explain why the excess solid must be filtered off before the salt solution is evaporated. <em>Answer:</em> the excess base did not react, so leaving it in would contaminate the crystals and make the product impure; filtration removes it while the salt stays in the filtrate.</li>
+  <li>Explain why an indicator is used in the first titration but not in the final one. <em>Answer:</em> the indicator shows when neutralisation is complete, which is how the required volume is found; it is left out of the final run because it would dissolve in the solution and contaminate the salt being prepared.</li>
+  <li>A white precipitate forms when solutions of barium chloride and sodium sulfate are mixed. Name the precipitate, write the ionic equation, and state why the precipitate is washed with distilled water. <em>Answer:</em> barium sulfate; Ba²⁺ + SO₄²⁻ → BaSO₄; washing removes the soluble sodium chloride that would otherwise dry onto the precipitate and contaminate it.</li>
+  <li>Explain why anhydrous copper(II) sulfate cannot be used to show that a liquid is pure water. <em>Answer:</em> the test only shows that water is present, since any solution containing water would turn the solid blue; purity needs a boiling point measurement, because pure water boils sharply at 100 °C and a solution boils over a range.</li>
+</ol>
+
+<h3>12. Common mistakes</h3>
+<ul>
+  <li>Treating "strong" and "concentrated" as the same word. Strong is about ionisation; concentrated is about how much is dissolved.</li>
+  <li>Calling copper(II) oxide an alkali. It is a base, but it does not dissolve, so it is not an alkali.</li>
+  <li>Writing that an acid plus a carbonate gives salt and water only. Carbon dioxide is the third product, and the mark scheme counts it.</li>
+  <li>Using the titration method for a salt of an insoluble base. If the base is insoluble, the excess-solid method is simpler and is what the question expects.</li>
+  <li>Forgetting to remove the indicator from the final titration, or using the average of non-concordant readings.</li>
+  <li>Evaporating the salt solution to dryness and calling the powder crystals. The water of crystallisation is lost and the product is not what was asked for.</li>
+  <li>Washing an insoluble precipitate with tap water rather than distilled water, which adds impurities instead of removing them.</li>
+  <li>Mixing up the indicator colours: methyl orange is red in acid and yellow in alkali; phenolphthalein is colourless in acid and pink in alkali.</li>
+</ul>
+
+<h3>13. Exam technique for this topic</h3>
+<ul>
+  <li>When asked to "describe how you would prepare" a salt, give the steps in order and add a reason for the two steps that carry marks: the excess solid and the crystallising point.</li>
+  <li>Name the salt before writing the equation, then check the formula against the charges. Magnesium chloride is MgCl₂ and not MgCl because Mg is 2+.</li>
+  <li>For an "explain why" question about method, the answer is almost always solubility: which reagent dissolves, and therefore which method can remove what is left over.</li>
+  <li>Write state symbols whenever the question shows them in the equation stem, and keep them consistent.</li>
+  <li>If a titration volume is given in cm³, convert it to dm³ before any concentration calculation, and show that conversion — it is worth a mark on its own.</li>
+  <li>For indicator questions, quote the colour <em>before</em> and <em>after</em> the change, not just the final colour.</li>
+</ul>
+$lit$, material_type = 'notes', updated_at = now()
+  from t
+  where sm.topic_id = t.id and sm.title = $lit$IGCSE Chemistry (OxfordAQA): Acids, Bases and Salts$lit$
+  returning sm.id
+)
+insert into public.study_materials (topic_id, title, content, material_type)
+select t.id, $lit$IGCSE Chemistry (OxfordAQA): Acids, Bases and Salts$lit$, $lit$<h2>Acids, Bases and Salts</h2>
+<p>Acids and bases are the most quoted chemistry in everyday life — vinegar, lemon juice, indigestion tablets, soap, bleach — and the exam asks about them in two quite different ways. The first is properties: what an acid does to an indicator, to a metal, to a carbonate, and why a strong acid is not the same thing as a concentrated one. The second is preparation: given a named salt, which method would you use to make it, and why would the other two methods fail. That second question is where most marks are lost, because it cannot be answered from memory of a recipe — it needs the solubility rules and the reason each step exists. Both are covered here, with the equations written to the state symbols the mark scheme asks for.</p>
+
+<h3>1. What an acid and a base actually are</h3>
+<p>An acid is a proton donor: it releases hydrogen ions, H⁺, when it is dissolved in water. A base is a proton acceptor: it takes those hydrogen ions. An alkali is simply a base that dissolves in water, and it is the alkali that supplies the hydroxide ions, OH⁻, that neutralise the acid.</p>
+<ul>
+  <li><strong>Acids:</strong> hydrochloric acid, HCl; sulfuric acid, H₂SO₄; nitric acid, HNO₃; ethanoic acid (the acid in vinegar), CH₃COOH; citric acid in citrus fruit.</li>
+  <li><strong>Alkalis:</strong> sodium hydroxide, NaOH; potassium hydroxide, KOH; ammonia solution, NH₃(aq); calcium hydroxide solution, Ca(OH)₂, which is limewater.</li>
+  <li><strong>Bases that are not alkalis:</strong> copper(II) oxide, CuO; magnesium oxide, MgO; iron(III) oxide, Fe₂O₃. These accept protons but do not dissolve in water, which is why they are used as solids in salt preparation.</li>
+</ul>
+<p>The distinction between an acid and an alkali is not about strength but about which ion is in excess. In acidic solution there are more H⁺ ions than OH⁻; in alkaline solution there are more OH⁻; in a neutral solution the two are equal, which is what pH 7 records. The reaction between them is neutralisation, and its ionic equation is the same for every acid-alkali pair: H⁺ + OH⁻ → H₂O.</p>
+
+<h3>2. Indicators and the pH scale</h3>
+<p>The pH scale runs from 0 to 14 and measures the concentration of hydrogen ions: the lower the pH, the more H⁺ ions are present. A change of one pH unit is a change by a factor of ten in that concentration, which is why pH 2 is a hundred times more acidic than pH 4, not twice.</p>
+<table border="1">
+  <tr><th>pH</th><th>Universal indicator colour</th><th>What it means</th></tr>
+  <tr><td>1–3</td><td>Red to orange</td><td>Strong acid</td></tr>
+  <tr><td>4–6</td><td>Orange to yellow</td><td>Weak acid</td></tr>
+  <tr><td>7</td><td>Green</td><td>Neutral</td></tr>
+  <tr><td>8–11</td><td>Blue to blue-green</td><td>Weak alkali</td></tr>
+  <tr><td>12–14</td><td>Purple</td><td>Strong alkali</td></tr>
+</table>
+<p>Universal indicator gives an approximate pH from the colour. Two other indicators are used because they change sharply over a narrow range, which is what a titration needs: litmus is red in acid and blue in alkali; methyl orange is red in acid and yellow in alkali; phenolphthalein is colourless in acid and pink in alkali. Phenolphthalein is the usual choice when titrating an acid with an alkali, because the first permanent pink is easy to see and appears at the end point.</p>
+<p>The most accurate measurement is a pH meter, which reads the pH as a number rather than a colour. That is the same point as the instrumental methods in chemical analysis: an instrument is more precise than a dye, at the cost of the equipment.</p>
+
+<h3>3. The four reactions of acids</h3>
+<p>Dilute acids react with four families of substance, and each produces a salt with something different:</p>
+<ul>
+  <li><strong>Metal:</strong> acid + metal → salt + hydrogen. Only for metals above hydrogen in the reactivity series: Mg + 2HCl → MgCl₂ + H₂.</li>
+  <li><strong>Metal oxide or hydroxide (a base):</strong> acid + base → salt + water. CuO + H₂SO₄ → CuSO₄ + H₂O. This is neutralisation, and it is how most soluble salts are made.</li>
+  <li><strong>Carbonate:</strong> acid + carbonate → salt + water + carbon dioxide. CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. The fizzing is the carbon dioxide, which turns limewater milky.</li>
+  <li><strong>Alkali:</strong> acid + alkali → salt + water. NaOH + HCl → NaCl + H₂O, with the ionic equation H⁺ + OH⁻ → H₂O.</li>
+</ul>
+<p>Every one of these produces a salt, and the salt is named from the two things that combined: the metal (or ammonium) from the base, and the acid's own ending. Hydrochloric acid gives chlorides, sulfuric acid gives sulfates, nitric acid gives nitrates, phosphoric acid gives phosphates, and ethanoic acid gives ethanoates. So copper(II) oxide with sulfuric acid gives copper(II) sulfate, and sodium hydroxide with nitric acid gives sodium nitrate.</p>
+<p>Notice that the carbonate reaction fizzes while the oxide reaction does not. That difference is the reason an examiner can ask you to distinguish two white solids with one reagent: add dilute acid and only the carbonate effervesces.</p>
+
+<h3>4. Strong and weak, concentrated and dilute</h3>
+<p>These four words are examined together precisely because students mix them up. <strong>Strong</strong> and <strong>weak</strong> describe how completely an acid ionises in water. <strong>Concentrated</strong> and <strong>dilute</strong> describe how much acid there is per unit volume.</p>
+<ul>
+  <li>A <strong>strong acid</strong> is fully ionised: every HCl molecule becomes H⁺ and Cl⁻, so the solution is full of hydrogen ions.</li>
+  <li>A <strong>weak acid</strong> is only partly ionised: most ethanoic acid molecules stay intact, so there are few H⁺ ions even in a concentrated solution.</li>
+  <li>A <strong>concentrated</strong> solution has a large amount of acid dissolved in a given volume, whether it is strong or weak.</li>
+  <li>A <strong>dilute</strong> solution has little acid per unit volume, whether it is strong or weak.</li>
+</ul>
+<p>The consequences are testable. A strong acid of a given concentration has a lower pH than a weak acid of the same concentration, conducts electricity better because there are more ions to carry the charge, and reacts faster with a metal for the same reason. But a concentrated weak acid can have a lower pH than a dilute strong acid, which is the trap: it is the concentration of H⁺ that sets the pH, and both strength and concentration affect it. Sulfuric acid is the awkward case worth knowing — it is strong and it is also dibasic, so one mole can supply two moles of H⁺.</p>
+
+<h3>5. Solubility rules, and why they decide the method</h3>
+<p>A salt can be prepared in three different ways, and the choice is forced by one question: is the salt soluble in water, and are the starting materials soluble?</p>
+<table border="1">
+  <tr><th>Salt type</th><th>Solubility in water</th></tr>
+  <tr><td>Sodium, potassium and ammonium salts</td><td>All soluble</td></tr>
+  <tr><td>Nitrates</td><td>All soluble</td></tr>
+  <tr><td>Chlorides</td><td>Soluble, except silver chloride and lead(II) chloride</td></tr>
+  <tr><td>Sulfates</td><td>Soluble, except barium sulfate and lead(II) sulfate; calcium sulfate is only slightly soluble</td></tr>
+  <tr><td>Carbonates</td><td>Insoluble, except sodium, potassium and ammonium carbonates</td></tr>
+  <tr><td>Hydroxides</td><td>Insoluble, except sodium and potassium hydroxides; calcium hydroxide is slightly soluble</td></tr>
+</table>
+<p>Those rules give the three methods. A <strong>soluble salt of a metal other than sodium, potassium or ammonium</strong> is made from the acid and an insoluble base, oxide or carbonate, adding the solid in excess. A <strong>soluble salt of sodium, potassium or ammonium</strong> cannot be made that way, because every candidate base is soluble too and there is no excess solid to filter off — so it is made by titration. An <strong>insoluble salt</strong> is made by precipitation, mixing two solutions that each contain one of its ions.</p>
+<p>Copper(II) sulfate and sodium chloride show the contrast perfectly. Copper(II) sulfate is soluble and its base, copper(II) oxide, is not, so the acid-plus-excess-oxide method works. Sodium chloride is soluble and every sodium base is soluble, so adding excess sodium hydroxide to hydrochloric acid would leave sodium hydroxide in the product — the titration is the only way to get the exact amount.</p>
+
+<h3>6. Preparing a soluble salt: acid plus excess insoluble base</h3>
+<p>The method is the same whether the base is an oxide, a hydroxide, a carbonate or a metal, with one difference: a metal also produces hydrogen. For copper(II) sulfate from copper(II) oxide and dilute sulfuric acid:</p>
+<ol>
+  <li>Warm the acid gently and add copper(II) oxide a little at a time, stirring, until no more dissolves and some solid remains at the bottom. The excess is the point: it guarantees that all the acid has reacted, so the product cannot be contaminated with acid.</li>
+  <li>Filter the mixture. The filtrate is the copper(II) sulfate solution; the residue is the unreacted copper(II) oxide.</li>
+  <li>Heat the filtrate in an evaporating basin to concentrate it, stopping when crystals begin to appear at the edge — the crystallising point.</li>
+  <li>Leave it to cool slowly so that large crystals form, then filter them off and dry them between sheets of filter paper.</li>
+</ol>
+<p>Each step has a reason, and the reasons are what get marked. Warming the acid speeds the reaction up. Adding the solid in excess rather than measuring it means you do not need to know the concentration of the acid. Filtering removes the excess. Evaporating only to the crystallising point, rather than to dryness, matters because heating a salt solution to dryness drives off the water of crystallisation, gives a powder rather than crystals, and concentrates any soluble impurity into the product.</p>
+<p>With a carbonate the same method applies but the mixture fizzes, because carbon dioxide is released: CuCO₃ + H₂SO₄ → CuSO₄ + H₂O + CO₂. The excess solid is still needed, and it is still removed by filtration.</p>
+
+<h3>7. Preparing a soluble salt of sodium, potassium or ammonium: titration</h3>
+<p>Both reactants are soluble, so there is no excess solid to remove and the amounts must be measured exactly. That is what a titration does:</p>
+<ol>
+  <li>Pipette a measured volume of the acid (25.0 cm³ is standard) into a conical flask and add two or three drops of indicator.</li>
+  <li>Fill a burette with the alkali, record the starting reading, and run it in until the indicator changes permanently. Record the final reading and subtract to get the volume added.</li>
+  <li>Repeat until two readings agree to within 0.1 cm³ — concordant results — and take the average of those.</li>
+  <li>Repeat the titration using the same volumes but <em>no indicator</em>, because the indicator would contaminate the salt. Evaporate the resulting solution to the crystallising point, cool and dry the crystals.</li>
+</ol>
+<p>Every detail earns a mark. Reading the burette at the bottom of the meniscus, at eye level, prevents a systematic error. Rinsing the pipette with the solution it will deliver, but the conical flask with distilled water, prevents dilution errors. The indicator is left out of the final run because the whole point is a pure salt, and the reason two concordant titrations are needed is that one reading can be spoiled by a single extra drop.</p>
+
+<h3>8. Preparing an insoluble salt: precipitation</h3>
+<p>When the salt is insoluble, it can be made by mixing two solutions that each supply one of its ions, and it appears immediately as a solid. Barium sulfate, the "barium meal" used in hospital X-rays because it does not dissolve and so is not absorbed, is made this way: BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl, with the ionic equation Ba²⁺ + SO₄²⁻ → BaSO₄.</p>
+<p>The practical steps are short but each has a reason:</p>
+<ul>
+  <li>Mix the two solutions — the precipitate forms at once.</li>
+  <li>Filter to collect the solid on the filter paper.</li>
+  <li>Wash the residue with distilled water, to remove the soluble sodium chloride that would otherwise dry onto the crystals.</li>
+  <li>Dry it, usually in a warm oven or between filter papers.</li>
+</ul>
+<p>A silver halide is made the same way, from silver nitrate and a solution of the halide: Ag⁺ + Cl⁻ → AgCl. The choice of solutions is constrained by solubility, not by preference — you need one solution that is soluble and contains the cation and another that is soluble and contains the anion, which is why sodium sulfate is used as the sulfate source rather than, say, lead(II) sulfate.</p>
+
+<h3>9. Water of crystallisation and hydrated salts</h3>
+<p>Many salts crystallise with a fixed number of water molecules built into the crystal, written after a dot: CuSO₄·5H₂O is hydrated copper(II) sulfate, blue, with five water molecules per formula unit. Heating drives the water off and leaves the anhydrous salt, which is white: CuSO₄·5H₂O → CuSO₄ + 5H₂O. Adding water reverses it, and the blue colour returns.</p>
+<p>That colour change is the standard test for water: anhydrous copper(II) sulfate turns from white to blue, and cobalt chloride paper turns from blue to pink. Both are tests for water rather than for purity — they confirm that water is present, not that it is pure.</p>
+<p>The dot matters in calculations. The relative formula mass of the hydrated salt includes the water, so 1 mol of CuSO₄·5H₂O is 250 g, not 160 g, and the water is 90 of those 250 g. A question that asks for the percentage of water in a hydrated salt is asking you to add the water in before dividing.</p>
+
+<h3>10. Worked examples</h3>
+<p><strong>Example 1.</strong> Name the salt formed when magnesium oxide reacts with dilute hydrochloric acid, and write the balanced equation.</p>
+<p>The metal is magnesium and the acid is hydrochloric, so the salt is magnesium chloride. The oxide is a base, so the products are a salt and water: MgO + 2HCl → MgCl₂ + H₂O. The equation balances with two HCl because magnesium is 2+ and chloride is 1−, so two chloride ions are needed.</p>
+<p><strong>Example 2.</strong> Describe how you would prepare pure, dry crystals of copper(II) sulfate from copper(II) oxide and dilute sulfuric acid.</p>
+<p>Warm the dilute sulfuric acid and add copper(II) oxide in excess, stirring until no more dissolves; filter off the excess oxide; evaporate the filtrate to the crystallising point; cool to crystallise; filter and dry the crystals between filter papers. The excess ensures the acid is fully used up, and stopping at the crystallising point rather than dryness keeps the water of crystallisation in the crystals.</p>
+<p><strong>Example 3.</strong> 25.0 cm³ of sodium hydroxide solution is neutralised by 20.0 cm³ of hydrochloric acid of concentration 0.125 mol/dm³. Calculate the concentration of the sodium hydroxide.</p>
+<p>The equation is NaOH + HCl → NaCl + H₂O, so the ratio is 1 : 1. The amounts come from n = c × V → <em>Key:</em> n = amount of solute (mol); c = concentration (mol/dm³); V = volume of solution (dm³), so a volume in cm³ is divided by 1000 before it is used. Moles of acid: n = c × V = 0.125 × 0.0200 = 0.00250 mol. Moles of alkali = 0.00250 mol, and its volume is 25.0 ÷ 1000 = 0.0250 dm³. Then c = n ÷ V = 0.00250 ÷ 0.0250 = 0.100 mol/dm³.</p>
+<p><strong>Example 4.</strong> Explain why sodium chloride cannot be prepared by adding excess sodium hydroxide to hydrochloric acid.</p>
+<p>Sodium hydroxide is soluble, so there would be no excess solid to filter off; any unreacted sodium hydroxide would stay in solution and contaminate the salt, and evaporating the solution would leave it in the product. The titration method is used instead, because it measures exactly the volume needed to neutralise the acid.</p>
+
+<h3>11. Exam-style questions</h3>
+<ol>
+  <li>State what is meant by a weak acid and explain why it has a higher pH than a strong acid of the same concentration. <em>Answer:</em> a weak acid is only partially ionised in water, so few of its molecules release H⁺ ions; the concentration of hydrogen ions is therefore lower than in a strong acid of the same concentration, and a lower H⁺ concentration means a higher pH.</li>
+  <li>Describe the test that would distinguish a carbonate from a metal oxide, using one reagent. <em>Answer:</em> add dilute acid to each; the carbonate effervesces because carbon dioxide is released and the gas turns limewater milky, while the oxide dissolves without effervescence to give a salt solution.</li>
+  <li>Write the ionic equation for the neutralisation of hydrochloric acid by sodium hydroxide. <em>Answer:</em> H⁺ + OH⁻ → H₂O. The sodium and chloride ions are spectators and are left out.</li>
+  <li>Name the salt formed from calcium carbonate and nitric acid, and write the balanced equation. <em>Answer:</em> calcium nitrate; CaCO₃ + 2HNO₃ → Ca(NO₃)₂ + H₂O + CO₂.</li>
+  <li>Explain why the excess solid must be filtered off before the salt solution is evaporated. <em>Answer:</em> the excess base did not react, so leaving it in would contaminate the crystals and make the product impure; filtration removes it while the salt stays in the filtrate.</li>
+  <li>Explain why an indicator is used in the first titration but not in the final one. <em>Answer:</em> the indicator shows when neutralisation is complete, which is how the required volume is found; it is left out of the final run because it would dissolve in the solution and contaminate the salt being prepared.</li>
+  <li>A white precipitate forms when solutions of barium chloride and sodium sulfate are mixed. Name the precipitate, write the ionic equation, and state why the precipitate is washed with distilled water. <em>Answer:</em> barium sulfate; Ba²⁺ + SO₄²⁻ → BaSO₄; washing removes the soluble sodium chloride that would otherwise dry onto the precipitate and contaminate it.</li>
+  <li>Explain why anhydrous copper(II) sulfate cannot be used to show that a liquid is pure water. <em>Answer:</em> the test only shows that water is present, since any solution containing water would turn the solid blue; purity needs a boiling point measurement, because pure water boils sharply at 100 °C and a solution boils over a range.</li>
+</ol>
+
+<h3>12. Common mistakes</h3>
+<ul>
+  <li>Treating "strong" and "concentrated" as the same word. Strong is about ionisation; concentrated is about how much is dissolved.</li>
+  <li>Calling copper(II) oxide an alkali. It is a base, but it does not dissolve, so it is not an alkali.</li>
+  <li>Writing that an acid plus a carbonate gives salt and water only. Carbon dioxide is the third product, and the mark scheme counts it.</li>
+  <li>Using the titration method for a salt of an insoluble base. If the base is insoluble, the excess-solid method is simpler and is what the question expects.</li>
+  <li>Forgetting to remove the indicator from the final titration, or using the average of non-concordant readings.</li>
+  <li>Evaporating the salt solution to dryness and calling the powder crystals. The water of crystallisation is lost and the product is not what was asked for.</li>
+  <li>Washing an insoluble precipitate with tap water rather than distilled water, which adds impurities instead of removing them.</li>
+  <li>Mixing up the indicator colours: methyl orange is red in acid and yellow in alkali; phenolphthalein is colourless in acid and pink in alkali.</li>
+</ul>
+
+<h3>13. Exam technique for this topic</h3>
+<ul>
+  <li>When asked to "describe how you would prepare" a salt, give the steps in order and add a reason for the two steps that carry marks: the excess solid and the crystallising point.</li>
+  <li>Name the salt before writing the equation, then check the formula against the charges. Magnesium chloride is MgCl₂ and not MgCl because Mg is 2+.</li>
+  <li>For an "explain why" question about method, the answer is almost always solubility: which reagent dissolves, and therefore which method can remove what is left over.</li>
+  <li>Write state symbols whenever the question shows them in the equation stem, and keep them consistent.</li>
+  <li>If a titration volume is given in cm³, convert it to dm³ before any concentration calculation, and show that conversion — it is worth a mark on its own.</li>
+  <li>For indicator questions, quote the colour <em>before</em> and <em>after</em> the change, not just the final colour.</li>
+</ul>
+$lit$, 'notes'
+from t
+where not exists (select 1 from upd);
+
+with t as (
+  select t.id from public.topics t
+  join public.subject_levels sl on sl.id = t.subject_level_id
+  join public.subjects s on s.id = sl.subject_id
+  where s.slug = $lit$chemistry-oxfordaqa$lit$ and sl.level = $lit$IGCSE$lit$ and t.slug = $lit$quantitative-chemistry$lit$
+), upd as (
+  update public.study_materials sm
+  set content = $lit$<h2>Quantitative Chemistry</h2>
+<p>Everything a chemist predicts about amounts rests on one idea: the balanced equation tells you the ratio in which particles react, and the mole is the bridge that turns that ratio into grams. Get the bridge right and the whole topic becomes a handful of standard moves — mass to moles, moles through the ratio, moles back to mass — applied to masses, to solutions and to gases. Get it wrong and the arithmetic looks fine while the answer is wrong by a factor of two. This note builds the bridge in order, from the conservation of mass through balancing and relative formula mass to the mole, then applies it to reacting masses, yields, atom economy, concentrations, titrations and gas volumes, with every worked example written out in three steps so that the method can be followed and marked.</p>
+
+<h3>1. Conservation of mass</h3>
+<p>In a chemical reaction atoms are rearranged, never created or destroyed. The mass of the products therefore equals the mass of the reactants that actually reacted, and a balanced equation is simply that statement written in symbols. This is why balancing works: the number of each kind of atom must be the same on both sides.</p>
+<p>The rule only appears to fail when something leaves or joins the system without being weighed. Both directions are examined:</p>
+<ul>
+  <li><strong>Mass appears to fall.</strong> Marble chips in an open flask of dilute acid lose mass, because carbon dioxide escapes: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. In a closed flask with a balloon over the neck, the total mass is unchanged and the balloon inflates.</li>
+  <li><strong>Mass appears to rise.</strong> Magnesium burning in air gains mass, because oxygen from the air is incorporated: 2Mg + O₂ → 2MgO. The gain is exactly the mass of oxygen that combined, and it is the reason the white ash weighs more than the ribbon did.</li>
+  <li><strong>Mass is lost in solution.</strong> A precipitate seems to appear from nowhere, but the total mass of the beaker is unchanged: the dissolved ions have simply joined into an insoluble solid.</li>
+</ul>
+<p>The phrasing to use is "in a closed system", because that is the condition under which the conservation is measurable. A question that shows a mass change is asking you to name what entered or left, not to declare that conservation has failed.</p>
+
+<h3>2. Balancing equations</h3>
+<p>A balanced equation has the same number of each type of atom on both sides. Only coefficients may be changed — never subscripts, because changing a subscript changes the substance: H₂O is water, H₂O₂ is hydrogen peroxide. The method is mechanical:</p>
+<ol>
+  <li>Write the word equation and the correct formulae, including state symbols where they help.</li>
+  <li>Count each element on both sides and leave hydrogen and oxygen until last.</li>
+  <li>Adjust coefficients one element at a time, re-counting after each change.</li>
+  <li>Multiply through by a whole number if any coefficient is a fraction, and check.</li>
+</ol>
+<p>For example, propane burning: C₃H₈ + O₂ → CO₂ + H₂O is unbalanced. Three carbons need 3CO₂, and eight hydrogens need 4H₂O; that gives 3 × 2 + 4 × 1 = 10 oxygens on the right, so 5O₂ are needed on the left: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O. The check is the oxygen count, which is why it is done last.</p>
+<p>An ionic equation drops the spectator ions, which is the version required for precipitation and neutralisation: Ag⁺ + Cl⁻ → AgCl rather than AgNO₃ + NaCl → AgCl + NaNO₃. Both are correct, but only one is what the question asked for, and the charges must balance in an ionic equation as well as the atoms.</p>
+
+<h3>3. Relative formula mass and percentage composition</h3>
+<p>The relative atomic mass, Aᵣ, of an element is its mass compared with one twelfth of a carbon-12 atom, and it has no units. The relative formula mass, Mᵣ, of a compound is the sum of the Aᵣ values of every atom in its formula. Water, H₂O, is 2 × 1 + 16 = 18; carbon dioxide, CO₂, is 12 + 2 × 16 = 44; calcium carbonate, CaCO₃, is 40 + 12 + 3 × 16 = 100.</p>
+<p>Because a formula gives the ratio of atoms, the same arithmetic gives the percentage by mass of any element in a compound:</p>
+<p>percentage by mass = (Aᵣ of the element × number of atoms in the formula) ÷ Mᵣ of the compound × 100 → <em>Key:</em> Aᵣ = relative atomic mass (no units); Mᵣ = relative formula mass (no units); the result is a percentage, so it carries the % sign.</p>
+<p>For ammonium nitrate, NH₄NO₃, Mᵣ = 14 + 4 + 14 + 48 = 80, and the nitrogen contribution is 2 × 14 = 28, so the percentage of nitrogen is 28 ÷ 80 × 100 = 35.0 %. That number is why the fertiliser is sold on its nitrogen content rather than its mass. The same method gives the water in a hydrated salt: copper(II) sulfate pentahydrate, CuSO₄·5H₂O, has Mᵣ = 160 + 5 × 18 = 250, so water is 90 ÷ 250 × 100 = 36.0 % of the crystal.</p>
+
+<h3>4. The mole concept</h3>
+<p>A mole is the amount of substance that contains 6.02 × 10²³ particles — Avogadro's number. That number is not arbitrary: it is chosen so that one mole of a substance, in grams, is numerically equal to its relative formula mass. One mole of carbon is 12 g, one mole of water is 18 g, one mole of calcium carbonate is 100 g.</p>
+<p>That is the entire usefulness of the mole. A balanced equation speaks in particles, and a balance speaks in grams, and the mole is the conversion factor between them. The relation is worth knowing in all three rearrangements:</p>
+<p>n = m ÷ M → <em>Key:</em> n = amount of substance (mol); m = mass (g); M = molar mass, numerically equal to Mᵣ (g/mol). The same relation rearranges to m = n × M and M = m ÷ n, so any two of the three give the third.</p>
+<p>For example, 10.0 g of calcium carbonate is n = m ÷ M = 10.0 ÷ 100 = 0.100 mol, while 10.0 g of water is 10.0 ÷ 18 = 0.556 mol. Equal masses, very different amounts, because the particles weigh differently. The reverse move matters just as much: 0.250 mol of sodium hydroxide is m = n × M = 0.250 × 40 = 10.0 g.</p>
+
+<h3>5. Reading an equation quantitatively</h3>
+<p>The coefficients in a balanced equation are the ratio in which amounts react, in moles. In 2H₂ + O₂ → 2H₂O, two moles of hydrogen react with one mole of oxygen to give two moles of water. The ratio is 2 : 1 : 2, and it holds whatever the actual amounts are — 0.10 mol of hydrogen reacts with 0.05 mol of oxygen.</p>
+<p>This is the step where most marks are lost, because a student who ignores the coefficients adds, subtracts or divides by the wrong number. Two habits prevent it. First, always write the ratio underneath the equation before touching any numbers. Second, remember that the ratio applies to moles and never to grams: 2 g of hydrogen does not react with 1 g of oxygen, because the ratio is between amounts, not masses.</p>
+<p>The standard three-step method for every reacting-mass question is therefore: convert the known mass to moles; use the ratio from the equation to convert to moles of the wanted substance; convert back to mass.</p>
+
+<h3>6. Reacting mass calculations</h3>
+<p>How much calcium oxide is produced by heating 25.0 g of calcium carbonate? The equation is CaCO₃ → CaO + CO₂, so the ratio is 1 : 1 : 1.</p>
+<ol>
+  <li>Moles of calcium carbonate: n = m ÷ M = 25.0 ÷ 100 = 0.250 mol.</li>
+  <li>Ratio CaCO₃ : CaO is 1 : 1, so moles of calcium oxide = 0.250 mol.</li>
+  <li>Mass of calcium oxide: m = n × M = 0.250 × 56 = 14.0 g.</li>
+</ol>
+<p>The same method handles a ratio that is not 1 : 1. For 4.00 g of hydrogen burning in excess oxygen, 2H₂ + O₂ → 2H₂O: n(H₂) = 4.00 ÷ 2 = 2.00 mol, the ratio is 2 : 2 so n(H₂O) = 2.00 mol, and m = 2.00 × 18 = 36.0 g. Skipping the ratio would give 36.0 g anyway here, which is exactly why an examiner chooses examples where it does not: try methane, CH₄ + 2O₂ → CO₂ + 2H₂O, where 1 mol of methane gives 2 mol of water and the missing factor of two is the error being tested.</p>
+<p>Two checks catch most mistakes: the mass of the product cannot exceed the total mass of the reactants, and a quick estimate of the molar masses tells you the right order of magnitude before any calculation.</p>
+
+<h3>7. Limiting reactants</h3>
+<p>In a real reaction the reactants are rarely present in exactly the ratio the equation requires, so one of them runs out first. That one is the <strong>limiting reactant</strong>, and it decides how much product can form; the other is in excess and some of it will be left over.</p>
+<p>The method is to convert both amounts to moles, then divide each by its coefficient in the equation. The smallest result is the limiting reactant. For example, 0.20 mol of magnesium is heated with 0.050 mol of oxygen in 2Mg + O₂ → 2MgO:</p>
+<ul>
+  <li>Magnesium: 0.20 ÷ 2 = 0.10.</li>
+  <li>Oxygen: 0.050 ÷ 1 = 0.050.</li>
+</ul>
+<p>Oxygen gives the smaller value, so oxygen is limiting. Working from it, 0.050 mol of O₂ produces 0.100 mol of MgO, which is m = n × M = 0.100 × 40 = 4.0 g. Working from the magnesium instead would predict 0.20 mol of MgO and 8.0 g, which is more product than the available oxygen allows — the classic error, and the reason the calculation must start from the limiting reactant.</p>
+<p>The industrial version of the same idea is using an excess of one reactant deliberately: in the blast furnace, carbon monoxide is supplied in excess so that all the iron oxide is reduced, because unreacted ore is worthless and the gas is cheap.</p>
+
+<h3>8. Percentage yield</h3>
+<p>Yield compares what you actually obtained with the maximum the equation allows, which is the <strong>theoretical yield</strong> calculated from the limiting reactant:</p>
+<p>percentage yield = actual yield ÷ theoretical yield × 100 → <em>Key:</em> both masses are in grams (or both in moles, but never one of each); the result is a percentage of the theoretical maximum.</p>
+<p>If 25.0 g of calcium carbonate should give 14.0 g of calcium oxide and a student collects 11.2 g, the yield is 11.2 ÷ 14.0 × 100 = 80.0 %. A yield above 100 % is impossible and always means the product is wet or impure, which is a standard exam question.</p>
+<p>Yields are never 100 % in practice, for reasons worth learning as a list: the reaction may be reversible, so it never goes to completion; some product is lost in transferring between vessels, or left on filter paper; side reactions may convert some reactant to a different product; and the product may be impure or partly decomposed during drying. A high yield is a commercial advantage because the reactants were paid for, which is why industrial processes are designed around it.</p>
+
+<h3>9. Atom economy</h3>
+<p>Yield asks how much of the expected product you got. Atom economy asks a different question: of all the atoms you put in, how many ended up in the product you wanted?</p>
+<p>percentage atom economy = (Mᵣ of the desired product ÷ total Mᵣ of all reactants) × 100 → <em>Key:</em> Mᵣ = relative formula mass (no units); the denominator is the sum of the Mᵣ of every reactant, as the equation is balanced, and by conservation of mass it equals the total Mᵣ of all products.</p>
+<p>For CaCO₃ → CaO + CO₂, the desired product is CaO at 56 and the only reactant is CaCO₃ at 100, so the atom economy is 56 ÷ 100 × 100 = 56.0 %. The other 44 %, a whole molecule of carbon dioxide, is waste — which is truthful, because that is what the process produces.</p>
+<p>The distinction is worth stating clearly, because examiners test it: a reaction can have a 100 % atom economy and a poor yield if it is slow or reversible, and a reaction can have a poor atom economy and a perfect yield. For example, the preparation of an ester has a low atom economy because water is also produced, yet it may go essentially to completion; the displacement of copper by zinc has a good one but may leave copper behind in the apparatus. Industry prefers a high atom economy because it means less waste to dispose of and less reactant bought per kilogram of product, both of which are cost and environmental arguments.</p>
+
+<h3>10. Molar concentration</h3>
+<p>Concentration is the amount of solute per unit volume of solution, and the working unit is mol/dm³, sometimes written M. One cubic decimetre is one litre, so 1 dm³ = 1000 cm³ and a volume in cm³ is divided by 1000 to become dm³.</p>
+<p>c = n ÷ V → <em>Key:</em> c = concentration (mol/dm³); n = amount of solute (mol); V = volume of solution (dm³, not cm³). Rearranged, n = c × V and V = n ÷ c.</p>
+<p>For example, 4.0 g of sodium hydroxide dissolved to make 250 cm³ of solution: n = m ÷ M = 4.0 ÷ 40 = 0.100 mol; V = 250 ÷ 1000 = 0.250 dm³; c = n ÷ V = 0.100 ÷ 0.250 = 0.400 mol/dm³. In the other direction, 250 cm³ of 0.200 mol/dm³ copper(II) sulfate contains n = c × V = 0.200 × 0.250 = 0.0500 mol, which is m = n × M = 0.0500 × 160 = 8.0 g of CuSO₄.</p>
+<p>Concentration is not the same as amount. A 0.100 mol/dm³ solution in a 25 cm³ pipette contains 0.00250 mol, while the same concentration in a 1 dm³ flask contains 0.100 mol; the concentration is identical, the amount is forty times greater. That confusion is the single commonest error in titration arithmetic.</p>
+
+<h3>11. Titration calculations</h3>
+<p>A titration gives two volumes of solution that just neutralise each other, and one known concentration; the calculation finds the other concentration. The sequence is always the same: moles of the known solution, ratio from the equation, moles of the unknown, then divide by its volume in dm³.</p>
+<p><strong>Example, 1 : 1 ratio.</strong> 25.0 cm³ of 0.100 mol/dm³ sodium hydroxide is neutralised by 20.0 cm³ of hydrochloric acid. NaOH + HCl → NaCl + H₂O, so the ratio is 1 : 1. Moles of alkali: n = c × V = 0.100 × 0.0250 = 0.00250 mol. Moles of acid = 0.00250 mol, and its volume is 20.0 ÷ 1000 = 0.0200 dm³. Then c = n ÷ V = 0.00250 ÷ 0.0200 = 0.125 mol/dm³.</p>
+<p><strong>Example, 2 : 1 ratio.</strong> The same alkali is neutralised by 12.5 cm³ of sulfuric acid. H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O, so one mole of acid neutralises two moles of alkali. Moles of alkali are still 0.00250 mol, so moles of acid = 0.00250 ÷ 2 = 0.00125 mol, and c = 0.00125 ÷ 0.0125 = 0.100 mol/dm³. Notice how the ratio is applied to moles before the division: dividing the concentration by two instead is the error this example exists to catch.</p>
+<p>The practical side matters too. Two concordant titres within 0.1 cm³ are averaged, because a single reading can be spoiled by one drop past the end point, and a titre that is far from the others is discarded rather than averaged in.</p>
+
+<h3>12. Gas volumes</h3>
+<p>One mole of any gas occupies the same volume at the same temperature and pressure, because the volume depends on the number of particles rather than on their mass. At room temperature and pressure that volume is 24 dm³ (24 000 cm³) per mole, so:</p>
+<p>n = V ÷ 24 → <em>Key:</em> n = amount of gas (mol); V = volume at room temperature and pressure (dm³); 24 = molar gas volume (dm³/mol) at RTP, and it changes if the temperature or pressure changes.</p>
+<p>So 0.0500 mol of carbon dioxide at RTP occupies V = n × 24 = 1.20 dm³, which is 1200 cm³. Combined with a reacting-mass calculation, the same relation answers how much gas a reaction produces: 25.0 g of calcium carbonate decomposes to 0.250 mol of CO₂, which is 0.250 × 24 = 6.00 dm³ at RTP. The temperature has to be stated because 24 dm³ applies at 20 °C and 1 atm; at other conditions the same amount of gas occupies a different volume, which is why the units include the conditions implicitly.</p>
+
+<h3>13. Worked examples</h3>
+<p><strong>Example 1.</strong> Calculate the percentage by mass of oxygen in copper(II) sulfate, CuSO₄.</p>
+<p>Mᵣ = 63.5 + 32 + (4 × 16) = 159.5. Oxygen contributes 64, so the percentage is 64 ÷ 159.5 × 100 = 40.1 %. Rounding 63.5 to 64 would give 40.0 %, so keep the value you were given.</p>
+<p><strong>Example 2.</strong> 6.50 g of zinc reacts completely with dilute hydrochloric acid. Calculate the mass of zinc chloride formed. Zn + 2HCl → ZnCl₂ + H₂.</p>
+<p>n(Zn) = m ÷ M = 6.50 ÷ 65 = 0.100 mol. The ratio Zn : ZnCl₂ is 1 : 1, so n(ZnCl₂) = 0.100 mol. Mᵣ(ZnCl₂) = 65 + (2 × 35.5) = 136, so m = n × M = 0.100 × 136 = 13.6 g. The hydrogen escapes, which is why the mass of the solid product is greater than the mass of zinc that formed it — the chloride ions supplied the extra mass.</p>
+<p><strong>Example 3.</strong> A reaction has a theoretical yield of 14.0 g and produces 11.2 g. Calculate the percentage yield, and state one reason the yield is below 100 %.</p>
+<p>Percentage yield = 11.2 ÷ 14.0 × 100 = 80.0 %. A reason: some product was left behind on the filter paper when it was transferred, or the reaction is reversible and did not go to completion.</p>
+<p><strong>Example 4.</strong> 25.0 cm³ of 0.100 mol/dm³ sodium hydroxide is titrated with sulfuric acid and 12.5 cm³ is needed. Calculate the concentration of the acid, and its mass concentration in g/dm³.</p>
+<p>n(NaOH) = c × V = 0.100 × 0.0250 = 0.00250 mol; the ratio in H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O is 1 : 2, so n(H₂SO₄) = 0.00250 ÷ 2 = 0.00125 mol; c = n ÷ V = 0.00125 ÷ 0.0125 = 0.100 mol/dm³. The molar mass of H₂SO₄ is 98, so the mass concentration is 0.100 × 98 = 9.8 g/dm³.</p>
+
+<h3>14. Exam-style questions</h3>
+<ol>
+  <li>Magnesium ribbon is burned in a crucible and the mass of the contents increases. Explain the increase in terms of the balanced equation. <em>Answer:</em> the magnesium combines with oxygen from the air, 2Mg + O₂ → 2MgO, so oxygen atoms are added to the system; the mass increases by exactly the mass of oxygen that reacted, and mass is conserved because the oxygen was part of the surroundings rather than the crucible.</li>
+  <li>Calculate the relative formula mass of aluminium sulfate, Al₂(SO₄)₃. <em>Answer:</em> 2 × 27 + 3 × (32 + 4 × 16) = 54 + 3 × 96 = 342.</li>
+  <li>Calculate the mass of carbon dioxide produced when 50.0 g of calcium carbonate is heated. CaCO₃ → CaO + CO₂. <em>Answer:</em> n(CaCO₃) = 50.0 ÷ 100 = 0.500 mol; the ratio is 1 : 1 so n(CO₂) = 0.500 mol; m = n × M = 0.500 × 44 = 22.0 g.</li>
+  <li>Explain why a yield greater than 100 % is impossible. <em>Answer:</em> the theoretical yield is the maximum allowed by the limiting reactant and by conservation of mass, so a measured yield above it means the product is impure or still wet rather than that extra product was formed.</li>
+  <li>For the reaction 2Na + Cl₂ → 2NaCl, calculate the atom economy. <em>Answer:</em> the desired product is NaCl with Mᵣ = 58.5 and two moles of it are formed, so the product mass is 117; the reactants are 2 × 23 + 71 = 117, so the atom economy is 117 ÷ 117 × 100 = 100 %, because there is only one product.</li>
+  <li>0.500 mol/dm³ hydrochloric acid is used to make 2.00 dm³ of solution. Calculate the amount of acid in the solution and the mass of hydrogen chloride it contains. <em>Answer:</em> n = c × V = 0.500 × 2.00 = 1.00 mol; m = n × M = 1.00 × 36.5 = 36.5 g of HCl.</li>
+  <li>12.0 g of magnesium is burned in 8.00 g of oxygen. Which reactant is limiting, and what mass of magnesium oxide forms? <em>Answer:</em> n(Mg) = 12.0 ÷ 24 = 0.500 mol and 0.500 ÷ 2 = 0.250; n(O₂) = 8.00 ÷ 32 = 0.250 mol and 0.250 ÷ 1 = 0.250; the values are equal, so neither is in excess and 0.500 mol of MgO forms, which is m = 0.500 × 40 = 20.0 g.</li>
+  <li>A student obtains 3.60 g of copper from 4.00 g of copper(II) oxide reduced by hydrogen, CuO + H₂ → Cu + H₂O. Calculate the percentage yield. <em>Answer:</em> the theoretical yield is n(CuO) = 4.00 ÷ 79.5 = 0.0503 mol, so m(Cu) = 0.0503 × 63.5 = 3.19 g; the yield would then be 3.60 ÷ 3.19 × 100 = 113 %, which is impossible, so the product must be contaminated — a result worth suspecting rather than accepting.</li>
+</ol>
+
+<h3>15. Common mistakes</h3>
+<ul>
+  <li>Applying the equation's ratio to grams instead of moles. The ratio is between amounts, so both masses must be converted first.</li>
+  <li>Leaving a volume in cm³ when dividing by it. A concentration in mol/dm³ needs the volume in dm³, so divide by 1000 first.</li>
+  <li>Using the reactant that is in excess to calculate the product. Find the limiting reactant, then calculate from that.</li>
+  <li>Confusing yield with atom economy. Yield compares actual with theoretical product; atom economy compares the wanted product with everything the reaction makes.</li>
+  <li>Forgetting the water in a hydrated salt. CuSO₄·5H₂O has Mᵣ 250, not 160.</li>
+  <li>Rounding relative atomic masses before the last step, which shifts the answer by more than the tolerance allowed.</li>
+  <li>Balancing by changing a subscript. Changing H₂O to H₂O₂ changes the substance rather than the equation.</li>
+  <li>Writing a mass change as a failure of conservation. Name the gas that escaped or the oxygen that joined instead.</li>
+</ul>
+
+<h3>16. Exam technique for this topic</h3>
+<ul>
+  <li>Write the three steps explicitly, every time: moles of what you know, ratio, moles of what you want. Most of the marks are awarded for the steps, not the final number.</li>
+  <li>Give the unit on every answer, and check it is the unit asked for — mol, g, g/dm³, mol/dm³, dm³ or a percentage.</li>
+  <li>Balance the equation before using it. An unbalanced equation gives the wrong ratio and the rest of the working inherits the error.</li>
+  <li>Quote answers to three significant figures unless the question says otherwise, and keep the unrounded value in the calculator until the end.</li>
+  <li>If the answer comes out absurd — a yield over 100 %, or a product heavier than all the reactants — say so; a sentence of comment often earns a mark on its own.</li>
+  <li>For an "explain" question about a mass change, use the words "closed system" and name what entered or left.</li>
+</ul>
+$lit$, material_type = 'notes', updated_at = now()
+  from t
+  where sm.topic_id = t.id and sm.title = $lit$IGCSE Chemistry (OxfordAQA): Quantitative Chemistry$lit$
+  returning sm.id
+)
+insert into public.study_materials (topic_id, title, content, material_type)
+select t.id, $lit$IGCSE Chemistry (OxfordAQA): Quantitative Chemistry$lit$, $lit$<h2>Quantitative Chemistry</h2>
+<p>Everything a chemist predicts about amounts rests on one idea: the balanced equation tells you the ratio in which particles react, and the mole is the bridge that turns that ratio into grams. Get the bridge right and the whole topic becomes a handful of standard moves — mass to moles, moles through the ratio, moles back to mass — applied to masses, to solutions and to gases. Get it wrong and the arithmetic looks fine while the answer is wrong by a factor of two. This note builds the bridge in order, from the conservation of mass through balancing and relative formula mass to the mole, then applies it to reacting masses, yields, atom economy, concentrations, titrations and gas volumes, with every worked example written out in three steps so that the method can be followed and marked.</p>
+
+<h3>1. Conservation of mass</h3>
+<p>In a chemical reaction atoms are rearranged, never created or destroyed. The mass of the products therefore equals the mass of the reactants that actually reacted, and a balanced equation is simply that statement written in symbols. This is why balancing works: the number of each kind of atom must be the same on both sides.</p>
+<p>The rule only appears to fail when something leaves or joins the system without being weighed. Both directions are examined:</p>
+<ul>
+  <li><strong>Mass appears to fall.</strong> Marble chips in an open flask of dilute acid lose mass, because carbon dioxide escapes: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. In a closed flask with a balloon over the neck, the total mass is unchanged and the balloon inflates.</li>
+  <li><strong>Mass appears to rise.</strong> Magnesium burning in air gains mass, because oxygen from the air is incorporated: 2Mg + O₂ → 2MgO. The gain is exactly the mass of oxygen that combined, and it is the reason the white ash weighs more than the ribbon did.</li>
+  <li><strong>Mass is lost in solution.</strong> A precipitate seems to appear from nowhere, but the total mass of the beaker is unchanged: the dissolved ions have simply joined into an insoluble solid.</li>
+</ul>
+<p>The phrasing to use is "in a closed system", because that is the condition under which the conservation is measurable. A question that shows a mass change is asking you to name what entered or left, not to declare that conservation has failed.</p>
+
+<h3>2. Balancing equations</h3>
+<p>A balanced equation has the same number of each type of atom on both sides. Only coefficients may be changed — never subscripts, because changing a subscript changes the substance: H₂O is water, H₂O₂ is hydrogen peroxide. The method is mechanical:</p>
+<ol>
+  <li>Write the word equation and the correct formulae, including state symbols where they help.</li>
+  <li>Count each element on both sides and leave hydrogen and oxygen until last.</li>
+  <li>Adjust coefficients one element at a time, re-counting after each change.</li>
+  <li>Multiply through by a whole number if any coefficient is a fraction, and check.</li>
+</ol>
+<p>For example, propane burning: C₃H₈ + O₂ → CO₂ + H₂O is unbalanced. Three carbons need 3CO₂, and eight hydrogens need 4H₂O; that gives 3 × 2 + 4 × 1 = 10 oxygens on the right, so 5O₂ are needed on the left: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O. The check is the oxygen count, which is why it is done last.</p>
+<p>An ionic equation drops the spectator ions, which is the version required for precipitation and neutralisation: Ag⁺ + Cl⁻ → AgCl rather than AgNO₃ + NaCl → AgCl + NaNO₃. Both are correct, but only one is what the question asked for, and the charges must balance in an ionic equation as well as the atoms.</p>
+
+<h3>3. Relative formula mass and percentage composition</h3>
+<p>The relative atomic mass, Aᵣ, of an element is its mass compared with one twelfth of a carbon-12 atom, and it has no units. The relative formula mass, Mᵣ, of a compound is the sum of the Aᵣ values of every atom in its formula. Water, H₂O, is 2 × 1 + 16 = 18; carbon dioxide, CO₂, is 12 + 2 × 16 = 44; calcium carbonate, CaCO₃, is 40 + 12 + 3 × 16 = 100.</p>
+<p>Because a formula gives the ratio of atoms, the same arithmetic gives the percentage by mass of any element in a compound:</p>
+<p>percentage by mass = (Aᵣ of the element × number of atoms in the formula) ÷ Mᵣ of the compound × 100 → <em>Key:</em> Aᵣ = relative atomic mass (no units); Mᵣ = relative formula mass (no units); the result is a percentage, so it carries the % sign.</p>
+<p>For ammonium nitrate, NH₄NO₃, Mᵣ = 14 + 4 + 14 + 48 = 80, and the nitrogen contribution is 2 × 14 = 28, so the percentage of nitrogen is 28 ÷ 80 × 100 = 35.0 %. That number is why the fertiliser is sold on its nitrogen content rather than its mass. The same method gives the water in a hydrated salt: copper(II) sulfate pentahydrate, CuSO₄·5H₂O, has Mᵣ = 160 + 5 × 18 = 250, so water is 90 ÷ 250 × 100 = 36.0 % of the crystal.</p>
+
+<h3>4. The mole concept</h3>
+<p>A mole is the amount of substance that contains 6.02 × 10²³ particles — Avogadro's number. That number is not arbitrary: it is chosen so that one mole of a substance, in grams, is numerically equal to its relative formula mass. One mole of carbon is 12 g, one mole of water is 18 g, one mole of calcium carbonate is 100 g.</p>
+<p>That is the entire usefulness of the mole. A balanced equation speaks in particles, and a balance speaks in grams, and the mole is the conversion factor between them. The relation is worth knowing in all three rearrangements:</p>
+<p>n = m ÷ M → <em>Key:</em> n = amount of substance (mol); m = mass (g); M = molar mass, numerically equal to Mᵣ (g/mol). The same relation rearranges to m = n × M and M = m ÷ n, so any two of the three give the third.</p>
+<p>For example, 10.0 g of calcium carbonate is n = m ÷ M = 10.0 ÷ 100 = 0.100 mol, while 10.0 g of water is 10.0 ÷ 18 = 0.556 mol. Equal masses, very different amounts, because the particles weigh differently. The reverse move matters just as much: 0.250 mol of sodium hydroxide is m = n × M = 0.250 × 40 = 10.0 g.</p>
+
+<h3>5. Reading an equation quantitatively</h3>
+<p>The coefficients in a balanced equation are the ratio in which amounts react, in moles. In 2H₂ + O₂ → 2H₂O, two moles of hydrogen react with one mole of oxygen to give two moles of water. The ratio is 2 : 1 : 2, and it holds whatever the actual amounts are — 0.10 mol of hydrogen reacts with 0.05 mol of oxygen.</p>
+<p>This is the step where most marks are lost, because a student who ignores the coefficients adds, subtracts or divides by the wrong number. Two habits prevent it. First, always write the ratio underneath the equation before touching any numbers. Second, remember that the ratio applies to moles and never to grams: 2 g of hydrogen does not react with 1 g of oxygen, because the ratio is between amounts, not masses.</p>
+<p>The standard three-step method for every reacting-mass question is therefore: convert the known mass to moles; use the ratio from the equation to convert to moles of the wanted substance; convert back to mass.</p>
+
+<h3>6. Reacting mass calculations</h3>
+<p>How much calcium oxide is produced by heating 25.0 g of calcium carbonate? The equation is CaCO₃ → CaO + CO₂, so the ratio is 1 : 1 : 1.</p>
+<ol>
+  <li>Moles of calcium carbonate: n = m ÷ M = 25.0 ÷ 100 = 0.250 mol.</li>
+  <li>Ratio CaCO₃ : CaO is 1 : 1, so moles of calcium oxide = 0.250 mol.</li>
+  <li>Mass of calcium oxide: m = n × M = 0.250 × 56 = 14.0 g.</li>
+</ol>
+<p>The same method handles a ratio that is not 1 : 1. For 4.00 g of hydrogen burning in excess oxygen, 2H₂ + O₂ → 2H₂O: n(H₂) = 4.00 ÷ 2 = 2.00 mol, the ratio is 2 : 2 so n(H₂O) = 2.00 mol, and m = 2.00 × 18 = 36.0 g. Skipping the ratio would give 36.0 g anyway here, which is exactly why an examiner chooses examples where it does not: try methane, CH₄ + 2O₂ → CO₂ + 2H₂O, where 1 mol of methane gives 2 mol of water and the missing factor of two is the error being tested.</p>
+<p>Two checks catch most mistakes: the mass of the product cannot exceed the total mass of the reactants, and a quick estimate of the molar masses tells you the right order of magnitude before any calculation.</p>
+
+<h3>7. Limiting reactants</h3>
+<p>In a real reaction the reactants are rarely present in exactly the ratio the equation requires, so one of them runs out first. That one is the <strong>limiting reactant</strong>, and it decides how much product can form; the other is in excess and some of it will be left over.</p>
+<p>The method is to convert both amounts to moles, then divide each by its coefficient in the equation. The smallest result is the limiting reactant. For example, 0.20 mol of magnesium is heated with 0.050 mol of oxygen in 2Mg + O₂ → 2MgO:</p>
+<ul>
+  <li>Magnesium: 0.20 ÷ 2 = 0.10.</li>
+  <li>Oxygen: 0.050 ÷ 1 = 0.050.</li>
+</ul>
+<p>Oxygen gives the smaller value, so oxygen is limiting. Working from it, 0.050 mol of O₂ produces 0.100 mol of MgO, which is m = n × M = 0.100 × 40 = 4.0 g. Working from the magnesium instead would predict 0.20 mol of MgO and 8.0 g, which is more product than the available oxygen allows — the classic error, and the reason the calculation must start from the limiting reactant.</p>
+<p>The industrial version of the same idea is using an excess of one reactant deliberately: in the blast furnace, carbon monoxide is supplied in excess so that all the iron oxide is reduced, because unreacted ore is worthless and the gas is cheap.</p>
+
+<h3>8. Percentage yield</h3>
+<p>Yield compares what you actually obtained with the maximum the equation allows, which is the <strong>theoretical yield</strong> calculated from the limiting reactant:</p>
+<p>percentage yield = actual yield ÷ theoretical yield × 100 → <em>Key:</em> both masses are in grams (or both in moles, but never one of each); the result is a percentage of the theoretical maximum.</p>
+<p>If 25.0 g of calcium carbonate should give 14.0 g of calcium oxide and a student collects 11.2 g, the yield is 11.2 ÷ 14.0 × 100 = 80.0 %. A yield above 100 % is impossible and always means the product is wet or impure, which is a standard exam question.</p>
+<p>Yields are never 100 % in practice, for reasons worth learning as a list: the reaction may be reversible, so it never goes to completion; some product is lost in transferring between vessels, or left on filter paper; side reactions may convert some reactant to a different product; and the product may be impure or partly decomposed during drying. A high yield is a commercial advantage because the reactants were paid for, which is why industrial processes are designed around it.</p>
+
+<h3>9. Atom economy</h3>
+<p>Yield asks how much of the expected product you got. Atom economy asks a different question: of all the atoms you put in, how many ended up in the product you wanted?</p>
+<p>percentage atom economy = (Mᵣ of the desired product ÷ total Mᵣ of all reactants) × 100 → <em>Key:</em> Mᵣ = relative formula mass (no units); the denominator is the sum of the Mᵣ of every reactant, as the equation is balanced, and by conservation of mass it equals the total Mᵣ of all products.</p>
+<p>For CaCO₃ → CaO + CO₂, the desired product is CaO at 56 and the only reactant is CaCO₃ at 100, so the atom economy is 56 ÷ 100 × 100 = 56.0 %. The other 44 %, a whole molecule of carbon dioxide, is waste — which is truthful, because that is what the process produces.</p>
+<p>The distinction is worth stating clearly, because examiners test it: a reaction can have a 100 % atom economy and a poor yield if it is slow or reversible, and a reaction can have a poor atom economy and a perfect yield. For example, the preparation of an ester has a low atom economy because water is also produced, yet it may go essentially to completion; the displacement of copper by zinc has a good one but may leave copper behind in the apparatus. Industry prefers a high atom economy because it means less waste to dispose of and less reactant bought per kilogram of product, both of which are cost and environmental arguments.</p>
+
+<h3>10. Molar concentration</h3>
+<p>Concentration is the amount of solute per unit volume of solution, and the working unit is mol/dm³, sometimes written M. One cubic decimetre is one litre, so 1 dm³ = 1000 cm³ and a volume in cm³ is divided by 1000 to become dm³.</p>
+<p>c = n ÷ V → <em>Key:</em> c = concentration (mol/dm³); n = amount of solute (mol); V = volume of solution (dm³, not cm³). Rearranged, n = c × V and V = n ÷ c.</p>
+<p>For example, 4.0 g of sodium hydroxide dissolved to make 250 cm³ of solution: n = m ÷ M = 4.0 ÷ 40 = 0.100 mol; V = 250 ÷ 1000 = 0.250 dm³; c = n ÷ V = 0.100 ÷ 0.250 = 0.400 mol/dm³. In the other direction, 250 cm³ of 0.200 mol/dm³ copper(II) sulfate contains n = c × V = 0.200 × 0.250 = 0.0500 mol, which is m = n × M = 0.0500 × 160 = 8.0 g of CuSO₄.</p>
+<p>Concentration is not the same as amount. A 0.100 mol/dm³ solution in a 25 cm³ pipette contains 0.00250 mol, while the same concentration in a 1 dm³ flask contains 0.100 mol; the concentration is identical, the amount is forty times greater. That confusion is the single commonest error in titration arithmetic.</p>
+
+<h3>11. Titration calculations</h3>
+<p>A titration gives two volumes of solution that just neutralise each other, and one known concentration; the calculation finds the other concentration. The sequence is always the same: moles of the known solution, ratio from the equation, moles of the unknown, then divide by its volume in dm³.</p>
+<p><strong>Example, 1 : 1 ratio.</strong> 25.0 cm³ of 0.100 mol/dm³ sodium hydroxide is neutralised by 20.0 cm³ of hydrochloric acid. NaOH + HCl → NaCl + H₂O, so the ratio is 1 : 1. Moles of alkali: n = c × V = 0.100 × 0.0250 = 0.00250 mol. Moles of acid = 0.00250 mol, and its volume is 20.0 ÷ 1000 = 0.0200 dm³. Then c = n ÷ V = 0.00250 ÷ 0.0200 = 0.125 mol/dm³.</p>
+<p><strong>Example, 2 : 1 ratio.</strong> The same alkali is neutralised by 12.5 cm³ of sulfuric acid. H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O, so one mole of acid neutralises two moles of alkali. Moles of alkali are still 0.00250 mol, so moles of acid = 0.00250 ÷ 2 = 0.00125 mol, and c = 0.00125 ÷ 0.0125 = 0.100 mol/dm³. Notice how the ratio is applied to moles before the division: dividing the concentration by two instead is the error this example exists to catch.</p>
+<p>The practical side matters too. Two concordant titres within 0.1 cm³ are averaged, because a single reading can be spoiled by one drop past the end point, and a titre that is far from the others is discarded rather than averaged in.</p>
+
+<h3>12. Gas volumes</h3>
+<p>One mole of any gas occupies the same volume at the same temperature and pressure, because the volume depends on the number of particles rather than on their mass. At room temperature and pressure that volume is 24 dm³ (24 000 cm³) per mole, so:</p>
+<p>n = V ÷ 24 → <em>Key:</em> n = amount of gas (mol); V = volume at room temperature and pressure (dm³); 24 = molar gas volume (dm³/mol) at RTP, and it changes if the temperature or pressure changes.</p>
+<p>So 0.0500 mol of carbon dioxide at RTP occupies V = n × 24 = 1.20 dm³, which is 1200 cm³. Combined with a reacting-mass calculation, the same relation answers how much gas a reaction produces: 25.0 g of calcium carbonate decomposes to 0.250 mol of CO₂, which is 0.250 × 24 = 6.00 dm³ at RTP. The temperature has to be stated because 24 dm³ applies at 20 °C and 1 atm; at other conditions the same amount of gas occupies a different volume, which is why the units include the conditions implicitly.</p>
+
+<h3>13. Worked examples</h3>
+<p><strong>Example 1.</strong> Calculate the percentage by mass of oxygen in copper(II) sulfate, CuSO₄.</p>
+<p>Mᵣ = 63.5 + 32 + (4 × 16) = 159.5. Oxygen contributes 64, so the percentage is 64 ÷ 159.5 × 100 = 40.1 %. Rounding 63.5 to 64 would give 40.0 %, so keep the value you were given.</p>
+<p><strong>Example 2.</strong> 6.50 g of zinc reacts completely with dilute hydrochloric acid. Calculate the mass of zinc chloride formed. Zn + 2HCl → ZnCl₂ + H₂.</p>
+<p>n(Zn) = m ÷ M = 6.50 ÷ 65 = 0.100 mol. The ratio Zn : ZnCl₂ is 1 : 1, so n(ZnCl₂) = 0.100 mol. Mᵣ(ZnCl₂) = 65 + (2 × 35.5) = 136, so m = n × M = 0.100 × 136 = 13.6 g. The hydrogen escapes, which is why the mass of the solid product is greater than the mass of zinc that formed it — the chloride ions supplied the extra mass.</p>
+<p><strong>Example 3.</strong> A reaction has a theoretical yield of 14.0 g and produces 11.2 g. Calculate the percentage yield, and state one reason the yield is below 100 %.</p>
+<p>Percentage yield = 11.2 ÷ 14.0 × 100 = 80.0 %. A reason: some product was left behind on the filter paper when it was transferred, or the reaction is reversible and did not go to completion.</p>
+<p><strong>Example 4.</strong> 25.0 cm³ of 0.100 mol/dm³ sodium hydroxide is titrated with sulfuric acid and 12.5 cm³ is needed. Calculate the concentration of the acid, and its mass concentration in g/dm³.</p>
+<p>n(NaOH) = c × V = 0.100 × 0.0250 = 0.00250 mol; the ratio in H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O is 1 : 2, so n(H₂SO₄) = 0.00250 ÷ 2 = 0.00125 mol; c = n ÷ V = 0.00125 ÷ 0.0125 = 0.100 mol/dm³. The molar mass of H₂SO₄ is 98, so the mass concentration is 0.100 × 98 = 9.8 g/dm³.</p>
+
+<h3>14. Exam-style questions</h3>
+<ol>
+  <li>Magnesium ribbon is burned in a crucible and the mass of the contents increases. Explain the increase in terms of the balanced equation. <em>Answer:</em> the magnesium combines with oxygen from the air, 2Mg + O₂ → 2MgO, so oxygen atoms are added to the system; the mass increases by exactly the mass of oxygen that reacted, and mass is conserved because the oxygen was part of the surroundings rather than the crucible.</li>
+  <li>Calculate the relative formula mass of aluminium sulfate, Al₂(SO₄)₃. <em>Answer:</em> 2 × 27 + 3 × (32 + 4 × 16) = 54 + 3 × 96 = 342.</li>
+  <li>Calculate the mass of carbon dioxide produced when 50.0 g of calcium carbonate is heated. CaCO₃ → CaO + CO₂. <em>Answer:</em> n(CaCO₃) = 50.0 ÷ 100 = 0.500 mol; the ratio is 1 : 1 so n(CO₂) = 0.500 mol; m = n × M = 0.500 × 44 = 22.0 g.</li>
+  <li>Explain why a yield greater than 100 % is impossible. <em>Answer:</em> the theoretical yield is the maximum allowed by the limiting reactant and by conservation of mass, so a measured yield above it means the product is impure or still wet rather than that extra product was formed.</li>
+  <li>For the reaction 2Na + Cl₂ → 2NaCl, calculate the atom economy. <em>Answer:</em> the desired product is NaCl with Mᵣ = 58.5 and two moles of it are formed, so the product mass is 117; the reactants are 2 × 23 + 71 = 117, so the atom economy is 117 ÷ 117 × 100 = 100 %, because there is only one product.</li>
+  <li>0.500 mol/dm³ hydrochloric acid is used to make 2.00 dm³ of solution. Calculate the amount of acid in the solution and the mass of hydrogen chloride it contains. <em>Answer:</em> n = c × V = 0.500 × 2.00 = 1.00 mol; m = n × M = 1.00 × 36.5 = 36.5 g of HCl.</li>
+  <li>12.0 g of magnesium is burned in 8.00 g of oxygen. Which reactant is limiting, and what mass of magnesium oxide forms? <em>Answer:</em> n(Mg) = 12.0 ÷ 24 = 0.500 mol and 0.500 ÷ 2 = 0.250; n(O₂) = 8.00 ÷ 32 = 0.250 mol and 0.250 ÷ 1 = 0.250; the values are equal, so neither is in excess and 0.500 mol of MgO forms, which is m = 0.500 × 40 = 20.0 g.</li>
+  <li>A student obtains 3.60 g of copper from 4.00 g of copper(II) oxide reduced by hydrogen, CuO + H₂ → Cu + H₂O. Calculate the percentage yield. <em>Answer:</em> the theoretical yield is n(CuO) = 4.00 ÷ 79.5 = 0.0503 mol, so m(Cu) = 0.0503 × 63.5 = 3.19 g; the yield would then be 3.60 ÷ 3.19 × 100 = 113 %, which is impossible, so the product must be contaminated — a result worth suspecting rather than accepting.</li>
+</ol>
+
+<h3>15. Common mistakes</h3>
+<ul>
+  <li>Applying the equation's ratio to grams instead of moles. The ratio is between amounts, so both masses must be converted first.</li>
+  <li>Leaving a volume in cm³ when dividing by it. A concentration in mol/dm³ needs the volume in dm³, so divide by 1000 first.</li>
+  <li>Using the reactant that is in excess to calculate the product. Find the limiting reactant, then calculate from that.</li>
+  <li>Confusing yield with atom economy. Yield compares actual with theoretical product; atom economy compares the wanted product with everything the reaction makes.</li>
+  <li>Forgetting the water in a hydrated salt. CuSO₄·5H₂O has Mᵣ 250, not 160.</li>
+  <li>Rounding relative atomic masses before the last step, which shifts the answer by more than the tolerance allowed.</li>
+  <li>Balancing by changing a subscript. Changing H₂O to H₂O₂ changes the substance rather than the equation.</li>
+  <li>Writing a mass change as a failure of conservation. Name the gas that escaped or the oxygen that joined instead.</li>
+</ul>
+
+<h3>16. Exam technique for this topic</h3>
+<ul>
+  <li>Write the three steps explicitly, every time: moles of what you know, ratio, moles of what you want. Most of the marks are awarded for the steps, not the final number.</li>
+  <li>Give the unit on every answer, and check it is the unit asked for — mol, g, g/dm³, mol/dm³, dm³ or a percentage.</li>
+  <li>Balance the equation before using it. An unbalanced equation gives the wrong ratio and the rest of the working inherits the error.</li>
+  <li>Quote answers to three significant figures unless the question says otherwise, and keep the unrounded value in the calculator until the end.</li>
+  <li>If the answer comes out absurd — a yield over 100 %, or a product heavier than all the reactants — say so; a sentence of comment often earns a mark on its own.</li>
+  <li>For an "explain" question about a mass change, use the words "closed system" and name what entered or left.</li>
+</ul>
+$lit$, 'notes'
+from t
+where not exists (select 1 from upd);

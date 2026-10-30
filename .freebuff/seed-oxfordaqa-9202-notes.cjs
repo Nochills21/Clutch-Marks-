@@ -20,6 +20,8 @@ const NOTES = [
   require("./content-oxfordaqa-9202-bonding.cjs"),
   require("./content-oxfordaqa-9202-chemical-changes.cjs"),
   require("./content-oxfordaqa-9202-chemical-analysis.cjs"),
+  require("./content-oxfordaqa-9202-acids-bases-salts.cjs"),
+  require("./content-oxfordaqa-9202-quantitative-chemistry.cjs"),
 ];
 
 const TOKEN = (fs.readFileSync(path.join(ROOT, ".freebuff/get-keys.cjs"), "utf8").match(/sbp_[a-f0-9]+/) || [])[0];
