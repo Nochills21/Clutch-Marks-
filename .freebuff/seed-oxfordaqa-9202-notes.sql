@@ -1565,3 +1565,1029 @@ select t.id, $lit$IGCSE Chemistry (OxfordAQA): Quantitative Chemistry$lit$, $lit
 $lit$, 'notes'
 from t
 where not exists (select 1 from upd);
+
+with t as (
+  select t.id from public.topics t
+  join public.subject_levels sl on sl.id = t.subject_level_id
+  join public.subjects s on s.id = sl.subject_id
+  where s.slug = $lit$chemistry-oxfordaqa$lit$ and sl.level = $lit$IGCSE$lit$ and t.slug = $lit$trends-within-the-periodic-table$lit$
+), upd as (
+  update public.study_materials sm
+  set content = $lit$<h2>Trends within the Periodic Table</h2>
+<p>The Periodic Table is arranged in order of increasing atomic number, and that single decision explains almost every trend the course asks about. Elements in the same group have the same number of electrons in their outer shell, so they react in the same way; the trends down a group come from where that outer shell sits relative to the nucleus. This topic takes the three groups the specification names — Group 1, Group 7 and Group 0 — and works out why reactivity changes in the direction it does, then turns to the block of transition metals, whose properties are different enough that the exam expects you to contrast them with Group 1 in a table. Every trend below is written with its explanation, because the explanation is the mark.</p>
+
+<h3>1. What a group is, and what changes down it</h3>
+<p>A group is a vertical column. Elements in one group have the same number of outer-shell electrons — one for Group 1, seven for Group 7, a full shell for Group 0 — and that number, not the mass, is what decides how an element reacts. Going down a group the atoms get larger: each element has one more shell than the one above it, so the outer electron is further from the nucleus, and the inner shells shield it from the nuclear charge.</p>
+<ul>
+  <li><strong>Down a group, the outer shell is further out and more shielded.</strong> The nucleus still attracts the outer electrons, but the pull at the surface is weaker because of the extra distance and the extra shells in between.</li>
+  <li><strong>Across a period, atoms get smaller and the nuclear charge grows.</strong> The electrons are added to the same shell, so the pull on that shell increases from left to right.</li>
+  <li><strong>Metals lose electrons, non-metals gain them.</strong> A Group 1 atom has one outer electron and loses it easily; a Group 7 atom needs one more and takes it readily. This is why the two groups sit at opposite ends of the table and behave in opposite ways.</li>
+</ul>
+
+<h3>2. Group 1: the alkali metals</h3>
+<p>Lithium, sodium, potassium, rubidium and caesium are soft, low-density metals stored under oil because they react with water and with the air. They are called alkali metals because the hydroxide they form when they react with water is an alkali.</p>
+<p>Reactivity <em>increases</em> down the group, and the reason is the outer electron. Going down, that electron is in a shell further from the nucleus and is shielded by more inner shells, so it is held less tightly and is lost more easily. The ion that forms is always 1+, and that is what makes the chemistry so regular: every Group 1 element forms the same compounds with the same formulas.</p>
+<table border="1">
+  <tr><th>Property</th><th>Trend down Group 1</th><th>Reason</th></tr>
+  <tr><td>Reactivity with water</td><td>Increases</td><td>The outer electron is lost more easily</td></tr>
+  <tr><td>Melting point</td><td>Decreases</td><td>The atoms are larger, so the metallic bonding holds them less strongly</td></tr>
+  <tr><td>Softness</td><td>Increases</td><td>Weaker metallic bonding, so the metal is easier to cut</td></tr>
+  <tr><td>Density</td><td>Generally increases</td><td>The atoms are heavier; potassium is the exception, and floats on water</td></tr>
+</table>
+
+<h3>3. Group 1 reactions you must be able to write</h3>
+<p>Every Group 1 metal reacts in the same three ways, and the equations follow the same pattern, which is why knowing one element is enough to predict the rest.</p>
+<ul>
+  <li><strong>With water</strong> it forms the metal hydroxide and hydrogen. Sodium melts into a ball and fizzes; potassium burns with a lilac flame and the reaction is violent enough to be dangerous. 2Na + 2H₂O → 2NaOH + H₂</li>
+  <li><strong>With oxygen</strong> it forms the metal oxide. 4Na + O₂ → 2Na₂O</li>
+  <li><strong>With chlorine</strong> it forms the metal chloride, a white solid. 2Na + Cl₂ → 2NaCl</li>
+</ul>
+<p>The observation to quote is the one that changes down the group: lithium fizzes steadily and moves slowly, sodium fizzes vigorously and may melt, potassium ignites the hydrogen it produces. "It reacted" earns nothing; "it moved, fizzing, and shrank to a ball" is the observation the mark scheme pays for.</p>
+
+<h3>4. Group 7: the halogens</h3>
+<p>Fluorine, chlorine, bromine, iodine and astatine each have seven outer electrons and need one more to complete the shell, so they form 1− ions and pair up as diatomic molecules: F₂, Cl₂, Br₂, I₂. Their appearance and state change steadily down the group, which is a common one-mark question.</p>
+<table border="1">
+  <tr><th>Halogen</th><th>State at room temperature</th><th>Colour</th></tr>
+  <tr><td>Fluorine, F₂</td><td>Gas</td><td>Pale yellow</td></tr>
+  <tr><td>Chlorine, Cl₂</td><td>Gas</td><td>Greenish yellow</td></tr>
+  <tr><td>Bromine, Br₂</td><td>Liquid</td><td>Red-brown, with an orange vapour</td></tr>
+  <tr><td>Iodine, I₂</td><td>Solid</td><td>Grey-black, giving a purple vapour on heating</td></tr>
+</table>
+<p>Reactivity <em>decreases</em> down the group, which is the opposite of Group 1, and the reason is the same fact read backwards. A halogen reacts by gaining an electron, and the nucleus must attract an electron into its outer shell. Down the group that shell is further from the nucleus and more shielded, so the attraction is weaker, the electron is gained less readily, and the element is less reactive.</p>
+
+<h3>5. Displacement: how the trend is tested</h3>
+<p>A more reactive halogen displaces a less reactive one from a solution of its salt. This is the standard practical test of the trend, and it is a redox reaction: the halogen that is displaced is oxidised back to the element, and the halogen doing the displacing is reduced.</p>
+<ul>
+  <li>Chlorine added to potassium bromide solution turns it orange, because bromine is made: Cl₂ + 2KBr → 2KCl + Br₂</li>
+  <li>Chlorine added to potassium iodide solution turns it brown, because iodine is made: Cl₂ + 2KI → 2KCl + I₂</li>
+  <li>Bromine added to potassium iodide solution turns it brown: Br₂ + 2KI → 2KBr + I₂</li>
+  <li>Bromine added to potassium chloride solution does nothing, because chlorine is more reactive and cannot be displaced.</li>
+</ul>
+<p>Read the direction of each equation as evidence rather than something to memorise: the element on the left is the more reactive one, and it is the one that ends up in the compound.</p>
+
+<h3>6. Group 0: the noble gases</h3>
+<p>Helium, neon, argon, krypton and xenon have a full outer shell, so they neither lose nor gain electrons readily and are almost completely unreactive. They exist as single atoms rather than molecules, which is why their formulas are written He, Ne and Ar with no subscript.</p>
+<ul>
+  <li><strong>Helium</strong> is used in balloons and airships because it is less dense than air and does not burn.</li>
+  <li><strong>Argon</strong> fills filament lamps and shields a weld, because being unreactive it will not react with the hot metal.</li>
+  <li><strong>Neon</strong> is used in advertising signs, where an electric discharge makes it glow.</li>
+</ul>
+<p>Boiling point <em>increases</em> down the group even though reactivity does not change. Larger atoms have more electrons, so the intermolecular forces between their atoms are stronger and more energy is needed to separate them. That is a common exam trap: unreactive does not mean low boiling point.</p>
+
+<h3>7. Transition metals: what makes them different</h3>
+<p>The transition metals sit between Group 2 and Group 3, and they are the metals of everyday life: iron, copper, zinc, nickel, silver, gold. They are not one group in the same sense as Group 1 — their outer shells are similar but not identical — so their properties vary more. The specification asks you to know the typical properties and to contrast them with Group 1.</p>
+<table border="1">
+  <tr><th>Property</th><th>Group 1 metals</th><th>Transition metals</th></tr>
+  <tr><td>Hardness</td><td>Soft, cut with a knife</td><td>Hard and strong</td></tr>
+  <tr><td>Density</td><td>Low; lithium, sodium and potassium float</td><td>High; most sink</td></tr>
+  <tr><td>Melting point</td><td>Low, and falling down the group</td><td>High, except mercury, which is liquid</td></tr>
+  <tr><td>Reactivity</td><td>Very reactive, reacting with cold water</td><td>Much less reactive; many do not react with water at all</td></tr>
+  <tr><td>Compounds</td><td>White or colourless</td><td>Often coloured</td></tr>
+  <tr><td>Ions</td><td>One charge only, 1+</td><td>Several charges, for example Fe²⁺ and Fe³⁺</td></tr>
+  <tr><td>Catalytic activity</td><td>Rare</td><td>Common</td></tr>
+</table>
+<p>Two of those rows carry most of the marks. <strong>Variable oxidation state</strong> means the same metal can form more than one compound with different formulas — iron(II) chloride, FeCl₂, and iron(III) chloride, FeCl₃ — which is why the Roman numeral in the name is not decoration. <strong>Coloured compounds</strong> means a solution of copper(II) sulfate is blue and one of iron(II) sulfate is pale green, so colour becomes evidence for which ion is present.</p>
+
+<h3>8. Transition metals as catalysts</h3>
+<p>A catalyst speeds up a reaction without being used up, and transition metals are the standard examples because their surfaces and their variable oxidation states let them hold reacting species in place. Three named ones are worth learning, because each belongs to a process the specification also covers.</p>
+<ul>
+  <li><strong>Iron</strong> catalyses the Haber process, N₂ + 3H₂ ⇌ 2NH₃.</li>
+  <li><strong>Vanadium(V) oxide, V₂O₅</strong> catalyses the Contact process, 2SO₂ + O₂ ⇌ 2SO₃, which makes sulfuric acid.</li>
+  <li><strong>Nickel</strong> catalyses the hydrogenation of alkenes, turning an unsaturated oil into a saturated fat.</li>
+</ul>
+<p>Note what a catalyst does and does not do: it lowers the activation energy by providing an alternative pathway, so more collisions have enough energy to succeed. It does not change the position of an equilibrium, and it does not change the yield — it only gets the mixture there sooner.</p>
+
+<h3>9. Worked example: identifying a metal from its density</h3>
+<p>A student is given a rectangular bar of an unknown silvery metal. It has a mass of 178 g and a volume of 20.0 cm³. Decide whether it is a Group 1 metal or a transition metal.</p>
+<p>ρ = m / V = 178 g ÷ 20.0 cm³ = 8.90 g/cm³</p>
+<p><em>Key:</em> ρ = density (g/cm³); m = mass (g); V = volume (cm³).</p>
+<p>The density is 8.90 g/cm³, which is close to copper (8.96 g/cm³) and nickel (8.90 g/cm³) and is far above the Group 1 metals, whose densities are all below 2 g/cm³ and three of which float on water. The metal is therefore a transition metal.</p>
+<p>The reasoning matters more than the number: a density near 9 g/cm³ could not belong to a Group 1 element, because those atoms are large and pack loosely, while transition metal atoms are smaller and their metallic bonding pulls them together tightly. If the question gives you the mass and the dimensions instead, find the volume first by multiplying length by width by height, and keep the units consistent before dividing.</p>
+
+<h3>10. Typical mistakes</h3>
+<ul>
+  <li>Saying reactivity increases down Group 7 as well as Group 1. It increases down Group 1 and decreases down Group 7, and both are explained by the same distance-and-shielding argument.</li>
+  <li>Giving the trend without the reason. "Potassium is more reactive than sodium" is worth one mark; "because its outer electron is further from the nucleus and more shielded, so it is lost more easily" is worth the second.</li>
+  <li>Writing Group 1 formulas as if the metal were 2+. Sodium chloride is NaCl, not NaCl₂, because the sodium ion is Na⁺.</li>
+  <li>Saying the noble gases have a low boiling point because they are unreactive. The two facts are separate: their boiling points rise down the group with the number of electrons.</li>
+  <li>Assuming every transition metal is magnetic, or that every one is a good catalyst. Manganese and copper are transition metals, and neither is magnetic in the way iron is.</li>
+  <li>Calling a catalyst a reactant, or claiming it increases the yield. It increases the rate and is recovered at the end.</li>
+</ul>
+
+<h3>11. Exam-style questions</h3>
+<ol>
+  <li>Explain why potassium reacts more vigorously with water than sodium does. <em>Answer:</em> Potassium's outer electron is in a shell further from the nucleus and is shielded by more inner shells than sodium's, so it is held less tightly and lost more easily, making the reaction faster.</li>
+  <li>Chlorine is bubbled through potassium bromide solution. State the observation and write the equation. <em>Answer:</em> The colourless solution turns orange-brown as bromine is formed: Cl₂ + 2KBr → 2KCl + Br₂.</li>
+  <li>Explain why bromine does not displace chlorine from potassium chloride solution. <em>Answer:</em> Chlorine is more reactive than bromine, because its outer shell is closer to the nucleus and less shielded, so chlorine is the one that gains the electron and bromine cannot displace it.</li>
+  <li>Give two properties that a transition metal has and a Group 1 metal does not. <em>Answer:</em> It forms coloured compounds, and it can form ions with more than one charge (for example Fe²⁺ and Fe³⁺). It is also harder and denser with a higher melting point.</li>
+  <li>Argon is used to fill filament lamps. Explain the property that makes it suitable. <em>Answer:</em> Argon has a full outer shell, so it is unreactive and will not react with the hot filament, which would otherwise burn away.</li>
+  <li>A 15.0 cm³ sample of a metal has a mass of 134 g. Calculate its density and suggest whether it is a transition metal. <em>Answer:</em> ρ = m / V = 134 ÷ 15.0 = 8.93 g/cm³, which is far above the density of a Group 1 metal and consistent with a transition metal such as copper.</li>
+  <li>State one use of a transition metal as a catalyst and name the process. <em>Answer:</em> Iron catalyses the Haber process, in which nitrogen and hydrogen react to form ammonia.</li>
+</ol>
+
+<h3>12. Revision checklist</h3>
+<ul>
+  <li>I can give the group number, outer-shell electron count and ion charge for Groups 1, 7 and 0.</li>
+  <li>I can state the trend in reactivity down Groups 1 and 7 and explain both with distance and shielding.</li>
+  <li>I can write the equations for a Group 1 metal with water, oxygen and chlorine.</li>
+  <li>I can describe the appearance and state of each halogen at room temperature.</li>
+  <li>I can predict the result of any halogen displacement and write its equation.</li>
+  <li>I can explain why noble gas boiling points rise down the group.</li>
+  <li>I can contrast transition metals with Group 1 metals in at least four properties.</li>
+  <li>I can name three transition metal catalysts and the process each is used in.</li>
+  <li>I can calculate a density and use it to argue which family a metal belongs to.</li>
+</ul>
+$lit$, material_type = 'notes', updated_at = now()
+  from t
+  where sm.topic_id = t.id and sm.title = $lit$IGCSE Chemistry (OxfordAQA): Trends within the Periodic Table$lit$
+  returning sm.id
+)
+insert into public.study_materials (topic_id, title, content, material_type)
+select t.id, $lit$IGCSE Chemistry (OxfordAQA): Trends within the Periodic Table$lit$, $lit$<h2>Trends within the Periodic Table</h2>
+<p>The Periodic Table is arranged in order of increasing atomic number, and that single decision explains almost every trend the course asks about. Elements in the same group have the same number of electrons in their outer shell, so they react in the same way; the trends down a group come from where that outer shell sits relative to the nucleus. This topic takes the three groups the specification names — Group 1, Group 7 and Group 0 — and works out why reactivity changes in the direction it does, then turns to the block of transition metals, whose properties are different enough that the exam expects you to contrast them with Group 1 in a table. Every trend below is written with its explanation, because the explanation is the mark.</p>
+
+<h3>1. What a group is, and what changes down it</h3>
+<p>A group is a vertical column. Elements in one group have the same number of outer-shell electrons — one for Group 1, seven for Group 7, a full shell for Group 0 — and that number, not the mass, is what decides how an element reacts. Going down a group the atoms get larger: each element has one more shell than the one above it, so the outer electron is further from the nucleus, and the inner shells shield it from the nuclear charge.</p>
+<ul>
+  <li><strong>Down a group, the outer shell is further out and more shielded.</strong> The nucleus still attracts the outer electrons, but the pull at the surface is weaker because of the extra distance and the extra shells in between.</li>
+  <li><strong>Across a period, atoms get smaller and the nuclear charge grows.</strong> The electrons are added to the same shell, so the pull on that shell increases from left to right.</li>
+  <li><strong>Metals lose electrons, non-metals gain them.</strong> A Group 1 atom has one outer electron and loses it easily; a Group 7 atom needs one more and takes it readily. This is why the two groups sit at opposite ends of the table and behave in opposite ways.</li>
+</ul>
+
+<h3>2. Group 1: the alkali metals</h3>
+<p>Lithium, sodium, potassium, rubidium and caesium are soft, low-density metals stored under oil because they react with water and with the air. They are called alkali metals because the hydroxide they form when they react with water is an alkali.</p>
+<p>Reactivity <em>increases</em> down the group, and the reason is the outer electron. Going down, that electron is in a shell further from the nucleus and is shielded by more inner shells, so it is held less tightly and is lost more easily. The ion that forms is always 1+, and that is what makes the chemistry so regular: every Group 1 element forms the same compounds with the same formulas.</p>
+<table border="1">
+  <tr><th>Property</th><th>Trend down Group 1</th><th>Reason</th></tr>
+  <tr><td>Reactivity with water</td><td>Increases</td><td>The outer electron is lost more easily</td></tr>
+  <tr><td>Melting point</td><td>Decreases</td><td>The atoms are larger, so the metallic bonding holds them less strongly</td></tr>
+  <tr><td>Softness</td><td>Increases</td><td>Weaker metallic bonding, so the metal is easier to cut</td></tr>
+  <tr><td>Density</td><td>Generally increases</td><td>The atoms are heavier; potassium is the exception, and floats on water</td></tr>
+</table>
+
+<h3>3. Group 1 reactions you must be able to write</h3>
+<p>Every Group 1 metal reacts in the same three ways, and the equations follow the same pattern, which is why knowing one element is enough to predict the rest.</p>
+<ul>
+  <li><strong>With water</strong> it forms the metal hydroxide and hydrogen. Sodium melts into a ball and fizzes; potassium burns with a lilac flame and the reaction is violent enough to be dangerous. 2Na + 2H₂O → 2NaOH + H₂</li>
+  <li><strong>With oxygen</strong> it forms the metal oxide. 4Na + O₂ → 2Na₂O</li>
+  <li><strong>With chlorine</strong> it forms the metal chloride, a white solid. 2Na + Cl₂ → 2NaCl</li>
+</ul>
+<p>The observation to quote is the one that changes down the group: lithium fizzes steadily and moves slowly, sodium fizzes vigorously and may melt, potassium ignites the hydrogen it produces. "It reacted" earns nothing; "it moved, fizzing, and shrank to a ball" is the observation the mark scheme pays for.</p>
+
+<h3>4. Group 7: the halogens</h3>
+<p>Fluorine, chlorine, bromine, iodine and astatine each have seven outer electrons and need one more to complete the shell, so they form 1− ions and pair up as diatomic molecules: F₂, Cl₂, Br₂, I₂. Their appearance and state change steadily down the group, which is a common one-mark question.</p>
+<table border="1">
+  <tr><th>Halogen</th><th>State at room temperature</th><th>Colour</th></tr>
+  <tr><td>Fluorine, F₂</td><td>Gas</td><td>Pale yellow</td></tr>
+  <tr><td>Chlorine, Cl₂</td><td>Gas</td><td>Greenish yellow</td></tr>
+  <tr><td>Bromine, Br₂</td><td>Liquid</td><td>Red-brown, with an orange vapour</td></tr>
+  <tr><td>Iodine, I₂</td><td>Solid</td><td>Grey-black, giving a purple vapour on heating</td></tr>
+</table>
+<p>Reactivity <em>decreases</em> down the group, which is the opposite of Group 1, and the reason is the same fact read backwards. A halogen reacts by gaining an electron, and the nucleus must attract an electron into its outer shell. Down the group that shell is further from the nucleus and more shielded, so the attraction is weaker, the electron is gained less readily, and the element is less reactive.</p>
+
+<h3>5. Displacement: how the trend is tested</h3>
+<p>A more reactive halogen displaces a less reactive one from a solution of its salt. This is the standard practical test of the trend, and it is a redox reaction: the halogen that is displaced is oxidised back to the element, and the halogen doing the displacing is reduced.</p>
+<ul>
+  <li>Chlorine added to potassium bromide solution turns it orange, because bromine is made: Cl₂ + 2KBr → 2KCl + Br₂</li>
+  <li>Chlorine added to potassium iodide solution turns it brown, because iodine is made: Cl₂ + 2KI → 2KCl + I₂</li>
+  <li>Bromine added to potassium iodide solution turns it brown: Br₂ + 2KI → 2KBr + I₂</li>
+  <li>Bromine added to potassium chloride solution does nothing, because chlorine is more reactive and cannot be displaced.</li>
+</ul>
+<p>Read the direction of each equation as evidence rather than something to memorise: the element on the left is the more reactive one, and it is the one that ends up in the compound.</p>
+
+<h3>6. Group 0: the noble gases</h3>
+<p>Helium, neon, argon, krypton and xenon have a full outer shell, so they neither lose nor gain electrons readily and are almost completely unreactive. They exist as single atoms rather than molecules, which is why their formulas are written He, Ne and Ar with no subscript.</p>
+<ul>
+  <li><strong>Helium</strong> is used in balloons and airships because it is less dense than air and does not burn.</li>
+  <li><strong>Argon</strong> fills filament lamps and shields a weld, because being unreactive it will not react with the hot metal.</li>
+  <li><strong>Neon</strong> is used in advertising signs, where an electric discharge makes it glow.</li>
+</ul>
+<p>Boiling point <em>increases</em> down the group even though reactivity does not change. Larger atoms have more electrons, so the intermolecular forces between their atoms are stronger and more energy is needed to separate them. That is a common exam trap: unreactive does not mean low boiling point.</p>
+
+<h3>7. Transition metals: what makes them different</h3>
+<p>The transition metals sit between Group 2 and Group 3, and they are the metals of everyday life: iron, copper, zinc, nickel, silver, gold. They are not one group in the same sense as Group 1 — their outer shells are similar but not identical — so their properties vary more. The specification asks you to know the typical properties and to contrast them with Group 1.</p>
+<table border="1">
+  <tr><th>Property</th><th>Group 1 metals</th><th>Transition metals</th></tr>
+  <tr><td>Hardness</td><td>Soft, cut with a knife</td><td>Hard and strong</td></tr>
+  <tr><td>Density</td><td>Low; lithium, sodium and potassium float</td><td>High; most sink</td></tr>
+  <tr><td>Melting point</td><td>Low, and falling down the group</td><td>High, except mercury, which is liquid</td></tr>
+  <tr><td>Reactivity</td><td>Very reactive, reacting with cold water</td><td>Much less reactive; many do not react with water at all</td></tr>
+  <tr><td>Compounds</td><td>White or colourless</td><td>Often coloured</td></tr>
+  <tr><td>Ions</td><td>One charge only, 1+</td><td>Several charges, for example Fe²⁺ and Fe³⁺</td></tr>
+  <tr><td>Catalytic activity</td><td>Rare</td><td>Common</td></tr>
+</table>
+<p>Two of those rows carry most of the marks. <strong>Variable oxidation state</strong> means the same metal can form more than one compound with different formulas — iron(II) chloride, FeCl₂, and iron(III) chloride, FeCl₃ — which is why the Roman numeral in the name is not decoration. <strong>Coloured compounds</strong> means a solution of copper(II) sulfate is blue and one of iron(II) sulfate is pale green, so colour becomes evidence for which ion is present.</p>
+
+<h3>8. Transition metals as catalysts</h3>
+<p>A catalyst speeds up a reaction without being used up, and transition metals are the standard examples because their surfaces and their variable oxidation states let them hold reacting species in place. Three named ones are worth learning, because each belongs to a process the specification also covers.</p>
+<ul>
+  <li><strong>Iron</strong> catalyses the Haber process, N₂ + 3H₂ ⇌ 2NH₃.</li>
+  <li><strong>Vanadium(V) oxide, V₂O₅</strong> catalyses the Contact process, 2SO₂ + O₂ ⇌ 2SO₃, which makes sulfuric acid.</li>
+  <li><strong>Nickel</strong> catalyses the hydrogenation of alkenes, turning an unsaturated oil into a saturated fat.</li>
+</ul>
+<p>Note what a catalyst does and does not do: it lowers the activation energy by providing an alternative pathway, so more collisions have enough energy to succeed. It does not change the position of an equilibrium, and it does not change the yield — it only gets the mixture there sooner.</p>
+
+<h3>9. Worked example: identifying a metal from its density</h3>
+<p>A student is given a rectangular bar of an unknown silvery metal. It has a mass of 178 g and a volume of 20.0 cm³. Decide whether it is a Group 1 metal or a transition metal.</p>
+<p>ρ = m / V = 178 g ÷ 20.0 cm³ = 8.90 g/cm³</p>
+<p><em>Key:</em> ρ = density (g/cm³); m = mass (g); V = volume (cm³).</p>
+<p>The density is 8.90 g/cm³, which is close to copper (8.96 g/cm³) and nickel (8.90 g/cm³) and is far above the Group 1 metals, whose densities are all below 2 g/cm³ and three of which float on water. The metal is therefore a transition metal.</p>
+<p>The reasoning matters more than the number: a density near 9 g/cm³ could not belong to a Group 1 element, because those atoms are large and pack loosely, while transition metal atoms are smaller and their metallic bonding pulls them together tightly. If the question gives you the mass and the dimensions instead, find the volume first by multiplying length by width by height, and keep the units consistent before dividing.</p>
+
+<h3>10. Typical mistakes</h3>
+<ul>
+  <li>Saying reactivity increases down Group 7 as well as Group 1. It increases down Group 1 and decreases down Group 7, and both are explained by the same distance-and-shielding argument.</li>
+  <li>Giving the trend without the reason. "Potassium is more reactive than sodium" is worth one mark; "because its outer electron is further from the nucleus and more shielded, so it is lost more easily" is worth the second.</li>
+  <li>Writing Group 1 formulas as if the metal were 2+. Sodium chloride is NaCl, not NaCl₂, because the sodium ion is Na⁺.</li>
+  <li>Saying the noble gases have a low boiling point because they are unreactive. The two facts are separate: their boiling points rise down the group with the number of electrons.</li>
+  <li>Assuming every transition metal is magnetic, or that every one is a good catalyst. Manganese and copper are transition metals, and neither is magnetic in the way iron is.</li>
+  <li>Calling a catalyst a reactant, or claiming it increases the yield. It increases the rate and is recovered at the end.</li>
+</ul>
+
+<h3>11. Exam-style questions</h3>
+<ol>
+  <li>Explain why potassium reacts more vigorously with water than sodium does. <em>Answer:</em> Potassium's outer electron is in a shell further from the nucleus and is shielded by more inner shells than sodium's, so it is held less tightly and lost more easily, making the reaction faster.</li>
+  <li>Chlorine is bubbled through potassium bromide solution. State the observation and write the equation. <em>Answer:</em> The colourless solution turns orange-brown as bromine is formed: Cl₂ + 2KBr → 2KCl + Br₂.</li>
+  <li>Explain why bromine does not displace chlorine from potassium chloride solution. <em>Answer:</em> Chlorine is more reactive than bromine, because its outer shell is closer to the nucleus and less shielded, so chlorine is the one that gains the electron and bromine cannot displace it.</li>
+  <li>Give two properties that a transition metal has and a Group 1 metal does not. <em>Answer:</em> It forms coloured compounds, and it can form ions with more than one charge (for example Fe²⁺ and Fe³⁺). It is also harder and denser with a higher melting point.</li>
+  <li>Argon is used to fill filament lamps. Explain the property that makes it suitable. <em>Answer:</em> Argon has a full outer shell, so it is unreactive and will not react with the hot filament, which would otherwise burn away.</li>
+  <li>A 15.0 cm³ sample of a metal has a mass of 134 g. Calculate its density and suggest whether it is a transition metal. <em>Answer:</em> ρ = m / V = 134 ÷ 15.0 = 8.93 g/cm³, which is far above the density of a Group 1 metal and consistent with a transition metal such as copper.</li>
+  <li>State one use of a transition metal as a catalyst and name the process. <em>Answer:</em> Iron catalyses the Haber process, in which nitrogen and hydrogen react to form ammonia.</li>
+</ol>
+
+<h3>12. Revision checklist</h3>
+<ul>
+  <li>I can give the group number, outer-shell electron count and ion charge for Groups 1, 7 and 0.</li>
+  <li>I can state the trend in reactivity down Groups 1 and 7 and explain both with distance and shielding.</li>
+  <li>I can write the equations for a Group 1 metal with water, oxygen and chlorine.</li>
+  <li>I can describe the appearance and state of each halogen at room temperature.</li>
+  <li>I can predict the result of any halogen displacement and write its equation.</li>
+  <li>I can explain why noble gas boiling points rise down the group.</li>
+  <li>I can contrast transition metals with Group 1 metals in at least four properties.</li>
+  <li>I can name three transition metal catalysts and the process each is used in.</li>
+  <li>I can calculate a density and use it to argue which family a metal belongs to.</li>
+</ul>
+$lit$, 'notes'
+from t
+where not exists (select 1 from upd);
+
+with t as (
+  select t.id from public.topics t
+  join public.subject_levels sl on sl.id = t.subject_level_id
+  join public.subjects s on s.id = sl.subject_id
+  where s.slug = $lit$chemistry-oxfordaqa$lit$ and sl.level = $lit$IGCSE$lit$ and t.slug = $lit$the-rate-and-extent-of-chemical-change$lit$
+), upd as (
+  update public.study_materials sm
+  set content = $lit$<h2>The Rate and Extent of Chemical Change</h2>
+<p>This topic holds two questions that look alike and are not. The first is <em>how fast</em> a reaction goes — the rate — which is measured by how quickly a reactant is used up or a product appears. The second is <em>how far</em> it goes — the extent — which for a reversible reaction is decided by where the equilibrium sits. A catalyst changes the first and not the second, a temperature change usually changes both, and an exam that asks about one is testing whether you can tell them apart. The second half of the topic applies the equilibrium idea to the two industrial processes the specification names, then closes with redox, which is the electron bookkeeping underneath displacement, extraction and corrosion.</p>
+
+<h3>1. What a rate is, and how it is measured</h3>
+<p>The rate of a reaction is the change in the amount of a reactant or product per unit time. Anything that can be measured as the reaction proceeds can be turned into a rate, so the practical you are given decides the measurement rather than the other way round.</p>
+<ul>
+  <li><strong>Volume of gas</strong> collected in a gas syringe or over water, read against a stopwatch. Good for metal plus acid, or carbonate plus acid.</li>
+  <li><strong>Loss in mass</strong> on a balance, when a gas escapes. Good for marble chips plus acid, where carbon dioxide leaves.</li>
+  <li><strong>Time to a visible change</strong>, such as the cross disappearing behind precipitated sulfur, measured by looking down through the flask.</li>
+  <li><strong>Colour change</strong> measured with a colorimeter, which turns "it went paler" into a number.</li>
+</ul>
+<p>The rate is fastest at the start and slows as the reaction proceeds, because the reactants are being used up and their concentration falls. That is why a rate graph curves rather than running straight, and why the tangent at the start gives the initial rate.</p>
+
+<h3>2. Collision theory: why any factor works</h3>
+<p>Particles react only when they collide, and only when they collide with at least the activation energy — the minimum energy needed to break the bonds that must break. Every factor in this topic changes one of those two things: how often collisions happen, or what fraction of them carry enough energy.</p>
+<ul>
+  <li><strong>More frequent collisions</strong> come from crowding the particles together: higher concentration, higher pressure, or a larger surface area.</li>
+  <li><strong>More energetic collisions</strong> come from higher temperature, which gives the particles more kinetic energy, so a larger fraction of collisions exceeds the activation energy.</li>
+  <li><strong>A catalyst</strong> does neither: it provides an alternative pathway with a lower activation energy, so a larger fraction of the existing collisions is now sufficient.</li>
+</ul>
+<p>Notice that a temperature rise does both — particles move faster, so they collide more often, and each collision is more energetic. The second effect is much larger, which is why "more collisions" alone is an incomplete answer when the factor is temperature.</p>
+
+<h3>3. Concentration and pressure</h3>
+<p>Increasing the concentration of a solution means more particles of the reactant in the same volume, so collisions between reactant particles are more frequent and the rate rises. Increasing the pressure of a gas does the same thing by squeezing the same number of particles into a smaller volume. Neither changes the activation energy, and neither changes how much product you eventually get — only how quickly you get it.</p>
+<p>A common exam version gives you a graph and asks you to compare two curves. Say which is steeper and why, and then say that both level off at the same height, because the same amount of reactant was used in each case.</p>
+
+<h3>4. Surface area</h3>
+<p>A reaction between a solid and a solution can only happen at the surface of the solid, so breaking the solid into smaller pieces exposes more surface for the same mass and the rate rises. Powdered calcium carbonate reacts faster than marble chips of the same mass, and the total volume of gas collected is unchanged.</p>
+<ul>
+  <li><strong>Same mass, more surface:</strong> the rate increases because more particles are available to collide.</li>
+  <li><strong>Same mass, same product:</strong> the final volume of gas or mass of product is identical, so the two curves meet at the same level.</li>
+  <li><strong>Powder is not always better:</strong> in a school practical a fine powder can froth over or block a filter, which is why the method specifies chips even though the powder is faster.</li>
+</ul>
+
+<h3>5. Catalysts</h3>
+<p>A catalyst increases the rate of a reaction without being used up, by lowering the activation energy. It is not a reactant, it does not appear in the balanced equation, and it is recovered chemically unchanged at the end — which is why a catalyst can be reused indefinitely and why only a small amount is needed.</p>
+<p>The effect on a rate graph is specific and examinable: the catalysed curve is steeper and levels off sooner, but it reaches exactly the same final amount, because a catalyst changes the rate and not the yield. Enzymes are biological catalysts, and they are specific — one enzyme catalyses one reaction — which is the usual link question into Biology.</p>
+
+<h3>6. Worked example: calculating a rate</h3>
+<p>Magnesium ribbon is added to excess dilute hydrochloric acid and the hydrogen is collected in a gas syringe. After 24 s, 72 cm³ of gas has been collected. Calculate the mean rate of reaction over that time.</p>
+<p>rate = volume ÷ time = 72 cm³ ÷ 24 s = 3.0 cm³/s</p>
+<p><em>Key:</em> rate = the mean rate of reaction (cm³/s); volume = the volume of gas collected (cm³); time = the time taken (s).</p>
+<p>The word "mean" matters: this is the average over the whole 24 s, and the instantaneous rate at the start was higher. If the same experiment were repeated with powder instead of ribbon, the mean rate over the first 24 s would be larger, but the total volume collected when the reaction finished would be the same.</p>
+<p>A second form appears when the measurement is a mass loss: if a flask loses 1.20 g in 30 s, the mean rate is 1.20 g ÷ 30 s = 0.040 g/s. The units always carry the answer — a rate with no unit, or with the wrong one, loses a mark.</p>
+
+<h3>7. Reversible reactions and dynamic equilibrium</h3>
+<p>Some reactions can go both ways. When the forward and reverse reactions happen in the same container, the mixture eventually reaches a state where both are still occurring but at the same rate, so the amounts of reactants and products stop changing. That state is a dynamic equilibrium, and "dynamic" is the word that earns the mark: the reactions have not stopped.</p>
+<p>Two conditions are needed for an equilibrium to be reached: the reaction must be reversible, and it must take place in a closed system so nothing escapes. If a gas is allowed to leave, the reverse reaction cannot keep up and there is no equilibrium.</p>
+<p>At equilibrium the concentrations are constant, not equal. It is entirely normal for a mixture to be mostly reactants, or mostly products, and the position of equilibrium describes which.</p>
+
+<h3>8. Factors affecting equilibrium</h3>
+<p>Le Chatelier's principle says that if a change is made to a system at equilibrium, the position of equilibrium shifts to oppose that change. It tells you the direction of the shift, and the exam usually then asks what happens to the yield. The factors that matter are concentration, pressure and temperature.</p>
+<ul>
+  <li><strong>Concentration.</strong> Adding more of a reactant shifts the equilibrium to the right, using it up. Removing a product as it forms also shifts it to the right.</li>
+  <li><strong>Pressure.</strong> Increasing pressure shifts the equilibrium towards the side with fewer gas molecules, because that reduces the pressure. If both sides have the same number of gas molecules, pressure has no effect.</li>
+  <li><strong>Temperature.</strong> Raising the temperature shifts the equilibrium in the endothermic direction, absorbing the extra heat. Lowering it shifts it in the exothermic direction.</li>
+  <li><strong>Catalyst.</strong> A catalyst has no effect on the position of equilibrium at all. It reaches the same equilibrium sooner, which is a rate effect and not an extent effect.</li>
+</ul>
+<p>Count the gas molecules before you answer a pressure question, and check the sign of ΔH before you answer a temperature question. Both are one line of working that decides the answer.</p>
+
+<h3>9. The Haber process: making ammonia</h3>
+<p>Ammonia is made from nitrogen from the air and hydrogen from natural gas, over an iron catalyst. The reaction is reversible and exothermic in the forward direction.</p>
+<p>N₂ + 3H₂ ⇌ 2NH₃ &nbsp; ΔH = −92 kJ/mol</p>
+<p><em>Key:</em> ΔH = the enthalpy change for the forward reaction (kJ/mol); ⇌ = the reaction is reversible.</p>
+<p>Four gas molecules on the left become two on the right, so a high pressure shifts the equilibrium to the right and increases the yield. The forward reaction is exothermic, so a low temperature would also increase the yield — but a low temperature makes the reaction far too slow to be useful. The compromise is about 450 °C and 200 atmospheres with an iron catalyst: the temperature is a rate compromise, the pressure is a yield choice, and the catalyst recovers the rate that the temperature costs.</p>
+<p>The ammonia is removed by cooling it to a liquid and taking it out of the mixture, which pulls the equilibrium further to the right because the product is being removed. That is the industrial version of the concentration rule above.</p>
+
+<h3>10. The Contact process: making sulfuric acid</h3>
+<p>Sulfur is burned to sulfur dioxide, the dioxide is oxidised to sulfur trioxide over a vanadium(V) oxide catalyst, and the trioxide is dissolved in concentrated sulfuric acid to make more acid.</p>
+<p>2SO₂ + O₂ ⇌ 2SO₃ &nbsp; ΔH = −197 kJ/mol</p>
+<p><em>Key:</em> ΔH = the enthalpy change for the forward reaction (kJ/mol); ⇌ = the reaction is reversible; V₂O₅ is the catalyst.</p>
+<p>This is the same compromise as the Haber process. Three gas molecules become two, so high pressure raises the yield; the forward reaction is exothermic, so high temperature lowers the yield but raises the rate. The process runs at about 450 °C and 1 to 2 atmospheres, with the pressure kept modest because the yield is already high at ordinary pressure and compressing gas is expensive.</p>
+<p>The sulfur trioxide is not added to water directly, because the reaction is violent and produces a fine mist of acid that is hard to condense. It is dissolved in concentrated sulfuric acid instead, which is a practical detail the exam does ask about.</p>
+
+<h3>11. Redox: oxidation, reduction and oxidation states</h3>
+<p>Oxidation is the loss of electrons, and reduction is the gain of electrons — remember them as OIL RIG. They always happen together, which is why the whole class of reactions is called redox: whatever loses electrons is oxidised, and whatever gains them is reduced.</p>
+<ul>
+  <li><strong>Oxidising agent</strong> takes electrons from something else, so it is itself reduced. Potassium manganate(VII) and chlorine are common examples.</li>
+  <li><strong>Reducing agent</strong> gives electrons to something else, so it is itself oxidised. Carbon and hydrogen are common examples.</li>
+</ul>
+<p>For simple ions, oxidation state is just the charge: Na⁺ is +1, Cl⁻ is −1, Fe³⁺ is +3. For an element, it is 0. In a compound, hydrogen is usually +1, oxygen is usually −2, and the states of everything else must add up to the overall charge. That bookkeeping identifies what has been oxidised even when no electrons appear in the equation.</p>
+
+<h3>12. Worked example: oxidation states and half equations</h3>
+<p>Find the oxidation state of sulfur in sulfuric acid, H₂SO₄, and of manganese in potassium manganate(VII), KMnO₄.</p>
+<p>For H₂SO₄: 2(+1) + x + 4(−2) = 0, so x = 6 and sulfur is +6. For KMnO₄: (+1) + x + 4(−2) = 0, so x = 7 and manganese is +7.</p>
+<p><em>Key:</em> x = the unknown oxidation state; the numbers in brackets are the known states of hydrogen (+1), oxygen (−2) and potassium (+1); the total equals the overall charge of the species, which is 0 for a neutral compound.</p>
+<p>Now the electron half-equations for iron displacing copper from copper(II) sulfate. The iron atom loses two electrons and the copper ion gains them:</p>
+<p>Fe → Fe²⁺ + 2e⁻ (oxidation) &nbsp; and &nbsp; Cu²⁺ + 2e⁻ → Cu (reduction), giving Fe + Cu²⁺ → Fe²⁺ + Cu.</p>
+<p><em>Key:</em> e⁻ = an electron; the two half-equations must transfer the same number of electrons, which is why no coefficients are needed here.</p>
+<p>The blue colour of the solution fades and a pink-brown solid appears, because copper(II) ions are blue and iron(II) ions are pale green. That observation plus the two half-equations is a full-mark answer.</p>
+
+<h3>13. Typical mistakes</h3>
+<ul>
+  <li>Saying a catalyst increases the yield. It increases the rate and leaves the equilibrium position alone.</li>
+  <li>Explaining a temperature rise only as "more collisions". The dominant effect is that a larger fraction of collisions now exceeds the activation energy.</li>
+  <li>Answering a pressure question without counting gas molecules, or a temperature question without knowing which direction is exothermic.</li>
+  <li>Saying the reaction has stopped at equilibrium. Both directions are still running at equal rates.</li>
+  <li>Calling oxidation "gain of oxygen" as if that were the definition. It works for some reactions, but the electron definition is the one the specification uses and the one that covers all of them.</li>
+  <li>Mixing up the agent with what happens to it: the oxidising agent is reduced, and the reducing agent is oxidised.</li>
+  <li>Giving a rate with no unit, or with the unit of the quantity rather than of the rate.</li>
+</ul>
+
+<h3>14. Exam-style questions</h3>
+<ol>
+  <li>Explain why increasing the temperature increases the rate of a reaction. <em>Answer:</em> The particles have more kinetic energy, so they move faster and collide more often, and a much larger fraction of those collisions has at least the activation energy, so more collisions are successful.</li>
+  <li>Marble chips and powdered calcium carbonate of the same mass are added to separate samples of excess acid. State two differences between the rate curves. <em>Answer:</em> The powdered sample's curve is steeper and levels off sooner, but both curves reach the same final volume of gas.</li>
+  <li>Explain the effect of increasing the pressure on the equilibrium N₂ + 3H₂ ⇌ 2NH₃. <em>Answer:</em> There are four gas molecules on the left and two on the right, so increasing the pressure shifts the equilibrium to the right, towards the fewer molecules, and the yield of ammonia increases.</li>
+  <li>Explain why the Haber process is not run at the temperature that would give the highest yield. <em>Answer:</em> The forward reaction is exothermic, so a low temperature would shift the equilibrium to the right and increase the yield, but the rate would be far too slow, so a compromise of about 450 °C is used with an iron catalyst.</li>
+  <li>State the catalyst used in the Contact process and write the equation for the reaction it catalyses. <em>Answer:</em> Vanadium(V) oxide, V₂O₅: 2SO₂ + O₂ ⇌ 2SO₃.</li>
+  <li>Zinc is added to copper(II) sulfate solution. Write the two half-equations and say which species is oxidised. <em>Answer:</em> Zn → Zn²⁺ + 2e⁻ and Cu²⁺ + 2e⁻ → Cu. Zinc is oxidised because it loses electrons.</li>
+  <li>Calculate the oxidation state of chromium in potassium dichromate, K₂Cr₂O₇. <em>Answer:</em> 2(+1) + 2x + 7(−2) = 0, so 2x = 12 and x = +6.</li>
+  <li>0.80 g of magnesium reacts with excess acid and 640 cm³ of hydrogen is collected in 40 s. Calculate the mean rate. <em>Answer:</em> rate = 640 ÷ 40 = 16 cm³/s.</li>
+</ol>
+
+<h3>15. Revision checklist</h3>
+<ul>
+  <li>I can describe three ways to measure a rate and say which suits which reaction.</li>
+  <li>I can explain every factor using collision theory, distinguishing frequency from energy.</li>
+  <li>I can calculate a mean rate and give its unit.</li>
+  <li>I can define dynamic equilibrium and say why a closed system is needed.</li>
+  <li>I can predict the effect of concentration, pressure, temperature and a catalyst on an equilibrium.</li>
+  <li>I can describe the Haber and Contact processes with their equations, conditions and catalysts.</li>
+  <li>I can explain each industrial compromise in terms of rate against yield.</li>
+  <li>I can assign oxidation states and write half-equations for a redox reaction.</li>
+  <li>I can name the oxidising and reducing agent in a reaction and say what happens to each.</li>
+</ul>
+$lit$, material_type = 'notes', updated_at = now()
+  from t
+  where sm.topic_id = t.id and sm.title = $lit$IGCSE Chemistry (OxfordAQA): Rate and Extent of Chemical Change$lit$
+  returning sm.id
+)
+insert into public.study_materials (topic_id, title, content, material_type)
+select t.id, $lit$IGCSE Chemistry (OxfordAQA): Rate and Extent of Chemical Change$lit$, $lit$<h2>The Rate and Extent of Chemical Change</h2>
+<p>This topic holds two questions that look alike and are not. The first is <em>how fast</em> a reaction goes — the rate — which is measured by how quickly a reactant is used up or a product appears. The second is <em>how far</em> it goes — the extent — which for a reversible reaction is decided by where the equilibrium sits. A catalyst changes the first and not the second, a temperature change usually changes both, and an exam that asks about one is testing whether you can tell them apart. The second half of the topic applies the equilibrium idea to the two industrial processes the specification names, then closes with redox, which is the electron bookkeeping underneath displacement, extraction and corrosion.</p>
+
+<h3>1. What a rate is, and how it is measured</h3>
+<p>The rate of a reaction is the change in the amount of a reactant or product per unit time. Anything that can be measured as the reaction proceeds can be turned into a rate, so the practical you are given decides the measurement rather than the other way round.</p>
+<ul>
+  <li><strong>Volume of gas</strong> collected in a gas syringe or over water, read against a stopwatch. Good for metal plus acid, or carbonate plus acid.</li>
+  <li><strong>Loss in mass</strong> on a balance, when a gas escapes. Good for marble chips plus acid, where carbon dioxide leaves.</li>
+  <li><strong>Time to a visible change</strong>, such as the cross disappearing behind precipitated sulfur, measured by looking down through the flask.</li>
+  <li><strong>Colour change</strong> measured with a colorimeter, which turns "it went paler" into a number.</li>
+</ul>
+<p>The rate is fastest at the start and slows as the reaction proceeds, because the reactants are being used up and their concentration falls. That is why a rate graph curves rather than running straight, and why the tangent at the start gives the initial rate.</p>
+
+<h3>2. Collision theory: why any factor works</h3>
+<p>Particles react only when they collide, and only when they collide with at least the activation energy — the minimum energy needed to break the bonds that must break. Every factor in this topic changes one of those two things: how often collisions happen, or what fraction of them carry enough energy.</p>
+<ul>
+  <li><strong>More frequent collisions</strong> come from crowding the particles together: higher concentration, higher pressure, or a larger surface area.</li>
+  <li><strong>More energetic collisions</strong> come from higher temperature, which gives the particles more kinetic energy, so a larger fraction of collisions exceeds the activation energy.</li>
+  <li><strong>A catalyst</strong> does neither: it provides an alternative pathway with a lower activation energy, so a larger fraction of the existing collisions is now sufficient.</li>
+</ul>
+<p>Notice that a temperature rise does both — particles move faster, so they collide more often, and each collision is more energetic. The second effect is much larger, which is why "more collisions" alone is an incomplete answer when the factor is temperature.</p>
+
+<h3>3. Concentration and pressure</h3>
+<p>Increasing the concentration of a solution means more particles of the reactant in the same volume, so collisions between reactant particles are more frequent and the rate rises. Increasing the pressure of a gas does the same thing by squeezing the same number of particles into a smaller volume. Neither changes the activation energy, and neither changes how much product you eventually get — only how quickly you get it.</p>
+<p>A common exam version gives you a graph and asks you to compare two curves. Say which is steeper and why, and then say that both level off at the same height, because the same amount of reactant was used in each case.</p>
+
+<h3>4. Surface area</h3>
+<p>A reaction between a solid and a solution can only happen at the surface of the solid, so breaking the solid into smaller pieces exposes more surface for the same mass and the rate rises. Powdered calcium carbonate reacts faster than marble chips of the same mass, and the total volume of gas collected is unchanged.</p>
+<ul>
+  <li><strong>Same mass, more surface:</strong> the rate increases because more particles are available to collide.</li>
+  <li><strong>Same mass, same product:</strong> the final volume of gas or mass of product is identical, so the two curves meet at the same level.</li>
+  <li><strong>Powder is not always better:</strong> in a school practical a fine powder can froth over or block a filter, which is why the method specifies chips even though the powder is faster.</li>
+</ul>
+
+<h3>5. Catalysts</h3>
+<p>A catalyst increases the rate of a reaction without being used up, by lowering the activation energy. It is not a reactant, it does not appear in the balanced equation, and it is recovered chemically unchanged at the end — which is why a catalyst can be reused indefinitely and why only a small amount is needed.</p>
+<p>The effect on a rate graph is specific and examinable: the catalysed curve is steeper and levels off sooner, but it reaches exactly the same final amount, because a catalyst changes the rate and not the yield. Enzymes are biological catalysts, and they are specific — one enzyme catalyses one reaction — which is the usual link question into Biology.</p>
+
+<h3>6. Worked example: calculating a rate</h3>
+<p>Magnesium ribbon is added to excess dilute hydrochloric acid and the hydrogen is collected in a gas syringe. After 24 s, 72 cm³ of gas has been collected. Calculate the mean rate of reaction over that time.</p>
+<p>rate = volume ÷ time = 72 cm³ ÷ 24 s = 3.0 cm³/s</p>
+<p><em>Key:</em> rate = the mean rate of reaction (cm³/s); volume = the volume of gas collected (cm³); time = the time taken (s).</p>
+<p>The word "mean" matters: this is the average over the whole 24 s, and the instantaneous rate at the start was higher. If the same experiment were repeated with powder instead of ribbon, the mean rate over the first 24 s would be larger, but the total volume collected when the reaction finished would be the same.</p>
+<p>A second form appears when the measurement is a mass loss: if a flask loses 1.20 g in 30 s, the mean rate is 1.20 g ÷ 30 s = 0.040 g/s. The units always carry the answer — a rate with no unit, or with the wrong one, loses a mark.</p>
+
+<h3>7. Reversible reactions and dynamic equilibrium</h3>
+<p>Some reactions can go both ways. When the forward and reverse reactions happen in the same container, the mixture eventually reaches a state where both are still occurring but at the same rate, so the amounts of reactants and products stop changing. That state is a dynamic equilibrium, and "dynamic" is the word that earns the mark: the reactions have not stopped.</p>
+<p>Two conditions are needed for an equilibrium to be reached: the reaction must be reversible, and it must take place in a closed system so nothing escapes. If a gas is allowed to leave, the reverse reaction cannot keep up and there is no equilibrium.</p>
+<p>At equilibrium the concentrations are constant, not equal. It is entirely normal for a mixture to be mostly reactants, or mostly products, and the position of equilibrium describes which.</p>
+
+<h3>8. Factors affecting equilibrium</h3>
+<p>Le Chatelier's principle says that if a change is made to a system at equilibrium, the position of equilibrium shifts to oppose that change. It tells you the direction of the shift, and the exam usually then asks what happens to the yield. The factors that matter are concentration, pressure and temperature.</p>
+<ul>
+  <li><strong>Concentration.</strong> Adding more of a reactant shifts the equilibrium to the right, using it up. Removing a product as it forms also shifts it to the right.</li>
+  <li><strong>Pressure.</strong> Increasing pressure shifts the equilibrium towards the side with fewer gas molecules, because that reduces the pressure. If both sides have the same number of gas molecules, pressure has no effect.</li>
+  <li><strong>Temperature.</strong> Raising the temperature shifts the equilibrium in the endothermic direction, absorbing the extra heat. Lowering it shifts it in the exothermic direction.</li>
+  <li><strong>Catalyst.</strong> A catalyst has no effect on the position of equilibrium at all. It reaches the same equilibrium sooner, which is a rate effect and not an extent effect.</li>
+</ul>
+<p>Count the gas molecules before you answer a pressure question, and check the sign of ΔH before you answer a temperature question. Both are one line of working that decides the answer.</p>
+
+<h3>9. The Haber process: making ammonia</h3>
+<p>Ammonia is made from nitrogen from the air and hydrogen from natural gas, over an iron catalyst. The reaction is reversible and exothermic in the forward direction.</p>
+<p>N₂ + 3H₂ ⇌ 2NH₃ &nbsp; ΔH = −92 kJ/mol</p>
+<p><em>Key:</em> ΔH = the enthalpy change for the forward reaction (kJ/mol); ⇌ = the reaction is reversible.</p>
+<p>Four gas molecules on the left become two on the right, so a high pressure shifts the equilibrium to the right and increases the yield. The forward reaction is exothermic, so a low temperature would also increase the yield — but a low temperature makes the reaction far too slow to be useful. The compromise is about 450 °C and 200 atmospheres with an iron catalyst: the temperature is a rate compromise, the pressure is a yield choice, and the catalyst recovers the rate that the temperature costs.</p>
+<p>The ammonia is removed by cooling it to a liquid and taking it out of the mixture, which pulls the equilibrium further to the right because the product is being removed. That is the industrial version of the concentration rule above.</p>
+
+<h3>10. The Contact process: making sulfuric acid</h3>
+<p>Sulfur is burned to sulfur dioxide, the dioxide is oxidised to sulfur trioxide over a vanadium(V) oxide catalyst, and the trioxide is dissolved in concentrated sulfuric acid to make more acid.</p>
+<p>2SO₂ + O₂ ⇌ 2SO₃ &nbsp; ΔH = −197 kJ/mol</p>
+<p><em>Key:</em> ΔH = the enthalpy change for the forward reaction (kJ/mol); ⇌ = the reaction is reversible; V₂O₅ is the catalyst.</p>
+<p>This is the same compromise as the Haber process. Three gas molecules become two, so high pressure raises the yield; the forward reaction is exothermic, so high temperature lowers the yield but raises the rate. The process runs at about 450 °C and 1 to 2 atmospheres, with the pressure kept modest because the yield is already high at ordinary pressure and compressing gas is expensive.</p>
+<p>The sulfur trioxide is not added to water directly, because the reaction is violent and produces a fine mist of acid that is hard to condense. It is dissolved in concentrated sulfuric acid instead, which is a practical detail the exam does ask about.</p>
+
+<h3>11. Redox: oxidation, reduction and oxidation states</h3>
+<p>Oxidation is the loss of electrons, and reduction is the gain of electrons — remember them as OIL RIG. They always happen together, which is why the whole class of reactions is called redox: whatever loses electrons is oxidised, and whatever gains them is reduced.</p>
+<ul>
+  <li><strong>Oxidising agent</strong> takes electrons from something else, so it is itself reduced. Potassium manganate(VII) and chlorine are common examples.</li>
+  <li><strong>Reducing agent</strong> gives electrons to something else, so it is itself oxidised. Carbon and hydrogen are common examples.</li>
+</ul>
+<p>For simple ions, oxidation state is just the charge: Na⁺ is +1, Cl⁻ is −1, Fe³⁺ is +3. For an element, it is 0. In a compound, hydrogen is usually +1, oxygen is usually −2, and the states of everything else must add up to the overall charge. That bookkeeping identifies what has been oxidised even when no electrons appear in the equation.</p>
+
+<h3>12. Worked example: oxidation states and half equations</h3>
+<p>Find the oxidation state of sulfur in sulfuric acid, H₂SO₄, and of manganese in potassium manganate(VII), KMnO₄.</p>
+<p>For H₂SO₄: 2(+1) + x + 4(−2) = 0, so x = 6 and sulfur is +6. For KMnO₄: (+1) + x + 4(−2) = 0, so x = 7 and manganese is +7.</p>
+<p><em>Key:</em> x = the unknown oxidation state; the numbers in brackets are the known states of hydrogen (+1), oxygen (−2) and potassium (+1); the total equals the overall charge of the species, which is 0 for a neutral compound.</p>
+<p>Now the electron half-equations for iron displacing copper from copper(II) sulfate. The iron atom loses two electrons and the copper ion gains them:</p>
+<p>Fe → Fe²⁺ + 2e⁻ (oxidation) &nbsp; and &nbsp; Cu²⁺ + 2e⁻ → Cu (reduction), giving Fe + Cu²⁺ → Fe²⁺ + Cu.</p>
+<p><em>Key:</em> e⁻ = an electron; the two half-equations must transfer the same number of electrons, which is why no coefficients are needed here.</p>
+<p>The blue colour of the solution fades and a pink-brown solid appears, because copper(II) ions are blue and iron(II) ions are pale green. That observation plus the two half-equations is a full-mark answer.</p>
+
+<h3>13. Typical mistakes</h3>
+<ul>
+  <li>Saying a catalyst increases the yield. It increases the rate and leaves the equilibrium position alone.</li>
+  <li>Explaining a temperature rise only as "more collisions". The dominant effect is that a larger fraction of collisions now exceeds the activation energy.</li>
+  <li>Answering a pressure question without counting gas molecules, or a temperature question without knowing which direction is exothermic.</li>
+  <li>Saying the reaction has stopped at equilibrium. Both directions are still running at equal rates.</li>
+  <li>Calling oxidation "gain of oxygen" as if that were the definition. It works for some reactions, but the electron definition is the one the specification uses and the one that covers all of them.</li>
+  <li>Mixing up the agent with what happens to it: the oxidising agent is reduced, and the reducing agent is oxidised.</li>
+  <li>Giving a rate with no unit, or with the unit of the quantity rather than of the rate.</li>
+</ul>
+
+<h3>14. Exam-style questions</h3>
+<ol>
+  <li>Explain why increasing the temperature increases the rate of a reaction. <em>Answer:</em> The particles have more kinetic energy, so they move faster and collide more often, and a much larger fraction of those collisions has at least the activation energy, so more collisions are successful.</li>
+  <li>Marble chips and powdered calcium carbonate of the same mass are added to separate samples of excess acid. State two differences between the rate curves. <em>Answer:</em> The powdered sample's curve is steeper and levels off sooner, but both curves reach the same final volume of gas.</li>
+  <li>Explain the effect of increasing the pressure on the equilibrium N₂ + 3H₂ ⇌ 2NH₃. <em>Answer:</em> There are four gas molecules on the left and two on the right, so increasing the pressure shifts the equilibrium to the right, towards the fewer molecules, and the yield of ammonia increases.</li>
+  <li>Explain why the Haber process is not run at the temperature that would give the highest yield. <em>Answer:</em> The forward reaction is exothermic, so a low temperature would shift the equilibrium to the right and increase the yield, but the rate would be far too slow, so a compromise of about 450 °C is used with an iron catalyst.</li>
+  <li>State the catalyst used in the Contact process and write the equation for the reaction it catalyses. <em>Answer:</em> Vanadium(V) oxide, V₂O₅: 2SO₂ + O₂ ⇌ 2SO₃.</li>
+  <li>Zinc is added to copper(II) sulfate solution. Write the two half-equations and say which species is oxidised. <em>Answer:</em> Zn → Zn²⁺ + 2e⁻ and Cu²⁺ + 2e⁻ → Cu. Zinc is oxidised because it loses electrons.</li>
+  <li>Calculate the oxidation state of chromium in potassium dichromate, K₂Cr₂O₇. <em>Answer:</em> 2(+1) + 2x + 7(−2) = 0, so 2x = 12 and x = +6.</li>
+  <li>0.80 g of magnesium reacts with excess acid and 640 cm³ of hydrogen is collected in 40 s. Calculate the mean rate. <em>Answer:</em> rate = 640 ÷ 40 = 16 cm³/s.</li>
+</ol>
+
+<h3>15. Revision checklist</h3>
+<ul>
+  <li>I can describe three ways to measure a rate and say which suits which reaction.</li>
+  <li>I can explain every factor using collision theory, distinguishing frequency from energy.</li>
+  <li>I can calculate a mean rate and give its unit.</li>
+  <li>I can define dynamic equilibrium and say why a closed system is needed.</li>
+  <li>I can predict the effect of concentration, pressure, temperature and a catalyst on an equilibrium.</li>
+  <li>I can describe the Haber and Contact processes with their equations, conditions and catalysts.</li>
+  <li>I can explain each industrial compromise in terms of rate against yield.</li>
+  <li>I can assign oxidation states and write half-equations for a redox reaction.</li>
+  <li>I can name the oxidising and reducing agent in a reaction and say what happens to each.</li>
+</ul>
+$lit$, 'notes'
+from t
+where not exists (select 1 from upd);
+
+with t as (
+  select t.id from public.topics t
+  join public.subject_levels sl on sl.id = t.subject_level_id
+  join public.subjects s on s.id = sl.subject_id
+  where s.slug = $lit$chemistry-oxfordaqa$lit$ and sl.level = $lit$IGCSE$lit$ and t.slug = $lit$energy-changes$lit$
+), upd as (
+  update public.study_materials sm
+  set content = $lit$<h2>Energy Changes</h2>
+<p>Every chemical reaction either releases energy to the surroundings or takes energy from them, and the difference between the two is a matter of direction, not of size. This topic is about that direction: how to recognise an exothermic reaction from a thermometer, how to draw its energy level diagram, how to calculate the energy change from bond energies or from a temperature rise in the laboratory, and how the same release of energy can be turned into a voltage in a chemical cell or a fuel cell. The two calculations are the part students lose marks on, because the arithmetic is easy and the sign convention is not obvious. Both are worked step by step here.</p>
+
+<h3>1. Exothermic and endothermic reactions</h3>
+<p>An exothermic reaction releases energy to the surroundings, so the surroundings get warmer and the temperature rises. An endothermic reaction takes energy in from the surroundings, so the surroundings get cooler and the temperature falls. The thermometer is the evidence, and the examination expects you to name the observation before you name the term.</p>
+<ul>
+  <li><strong>Exothermic:</strong> combustion of fuels, neutralisation of an acid by an alkali, the reaction of magnesium with acid, respiration, and the setting of concrete.</li>
+  <li><strong>Endothermic:</strong> thermal decomposition of calcium carbonate, the reaction of citric acid with sodium hydrogencarbonate, photosynthesis, and the melting or boiling of a substance.</li>
+  <li><strong>The sign:</strong> an exothermic change has a negative ΔH, because the products have less energy than the reactants; an endothermic change has a positive ΔH.</li>
+</ul>
+<p>Read the sign carefully. A negative number here does not mean "less energy released" — it means energy has left the system, which is exactly what an exothermic reaction does. The larger the number, the more energy is involved, whatever the sign.</p>
+
+<h3>2. Energy level diagrams and activation energy</h3>
+<p>A reaction profile plots energy against the progress of the reaction. The reactants sit on the left and the products on the right, and the height difference between them is ΔH.</p>
+<ul>
+  <li>In an <strong>exothermic</strong> profile the products are lower than the reactants, and the arrow to the surroundings points outwards.</li>
+  <li>In an <strong>endothermic</strong> profile the products are higher than the reactants, and the arrow from the surroundings points inwards.</li>
+  <li>In both, the curve rises to a peak between them. The height from the reactants to that peak is the activation energy, the minimum energy the colliding particles need before the reaction can happen.</li>
+</ul>
+<p>A catalyst lowers the peak — the activation energy — but leaves the heights of the reactants and products exactly where they were. That single sentence answers a large share of the questions on this topic, and it is the same point as the rate topic: a catalyst changes how quickly the reaction goes, not how much energy it releases.</p>
+
+<h3>3. Bond breaking and bond forming</h3>
+<p>Chemical reactions involve breaking the bonds in the reactants and forming new bonds in the products. Breaking a bond requires energy, so it is endothermic; forming a bond releases energy, so it is exothermic. The overall energy change is the balance of the two.</p>
+<p>ΔH = energy needed to break the bonds − energy released forming the bonds</p>
+<p><em>Key:</em> ΔH = the enthalpy change of the reaction (kJ/mol); energy needed = the total bond energy of the bonds broken (kJ/mol); energy released = the total bond energy of the bonds formed (kJ/mol).</p>
+<p>If the bonds formed release more than the bonds broken required, the surplus is released to the surroundings and the reaction is exothermic, so ΔH is negative. If the bonds broken cost more than the bonds formed give back, the reaction is endothermic and ΔH is positive. The rule works for every reaction, which is why it is worth writing out rather than trying to remember which way round it goes.</p>
+
+<h3>4. Worked example: bond energies</h3>
+<p>Hydrogen reacts with chlorine to form hydrogen chloride: H₂ + Cl₂ → 2HCl. Use the bond energies H–H 436 kJ/mol, Cl–Cl 243 kJ/mol and H–Cl 432 kJ/mol to calculate ΔH.</p>
+<p>Bonds broken: H–H (436) + Cl–Cl (243) = 679 kJ/mol. Bonds formed: 2 × H–Cl = 2 × 432 = 864 kJ/mol. ΔH = 679 − 864 = −185 kJ/mol.</p>
+<p><em>Key:</em> ΔH = the enthalpy change (kJ/mol); the bond energies are the energy needed to break one mole of each bond (kJ/mol); the 2 in front of H–Cl is there because two molecules of hydrogen chloride are formed.</p>
+<p>The answer is negative, so the reaction is exothermic: forming the two H–Cl bonds released 864 kJ, more than the 679 kJ needed to break the H–H and Cl–Cl bonds. The most common error here is forgetting the coefficient of 2 on the product side, which would give 679 − 432 = +247 and turn a clearly exothermic reaction into an endothermic one.</p>
+
+<h3>5. Worked example: measuring an energy change in the laboratory</h3>
+<p>25.0 cm³ of 1.00 mol/dm³ hydrochloric acid is mixed with 25.0 cm³ of 1.00 mol/dm³ sodium hydroxide solution. The temperature rises by 6.5 °C. Calculate the energy released and the enthalpy change per mole of water formed.</p>
+<p>Q = m × c × ΔT = 50.0 g × 4.18 J/(g·°C) × 6.5 °C = 1 358.5 J, which is 1.36 kJ.</p>
+<p><em>Key:</em> Q = the energy released (J); m = the mass of the solution heated (g); c = the specific heat capacity of water, 4.18 J/(g·°C); ΔT = the temperature rise (°C).</p>
+<p>The amount of water formed is 0.0250 mol, because 25.0 cm³ of a 1.00 mol/dm³ solution contains 0.0250 mol and the acid and alkali react in a 1:1 ratio. So the energy per mole is 1.36 kJ ÷ 0.0250 mol = 54.4 kJ/mol, and the enthalpy change is −54 kJ/mol because the temperature rose.</p>
+<p>The textbook value is about −57 kJ/mol, so the measurement is slightly low. That gap is not an error in the method: heat is lost to the cup, the thermometer and the air during the experiment, which is why the apparatus is insulated and why the answer is described as an approximate value. An exam that asks why the measured value is lower wants exactly that sentence.</p>
+
+<h3>6. Chemical cells: turning a reaction into a voltage</h3>
+<p>A chemical cell, or simple cell, uses two different metals dipped into an electrolyte. Because the metals have different reactivities, one loses electrons more readily than the other, and the electrons flow through an external wire from one electrode to the other, producing a current.</p>
+<ul>
+  <li>The <strong>more reactive metal</strong> loses electrons, so it is oxidised and becomes the negative electrode.</li>
+  <li>The <strong>less reactive metal</strong> gains those electrons at its surface, so it is reduced and becomes the positive electrode.</li>
+  <li>The <strong>voltage</strong> is larger when the difference in reactivity between the two metals is larger, so a cell of magnesium and copper gives a bigger reading than one of zinc and copper.</li>
+  <li>A cell stops working when the reaction that drives it has gone as far as it can, which is why a simple cell goes flat. A rechargeable cell can be driven backwards by an external supply.</li>
+</ul>
+<p>Notice that this is the redox chemistry of the previous topic with a wire in the middle: oxidation at one electrode, reduction at the other, electrons travelling between them instead of being transferred on contact.</p>
+
+<h3>7. Fuel cells</h3>
+<p>A fuel cell produces electricity from a fuel that is supplied continuously, rather than from chemicals stored inside it. The hydrogen–oxygen fuel cell is the one the specification names: hydrogen is oxidised at one electrode and oxygen is reduced at the other, and the only product is water.</p>
+<p>2H₂ + O₂ → 2H₂O</p>
+<p><em>Key:</em> H₂ = hydrogen, the fuel supplied to the negative electrode; O₂ = oxygen from the air, supplied to the positive electrode; H₂O = water, the only product.</p>
+<ul>
+  <li><strong>Advantages:</strong> the only product is water, so there is no carbon dioxide and no other pollutant at the point of use; the cell keeps working as long as fuel is supplied; and it is more efficient than burning the fuel in an engine.</li>
+  <li><strong>Disadvantages:</strong> hydrogen is difficult to store and transport, because it is a gas that leaks easily and needs high pressure or very low temperature; the electrodes use expensive catalysts such as platinum; and most hydrogen is currently made from fossil fuels, so the environmental benefit depends on how it was produced.</li>
+</ul>
+
+<h3>8. Comparing cells and fuel cells</h3>
+<table border="1">
+  <tr><th>Feature</th><th>Chemical cell</th><th>Fuel cell</th></tr>
+  <tr><td>Source of energy</td><td>Chemicals stored inside the cell</td><td>Fuel supplied continuously from outside</td></tr>
+  <tr><td>Lifetime</td><td>Goes flat when the reactants are used up</td><td>Works while fuel is supplied</td></tr>
+  <tr><td>Rechargeable</td><td>Some are; a simple cell is not</td><td>Refuelled rather than recharged</td></tr>
+  <tr><td>Products</td><td>Depends on the cell chemistry</td><td>Water only, for a hydrogen–oxygen cell</td></tr>
+  <tr><td>Main cost</td><td>Low for a simple cell</td><td>High, because of the catalyst and the fuel storage</td></tr>
+</table>
+
+<h3>9. Typical mistakes</h3>
+<ul>
+  <li>Using the mass of the solid instead of the mass of the solution in Q = m × c × ΔT. The water is what warms up, so the mass is the volume of solution in grams.</li>
+  <li>Forgetting to convert joules to kilojoules before dividing by the number of moles, which makes the answer a thousand times too large.</li>
+  <li>Giving a positive ΔH for an exothermic reaction because "energy was released". The sign is negative because energy has left the system.</li>
+  <li>Forgetting the coefficient when counting bonds formed, which flips the sign of the answer.</li>
+  <li>Claiming a catalyst increases the energy released. It lowers the activation energy and changes nothing about ΔH.</li>
+  <li>Calling the more reactive metal in a cell the positive electrode. It is the negative one, because it is the one losing electrons.</li>
+  <li>Saying a fuel cell "does not pollute" without qualification. Its own product is only water, but producing and transporting the hydrogen may not be clean.</li>
+</ul>
+
+<h3>10. Exam-style questions</h3>
+<ol>
+  <li>A test tube containing dilute hydrochloric acid and magnesium becomes warm. State whether the reaction is exothermic or endothermic and give the sign of ΔH. <em>Answer:</em> Exothermic, because the temperature of the surroundings rises, so ΔH is negative.</li>
+  <li>Sketch the energy level diagram for an endothermic reaction and label the activation energy. <em>Answer:</em> The products are drawn higher than the reactants, and the activation energy is labelled as the height from the reactants to the peak of the curve.</li>
+  <li>Use the bond energies N≡N 945 kJ/mol and H–H 436 kJ/mol, and N–H 391 kJ/mol, to calculate ΔH for N₂ + 3H₂ → 2NH₃. <em>Answer:</em> Bonds broken are 945 + 3 × 436 = 2 253 kJ/mol; bonds formed are 6 × 391 = 2 346 kJ/mol; ΔH = 2 253 − 2 346 = −93 kJ/mol, so the reaction is exothermic.</li>
+  <li>Explain why a catalyst does not change the value of ΔH. <em>Answer:</em> A catalyst provides an alternative pathway with a lower activation energy, but the reactants and products are unchanged, so the energy difference between them is unchanged.</li>
+  <li>50.0 g of water in a calorimeter rises in temperature by 4.0 °C. Calculate the energy released. <em>Answer:</em> Q = m × c × ΔT = 50.0 × 4.18 × 4.0 = 836 J, which is 0.836 kJ.</li>
+  <li>Explain why the enthalpy change measured in a school laboratory is usually smaller than the accepted value. <em>Answer:</em> Heat is lost to the surroundings, the apparatus and the air, so not all of the energy released is used to raise the temperature of the solution.</li>
+  <li>Give one advantage and one disadvantage of using a hydrogen–oxygen fuel cell in a car. <em>Answer:</em> Advantage: the only product is water, so no carbon dioxide is produced at the vehicle. Disadvantage: hydrogen is difficult and expensive to store and transport.</li>
+</ol>
+
+<h3>11. Revision checklist</h3>
+<ul>
+  <li>I can define exothermic and endothermic in terms of energy transfer and the sign of ΔH.</li>
+  <li>I can draw and label both reaction profiles, including activation energy.</li>
+  <li>I can state which of bond breaking and bond forming is endothermic.</li>
+  <li>I can calculate ΔH from bond energies, including coefficients.</li>
+  <li>I can apply Q = m × c × ΔT and convert the result into kJ per mole.</li>
+  <li>I can explain why a measured value is lower than the accepted one.</li>
+  <li>I can describe how a chemical cell works and which electrode is negative.</li>
+  <li>I can describe a hydrogen–oxygen fuel cell and give one advantage and one disadvantage.</li>
+</ul>
+$lit$, material_type = 'notes', updated_at = now()
+  from t
+  where sm.topic_id = t.id and sm.title = $lit$IGCSE Chemistry (OxfordAQA): Energy Changes$lit$
+  returning sm.id
+)
+insert into public.study_materials (topic_id, title, content, material_type)
+select t.id, $lit$IGCSE Chemistry (OxfordAQA): Energy Changes$lit$, $lit$<h2>Energy Changes</h2>
+<p>Every chemical reaction either releases energy to the surroundings or takes energy from them, and the difference between the two is a matter of direction, not of size. This topic is about that direction: how to recognise an exothermic reaction from a thermometer, how to draw its energy level diagram, how to calculate the energy change from bond energies or from a temperature rise in the laboratory, and how the same release of energy can be turned into a voltage in a chemical cell or a fuel cell. The two calculations are the part students lose marks on, because the arithmetic is easy and the sign convention is not obvious. Both are worked step by step here.</p>
+
+<h3>1. Exothermic and endothermic reactions</h3>
+<p>An exothermic reaction releases energy to the surroundings, so the surroundings get warmer and the temperature rises. An endothermic reaction takes energy in from the surroundings, so the surroundings get cooler and the temperature falls. The thermometer is the evidence, and the examination expects you to name the observation before you name the term.</p>
+<ul>
+  <li><strong>Exothermic:</strong> combustion of fuels, neutralisation of an acid by an alkali, the reaction of magnesium with acid, respiration, and the setting of concrete.</li>
+  <li><strong>Endothermic:</strong> thermal decomposition of calcium carbonate, the reaction of citric acid with sodium hydrogencarbonate, photosynthesis, and the melting or boiling of a substance.</li>
+  <li><strong>The sign:</strong> an exothermic change has a negative ΔH, because the products have less energy than the reactants; an endothermic change has a positive ΔH.</li>
+</ul>
+<p>Read the sign carefully. A negative number here does not mean "less energy released" — it means energy has left the system, which is exactly what an exothermic reaction does. The larger the number, the more energy is involved, whatever the sign.</p>
+
+<h3>2. Energy level diagrams and activation energy</h3>
+<p>A reaction profile plots energy against the progress of the reaction. The reactants sit on the left and the products on the right, and the height difference between them is ΔH.</p>
+<ul>
+  <li>In an <strong>exothermic</strong> profile the products are lower than the reactants, and the arrow to the surroundings points outwards.</li>
+  <li>In an <strong>endothermic</strong> profile the products are higher than the reactants, and the arrow from the surroundings points inwards.</li>
+  <li>In both, the curve rises to a peak between them. The height from the reactants to that peak is the activation energy, the minimum energy the colliding particles need before the reaction can happen.</li>
+</ul>
+<p>A catalyst lowers the peak — the activation energy — but leaves the heights of the reactants and products exactly where they were. That single sentence answers a large share of the questions on this topic, and it is the same point as the rate topic: a catalyst changes how quickly the reaction goes, not how much energy it releases.</p>
+
+<h3>3. Bond breaking and bond forming</h3>
+<p>Chemical reactions involve breaking the bonds in the reactants and forming new bonds in the products. Breaking a bond requires energy, so it is endothermic; forming a bond releases energy, so it is exothermic. The overall energy change is the balance of the two.</p>
+<p>ΔH = energy needed to break the bonds − energy released forming the bonds</p>
+<p><em>Key:</em> ΔH = the enthalpy change of the reaction (kJ/mol); energy needed = the total bond energy of the bonds broken (kJ/mol); energy released = the total bond energy of the bonds formed (kJ/mol).</p>
+<p>If the bonds formed release more than the bonds broken required, the surplus is released to the surroundings and the reaction is exothermic, so ΔH is negative. If the bonds broken cost more than the bonds formed give back, the reaction is endothermic and ΔH is positive. The rule works for every reaction, which is why it is worth writing out rather than trying to remember which way round it goes.</p>
+
+<h3>4. Worked example: bond energies</h3>
+<p>Hydrogen reacts with chlorine to form hydrogen chloride: H₂ + Cl₂ → 2HCl. Use the bond energies H–H 436 kJ/mol, Cl–Cl 243 kJ/mol and H–Cl 432 kJ/mol to calculate ΔH.</p>
+<p>Bonds broken: H–H (436) + Cl–Cl (243) = 679 kJ/mol. Bonds formed: 2 × H–Cl = 2 × 432 = 864 kJ/mol. ΔH = 679 − 864 = −185 kJ/mol.</p>
+<p><em>Key:</em> ΔH = the enthalpy change (kJ/mol); the bond energies are the energy needed to break one mole of each bond (kJ/mol); the 2 in front of H–Cl is there because two molecules of hydrogen chloride are formed.</p>
+<p>The answer is negative, so the reaction is exothermic: forming the two H–Cl bonds released 864 kJ, more than the 679 kJ needed to break the H–H and Cl–Cl bonds. The most common error here is forgetting the coefficient of 2 on the product side, which would give 679 − 432 = +247 and turn a clearly exothermic reaction into an endothermic one.</p>
+
+<h3>5. Worked example: measuring an energy change in the laboratory</h3>
+<p>25.0 cm³ of 1.00 mol/dm³ hydrochloric acid is mixed with 25.0 cm³ of 1.00 mol/dm³ sodium hydroxide solution. The temperature rises by 6.5 °C. Calculate the energy released and the enthalpy change per mole of water formed.</p>
+<p>Q = m × c × ΔT = 50.0 g × 4.18 J/(g·°C) × 6.5 °C = 1 358.5 J, which is 1.36 kJ.</p>
+<p><em>Key:</em> Q = the energy released (J); m = the mass of the solution heated (g); c = the specific heat capacity of water, 4.18 J/(g·°C); ΔT = the temperature rise (°C).</p>
+<p>The amount of water formed is 0.0250 mol, because 25.0 cm³ of a 1.00 mol/dm³ solution contains 0.0250 mol and the acid and alkali react in a 1:1 ratio. So the energy per mole is 1.36 kJ ÷ 0.0250 mol = 54.4 kJ/mol, and the enthalpy change is −54 kJ/mol because the temperature rose.</p>
+<p>The textbook value is about −57 kJ/mol, so the measurement is slightly low. That gap is not an error in the method: heat is lost to the cup, the thermometer and the air during the experiment, which is why the apparatus is insulated and why the answer is described as an approximate value. An exam that asks why the measured value is lower wants exactly that sentence.</p>
+
+<h3>6. Chemical cells: turning a reaction into a voltage</h3>
+<p>A chemical cell, or simple cell, uses two different metals dipped into an electrolyte. Because the metals have different reactivities, one loses electrons more readily than the other, and the electrons flow through an external wire from one electrode to the other, producing a current.</p>
+<ul>
+  <li>The <strong>more reactive metal</strong> loses electrons, so it is oxidised and becomes the negative electrode.</li>
+  <li>The <strong>less reactive metal</strong> gains those electrons at its surface, so it is reduced and becomes the positive electrode.</li>
+  <li>The <strong>voltage</strong> is larger when the difference in reactivity between the two metals is larger, so a cell of magnesium and copper gives a bigger reading than one of zinc and copper.</li>
+  <li>A cell stops working when the reaction that drives it has gone as far as it can, which is why a simple cell goes flat. A rechargeable cell can be driven backwards by an external supply.</li>
+</ul>
+<p>Notice that this is the redox chemistry of the previous topic with a wire in the middle: oxidation at one electrode, reduction at the other, electrons travelling between them instead of being transferred on contact.</p>
+
+<h3>7. Fuel cells</h3>
+<p>A fuel cell produces electricity from a fuel that is supplied continuously, rather than from chemicals stored inside it. The hydrogen–oxygen fuel cell is the one the specification names: hydrogen is oxidised at one electrode and oxygen is reduced at the other, and the only product is water.</p>
+<p>2H₂ + O₂ → 2H₂O</p>
+<p><em>Key:</em> H₂ = hydrogen, the fuel supplied to the negative electrode; O₂ = oxygen from the air, supplied to the positive electrode; H₂O = water, the only product.</p>
+<ul>
+  <li><strong>Advantages:</strong> the only product is water, so there is no carbon dioxide and no other pollutant at the point of use; the cell keeps working as long as fuel is supplied; and it is more efficient than burning the fuel in an engine.</li>
+  <li><strong>Disadvantages:</strong> hydrogen is difficult to store and transport, because it is a gas that leaks easily and needs high pressure or very low temperature; the electrodes use expensive catalysts such as platinum; and most hydrogen is currently made from fossil fuels, so the environmental benefit depends on how it was produced.</li>
+</ul>
+
+<h3>8. Comparing cells and fuel cells</h3>
+<table border="1">
+  <tr><th>Feature</th><th>Chemical cell</th><th>Fuel cell</th></tr>
+  <tr><td>Source of energy</td><td>Chemicals stored inside the cell</td><td>Fuel supplied continuously from outside</td></tr>
+  <tr><td>Lifetime</td><td>Goes flat when the reactants are used up</td><td>Works while fuel is supplied</td></tr>
+  <tr><td>Rechargeable</td><td>Some are; a simple cell is not</td><td>Refuelled rather than recharged</td></tr>
+  <tr><td>Products</td><td>Depends on the cell chemistry</td><td>Water only, for a hydrogen–oxygen cell</td></tr>
+  <tr><td>Main cost</td><td>Low for a simple cell</td><td>High, because of the catalyst and the fuel storage</td></tr>
+</table>
+
+<h3>9. Typical mistakes</h3>
+<ul>
+  <li>Using the mass of the solid instead of the mass of the solution in Q = m × c × ΔT. The water is what warms up, so the mass is the volume of solution in grams.</li>
+  <li>Forgetting to convert joules to kilojoules before dividing by the number of moles, which makes the answer a thousand times too large.</li>
+  <li>Giving a positive ΔH for an exothermic reaction because "energy was released". The sign is negative because energy has left the system.</li>
+  <li>Forgetting the coefficient when counting bonds formed, which flips the sign of the answer.</li>
+  <li>Claiming a catalyst increases the energy released. It lowers the activation energy and changes nothing about ΔH.</li>
+  <li>Calling the more reactive metal in a cell the positive electrode. It is the negative one, because it is the one losing electrons.</li>
+  <li>Saying a fuel cell "does not pollute" without qualification. Its own product is only water, but producing and transporting the hydrogen may not be clean.</li>
+</ul>
+
+<h3>10. Exam-style questions</h3>
+<ol>
+  <li>A test tube containing dilute hydrochloric acid and magnesium becomes warm. State whether the reaction is exothermic or endothermic and give the sign of ΔH. <em>Answer:</em> Exothermic, because the temperature of the surroundings rises, so ΔH is negative.</li>
+  <li>Sketch the energy level diagram for an endothermic reaction and label the activation energy. <em>Answer:</em> The products are drawn higher than the reactants, and the activation energy is labelled as the height from the reactants to the peak of the curve.</li>
+  <li>Use the bond energies N≡N 945 kJ/mol and H–H 436 kJ/mol, and N–H 391 kJ/mol, to calculate ΔH for N₂ + 3H₂ → 2NH₃. <em>Answer:</em> Bonds broken are 945 + 3 × 436 = 2 253 kJ/mol; bonds formed are 6 × 391 = 2 346 kJ/mol; ΔH = 2 253 − 2 346 = −93 kJ/mol, so the reaction is exothermic.</li>
+  <li>Explain why a catalyst does not change the value of ΔH. <em>Answer:</em> A catalyst provides an alternative pathway with a lower activation energy, but the reactants and products are unchanged, so the energy difference between them is unchanged.</li>
+  <li>50.0 g of water in a calorimeter rises in temperature by 4.0 °C. Calculate the energy released. <em>Answer:</em> Q = m × c × ΔT = 50.0 × 4.18 × 4.0 = 836 J, which is 0.836 kJ.</li>
+  <li>Explain why the enthalpy change measured in a school laboratory is usually smaller than the accepted value. <em>Answer:</em> Heat is lost to the surroundings, the apparatus and the air, so not all of the energy released is used to raise the temperature of the solution.</li>
+  <li>Give one advantage and one disadvantage of using a hydrogen–oxygen fuel cell in a car. <em>Answer:</em> Advantage: the only product is water, so no carbon dioxide is produced at the vehicle. Disadvantage: hydrogen is difficult and expensive to store and transport.</li>
+</ol>
+
+<h3>11. Revision checklist</h3>
+<ul>
+  <li>I can define exothermic and endothermic in terms of energy transfer and the sign of ΔH.</li>
+  <li>I can draw and label both reaction profiles, including activation energy.</li>
+  <li>I can state which of bond breaking and bond forming is endothermic.</li>
+  <li>I can calculate ΔH from bond energies, including coefficients.</li>
+  <li>I can apply Q = m × c × ΔT and convert the result into kJ per mole.</li>
+  <li>I can explain why a measured value is lower than the accepted one.</li>
+  <li>I can describe how a chemical cell works and which electrode is negative.</li>
+  <li>I can describe a hydrogen–oxygen fuel cell and give one advantage and one disadvantage.</li>
+</ul>
+$lit$, 'notes'
+from t
+where not exists (select 1 from upd);
+
+with t as (
+  select t.id from public.topics t
+  join public.subject_levels sl on sl.id = t.subject_level_id
+  join public.subjects s on s.id = sl.subject_id
+  where s.slug = $lit$chemistry-oxfordaqa$lit$ and sl.level = $lit$IGCSE$lit$ and t.slug = $lit$organic-chemistry$lit$
+), upd as (
+  update public.study_materials sm
+  set content = $lit$<h2>Organic Chemistry</h2>
+<p>Organic chemistry is the chemistry of carbon compounds, and there are millions of them because carbon forms four bonds and bonds to itself without limit. That could make the topic a list to memorise, and it is not: a handful of homologous series cover everything the specification asks, and each series has a general formula, a functional group and a predictable set of reactions. This topic starts from crude oil, which is where the fuels come from, then introduces the alkanes and alkenes with the test that separates them, the alcohols and carboxylic acids that follow from them, and finally the polymers — both the synthetic ones made from alkenes and the natural ones such as starch, protein and DNA. Read it as one chain of reasoning rather than four separate topics.</p>
+
+<h3>1. Crude oil and fractional distillation</h3>
+<p>Crude oil is a mixture of hydrocarbons — compounds of carbon and hydrogen only — of different chain lengths. Because the chains differ in length, they have different boiling points, and that is what separates them: fractional distillation heats the oil, lets the vapours rise up a column and draws each fraction off where it condenses.</p>
+<ul>
+  <li><strong>Shorter chains</strong> have lower boiling points and condense near the top of the column. They are more flammable and less viscous.</li>
+  <li><strong>Longer chains</strong> have higher boiling points and condense near the bottom, where the temperature is highest. They are more viscous and burn less cleanly.</li>
+  <li><strong>The fractions</strong>, from top to bottom: refinery gas, petrol, kerosene, diesel, fuel oil and bitumen.</li>
+</ul>
+<p>The reason for the trend is the intermolecular forces. Longer molecules have more surface contact with each other, so the forces between them are stronger and more energy is needed to separate them, which raises the boiling point. Viscosity follows the same cause: the chains tangle and slide over each other less easily.</p>
+
+<h3>2. Alkanes: the first homologous series</h3>
+<p>A homologous series is a family of compounds with the same general formula, similar chemical properties and a gradual change in physical properties from one member to the next. The alkanes have the general formula CₙH₂ₙ₊₂, contain only single bonds, and are described as saturated because each carbon has as many hydrogen atoms as it can hold.</p>
+<p>CH₄, C₂H₆, C₃H₈ and C₄H₁₀ are methane, ethane, propane and butane. The prefix gives the number of carbons, and that is all the naming you need at this level; the suffix -ane tells you the compound is saturated.</p>
+<ul>
+  <li><strong>Structure:</strong> every carbon forms four single bonds, arranged tetrahedrally, so the molecule is not flat.</li>
+  <li><strong>Reactivity:</strong> low. Single bonds are strong and there is no functional group for a reagent to attack, so alkanes mainly burn or react with halogens in the presence of ultraviolet light.</li>
+  <li><strong>Physical trend:</strong> boiling point rises with chain length for the same intermolecular reason as the fractions above.</li>
+</ul>
+
+<h3>3. Combustion: complete and incomplete</h3>
+<p>Alkanes are used as fuels because they burn exothermically. With plenty of oxygen the combustion is complete and the products are carbon dioxide and water.</p>
+<p>CH₄ + 2O₂ → CO₂ + 2H₂O <em>Key:</em> CH₄ = methane (g); O₂ = oxygen (g); CO₂ = carbon dioxide (g); H₂O = water (g).</p>
+<p>With a limited supply of air the combustion is incomplete. The products then include carbon monoxide, a colourless and odourless gas that is toxic because it binds to haemoglobin and stops the blood carrying oxygen, and sometimes soot, which is unburned carbon.</p>
+<p>2CH₄ + 3O₂ → 2CO + 4H₂O <em>Key:</em> CO = carbon monoxide (g); the coefficients show that less oxygen is used per molecule of methane than in complete combustion.</p>
+<p>Incomplete combustion also releases less energy per mole of fuel, which is why a badly adjusted burner gives less heat as well as more pollution. Sulfur impurities in fuels produce sulfur dioxide when burned, which dissolves in rainwater to form acid rain; that is a fuel-quality problem rather than a property of the hydrocarbon itself.</p>
+
+<h3>4. Cracking: matching supply to demand</h3>
+<p>Crude oil contains more long-chain fractions than the market wants, and more short-chain ones than it produces naturally. Cracking solves that by breaking long chains into shorter ones, using heat and often a catalyst, and it produces alkenes as well as shorter alkanes — which is where the next section comes from.</p>
+<p>C₁₀H₂₂ → C₈H₁₈ + C₂H₄ <em>Key:</em> C₁₀H₂₂ = decane, the long chain being broken; C₈H₁₈ = octane, the shorter alkane produced; C₂H₄ = ethene, the alkene produced.</p>
+<p>Check the balance: ten carbons on the left, eight plus two on the right; twenty-two hydrogens on the left, eighteen plus four on the right. Cracking is not a reaction with oxygen or with anything else, so the atoms must simply be redistributed, and a balanced check is the fastest way to catch a wrong product.</p>
+
+<h3>5. Alkenes and the bromine water test</h3>
+<p>Alkenes have the general formula CₙH₂ₙ and contain a carbon–carbon double bond, so they are unsaturated: they can add more atoms without losing any. Ethene is C₂H₄ and propene is C₃H₆.</p>
+<p>The test that separates an alkene from an alkane is bromine water. Shake the unknown with orange bromine water: an alkene decolourises it, turning the solution from orange to colourless, because the bromine adds across the double bond. An alkane leaves the colour unchanged, because there is no double bond for the bromine to add to.</p>
+<p>C₂H₄ + Br₂ → C₂H₄Br₂ <em>Key:</em> C₂H₄ = ethene (g); Br₂ = bromine, orange in solution; C₂H₄Br₂ = 1,2-dibromoethane, colourless.</p>
+<p>That change from orange to colourless is the observation to write. "It goes clear" is accepted; "the bromine water stays orange" for an alkene is not.</p>
+
+<h3>6. Addition reactions of alkenes</h3>
+<p>Because the double bond can open up, alkenes undergo addition reactions in which two species join to make one product and nothing is lost. The four the specification asks for are worth learning as a set, because they all follow the same pattern.</p>
+<ul>
+  <li><strong>With hydrogen</strong> an alkene becomes an alkane, over a nickel catalyst: C₂H₄ + H₂ → C₂H₆. This is hydrogenation, the reaction used to harden vegetable oil into margarine.</li>
+  <li><strong>With steam</strong> an alkene becomes an alcohol, over a phosphoric acid catalyst at about 300 °C and high pressure: C₂H₄ + H₂O → C₂H₅OH.</li>
+  <li><strong>With bromine</strong> it forms a dibromoalkane, as above, which is the test reaction.</li>
+  <li><strong>With hydrogen chloride</strong> it forms a chloroalkane: C₂H₄ + HCl → C₂H₅Cl.</li>
+</ul>
+<p>In every case the double bond becomes a single bond and the two new atoms attach to the carbons that were double-bonded. Notice that no small molecule is eliminated, which is what distinguishes an addition from a condensation.</p>
+
+<h3>7. Alcohols and carboxylic acids</h3>
+<p>Ethanol, C₂H₅OH, is made in two ways. Fermentation uses yeast on a sugar solution at about 25 to 35 °C in the absence of oxygen: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂. Hydration of ethene is the industrial route described above, and it is faster and purer but needs a catalyst, heat and pressure.</p>
+<ul>
+  <li><strong>Fermentation</strong> is cheap and uses renewable sugar, but it is slow and the product is dilute, so it must be distilled.</li>
+  <li><strong>Hydration</strong> is fast and gives a concentrated product, but it uses ethene from crude oil, which is not renewable.</li>
+  <li><strong>Ethanol as a fuel</strong> burns to carbon dioxide and water and can be blended into petrol, but growing the sugar competes with food crops for land.</li>
+</ul>
+<p>Carboxylic acids contain the functional group –COOH. Ethanoic acid, CH₃COOH, is the acid in vinegar, and it behaves like the mineral acids of topic 3.5: it neutralises bases, reacts with carbonates to give carbon dioxide, and reacts with an alcohol to form an ester. That last reaction, esterification, is condensation — two molecules join and a small molecule of water is eliminated.</p>
+
+<h3>8. Addition polymerisation</h3>
+<p>Under the right conditions the double bond of an alkene opens and the molecules join into a long chain without losing any atoms. This is addition polymerisation, and the monomer and the repeating unit have the same empirical formula, which is why the equation is written with the repeat unit in brackets and an n after it.</p>
+<p>n C₂H₄ → (–CH₂–CH₂–)ₙ <em>Key:</em> C₂H₄ = ethene, the monomer; the bracket shows the repeating unit; n = the number of monomer units joined, which is large and variable.</p>
+<ul>
+  <li><strong>Poly(ethene)</strong> from ethene: bags, bottles and film. It is tough, flexible and unreactive.</li>
+  <li><strong>Poly(propene)</strong> from propene: ropes, carpets and food containers.</li>
+  <li><strong>PVC</strong> from chloroethene: window frames and pipes, because it is rigid and does not conduct.</li>
+  <li><strong>PTFE</strong> from tetrafluoroethene: non-stick coatings, because it is very unreactive and has a low friction surface.</li>
+</ul>
+<p>Two consequences follow from the structure. Addition polymers have no functional group to attack, so they are unreactive and do not biodegrade, which is why plastic waste persists. And because the chains are long and tangled, they soften on heating and can be remoulded, which is what makes recycling possible for many of them.</p>
+
+<h3>9. Condensation polymers and natural polymers</h3>
+<p>In condensation polymerisation two different monomers, each with two functional groups, join and eliminate a small molecule — usually water — at every link. Polyesters and nylons are made this way. PET, used in drinks bottles, is made from ethane-1,2-diol and benzene-1,4-dicarboxylic acid, and the link that forms is an ester link.</p>
+<table border="1">
+  <tr><th>Polymer</th><th>Type</th><th>Monomer or monomers</th><th>Where it occurs</th></tr>
+  <tr><td>Poly(ethene)</td><td>Addition</td><td>Ethene</td><td>Synthetic, from crude oil</td></tr>
+  <tr><td>PET</td><td>Condensation</td><td>A diol and a dicarboxylic acid</td><td>Synthetic, bottles and fibres</td></tr>
+  <tr><td>Starch</td><td>Condensation</td><td>Glucose</td><td>Natural, energy store in plants</td></tr>
+  <tr><td>Cellulose</td><td>Condensation</td><td>Glucose</td><td>Natural, plant cell walls</td></tr>
+  <tr><td>Protein</td><td>Condensation</td><td>Amino acids</td><td>Natural, enzymes, muscle and hair</td></tr>
+  <tr><td>DNA</td><td>Condensation</td><td>Nucleotides</td><td>Natural, genetic material</td></tr>
+</table>
+<p>The natural polymers are condensation polymers made by living things. Starch and cellulose are both built from glucose but linked differently, which is why humans can digest starch and not cellulose. Proteins are chains of amino acids joined by peptide links, and the order of those amino acids determines the shape of the protein and therefore its function. DNA is a chain of nucleotides whose order carries the genetic code. All of them are biodegradable, because organisms have enzymes that can break the links — which is precisely what addition polymers lack.</p>
+
+<h3>10. Worked example: from monomer to polymer</h3>
+<p>A sample of poly(ethene) has a relative molecular mass of 8 400. Calculate the number of ethene units in the chain, and state the mass of bromine that would be needed to decolourise 0.020 mol of ethene.</p>
+<p>The repeat unit is C₂H₄, with Mᵣ = 2 × 12 + 4 × 1 = 28. The number of units is 8 400 ÷ 28 = 300.</p>
+<p><em>Key:</em> Mᵣ = relative molecular mass, with no unit; 12 and 1 are the relative atomic masses of carbon and hydrogen; the number of units is the polymer's mass divided by the mass of one repeat unit.</p>
+<p>Ethene reacts with bromine in a 1:1 ratio, so 0.020 mol of ethene needs 0.020 mol of Br₂. The mass is 0.020 mol × 160 g/mol = 3.2 g, using Mᵣ(Br₂) = 2 × 80 = 160.</p>
+<p><em>Key:</em> mol = amount of substance (mol); 160 g/mol = the relative molecular mass of bromine expressed as grams per mole; 3.2 g = the mass of bromine required.</p>
+<p>The two halves of that question are the two skills this topic tests: counting repeat units, and using a mole ratio from an addition reaction. Neither needs the structure drawn out, which is why the calculation is worth practising rather than the drawing.</p>
+
+<h3>11. Typical mistakes</h3>
+<ul>
+  <li>Writing an alkene's formula with the alkane's general formula. Ethene is C₂H₄, not C₂H₆.</li>
+  <li>Saying bromine water goes colourless for an alkane. It stays orange; only the alkene decolourises it.</li>
+  <li>Forgetting that addition polymerisation loses no atoms, so the empirical formula of the polymer is the same as the monomer's.</li>
+  <li>Drawing a condensation polymer without eliminating the small molecule, which leaves the formula one water too heavy at every link.</li>
+  <li>Claiming all plastics are non-biodegradable. Starch, cellulose and proteins are polymers and all biodegrade; the problem is specific to addition polymers such as poly(ethene).</li>
+  <li>Calling carbon monoxide "just carbon dioxide with less oxygen". It is a different compound with a different effect: it is toxic because it binds to haemoglobin.</li>
+  <li>Using "cracking" and "combustion" interchangeably. Cracking breaks chains without oxygen; combustion reacts the fuel with oxygen.</li>
+</ul>
+
+<h3>12. Exam-style questions</h3>
+<ol>
+  <li>Explain why petrol has a lower boiling point than bitumen. <em>Answer:</em> Petrol is a mixture of shorter hydrocarbon chains, which have weaker intermolecular forces between the molecules, so less energy is needed to separate them.</li>
+  <li>Describe the test that distinguishes ethene from ethane, including the observation. <em>Answer:</em> Shake each gas with orange bromine water; ethene decolourises it, turning it colourless, while ethane leaves it orange.</li>
+  <li>Write the equation for the complete combustion of propane, C₃H₈. <em>Answer:</em> C₃H₈ + 5O₂ → 3CO₂ + 4H₂O.</li>
+  <li>Explain why cracking is used in the oil industry. <em>Answer:</em> It breaks long-chain fractions, for which demand is low, into shorter chains that are in demand as fuels, and it produces alkenes such as ethene, which are needed to make polymers.</li>
+  <li>State two ways ethanol can be produced and give one advantage of each. <em>Answer:</em> Fermentation of sugar with yeast uses a renewable raw material and is cheap; hydration of ethene is fast and gives a concentrated product.</li>
+  <li>Name the type of polymerisation that makes poly(ethene) and state what happens to the double bond. <em>Answer:</em> Addition polymerisation; the double bond opens and the molecules join without losing any atoms.</li>
+  <li>Explain why poly(ethene) does not biodegrade while starch does. <em>Answer:</em> Poly(ethene) has a carbon chain with no functional group that enzymes can attack, so microorganisms cannot break it down, whereas starch has glycosidic links that enzymes can hydrolyse.</li>
+  <li>0.050 mol of propene reacts completely with bromine. Calculate the mass of bromine used. <em>Answer:</em> The ratio is 1:1, so 0.050 mol of Br₂ is needed; mass = 0.050 × 160 = 8.0 g.</li>
+</ol>
+
+<h3>13. Revision checklist</h3>
+<ul>
+  <li>I can define a hydrocarbon and a homologous series.</li>
+  <li>I can explain fractional distillation and the trend in boiling point with chain length.</li>
+  <li>I can write the general formulas of alkanes and alkenes and name the first four of each.</li>
+  <li>I can write complete and incomplete combustion equations.</li>
+  <li>I can explain what cracking does and balance a cracking equation.</li>
+  <li>I can describe the bromine water test and its observation.</li>
+  <li>I can name the four addition reactions of alkenes and their products.</li>
+  <li>I can describe fermentation and hydration as routes to ethanol.</li>
+  <li>I can distinguish addition from condensation polymerisation.</li>
+  <li>I can name two synthetic and three natural polymers with their monomers.</li>
+  <li>I can calculate repeat units and use a 1:1 mole ratio from an addition reaction.</li>
+</ul>
+$lit$, material_type = 'notes', updated_at = now()
+  from t
+  where sm.topic_id = t.id and sm.title = $lit$IGCSE Chemistry (OxfordAQA): Organic Chemistry$lit$
+  returning sm.id
+)
+insert into public.study_materials (topic_id, title, content, material_type)
+select t.id, $lit$IGCSE Chemistry (OxfordAQA): Organic Chemistry$lit$, $lit$<h2>Organic Chemistry</h2>
+<p>Organic chemistry is the chemistry of carbon compounds, and there are millions of them because carbon forms four bonds and bonds to itself without limit. That could make the topic a list to memorise, and it is not: a handful of homologous series cover everything the specification asks, and each series has a general formula, a functional group and a predictable set of reactions. This topic starts from crude oil, which is where the fuels come from, then introduces the alkanes and alkenes with the test that separates them, the alcohols and carboxylic acids that follow from them, and finally the polymers — both the synthetic ones made from alkenes and the natural ones such as starch, protein and DNA. Read it as one chain of reasoning rather than four separate topics.</p>
+
+<h3>1. Crude oil and fractional distillation</h3>
+<p>Crude oil is a mixture of hydrocarbons — compounds of carbon and hydrogen only — of different chain lengths. Because the chains differ in length, they have different boiling points, and that is what separates them: fractional distillation heats the oil, lets the vapours rise up a column and draws each fraction off where it condenses.</p>
+<ul>
+  <li><strong>Shorter chains</strong> have lower boiling points and condense near the top of the column. They are more flammable and less viscous.</li>
+  <li><strong>Longer chains</strong> have higher boiling points and condense near the bottom, where the temperature is highest. They are more viscous and burn less cleanly.</li>
+  <li><strong>The fractions</strong>, from top to bottom: refinery gas, petrol, kerosene, diesel, fuel oil and bitumen.</li>
+</ul>
+<p>The reason for the trend is the intermolecular forces. Longer molecules have more surface contact with each other, so the forces between them are stronger and more energy is needed to separate them, which raises the boiling point. Viscosity follows the same cause: the chains tangle and slide over each other less easily.</p>
+
+<h3>2. Alkanes: the first homologous series</h3>
+<p>A homologous series is a family of compounds with the same general formula, similar chemical properties and a gradual change in physical properties from one member to the next. The alkanes have the general formula CₙH₂ₙ₊₂, contain only single bonds, and are described as saturated because each carbon has as many hydrogen atoms as it can hold.</p>
+<p>CH₄, C₂H₆, C₃H₈ and C₄H₁₀ are methane, ethane, propane and butane. The prefix gives the number of carbons, and that is all the naming you need at this level; the suffix -ane tells you the compound is saturated.</p>
+<ul>
+  <li><strong>Structure:</strong> every carbon forms four single bonds, arranged tetrahedrally, so the molecule is not flat.</li>
+  <li><strong>Reactivity:</strong> low. Single bonds are strong and there is no functional group for a reagent to attack, so alkanes mainly burn or react with halogens in the presence of ultraviolet light.</li>
+  <li><strong>Physical trend:</strong> boiling point rises with chain length for the same intermolecular reason as the fractions above.</li>
+</ul>
+
+<h3>3. Combustion: complete and incomplete</h3>
+<p>Alkanes are used as fuels because they burn exothermically. With plenty of oxygen the combustion is complete and the products are carbon dioxide and water.</p>
+<p>CH₄ + 2O₂ → CO₂ + 2H₂O <em>Key:</em> CH₄ = methane (g); O₂ = oxygen (g); CO₂ = carbon dioxide (g); H₂O = water (g).</p>
+<p>With a limited supply of air the combustion is incomplete. The products then include carbon monoxide, a colourless and odourless gas that is toxic because it binds to haemoglobin and stops the blood carrying oxygen, and sometimes soot, which is unburned carbon.</p>
+<p>2CH₄ + 3O₂ → 2CO + 4H₂O <em>Key:</em> CO = carbon monoxide (g); the coefficients show that less oxygen is used per molecule of methane than in complete combustion.</p>
+<p>Incomplete combustion also releases less energy per mole of fuel, which is why a badly adjusted burner gives less heat as well as more pollution. Sulfur impurities in fuels produce sulfur dioxide when burned, which dissolves in rainwater to form acid rain; that is a fuel-quality problem rather than a property of the hydrocarbon itself.</p>
+
+<h3>4. Cracking: matching supply to demand</h3>
+<p>Crude oil contains more long-chain fractions than the market wants, and more short-chain ones than it produces naturally. Cracking solves that by breaking long chains into shorter ones, using heat and often a catalyst, and it produces alkenes as well as shorter alkanes — which is where the next section comes from.</p>
+<p>C₁₀H₂₂ → C₈H₁₈ + C₂H₄ <em>Key:</em> C₁₀H₂₂ = decane, the long chain being broken; C₈H₁₈ = octane, the shorter alkane produced; C₂H₄ = ethene, the alkene produced.</p>
+<p>Check the balance: ten carbons on the left, eight plus two on the right; twenty-two hydrogens on the left, eighteen plus four on the right. Cracking is not a reaction with oxygen or with anything else, so the atoms must simply be redistributed, and a balanced check is the fastest way to catch a wrong product.</p>
+
+<h3>5. Alkenes and the bromine water test</h3>
+<p>Alkenes have the general formula CₙH₂ₙ and contain a carbon–carbon double bond, so they are unsaturated: they can add more atoms without losing any. Ethene is C₂H₄ and propene is C₃H₆.</p>
+<p>The test that separates an alkene from an alkane is bromine water. Shake the unknown with orange bromine water: an alkene decolourises it, turning the solution from orange to colourless, because the bromine adds across the double bond. An alkane leaves the colour unchanged, because there is no double bond for the bromine to add to.</p>
+<p>C₂H₄ + Br₂ → C₂H₄Br₂ <em>Key:</em> C₂H₄ = ethene (g); Br₂ = bromine, orange in solution; C₂H₄Br₂ = 1,2-dibromoethane, colourless.</p>
+<p>That change from orange to colourless is the observation to write. "It goes clear" is accepted; "the bromine water stays orange" for an alkene is not.</p>
+
+<h3>6. Addition reactions of alkenes</h3>
+<p>Because the double bond can open up, alkenes undergo addition reactions in which two species join to make one product and nothing is lost. The four the specification asks for are worth learning as a set, because they all follow the same pattern.</p>
+<ul>
+  <li><strong>With hydrogen</strong> an alkene becomes an alkane, over a nickel catalyst: C₂H₄ + H₂ → C₂H₆. This is hydrogenation, the reaction used to harden vegetable oil into margarine.</li>
+  <li><strong>With steam</strong> an alkene becomes an alcohol, over a phosphoric acid catalyst at about 300 °C and high pressure: C₂H₄ + H₂O → C₂H₅OH.</li>
+  <li><strong>With bromine</strong> it forms a dibromoalkane, as above, which is the test reaction.</li>
+  <li><strong>With hydrogen chloride</strong> it forms a chloroalkane: C₂H₄ + HCl → C₂H₅Cl.</li>
+</ul>
+<p>In every case the double bond becomes a single bond and the two new atoms attach to the carbons that were double-bonded. Notice that no small molecule is eliminated, which is what distinguishes an addition from a condensation.</p>
+
+<h3>7. Alcohols and carboxylic acids</h3>
+<p>Ethanol, C₂H₅OH, is made in two ways. Fermentation uses yeast on a sugar solution at about 25 to 35 °C in the absence of oxygen: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂. Hydration of ethene is the industrial route described above, and it is faster and purer but needs a catalyst, heat and pressure.</p>
+<ul>
+  <li><strong>Fermentation</strong> is cheap and uses renewable sugar, but it is slow and the product is dilute, so it must be distilled.</li>
+  <li><strong>Hydration</strong> is fast and gives a concentrated product, but it uses ethene from crude oil, which is not renewable.</li>
+  <li><strong>Ethanol as a fuel</strong> burns to carbon dioxide and water and can be blended into petrol, but growing the sugar competes with food crops for land.</li>
+</ul>
+<p>Carboxylic acids contain the functional group –COOH. Ethanoic acid, CH₃COOH, is the acid in vinegar, and it behaves like the mineral acids of topic 3.5: it neutralises bases, reacts with carbonates to give carbon dioxide, and reacts with an alcohol to form an ester. That last reaction, esterification, is condensation — two molecules join and a small molecule of water is eliminated.</p>
+
+<h3>8. Addition polymerisation</h3>
+<p>Under the right conditions the double bond of an alkene opens and the molecules join into a long chain without losing any atoms. This is addition polymerisation, and the monomer and the repeating unit have the same empirical formula, which is why the equation is written with the repeat unit in brackets and an n after it.</p>
+<p>n C₂H₄ → (–CH₂–CH₂–)ₙ <em>Key:</em> C₂H₄ = ethene, the monomer; the bracket shows the repeating unit; n = the number of monomer units joined, which is large and variable.</p>
+<ul>
+  <li><strong>Poly(ethene)</strong> from ethene: bags, bottles and film. It is tough, flexible and unreactive.</li>
+  <li><strong>Poly(propene)</strong> from propene: ropes, carpets and food containers.</li>
+  <li><strong>PVC</strong> from chloroethene: window frames and pipes, because it is rigid and does not conduct.</li>
+  <li><strong>PTFE</strong> from tetrafluoroethene: non-stick coatings, because it is very unreactive and has a low friction surface.</li>
+</ul>
+<p>Two consequences follow from the structure. Addition polymers have no functional group to attack, so they are unreactive and do not biodegrade, which is why plastic waste persists. And because the chains are long and tangled, they soften on heating and can be remoulded, which is what makes recycling possible for many of them.</p>
+
+<h3>9. Condensation polymers and natural polymers</h3>
+<p>In condensation polymerisation two different monomers, each with two functional groups, join and eliminate a small molecule — usually water — at every link. Polyesters and nylons are made this way. PET, used in drinks bottles, is made from ethane-1,2-diol and benzene-1,4-dicarboxylic acid, and the link that forms is an ester link.</p>
+<table border="1">
+  <tr><th>Polymer</th><th>Type</th><th>Monomer or monomers</th><th>Where it occurs</th></tr>
+  <tr><td>Poly(ethene)</td><td>Addition</td><td>Ethene</td><td>Synthetic, from crude oil</td></tr>
+  <tr><td>PET</td><td>Condensation</td><td>A diol and a dicarboxylic acid</td><td>Synthetic, bottles and fibres</td></tr>
+  <tr><td>Starch</td><td>Condensation</td><td>Glucose</td><td>Natural, energy store in plants</td></tr>
+  <tr><td>Cellulose</td><td>Condensation</td><td>Glucose</td><td>Natural, plant cell walls</td></tr>
+  <tr><td>Protein</td><td>Condensation</td><td>Amino acids</td><td>Natural, enzymes, muscle and hair</td></tr>
+  <tr><td>DNA</td><td>Condensation</td><td>Nucleotides</td><td>Natural, genetic material</td></tr>
+</table>
+<p>The natural polymers are condensation polymers made by living things. Starch and cellulose are both built from glucose but linked differently, which is why humans can digest starch and not cellulose. Proteins are chains of amino acids joined by peptide links, and the order of those amino acids determines the shape of the protein and therefore its function. DNA is a chain of nucleotides whose order carries the genetic code. All of them are biodegradable, because organisms have enzymes that can break the links — which is precisely what addition polymers lack.</p>
+
+<h3>10. Worked example: from monomer to polymer</h3>
+<p>A sample of poly(ethene) has a relative molecular mass of 8 400. Calculate the number of ethene units in the chain, and state the mass of bromine that would be needed to decolourise 0.020 mol of ethene.</p>
+<p>The repeat unit is C₂H₄, with Mᵣ = 2 × 12 + 4 × 1 = 28. The number of units is 8 400 ÷ 28 = 300.</p>
+<p><em>Key:</em> Mᵣ = relative molecular mass, with no unit; 12 and 1 are the relative atomic masses of carbon and hydrogen; the number of units is the polymer's mass divided by the mass of one repeat unit.</p>
+<p>Ethene reacts with bromine in a 1:1 ratio, so 0.020 mol of ethene needs 0.020 mol of Br₂. The mass is 0.020 mol × 160 g/mol = 3.2 g, using Mᵣ(Br₂) = 2 × 80 = 160.</p>
+<p><em>Key:</em> mol = amount of substance (mol); 160 g/mol = the relative molecular mass of bromine expressed as grams per mole; 3.2 g = the mass of bromine required.</p>
+<p>The two halves of that question are the two skills this topic tests: counting repeat units, and using a mole ratio from an addition reaction. Neither needs the structure drawn out, which is why the calculation is worth practising rather than the drawing.</p>
+
+<h3>11. Typical mistakes</h3>
+<ul>
+  <li>Writing an alkene's formula with the alkane's general formula. Ethene is C₂H₄, not C₂H₆.</li>
+  <li>Saying bromine water goes colourless for an alkane. It stays orange; only the alkene decolourises it.</li>
+  <li>Forgetting that addition polymerisation loses no atoms, so the empirical formula of the polymer is the same as the monomer's.</li>
+  <li>Drawing a condensation polymer without eliminating the small molecule, which leaves the formula one water too heavy at every link.</li>
+  <li>Claiming all plastics are non-biodegradable. Starch, cellulose and proteins are polymers and all biodegrade; the problem is specific to addition polymers such as poly(ethene).</li>
+  <li>Calling carbon monoxide "just carbon dioxide with less oxygen". It is a different compound with a different effect: it is toxic because it binds to haemoglobin.</li>
+  <li>Using "cracking" and "combustion" interchangeably. Cracking breaks chains without oxygen; combustion reacts the fuel with oxygen.</li>
+</ul>
+
+<h3>12. Exam-style questions</h3>
+<ol>
+  <li>Explain why petrol has a lower boiling point than bitumen. <em>Answer:</em> Petrol is a mixture of shorter hydrocarbon chains, which have weaker intermolecular forces between the molecules, so less energy is needed to separate them.</li>
+  <li>Describe the test that distinguishes ethene from ethane, including the observation. <em>Answer:</em> Shake each gas with orange bromine water; ethene decolourises it, turning it colourless, while ethane leaves it orange.</li>
+  <li>Write the equation for the complete combustion of propane, C₃H₈. <em>Answer:</em> C₃H₈ + 5O₂ → 3CO₂ + 4H₂O.</li>
+  <li>Explain why cracking is used in the oil industry. <em>Answer:</em> It breaks long-chain fractions, for which demand is low, into shorter chains that are in demand as fuels, and it produces alkenes such as ethene, which are needed to make polymers.</li>
+  <li>State two ways ethanol can be produced and give one advantage of each. <em>Answer:</em> Fermentation of sugar with yeast uses a renewable raw material and is cheap; hydration of ethene is fast and gives a concentrated product.</li>
+  <li>Name the type of polymerisation that makes poly(ethene) and state what happens to the double bond. <em>Answer:</em> Addition polymerisation; the double bond opens and the molecules join without losing any atoms.</li>
+  <li>Explain why poly(ethene) does not biodegrade while starch does. <em>Answer:</em> Poly(ethene) has a carbon chain with no functional group that enzymes can attack, so microorganisms cannot break it down, whereas starch has glycosidic links that enzymes can hydrolyse.</li>
+  <li>0.050 mol of propene reacts completely with bromine. Calculate the mass of bromine used. <em>Answer:</em> The ratio is 1:1, so 0.050 mol of Br₂ is needed; mass = 0.050 × 160 = 8.0 g.</li>
+</ol>
+
+<h3>13. Revision checklist</h3>
+<ul>
+  <li>I can define a hydrocarbon and a homologous series.</li>
+  <li>I can explain fractional distillation and the trend in boiling point with chain length.</li>
+  <li>I can write the general formulas of alkanes and alkenes and name the first four of each.</li>
+  <li>I can write complete and incomplete combustion equations.</li>
+  <li>I can explain what cracking does and balance a cracking equation.</li>
+  <li>I can describe the bromine water test and its observation.</li>
+  <li>I can name the four addition reactions of alkenes and their products.</li>
+  <li>I can describe fermentation and hydration as routes to ethanol.</li>
+  <li>I can distinguish addition from condensation polymerisation.</li>
+  <li>I can name two synthetic and three natural polymers with their monomers.</li>
+  <li>I can calculate repeat units and use a 1:1 mole ratio from an addition reaction.</li>
+</ul>
+$lit$, 'notes'
+from t
+where not exists (select 1 from upd);
