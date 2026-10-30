@@ -122,6 +122,11 @@ dist-ssr
 # docs/oxfordaqa-9202.md tell an author to run it (and its --self-test) before a
 # bank is trusted, so a fresh clone has to have it.
 !.freebuff/gate-question-bank.cjs
+# The statement-link backfill, its auditor and its report: AGENTS.md tells an
+# author to run all three, so a fresh clone needs them.
+!.freebuff/link-question-statements.cjs
+!.freebuff/audit-statement-links.cjs
+!.freebuff/report-statement-links.cjs
 # The two notes-depth pipeline steps the docs and AGENTS.md tell an author to
 # run: fetch a unit's notes + board statements, then turn a content module into
 # guarded SQL. Without them a fresh clone cannot follow docs/notes-depth.md.
