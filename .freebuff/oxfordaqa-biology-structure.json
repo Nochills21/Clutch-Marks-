@@ -1,0 +1,195 @@
+[
+  {
+    "area": "1",
+    "title": "Organisation",
+    "marker": "none",
+    "intro": "All organisms are constituted of one or more cells. Multicellular organisms have cells that are differentiated according to their function. All the basic functions of life are the result of what happens inside the cells which make up an organism. Growth is the",
+    "subs": [
+      {
+        "code": "3.1.1",
+        "title": "Cell structure",
+        "marker": "none"
+      },
+      {
+        "code": "3.1.2",
+        "title": "Principles of organisation",
+        "marker": "none"
+      },
+      {
+        "code": "3.1.3",
+        "title": "Animal tissues, organs and systems",
+        "marker": "none"
+      },
+      {
+        "code": "3.1.4",
+        "title": "Plant tissues, organs and systems",
+        "marker": "none"
+      },
+      {
+        "code": "3.1.5",
+        "title": "Transport in cells",
+        "marker": "none"
+      }
+    ]
+  },
+  {
+    "area": "2",
+    "title": "Bioenergetics",
+    "marker": "none",
+    "intro": "Food provides materials and energy for organisms to carry out the basic functions of life and to grow. Some plants and bacteria are able to use energy from the Sun to generate complex food molecules. Animals obtain energy by breaking down complex food molecules and are ultimately dependent on green plants for energy.",
+    "subs": [
+      {
+        "code": "3.2.1",
+        "title": "Photosynthesis",
+        "marker": "none"
+      },
+      {
+        "code": "3.2.2",
+        "title": "Exchange and transport in plants",
+        "marker": "B"
+      },
+      {
+        "code": "3.2.3",
+        "title": "Circulation in humans",
+        "marker": "none"
+      },
+      {
+        "code": "3.2.4",
+        "title": "Digestion",
+        "marker": "none"
+      },
+      {
+        "code": "3.2.5",
+        "title": "Breathing",
+        "marker": "none"
+      },
+      {
+        "code": "3.2.6",
+        "title": "Respiration",
+        "marker": "none"
+      }
+    ]
+  },
+  {
+    "area": "3",
+    "title": "Ecology",
+    "marker": "none",
+    "intro": "Materials including carbon and water are continually recycled by the living world, being released through respiration of animals, plants and decomposing microorganisms and taken up by plants in photosynthesis. All species live in ecosystems composed of complex communities of animals and plants dependent on each other and that are adapted to particular",
+    "subs": [
+      {
+        "code": "3.3.1",
+        "title": "Energy transferred in ecosystems",
+        "marker": "none"
+      },
+      {
+        "code": "3.3.2",
+        "title": "Adaptations, interdependence and competition",
+        "marker": "none"
+      },
+      {
+        "code": "3.3.3",
+        "title": "Decay and the carbon cycle",
+        "marker": "none"
+      },
+      {
+        "code": "3.3.4",
+        "title": "Humans and their effects on the environment",
+        "marker": "B"
+      }
+    ]
+  },
+  {
+    "area": "4",
+    "title": "Organisms' interaction with the environment",
+    "marker": "none",
+    "intro": "Changes in environmental conditions can result in responses from an organism which protect the organism from harm and support maintenance of the species. Such responses may impact the internal stability of the organism or promote certain",
+    "subs": [
+      {
+        "code": "3.4.1",
+        "title": "The human nervous system",
+        "marker": "none"
+      },
+      {
+        "code": "3.4.2",
+        "title": "Homeostasis",
+        "marker": "none"
+      },
+      {
+        "code": "3.4.3",
+        "title": "Control of water and ion content of the body",
+        "marker": "B"
+      },
+      {
+        "code": "3.4.4",
+        "title": "Temperature control",
+        "marker": "none"
+      },
+      {
+        "code": "3.4.5",
+        "title": "Control of blood glucose",
+        "marker": "none"
+      },
+      {
+        "code": "3.4.6",
+        "title": "Behaviour",
+        "marker": "none"
+      },
+      {
+        "code": "3.4.7",
+        "title": "Infection and response",
+        "marker": "none"
+      }
+    ]
+  },
+  {
+    "area": "5",
+    "title": "Inheritance",
+    "marker": "none",
+    "intro": "Genetic information in a cell is held in the chemical DNA. Genes determine the development and structure of organisms. In asexual reproduction all the genes in the offspring come from one parent. In sexual reproduction half of the genes come from",
+    "subs": [
+      {
+        "code": "3.5.1",
+        "title": "Reproduction",
+        "marker": "none"
+      },
+      {
+        "code": "3.5.2",
+        "title": "Cell division",
+        "marker": "none"
+      },
+      {
+        "code": "3.5.3",
+        "title": "Genetic variation",
+        "marker": "none"
+      },
+      {
+        "code": "3.5.4",
+        "title": "Genetic disorders",
+        "marker": "none"
+      },
+      {
+        "code": "3.5.5",
+        "title": "Genetic manipulation",
+        "marker": "none"
+      }
+    ]
+  },
+  {
+    "area": "6",
+    "title": "Variation and evolution",
+    "marker": "none",
+    "intro": "All life today is directly descended from a universal common ancestor that was a simple single-celled organism. Over countless generations changes resulted from natural diversity within a species which makes possible the selection of those individuals best suited to survive under certain conditions. Species not able to respond sufficiently to changes in their environment are at",
+    "subs": [
+      {
+        "code": "3.6.1",
+        "title": "Continuous and discontinuous variation",
+        "marker": "none"
+      },
+      {
+        "code": "3.6.2",
+        "title": "Natural selection",
+        "marker": "none"
+      }
+    ]
+  }
+]

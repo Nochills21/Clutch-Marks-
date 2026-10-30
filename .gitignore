@@ -124,6 +124,11 @@ dist-ssr
 !.freebuff/gate-question-bank.cjs
 # The statement-link backfill, its auditor and its report: AGENTS.md tells an
 # author to run all three, so a fresh clone needs them.
+# The OxfordAQA 9201/9203 parser and the structures it produced: the runbook
+# tells an author to re-seed from them, so a fresh clone needs both.
+!.freebuff/extract-oxfordaqa-science.cjs
+!.freebuff/oxfordaqa-biology-structure.json
+!.freebuff/oxfordaqa-physics-structure.json
 !.freebuff/link-question-statements.cjs
 !.freebuff/audit-statement-links.cjs
 !.freebuff/report-statement-links.cjs
