@@ -86,6 +86,10 @@ dist-ssr
 # Phase 3.3's live verifier: spends one Gemini marking call, so it is the only
 # proof the English band path runs end to end.
 !.freebuff/probe-english-marker-live.cjs
+# The calibration harness: the only measurement of the English band marker
+# against real examiner marks. Re-runnable; costs one AI call per script, and
+# the board exemplars it reads are downloaded locally, never committed.
+!.freebuff/calibrate-english-marker.cjs
 # The before/after matrix that proved deactivating the legacy anon/service_role
 # JWTs moved nothing. Re-runnable with no admin credential (signup + SQL).
 !.freebuff/probe-legacy-key-cutover.cjs

@@ -121,8 +121,12 @@ There are TWO kinds of question on an English paper, and you must mark each the 
 
 2. WRITING tasks (directed writing, composition, 9280 writing tasks, and any task marked on a descriptor grid):
    These are BAND-marked. Do not award marks for "method" or "correct answer" — there is no such mark in an essay. Instead:
-   - Place the piece in a band on each criterion the board names for that task (0500 directed writing: Content, Style; 0500 composition: Content and Structure, Style; 9280 writing: Content, Organisation, Accuracy — use the paper's own criteria when it names them).
-   - Give marks_awarded and marks_available for each criterion from the paper's own mark allocation, and make them add up to the question's total. If the paper's split is not visible, divide the question's total across the criteria in the proportion the board's grid gives them.
+   - Place the piece in a band on EXACTLY the criteria the board's grid names for that task. The grids are fixed, and they are these (learned from the published mark schemes, not assumed):
+     * Cambridge 0500/22, Question 1 (Directed Writing) — TWO criteria: "Writing" (25 marks) and "Reading" (15 marks), total 40. The Reading mark is point-marked against the scheme's content points; the Writing mark is banded.
+     * Cambridge 0500/22, Questions 2–5 (Composition) — TWO criteria: "Content and Structure" (16 marks) and "Style and Accuracy" (24 marks), total 40.
+     * OxfordAQA 9280/W — TWO criteria: "Content and Communication" and "Language", with the paper's own split per question: Q1 (photograph) 6 + 3 = 9; Q2 (letter) 6 + 6 = 12; Q3 (four bullet points) 8 + 8 = 16; Q4 (two bullet points) 8 + 15 = 23.
+   - Never invent a criterion the board does not use. "Organisation", "Accuracy", "Content and Organisation" and "Structure" as standalone criteria do not exist on either of these papers: organisation is assessed inside Content and Structure (0500) or Content and Communication (9280), and accuracy inside Style and Accuracy (0500) or Language (9280). A third criterion is always wrong.
+   - Give marks_awarded and marks_available for each criterion from the split above, and make them add up to the question's total. Only if the paper is a different component with a split these rules do not cover, divide the question's total across the board's criteria in the proportion its grid gives them.
    - Quote the descriptor wording that applies, and quote the student's own words that justify the placement.
    - Name one concrete change that would move the criterion up a band. "Write more" is not a criterion move; "open the second paragraph with the counter-argument instead of listing it third" is.
 
@@ -180,6 +184,7 @@ export function englishRubric(subjectName: string, level: string | null | undefi
 
 - Reading questions are point-marked: one checklist entry per mark, in the paper's order.
 - Writing tasks are band-marked: place each board criterion in a band, quote the descriptor, quote the student's evidence, and make the criteria add up to the task total.
+- The criteria are the board's, and there are always two of them on these papers: 0500/22 Question 1 is Writing (25) + Reading (15); 0500/22 Questions 2–5 are Content and Structure (16) + Style and Accuracy (24); 9280/W is Content and Communication + Language, split 6+3, 6+6, 8+8 or 8+15 depending on the question. Never return a third criterion, and never rename one: "Organisation" and "Accuracy" on their own are not criteria on either paper.
 - There are no method marks and no accuracy marks on an essay. Never write "M1", "A1" or "B1" for a writing task.
 - Feedback names one change that would raise the band, in terms the student can act on tonight.`;
 }

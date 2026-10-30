@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  ENGLISH_SYSTEM_PROMPT,
+  englishRubric,
   isEnglishSubject,
   reconcileBand,
 } from "../../../supabase/functions/ai-correction/englishMarker";
@@ -18,6 +20,38 @@ describe("isEnglishSubject (ai-correction, phase 3.3)", () => {
     expect(isEnglishSubject("mathematics", "Mathematics")).toBe(false);
     expect(isEnglishSubject("physics", "Physics")).toBe(false);
     expect(isEnglishSubject(null, null)).toBe(false);
+  });
+});
+
+// Calibrated against the boards' published grids (see
+// docs/english-marker-calibration.md). The prompt used to name a 9280 grid
+// that does not exist — "Content, Organisation, Accuracy" — and the model
+// returned three criteria with its own maxima, so "Language" had no marks at
+// all. These assertions keep the real grids in the prompt.
+describe("ENGLISH_SYSTEM_PROMPT names the boards' own criteria", () => {
+  it("names 9280's two criteria and its per-question split", () => {
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Content and Communication");
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Q1 (photograph) 6 + 3 = 9");
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Q2 (letter) 6 + 6 = 12");
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Q3 (four bullet points) 8 + 8 = 16");
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Q4 (two bullet points) 8 + 15 = 23");
+  });
+
+  it("names 0500/22's two grids, including the 15 reading marks", () => {
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Writing\" (25 marks) and \"Reading\" (15 marks)");
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Content and Structure");
+    expect(ENGLISH_SYSTEM_PROMPT).toContain("Style and Accuracy");
+  });
+
+  it("forbids the invented third criterion outright", () => {
+    expect(ENGLISH_SYSTEM_PROMPT).toMatch(/A third criterion is always wrong/);
+    expect(ENGLISH_SYSTEM_PROMPT).not.toMatch(/9280 writing: Content, Organisation, Accuracy/);
+  });
+
+  it("repeats the grids in the per-paper rubric", () => {
+    const rubric = englishRubric("English as a Second Language (Oxford)", "IGCSE");
+    expect(rubric).toContain("Content and Communication");
+    expect(rubric).toMatch(/Always two|always two/);
   });
 });
 
