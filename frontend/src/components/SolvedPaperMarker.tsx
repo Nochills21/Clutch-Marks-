@@ -477,9 +477,18 @@ export function SolvedPaperMarker({
                     {paper.mark_points && paper.mark_points.length > 0 && (
                       <div className="space-y-1 rounded-md bg-muted/40 px-2.5 py-2">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                          Mark scheme points —{" "}
-                          {paper.mark_points.filter((p) => p.verdict === "PASS").length} of{" "}
-                          {paper.mark_points.length} earned
+                          {/* Phase 3.3: an English writing task is marked on band
+                              descriptors, not on mark-scheme points, and the
+                              criteria do not count one-per-mark. */}
+                          {paper.marking_mode === "band"
+                            ? `Assessment criteria — ${paper.band || "band placement"}`
+                            : (
+                              <>
+                                Mark scheme points —{" "}
+                                {paper.mark_points.filter((p) => p.verdict === "PASS").length} of{" "}
+                                {paper.mark_points.length} earned
+                              </>
+                            )}
                         </p>
                         <ul className="space-y-1">
                           {paper.mark_points.map((point, pointIndex) => (
@@ -519,7 +528,9 @@ export function SolvedPaperMarker({
                                           onChange={(e) =>
                                             setOverride(overrideKey(index, pointIndex), { reason: e.target.value })
                                           }
-                                          placeholder="Why does your wording earn this mark? Quote what you wrote."
+                                          placeholder={paper.marking_mode === "band"
+                                            ? "Why does this piece meet the next band? Quote what you wrote."
+                                            : "Why does your wording earn this mark? Quote what you wrote."}
                                           className="min-h-[58px] text-xs"
                                           aria-label={`Why your answer earns: ${point.point}`}
                                         />
@@ -550,9 +561,10 @@ export function SolvedPaperMarker({
                                         variant="ghost"
                                         className="h-6 px-1 text-[11px] text-muted-foreground hover:text-foreground"
                                         onClick={() => setOverride(overrideKey(index, pointIndex), { open: true })}
-                                      >
-                                        <Scale className="mr-1 h-3 w-3" aria-hidden="true" />
-                                        My phrasing is equivalent
+                                      >                                            <Scale className="mr-1 h-3 w-3" aria-hidden="true" />
+                                            {paper.marking_mode === "band"
+                                              ? "I deserved a higher band"
+                                              : "My phrasing is equivalent"}
                                       </Button>
                                     )}
                                   </div>
@@ -561,7 +573,8 @@ export function SolvedPaperMarker({
                             </li>
                           ))}
                         </ul>
-                        {(paper.mark_points.filter((p) => p.verdict === "PASS").length !== paper.marks_earned) && (
+                        {paper.marking_mode !== "band" &&
+                          (paper.mark_points.filter((p) => p.verdict === "PASS").length !== paper.marks_earned) && (
                           <p className="text-[11px] text-muted-foreground">
                             This checklist and the mark disagree — treat the mark as provisional and your teacher's
                             marking as final.

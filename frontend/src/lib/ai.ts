@@ -49,8 +49,30 @@ export interface CorrectedPaper {
    * checklist stored, and an older worker may omit it.
    */
   mark_points?: MarkPoint[];
+  /**
+   * Phase 3.3: how this question was marked. "band" means the marks came from
+   * an English descriptor grid, so `criteria` hold the assessment and the
+   * checklist entries are criteria rather than mark-scheme points. Absent on
+   * papers marked before this shipped.
+   */
+  marking_mode?: "mark_scheme" | "band";
+  /** The question-level band label on a band-marked English task. */
+  band?: string;
+  /** One entry per descriptor criterion, on a band-marked English task. */
+  criteria?: BandCriterion[];
   watermark: string;
   audit_ref: string;
+}
+
+/** A band descriptor the English marker placed the writing in (phase 3.3). */
+export interface BandCriterion {
+  name: string;
+  band: string;
+  marks_awarded: number;
+  marks_available: number;
+  descriptor: string;
+  evidence: string;
+  next_step: string;
 }
 
 export interface AiCorrectionOutput {
@@ -63,6 +85,21 @@ export interface AiCorrectionOutput {
   source?: "paste" | "upload" | "mixed";
   /** Model that actually marked the paper (the worker picks/falls back). */
   model?: string;
+  /**
+   * Phase 3.4: what the marking did to the review queue. `enqueued_cards` counts
+   * cards due now, and `focus_topics` names the topics that gained weight in the
+   * study plan. Absent when the paper is not linked to a topic.
+   */
+  review_queue?: { enqueued_cards: number; focus_topics: string[] };
+  /**
+   * Phase 3.3: which rubric marked the paper. `regime: "english_band"` means
+   * English band descriptors were used, not M/A/B mark-scheme points.
+   */
+  marking?: {
+    regime: "english_band" | "mark_scheme";
+    subject: string | null;
+    banded_questions: number;
+  };
 }
 
 /** One uploaded answer script, as referenced in the private storage bucket. */

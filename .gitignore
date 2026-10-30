@@ -83,6 +83,9 @@ dist-ssr
 # re-run after touching username resolution or the uniqueness rules.
 !.freebuff/probe-username-shadow.cjs
 !.freebuff/probe-signup-username-race.cjs
+# Phase 3.3's live verifier: spends one Gemini marking call, so it is the only
+# proof the English band path runs end to end.
+!.freebuff/probe-english-marker-live.cjs
 # The objectives review gate is content pipeline, not a one-off debug script: it
 # is the enforcement behind docs/objectives-authoring.md, and AGENTS.md tells an
 # author to run it before a topic's objectives are published.

@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.4";
+import { mergeFocusTopics } from "./focus.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -32,6 +33,46 @@ export async function handler(req: Request): Promise<Response> {
       );
     }
 
+    /**
+     * Topic names whose review cards are due right now.
+     *
+     * Four flat queries rather than a nested embed: a missing FK makes PostgREST
+     * answer 400 for the whole request (see AGENTS.md), and a study plan must not
+     * fail because the review queue is shaped differently than expected. Failure
+     * is swallowed for the same reason — a plan without the extra focus is still
+     * a plan.
+     */
+    async function dueTopicNames(client: any): Promise<string[]> {
+      try {
+        const now = new Date().toISOString();
+        const { data: due } = await client
+          .from("flashcard_progress")
+          .select("flashcard_id")
+          .lte("next_review_at", now)
+          .limit(400);
+        const cardIds = [...new Set((due ?? []).map((r: { flashcard_id: string }) => r.flashcard_id))];
+        if (cardIds.length === 0) return [];
+
+        const { data: cards } = await client.from("flashcards").select("id, set_id").in("id", cardIds);
+        const setIds = [...new Set((cards ?? []).map((c: { set_id: string }) => c.set_id))];
+        if (setIds.length === 0) return [];
+
+        const { data: sets } = await client.from("flashcard_sets").select("topic_id").in("id", setIds);
+        const topicIds = [...new Set(
+          (sets ?? []).map((s: { topic_id: string | null }) => s.topic_id).filter(Boolean) as string[],
+        )];
+        if (topicIds.length === 0) return [];
+
+        const { data: topics } = await client.from("topics").select("name").in("id", topicIds);
+        return ((topics ?? []) as { name: string | null }[])
+          .map((t) => String(t.name ?? "").trim())
+          .filter(Boolean);
+      } catch (err) {
+        console.error("study-planner: review queue lookup failed:", (err as Error).message);
+        return [];
+      }
+    }
+
     // Approval gate: pending accounts cannot consume AI credits
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -41,7 +82,10 @@ export async function handler(req: Request): Promise<Response> {
     const clamp = (v: unknown, max = 2000) => typeof v === "string" ? v.slice(0, max) : "";
     const quizPerformance = clamp(body.quizPerformance);
     const upcomingHomework = clamp(body.upcomingHomework);
-    const weakTopics = clamp(body.weakTopics);
+    // Phase 3.4: topics with cards due now — every mark a student lost in an AI
+    // marking queues one at interval 0 — earn focus in the plan without the
+    // student having to remember to name them.
+    const weakTopics = mergeFocusTopics(clamp(body.weakTopics), await dueTopicNames(supabase));
     const targetExamDate = clamp(body.targetExamDate, 64);
     const hoursPerWeek = Number.isFinite(body.hoursPerWeek) ? Math.min(80, Math.max(1, Number(body.hoursPerWeek))) : 5;
     const subjectLevelId = body.subjectLevelId ?? null;

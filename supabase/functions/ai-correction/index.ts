@@ -26,6 +26,14 @@
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.4";
 import { type MarkPoint, normaliseChecklist, normaliseMarks, questionList } from "./marks.ts";
+import { cardsFromMissedPoints } from "./reviewQueue.ts";
+import {
+  type BandCriterion,
+  ENGLISH_SYSTEM_PROMPT,
+  englishRubric,
+  isEnglishSubject,
+  reconcileBand,
+} from "./englishMarker.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -120,6 +128,16 @@ interface CorrectedPaper {
   comment: string;
   /** Phase 3.1: one entry per mark-scheme point, rendered as a checklist. */
   mark_points: MarkPoint[];
+  /**
+   * Phase 3.3: which regime marked this question. "band" means the marks came
+   * from a descriptor grid, not from points — the panel labels it accordingly
+   * and must not compare a criterion count against the mark.
+   */
+  marking_mode?: "mark_scheme" | "band";
+  /** The question-level band label, when the paper has bands. */
+  band?: string;
+  /** The band criteria this question was marked on (writing tasks only). */
+  criteria?: BandCriterion[];
   watermark: string;
   audit_ref: string;
 }
@@ -773,6 +791,11 @@ export async function handler(req: Request): Promise<Response> {
 
     // ── marking context ─────────────────────────────────────────────────
     let rubric = "";
+    // Phase 3.3: English is marked on band descriptors, not on M1/A1 points,
+    // so it gets its own prompt and rubric. The detection is server-side and
+    // keyed on the subject row, never on anything the browser sends.
+    let english = false;
+    let subjectName = "";
     if (subjectLevelId) {
       const { data: levelRow } = await supabase
         .from("subject_levels")
@@ -784,7 +807,14 @@ export async function handler(req: Request): Promise<Response> {
         .select("id, name, slug")
         .in("id", levelRow ? [levelRow.subject_id] : []);
       const subject = subjectRows?.[0];
-      rubric = `
+      subjectName = String(subject?.name ?? "");
+      english = isEnglishSubject(
+        subject?.slug as string | undefined,
+        subject?.name as string | undefined,
+      );
+      rubric = english
+        ? englishRubric(subjectName, levelRow?.level as string | undefined)
+        : `
 ## Subject context
 - Subject: ${subject?.name ?? "IGCSE / AS / A-Level"}
 - Level: ${levelRow?.level ?? ""}
@@ -819,8 +849,11 @@ Mark scheme style:
     const textSections: string[] = [rubric];
 
     // The mark scheme is the authority the marks are awarded against, so it
-    // goes in ahead of the student's answers.
-    const markScheme = await loadMarkScheme(admin, paperRef);
+    // goes in ahead of the student's answers. English has no scheme on file —
+    // the 0500 and 9280 papers are catalogue-only — and its bands are in the
+    // prompt instead, so asking for one would only add M/A/B language the
+    // English prompt forbids.
+    const markScheme = english ? null : await loadMarkScheme(admin, paperRef);
     if (markScheme) {
       textSections.push(
         `## Official mark scheme for this paper (authoritative)\n` +
@@ -855,9 +888,10 @@ Mark scheme style:
     textSections.push("## Instructions\nReturn ONLY a JSON array. No markdown fences, no explanations outside the JSON.");
 
     const fullPrompt = textSections.filter(Boolean).join("\n\n");
+    const basePrompt = english ? ENGLISH_SYSTEM_PROMPT : SYSTEM_PROMPT;
     const systemPrompt = images.length + pdfs.length > 0
-      ? SYSTEM_PROMPT + VISION_INSTRUCTIONS
-      : SYSTEM_PROMPT;
+      ? basePrompt + VISION_INSTRUCTIONS
+      : basePrompt;
 
     // ── call the model ──────────────────────────────────────────────────
     const requestedModel = typeof model === "string" && model.trim() ? model.trim() : "";
@@ -967,19 +1001,43 @@ Mark scheme style:
       // Bounded to 0..total_marks: a stray model value must never give a
       // negative mark or a grade above 100% (see marks.ts).
       const marks = normaliseMarks(raw);
+
+      // Phase 3.3: on an English paper a writing task is marked on band
+      // descriptors, so the criteria are the authority for its marks. A
+      // reading question returns no criteria and keeps the point path below.
+      // The question-level mark is passed in as a fallback, not as the answer:
+      // it is what saves a reply that named a band and dropped the arithmetic
+      // from becoming a 0-mark composition (see englishMarker.ts).
+      const band = english ? reconcileBand(raw, marks.total_marks, marks.marks_earned) : null;
+      const banded = Boolean(band && !band.absent);
+      const earned = banded ? band!.marks_earned : marks.marks_earned;
+      const possible = banded ? band!.total_marks : marks.total_marks;
+      const grade = possible > 0 ? Math.round((earned / possible) * 100) : 0;
+
       return {
         question: String(raw.question ?? `Question ${idx + 1}`),
         original_answer: String(raw.original_answer ?? ""),
         correct_answer: String(raw.correct_answer ?? ""),
-        marks_earned: marks.marks_earned,
-        total_marks: marks.total_marks,
+        marks_earned: earned,
+        total_marks: possible,
         feedback: String(raw.feedback ?? ""),
-        grade: marks.grade,
+        grade,
         comment: String(raw.comment ?? ""),
         // Phase 3.1: the per-mark-point checklist the panel renders beside the
         // mark. Normalised here, not in the browser, so a malformed list cannot
-        // become a UI claim about which marks were awarded.
-        mark_points: normaliseChecklist(raw, marks.marks_earned).points,
+        // become a UI claim about which marks were awarded. English writing
+        // tasks get one entry per band criterion instead, built server-side
+        // from the same normaliser that reconciled the marks.
+        mark_points: banded
+          ? band!.points
+          : normaliseChecklist(raw, marks.marks_earned).points,
+        marking_mode: banded ? "band" : "mark_scheme",
+        ...(banded
+          ? {
+            band: band!.band,
+            criteria: band!.criteria,
+          }
+          : {}),
         watermark: `Clutch Marks · AI-marked · ${auditRef.slice(0, 8)}`,
         audit_ref: auditRef,
       };
@@ -1028,6 +1086,16 @@ Mark scheme style:
     });
     if (persistError) console.error("ai-correction persist failed:", persistError.message);
 
+    // Phase 3.4: the points this student just lost go into their review queue,
+    // due now. Non-fatal on purpose — a marking must not fail because a card
+    // could not be queued, and the student's marks are already safe above.
+    const reviewQueue = await enqueueMissedPoints(admin, user.id, paperRef, corrected).catch(
+      (err: Error) => {
+        console.error("ai-correction review queue failed:", err.message);
+        return { cards: 0, topics: [] as string[] };
+      },
+    );
+
     return json({
       corrected_papers: corrected,
       overall_grade: overallGrade,
@@ -1035,6 +1103,14 @@ Mark scheme style:
       total_earned: totalEarned,
       audit_ref: auditRef,
       source,
+      review_queue: { enqueued_cards: reviewQueue.cards, focus_topics: reviewQueue.topics },
+      // Phase 3.3: which rubric marked this paper, so the panel and any later
+      // audit can tell a band-marked English script from a point-marked one.
+      marking: {
+        regime: english ? "english_band" : "mark_scheme",
+        subject: subjectName || null,
+        banded_questions: corrected.filter((q) => q.marking_mode === "band").length,
+      },
       model: modelName,
       watermark: `Clutch Marks · AI-marked · ${auditRef.slice(0, 8)}`,
       // Whether this marking had the paper's published mark scheme to work
@@ -1071,6 +1147,159 @@ let cachedVisionModel: string | null = null;
 function visionModelCandidates(): string[] {
   const rest = VISION_MODEL_CANDIDATES.filter((m) => m !== cachedVisionModel);
   return cachedVisionModel ? [cachedVisionModel, ...rest] : [...VISION_MODEL_CANDIDATES];
+}
+
+/* ───────────────── review queue from missed marks (phase 3.4) ───────────── */
+
+interface QueueResult {
+  /** Cards newly queued for this student (already-due cards are not re-queued). */
+  cards: number;
+  /** Topic names that gained weight, for the planner. */
+  topics: string[];
+}
+
+/**
+ * Cards per marking run, across every question.
+ *
+ * A ten-question paper can miss 80 points, and 80 cards is a wall nobody
+ * reviews — it also spends the whole 40-point daily flashcard XP allowance at
+ * once, because `flashcard_progress` awards XP on insert. Twelve is about two
+ * questions' worth: enough to be honest about what was lost, few enough to be
+ * worked through before the next paper.
+ */
+const MAX_CARDS_PER_MARKING = 12;
+
+/**
+ * Which topic a marked paper belongs to.
+ *
+ * `past_papers.topic_id` is the only link, and it is often null (a board paper
+ * can span a whole syllabus). No topic means no set to file the cards under, so
+ * the queue is skipped rather than inventing an attribution — a card in the
+ * wrong topic would raise the wrong subtopic in the planner.
+ */
+async function topicOfPaper(admin: any, paperId?: string): Promise<{ id: string; name: string } | null> {
+  if (!paperId) return null;
+  const { data } = await admin
+    .from("past_papers")
+    .select("topic_id, topics(id, name)")
+    .eq("id", paperId)
+    .maybeSingle();
+  const topic = (data as any)?.topics;
+  if (!topic?.id) return null;
+  return { id: topic.id, name: String(topic.name ?? "this topic") };
+}
+
+/**
+ * Queue one card per question that lost marks, due immediately (interval 0).
+ *
+ * One per question, not per mark point: the card's front is the question, so a
+ * question that cost three marks is one thing to revise, not three identically
+ * fronted cards. The lost marks ride on the back, so nothing is hidden.
+ *
+ * Cards live in a per-topic set shared by every student — "Marking misses: …" —
+ * because a mark-scheme point and its model answer are curriculum, not personal
+ * data. The student's own queue entry is `flashcard_progress`, which is what
+ * carries the interval. Nothing of a student's wording is written to the set.
+ *
+ * `upsert … ignoreDuplicates` is deliberate: (user_id, flashcard_id) is unique,
+ * so sitting the same paper twice refreshes nothing and the student's existing
+ * schedule is not reset by a repeat miss.
+ */
+async function enqueueMissedPoints(
+  admin: any,
+  userId: string,
+  paperRef: { id?: string } | null,
+  corrected: CorrectedPaper[],
+): Promise<QueueResult> {
+  const topic = await topicOfPaper(admin, paperRef?.id);
+  if (!topic) return { cards: 0, topics: [] };
+
+  // In question order, so the first things lost are the first things queued.
+  const cards: { front: string; back: string }[] = [];
+  for (const q of corrected) {
+    const room = MAX_CARDS_PER_MARKING - cards.length;
+    if (room <= 0) break;
+    cards.push(...cardsFromMissedPoints(q.mark_points, q.correct_answer, room, q.question));
+  }
+  if (cards.length === 0) return { cards: 0, topics: [] };
+
+  const title = `Marking misses: ${topic.name}`.slice(0, 120);
+  const { data: existingSet } = await admin
+    .from("flashcard_sets")
+    .select("id")
+    .eq("topic_id", topic.id)
+    .eq("title", title)
+    .maybeSingle();
+
+  let setId: string | null = existingSet?.id ?? null;
+  if (!setId) {
+    const { data: created, error } = await admin
+      .from("flashcard_sets")
+      .insert({
+        topic_id: topic.id,
+        title,
+        description: "Mark-scheme points lost when a paper was AI-marked. Review them until they stick.",
+      })
+      .select("id")
+      .single();
+    if (error || !created) throw new Error(error?.message ?? "could not create the review set");
+    setId = created.id;
+  }
+
+  const { data: inSet } = await admin.from("flashcards").select("id, front").eq("set_id", setId);
+  const byFront = new Map<string, string>(
+    (inSet ?? []).map((c: { id: string; front: string }) => [String(c.front).trim().toLowerCase(), c.id]),
+  );
+
+  const wantedIds: string[] = [];
+  const toInsert: { front: string; back: string }[] = [];
+  const pending = new Set<string>();
+  for (const card of cards) {
+    const key = card.front.toLowerCase();
+    const existingId = byFront.get(key);
+    if (existingId) {
+      wantedIds.push(existingId);
+      continue;
+    }
+    if (pending.has(key)) continue;
+    pending.add(key);
+    toInsert.push(card);
+  }
+
+  if (toInsert.length > 0) {
+    const { data: created, error } = await admin
+      .from("flashcards")
+      .insert(
+        toInsert.map((card, index) => ({
+          set_id: setId,
+          front: card.front,
+          back: card.back,
+          sort_order: 1000 + index,
+        })),
+      )
+      .select("id, front");
+    if (error) throw new Error(error.message);
+    for (const row of created ?? []) wantedIds.push(row.id);
+  }
+
+  const ids = [...new Set(wantedIds)];
+  if (ids.length === 0) return { cards: 0, topics: [topic.name] };
+
+  const now = new Date().toISOString();
+  const { error: queueError } = await admin.from("flashcard_progress").upsert(
+    ids.map((flashcardId) => ({
+      user_id: userId,
+      flashcard_id: flashcardId,
+      ease_factor: 2.5,
+      interval_days: 0,
+      repetitions: 0,
+      next_review_at: now,
+    })),
+    { onConflict: "user_id,flashcard_id", ignoreDuplicates: true },
+  );
+  if (queueError) throw new Error(queueError.message);
+
+  return { cards: ids.length, topics: [topic.name] };
 }
 
 // Without this the function deploys ACTIVE but is never dispatched: only
