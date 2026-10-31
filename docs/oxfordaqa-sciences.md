@@ -35,12 +35,14 @@ Nothing is retyped, so a heading cannot drift from the specification by a typo.
 | `subject_levels` row | `IGCSE`, **inactive** | `IGCSE`, **inactive** |
 | `topics` | 6, in specification order | 8, in specification order |
 | `syllabus_statements` | 29, `board = OxfordAQA`, `spec_code = 9201` | 33, `board = OxfordAQA`, `spec_code = 9203` |
-| Notes | **6 of 6 topics at the depth bar** | none yet |
-| Question bank | none yet | none yet |
+| Notes | **6 of 6 at the depth bar** | **8 of 8 at the depth bar** |
+| Question bank | none yet | **8 quizzes, 193 questions, all 33 statements tested** |
+| Flashcard decks | none yet | **8 decks, 321 cards** |
+| Past papers | none yet | **18 rows over 9 May/June series, every row linked to a topic** |
 
-Both are hidden for the same reason as 9202: a qualification with no question
-bank and no papers must not appear in the catalogue, the sitemap or a student's
-subject picker. Nothing has been added to
+Both are hidden, and Physics stays hidden even though its content is finished: a
+qualification goes live through the activation step below, not by filling its
+content in. Nothing has been added to
 `frontend/src/lib/topicManifest.generated.ts`.
 
 ## Pipeline
@@ -54,13 +56,28 @@ node .freebuff-tmp/oxfordaqa/extract-science.cjs biology
 node .freebuff/seed-oxfordaqa-science.cjs biology           # dry run
 node .freebuff/seed-oxfordaqa-science.cjs biology --apply
 
-# 3. notes, one module per topic
+# 3. notes, one module per topic (9201 Biology, 9203 Physics)
 node .freebuff/seed-oxfordaqa-9201-notes.cjs --apply
+node .freebuff/seed-oxfordaqa-9203-notes.cjs --apply
 
-# 4. the bar
+# 4. Physics question bank and decks — one module per topic carries both
+node .freebuff/seed-topic-bank.cjs .freebuff/content-9203-*.cjs             # dry run
+node .freebuff/seed-topic-bank.cjs .freebuff/content-9203-*.cjs --apply
+node .freebuff/seed-topic-cards.cjs .freebuff/content-9203-*.cjs --apply
+
+# 5. Physics past-paper rows (board links only, no PDFs)
+node .freebuff/seed-past-papers-9203.cjs
+node .freebuff/apply-sql-file.cjs .freebuff-tmp/seed-past-papers-9203.sql --apply
+
+# 6. the bar — the content audits take the subject NAME, not the slug
 node .freebuff/gate-notes-depth.cjs biology-oxfordaqa IGCSE
+node .freebuff/gate-notes-depth.cjs physics-oxfordaqa IGCSE
 node .freebuff/audit-note-formulas.cjs "Biology (OxfordAQA)"
+node .freebuff/audit-note-formulas.cjs "Physics (OxfordAQA)"
 node .freebuff/audit-answer-steps.cjs "Biology (OxfordAQA)"
+node .freebuff/audit-answer-steps.cjs "Physics (OxfordAQA)"
+node .freebuff/gate-question-bank.cjs physics-oxfordaqa IGCSE --strict
+node .freebuff/gate-flashcard-bank.cjs physics-oxfordaqa IGCSE
 ```
 
 The subject seeder is idempotent on `subjects.slug`,
@@ -97,20 +114,51 @@ output answer ran straight to a number without naming the relation, and the
 quadrat estimate did the same. Both now read `relation = substitution = result`,
 which is the house form.
 
+## Physics 9203 — the complete package
+
+One module per topic, `.freebuff/content-9203-NN-<topic>.cjs`, carries the
+questions and the deck together, so a topic cannot be half-built: the same file
+goes to `seed-topic-bank.cjs` (questions, each with its statement code) and to
+`seed-topic-cards.cjs` (deck).
+
+| Topic | Statements | Questions | Cards | Papers |
+|---|---|---|---|---|
+| 3.1 Forces and their Effects | 8 | 24 | 40 | 3 |
+| 3.2 Energy | 3 | 25 | 40 | 3 |
+| 3.3 Waves | 6 | 24 | 41 | 2 |
+| 3.4 Particle Model of Matter | 2 | 24 | 40 | 2 |
+| 3.5 Electricity and Magnetism | 2 | 24 | 40 | 2 |
+| 3.6 Generating and Distributing Electricity | 5 | 24 | 40 | 2 |
+| 3.7 Nuclear Physics | 4 | 24 | 40 | 2 |
+| 3.8 Space Physics | 3 | 24 | 40 | 2 |
+
+**193 questions, every one with a `statement_id`, and every one of the 33
+statements tested at least once.** The bank is hand-authored rather than drafted
+by Workers AI for the same reason as 9202: a drafted bank left `statement_id`
+null and `syllabus_coverage()` could not see it.
+
+Papers are **board links, never files.** The archive holds Paper 1 and Paper 2
+for every May/June series from 2018 (the specification's first session) to 2026,
+and `paper_url` stays null so nothing in the app can serve a board PDF. The rows
+are filed round-robin onto the eight topics, which is enough for every topic page
+to show sittings rather than the empty-state banner.
+
 ## What remains
 
-- **Physics notes** (8 topics) and **both question banks** (Biology 6 topics,
-  Physics 8), each question linked to its statement — the 9202 bank is the model
-  (`.freebuff/content-bank-9202-*.cjs` and `seed-oxfordaqa-9202-bank.cjs`).
-- **Board-linked papers** for both qualifications, linked and never served.
+- **Biology 9201 question bank** (6 topics) and **its past papers**; the Physics
+  and 9202 banks are the models.
 - **Activation**: flip `is_active` on subject and level, regenerate the manifest,
   decide the catalogue family, prerender, and run `.freebuff/route-health.cjs`
   over the new routes.
 
 ## Honest limits
 
-- Biology's notes are complete; that is not the same as ready. A student arriving
-  today would find a hidden subject with six notes, no questions and no papers.
+- Physics is complete as content — notes, questions, decks and papers — and 9201
+  Biology is not: six notes, no questions, no papers. Completeness of one sibling
+  says nothing about the other.
+- Completeness is not activation. All three OxfordAQA qualifications are still
+  `is_active = false` and absent from the manifest, so a student cannot reach any
+  of this content yet.
 - The Biology specification marks some subsections as biology-only (`B`) because
   they are absent from the Combined Science route. This site publishes the
   separate Biology qualification, so those subsections are included and the

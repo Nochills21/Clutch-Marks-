@@ -48,6 +48,14 @@
   "updated_at": "2026-09-30 17:20:49.128336+00"
  },
  {
+  "id": "06130b16-ced4-4683-82a6-78524212d059",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "title": "Energy — Key Terms & Definitions",
+  "description": "Recall cards for Energy, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:16:57.841733+00",
+  "updated_at": "2026-10-30 20:16:57.841733+00"
+ },
+ {
   "id": "06445612-40db-4f5d-803a-102e821c9ecd",
   "topic_id": "9d69ae0a-cb99-4780-88a1-42025848a024",
   "title": "Statistics — Probability",
@@ -144,6 +152,14 @@
   "updated_at": "2026-10-24 10:37:47.784072+00"
  },
  {
+  "id": "18bcb7bd-97f0-4ed1-9fa0-8a9aac7c3e7f",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "title": "Ecology — Key Terms & Definitions",
+  "description": "Recall cards for Ecology, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:39:42.134737+00",
+  "updated_at": "2026-10-30 20:39:42.134737+00"
+ },
+ {
   "id": "191efa2e-c7f3-48b7-bb51-fc633efa4431",
   "topic_id": "16bdef5e-f234-4bc1-a036-52816e2bfe44",
   "title": "Key terms: nuclear-physics",
@@ -216,6 +232,14 @@
   "updated_at": "2026-10-24 10:04:50.717348+00"
  },
  {
+  "id": "1dfdaa59-a170-48f1-baa6-afb2ccdac6f4",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "title": "Waves — Key Terms & Definitions",
+  "description": "Recall cards for Waves, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:16:57.841733+00",
+  "updated_at": "2026-10-30 20:16:57.841733+00"
+ },
+ {
   "id": "1e4df03e-206d-4f92-a025-425b627fd81c",
   "topic_id": "ebe3caea-37e6-47ae-ba8e-1a5cb713196b",
   "title": "Sequences and Series",
@@ -272,6 +296,14 @@
   "updated_at": "2026-09-30 17:20:50.23248+00"
  },
  {
+  "id": "2ddc404d-e94b-46ae-a883-586e7d1126d6",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "title": "Generating and Distributing Electricity — Key Terms & Definitions",
+  "description": "Recall cards for Generating and Distributing Electricity, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:16:57.841733+00",
+  "updated_at": "2026-10-30 20:16:57.841733+00"
+ },
+ {
   "id": "2eaee286-97e6-48a4-ba41-d661bd4c67fc",
   "topic_id": "b5ce7a38-98cf-46ba-8e83-758e98c7b7bb",
   "title": "Narrative Writing — Key Terms & Definitions",
@@ -304,6 +336,14 @@
   "updated_at": "2026-09-30 17:20:49.128336+00"
  },
  {
+  "id": "3420a053-3d2b-4116-839a-cd1d40989817",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "title": "Forces and their Effects — Key Terms & Definitions",
+  "description": "Recall cards for Forces and their Effects, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:04:56.844455+00",
+  "updated_at": "2026-10-30 20:04:56.844455+00"
+ },
+ {
   "id": "385118c3-a705-4b80-8097-68ae529acc08",
   "topic_id": "52d5c1d0-d6ba-4ae6-9dbd-ece542b7f34c",
   "title": "Numerical Measures of Central Tendency",
@@ -334,6 +374,22 @@
   "description": "Key terms and facts from the Algorithms & Programming study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "3f64d02c-f322-4125-98fe-a7766cde6919",
+  "topic_id": "558c0ed3-c706-4895-84e9-154faf514514",
+  "title": "Particle Model of Matter — Key Terms & Definitions",
+  "description": "Recall cards for Particle Model of Matter, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:16:57.841733+00",
+  "updated_at": "2026-10-30 20:16:57.841733+00"
+ },
+ {
+  "id": "42b5774a-86db-4df8-b193-cd18168ff9fe",
+  "topic_id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "title": "Space Physics — Key Terms & Definitions",
+  "description": "Recall cards for Space Physics, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:16:57.841733+00",
+  "updated_at": "2026-10-30 20:16:57.841733+00"
  },
  {
   "id": "43d1eb1b-aaaf-4ee4-b629-059c8bea0386",
@@ -440,6 +496,14 @@
   "updated_at": "2026-10-13 13:39:55.455544+00"
  },
  {
+  "id": "4bd9acba-8969-48f9-861c-81e8b133fb61",
+  "topic_id": "459d6a6f-4159-4536-b41d-f28aa3979c55",
+  "title": "Electricity and Magnetism — Key Terms & Definitions",
+  "description": "Recall cards for Electricity and Magnetism, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:16:57.841733+00",
+  "updated_at": "2026-10-30 20:16:57.841733+00"
+ },
+ {
   "id": "4cad9e82-1208-4088-95bc-7346d032a5c8",
   "topic_id": "0a0f911e-7056-47a9-ac2b-6882707c60cf",
   "title": "Mensuration — Bearings and Loci",
@@ -510,6 +574,14 @@
   "description": "Rapid-recall cards for Summary Writing.",
   "created_at": "2026-10-19 10:17:40.897405+00",
   "updated_at": "2026-10-19 10:17:40.897405+00"
+ },
+ {
+  "id": "59e19526-a706-4412-a2a6-079805e3ad39",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "title": "Inheritance — Key Terms & Definitions",
+  "description": "Recall cards for Inheritance, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:39:42.134737+00",
+  "updated_at": "2026-10-30 20:39:42.134737+00"
  },
  {
   "id": "5c7002f9-daef-436a-8030-1a1460e9f83e",
@@ -1128,6 +1200,14 @@
   "updated_at": "2026-09-30 17:20:49.128336+00"
  },
  {
+  "id": "a7521be7-2d7a-4cd0-bf07-34cc92e2e107",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "title": "Homeostasis and Infection — Key Terms & Definitions",
+  "description": "Recall cards for Homeostasis and Infection, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:39:42.134737+00",
+  "updated_at": "2026-10-30 20:39:42.134737+00"
+ },
+ {
   "id": "a7a4fe7e-5c57-4625-8017-9eca57f15a53",
   "topic_id": "cd7deaf4-1e3a-42af-9f1d-19aa44a2bb36",
   "title": "Differentiation",
@@ -1360,6 +1440,14 @@
   "updated_at": "2026-10-19 10:05:40.927242+00"
  },
  {
+  "id": "c9d47fa8-2b86-4fdb-8d3c-be016881473c",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "title": "Bioenergetics — Key Terms & Definitions",
+  "description": "Recall cards for Bioenergetics, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:39:42.134737+00",
+  "updated_at": "2026-10-30 20:39:42.134737+00"
+ },
+ {
   "id": "cc25947c-a679-409d-b156-cd8a085a9a6e",
   "topic_id": "2b466f1b-04cf-4937-a711-efe8672838ff",
   "title": "Plant Structure and Function, Biodiversity and Conservation — Key Terms & Definitions",
@@ -1382,6 +1470,14 @@
   "description": "Rapid-recall cards for Electrochemistry.",
   "created_at": "2026-10-24 10:35:06.866921+00",
   "updated_at": "2026-10-24 10:35:06.866921+00"
+ },
+ {
+  "id": "cf01b96d-b0fa-4eb7-892d-41a4e2317cc6",
+  "topic_id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "title": "Variation and Evolution — Key Terms & Definitions",
+  "description": "Recall cards for Variation and Evolution, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:39:42.134737+00",
+  "updated_at": "2026-10-30 20:39:42.134737+00"
  },
  {
   "id": "d07f3437-4abc-43a2-aa64-5fb7c1ebaa84",
@@ -1488,6 +1584,14 @@
   "updated_at": "2026-09-30 17:20:49.128336+00"
  },
  {
+  "id": "e200a783-40f0-47d2-b9c2-157f9750ce5b",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "title": "Nuclear Physics — Key Terms & Definitions",
+  "description": "Recall cards for Nuclear Physics, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:16:57.841733+00",
+  "updated_at": "2026-10-30 20:16:57.841733+00"
+ },
+ {
   "id": "e271fe32-a5af-4025-961e-a83a96454474",
   "topic_id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
   "title": "Motion in a Circle and Gravity",
@@ -1566,6 +1670,14 @@
   "description": "Key terms and facts from the Coordinate Geometry study notes.",
   "created_at": "2026-09-29 18:46:40.165437+00",
   "updated_at": "2026-09-30 17:20:49.76339+00"
+ },
+ {
+  "id": "ece2fe28-6929-44f4-b937-c85c6f37d5d7",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "title": "Organisation — Key Terms & Definitions",
+  "description": "Recall cards for Organisation, each tagged with the specification statement it covers.",
+  "created_at": "2026-10-30 20:39:42.134737+00",
+  "updated_at": "2026-10-30 20:39:42.134737+00"
  },
  {
   "id": "f021dd37-04cf-4bb5-ab64-3b0dbb16a9c1",

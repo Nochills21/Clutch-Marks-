@@ -1,5 +1,5 @@
 {
- "dumped_at": "2026-10-30T06:37:31.722Z",
+ "dumped_at": "2026-10-31T19:06:26.561Z",
  "project_ref": "zzliiazovezhxbmfeqco",
  "tables": [
   "subjects",
@@ -20,20 +20,20 @@
   "plans"
  ],
  "row_counts": {
-  "subjects": 7,
-  "subject_levels": 17,
-  "topics": 191,
+  "subjects": 10,
+  "subject_levels": 20,
+  "topics": 215,
   "lessons": 173,
-  "questions": 4223,
-  "quizzes": 308,
-  "study_materials": 440,
-  "past_papers": 1215,
-  "flashcard_sets": 207,
-  "flashcards": 3845,
+  "questions": 4874,
+  "quizzes": 346,
+  "study_materials": 464,
+  "past_papers": 1269,
+  "flashcard_sets": 221,
+  "flashcards": 4406,
   "announcements": 2,
-  "content_revisions": 1844,
+  "content_revisions": 1861,
   "content_file_versions": 0,
-  "syllabus_statements": 877,
+  "syllabus_statements": 969,
   "learning_objectives": 146,
   "plans": 4
  }

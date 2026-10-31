@@ -51,6 +51,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "012861e5-3557-4920-b190-880462eb9ab1",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.2.3",
+  "title": "Structure and bonding of carbon",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "018668a8-911a-4f44-a0ef-fd7baf2f6e63",
   "board": "CAIE",
   "spec_code": "9618",
@@ -170,6 +187,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "03920de1-5d64-46f0-a55f-2dde3caf2941",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.2.6",
+  "title": "Respiration",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 6,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "03ac9206-aa61-41e3-ac0b-5c634ea3a707",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -219,6 +253,40 @@
   "sort_order": 62,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "04759709-785a-4fa6-a49e-a28535a13c04",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.1.1",
+  "title": "Cell structure",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
+  "id": "04920524-8543-4c70-9c2e-3650492ba196",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.4.6",
+  "title": "Behaviour",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 6,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "04ee8e5b-9651-4308-8159-e62c8869e2eb",
@@ -389,6 +457,23 @@
   "sort_order": 62,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "06c5b29a-e98f-4f77-accb-22833feb46ba",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.6.2",
+  "title": "Natural selection",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "0713c463-8d26-4fd4-90bb-e3ae1101f051",
@@ -1071,6 +1156,23 @@
   "updated_at": "2026-10-19 10:37:19.3141+00"
  },
  {
+  "id": "104d4414-0a4f-4ecc-ae4b-fb7c01f7aadf",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.4.1",
+  "title": "Purity and chromatography",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "c734d063-1522-483b-8e98-2a760aa45833",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "1056b4cf-d399-4380-b797-e7fcd1778031",
   "board": "CAIE",
   "spec_code": "9618",
@@ -1103,6 +1205,23 @@
   "sort_order": 56,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "10b53d55-aad9-43c4-823d-60ef53c2ac3b",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.8.3",
+  "title": "Production of ammonia and sulfuric acid",
+  "area": "3.8",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "10e07249-0c61-4ccc-af69-b3dc52030551",
@@ -1139,6 +1258,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "1129aaac-5d9c-40af-8559-bea98ff85ffe",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.1.2",
+  "title": "Principles of organisation",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "118fc969-436e-4201-9df2-005fa7add854",
   "board": "Edexcel",
   "spec_code": "9BI0",
@@ -1154,6 +1290,23 @@
   "sort_order": 122,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "119ac55b-a1b9-42c0-98ca-c45a9bd4d4bc",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.2.4",
+  "title": "Digestion",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "121e6ae5-1aa5-4a2d-a26f-653cbe8ac37d",
@@ -1292,6 +1445,23 @@
   "updated_at": "2026-10-19 11:43:08.568492+00"
  },
  {
+  "id": "13d4fb96-f91e-4274-864b-521aad5000f3",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.5.2",
+  "title": "Magnetism and electromagnetism",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "459d6a6f-4159-4536-b41d-f28aa3979c55",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "140698d6-ea6e-4c0c-9fb9-8034b1cc5a9f",
   "board": "CAIE",
   "spec_code": "0610",
@@ -1426,6 +1596,23 @@
   "sort_order": 25,
   "created_at": "2026-10-21 09:08:28.88725+00",
   "updated_at": "2026-10-21 09:08:28.88725+00"
+ },
+ {
+  "id": "161ee029-67fd-4ad9-9520-ff309031f985",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.8.1",
+  "title": "Life cycle of a star",
+  "area": "3.8",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "167fbdc3-2284-438e-b5dc-51c1379ffb52",
@@ -1581,6 +1768,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "17deeaa2-2728-4fe4-a0b0-16d6e1fb1cd1",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.6.3",
+  "title": "Using electricity in the home",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "18d3f514-b2ce-49d7-b7c8-c1e4afc188ee",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -1615,6 +1819,23 @@
   "updated_at": "2026-10-09 20:19:00.345177+00"
  },
  {
+  "id": "19422723-32eb-4595-b735-ca065e64ab8c",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.4.3",
+  "title": "Identification of ions",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "c734d063-1522-483b-8e98-2a760aa45833",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "19530200-2694-4634-a84f-c674a0b68034",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -1630,6 +1851,23 @@
   "sort_order": 41,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "1a32ea8d-f557-4de6-9e62-5b83596fe45a",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.4.1",
+  "title": "The human nervous system",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "1a598692-efdb-4a60-bbbb-a297a9e6ac28",
@@ -1989,6 +2227,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "1fa67b73-0dc0-476f-a98b-087d306b33e2",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.4.2",
+  "title": "Energy transfers and particle motion",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "558c0ed3-c706-4895-84e9-154faf514514",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "1fb3f9b8-35da-4ff8-9333-c6e95d720e98",
   "board": "CAIE",
   "spec_code": "0610",
@@ -2038,6 +2293,23 @@
   "sort_order": 61,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "20057c46-acb4-42f5-bd29-501aed4ff3bf",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.3",
+  "title": "Resultant forces",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "203a9865-9a19-4727-b338-a6ac36a9abad",
@@ -2176,6 +2448,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "22ad9fd2-4227-4c22-a324-9b24657624fe",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.2.2",
+  "title": "Energy transfers, conservation and dissipation of energy",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "22f0f0cc-88b4-427e-82d0-4519e1dc734a",
   "board": "CAIE",
   "spec_code": "0610",
@@ -2261,6 +2550,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "23f5acc8-b7b2-4ce5-b7a2-78d8d7f559ce",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.7.2",
+  "title": "Transition metals",
+  "area": "3.7",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "5b7a1a5b-74d3-4fae-8da5-7b977a3b1f3c",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "23fcf79b-a04d-427f-a361-805a97da7c89",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -2327,6 +2633,23 @@
   "sort_order": 49,
   "created_at": "2026-10-21 09:08:26.998952+00",
   "updated_at": "2026-10-21 09:08:26.998952+00"
+ },
+ {
+  "id": "252248c7-a749-41ba-93c7-716f46597c2e",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.7.2",
+  "title": "Ionizing radiation from the nucleus",
+  "area": "3.7",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "2532ce4e-3a14-4ebf-bd14-f23407d0f423",
@@ -2446,6 +2769,23 @@
   "sort_order": 32,
   "created_at": "2026-10-21 09:08:28.88725+00",
   "updated_at": "2026-10-21 09:08:28.88725+00"
+ },
+ {
+  "id": "263c9aa7-344f-4724-8646-d8e32d92b6fd",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.3.4",
+  "title": "Reflection",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "26495771-beae-4ca4-b9ee-49f3e3ba7d82",
@@ -2618,6 +2958,40 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "296b4be5-89c4-4ae2-9708-4d9c034b9314",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.9.3",
+  "title": "Chemical cells and fuel cells",
+  "area": "3.9",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "ed6c6121-ec7d-4d03-8a0b-90a72e0e3492",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
+  "id": "2a966157-129f-4f33-91cf-3d48bbc57d36",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.6.4",
+  "title": "The motor effect",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "2ab0eb63-155e-47c0-ba8d-68960dd49c52",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -2667,6 +3041,23 @@
   "sort_order": 54,
   "created_at": "2026-10-21 09:08:26.998952+00",
   "updated_at": "2026-10-21 09:08:26.998952+00"
+ },
+ {
+  "id": "2b222f3f-7251-4bc2-b810-bcc612e42149",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.2.2",
+  "title": "How bonding and structure are related to the properties of substances",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "2b7c11d2-90c7-4189-9ee1-83da7e896763",
@@ -2822,6 +3213,23 @@
   "updated_at": "2026-10-09 20:19:00.345177+00"
  },
  {
+  "id": "2de072ab-eebf-4eb0-8539-ca56501e00f4",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.6.2",
+  "title": "Use of amount of substance in relation to masses of pure substances",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "2e0092f9-ab28-494e-9dcc-13f5bb0f97a1",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -2975,6 +3383,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "31617072-1eec-44fa-9bb8-72a2ca2565e9",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.6.1",
+  "title": "Continuous and discontinuous variation",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "31cc4647-21cd-42fc-9ede-c16abdb7f151",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -3058,6 +3483,23 @@
   "sort_order": 133,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "32a879aa-b39e-4950-981b-2c0e4e141c0f",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.5.5",
+  "title": "Genetic manipulation",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "32acbfda-cb6f-4078-be61-0d1813888eda",
@@ -3281,6 +3723,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "363c9091-6c87-4029-85bf-9d55779c431a",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.5.1",
+  "title": "Reproduction",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "369a367e-d71c-40f2-b35a-1ac27b2d7254",
   "board": "CAIE",
   "spec_code": "9618",
@@ -3347,6 +3806,23 @@
   "sort_order": 225,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "38591a59-8ccc-4a0c-810e-6eaacd0312e8",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.6.4",
+  "title": "Molar concentrations",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "38883880-7032-44b7-9cf5-2fed4b94b7a4",
@@ -3638,6 +4114,23 @@
   "updated_at": "2026-10-21 09:08:28.88725+00"
  },
  {
+  "id": "3cbe7b25-d5a4-45dc-8191-17846814a670",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.1.3",
+  "title": "The Periodic Table",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "7b80c6e6-d761-4ea0-bd86-14f4f39f5b5d",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "3d227360-99c3-484b-a38d-79188bb98756",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -3687,6 +4180,40 @@
   "sort_order": 13,
   "created_at": "2026-10-09 16:49:54.823404+00",
   "updated_at": "2026-10-20 04:48:13.341831+00"
+ },
+ {
+  "id": "3dad2258-0eaa-4290-837f-4f031ffa5933",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.3.2",
+  "title": "The electromagnetic spectrum",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
+  "id": "3e49d5af-0d6c-4aa4-aeeb-74e90e3546bb",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.3.4",
+  "title": "Humans and their effects on the environment",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "3e951fea-9732-4a3c-b657-ac29fa30d7a9",
@@ -3772,6 +4299,23 @@
   "sort_order": 156,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "4064a32a-c8f7-455f-8e8a-76563051d1b7",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.3.6",
+  "title": "Lenses and the eye",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 6,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "409cf979-7b95-4f7b-8113-4470cfe18795",
@@ -3893,6 +4437,23 @@
   "updated_at": "2026-10-19 10:37:19.3141+00"
  },
  {
+  "id": "42a1c206-7717-4a1f-98e0-833be42801e1",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.7.3",
+  "title": "Nuclear fission",
+  "area": "3.7",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "42ea8aee-33eb-4533-8d48-8248bb382ef5",
   "board": "CAIE",
   "spec_code": "0625",
@@ -3976,6 +4537,23 @@
   "sort_order": 154,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "4399a256-0a33-40b6-ab3f-6a8dffb7821e",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.2.1",
+  "title": "Forces and energy",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "43af0726-dd70-41c6-846c-e2df8eeab7bb",
@@ -4095,6 +4673,23 @@
   "sort_order": 3,
   "created_at": "2026-10-09 16:49:54.823404+00",
   "updated_at": "2026-10-20 04:48:13.341831+00"
+ },
+ {
+  "id": "4606cb0c-29b4-478d-b751-e49f745f6a7c",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.2.5",
+  "title": "Breathing",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "46a64740-2caa-400c-9f17-f7f80f317fc3",
@@ -4486,6 +5081,23 @@
   "sort_order": 40,
   "created_at": "2026-10-19 11:43:08.568492+00",
   "updated_at": "2026-10-19 11:43:08.568492+00"
+ },
+ {
+  "id": "50e47561-68dd-4a8f-8858-94ea81901096",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.1.1",
+  "title": "Solids, liquids and gases",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "7b80c6e6-d761-4ea0-bd86-14f4f39f5b5d",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "51646a61-3555-4236-984d-3324ed5c105c",
@@ -5185,6 +5797,23 @@
   "updated_at": "2026-10-21 09:08:26.998952+00"
  },
  {
+  "id": "5dd4e7ae-92af-40da-86fa-618bf2912bfd",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.9.1",
+  "title": "Exothermic and endothermic reactions",
+  "area": "3.9",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "ed6c6121-ec7d-4d03-8a0b-90a72e0e3492",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "5dd6357c-e850-47b5-8d17-40b1eb19f61c",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -5234,6 +5863,23 @@
   "sort_order": 262,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "5e3b822e-2b2c-4925-98bb-1817432ea701",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.3.1",
+  "title": "Energy transferred in ecosystems",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "5e429e4c-4d7d-4dc7-b328-c0b0f18dea96",
@@ -5455,6 +6101,23 @@
   "sort_order": 18,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "61140840-5a5d-4563-8b51-e32d091d3e1e",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.3.2",
+  "title": "Electrolysis",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "d45a3e48-6391-4f8d-a2ea-63b8e8545591",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "61617f96-1aa0-478b-861d-7fc7028c7673",
@@ -6001,6 +6664,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "6b6ae221-7cb4-43a1-b9c4-efd735fed533",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.6.1",
+  "title": "Generating electricity",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "6b9c0d9a-c9da-4026-b58a-9569b3557f3f",
   "board": "CAIE",
   "spec_code": "9702",
@@ -6341,6 +7021,23 @@
   "updated_at": "2026-10-19 11:43:08.568492+00"
  },
  {
+  "id": "73d3b401-6f99-4a34-a3c6-4c983af22b27",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.5.1",
+  "title": "The properties of acids and bases",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "958b2c29-3f0b-4852-b000-5b9d3b457708",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "7405afbe-e28a-4f24-adfd-346d948bc3cc",
   "board": "CAIE",
   "spec_code": "0620",
@@ -6407,6 +7104,23 @@
   "sort_order": 100,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "7485194b-9de5-469d-afd9-4b00eff2bab2",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.8",
+  "title": "Moments and levers",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 8,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "74fbd3e6-f25d-4934-a39f-b93541df4696",
@@ -6715,6 +7429,23 @@
   "updated_at": "2026-10-21 09:08:26.998952+00"
  },
  {
+  "id": "7901395e-6512-4582-bffd-6be988a3627b",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.4.2",
+  "title": "Identification of common gases",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "c734d063-1522-483b-8e98-2a760aa45833",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "790704f9-bade-4429-8e9a-3cd707ea74b2",
   "board": "CAIE",
   "spec_code": "0610",
@@ -6783,6 +7514,23 @@
   "updated_at": "2026-10-20 04:48:13.341831+00"
  },
  {
+  "id": "79c3498d-377a-487a-a6a5-6f81abea3c0c",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.8.3",
+  "title": "Red shift and the expanding universe",
+  "area": "3.8",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "7a2efa01-f046-47ae-9376-1fc05f1668d9",
   "board": "CAIE",
   "spec_code": "9702",
@@ -6798,6 +7546,23 @@
   "sort_order": 57,
   "created_at": "2026-10-19 11:43:08.568492+00",
   "updated_at": "2026-10-19 11:43:08.568492+00"
+ },
+ {
+  "id": "7aa90238-b7c8-41cd-80e2-556eddb6f941",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.6.2",
+  "title": "Electricity transmission and distribution",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "7adb2482-6c2b-4aee-bde5-7043c88d489c",
@@ -7225,6 +7990,23 @@
   "updated_at": "2026-10-20 04:48:13.341831+00"
  },
  {
+  "id": "802879e9-b5d0-4e41-8826-4a9a590e470c",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.10.2",
+  "title": "Synthetic and naturally occurring polymers",
+  "area": "3.10",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "81ecc571-f908-4a48-ad91-06046fa1b34a",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "8188cf1b-9109-4402-aee0-3fba07c99254",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -7274,6 +8056,23 @@
   "sort_order": 239,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "823078da-c6e3-4fbb-85c4-e7321f0bc1ab",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.6.3",
+  "title": "The mole concept",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "824f302e-b7a9-49da-a107-50348daabda3",
@@ -7871,6 +8670,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "8bce47f2-a4f1-4d18-86c1-74118975e659",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.6",
+  "title": "Forces and terminal velocity",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 6,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "8bf1228d-41db-4e35-ba00-b6af91ff70c2",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -8141,6 +8957,23 @@
   "sort_order": 12,
   "created_at": "2026-10-19 11:43:02.354416+00",
   "updated_at": "2026-10-19 11:43:02.354416+00"
+ },
+ {
+  "id": "902fbfe6-b488-4671-8a80-8efd950b9eef",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.1.3",
+  "title": "Animal tissues, organs and systems",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "9051ed2a-b60c-4ee9-bf44-78e11977672a",
@@ -8585,6 +9418,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "97faca59-18ce-424b-aaef-0c9e153d0c16",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.2.1",
+  "title": "Photosynthesis",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "981fcd24-b7ae-4680-aba1-e57712db245d",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -8602,6 +9452,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "98511f50-463b-4013-b5bd-5f4cd1d7e80d",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.2.2",
+  "title": "Exchange and transport in plants",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "9889cc49-3a0b-4f61-9ef1-98995b791e46",
   "board": "CAIE",
   "spec_code": "0478",
@@ -8617,6 +9484,23 @@
   "sort_order": 7,
   "created_at": "2026-10-09 20:17:50.437744+00",
   "updated_at": "2026-10-09 20:18:55.083222+00"
+ },
+ {
+  "id": "9893c0e4-f051-4c06-adee-b33d52ce0c2f",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.4.5",
+  "title": "Control of blood glucose",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "99937dcc-03de-421f-80ee-2f4d2505cb58",
@@ -8789,6 +9673,23 @@
   "updated_at": "2026-10-19 10:37:19.3141+00"
  },
  {
+  "id": "9bd8136e-cd45-4a85-b269-86ce96b88696",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.8.2",
+  "title": "Factors affecting equilibrium",
+  "area": "3.8",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "9c055e0b-baf2-4d29-b2b7-9b8b43629905",
   "board": "CAIE",
   "spec_code": "0610",
@@ -8838,6 +9739,23 @@
   "sort_order": 30,
   "created_at": "2026-10-21 09:08:28.88725+00",
   "updated_at": "2026-10-21 09:08:28.88725+00"
+ },
+ {
+  "id": "9ca005c7-d53d-4eb5-a1c0-516cac16225a",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.10.1",
+  "title": "Carbon compounds as fuels",
+  "area": "3.10",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "81ecc571-f908-4a48-ad91-06046fa1b34a",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "9ca7462c-7278-440b-94e2-589ce0dad047",
@@ -8891,6 +9809,40 @@
   "updated_at": "2026-10-19 10:37:19.3141+00"
  },
  {
+  "id": "9d9b8986-d7be-4a18-bca2-67356af97106",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.7.4",
+  "title": "Nuclear fusion",
+  "area": "3.7",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
+  "id": "9df043d7-8fc5-4672-b8ea-210cfc1bff75",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.5.3",
+  "title": "Genetic variation",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "9e01e0b4-21d4-4e39-9006-4ba67c8287b1",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -8940,6 +9892,23 @@
   "sort_order": 47,
   "created_at": "2026-10-19 11:43:08.568492+00",
   "updated_at": "2026-10-19 11:43:08.568492+00"
+ },
+ {
+  "id": "9ee6c086-10b0-4fae-a7ab-08a686f3f882",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.4.2",
+  "title": "Homeostasis",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "9f1b46fa-aa3b-489d-b755-cfbca1c8caf0",
@@ -9197,6 +10166,23 @@
   "updated_at": "2026-10-19 11:43:08.568492+00"
  },
  {
+  "id": "a580a09d-e560-434d-b4d8-d270364681bc",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.6.5",
+  "title": "Transferring electrical energy",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "a595e357-854b-4c9a-87fa-9182c945fa3f",
   "board": "CAIE",
   "spec_code": "9702",
@@ -9246,6 +10232,23 @@
   "sort_order": 9,
   "created_at": "2026-10-09 16:36:44.7663+00",
   "updated_at": "2026-10-09 20:19:00.345177+00"
+ },
+ {
+  "id": "a641b2b8-c0ba-48f6-a631-0c6b238d1e91",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.8.2",
+  "title": "Solar system and orbital motion",
+  "area": "3.8",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "a64bc270-fd9e-42c9-87f4-936ed9e31fbd",
@@ -9501,6 +10504,23 @@
   "sort_order": 11,
   "created_at": "2026-10-09 16:36:44.7663+00",
   "updated_at": "2026-10-09 20:19:00.345177+00"
+ },
+ {
+  "id": "a9829684-2cc9-4576-95fd-c0821ddd8671",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.5",
+  "title": "Safety in public transport",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "aa005b53-b303-471e-92c1-fbb74acd484c",
@@ -9962,6 +10982,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "b02be1cf-9405-4a29-89fe-2b56ed32fd17",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.3.3",
+  "title": "Sound and ultrasound",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "b0370c3f-f42c-4b3a-8a77-c2f361313260",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -9994,6 +11031,23 @@
   "sort_order": 2,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "b0a1aa87-f179-4a53-b7bc-3869ab5faeed",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.7",
+  "title": "Centre of mass",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 7,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "b0b71e66-1eab-4454-b0a3-fc6ed46a7f04",
@@ -10081,6 +11135,23 @@
   "updated_at": "2026-10-21 09:08:26.998952+00"
  },
  {
+  "id": "b17f7208-7ef7-49de-af24-d3b4ae8b8299",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.8.4",
+  "title": "Redox reactions",
+  "area": "3.8",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "b1e253e3-6e7c-4e53-b439-8f40cd6feefe",
   "board": "CAIE",
   "spec_code": "0620",
@@ -10096,6 +11167,23 @@
   "sort_order": 27,
   "created_at": "2026-10-21 09:08:28.88725+00",
   "updated_at": "2026-10-21 09:08:28.88725+00"
+ },
+ {
+  "id": "b22589ed-f5f9-4da8-98d3-b138b7b91e61",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.5.4",
+  "title": "Genetic disorders",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "b3174c8c-7996-445d-89c4-56e8c3293820",
@@ -10336,6 +11424,23 @@
   "updated_at": "2026-10-19 11:43:08.568492+00"
  },
  {
+  "id": "b69f82fb-cc24-4483-bf27-0f5e1c1ce0b0",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.2.4",
+  "title": "Nanoparticles",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "b779c5f3-2a0c-4706-b28e-6bf69aa3a341",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -10472,6 +11577,23 @@
   "updated_at": "2026-10-19 11:43:08.568492+00"
  },
  {
+  "id": "b9733514-c741-4b38-84d0-96fff749e50d",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.3.2",
+  "title": "Adaptations, interdependence and competition",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "b9e4c17e-7b7a-4867-850a-393e54c02638",
   "board": "CAIE",
   "spec_code": "9702",
@@ -10572,6 +11694,23 @@
   "sort_order": 113,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "badda8ad-2e29-48bf-8f64-a28b81f0321e",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.2.3",
+  "title": "Energy resources",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "bae45411-64ef-4235-ae2d-f010eae95e8d",
@@ -10999,6 +12138,23 @@
   "updated_at": "2026-10-19 10:37:19.3141+00"
  },
  {
+  "id": "c3061080-a1b8-469c-a7ca-3cf8b1979fcd",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.1.4",
+  "title": "Plant tissues, organs and systems",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "c312261a-3f2a-4090-bcdc-f6c92ea43f6e",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -11135,6 +12291,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "c59e86d3-c439-4f46-9883-73f45f6fe954",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.4.7",
+  "title": "Infection and response",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 7,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "c5b01b03-2f1c-4bd2-96ee-001d0c97f1d0",
   "board": "CAIE",
   "spec_code": "0580",
@@ -11184,6 +12357,23 @@
   "sort_order": 216,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "c689fc42-6c18-4778-8e1c-35bce2f66f69",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.1.2",
+  "title": "A simple model of the atom",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "7b80c6e6-d761-4ea0-bd86-14f4f39f5b5d",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "c6af52a5-3f5b-4649-96fd-28ee5f3714ec",
@@ -11337,6 +12527,23 @@
   "sort_order": 18,
   "created_at": "2026-10-19 11:43:02.354416+00",
   "updated_at": "2026-10-19 11:43:02.354416+00"
+ },
+ {
+  "id": "c8b9f1b1-3fd0-4f83-8414-43498f81a64c",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.5.2",
+  "title": "Cell division",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "c944564a-4f16-43f6-bd71-3c82df45c2bc",
@@ -12291,6 +13498,40 @@
   "updated_at": "2026-10-09 20:19:00.345177+00"
  },
  {
+  "id": "d6727b8c-9a6e-4eea-a03b-2cee973f7705",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.2.1",
+  "title": "Chemical bonds: ionic, covalent and metallic",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
+  "id": "d67886f6-e61c-4f54-837a-14d1c772193e",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.9.2",
+  "title": "Calculating and explaining energy change",
+  "area": "3.9",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "ed6c6121-ec7d-4d03-8a0b-90a72e0e3492",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "d721dc88-719c-46d5-9769-4b3f19481d97",
   "board": "CAIE",
   "spec_code": "0580",
@@ -12425,6 +13666,23 @@
   "sort_order": 148,
   "created_at": "2026-10-19 09:10:11.108528+00",
   "updated_at": "2026-10-19 10:37:19.3141+00"
+ },
+ {
+  "id": "d8887a0c-25d0-4ce4-bd9b-79492c5143f2",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.3.3",
+  "title": "Decay and the carbon cycle",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "d8e913b8-0c0e-4ebd-82e7-3f3f7e6d4d73",
@@ -12614,6 +13872,23 @@
   "updated_at": "2026-10-21 09:08:26.998952+00"
  },
  {
+  "id": "dad46963-3422-4945-a4a0-c0dc8e85fc5e",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.2.3",
+  "title": "Circulation in humans",
+  "area": "3.2",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "dad9427e-61c1-4513-8a88-b73668b378a5",
   "board": "Edexcel",
   "spec_code": "9BI0",
@@ -12646,6 +13921,23 @@
   "sort_order": 45,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "db35ef45-8f36-4141-bbe5-00fcdd562782",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.4.4",
+  "title": "Temperature control",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
  },
  {
   "id": "db37eba7-4fa8-4757-87f0-68004beb8b0f",
@@ -12920,6 +14212,40 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "de3570a1-242e-4b43-854d-c97bd84e5e91",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.1.5",
+  "title": "Transport in cells",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
+  "id": "de54f483-3e7f-4f40-8206-72cc2c8dc3b5",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.4.1",
+  "title": "Kinetic theory",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "558c0ed3-c706-4895-84e9-154faf514514",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "de6b7395-67f7-4706-bd21-6c07556b0881",
   "board": "CAIE",
   "spec_code": "0580",
@@ -12971,6 +14297,23 @@
   "updated_at": "2026-10-09 20:19:02.282153+00"
  },
  {
+  "id": "dfe05199-7b33-4120-b285-f075bbdbf997",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.8.1",
+  "title": "Rate of reaction",
+  "area": "3.8",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "e005eaef-0406-41c2-b17e-8bff074be4b7",
   "board": "CAIE",
   "spec_code": "9618",
@@ -12986,6 +14329,23 @@
   "sort_order": 5,
   "created_at": "2026-10-09 16:49:54.823404+00",
   "updated_at": "2026-10-20 04:48:13.341831+00"
+ },
+ {
+  "id": "e01287a9-a9e7-41cd-8290-6b39e4c61968",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.3.1",
+  "title": "Metals",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "d45a3e48-6391-4f8d-a2ea-63b8e8545591",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "e05d34e8-b72d-4df7-9af4-5725f1d0f325",
@@ -13088,6 +14448,23 @@
   "sort_order": 81,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "e16a6d1b-0449-475c-b8ee-84d0df133292",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.4",
+  "title": "Momentum P",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "e19dfc5c-aa1f-4357-adf4-59f29340b6db",
@@ -13634,6 +15011,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "eb18b566-36b6-4200-91fe-e9effbc79395",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.5.1",
+  "title": "Electrical circuits",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "459d6a6f-4159-4536-b41d-f28aa3979c55",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "eb24d0aa-5cb1-4a7d-be01-1e75e356382e",
   "board": "Edexcel",
   "spec_code": "9CH0",
@@ -13787,6 +15181,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "ed54ba74-7a67-44b6-9650-eccd60a67625",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.2",
+  "title": "Motion",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "ed8d51cc-2b3b-437e-a904-27b3874368ca",
   "board": "Edexcel",
   "spec_code": "9BI0",
@@ -13804,6 +15215,23 @@
   "updated_at": "2026-10-19 10:37:19.3141+00"
  },
  {
+  "id": "ed9c355a-b85c-4b98-8f8e-0f0a02c2a7dc",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.6.1",
+  "title": "Conservation of mass including the quantitative interpretation of chemical equations",
+  "area": "3.6",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "edda58fe-f97a-49f4-a8bf-af9a5c03b393",
   "board": "CAIE",
   "spec_code": "0478",
@@ -13819,6 +15247,23 @@
   "sort_order": 13,
   "created_at": "2026-10-09 20:17:50.437744+00",
   "updated_at": "2026-10-09 20:18:55.083222+00"
+ },
+ {
+  "id": "eddd8dd7-e67a-48a7-9b08-2402a48fec31",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.1.1",
+  "title": "Forces and their interactions",
+  "area": "3.1",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "ee268ade-4164-4a4b-bda9-65554742b097",
@@ -13989,6 +15434,23 @@
   "sort_order": 254,
   "created_at": "2026-10-19 09:09:57.502906+00",
   "updated_at": "2026-10-19 10:37:16.174172+00"
+ },
+ {
+  "id": "f18e45a5-800d-4af5-bff5-b352b4d32256",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.3.1",
+  "title": "General properties of waves",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "f205a906-2a53-49fc-8dca-710669f8007a",
@@ -14229,6 +15691,23 @@
   "updated_at": "2026-10-19 10:37:16.174172+00"
  },
  {
+  "id": "f5630eda-e6dc-420b-b874-12cbb23c0d94",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.7.1",
+  "title": "Atomic structure",
+  "area": "3.7",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "f59eb4eb-5d09-4edd-9755-e1286cc43f95",
   "board": "CAIE",
   "spec_code": "0625",
@@ -14397,6 +15876,23 @@
   "sort_order": 17,
   "created_at": "2026-10-21 09:08:28.88725+00",
   "updated_at": "2026-10-21 09:08:28.88725+00"
+ },
+ {
+  "id": "f8b1da55-f443-4e10-afd4-e422d9617b76",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.10.3",
+  "title": "Organic compounds - their structure and reactions",
+  "area": "3.10",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "81ecc571-f908-4a48-ad91-06046fa1b34a",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "f8feb0e3-f7cd-4051-ad7b-8f5ff534a0d7",
@@ -14637,6 +16133,23 @@
   "updated_at": "2026-10-20 04:48:13.341831+00"
  },
  {
+  "id": "fb7d1c05-019d-4f28-a427-75f7e54afb77",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.7.1",
+  "title": "Group properties",
+  "area": "3.7",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "5b7a1a5b-74d3-4fae-8da5-7b977a3b1f3c",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
   "id": "fb85c9b1-a44d-4ba5-a23d-0ec70f79a4fc",
   "board": "CAIE",
   "spec_code": "0580",
@@ -14756,6 +16269,23 @@
   "updated_at": "2026-10-09 20:18:55.083222+00"
  },
  {
+  "id": "fce5ada2-d63b-443c-abca-938d1f62cc76",
+  "board": "OxfordAQA",
+  "spec_code": "9201",
+  "level": "IGCSE",
+  "code": "3.4.3",
+  "title": "Control of water and ion content of the body",
+  "area": "3.4",
+  "tier": "both",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-biology-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
   "id": "fcfc9125-d9b6-43c1-936f-aeee113fa41e",
   "board": "CAIE",
   "spec_code": "9702",
@@ -14856,6 +16386,40 @@
   "sort_order": 29,
   "created_at": "2026-10-19 11:43:08.568492+00",
   "updated_at": "2026-10-19 11:43:08.568492+00"
+ },
+ {
+  "id": "fe5a5e2e-727d-403a-8751-b6cfde95b800",
+  "board": "OxfordAQA",
+  "spec_code": "9202",
+  "level": "IGCSE",
+  "code": "3.5.2",
+  "title": "Preparation of salts",
+  "area": "3.5",
+  "tier": "both",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "topic_id": "958b2c29-3f0b-4852-b000-5b9d3b457708",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-gcse-chemistry-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
+ },
+ {
+  "id": "fe97ae05-781f-4e1f-b40f-b1a44f6960ab",
+  "board": "OxfordAQA",
+  "spec_code": "9203",
+  "level": "IGCSE",
+  "code": "3.3.5",
+  "title": "Refraction and total internal reflection",
+  "area": "3.3",
+  "tier": "both",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "source_url": "https://www.oxfordaqa.com/wp-content/uploads/2026/07/oxfordaqa-international-gcse-physics-specification.pdf",
+  "syllabus_years": "2018 onwards",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
  },
  {
   "id": "ff4bc6b8-f48b-4a9e-bb14-1efd9635c280",

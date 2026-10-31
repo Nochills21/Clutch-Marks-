@@ -406,6 +406,20 @@
   "correction_file_url": null
  },
  {
+  "id": "137e9509-b3e0-4d3f-a478-82743194adb0",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "title": "Nuclear Physics — Topic Questions",
+  "description": "Practice questions for Nuclear Physics, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:16:43.898256+00",
+  "updated_at": "2026-10-30 20:16:43.898256+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "147b5ebb-a3b3-46f7-a452-99c8644f0839",
   "topic_id": "3bad18f7-9041-4bd4-a193-e0da6c10b770",
   "title": "Processor Fundamentals Quiz",
@@ -434,6 +448,20 @@
   "correction_file_url": null
  },
  {
+  "id": "158fd6ad-68e3-49f0-86ad-a06ba13120d4",
+  "topic_id": "c734d063-1522-483b-8e98-2a760aa45833",
+  "title": "Chemical Analysis — Topic Questions",
+  "description": "Practice questions for Chemical Analysis, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "161ecdc9-2a07-4c02-917d-b5c3eb9d5b95",
   "topic_id": "ce670b3a-a111-4f36-bf7e-7dc86ce1ff0b",
   "title": "Checkpoints — Scatter Diagrams",
@@ -442,6 +470,20 @@
   "is_published": true,
   "created_at": "2026-10-12 11:18:56.524497+00",
   "updated_at": "2026-10-12 11:18:56.524497+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "171c3ab6-412e-4388-8f79-5659e95404e8",
+  "topic_id": "557df8f5-af3a-4af1-a92e-78b41e90ca27",
+  "title": "Molecules, Transport and Health — Topic Questions",
+  "description": "Practice questions for Molecules, Transport and Health, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:23:55.972777+00",
+  "updated_at": "2026-10-30 19:23:55.972777+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -616,6 +658,20 @@
   "correction_file_url": null
  },
  {
+  "id": "2067c408-0eaa-4f68-a244-99bedfc182b8",
+  "topic_id": "c00c11ce-1dcc-43c9-8d5a-2683f2149492",
+  "title": "Alkenes — Polymer Disposal",
+  "description": "Practice questions for Alkenes — Polymer Disposal, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "2075c757-b224-40c4-b6cb-6a863571bdac",
   "topic_id": "8555df55-a969-4f6d-8d97-ffa8f8279fe7",
   "title": "Diseases and Immunity — Topic Questions",
@@ -638,6 +694,20 @@
   "is_published": true,
   "created_at": "2026-09-21 17:57:11.834481+00",
   "updated_at": "2026-09-21 17:57:11.834481+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "20f4980d-b075-4a4f-b7f0-58bfc2ce21b3",
+  "topic_id": "2b466f1b-04cf-4937-a711-efe8672838ff",
+  "title": "Plant Structure, Biodiversity and Conservation — Topic Questions",
+  "description": "Practice questions for Plant Structure, Biodiversity and Conservation, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:23:55.972777+00",
+  "updated_at": "2026-10-30 19:23:55.972777+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -826,6 +896,20 @@
   "correction_file_url": null
  },
  {
+  "id": "2752f2c5-dee8-428f-ac91-79073aed36f0",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "title": "Ecology — Topic Questions",
+  "description": "Practice questions for Ecology, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:39:19.127353+00",
+  "updated_at": "2026-10-30 20:39:19.127353+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "278e574f-21f5-4b73-8462-a1f88d01779d",
   "topic_id": "4a093751-70de-4b7b-a451-94efe48c280c",
   "title": "Checkpoints — Angles & Polygons",
@@ -918,6 +1002,20 @@
   "is_published": true,
   "created_at": "2026-10-17 10:32:59.63994+00",
   "updated_at": "2026-10-17 10:32:59.63994+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "2a68fcf8-1ee6-4138-b7b1-e339dbcc1a22",
+  "topic_id": "707ec3c7-7efb-4793-ae95-de061ba8ff42",
+  "title": "Energetics — Topic Questions",
+  "description": "Practice questions for Energetics, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -1022,6 +1120,20 @@
   "correction_file_url": null
  },
  {
+  "id": "305026c6-bb21-4076-b3f4-cfd926052af4",
+  "topic_id": "4ee8687b-e42e-46e9-98e0-3e84db785f2a",
+  "title": "Membranes, Proteins, DNA and Gene Expression — Topic Questions",
+  "description": "Practice questions for Membranes, Proteins, DNA and Gene Expression, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:23:55.972777+00",
+  "updated_at": "2026-10-30 19:23:55.972777+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "3107b57a-6a97-4148-8cb7-7e0763470928",
   "topic_id": "d2429c9a-82ec-4a86-8bdc-a119666cecef",
   "title": "Practice — Functions",
@@ -1032,6 +1144,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "3158dcb3-e2f9-4c04-9637-45a4810f1818",
+  "topic_id": "03510ba9-e8c6-4770-868b-2978e2f4ba0a",
+  "title": "Formulae, Equations and Amount of Substance — Topic Questions",
+  "description": "Practice questions for Formulae, Equations and Amount of Substance, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -1086,6 +1212,20 @@
   "is_published": true,
   "created_at": "2026-09-18 14:13:00.645474+00",
   "updated_at": "2026-09-18 14:13:00.645474+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "369f755b-dc70-4115-b0a9-acb02a9d28ef",
+  "topic_id": "4cde8094-6c1b-4fb9-9b92-38d6670887ca",
+  "title": "Atomic Structure and the Periodic Table — Topic Questions",
+  "description": "Practice questions for Atomic Structure and the Periodic Table, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -1190,6 +1330,20 @@
   "correction_file_url": null
  },
  {
+  "id": "3f0ba45e-9d11-4261-8737-05f34b43b1ca",
+  "topic_id": "558c0ed3-c706-4895-84e9-154faf514514",
+  "title": "Particle Model of Matter — Topic Questions",
+  "description": "Practice questions for Particle Model of Matter, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:16:43.898256+00",
+  "updated_at": "2026-10-30 20:16:43.898256+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "3f89dbc7-5518-4aee-9b52-b35827084158",
   "topic_id": "6111cf0b-63cc-4804-a218-1b16e82da4f3",
   "title": "Right-Angled Trigonometry",
@@ -1240,6 +1394,20 @@
   "is_published": true,
   "created_at": "2026-10-18 06:26:06.25873+00",
   "updated_at": "2026-10-18 06:26:06.25873+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "425472d2-b87c-44bd-83e1-1510c5eddf16",
+  "topic_id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "title": "Structure, Bonding and the Properties of Matter — Topic Questions",
+  "description": "Practice questions for Structure, Bonding and the Properties of Matter, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -1596,6 +1764,20 @@
   "correction_file_url": null
  },
  {
+  "id": "56a110ae-4b77-4cdd-a97d-019f23860ccb",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "title": "Bioenergetics — Topic Questions",
+  "description": "Practice questions for Bioenergetics, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:39:19.127353+00",
+  "updated_at": "2026-10-30 20:39:19.127353+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "56a51c1d-9c62-47c1-92e9-a4daa422628a",
   "topic_id": "707ec3c7-7efb-4793-ae95-de061ba8ff42",
   "title": "Energetics Quiz",
@@ -1652,6 +1834,20 @@
   "correction_file_url": null
  },
  {
+  "id": "58e2e7b4-df7d-4971-9140-336868d02099",
+  "topic_id": "5b7a1a5b-74d3-4fae-8da5-7b977a3b1f3c",
+  "title": "Trends within the Periodic Table — Topic Questions",
+  "description": "Practice questions for Trends within the Periodic Table, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "5a053944-b1b0-4e25-bdf1-b4c6d6674937",
   "topic_id": "91eac2dd-1acc-4ec2-8800-90ce2d4cc43e",
   "title": "Practice — Forces and Equilibrium",
@@ -1662,6 +1858,20 @@
   "updated_at": "2026-10-14 04:40:11.518937+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "5ad1ff14-cd49-4f61-8bc5-ffdc67904248",
+  "topic_id": "fa365fb5-a2eb-4767-905b-4afc5dbd8de4",
+  "title": "Introductory Organic Chemistry and Alkanes — Topic Questions",
+  "description": "Practice questions for Introductory Organic Chemistry and Alkanes, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -1820,6 +2030,20 @@
   "correction_file_url": null
  },
  {
+  "id": "626acaa5-cf0f-4d5a-a4d3-3977000134dc",
+  "topic_id": "81ecc571-f908-4a48-ad91-06046fa1b34a",
+  "title": "Organic Chemistry — Topic Questions",
+  "description": "Practice questions for Organic Chemistry, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "658a2c85-712c-4a25-94df-7810019f9141",
   "topic_id": "2e24998f-13bf-4bd7-815c-0c822640fa94",
   "title": "Checkpoints — Fractions, Decimals & Percentages",
@@ -1960,6 +2184,20 @@
   "correction_file_url": null
  },
  {
+  "id": "71b7d94f-909f-486d-8611-774b00bbe1ce",
+  "topic_id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "title": "Quantitative Chemistry — Topic Questions",
+  "description": "Practice questions for Quantitative Chemistry, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "729a2b13-04af-409b-9fe3-87f37087b3a1",
   "topic_id": "26473ecc-28e3-439a-9b19-a50032d1eef7",
   "title": "Practice — Coordinate Geometry",
@@ -1970,6 +2208,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "7318a6bf-5ee4-4245-b878-e6f4be343c21",
+  "topic_id": "ed6c6121-ec7d-4d03-8a0b-90a72e0e3492",
+  "title": "Energy Changes — Topic Questions",
+  "description": "Practice questions for Energy Changes, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -2072,6 +2324,20 @@
   "correction_file_url": null
  },
  {
+  "id": "792acd62-1f37-4721-ae05-db4480c42ed8",
+  "topic_id": "fef757a2-daef-44fc-983d-4c0ce8c6e3b9",
+  "title": "Redox Chemistry and Groups 1, 2 and 7 — Topic Questions",
+  "description": "Practice questions for Redox Chemistry and Groups 1, 2 and 7, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "7a2de2ae-4c99-46fc-ba95-878637ed411a",
   "topic_id": "8cc72da3-1873-4551-a43a-efbb4b1a474a",
   "title": "Introduction to Kinetics and Equilibria Quiz",
@@ -2094,6 +2360,20 @@
   "is_published": true,
   "created_at": "2026-09-20 18:42:58.562328+00",
   "updated_at": "2026-09-20 18:42:58.562328+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "7c815e2f-b9d1-4662-a088-ab94930eab68",
+  "topic_id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "title": "Variation and Evolution — Topic Questions",
+  "description": "Practice questions for Variation and Evolution, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:39:19.127353+00",
+  "updated_at": "2026-10-30 20:39:19.127353+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2142,6 +2422,34 @@
   "correction_file_url": null
  },
  {
+  "id": "7ebf9264-c46b-4b35-9ed3-79f247b753cf",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "title": "Organisation — Topic Questions",
+  "description": "Practice questions for Organisation, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:39:19.127353+00",
+  "updated_at": "2026-10-30 20:39:19.127353+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "802fc1e8-e83f-4576-b345-24eaf0c946d4",
+  "topic_id": "8cc72da3-1873-4551-a43a-efbb4b1a474a",
+  "title": "Introduction to Kinetics and Equilibria — Topic Questions",
+  "description": "Practice questions for Introduction to Kinetics and Equilibria, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "812687b5-0309-4085-a658-027479df58b1",
   "topic_id": "baa2f4b9-e4de-4c14-a6ec-9ad2a7a2ced8",
   "title": "Sequences and Series — Topic Questions",
@@ -2164,6 +2472,20 @@
   "is_published": true,
   "created_at": "2026-10-12 10:26:31.053011+00",
   "updated_at": "2026-10-12 10:26:31.053011+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "8187cd78-6bdb-4168-a36e-72aef972dde1",
+  "topic_id": "958b2c29-3f0b-4852-b000-5b9d3b457708",
+  "title": "Acids, Bases and Salts — Topic Questions",
+  "description": "Practice questions for Acids, Bases and Salts, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2520,6 +2842,20 @@
   "correction_file_url": null
  },
  {
+  "id": "8cc09d56-d980-4861-a0e4-eddddba35618",
+  "topic_id": "459d6a6f-4159-4536-b41d-f28aa3979c55",
+  "title": "Electricity and Magnetism — Topic Questions",
+  "description": "Practice questions for Electricity and Magnetism, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:16:43.898256+00",
+  "updated_at": "2026-10-30 20:16:43.898256+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "8d073aab-e220-48ea-ba54-43866ed9a500",
   "topic_id": "9cc8a08c-1858-49b0-a80b-745a8dd4535b",
   "title": "Magnetism & Electromagnetism Quiz",
@@ -2528,6 +2864,20 @@
   "is_published": true,
   "created_at": "2026-09-14 18:41:42.635655+00",
   "updated_at": "2026-09-14 18:41:42.635655+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "8d527870-8399-41bd-b55d-f70313bb16ab",
+  "topic_id": "d45a3e48-6391-4f8d-a2ea-63b8e8545591",
+  "title": "Chemical Changes — Topic Questions",
+  "description": "Practice questions for Chemical Changes, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2660,6 +3010,34 @@
   "correction_file_url": null
  },
  {
+  "id": "9489d347-e774-438e-bc02-633509e689db",
+  "topic_id": "7b80c6e6-d761-4ea0-bd86-14f4f39f5b5d",
+  "title": "Atomic Structure and the Periodic Table — Topic Questions",
+  "description": "Practice questions for Atomic Structure and the Periodic Table, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "965b1e7f-c757-4ef3-97ae-e9a292b00032",
+  "topic_id": "13f60c5e-232b-43a2-b2d1-92c181f204a0",
+  "title": "Cell Structure, Reproduction, Development and Genetics — Topic Questions",
+  "description": "Practice questions for Cell Structure, Reproduction, Development and Genetics, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:23:55.972777+00",
+  "updated_at": "2026-10-30 19:23:55.972777+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "96daad31-cb36-490a-a064-37fad3a24b80",
   "topic_id": "b777d569-655f-4776-95fd-ef3be62361e9",
   "title": "Practice — Measures of Variation and Standard Deviation",
@@ -2754,6 +3132,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "9b028f2f-38f9-4b39-a79b-1ed72affd758",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "title": "Waves — Topic Questions",
+  "description": "Practice questions for Waves, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:16:43.898256+00",
+  "updated_at": "2026-10-30 20:16:43.898256+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -2856,6 +3248,20 @@
   "correction_file_url": null
  },
  {
+  "id": "9f435cfd-b6e1-4cbb-9255-c42a18ea48fa",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "title": "Organisms' Interaction with the Environment — Topic Questions",
+  "description": "Practice questions for Organisms' Interaction with the Environment, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:39:19.127353+00",
+  "updated_at": "2026-10-30 20:39:19.127353+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "9ff80671-9b05-479c-81a5-00a92188c1ad",
   "topic_id": "d6c1020a-24ea-4820-b974-1126d494e3ab",
   "title": "Practice — Materials: Deformation",
@@ -2920,6 +3326,20 @@
   "is_published": true,
   "created_at": "2026-10-12 10:58:57.074989+00",
   "updated_at": "2026-10-12 10:58:57.074989+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "a64e8385-d211-40ff-aaf4-f9c05a8741f0",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "title": "Generating and Distributing Electricity — Topic Questions",
+  "description": "Practice questions for Generating and Distributing Electricity, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:16:43.898256+00",
+  "updated_at": "2026-10-30 20:16:43.898256+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -2996,6 +3416,20 @@
   "correction_file_url": null
  },
  {
+  "id": "a8ce1b9e-6f1b-4e6f-a921-07b082d11227",
+  "topic_id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "title": "Space Physics — Topic Questions",
+  "description": "Practice questions for Space Physics, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:16:43.898256+00",
+  "updated_at": "2026-10-30 20:16:43.898256+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "a993d761-1d53-4903-8072-8f99ad33aa26",
   "topic_id": "4c782793-d5fc-4e1f-8696-69c53dedb9ed",
   "title": "Programming Concepts Quiz",
@@ -3048,6 +3482,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "ade4bf18-13f0-4463-ab15-179aa3e964d3",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "title": "Energy — Topic Questions",
+  "description": "Practice questions for Energy, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:16:43.898256+00",
+  "updated_at": "2026-10-30 20:16:43.898256+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -3164,6 +3612,20 @@
   "correction_file_url": null
  },
  {
+  "id": "b2e87a51-faf1-4b24-a4a9-69b9507752b1",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "title": "Forces and their Effects — Topic Questions",
+  "description": "Practice questions for Forces and their Effects, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:04:52.923212+00",
+  "updated_at": "2026-10-30 20:04:52.923212+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "b34da0d7-c773-473c-904d-ac9d25a6aec0",
   "topic_id": "9d69ae0a-cb99-4780-88a1-42025848a024",
   "title": "Checkpoints — Probability",
@@ -3272,6 +3734,20 @@
   "updated_at": "2026-10-12 11:42:44.515413+00",
   "exam_type": "ai_bank",
   "is_ai_generated": true,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "b96ce15c-bd17-4519-90f3-0a77e8bb7918",
+  "topic_id": "4bbf548c-f900-449c-9631-bc4b638d623d",
+  "title": "Organic Halogenoalkanes, Alcohols and Spectra — Topic Questions",
+  "description": "Practice questions for Organic Halogenoalkanes, Alcohols and Spectra, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
   "exam_file_url": null,
   "correction_file_url": null
  },
@@ -3494,6 +3970,20 @@
   "is_published": true,
   "created_at": "2026-08-22 14:16:09.219602+00",
   "updated_at": "2026-08-22 14:16:09.219602+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "c727dbc6-47ca-4038-a930-833c391552b4",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "title": "Inheritance — Topic Questions",
+  "description": "Practice questions for Inheritance, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 20:39:19.127353+00",
+  "updated_at": "2026-10-30 20:39:19.127353+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,
@@ -3724,6 +4214,20 @@
   "correction_file_url": null
  },
  {
+  "id": "d9d0796f-5862-43e7-b19c-162d6f590f60",
+  "topic_id": "715fe208-43e9-4c24-987d-b0512b6b83e1",
+  "title": "Bonding and Structure — Topic Questions",
+  "description": "Practice questions for Bonding and Structure, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "d9e19d5f-7ffb-458c-adb2-afa934c356ee",
   "topic_id": "4a093751-70de-4b7b-a451-94efe48c280c",
   "title": "Angles and Polygons",
@@ -3906,6 +4410,20 @@
   "correction_file_url": null
  },
  {
+  "id": "e90b0bcd-8cf2-494d-8b2f-7608f64076ee",
+  "topic_id": "5e850452-1f48-409b-a7d1-9a032abedd8d",
+  "title": "Intermolecular Forces — Topic Questions",
+  "description": "Practice questions for Intermolecular Forces, each linked to the specification statement it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 19:37:59.384203+00",
+  "updated_at": "2026-10-30 19:43:15.593933+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
   "id": "e974ff36-e049-45de-8a8f-125889e376dd",
   "topic_id": "abeb9a4a-93ac-4df3-863c-86b3fe838f76",
   "title": "Practice — Motion in a Circle and Gravity",
@@ -4068,6 +4586,20 @@
   "is_published": true,
   "created_at": "2026-10-19 09:39:56.147114+00",
   "updated_at": "2026-10-19 09:39:56.147114+00",
+  "exam_type": "quiz",
+  "is_ai_generated": false,
+  "exam_file_url": null,
+  "correction_file_url": null
+ },
+ {
+  "id": "f1cf3af6-b405-422c-9c66-51ba16dcae69",
+  "topic_id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "title": "The Rate and Extent of Chemical Change — Topic Questions",
+  "description": "Practice questions for The Rate and Extent of Chemical Change, each linked to the OxfordAQA 9202 specification subsection it tests.",
+  "time_limit_minutes": null,
+  "is_published": true,
+  "created_at": "2026-10-30 18:50:22.395313+00",
+  "updated_at": "2026-10-30 18:51:51.696789+00",
   "exam_type": "quiz",
   "is_ai_generated": false,
   "exam_file_url": null,

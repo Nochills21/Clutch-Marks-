@@ -85,6 +85,27 @@ function generateSql(bundle, tables) {
     out.push(bundle.schema.trim());
     out.push("");
   }
+  // Accounts first: profiles.id references auth.users(id), and while
+  // session_replication_role = replica disables the FK triggers, loading the
+  // referenced rows first keeps the file readable and correct even if that
+  // setting is ever removed.
+  const auth = bundle.auth || {};
+  const authTables = Object.keys(auth).filter((t) => Array.isArray(auth[t]) && auth[t].length > 0);
+  if (authTables.length > 0) {
+    out.push("-- ─── accounts (auth schema — without these nobody can sign in) ───");
+    for (const table of authTables) {
+      const rows = auth[table];
+      const tag = `$j_${crypto.randomBytes(4).toString("hex")}$`;
+      const json = JSON.stringify(rows);
+      if (json.includes(tag)) throw new Error(`unlucky dollar-quote collision on auth.${table}`);
+      out.push(`-- auth.${table}: ${rows.length} rows`);
+      out.push(
+        `insert into auth."${table}" overriding system value\n` +
+          `  select * from json_populate_recordset(null::auth."${table}", ${tag}${json}${tag});`,
+      );
+      out.push("");
+    }
+  }
   out.push("-- ─── data ───");
   // FKs are deferred: rows are inserted table by table in name order, which is
   // not FK order. Disabling triggers for the transaction is the standard way to
@@ -137,6 +158,10 @@ function generateSql(bundle, tables) {
 
   const manifest = bundle.manifest || { tables: {}, totals: {} };
   const stored = Object.keys(bundle.tables).sort();
+  // Accounts travel outside `tables` (they are in the auth schema). Older
+  // bundles have no `auth` key at all, which is not an error: it only means
+  // that restore cannot bring logins back, and the summary says so.
+  const authTables = Object.keys(bundle.auth || {}).sort();
 
   // Integrity: every table's rows must hash to what the backup recorded. This
   // catches a truncated or edited file, which the GCM tag cannot (it proves the
@@ -152,10 +177,21 @@ function generateSql(bundle, tables) {
       console.error(`  MISMATCH ${table}: rows ${bundle.tables[table].length}/${recorded.rows}, hash ${hash === recorded.sha256 ? "ok" : "differs"}`);
     }
   }
+  for (const table of authTables) {
+    const rows = bundle.auth[table];
+    const recorded = manifest.tables[`auth.${table}`];
+    if (!Array.isArray(rows) || !recorded || recorded.rows < 0) continue;
+    const hash = crypto.createHash("sha256").update(JSON.stringify(rows)).digest("hex");
+    if (rows.length !== recorded.rows || hash !== recorded.sha256) {
+      mismatched += 1;
+      console.error(`  MISMATCH auth.${table}: rows ${rows.length}/${recorded.rows}, hash ${hash === recorded.sha256 ? "ok" : "differs"}`);
+    }
+  }
 
   console.log(`backup:   ${bundle.createdAt}`);
   console.log(`project:  ${bundle.projectRef}`);
   console.log(`tables:   ${stored.length}`);
+  console.log(`accounts: ${authTables.length ? authTables.map((t) => `${manifest.tables[`auth.${t}`]?.rows ?? "?"} ${t}`).join(", ") : "NONE — this bundle predates account capture; a restore will have no logins"}`);
   console.log(`rows:     ${manifest.totals.rows ?? "?"}`);
   console.log(`integrity: ${mismatched === 0 ? "OK — every table matches its recorded hash" : `${mismatched} table(s) MISMATCHED`}`);
 

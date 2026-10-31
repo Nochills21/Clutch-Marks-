@@ -1,5 +1,20 @@
 [
  {
+  "id": "0015b5c4-02d4-4314-9a6a-d17ca87b35e6",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2021,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "00261c28-a932-4a37-b335-85656adccd3d",
   "title": "Cambridge International A Level Physics 9702 — Paper 4",
   "year": 2018,
@@ -375,6 +390,21 @@
   "level": "OL"
  },
  {
+  "id": "06a7f39c-c97c-45d2-81a6-26fe5cfd2afe",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2019,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "06ad387a-e735-4532-9b22-dea288a60806",
   "title": "Computer Science 9618 — Paper 3: Advanced Theory",
   "year": 2024,
@@ -703,6 +733,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Paper-1/June%202019%20(v1)%20QP%20-%20Paper%201%20CAIE%20Computer%20Science%20A-level.pdf",
   "subject_slug": "computer-science",
   "level": "AS"
+ },
+ {
+  "id": "0b410b1a-c904-4f3a-971c-246bb5757065",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2020,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "d45a3e48-6391-4f8d-a2ea-63b8e8545591",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "0b41772b-fa4f-49b2-b04c-61060b79cc99",
@@ -1108,6 +1153,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/CAIE/Paper-3/QP/November%202019%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "AS"
+ },
+ {
+  "id": "0fff2fc8-d906-4912-95f3-2ad645ee7d15",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "10600c00-1d00-4f34-b49a-7a43af578ed1",
@@ -2010,6 +2070,21 @@
   "level": "AS"
  },
  {
+  "id": "1aeab325-d4ae-4015-bdd8-f604bc1a37f9",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2019,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "1afd8770-89bd-427a-913f-99184768ac6f",
   "title": "Edexcel IAL Physics — Unit 4: Further Mechanics, Fields and Particles (WPH14/01)",
   "year": 2017,
@@ -2115,6 +2190,21 @@
   "level": "AS"
  },
  {
+  "id": "1c112c20-be24-49b3-97dc-c77af1b8e7a5",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2023,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "5b7a1a5b-74d3-4fae-8da5-7b977a3b1f3c",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "1c8b963c-6e25-4d06-a4a3-4c0699c851d3",
   "title": "Cambridge International A Level Computer Science 9618 — Paper 3",
   "year": 2022,
@@ -2128,6 +2218,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Computer-Science/A-level/Past-Papers/CAIE/Spec-2021/Paper-3/QP/November%202022%20(v1)%20QP.pdf",
   "subject_slug": "computer-science",
   "level": "A2"
+ },
+ {
+  "id": "1c904353-0bad-4630-b2a0-f7554100189f",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2023,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "1cb2af9f-4e7f-457c-9c49-8d0941dd49dd",
@@ -2788,6 +2893,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/A-level/Past-Papers/Edexcel-IAL/2018-spec/Unit-5/QP/January%202023%20(IAL)%20QP.pdf",
   "subject_slug": "physics",
   "level": "A2"
+ },
+ {
+  "id": "23c824df-7e72-44d2-bd5b-eaee32095476",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2019,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "23cbcfcd-f0ec-46e7-8348-779b0cbb467a",
@@ -3555,6 +3675,21 @@
   "level": "AS"
  },
  {
+  "id": "30a6e1e2-e0db-4787-ad77-6492c0854c9c",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2022,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "ed6c6121-ec7d-4d03-8a0b-90a72e0e3492",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "30b8a1a1-210f-4423-b848-33c89952f96a",
   "title": "Computer Science 9618 — Paper 4: Practical",
   "year": 2019,
@@ -3885,6 +4020,21 @@
   "level": "A2"
  },
  {
+  "id": "3463dc91-dc07-4147-88fa-813d10c2beda",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2023,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "34ac2c88-5e0b-4951-bee8-8ab29b66b422",
   "title": "Cambridge International A Level Physics 9702 — Paper 5",
   "year": 2022,
@@ -3928,6 +4078,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Statistics/S1/QP/October%202022%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
+ },
+ {
+  "id": "3671cb3b-f4b1-4adb-82f4-047f5cb943d0",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2024,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "958b2c29-3f0b-4852-b000-5b9d3b457708",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "368049c5-33d6-4838-8d56-6c351317ab95",
@@ -4140,6 +4305,21 @@
   "level": "A2"
  },
  {
+  "id": "39583724-7ac0-4fd0-b2a6-db5c74da7f61",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2024,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "397e6dee-f97e-4add-9b09-ef2173c2d090",
   "title": "Cambridge IGCSE Chemistry 0620 — Paper 6 (0620/62)",
   "year": 2025,
@@ -4153,6 +4333,36 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-chemistry-0620/",
   "subject_slug": "chemistry",
   "level": "OL"
+ },
+ {
+  "id": "3a487eb4-df6f-4ea4-a695-6e6fbd09ecaa",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2020,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "c734d063-1522-483b-8e98-2a760aa45833",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
+  "id": "3a807540-f01f-4106-be33-fb64c9a251a5",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2022,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "81ecc571-f908-4a48-ad91-06046fa1b34a",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "3a84f688-b0b1-4571-9da1-cc6868b63b19",
@@ -4890,6 +5100,21 @@
   "level": "A2"
  },
  {
+  "id": "45c9f2ee-b93c-4454-b55b-f9ff6c816735",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2023,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "45f760d3-02b6-4239-91a2-1b7f675e26ec",
   "title": "Edexcel IAL Maths — Statistics S1 (WST01/01)",
   "year": 2022,
@@ -5295,6 +5520,21 @@
   "level": "OL"
  },
  {
+  "id": "49ab3416-0fc0-4566-b6c7-c22887d9f2e4",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2026,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "49dcaac5-b861-4985-8eac-577646b5c6b7",
   "title": "Computer Science 9618 — Paper 3: Advanced Theory",
   "year": 2022,
@@ -5353,6 +5593,21 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-physics-0625/past-papers/",
   "subject_slug": "physics",
   "level": "OL"
+ },
+ {
+  "id": "4b5b6799-51f1-435e-9833-c8de70fbe1ed",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2026,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "4b73ae49-e05b-4ba3-b551-75001da3226a",
@@ -5640,6 +5895,21 @@
   "level": "AS"
  },
  {
+  "id": "4edeb9e3-7e9d-416b-820a-e468f35a24b5",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2021,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "4ef24ddc-dfd9-4be0-8df1-23b8b379a99a",
   "title": "OxfordAQA International GCSE English as a Second Language 9280 — Paper 3: Listening",
   "year": 2024,
@@ -5652,6 +5922,21 @@
   "updated_at": "2026-10-25 11:38:56.537899+00",
   "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-english-as-a-second-language-9280/",
   "subject_slug": "english-as-a-second-language-oxford",
+  "level": "IGCSE"
+ },
+ {
+  "id": "4ef4631e-74a1-407f-baed-c0ce69879159",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2025,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "558c0ed3-c706-4895-84e9-154faf514514",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
   "level": "IGCSE"
  },
  {
@@ -5698,6 +5983,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/November%202024%20(v1)%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
+ },
+ {
+  "id": "4f327202-4d8a-4049-bfbb-e319de952f4c",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2026,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "7b80c6e6-d761-4ea0-bd86-14f4f39f5b5d",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "4f37337c-93fb-49ff-9231-84ba8c5bd03e",
@@ -7020,6 +7320,21 @@
   "level": "AS"
  },
  {
+  "id": "6041b93e-866e-4707-9f8c-9847072b824b",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2021,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "7b80c6e6-d761-4ea0-bd86-14f4f39f5b5d",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "608cd764-4994-4ee1-affa-b8941af7a24b",
   "title": "Cambridge IGCSE Physics 0625 — Paper 2: Multiple Choice Extended (0625/22)",
   "year": 2018,
@@ -7470,6 +7785,21 @@
   "level": "OL"
  },
  {
+  "id": "67e9d439-367c-49e5-89a7-28fa74a17dde",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2020,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "6846c34d-6b5f-4d24-b0b4-e2c67338ee97",
   "title": "Cambridge International AS Level Computer Science 9618 — Paper 2",
   "year": 2022,
@@ -7710,6 +8040,21 @@
   "level": "OL"
  },
  {
+  "id": "6cad0fb2-766c-4247-9947-71103063fbb3",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2020,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "6cc99893-6c78-452c-b1cb-bfa99b8a6c1a",
   "title": "Cambridge International AS Level Mathematics 9709 — Paper 1: Pure Mathematics 1",
   "year": 2023,
@@ -7860,6 +8205,21 @@
   "level": "OL"
  },
  {
+  "id": "6e2939d7-6621-44e7-954f-591dfd8d7599",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2024,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "6e2c1c5c-6431-48aa-ac26-32ee2a605a4a",
   "title": "Edexcel IAL Physics — Unit 1: Mechanics and Materials (WPH11/01)",
   "year": 2021,
@@ -7903,6 +8263,21 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/past-papers/",
   "subject_slug": "computer-science",
   "level": "OL"
+ },
+ {
+  "id": "6ea9e95d-005e-4041-99cd-d6f30010bbbf",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2021,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "6eaa4425-f9bc-45e2-b58b-ca1b1518fabc",
@@ -8475,6 +8850,21 @@
   "level": "OL"
  },
  {
+  "id": "75d0b8a3-ae54-4ae4-a518-215f1755b68b",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2022,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "76006b4d-f448-4763-aac4-a0b661c69216",
   "title": "Edexcel IAL Physics — Unit 1: Mechanics and Materials (WPH11/01)",
   "year": 2020,
@@ -8713,6 +9103,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/CIE/Paper-1/International/QP/March%202016%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "OL"
+ },
+ {
+  "id": "78b1c375-51b8-4a84-ac82-c7c3735c4018",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2025,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "c734d063-1522-483b-8e98-2a760aa45833",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "78ee953b-49e9-4de4-962b-50233bf5ec21",
@@ -9435,6 +9840,21 @@
   "level": "AS"
  },
  {
+  "id": "829a8d5e-d6d0-4a53-aecd-18be46952cc7",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2020,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "459d6a6f-4159-4536-b41d-f28aa3979c55",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "82a0b84d-1c79-4d24-b2d9-77c0a6d4ad82",
   "title": "Cambridge IGCSE Computer Science 0478 — Paper 2: Algorithms, Programming and Logic (0478/22)",
   "year": 2020,
@@ -9688,6 +10108,21 @@
   "source_url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-computer-science-9618/past-papers/",
   "subject_slug": "computer-science",
   "level": "AS"
+ },
+ {
+  "id": "86fa938d-d689-445c-8dea-b3989e89c3c5",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "877275aa-abcd-4d8d-999c-c4e3dfd815b8",
@@ -9945,6 +10380,21 @@
   "level": "A2"
  },
  {
+  "id": "8aabd9b7-3f34-40a9-a977-2a595d83a7e3",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "5b7a1a5b-74d3-4fae-8da5-7b977a3b1f3c",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "8ae8b303-5cde-4b65-b09e-3d309879db42",
   "title": "Edexcel IAL Physics — Unit 2: Waves and Electricity (WPH12/01)",
   "year": 2022,
@@ -10200,6 +10650,21 @@
   "level": "A2"
  },
  {
+  "id": "8d3a6f6a-6e1f-453b-8b48-3f1ddc031458",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2019,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "8de2f439-54a9-4af5-8f5c-0da1c5273caf",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 2: Pure Mathematics 2",
   "year": 2024,
@@ -10320,6 +10785,21 @@
   "level": "OL"
  },
  {
+  "id": "8f6195a4-a8ca-45ea-b0dd-aa611bafa952",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2019,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "958b2c29-3f0b-4852-b000-5b9d3b457708",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "8f9ec1d1-b68b-4915-ae44-2bbf9adea0db",
   "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
   "year": 2021,
@@ -10425,6 +10905,21 @@
   "level": "OL"
  },
  {
+  "id": "90f33e78-ab30-4e2d-a471-937598219767",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2026,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "91395c03-001b-4a2c-ab79-141e517f3879",
   "title": "Cambridge IGCSE Physics 0625 — Paper 5: Practical Test (0625/52)",
   "year": 2022,
@@ -10528,6 +11023,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-4/International/QP/March%202020%20(v2)%20QP.pdf",
   "subject_slug": "physics",
   "level": "OL"
+ },
+ {
+  "id": "92d199a4-d960-482c-859a-7ab5b0b45e7f",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "92ee5519-d398-4d9b-8bf4-621576f41757",
@@ -10755,6 +11265,21 @@
   "level": "A2"
  },
  {
+  "id": "95ed6477-ffec-4da0-bb6e-5cf5d582a149",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 1",
+  "year": 2025,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "d45a3e48-6391-4f8d-a2ea-63b8e8545591",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "95fda8a1-a000-4c77-aff1-8cee6bfdb252",
   "title": "Cambridge IGCSE Chemistry 0620 — Paper 2 (0620/22)",
   "year": 2024,
@@ -10798,6 +11323,36 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html",
   "subject_slug": "mathematics",
   "level": "A2"
+ },
+ {
+  "id": "96d6db4f-0d5d-4d46-8a6b-434e7e3d274c",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
+  "id": "96e60523-1c1d-4548-a535-ba7334ca8ce1",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2026,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "96fb765e-d229-427f-bda9-8a4a52b31080",
@@ -10980,6 +11535,21 @@
   "level": "AS"
  },
  {
+  "id": "99359d45-e91f-4c5e-8c01-d0e802e81b08",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2021,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "558c0ed3-c706-4895-84e9-154faf514514",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "99620489-e423-4ca0-8441-8f786afaf80c",
   "title": "Cambridge International A Level Physics 9702 — Paper 5",
   "year": 2019,
@@ -11098,6 +11668,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/9-1/QP/June%202022%20(9-1)%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "OL"
+ },
+ {
+  "id": "9b3adec3-0812-4a4f-9a86-573268331d3c",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2022,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "9b75896b-27b9-405a-96cb-1632da322971",
@@ -11400,6 +11985,21 @@
   "level": "A2"
  },
  {
+  "id": "a016d228-f314-4090-bc72-8ede02e653e6",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2024,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "459d6a6f-4159-4536-b41d-f28aa3979c55",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "a03319af-bd0a-4019-bf20-6b76b617796b",
   "title": "Computer Science 9618 — Paper 1: Theory Fundamentals",
   "year": 2020,
@@ -11623,6 +12223,21 @@
   "source_url": "https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/physics-2018.coursematerials.html",
   "subject_slug": "physics",
   "level": "A2"
+ },
+ {
+  "id": "a23e361d-62f2-4a30-b1f5-d9a7cee757ef",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2024,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "a2443cc9-d442-4904-846f-08dc1ea6146b",
@@ -12405,6 +13020,21 @@
   "level": "AS"
  },
  {
+  "id": "af48e160-f2ef-4f9f-894a-f775103aab37",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2025,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "af5b74dc-651e-4c22-acc8-911b51257474",
   "title": "Cambridge International A Level Physics 9702 — Paper 4",
   "year": 2019,
@@ -12673,6 +13303,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Pure/P2/QP/June%202023%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
+ },
+ {
+  "id": "b386188c-7cbe-4701-b293-b96c9ddee7de",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2019,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "b3a1bb59-7d1f-4110-93b7-7d36a2cfd3a4",
@@ -13365,6 +14010,21 @@
   "level": "OL"
  },
  {
+  "id": "bd33d771-bb61-4ca5-9c75-3f3dc16dc6c3",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2026,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "bd58e4f9-7eee-4648-9f79-4d1b0aba2046",
   "title": "Cambridge International A Level Mathematics 9709 — Paper 4: Mechanics",
   "year": 2025,
@@ -13650,6 +14310,21 @@
   "level": "A2"
  },
  {
+  "id": "c019de07-e648-4c9a-b4f9-c1cb2599dc15",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2022,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "c01ed404-92f8-47ed-bc37-a70979d00e4a",
   "title": "Cambridge International A Level Physics 9702 — Paper 5",
   "year": 2024,
@@ -13723,6 +14398,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Pure/P2/QP/January%202021%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
+ },
+ {
+  "id": "c0d99f45-5f3e-4af3-86bf-a0958be42319",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2021,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "c0da5f62-be4f-402d-9e02-45668132b063",
@@ -13875,6 +14565,21 @@
   "level": "A2"
  },
  {
+  "id": "c2f6467a-843b-4341-8bf0-3259ff8f37a4",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2022,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "c31c7438-5002-47ba-9053-30c857ac0ad0",
   "title": "Edexcel IAL Physics — Unit 6 (WPH16/01)",
   "year": 2017,
@@ -14008,6 +14713,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-3/International/QP/June%202017%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "OL"
+ },
+ {
+  "id": "c553b23c-1689-4b4b-b464-5e98e08ba6a6",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 1",
+  "year": 2025,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:01:08.408808+00",
+  "updated_at": "2026-10-30 20:01:08.408808+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "c57b6d02-319c-4603-9424-1ef392be0858",
@@ -14428,6 +15148,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Mechanics/M1/QP/October%202023%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
+ },
+ {
+  "id": "cbb2a49c-915c-41ce-8235-3d80e88cfab2",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2018,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "cbe15215-26f2-44ad-91e8-dfe1b2bbfa21",
@@ -15930,6 +16665,21 @@
   "level": "AS"
  },
  {
+  "id": "deb88a13-9af7-4062-9002-125a2cc4f54c",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 2",
+  "year": 2023,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "df017994-a81d-4414-9330-7ff77b7c20f5",
   "title": "Edexcel IAL Physics — Unit 3: Practical Skills in Physics I (WPH13/01)",
   "year": 2022,
@@ -16530,6 +17280,21 @@
   "level": "OL"
  },
  {
+  "id": "e6d85060-236e-4f60-bd8b-5cb3c6f4f047",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2024,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "e7184753-5799-4ad9-855c-8b86921e88cf",
   "title": "Cambridge International AS Level Physics 9702 — Paper 2",
   "year": 2022,
@@ -17115,6 +17880,21 @@
   "level": "A2"
  },
  {
+  "id": "ef16a052-7e35-45e0-bb17-031f01a73742",
+  "title": "OxfordAQA International GCSE Physics 9203 — Paper 2",
+  "year": 2020,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:18:07.706499+00",
+  "updated_at": "2026-10-30 20:18:07.706499+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-physics-9203/",
+  "subject_slug": "physics-oxfordaqa",
+  "level": "IGCSE"
+ },
+ {
   "id": "ef4b1b0d-ce40-47da-9ca2-c2fea9eed987",
   "title": "Edexcel IAL Physics — Unit 5: Thermodynamics, Radiation, Oscillations (WPH15/01)",
   "year": 2018,
@@ -17158,6 +17938,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/Edexcel-IAL/Mechanics/M1/QP/June%202022%20QP.pdf",
   "subject_slug": "mathematics",
   "level": "AS"
+ },
+ {
+  "id": "f05b9207-4c7a-4545-b2c9-8e712da2d46a",
+  "title": "OxfordAQA International GCSE Biology 9201 — Paper 1",
+  "year": 2025,
+  "session": "May/June",
+  "paper_number": "Paper 1",
+  "topic_id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:06.577923+00",
+  "updated_at": "2026-10-30 20:28:06.577923+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-biology-9201/",
+  "subject_slug": "biology-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "f0716926-b94e-4c85-aa8b-61402e63c57b",
@@ -17668,6 +18463,21 @@
   "source_url": "https://pmt.physicsandmathstutor.com/download/Physics/GCSE/Past-Papers/CIE/Paper-1/International/QP/November%202018%20(v1)%20QP.pdf",
   "subject_slug": "physics",
   "level": "OL"
+ },
+ {
+  "id": "f67fd613-c66b-4e40-a392-017c6c96e3b1",
+  "title": "OxfordAQA International GCSE Chemistry 9202 — Paper 2",
+  "year": 2023,
+  "session": "May/June",
+  "paper_number": "Paper 2",
+  "topic_id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "paper_url": null,
+  "mark_scheme_url": null,
+  "created_at": "2026-10-30 20:28:07.4953+00",
+  "updated_at": "2026-10-30 20:28:07.4953+00",
+  "source_url": "https://www.oxfordaqa.com/qualification/international-gcse-chemistry-9202/",
+  "subject_slug": "chemistry-oxfordaqa",
+  "level": "IGCSE"
  },
  {
   "id": "f6bca413-d87e-4f2b-827f-cb61d8ee1553",

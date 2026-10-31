@@ -21,20 +21,39 @@ One file, `backups/db/<timestamp>.cmbackup.enc`:
 |---|---|
 | `schema` | `supabase/base.sql` — the full public-schema structure (tables, FKs, indexes, triggers, RLS policies) |
 | `tables` | **every table in `public`**, discovered from the catalog at run time (57 on 2026-10-30), so a new table is covered without editing the script |
+| `auth` | **the accounts** — `auth.users` and `auth.identities` (60 and 60 on 2026-10-30), including the bcrypt password hashes, so a restore into a fresh project can log people in |
 | `manifest` | per-table row count + SHA-256, so a restore can be proved rather than hoped |
 | encryption | AES-256-GCM, key derived from `BACKUP_PASSPHRASE` with scrypt (N=16384, r=8, p=1) |
 
 Measured on 2026-10-30: **50,883 rows across 57 tables → 22.5 MB encrypted**, 150 s.
 
+### Accounts are in the bundle (since 2026-10-30) — with three caveats
+
+`scripts/db-backup.cjs` now dumps `auth.users` and `auth.identities`, and `--to-sql` emits them
+**before** the public tables, so `profiles.user_id` → `auth.users(id)` is satisfied even if
+`session_replication_role = replica` is ever dropped from the generated file.
+
+(`profiles` carries two uuids: `id` is the profile's own row id, `user_id` is the auth uid and is
+the only one with a foreign key — `profiles_user_id_fkey` → `auth.users(id)`, `ON DELETE CASCADE`.
+Measured on the live project: all 60 profiles join on `user_id`, none on `id`. Every FK to an
+account — `flashcard_progress.user_id`, `xp_events.user_id`, `subscription` owners — points at the
+auth uid, which is what the edge functions pass as `user.id`.)
+
+- **Passwords survive.** The stored bcrypt hash is what GoTrue compares against, so a restored
+  account signs in with its existing password; no reset email is needed. Measured on the live
+  project: 60 users, **35 with a hash**.
+- **The other 25 have no password because they are Google accounts** — 27 `google` identities
+  against 33 `email` ones. They keep working through Google as before; `auth.identities` is in the
+  bundle precisely so those links are not lost.
+- **Sessions and refresh tokens are deliberately NOT dumped.** Neither are `one_time_tokens` or
+  `mfa_challenges`. Those are live credentials and short-lived codes: replaying them into a new
+  project would hand out working sessions. Everyone signs in again on the restored project, which
+  is the correct behaviour after a disaster.
+
 ### What it does NOT contain — read this before relying on it
 
-- **`auth.users` (the accounts themselves).** GoTrue owns that schema and restoring it by hand is
-  fragile. This matters:
-  - *Same project, damaged/lost rows* — the common case — this bundle restores everything, because
-    the accounts never left. **This is the scenario it is built for.**
-  - *Whole project deleted* — you get content and profile rows but no logins. Students would have
-    to re-register, or you restore accounts from a Supabase-side export. For that case the real
-    answer is enabling PITR on the project.
+- **Auth *configuration*.** Provider settings, email templates, the JWT secret, redirect URLs and
+  the site URL live in the dashboard, not in Postgres. Restore them by hand (see the runbook step).
 - **Storage objects.** The six buckets (`past-papers`, `study-materials`, `homework-uploads`, …)
   are not in the bundle. `past-papers` is 2,107 objects; the papers are board links, not our data.
 - **Edge functions, secrets, auth config.** These live in the repo and the dashboard.
@@ -196,7 +215,8 @@ Two bugs were found and fixed by that testing: `URL.host` includes the port, whi
 
 ## Limitations
 
-- **Accounts are not in the bundle** (see above). This is the biggest gap, and PITR is the fix.
+- **Accounts are in the bundle, but auth configuration is not** (see above). A restore gives you
+  every login and no sessions — and you still have to re-point the project's auth settings.
 - Storage objects, edge-function source, and auth config are out of scope by design.
 - The dump path is the Management API, which returns JSON. A restored database is logically
   identical but physically rebuilt (no byte-identical `pg_dump`). If you later add the database

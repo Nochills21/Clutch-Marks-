@@ -12,6 +12,18 @@
   "updated_at": "2026-10-17 10:32:41.618079+00"
  },
  {
+  "id": "3e9fe43e-ccce-4e41-8b4f-b600d370f0b6",
+  "name": "Physics (OxfordAQA)",
+  "slug": "physics-oxfordaqa",
+  "description": "OxfordAQA International GCSE Physics (9203): forces and motion, energy, waves, the particle model, electricity and magnetism, generation and transmission, nuclear physics and space.",
+  "icon": "BookOpen",
+  "color": "primary",
+  "sort_order": 23,
+  "is_active": false,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00"
+ },
+ {
   "id": "403ce537-1fa0-4945-8648-c31e85ea6b57",
   "name": "Physics",
   "slug": "physics",
@@ -46,6 +58,30 @@
   "is_active": true,
   "created_at": "2026-10-18 05:27:55.845031+00",
   "updated_at": "2026-10-18 06:45:37.260066+00"
+ },
+ {
+  "id": "7793fe22-2282-4799-8464-9a078a56804a",
+  "name": "Biology (OxfordAQA)",
+  "slug": "biology-oxfordaqa",
+  "description": "OxfordAQA International GCSE Biology (9201): cells and organisation, bioenergetics, ecology, homeostasis and response, inheritance, and evolution.",
+  "icon": "BookOpen",
+  "color": "primary",
+  "sort_order": 22,
+  "is_active": false,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00"
+ },
+ {
+  "id": "7b1674bc-f7de-444a-8124-1eb145c113a4",
+  "name": "Chemistry (OxfordAQA)",
+  "slug": "chemistry-oxfordaqa",
+  "description": "OxfordAQA International GCSE Chemistry (9202): atomic structure and bonding, chemical changes and analysis, quantitative chemistry, rates, energy changes and organic chemistry.",
+  "icon": "BookOpen",
+  "color": "primary",
+  "sort_order": 21,
+  "is_active": false,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00"
  },
  {
   "id": "84501ceb-494b-4c08-b999-3daba11b9c4e",

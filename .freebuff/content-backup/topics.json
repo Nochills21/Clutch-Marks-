@@ -40,6 +40,16 @@
   "slug": "descriptive-writing"
  },
  {
+  "id": "049a241b-af94-4f3f-ab03-d55260b5fe3b",
+  "name": "Generating and distributing electricity and household use",
+  "description": "Electricity and magnetism are linked; this has important technological consequences. In this topic magnetism and electricity are studied in the context of their uses in using current to cause motion and vice versa and in changing the voltages of an ac supply. In so doing the big ideas of field forces and energy transfer are also used.",
+  "sort_order": 6,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "generating-and-distributing-electricity-and-household-use"
+ },
+ {
   "id": "0745f8f9-88a6-4f86-8476-dcaf63ce9d12",
   "name": "Number — Ratio, Rate and Proportion",
   "description": "Ratio notation, simplifying ratios, sharing in a given ratio, direct and inverse proportion.",
@@ -48,6 +58,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "number-ratio-rate-and-proportion"
+ },
+ {
+  "id": "07ed58e0-8fc0-4827-a2fb-d8a78810885f",
+  "name": "Waves",
+  "description": "Waves, both transverse and longitudinal, carry energy from a source and can be detected by a receiver. This topic explores the use of the wave model to explore the behaviour of waves and its application to contexts such as information communication,",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "waves"
  },
  {
   "id": "096d6365-d239-4c38-b8f0-a338a550d6be",
@@ -530,6 +550,16 @@
   "slug": "word-formation-prefixes-and-suffixes"
  },
  {
+  "id": "459d6a6f-4159-4536-b41d-f28aa3979c55",
+  "name": "Electricity and magnetism",
+  "description": "Electricity is convenient because it is easily transmitted over distances and can be easily transferred in a range of different ways. By controlling the flow of current and understanding the factors that affect this flow it can be used to make a range of applications work. Electricity is also a good context for considering how energy is transferred. Magnetism provides a connection with forces through the study of fields and the way it can produce and be produced by electricity.",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "electricity-and-magnetism"
+ },
+ {
   "id": "46485f71-55f2-4888-9462-d12d7a3833a2",
   "name": "Work, Energy and Power",
   "description": "Work, Energy and Power — Cambridge International AS Level Physics (9702)",
@@ -538,6 +568,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "70fb9c0c-35bf-4036-b265-1833f594f3f6",
   "slug": "work-energy-and-power"
+ },
+ {
+  "id": "46504379-8215-4510-9f2f-ef14806b7c70",
+  "name": "Structure, Bonding and the Properties of Matter",
+  "description": "This section examines how atoms interact to form chemical bonds and how these bonds determine the properties and uses of",
+  "sort_order": 2,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "structure-bonding-and-the-properties-of-matter"
  },
  {
   "id": "494eb848-7ffb-489b-9a2c-948fbc58a33c",
@@ -740,6 +780,16 @@
   "slug": "molecules-transport-and-health"
  },
  {
+  "id": "558c0ed3-c706-4895-84e9-154faf514514",
+  "name": "Particle model of matter",
+  "description": "All material in the Universe is made of very small particles. The properties of all materials, living and non-living can be understood in terms of the motion, separation and interactions of these constituent particles.",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "particle-model-of-matter"
+ },
+ {
   "id": "580136d1-5758-460e-8f79-7a04e39b9899",
   "name": "Programming Paradigms and Low-Level",
   "description": "Programming Paradigms and Low-Level — Cambridge International A Level Computer Science (9618)",
@@ -758,6 +808,16 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "6eae9fbd-6cf1-4ecb-adaa-d3d9f1cfea5b",
   "slug": "quadratics"
+ },
+ {
+  "id": "590fde94-26ee-4a63-a87b-1f2bcc3d00a4",
+  "name": "Quantitative Chemistry",
+  "description": "Conservation of mass is a key concept in chemistry and this is developed during this section. This is then used to develop a quantitative approach to chemical reactions, leading to many opportunities to develop experimental skills through practical",
+  "sort_order": 6,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "quantitative-chemistry"
  },
  {
   "id": "59ca94d7-c3b6-482d-a171-197699f10ec8",
@@ -790,6 +850,16 @@
   "slug": "algebra-simplifying-and-expanding"
  },
  {
+  "id": "5b7a1a5b-74d3-4fae-8da5-7b977a3b1f3c",
+  "name": "Trends within the Periodic Table",
+  "description": "This section looks to both describe and explain trends within the periodic table along with more detailed knowledge and",
+  "sort_order": 7,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "trends-within-the-periodic-table"
+ },
+ {
   "id": "5bc5494a-d0a1-4621-8a90-ee4ba8f94fed",
   "name": "Inheritance",
   "description": "Inheritance (Cambridge IGCSE)",
@@ -808,6 +878,16 @@
   "updated_at": "2026-10-21 05:43:57.755532+00",
   "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
   "slug": "variation-and-selection"
+ },
+ {
+  "id": "5ddc6faa-51ff-4097-83ba-8cb135557028",
+  "name": "Nuclear physics",
+  "description": "The particle model is developed further in this topic. When the nucleus of an unstable atom breaks apart or the nuclei of atoms fuse together, this topic explores what might happen. Energy far greater than any reaction between atoms is released. This provides ways of actually or potentially generating power and explains processes at the centre of stars.",
+  "sort_order": 7,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "nuclear-physics"
  },
  {
   "id": "5e850452-1f48-409b-a7d1-9a032abedd8d",
@@ -1060,6 +1140,16 @@
   "slug": "ethics-security-impact"
  },
  {
+  "id": "7b80c6e6-d761-4ea0-bd86-14f4f39f5b5d",
+  "name": "Atomic Structure and the Periodic Table",
+  "description": "Atoms are the building blocks of all materials and knowledge of atomic structure and the periodic table are fundamental to the learning associated with all the following sections.",
+  "sort_order": 1,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "atomic-structure-and-the-periodic-table"
+ },
+ {
   "id": "7b9f688a-f185-40e3-9582-998d4fadc07f",
   "name": "Acid-base Equilibria",
   "description": null,
@@ -1120,6 +1210,16 @@
   "slug": "organisms-and-their-environment"
  },
  {
+  "id": "81b4a741-373d-404f-b5e2-91a31fb1a1aa",
+  "name": "Inheritance",
+  "description": "Genetic information in a cell is held in the chemical DNA. Genes determine the development and structure of organisms. In asexual reproduction all the genes in the offspring come from one parent. In sexual reproduction half of the genes come from",
+  "sort_order": 5,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "slug": "inheritance"
+ },
+ {
   "id": "81b99d95-e6ff-49ab-9810-3e27edf1ede2",
   "name": "Respiration",
   "description": "Respiration (Cambridge IGCSE)",
@@ -1128,6 +1228,16 @@
   "updated_at": "2026-10-21 05:43:57.755532+00",
   "subject_level_id": "e82f2c94-404c-4d02-8c9f-9a160f3c9971",
   "slug": "respiration"
+ },
+ {
+  "id": "81ecc571-f908-4a48-ad91-06046fa1b34a",
+  "name": "Organic Chemistry",
+  "description": null,
+  "sort_order": 10,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "organic-chemistry"
  },
  {
   "id": "82b432a2-ffe7-40cd-8c9b-4b047bda8de8",
@@ -1300,6 +1410,16 @@
   "slug": "coordination-and-response"
  },
  {
+  "id": "93bc7494-0b7b-4f70-b7c1-06c4637435f0",
+  "name": "Ecology",
+  "description": "Materials including carbon and water are continually recycled by the living world, being released through respiration of animals, plants and decomposing microorganisms and taken up by plants in photosynthesis. All species live in ecosystems composed of complex communities of animals and plants dependent on each other and that are adapted to particular",
+  "sort_order": 3,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "slug": "ecology"
+ },
+ {
   "id": "94dafd0c-5508-4cb6-a34b-518ff03e78f4",
   "name": "Writing Tasks and Themes",
   "description": "OxfordAQA International GCSE ESL Paper 1: the four writing tasks, the three themes, register and band criteria.",
@@ -1318,6 +1438,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "195a9658-066d-433a-a29a-3d167cfe2b34",
   "slug": "information-representation"
+ },
+ {
+  "id": "958b2c29-3f0b-4852-b000-5b9d3b457708",
+  "name": "Acids, Bases and Salts",
+  "description": "This section looks in greater detail at the properties and applications of acids and bases.",
+  "sort_order": 5,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "acids-bases-and-salts"
  },
  {
   "id": "965f1ced-091e-4f23-8f27-57fdb3db0b24",
@@ -1400,6 +1530,16 @@
   "slug": "statistics-probability"
  },
  {
+  "id": "a04297c9-75a7-430e-9b76-3204d5c59fe0",
+  "name": "The Rate and Extent of Chemical Change",
+  "description": null,
+  "sort_order": 8,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "the-rate-and-extent-of-chemical-change"
+ },
+ {
   "id": "a0b52a05-fbc8-4c2d-8adb-2525fa781341",
   "name": "Reading for Information and Inference",
   "description": "Reading for Information and Inference — Cambridge IGCSE English First Language",
@@ -1458,6 +1598,26 @@
   "updated_at": "2026-10-21 07:39:31.356574+00",
   "subject_level_id": "0c990ae9-64ef-45a9-8a9c-388b12af3fa8",
   "slug": "motion-in-a-circle-and-gravity"
+ },
+ {
+  "id": "ac5a1e54-a1a7-4f8d-9f5b-37ad8ba87e87",
+  "name": "Energy",
+  "description": "This topic starts with the principles of energy transfer and then explores it in various contexts, such as heating. It considers the idea of energy as a useful accounting tool that allows us to do calculations to find out for example how long sources will last or whether some events can happen. Energy is never destroyed but may end up so dissipated that it is of little use.",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "energy"
+ },
+ {
+  "id": "ad5bc1b3-2a42-4821-90dc-3aee2ef25285",
+  "name": "Organisation",
+  "description": "All organisms are constituted of one or more cells. Multicellular organisms have cells that are differentiated according to their function. All the basic functions of life are the result of what happens inside the cells which make up an organism. Growth is the",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "slug": "organisation"
  },
  {
   "id": "ae90cac1-2832-4627-86f3-9b53192ca288",
@@ -1550,6 +1710,16 @@
   "slug": "pressure-density"
  },
  {
+  "id": "be041537-e876-4d99-a3be-52f32b22bb92",
+  "name": "Space physics",
+  "description": "Space physics uses ideas about forces and motion, energy transfer, atomic structure and fields to develop explanations about the start and end of the universe and about how the Earth receives energy from the Sun. Space was one of the first challenges that civilisation tried to explain in its attempts to account for day, season, year and the appearance of the night sky and remains one of the most challenging due to its scale and complexity.",
+  "sort_order": 8,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "space-physics"
+ },
+ {
   "id": "bebaa1ac-0640-4b08-8f4e-425b352daaa7",
   "name": "Sampling and Estimation",
   "description": "Unbiased estimators, the sample mean distribution, the central limit theorem and confidence ideas.",
@@ -1578,6 +1748,26 @@
   "updated_at": "2026-10-21 07:39:31.356574+00",
   "subject_level_id": "d7a629ea-ffbc-4067-88bd-d556a8ced681",
   "slug": "artificial-intelligence"
+ },
+ {
+  "id": "c734d063-1522-483b-8e98-2a760aa45833",
+  "name": "Chemical Analysis",
+  "description": "This section focuses on developing practical skills in chemistry which identify substances, and reinforces the idea of a pure substance as consisting of one substance only.",
+  "sort_order": 4,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "chemical-analysis"
+ },
+ {
+  "id": "cbe0be6a-c20d-4465-81a0-af1b97ca68f2",
+  "name": "Organisms' interaction with the environment",
+  "description": "Changes in environmental conditions can result in responses from an organism which protect the organism from harm and support maintenance of the species. Such responses may impact the internal stability of the organism or promote certain",
+  "sort_order": 4,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "slug": "organisms-interaction-with-the-environment"
  },
  {
   "id": "cd2ded77-54dc-4b5f-8f4f-a066f9b40184",
@@ -1650,6 +1840,16 @@
   "slug": "numerical-methods"
  },
  {
+  "id": "d45a3e48-6391-4f8d-a2ea-63b8e8545591",
+  "name": "Chemical Changes",
+  "description": "The group of materials known as metals are explored in more detail, including how atoms are rearranged to form new",
+  "sort_order": 3,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "chemical-changes"
+ },
+ {
   "id": "d52fc891-6965-47d1-9f6b-6997066cb5df",
   "name": "Tenses in Context",
   "description": "Tenses in Context — Oxford IGCSE English as a Second Language",
@@ -1698,6 +1898,16 @@
   "updated_at": "2026-09-29 18:45:57.046967+00",
   "subject_level_id": "b8100a48-b4f7-414b-a796-528259b28a84",
   "slug": "algebra-sequences-and-functions"
+ },
+ {
+  "id": "ddcbaa2e-8b99-469a-8d20-dcc2a29bff43",
+  "name": "Bioenergetics",
+  "description": "Food provides materials and energy for organisms to carry out the basic functions of life and to grow. Some plants and bacteria are able to use energy from the Sun to generate complex food molecules. Animals obtain energy by breaking down complex food molecules and are ultimately dependent on green plants for energy.",
+  "sort_order": 2,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "slug": "bioenergetics"
  },
  {
   "id": "dee533c8-388e-453f-836c-e22b73a58bbc",
@@ -1780,6 +1990,16 @@
   "slug": "organic-carbonyls-carboxylic-acids-and-chirality"
  },
  {
+  "id": "ed6c6121-ec7d-4d03-8a0b-90a72e0e3492",
+  "name": "Energy Changes",
+  "description": "This section highlights that chemical reactions involve changes which require energy to make them happen. This is a fundamental concept that links to key ideas in biology and physics. The section also involves developing mathematical skills",
+  "sort_order": 9,
+  "created_at": "2026-10-30 12:38:15.353967+00",
+  "updated_at": "2026-10-30 12:38:15.353967+00",
+  "subject_level_id": "482a57b0-1993-416d-bb51-b4ec97825d5e",
+  "slug": "energy-changes"
+ },
+ {
   "id": "ee479e5f-ac19-4cfd-a777-4a9624343af7",
   "name": "Binomial Expansion",
   "description": null,
@@ -1838,6 +2058,16 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "e7af57fc-acf9-47cd-b28f-9bc7d1cee4dc",
   "slug": "integration-ii"
+ },
+ {
+  "id": "f27c0795-ba3a-4d16-87ad-e3f7643fe961",
+  "name": "Forces and their effects",
+  "description": "This topic explores the interactions (forces) between objects that can change their shape or the way they are moving. Mathematical relationships and models can describe and predict the resultant motion of an object. Applications illustrate how forces can be used to achieve certain outcomes and avoid others.",
+  "sort_order": 1,
+  "created_at": "2026-10-30 19:08:20.174536+00",
+  "updated_at": "2026-10-30 19:08:20.174536+00",
+  "subject_level_id": "267ba725-44a9-409f-abc5-244dd7b49812",
+  "slug": "forces-and-their-effects"
  },
  {
   "id": "f349b89f-57b4-461a-b10f-66ca9fbab4ae",
@@ -1908,5 +2138,15 @@
   "updated_at": "2026-10-18 05:27:55.845031+00",
   "subject_level_id": "73e2d52b-f9c5-4958-93d6-eb1f362f1e8e",
   "slug": "redox-chemistry-and-groups-1-2-and-7"
+ },
+ {
+  "id": "ffa3e11b-4bb3-4efd-a201-c4fbec877cad",
+  "name": "Variation and evolution",
+  "description": "All life today is directly descended from a universal common ancestor that was a simple single-celled organism. Over countless generations changes resulted from natural diversity within a species which makes possible the selection of those individuals best suited to survive under certain conditions. Species not able to respond sufficiently to changes in their environment are at",
+  "sort_order": 6,
+  "created_at": "2026-10-30 19:08:19.066404+00",
+  "updated_at": "2026-10-30 19:08:19.066404+00",
+  "subject_level_id": "4804abb1-5cfb-4238-8f43-8988f2434e98",
+  "slug": "variation-and-evolution"
  }
 ]

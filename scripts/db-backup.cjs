@@ -268,6 +268,16 @@ async function s3Put({ endpoint, bucket, region, keyId, secret, prefix }, name, 
   const tables = tableRows.map((r) => r.name);
   console.log(`[db-backup] ${tables.length} tables`);
 
+  // 2b. Accounts. These are NOT in `public`: auth.users and auth.identities live
+  //     in the `auth` schema, and without them a restore into a fresh project
+  //     brings back every note and question but nobody can sign in, which makes
+  //     the backup useless for the case it exists for. Dumped explicitly rather
+  //     than as "every auth table": the rest of that schema is sessions, refresh
+  //     tokens and one-time codes — credentials that expire, and replaying them
+  //     into a new project would hand out live sessions.
+  const AUTH_TABLES = ["users", "identities"];
+  const auth = {};
+
   const data = {};
   const manifest = {};
   let totalRows = 0;
@@ -302,12 +312,40 @@ async function s3Put({ endpoint, bucket, region, keyId, secret, prefix }, name, 
     }
   }
 
+  for (const table of AUTH_TABLES) {
+    try {
+      const rows = [];
+      for (let offset = 0; ; offset += PAGE) {
+        const page = await sql(
+          token,
+          ref,
+          `select coalesce(json_agg(t), '[]'::json) from (select * from auth."${table}" limit ${PAGE} offset ${offset}) t`,
+        );
+        const batch = Array.isArray(page) ? page[0].coalesce : [];
+        rows.push(...batch);
+        if (batch.length < PAGE) break;
+      }
+      auth[table] = rows;
+      const json = JSON.stringify(rows);
+      manifest[`auth.${table}`] = { rows: rows.length, sha256: crypto.createHash("sha256").update(json).digest("hex") };
+      totalRows += rows.length;
+      console.log(`  ${String(rows.length).padStart(7)} rows  auth.${table}`);
+    } catch (err) {
+      failures += 1;
+      manifest[`auth.${table}`] = { rows: -1, error: err.message };
+      console.error(`  FAILED  auth.${table}: ${err.message}`);
+    }
+  }
+
   const bundle = {
     format: BUNDLE_FORMAT,
     version: BUNDLE_VERSION,
     createdAt: new Date().toISOString(),
     projectRef: ref,
     tables: data,
+    // Accounts, keyed by auth table. Optional on read: a bundle written before
+    // this existed still verifies, it just cannot restore logins.
+    auth,
     manifest: { totals: { rows: totalRows, tables: tables.length }, tables: manifest },
     schema,
   };
